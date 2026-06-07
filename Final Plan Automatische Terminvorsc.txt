@@ -1,0 +1,50 @@
+ Final Plan: Automatische Terminvorschläge
+
+  Kernlogik:
+
+  ✅ Flexible Frequenz (Dropdown: 2 Wochen bis 2 Jahre)
+  ✅ Soft-Reservation (status='suggested')
+  ✅ Nach 48h: FREIGEBEN (nicht bestätigen!)
+  ✅ Anpassbare Email-Vorlage (WYSIWYG Editor)
+  ✅ Info-Box erklärt den ganzen Prozess
+  ✅ Kalender-Badge "Reserviert – 48h" (gelb)
+  ✅ Cron-Job für Auto-Release nach 48h
+
+  ---
+  Reihenfolge (4h total):
+
+  1. Migrations (15 min)
+    - customer_preferences.last_suggestion_email_sent
+    - customer_preferences.suggestion_frequency_months
+  (Dropdown-Wert)
+    - appointments_extended.suggested_at, suggestion_expire_at
+  2. Hook useSuggestableAppointments (30 min)
+    - Filter: Kunden 10+, canSuggestNow() basierend auf
+  Dropdown-Wert
+  3. Settings-Panel mit Info-Box (45 min)
+    - Dropdown Frequenz
+    - ℹ️ Aufklappbare Erklär-Box (du schreibst Text, ich bau UI)
+  4. Email-Template WYSIWYG Editor (1h)
+    - Variablen: {customer_name}, {appointment_date},
+  {appointment_time}, {service_name}, {practitioner_name}
+    - "JETZT BUCHEN"-Link (mit ?from=suggestion)
+    - "ABSAGEN"-Link
+  5. UI Tab "Vorschlagbar" (45 min)
+    - Badge mit Anzahl
+    - Filter nach Kunde
+    - 1-Click Button "Terminvorschlag versenden"
+    - Email-Preview vor Versand
+  6. Edge Function + Cron (1h)
+    - Erstelle Appointment status='suggested', expire_at = now()
+   + 48h
+    - Email versenden (Resend)
+    - Cron: täglich Expired löschen/canceln
+  7. CalendarView + Booking-Widget (30 min)
+    - Badge für 'suggested'-Status
+    - Bestätigungs-Screen wenn vom Vorschlag kommt
+
+  Total: ~4h, machbar in dieser Session? 🚀
+
+  Sollen wir direkt starten?
+
+> du schreibst text für erklär box
