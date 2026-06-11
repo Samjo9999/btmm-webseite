@@ -88,12 +88,7 @@ export default function PreisePage() {
   return (
     <>
       <NextAvailabilityFloat companyId={contactData.company_id ?? ''} />
-      <section style={{
-        position: 'relative',
-        overflow: 'hidden',
-        background: '#0d1a05',
-        padding: '5rem 1.5rem 4rem', textAlign: 'center',
-      }}>
+      <section className="hero-section">
         <Image
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
           alt="Waldweg — Ruhe und Klarheit"
@@ -105,7 +100,7 @@ export default function PreisePage() {
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
           alt="Waldweg — Ruhe und Klarheit"
         />
-        <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
+        <div className="hero-text" style={{ position: 'relative', zIndex: 2 }}>
           <p style={{ color: 'var(--btb-creme)', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}>
             <Link href="/koerperarbeit" style={{ color: 'var(--btb-creme)', opacity: 0.6 }}>Körperarbeit</Link> ›
           </p>

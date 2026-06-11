@@ -28,12 +28,7 @@ export default async function UeberPage() {
   return (
     <>
       <NextAvailabilityFloat companyId={contactData.company_id ?? ''} />
-      <section style={{
-        position: 'relative',
-        overflow: 'hidden',
-        background: '#0d1a05',
-        padding: '5rem 1.5rem 4rem', textAlign: 'center',
-      }}>
+      <section className="hero-section">
         <Image
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
           alt="Heilende Hände — Körperarbeit"
@@ -45,7 +40,7 @@ export default async function UeberPage() {
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
           alt="Heilende Hände — Körperarbeit"
         />
-        <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
+        <div className="hero-text" style={{ position: 'relative', zIndex: 2 }}>
           <p style={{ color: 'var(--btb-creme)', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}>
             <Link href="/koerperarbeit" style={{ color: 'var(--btb-creme)', opacity: 0.6 }}>Körperarbeit</Link> ›
           </p>

@@ -1,0 +1,243 @@
+/* EB Garamond is loaded via next/font/google in layout.tsx */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --btb-rot:    #b61818;
+  --btb-oliv:   #8fa942;
+  --btb-creme:  #f0e9b6;
+  --btb-blau:   #2a7cab;
+  --btb-dunkel: #1a1505;
+  --btb-weiss:  #ffffff;
+
+  --font-garamond: var(--font-garamond), 'EB Garamond', Garamond, Georgia, serif;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  background-color: var(--btb-creme);
+  color: var(--btb-dunkel);
+  font-family: var(--font-garamond);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-garamond);
+}
+
+h1 {
+  color: var(--btb-rot);
+}
+
+h2 {
+  color: var(--btb-oliv);
+}
+
+a {
+  color: var(--btb-blau);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+a:hover {
+  opacity: 0.75;
+}
+
+/* RTL support for Arabic */
+[dir="rtl"] {
+  text-align: right;
+}
+
+/* Leaflet z-index fix */
+.leaflet-container {
+  z-index: 1;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Focus styles */
+:focus-visible {
+  outline: 2px solid var(--btb-rot);
+  outline-offset: 2px;
+}
+
+/* Section spacing */
+.section {
+  padding: 4rem 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .section {
+    padding: 6rem 2rem;
+  }
+}
+
+/* Container */
+.container-btb {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Card styles */
+.card-btb {
+  background: var(--btb-weiss);
+  border-radius: 12px;
+  padding: 2rem;
+  box-shadow: 0 2px 16px rgba(26, 21, 5, 0.08);
+}
+
+/* Button styles */
+.btn-primary {
+  background-color: var(--btb-blau);
+  color: var(--btb-weiss);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease, transform 0.1s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-1px);
+  color: var(--btb-weiss);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--btb-blau);
+  border: 2px solid var(--btb-blau);
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-secondary:hover {
+  background-color: var(--btb-blau);
+  color: var(--btb-weiss);
+}
+
+.btn-oliv {
+  background-color: var(--btb-oliv);
+  color: var(--btb-weiss);
+  border: none;
+  border-radius: 8px;
+  padding: 0.75rem 1.75rem;
+  font-family: var(--font-garamond);
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: opacity 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.btn-oliv:hover {
+  opacity: 0.9;
+  color: var(--btb-weiss);
+}
+
+/* Prose styles */
+.prose-btb {
+  font-family: var(--font-garamond);
+  color: var(--btb-dunkel);
+  line-height: 1.75;
+  font-size: 1.05rem;
+}
+
+.prose-btb h1, .prose-btb h2, .prose-btb h3 {
+  font-family: var(--font-garamond);
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.prose-btb p {
+  margin-bottom: 1.25rem;
+}
+
+.prose-btb ul, .prose-btb ol {
+  padding-left: 1.5rem;
+  margin-bottom: 1.25rem;
+}
+
+.prose-btb li {
+  margin-bottom: 0.5rem;
+}
+
+/* Clickable logo hint */
+.logo-lightbox-trigger:hover {
+  transform: scale(1.05);
+  filter: drop-shadow(0 0 20px rgba(240, 233, 182, 0.5));
+}
+
+/* Konzept aspect cards */
+.konzept-aspekt-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 32px rgba(26, 21, 5, 0.12);
+}
+
+/* Press download cards */
+.press-download-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 32px rgba(42, 124, 171, 0.15);
+}
+
+/* Hero text readability on full-opacity images */
+.hero-text {
+  background: rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  border-radius: 24px;
+  padding: 2.5rem 2rem;
+  margin: 0 auto;
+}
+
+.hero-text h1,
+.hero-text h2,
+.hero-text p,
+.hero-text span {
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
+}
+
+/* H1 in Hero sections always BtB-Rot */
+.hero-text h1 {
+  color: var(--btb-rot) !important;
+}
+
+/* Divider */
+.divider-btb {
+  border: none;
+  height: 2px;
+  background: linear-gradient(90deg, var(--btb-creme), var(--btb-oliv), var(--btb-creme));
+  margin: 3rem 0;
+}
