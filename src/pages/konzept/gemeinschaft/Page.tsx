@@ -19,9 +19,7 @@ export default function GemeinschaftPage() {
         <img 
           src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80"
           alt="Waldlichtung – Gemeinschaft im Licht"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80"

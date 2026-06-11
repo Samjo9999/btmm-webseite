@@ -7,6 +7,9 @@ import deCommon from '../../messages/de/common.json'
 import deHome from '../../messages/de/home.json'
 import deKoerperarbeit from '../../messages/de/koerperarbeit.json'
 
+export type Locale = 'de'
+export const locales = ['de'] as const
+
 i18n
   .use(LanguageDetector)
   .use(initReactI18next)

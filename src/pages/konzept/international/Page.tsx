@@ -19,9 +19,7 @@ export default function InternationalPage() {
         <img 
           src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80"
           alt="Sonnenstrahlen durch Berge – weltweite Vision"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80"

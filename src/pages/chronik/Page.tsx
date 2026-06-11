@@ -1,4 +1,6 @@
-// import Image (use <img>) 
+'use client'
+
+import { useEffect, useState } from 'react'
 import { supabase } from '@/lib/supabase'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
@@ -33,13 +35,23 @@ function formatDate(iso: string): string {
 }
 
 export default function ChronikPage() {
-  const { data: entries } = await supabase
-    .from('chronicle_entries')
-    .select('id, title, content, category, is_public, created_at, images')
-    .eq('is_public', true)
-    .not('approved_at', 'is', null)
-    .order('created_at', { ascending: false })
-    .limit(50)
+  const [entries, setEntries] = useState<ChronicleEntry[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadEntries() {
+      const { data } = await supabase
+        .from('chronicle_entries')
+        .select('id, title, content, category, is_public, created_at, images')
+        .eq('is_public', true)
+        .not('approved_at', 'is', null)
+        .order('created_at', { ascending: false })
+        .limit(50)
+      setEntries(data ?? [])
+      setLoading(false)
+    }
+    loadEntries()
+  }, [])
 
   const items: ChronicleEntry[] = entries ?? []
 
@@ -67,9 +79,7 @@ export default function ChronikPage() {
         <img 
           src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1920&q=80"
           alt="Altes Buch - unsere Geschichte"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1920&q=80"

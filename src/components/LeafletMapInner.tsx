@@ -1,5 +1,6 @@
 
 import { useEffect } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'
@@ -39,7 +40,7 @@ export default function LeafletMapInner({ cells }: { cells: Cell[] }) {
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+        attribution='&copy; <RouterLink to="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
       />
       {cells.map((cell, index) => (
         <Marker key={index} position={[cell.lat, cell.lng]}>

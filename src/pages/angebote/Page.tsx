@@ -21,9 +21,7 @@ export default function AngebotePage() {
         <img 
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&q=80"
           alt="Berglandschaft – Natur als Inspiration"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&q=80"
@@ -120,7 +118,6 @@ export default function AngebotePage() {
           <img 
             src="/tree-pose.svg"
             alt=""
-            fill
             style={{ objectFit: 'contain' }}
           />
         </div>

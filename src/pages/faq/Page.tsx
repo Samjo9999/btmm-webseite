@@ -1,6 +1,5 @@
-// import Image (use <img>) 
+// import Image (use <img>)
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
@@ -30,12 +29,10 @@ export default function FaqPage() {
         background: '#1a1505',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
-        <img 
+        <img
           src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"
           alt="Grüne Hügel – Antworten finden"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
+          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"

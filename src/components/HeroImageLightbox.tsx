@@ -97,9 +97,7 @@ export function HeroImageLightbox({ src, alt }: HeroImageLightboxProps) {
           <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', width: '90vw', height: '85vh' }}>
             <img 
               src={src}
-              alt={alt}
-              fill
-              style={{ objectFit: 'contain' }}
+              alt={alt}style={{ objectFit: 'contain' }}
               sizes="90vw"
             />
           </div>

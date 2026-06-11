@@ -18,9 +18,7 @@ export default function MitmachenPage() {
         <img 
           src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80"
           alt="Hände halten Pflanze – gemeinsam wachsen"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80"

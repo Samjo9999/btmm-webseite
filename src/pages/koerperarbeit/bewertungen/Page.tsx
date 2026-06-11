@@ -15,9 +15,7 @@ export default function BewertungenPage() {
         <img 
           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
           alt="Gemeinschaft und Vertrauen"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"

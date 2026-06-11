@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next'
 import { Mail, ExternalLink } from 'lucide-react'
 
 export function Footer() {
-  const t = useTranslations('common')
+  const { t } = useTranslation('common')
 
   return (
     <footer style={{
@@ -33,8 +33,7 @@ export function Footer() {
             <p style={{ fontSize: '0.9rem', opacity: 0.7, lineHeight: 1.6, marginBottom: '1rem' }}>
               {t('footer.tagline')}
             </p>
-            <a
-              href="mailto:kontakt@backtobalance.online"
+            <RouterLink to="mailto:kontakt@backtobalance.online"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none',
@@ -42,7 +41,7 @@ export function Footer() {
             >
               <Mail size={15} />
               kontakt@backtobalance.online
-            </a>
+            </RouterLink>
           </div>
 
           {/* Konzept */}
@@ -64,7 +63,7 @@ export function Footer() {
               ].map((item) => (
                 <RouterLink 
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -93,7 +92,7 @@ export function Footer() {
               ].map((item) => (
                 <RouterLink 
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -125,7 +124,7 @@ export function Footer() {
               ].map((item) => (
                 <RouterLink 
                   key={item.href}
-                  href={item.href}
+                  to={item.href}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -148,8 +147,7 @@ export function Footer() {
             <p style={{ fontSize: '0.875rem', opacity: 0.7, marginBottom: '0.75rem', lineHeight: 1.5 }}>
               Die BtMM-App für Mitglieder
             </p>
-            <a
-              href="https://app.backtobalance.online"
+            <RouterLink to="https://app.backtobalance.online"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -159,7 +157,7 @@ export function Footer() {
             >
               app.backtobalance.online
               <ExternalLink size={13} />
-            </a>
+            </RouterLink>
           </div>
         </div>
 

@@ -8,7 +8,7 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 
 export default function KonzeptPage() {
   const { t } = useTranslation('konzept')
-  const tc = await getTranslations('common')
+  const { t: tc } = useTranslation('common')
 
   return (
     <>
@@ -23,9 +23,7 @@ export default function KonzeptPage() {
         <img 
           src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80"
           alt="Baumkrone – das Konzept von unten nach oben"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80"

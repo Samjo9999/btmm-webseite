@@ -20,9 +20,7 @@ export default function NachhaltigkeitPage() {
         <img 
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
           alt="Waldweg – Nachhaltigkeit durch Struktur"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"

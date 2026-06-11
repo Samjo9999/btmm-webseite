@@ -1,17 +1,18 @@
 
 import { Link as RouterLink } from 'react-router-dom'
 // import Image (use <img>) 
-import { useTranslation, useLocale } from 'react-i18next'
+import { useTranslation} from 'react-i18next'
 import { useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { Menu, X, Globe, ExternalLink } from 'lucide-react'
-import { locales, type Locale } from '@/i18n'
+import { locales, type Locale } from '@/i18n/config'
 
-export function Header({ locale }: { locale: Locale }) {
-  const t = useTranslations('common')
+export function Header({ locale = 'de' }: { locale?: Locale } = {}) {
+  const { t, i18n } = useTranslation('common')
   const [menuOpen, setMenuOpen] = useState(false)
   const [langOpen, setLangOpen] = useState(false)
   const pathname = useLocation().pathname
+  const currentLocale = (i18n.language || locale) as Locale
 
   const navItems = [
     { href: '/konzept', label: t('nav.konzept') },
@@ -77,7 +78,7 @@ export function Header({ locale }: { locale: Locale }) {
           {navItems.map((item) => (
             <RouterLink 
               key={item.href}
-              href={item.href}
+              to={item.href}
               style={{
                 padding: '0.4rem 0.75rem',
                 borderRadius: 6,
@@ -111,7 +112,7 @@ export function Header({ locale }: { locale: Locale }) {
               aria-label="Sprache wählen"
             >
               <Globe size={16} />
-              <span style={{ textTransform: 'uppercase', fontWeight: 600 }}>{locale}</span>
+              <span style={{ textTransform: 'uppercase', fontWeight: 600 }}>{currentLocale}</span>
             </button>
 
             {langOpen && (
@@ -126,17 +127,17 @@ export function Header({ locale }: { locale: Locale }) {
                 padding: '0.5rem',
               }}>
                 {locales.map((loc) => (
-                  <RouterLink 
+                  <RouterLink
                     key={loc}
-                    href={getLocalizedHref(loc)}
+                    to={getLocalizedHref(loc)}
                     onClick={() => setLangOpen(false)}
                     style={{
                       display: 'block',
                       padding: '0.4rem 0.75rem',
                       borderRadius: 4,
                       fontSize: '0.875rem',
-                      color: loc === locale ? 'var(--btb-rot)' : 'var(--btb-dunkel)',
-                      fontWeight: loc === locale ? 600 : 400,
+                      color: loc === currentLocale ? 'var(--btb-rot)' : 'var(--btb-dunkel)',
+                      fontWeight: loc === currentLocale ? 600 : 400,
                       textDecoration: 'none',
                     }}
                     className="hover:bg-btb-creme"
@@ -149,8 +150,7 @@ export function Header({ locale }: { locale: Locale }) {
           </div>
 
           {/* Login Button */}
-          <a
-            href="https://app.backtobalance.online"
+          <RouterLink to="https://app.backtobalance.online"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
@@ -158,7 +158,7 @@ export function Header({ locale }: { locale: Locale }) {
           >
             {t('nav.login')}
             <ExternalLink size={14} />
-          </a>
+          </RouterLink>
 
           {/* Mobile Menu Toggle */}
           <button
@@ -186,7 +186,7 @@ export function Header({ locale }: { locale: Locale }) {
             {navItems.map((item) => (
               <RouterLink 
                 key={item.href}
-                href={item.href}
+                to={item.href}
                 onClick={() => setMenuOpen(false)}
                 style={{
                   padding: '0.6rem 0.75rem',

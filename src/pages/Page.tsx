@@ -1,5 +1,4 @@
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 // import Image (use <img>) 
 import { TrendingUp, Users, Leaf, Smartphone, CreditCard, Layout, ExternalLink } from 'lucide-react'
@@ -27,12 +26,10 @@ export default function HomePage() {
         position: 'relative', overflow: 'hidden',
       }}>
         {/* Forest background image */}
-        <img 
+        <img
           src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
           alt="Wald – ein hoch vernetztes Ökosystem"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
+          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
@@ -46,7 +43,6 @@ export default function HomePage() {
               width={160}
               height={160}
               style={{ margin: '0 auto', filter: 'drop-shadow(0 0 30px rgba(157, 78, 221, 0.9)) drop-shadow(0 0 20px rgba(157, 78, 221, 0.7)) drop-shadow(0 0 10px rgba(157, 78, 221, 0.6))' }}
-              priority
             />
           </div>
 
@@ -320,7 +316,7 @@ export default function HomePage() {
             gap: '1.5rem',
             marginBottom: '2rem',
           }}>
-            {t.raw('mitgliedschaft.stufen').map((tier: any, i: number) => (
+            {(t('mitgliedschaft.stufen', { returnObjects: true }) as any).map((tier: any, i: number) => (
               <SectionReveal key={i} delay={i * 0.12}>
                 <div className="card-btb" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
                   <h3 style={{

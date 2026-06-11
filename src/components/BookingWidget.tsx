@@ -1,6 +1,7 @@
 
+import { useLocation } from 'react-router-dom'
 import { useState, useEffect, useCallback, useRef, Suspense } from 'react'
-import { useSearchParams } from 'next/navigation'
+import { Link as RouterLink } from 'react-router-dom'
 import { CalendarDays, Clock, ChevronLeft, ChevronRight, Check, Loader2, X, Ticket } from 'lucide-react'
 
 const SUPABASE_URL = 'https://xcngmshjuqoucdlgikao.supabase.co'
@@ -65,7 +66,7 @@ function BookingWidgetInner({ companyId, serviceId, locationId, accentColor = 'v
   const widgetRef = useRef<HTMLDivElement>(null)
 
   // Check URL params for quick-book (from "Termin sichern")
-  const searchParams = useSearchParams()
+  const searchParams = new URLSearchParams(useLocation().search)
   const quickDate = searchParams?.get('date') || ''
   const quickTime = searchParams?.get('time') || ''
   const quickEnd = searchParams?.get('end') || ''
@@ -1297,12 +1298,12 @@ function BookingWidgetInner({ companyId, serviceId, locationId, accentColor = 'v
               <label style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', cursor: 'pointer', marginBottom: '0.5rem' }}>
                 <input type="checkbox" checked={acceptTerms} onChange={(e) => setAcceptTerms(e.target.checked)}
                   style={{ marginTop: '0.2rem', accentColor: 'var(--btb-blau)' }} />
-                <span>Ich akzeptiere die <a href="/buchungsbedingungen" target="_blank" style={{ color: 'var(--btb-blau)', textDecoration: 'underline' }}>Buchungsbedingungen</a> *</span>
+                <span>Ich akzeptiere die <RouterLink to="/buchungsbedingungen" target="_blank" style={{ color: 'var(--btb-blau)', textDecoration: 'underline' }}>Buchungsbedingungen</RouterLink> *</span>
               </label>
               <label style={{ display: 'flex', gap: '0.5rem', alignItems: 'flex-start', cursor: 'pointer' }}>
                 <input type="checkbox" checked={acceptPrivacy} onChange={(e) => setAcceptPrivacy(e.target.checked)}
                   style={{ marginTop: '0.2rem', accentColor: 'var(--btb-blau)' }} />
-                <span>Ich akzeptiere die <a href="/impressum#datenschutz" target="_blank" style={{ color: 'var(--btb-blau)', textDecoration: 'underline' }}>Datenschutzhinweise</a> *</span>
+                <span>Ich akzeptiere die <RouterLink to="/impressum#datenschutz" target="_blank" style={{ color: 'var(--btb-blau)', textDecoration: 'underline' }}>Datenschutzhinweise</RouterLink> *</span>
               </label>
             </div>
             <button

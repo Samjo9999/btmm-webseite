@@ -1,10 +1,10 @@
 
+import { useLocation } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { useSearchParams } from 'next/navigation'
 import { Loader2, XCircle, CheckCircle2, AlertTriangle } from 'lucide-react'
 
 export function CancellationForm() {
-  const searchParams = useSearchParams()
+  const searchParams = new URLSearchParams(useLocation().search)
   const [bookingId, setBookingId] = useState('')
   const [email, setEmail] = useState('')
 

@@ -23,7 +23,7 @@ type Props = {
 }
 
 export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
-  const t = useTranslations('common')
+  const { t } = useTranslation('common')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({

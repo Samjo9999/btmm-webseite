@@ -26,9 +26,7 @@ export default function GruendungPage() {
         <img 
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
           alt="Sonnenaufgang über Feld – ein neuer Anfang"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"

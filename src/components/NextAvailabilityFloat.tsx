@@ -97,7 +97,7 @@ export function NextAvailabilityFloat({ companyId }: { companyId: string }) {
       )}
       <br />
       <RouterLink 
-        href={href}
+        to={href}
         style={{
           display: 'inline-block',
           marginTop: '0.4rem',

@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { CheckCircle } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
@@ -25,9 +24,7 @@ export default function UeberPage() {
         <img 
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
           alt="Heilende Hände — Körperarbeit"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"

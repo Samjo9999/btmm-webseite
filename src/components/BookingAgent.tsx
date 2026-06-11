@@ -1,5 +1,6 @@
 
 import { useState, useEffect } from 'react'
+import { Link as RouterLink } from 'react-router-dom'
 // import Image (use <img>) 
 import { useLocation } from 'react-router-dom'
 import { CalendarDays, X, ChevronRight, Clock, Loader2 } from 'lucide-react'
@@ -183,7 +184,7 @@ export function BookingAgent() {
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
               {companyLogo ? (
                 <div style={{ position: 'relative', height: 22, width: 80, flexShrink: 0 }}>
-                  <img  src={companyLogo} alt="" fill style={{ objectFit: 'contain' }} />
+                  <img  src={companyLogo} alt=""style={{ objectFit: 'contain' }} />
                 </div>
               ) : (
                 <CalendarDays size={18} />
@@ -386,8 +387,7 @@ export function BookingAgent() {
                     ))}
                   </div>
                 )}
-                <a
-                  href="/koerperarbeit/buchen"
+                <RouterLink to="/koerperarbeit/buchen"
                   style={{
                     display: 'block',
                     background: '#8fa942',
@@ -405,7 +405,7 @@ export function BookingAgent() {
                   }}
                 >
                   Direkt buchen
-                </a>
+                </RouterLink>
               </div>
             )}
           </div>

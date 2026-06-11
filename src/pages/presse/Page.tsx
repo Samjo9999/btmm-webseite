@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Download, Mail, Clock, Users, Globe, Scale } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
@@ -45,9 +44,7 @@ export default function PressePage() {
         <img 
           src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
           alt="Berggipfel – Weitblick"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"

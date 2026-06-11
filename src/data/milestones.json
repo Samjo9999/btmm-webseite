@@ -1,0 +1,32 @@
+{
+  "milestones": [
+    {
+      "id": "vereinsgruendung",
+      "betrag_eur": 500,
+      "titel": "Vereinsgründung",
+      "beschreibung": "Notarkosten, Registereintrag und erste Materialien",
+      "erreicht": false
+    },
+    {
+      "id": "erste-zelle",
+      "betrag_eur": 2000,
+      "titel": "Erste Zelle aktivieren",
+      "beschreibung": "Raummiete, Grundausstattung und erste Veranstaltungen",
+      "erreicht": false
+    },
+    {
+      "id": "app-launch",
+      "betrag_eur": 5000,
+      "titel": "App-Launch",
+      "beschreibung": "Server, Domain und professionelles Hosting für die BtMM-App",
+      "erreicht": false
+    },
+    {
+      "id": "koerperarbeit-praxis",
+      "betrag_eur": 10000,
+      "titel": "Körperarbeit-Praxisraum",
+      "beschreibung": "Einrichtung eines festen Praxisraums in Freiburg",
+      "erreicht": false
+    }
+  ]
+}

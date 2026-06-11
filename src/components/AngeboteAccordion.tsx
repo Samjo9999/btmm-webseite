@@ -311,7 +311,7 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                     <Euro size={16} /> {angebot.preis}
                   </span>
                   <RouterLink 
-                    href={`${angebot.link}/bewertungen`}
+                    to={`${angebot.link}/bewertungen`}
                     style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--btb-oliv)', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none' }}
                     onClick={(e) => e.stopPropagation()}
                   >
@@ -320,7 +320,7 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                 </div>
 
                 <RouterLink 
-                  href={angebot.link}
+                  to={angebot.link}
                   style={{
                     display: 'inline-flex',
                     alignItems: 'center',

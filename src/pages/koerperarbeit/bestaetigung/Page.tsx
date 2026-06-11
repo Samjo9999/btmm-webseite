@@ -1,11 +1,10 @@
 
-import { useSearchParams } from 'next/navigation'
 import { Suspense, useState, useEffect } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
+import { Link as RouterLink, useSearchParams } from 'react-router-dom'
 import { Check, Mail, Calendar, Loader2, AlertCircle } from 'lucide-react'
 
 function BestaetigungInner() {
-  const searchParams = useSearchParams()
+  const [searchParams] = useSearchParams()
   const bookingId = searchParams?.get('booking_id') || ''
   const sessionId = searchParams?.get('session_id') || ''
 

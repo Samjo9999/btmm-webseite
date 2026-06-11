@@ -1,8 +1,8 @@
 import { useEffect } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { App as CapacitorApp } from '@capacitor/app'
-import { SplashScreen } from '@capacitor/splash-screen'
-import { StatusBar, Style } from '@capacitor/status-bar'
+// import { SplashScreen } from '@capacitor/splash-screen'
+// import { StatusBar, Style } from '@capacitor/status-bar'
 
 // Components
 import { Header } from '@/components/Header'
@@ -14,11 +14,11 @@ import { Footer } from '@/components/Footer'
 
 export default function App() {
   useEffect(() => {
-    // Hide splash screen
-    SplashScreen.hide().catch(() => {})
+    // Hide splash screen (when SplashScreen is installed)
+    // SplashScreen.hide().catch(() => {})
 
-    // Set status bar style
-    StatusBar.setStyle({ style: Style.Dark }).catch(() => {})
+    // Set status bar style (when StatusBar is installed)
+    // StatusBar.setStyle({ style: Style.Dark }).catch(() => {})
 
     // Handle app back button
     CapacitorApp.addListener('backButton', ({ canGoBack }) => {

@@ -10,15 +10,14 @@ interface LogoLightboxProps {
   height: number
   className?: string
   style?: React.CSSProperties
-  priority?: boolean
 }
 
-export function LogoLightbox({ src, alt, width, height, className, style, priority }: LogoLightboxProps) {
+export function LogoLightbox({ src, alt, width, height, className, style }: LogoLightboxProps) {
   const [open, setOpen] = useState(false)
 
   return (
     <>
-      <img 
+      <img
         src={src}
         alt={alt}
         width={width}
@@ -31,7 +30,6 @@ export function LogoLightbox({ src, alt, width, height, className, style, priori
           filter: 'drop-shadow(0 0 20px rgba(240, 233, 182, 0.3))',
           animation: 'logo-glow 3s ease-in-out infinite alternate',
         }}
-        priority={priority}
         onClick={() => setOpen(true)}
         onMouseOver={(e) => {
           e.currentTarget.style.filter = 'drop-shadow(0 0 30px rgba(240, 233, 182, 0.8)) drop-shadow(0 0 60px rgba(240, 233, 182, 0.4))'
@@ -63,12 +61,10 @@ export function LogoLightbox({ src, alt, width, height, className, style, priori
           }}
         >
           {/* Wald-Hintergrund */}
-          <img 
+          <img
             src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
             alt=""
-            fill
-            style={{ position: 'absolute', objectFit: 'cover' }}
-            priority
+            style={{ position: 'absolute', objectFit: 'cover', top: 0, left: 0, width: '100%', height: '100%' }}
           />
           <div style={{ position: 'absolute', inset: 0, background: 'rgba(26, 21, 5, 0.6)' }} />
 

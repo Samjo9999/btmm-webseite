@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
@@ -10,7 +9,7 @@ import contactData from '@/data/contact.json'
 
 export default function KoerperarbeitPage() {
   const { t } = useTranslation('koerperarbeit')
-  const tc = await getTranslations('common')
+  const { t: tc } = useTranslation('common')
 
   const navLinks = [
     { href: '/koerperarbeit/methode', label: 'Methode' },
@@ -34,9 +33,7 @@ export default function KoerperarbeitPage() {
         <img 
           src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1920&q=80"
           alt="Balance und Ruhe"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1920&q=80"

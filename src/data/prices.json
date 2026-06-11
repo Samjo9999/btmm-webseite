@@ -1,0 +1,7 @@
+{
+  "erstsitzung": { "extern": 70, "dauer_min": 60 },
+  "einzelsitzung": { "extern": 90, "dauer_min": 60 },
+  "paket3": { "extern": 230, "dauer_min": 60, "details": "1x Kennenlernsitzung (70€) + 2x Folgesitzung (80€)" },
+  "paket3_pflege": { "extern": 240, "dauer_min": 60, "details": "3x Sitzung à 80€" },
+  "intern_hinweis": "BtMM-Mitglieder tauschen Sitzungen über BtMM-Coins (1 Stunde = 1 Coin). Coins können auch anteilig für Produkte zum EK-Preis verrechnet werden."
+}

@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { CheckCircle, AlertCircle } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
@@ -30,9 +29,7 @@ export default function FuerWenPage() {
         <img 
           src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=80"
           alt="Bewegung und Körperarbeit für alle"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=80"

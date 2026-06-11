@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { AlertCircle } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
@@ -19,9 +18,7 @@ export default function MethodePage() {
         <img 
           src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80"
           alt="Achtsamkeit und Präsenz"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80"

@@ -1,40 +1,33 @@
-// import Image (use <img>) 
+'use client'
+
+import { useEffect, useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
 import { FileText, Download } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { DokumentViewer } from '@/components/DokumentViewer'
-import { readFileSync } from 'fs'
-import { join } from 'path'
-
-
-function getDokumente() {
-  const dokumente = [
-    { slug: 'konzept', titel: 'Vollkonzept', version: 'v16.1.0' },
-    { slug: 'satzung', titel: 'Satzung eG & e.V.', version: 'Entwurf' },
-    { slug: 'einfuehrung', titel: 'Einführung', version: 'Aktuell' },
-    { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
-    { slug: 'ideen-horizont', titel: 'Ideen & Horizonte', version: 'v2.0.0' },
-    { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur', version: 'Aktuell' },
-    { slug: 'spendenaufruf', titel: 'Spendenaufruf', version: 'Aktuell' },
-    { slug: 'handwerk', titel: 'Handwerk & Zulassungen', version: 'Aktuell' },
-  ]
-
-  return dokumente.map((doc) => {
-    try {
-      const content = readFileSync(
-        join(process.cwd(), 'content', 'dokumente', `${doc.slug}.md`),
-        'utf-8'
-      )
-      return { ...doc, content }
-    } catch {
-      return { ...doc, content: 'Dokument nicht gefunden.' }
-    }
-  })
-}
 
 export default function DokumentePage() {
-  const dokumente = await getDokumente()
+  const [dokumente, setDokumente] = useState<any[]>([])
+  const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    async function loadDokumente() {
+      const docsConfig = [
+        { slug: 'konzept', titel: 'Vollkonzept', version: 'v16.1.0' },
+        { slug: 'satzung', titel: 'Satzung eG & e.V.', version: 'Entwurf' },
+        { slug: 'einfuehrung', titel: 'Einführung', version: 'Aktuell' },
+        { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
+        { slug: 'ideen-horizont', titel: 'Ideen & Horizonte', version: 'v2.0.0' },
+        { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur', version: 'Aktuell' },
+        { slug: 'spendenaufruf', titel: 'Spendenaufruf', version: 'Aktuell' },
+        { slug: 'handwerk', titel: 'Handwerk & Zulassungen', version: 'Aktuell' },
+      ]
+      setDokumente(docsConfig.map((d) => ({ ...d, content: '' })))
+      setLoading(false)
+    }
+    loadDokumente()
+  }, [])
 
   return (
     <>
@@ -47,9 +40,7 @@ export default function DokumentePage() {
         <img 
           src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"
           alt="Waldweg – Transparenz und Klarheit"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"

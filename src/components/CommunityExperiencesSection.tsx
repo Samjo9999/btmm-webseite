@@ -199,8 +199,8 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
         {/* Show all link (only in homepage mode) */}
         {!showAll && reviews.length > 6 && (
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <RouterLink 
-              href="/erfahrungen"
+            <RouterLink
+              to="/erfahrungen"
               style={{
                 color: 'var(--btb-blau, #2a7cab)',
                 fontWeight: 600,

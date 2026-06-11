@@ -1,0 +1,17 @@
+{
+  "email": "back.to.balance.gartzke@gmail.com",
+  "telefon": "0176 44453687",
+  "adresse": {
+    "strasse": "Hildastr. 12",
+    "plz": "79102",
+    "ort": "Freiburg im Breisgau",
+    "land": "Deutschland"
+  },
+  "latitude": 47.9938,
+  "longitude": 7.8396,
+  "company_id": "396ad7a6-e4d1-4c7d-abc1-ef9f2c4c2da9",
+  "calendly_url": "",
+  "instagram": "https://instagram.com/TODO",
+  "impressum_name": "Johannes-Samuel Gartzke",
+  "impressum_vertretung": "Johannes-Samuel Gartzke (Inhaber)"
+}

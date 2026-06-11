@@ -50,9 +50,7 @@ export default function AppPage() {
         <img 
           src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80"
           alt="Nebelwald – Technologie trifft Natur"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80"

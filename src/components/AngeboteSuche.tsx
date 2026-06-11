@@ -83,7 +83,7 @@ export function AngeboteSuche() {
         {gefiltert.map((angebot) => (
           <RouterLink 
             key={angebot.id}
-            href={angebot.link}
+            to={angebot.link}
             style={{ textDecoration: 'none', color: 'inherit' }}
           >
             <div

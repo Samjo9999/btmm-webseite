@@ -91,9 +91,7 @@ export default function PreisePage() {
         <img 
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
           alt="Waldweg — Ruhe und Klarheit"
-          fill
           style={{ objectFit: 'cover' }}
-          priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
@@ -368,8 +366,8 @@ export default function PreisePage() {
                         </div>
                       )}
 
-                      <RouterLink 
-                        href={`/koerperarbeit/buchen?service=${card.serviceId}`}
+                      <RouterLink
+                        to={`/koerperarbeit/buchen?service=${card.serviceId}`}
                         className="btn-primary"
                         style={{ display: 'inline-block', fontSize: '0.9rem' }}
                       >

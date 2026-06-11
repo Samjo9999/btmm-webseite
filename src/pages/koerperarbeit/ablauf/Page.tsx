@@ -1,6 +1,5 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
-import { setRequestLocale } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
@@ -22,12 +21,10 @@ export default function AblaufPage() {
     <>
       <NextAvailabilityFloat companyId={contactData.company_id ?? ''} />
       <section className="hero-section">
-        <img 
+        <img
           src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
           alt="Ruhiger Behandlungsraum — Raum für Veränderung"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
+          style={{ objectFit: 'cover', position: 'absolute', top: 0, left: 0, width: '100%', height: '100%' }}
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
