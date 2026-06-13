@@ -1048,6 +1048,9 @@ async function handleBook(req: Request) {
           price = Math.round((svc.price * (100 - svc.first_session_discount_percent)) * 100) / 10000;
           appliedDiscount = `first_session_discount_${svc.first_session_discount_percent}%`;
         }
+      } else if (!isFirstSession && svc.first_session_price && body.bundle_id?.includes('first')) {
+        // Customer tried to book a first-session package but they already have bookings
+        return json({ error: "Das Kennenlern-Paket ist nur für deine erste Buchung verfügbar. Du hast bereits Termine gebucht." }, 400);
       }
 
       // Apply promotion price if active and not expired
