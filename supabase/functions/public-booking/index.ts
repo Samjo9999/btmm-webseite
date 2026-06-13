@@ -979,7 +979,6 @@ async function handleBook(req: Request) {
         phone: customer.phone ?? null,
         notes: customer.notes ?? null,
         category: 'Neukunde',  // Portal-created customers start as 'Neukunde', not 'Standard'
-        referred_by: referrerCustomer?.id || null,
         retention_until: new Date(Date.now() + 10 * 365.25 * 24 * 60 * 60 * 1000).toISOString(),
       })
       .select("id")
