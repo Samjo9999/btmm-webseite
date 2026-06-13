@@ -802,7 +802,7 @@ async function handleGetSlots(url: URL) {
 
 async function handleBook(req: Request) {
   const body = await req.json();
-  const { company_id, service_id, location_id, start_ts, customer, discount_code, payment_method, bundle_id, bundle_price: requestedBundlePrice } = body;
+  const { company_id, service_id, location_id, start_ts, customer, discount_code, payment_method, bundle_id, bundle_price: requestedBundlePrice, referrer_first_name, referrer_last_name } = body;
 
   if (!company_id || !start_ts || !customer?.name || !customer?.email) {
     return json({ error: "company_id, start_ts und customer (name, email) sind erforderlich" }, 400);
@@ -969,7 +969,35 @@ async function handleBook(req: Request) {
     referrerCustomer = referrer;
   }
 
+  // ── REFERRAL BY NAME VALIDATION ──────────────────────────────────────
+  if (!referrerCustomer && referrer_first_name && referrer_last_name) {
+    // Find referrer by first name and last name
+    const referrerFullName = `${referrer_first_name.trim()} ${referrer_last_name.trim()}`;
+    const { data: referrersByName } = await supabase
+      .from("customers")
+      .select("id, name, email")
+      .eq("company_id", company_id)
+      .ilike("name", `%${referrer_first_name.trim()}%`)
+      .ilike("name", `%${referrer_last_name.trim()}%`);
+
+    if (referrersByName && referrersByName.length > 0) {
+      // If multiple matches, take the first (most recent would be better but we keep it simple)
+      referrerCustomer = referrersByName[0];
+    }
+  }
+
   if (!customerId) {
+    // Check if this is an intro package booking
+    let isIntroPkg = false;
+    if (service_id) {
+      const { data: svc } = await supabase
+        .from("services")
+        .select("first_session_price")
+        .eq("id", service_id)
+        .maybeSingle();
+      isIntroPkg = svc?.first_session_price ? true : false;
+    }
+
     const { data: newCustomer, error: custErr } = await supabase
       .from("customers")
       .insert({
@@ -980,6 +1008,8 @@ async function handleBook(req: Request) {
         notes: customer.notes ?? null,
         category: 'Neukunde',  // Portal-created customers start as 'Neukunde', not 'Standard'
         retention_until: new Date(Date.now() + 10 * 365.25 * 24 * 60 * 60 * 1000).toISOString(),
+        referred_by: referrerCustomer?.id ?? null,
+        intro_usage_count: isIntroPkg ? 1 : 0,
       })
       .select("id")
       .maybeSingle();
@@ -1151,6 +1181,68 @@ async function handleBook(req: Request) {
       }
     } catch (e) {
       console.error("Referral tracking error (non-fatal):", e);
+    }
+  }
+
+  // ── INTRO PACKAGE TRACKING & REFERRER ELIGIBILITY ─────────────────────
+  if (!testMode) {
+    // Check if this booking is for an intro package
+    let isIntroPkgBooking = false;
+    if (service_id) {
+      const { data: svc } = await supabase
+        .from("services")
+        .select("first_session_price")
+        .eq("id", service_id)
+        .maybeSingle();
+      isIntroPkgBooking = svc?.first_session_price ? true : false;
+    }
+
+    // If intro package and customer already existed, increment their intro_usage_count
+    if (isIntroPkgBooking && customerId && existingCustomer) {
+      const { data: currentCustomer } = await supabase
+        .from("customers")
+        .select("intro_usage_count")
+        .eq("id", customerId)
+        .maybeSingle();
+
+      const newCount = (currentCustomer?.intro_usage_count || 0) + 1;
+      await supabase
+        .from("customers")
+        .update({ intro_usage_count: newCount })
+        .eq("id", customerId);
+    }
+
+    // If referrer exists, increment their referral_count and check eligibility
+    if (referrerCustomer && isIntroPkgBooking) {
+      try {
+        // Get current referrer stats
+        const { data: referrer } = await supabase
+          .from("customers")
+          .select("intro_usage_count, referral_count")
+          .eq("id", referrerCustomer.id)
+          .maybeSingle();
+
+        if (referrer) {
+          const newReferralCount = (referrer.referral_count || 0) + 1;
+          const referrerIntroCount = referrer.intro_usage_count || 0;
+
+          // Update referrer's referral_count
+          await supabase
+            .from("customers")
+            .update({ referral_count: newReferralCount })
+            .eq("id", referrerCustomer.id);
+
+          // Grant has_intro_status if intro_usage_count == referral_count
+          if (referrerIntroCount === newReferralCount) {
+            await supabase
+              .from("customers")
+              .update({ has_intro_status: true })
+              .eq("id", referrerCustomer.id);
+          }
+        }
+      } catch (e) {
+        console.error("Referrer eligibility update error (non-fatal):", e);
+      }
     }
   }
 
@@ -1484,6 +1576,17 @@ async function handleBook(req: Request) {
     }
   }
 
+  // Get customer intro status for response
+  let hasIntroStatus = false;
+  if (customerId) {
+    const { data: cust } = await supabase
+      .from("customers")
+      .select("has_intro_status")
+      .eq("id", customerId)
+      .maybeSingle();
+    hasIntroStatus = cust?.has_intro_status ?? false;
+  }
+
   return json({
     status: "success",
     booking_id: appointment?.id,
@@ -1498,6 +1601,7 @@ async function handleBook(req: Request) {
     vat_enabled: vatEnabled,
     vat_rate: vatRate,
     bundle_codes: bundle_codes.length > 0 ? bundle_codes : undefined,
+    has_intro_status: hasIntroStatus,
     test_mode: testMode || undefined,
     message: testMode
       ? "[TESTMODUS] Termin im Kalender sichtbar (Status: test). Alles echt durchgelaufen — Buchhaltung ignoriert diesen Termin."
