@@ -985,8 +985,14 @@ async function handleBook(req: Request) {
       .select("id")
       .maybeSingle();
 
-    if (custErr) return json({ error: "Kunde konnte nicht angelegt werden" }, 500);
-    if (!newCustomer) return json({ error: "Kunde konnte nicht angelegt werden" }, 500);
+    if (custErr) {
+      console.error('Customer insert error:', custErr, { company_id, name: customer.name, email: customer.email });
+      return json({ error: `Kunde konnte nicht angelegt werden: ${custErr.message}` }, 500);
+    }
+    if (!newCustomer) {
+      console.error('Customer insert returned no data', { company_id, name: customer.name, email: customer.email });
+      return json({ error: "Kunde konnte nicht angelegt werden: Keine Daten zurückgegeben" }, 500);
+    }
     customerId = newCustomer.id;
   } else {
     // Kunde existiert — prüfe ob er schon Termine hatte
