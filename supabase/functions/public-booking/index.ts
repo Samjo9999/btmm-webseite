@@ -36,6 +36,11 @@ Deno.serve(async (req) => {
       return await handleWaitlistRespondGet(url);
     }
 
+    // ── POST /check-intro-status — Check ob Kunde intro_status hat ────────
+    if (url.pathname.endsWith("/check-intro-status") && req.method === "POST") {
+      return await handleCheckIntroStatus(req);
+    }
+
     // ── GET /slots — Freie Zeitfenster abrufen ──────────────────────────
     if (url.pathname.endsWith("/slots") && req.method === "GET") {
       return await handleGetSlots(url);
@@ -794,6 +799,51 @@ async function handleGetSlots(url: URL) {
   }
 
   return json({ slots, date: dateStr, company_id: companyId });
+}
+
+// ═══════════════════════════════════════════════════════════════════════════
+// CHECK INTRO STATUS — Check ob Kunde intro_status hat
+// ═══════════════════════════════════════════════════════════════════════════
+
+async function handleCheckIntroStatus(req: Request) {
+  const { company_id, email } = await req.json();
+
+  if (!company_id || !email) {
+    return json({ error: "company_id und email sind erforderlich" }, 400);
+  }
+
+  // Find customer by email
+  const { data: customer } = await supabase
+    .from("customers")
+    .select("id, intro_usage_count, referral_count")
+    .eq("company_id", company_id)
+    .eq("email", email.toLowerCase())
+    .maybeSingle();
+
+  if (!customer) {
+    // New customer — kein intro status
+    return json({
+      has_intro_status_available: false,
+      intro_status_exhausted: false,
+      intro_usage_count: 0,
+      referral_count: 0,
+    });
+  }
+
+  const usageCount = customer.intro_usage_count || 0;
+  const referralCount = customer.referral_count || 0;
+
+  // Has intro status available: usage_count == referral_count (even both 0)
+  const hasAvailable = usageCount === referralCount;
+  // Status exhausted: usage_count > referral_count
+  const isExhausted = usageCount > referralCount;
+
+  return json({
+    has_intro_status_available: hasAvailable,
+    intro_status_exhausted: isExhausted,
+    intro_usage_count: usageCount,
+    referral_count: referralCount,
+  });
 }
 
 // ═══════════════════════════════════════════════════════════════════════════
