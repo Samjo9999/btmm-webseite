@@ -1,7 +1,6 @@
 'use client'
 
 import { useEffect, useState } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
 import { FileText, Download } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'

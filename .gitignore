@@ -34,3 +34,24 @@ Stripe-API-Keys.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# vite build output (this project is Vite+Capacitor now, not Next.js)
+/dist
+/src/dist
+
+# capacitor / android build artifacts
+/android/.idea
+/android/app/capacitor.build.gradle
+/android/capacitor.settings.gradle
+
+# scratch / verification scripts
+/verify-*.mjs
+/test-*.mjs
+/test-browser.html
+/verify-results.json
+/final-check.mjs
+/system-status.mjs
+/FINAL-TEST-REPORT.md
+
+# supabase cli temp
+/supabase/.temp

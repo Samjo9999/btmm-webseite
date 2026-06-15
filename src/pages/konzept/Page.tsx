@@ -1,7 +1,7 @@
 // import Image (use <img>) 
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
-import { TrendingUp, Users, Globe, ArrowRight, Scale, Leaf, Heart, Shield } from 'lucide-react'
+import { TrendingUp, Users, Globe, ArrowRight, Scale, Heart, Shield } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 

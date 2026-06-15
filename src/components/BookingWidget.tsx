@@ -1114,7 +1114,7 @@ function BookingWidgetInner({ companyId, serviceId, locationId, accentColor = 'v
                 }
                 if (!svc?.price) return null
                 const hasFirstDiscount = svc.first_session_price || (svc.first_session_discount_percent && svc.first_session_discount_percent > 0)
-                let basePrice = svc.price
+                const basePrice = svc.price
                 let displayPrice = basePrice
                 let priceNote = ''
 

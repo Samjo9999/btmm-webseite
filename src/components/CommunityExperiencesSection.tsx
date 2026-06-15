@@ -1,6 +1,6 @@
 
 import { useState, useEffect } from 'react'
-import { Star, UserCheck, Send, ChevronDown } from 'lucide-react'
+import { Star, UserCheck, Send } from 'lucide-react'
 import { Link as RouterLink } from 'react-router-dom'
 import { PercentStars } from '@/components/PercentStars'
 

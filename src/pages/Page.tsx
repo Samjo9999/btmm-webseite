@@ -1,14 +1,10 @@
 import { useTranslation } from 'react-i18next'
 import { Link as RouterLink } from 'react-router-dom'
 // import Image (use <img>) 
-import { TrendingUp, Users, Leaf, Smartphone, CreditCard, Layout, ExternalLink } from 'lucide-react'
-import { SpendenFortschritt } from '@/components/SpendenFortschritt'
-import { ZellenKarte } from '@/components/ZellenKarte'
-import { AnimatedCounter, SectionReveal } from '@/components/AnimatedCounter'
-import { LiveStats } from '@/components/LiveStats'
+import { TrendingUp, Users, Leaf, CreditCard, Layout, ExternalLink } from 'lucide-react'
+import { SectionReveal } from '@/components/AnimatedCounter'
 import { LogoLightbox } from '@/components/LogoLightbox'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
-import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
 import { AngeboteAccordion } from '@/components/AngeboteAccordion'
 
 export default function HomePage() {

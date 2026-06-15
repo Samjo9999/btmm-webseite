@@ -1,6 +1,5 @@
 // import Image (use <img>)
 import { useTranslation } from 'react-i18next'
-import { Link as RouterLink } from 'react-router-dom'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { FaqAccordion } from '@/components/FaqAccordion'

@@ -1,43 +1,43 @@
-import { useEffect } from 'react'
+import { useEffect, lazy, Suspense } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { App as CapacitorApp } from '@capacitor/app'
 // import { SplashScreen } from '@capacitor/splash-screen'
 // import { StatusBar, Style } from '@capacitor/status-bar'
 
-// Components
+// Components (in the app shell — loaded eagerly)
 import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 
-// Pages - Import all page components
-import HomePage from '@/pages/Page'
-import AngebotePage from '@/pages/angebote/Page'
-import AppPage from '@/pages/app/Page'
-import BuchungsbedingungenPage from '@/pages/buchungsbedingungen/Page'
-import ChronikPage from '@/pages/chronik/Page'
-import DokumentePage from '@/pages/dokumente/Page'
-import ErfahrungenPage from '@/pages/erfahrungen/Page'
-import FaqPage from '@/pages/faq/Page'
-import GruendungPage from '@/pages/gruendung/Page'
-import ImpressumPage from '@/pages/impressum/Page'
-import KoerperarbeitPage from '@/pages/koerperarbeit/Page'
-import KoerperarbeitAblaufPage from '@/pages/koerperarbeit/ablauf/Page'
-import KoerperarbeitAnfahrtPage from '@/pages/koerperarbeit/anfahrt/Page'
-import KoerperarbeitBestaetigungPage from '@/pages/koerperarbeit/bestaetigung/Page'
-import KoerperarbeitBewertungenPage from '@/pages/koerperarbeit/bewertungen/Page'
-import KoerperarbeitBuchenPage from '@/pages/koerperarbeit/buchen/Page'
-import KoerperarbeitFuerWenPage from '@/pages/koerperarbeit/fuer-wen/Page'
-import KoerperarbeitKontaktPage from '@/pages/koerperarbeit/kontakt/Page'
-import KoerperarbeitMethodePage from '@/pages/koerperarbeit/methode/Page'
-import KoerperarbeitPreisePage from '@/pages/koerperarbeit/preise/Page'
-import KoerperarbeitUeberPage from '@/pages/koerperarbeit/ueber/Page'
-import KonzeptPage from '@/pages/konzept/Page'
-import KonzeptGemeinschaftPage from '@/pages/konzept/gemeinschaft/Page'
-import KonzeptInternationalPage from '@/pages/konzept/international/Page'
-import KonzeptNachhaltigkeitPage from '@/pages/konzept/nachhaltigkeit/Page'
-import KonzeptWirtschaftPage from '@/pages/konzept/wirtschaft/Page'
-import MitmachenPage from '@/pages/mitmachen/Page'
-import NachhaltigkeitPage from '@/pages/nachhaltigkeit/Page'
-import PressePage from '@/pages/presse/Page'
+// Pages - lazy-loaded so each route ships as its own chunk
+const HomePage = lazy(() => import('@/pages/Page'))
+const AngebotePage = lazy(() => import('@/pages/angebote/Page'))
+const AppPage = lazy(() => import('@/pages/app/Page'))
+const BuchungsbedingungenPage = lazy(() => import('@/pages/buchungsbedingungen/Page'))
+const ChronikPage = lazy(() => import('@/pages/chronik/Page'))
+const DokumentePage = lazy(() => import('@/pages/dokumente/Page'))
+const ErfahrungenPage = lazy(() => import('@/pages/erfahrungen/Page'))
+const FaqPage = lazy(() => import('@/pages/faq/Page'))
+const GruendungPage = lazy(() => import('@/pages/gruendung/Page'))
+const ImpressumPage = lazy(() => import('@/pages/impressum/Page'))
+const KoerperarbeitPage = lazy(() => import('@/pages/koerperarbeit/Page'))
+const KoerperarbeitAblaufPage = lazy(() => import('@/pages/koerperarbeit/ablauf/Page'))
+const KoerperarbeitAnfahrtPage = lazy(() => import('@/pages/koerperarbeit/anfahrt/Page'))
+const KoerperarbeitBestaetigungPage = lazy(() => import('@/pages/koerperarbeit/bestaetigung/Page'))
+const KoerperarbeitBewertungenPage = lazy(() => import('@/pages/koerperarbeit/bewertungen/Page'))
+const KoerperarbeitBuchenPage = lazy(() => import('@/pages/koerperarbeit/buchen/Page'))
+const KoerperarbeitFuerWenPage = lazy(() => import('@/pages/koerperarbeit/fuer-wen/Page'))
+const KoerperarbeitKontaktPage = lazy(() => import('@/pages/koerperarbeit/kontakt/Page'))
+const KoerperarbeitMethodePage = lazy(() => import('@/pages/koerperarbeit/methode/Page'))
+const KoerperarbeitPreisePage = lazy(() => import('@/pages/koerperarbeit/preise/Page'))
+const KoerperarbeitUeberPage = lazy(() => import('@/pages/koerperarbeit/ueber/Page'))
+const KonzeptPage = lazy(() => import('@/pages/konzept/Page'))
+const KonzeptGemeinschaftPage = lazy(() => import('@/pages/konzept/gemeinschaft/Page'))
+const KonzeptInternationalPage = lazy(() => import('@/pages/konzept/international/Page'))
+const KonzeptNachhaltigkeitPage = lazy(() => import('@/pages/konzept/nachhaltigkeit/Page'))
+const KonzeptWirtschaftPage = lazy(() => import('@/pages/konzept/wirtschaft/Page'))
+const MitmachenPage = lazy(() => import('@/pages/mitmachen/Page'))
+const NachhaltigkeitPage = lazy(() => import('@/pages/nachhaltigkeit/Page'))
+const PressePage = lazy(() => import('@/pages/presse/Page'))
 
 export default function App() {
   useEffect(() => {
@@ -62,6 +62,7 @@ export default function App() {
       <div style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Header />
         <main style={{ flex: 1 }}>
+          <Suspense fallback={<div style={{ flex: 1 }} aria-busy="true" />}>
           <Routes>
             {/* Home */}
             <Route path="/" element={<HomePage />} />
@@ -102,6 +103,7 @@ export default function App() {
             <Route path="/nachhaltigkeit" element={<NachhaltigkeitPage />} />
             <Route path="/presse" element={<PressePage />} />
           </Routes>
+          </Suspense>
         </main>
         <Footer />
       </div>

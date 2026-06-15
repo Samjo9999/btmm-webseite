@@ -2661,8 +2661,8 @@ function generateEPCQRCodeData(
     "002",
     "1",
     "SCT",
-    bic || "",
-    iban,
+    (bic || "").replace(/\s/g, ""),
+    iban.replace(/\s/g, ""),
     String(Math.round(amount * 100)), // Amount in cents
     "EUR",
     "",
@@ -2708,13 +2708,16 @@ async function createInvoiceInline(params: {
   // 1b. Company-Daten laden (für QR-Code SEPA-Infos)
   const { data: company } = await supabase
     .from("companies")
-    .select("company_name, company_iban, company_bic")
+    .select("company_name, company_iban, company_bic, bank_name, account_holder")
     .eq("id", company_id)
     .maybeSingle();
 
   const companyName = company?.company_name || "Back to Balance";
   const companyIban = company?.company_iban || "";
   const companyBic = company?.company_bic || "";
+  const companyBankName = company?.bank_name || "";
+  // Kontoinhaber = rechtlicher Empfänger der Überweisung (kann vom Markennamen abweichen)
+  const accountHolder = company?.account_holder || companyName;
 
   // 2. Rechnungsnummer generieren (RE-YYYY-NNN format, gap-free, zero-padded)
   const now = new Date();
@@ -2810,13 +2813,13 @@ async function createInvoiceInline(params: {
 
   // 7. Generiere EPC QR-Code Daten (für Bar-Zahlungen)
   let qrData: string | undefined;
-  if (payment_method === 'bar' && companyIban && companyBic) {
+  if (payment_method === 'bar' && companyIban) {
     qrData = generateEPCQRCodeData(
       companyIban,
       companyBic,
       total,
       invoiceNumber,
-      companyName
+      accountHolder
     );
   }
 
@@ -2827,6 +2830,13 @@ async function createInvoiceInline(params: {
     tax_amount: taxAmount,
     tax_rate: vat_enabled ? vat_rate : 0,
     vat_enabled: vat_enabled,
+    payment_method: payment_method || 'bar',
+    qr_data: qrData,
+    company_iban: companyIban,
+    company_bic: companyBic,
+    company_name: companyName,
+    bank_name: companyBankName,
+    account_holder: accountHolder,
   } as any;
 }
 
@@ -2870,6 +2880,8 @@ async function sendConfirmationEmail(
       company_iban?: string;
       company_bic?: string;
       company_name?: string;
+      bank_name?: string;
+      account_holder?: string;
     };
   }
 ) {
@@ -2956,6 +2968,9 @@ async function sendConfirmationEmail(
               <tr>
                 <td style="padding:6px 0;font-size:14px;color:#8a7d60;">Preis</td>
                 <td style="padding:6px 0;font-size:16px;font-weight:700;color:#1a1505;">${priceVal} &euro;${isFirst ? ' <span style="color:#8fa942;font-size:13px;font-weight:600;">(Erstsitzungs-Vorteil)</span>' : ''}</td>
+              </tr>
+              <tr>
+                <td colspan="2" style="padding:4px 0 0;font-size:12px;color:#b0a888;line-height:1.5;">Gem&auml;&szlig; &sect; 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer berechnet. Der Preis ist ein Endpreis.</td>
               </tr>`;
     }
   }
@@ -3027,7 +3042,11 @@ async function sendConfirmationEmail(
                 <td style="padding:6px 0;font-size:14px;color:#8a7d60;">zzgl. ${options.invoice.tax_rate}% MwSt</td>
                 <td style="padding:6px 0;font-size:15px;color:#1a1505;">${options.invoice.tax_amount.toFixed(2).replace('.', ',')} &euro;</td>
               </tr>
-              ` : ''}
+              ` : `
+              <tr>
+                <td colspan="2" style="padding:6px 0;font-size:12px;color:#b0a888;line-height:1.5;">Gem&auml;&szlig; &sect; 19 UStG (Kleinunternehmerregelung) wird keine Umsatzsteuer ausgewiesen.</td>
+              </tr>
+              `}
               <tr>
                 <td style="padding:6px 0;font-size:14px;color:#8a7d60;">Gesamtbetrag</td>
                 <td style="padding:6px 0;font-size:16px;font-weight:700;color:#1a1505;">
@@ -3037,13 +3056,47 @@ async function sendConfirmationEmail(
               <tr>
                 <td style="padding:6px 0;font-size:14px;color:#8a7d60;">Zahlungsart</td>
                 <td style="padding:6px 0;font-size:14px;color:#1a1505;">
-                  ${options.invoice.payment_method === 'stripe' ? '<strong style="color:#2a7cab;">✓ Online bezahlt</strong>' : '<strong>Vor Ort bar</strong> — Zahlungsdaten in der App'}
+                  ${options.invoice.payment_method === 'stripe' ? '<strong style="color:#2a7cab;">✓ Online bezahlt</strong>' : '<strong>Vor Ort bar</strong> oder per &Uuml;berweisung'}
                 </td>
               </tr>
             </table>
             ${options.invoice.payment_method !== 'stripe' && options.invoice.company_iban ? `
-            <div style="margin-top: 12px; padding-top: 12px; border-top: 1px solid #e0d9c0; font-size: 12px; color: #8a7d60;">
-              <strong>ⓘ Hinweis:</strong> QR-Code für schnelle SEPA-Überweisung findest du in der App unter diesem Termin. Scannen mit deiner Banking-App oder Screenshot hochladen.
+            <div style="margin-top:12px;padding-top:12px;border-top:1px solid #e0d9c0;">
+              <p style="margin:0 0 8px;font-size:13px;font-weight:700;color:#1a1505;">Bankverbindung &mdash; Zahlung per &Uuml;berweisung</p>
+              <table width="100%" cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;width:120px;">Empf&auml;nger</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;">${options.invoice.account_holder || options.invoice.company_name || companyName}</td>
+                </tr>
+                <tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;">IBAN</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;font-family:monospace;letter-spacing:0.04em;">${options.invoice.company_iban}</td>
+                </tr>
+                ${options.invoice.company_bic ? `<tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;">BIC</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;font-family:monospace;">${options.invoice.company_bic}</td>
+                </tr>` : ''}
+                ${options.invoice.bank_name ? `<tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;">Bank</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;">${options.invoice.bank_name}</td>
+                </tr>` : ''}
+                <tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;">Verwendungszweck</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;font-weight:600;">${options.invoice.number}</td>
+                </tr>
+                <tr>
+                  <td style="padding:4px 0;font-size:13px;color:#8a7d60;">Betrag</td>
+                  <td style="padding:4px 0;font-size:13px;color:#1a1505;font-weight:700;">${options.invoice.total.toFixed(2).replace('.', ',')} &euro;</td>
+                </tr>
+              </table>
+              ${options.invoice.qr_data ? `
+              <table width="100%" cellpadding="0" cellspacing="0" style="margin-top:14px;">
+                <tr><td align="center" style="padding:8px 0;">
+                  <img src="https://api.qrserver.com/v1/create-qr-code/?size=180x180&margin=0&data=${encodeURIComponent(options.invoice.qr_data)}" alt="SEPA-&Uuml;berweisung QR-Code" width="180" height="180" style="display:block;border:8px solid #ffffff;border-radius:8px;" />
+                  <p style="margin:8px 0 0;font-size:12px;color:#8a7d60;line-height:1.5;max-width:320px;">Scanne diesen QR-Code mit der Online-Banking-App deiner Bank &mdash; die &Uuml;berweisung ist dann bereits ausgef&uuml;llt.</p>
+                </td></tr>
+              </table>` : ''}
+              <p style="margin:10px 0 0;font-size:12px;color:#b0a888;line-height:1.5;">Alternativ kannst du den Betrag vor Ort in bar bezahlen.</p>
             </div>
             ` : ''}
           </td></tr>
@@ -3059,7 +3112,7 @@ async function sendConfirmationEmail(
               Eine kostenfreie Stornierung ist bis <strong>${options?.cancellationDays ?? 3} Tage vor dem Termin</strong> m&ouml;glich.
             </p>
             <p style="margin:10px 0 0;">
-              <a href="https://backtobalance.online/angebote?cancel_id=${appointment.id}&cancel_email=${encodeURIComponent(customer.email)}#stornierung" style="display:inline-block;background:#2a7cab;color:#ffffff;text-decoration:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;">Termin stornieren</a>
+              <a href="https://backtobalance.online/preise#stornierung" style="display:inline-block;background:#2a7cab;color:#ffffff;text-decoration:none;padding:8px 20px;border-radius:6px;font-size:13px;font-weight:600;">Termin stornieren</a>
             </p>
             <p style="margin:10px 0 0;font-size:12px;color:#b0a888;line-height:1.5;">
               Deine Buchungs-ID: <strong style="font-family:monospace;color:#3d3520;">${appointment.id}</strong>

@@ -1,7 +1,7 @@
 
 import { useState } from 'react'
 import { Link as RouterLink } from 'react-router-dom'
-import { Search, MapPin, ArrowRight, Clock, Euro } from 'lucide-react'
+import { Search, MapPin, ArrowRight, Euro } from 'lucide-react'
 
 interface Angebot {
   id: string

@@ -1,6 +1,5 @@
 
 import { useEffect } from 'react'
-import { Link as RouterLink } from 'react-router-dom'
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import L from 'leaflet'

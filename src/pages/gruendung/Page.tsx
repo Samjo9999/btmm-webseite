@@ -1,6 +1,5 @@
 // import Image (use <img>) 
-import { Link as RouterLink } from 'react-router-dom'
-import { Users, ArrowRight } from 'lucide-react'
+import { Users } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { ContactForm } from '@/components/ContactForm'
