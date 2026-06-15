@@ -35,7 +35,7 @@
     },
     "app_login": {
       "frage": "如何访问 BtMM 应用？",
-      "antwort": "BtMM 应用运行在 app.backtobalance.online，仅对会员开放。网站和应用是独立的系统——登录将引导你进入应用。"
+      "antwort": "BtMM 应用运行在 app.b-t-m-m.com，仅对会员开放。网站和应用是独立的系统——登录将引导你进入应用。"
     },
     "zelle_gruenden": {
       "frage": "我可以创建自己的细胞组吗？",

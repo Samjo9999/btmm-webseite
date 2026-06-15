@@ -78,7 +78,7 @@ export default function AppPage() {
             Die BtMM-App ist das digitale Zuhause der Gemeinschaft. Hier werden Ressourcen verwaltet, Entscheidungen getroffen und Leistungen getauscht.
           </p>
           <a
-            href="https://app.backtobalance.online"
+            href="https://app.b-t-m-m.com"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"
@@ -161,13 +161,13 @@ export default function AppPage() {
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
               <a
-                href="https://app.backtobalance.online"
+                href="https://app.b-t-m-m.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="btn-primary"
                 style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
               >
-                Login → app.backtobalance.online <ExternalLink size={15} />
+                Login → app.b-t-m-m.com <ExternalLink size={15} />
               </a>
               <RouterLink  to="/mitmachen" style={{
                 background: 'transparent',

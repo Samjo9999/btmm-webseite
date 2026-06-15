@@ -78,7 +78,7 @@ export default function GruendungPage() {
                 Wenn du glaubst, dass du diese Person sein könntest — melde dich. Wir werden sprechen, uns kennenlernen, und dann entscheiden wir gemeinsam, ob es passt.
               </p>
               <p style={{ fontFamily: 'var(--font-garamond)', fontStyle: 'italic', color: 'var(--btb-rot)' }}>
-                – Samjo, Freiburg 2026
+                – Samjo, Freiburg 2028
               </p>
             </div>
           </SectionReveal>

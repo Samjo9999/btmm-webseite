@@ -108,7 +108,7 @@ export default function BuchungsbedingungenPage() {
             )}
             <p style={{ marginTop: '1rem' }}>
               Die Stornierung kann über das Stornierungsformular auf der Termine-Seite oder per
-              E-Mail an back.to.balance.gartzke@gmail.com erfolgen.
+              E-Mail an office@b-t-m-m.com erfolgen.
             </p>
 
             <h2 style={headingStyle}>
@@ -148,7 +148,7 @@ export default function BuchungsbedingungenPage() {
                 Johannes-Samuel Gartzke<br />
                 Back to Meaning Maximization<br />
                 Hildastr. 12, 79102 Freiburg im Breisgau<br />
-                E-Mail: back.to.balance.gartzke@gmail.com<br />
+                E-Mail: office@b-t-m-m.com<br />
                 Telefon: 0176 44453687
               </p>
             </div>

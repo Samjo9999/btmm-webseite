@@ -70,7 +70,7 @@ export default function PressePage() {
               {t('hero.untertitel')}
             </p>
             <a
-              href="mailto:presse@backtobalance.online"
+              href="mailto:office@b-t-m-m.com"
               className="btn-primary"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >

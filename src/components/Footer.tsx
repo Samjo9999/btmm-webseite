@@ -33,14 +33,14 @@ export function Footer() {
             <p style={{ fontSize: '0.9rem', opacity: 0.7, lineHeight: 1.6, marginBottom: '1rem' }}>
               {t('footer.tagline')}
             </p>
-            <RouterLink to="mailto:kontakt@backtobalance.online"
+            <RouterLink to="mailto:office@b-t-m-m.com"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none',
               }}
             >
               <Mail size={15} />
-              kontakt@backtobalance.online
+              office@b-t-m-m.com
             </RouterLink>
           </div>
 
@@ -147,7 +147,7 @@ export function Footer() {
             <p style={{ fontSize: '0.875rem', opacity: 0.7, marginBottom: '0.75rem', lineHeight: 1.5 }}>
               Die BtMM-App für Mitglieder
             </p>
-            <RouterLink to="https://app.backtobalance.online"
+            <RouterLink to="https://app.b-t-m-m.com"
               target="_blank"
               rel="noopener noreferrer"
               style={{
@@ -155,7 +155,7 @@ export function Footer() {
                 color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none', fontWeight: 600,
               }}
             >
-              app.backtobalance.online
+              app.b-t-m-m.com
               <ExternalLink size={13} />
             </RouterLink>
           </div>

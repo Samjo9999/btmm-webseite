@@ -150,7 +150,7 @@ export function Header({ locale = 'de' }: { locale?: Locale } = {}) {
           </div>
 
           {/* Login Button */}
-          <RouterLink to="https://app.backtobalance.online"
+          <RouterLink to="https://app.b-t-m-m.com"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-primary"

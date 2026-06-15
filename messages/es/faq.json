@@ -35,7 +35,7 @@
     },
     "app_login": {
       "frage": "¿Cómo accedo a la app de BtMM?",
-      "antwort": "La app de BtMM funciona en app.backtobalance.online y solo es accesible para miembros. La web y la app son sistemas separados: el login te lleva a la app."
+      "antwort": "La app de BtMM funciona en app.b-t-m-m.com y solo es accesible para miembros. La web y la app son sistemas separados: el login te lleva a la app."
     },
     "zelle_gruenden": {
       "frage": "¿Puedo fundar mi propia célula?",

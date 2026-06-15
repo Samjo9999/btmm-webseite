@@ -123,7 +123,7 @@ function formatPrice(base: number, vatEnabled: boolean, vatRate: number, isRange
 }
 
 interface AngeboteAccordionProps {
-  domain?: string; // 'b-t-m-m.com' (default) or 'backtobalance.online'
+  domain?: string; // 'b-t-m-m.com' (default) or 'b-t-m-m.com'
 }
 
 export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionProps = {}) {
