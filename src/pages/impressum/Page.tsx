@@ -201,7 +201,7 @@ export default function ImpressumPage() {
                 <h4>Hinweis zur verantwortlichen Stelle</h4>
                 <p>
                   Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br /><br />
-                  Back to Meaning Maximization eG + e.V.<br />
+                  Back to Meaning Maximization eG<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br /><br />
                   E-Mail: office@b-t-m-m.com

@@ -38,6 +38,8 @@ const KonzeptWirtschaftPage = lazy(() => import('@/pages/konzept/wirtschaft/Page
 const MitmachenPage = lazy(() => import('@/pages/mitmachen/Page'))
 const NachhaltigkeitPage = lazy(() => import('@/pages/nachhaltigkeit/Page'))
 const PressePage = lazy(() => import('@/pages/presse/Page'))
+const SpendenPage = lazy(() => import('@/pages/spenden/Page'))
+const ZellenPage = lazy(() => import('@/pages/zellen/Page'))
 
 export default function App() {
   useEffect(() => {
@@ -102,6 +104,8 @@ export default function App() {
             <Route path="/mitmachen" element={<MitmachenPage />} />
             <Route path="/nachhaltigkeit" element={<NachhaltigkeitPage />} />
             <Route path="/presse" element={<PressePage />} />
+            <Route path="/spenden" element={<SpendenPage />} />
+            <Route path="/zellen" element={<ZellenPage />} />
           </Routes>
           </Suspense>
         </main>
