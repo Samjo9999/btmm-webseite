@@ -5,6 +5,16 @@
 @tailwind utilities;
 
 :root {
+  /* BtMM-Markenfarben (Rebranding, siehe lib/brand.ts) */
+  --btmm-primary: #9e57a4;
+  --btmm-hell:    #ddcddf;
+  --btmm-dunkel:  #780268;
+  --btmm-akzent:  #b058b3;
+  --btmm-weiss:   #faf9f9;
+  /* Glow/Nebel um das Logo (RGB von --btmm-primary / --btmm-akzent) */
+  --btmm-glow-rgb:   158, 87, 164;
+  --btmm-akzent-rgb: 176, 88, 179;
+
   --btb-rot:    #b61818;
   --btb-oliv:   #8fa942;
   --btb-creme:  #f0e9b6;
@@ -197,7 +207,7 @@ html {
 /* Clickable logo hint */
 .logo-lightbox-trigger:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 20px rgba(240, 233, 182, 0.5));
+  filter: drop-shadow(0 0 20px rgba(var(--btmm-glow-rgb), 0.6));
 }
 
 /* Konzept aspect cards */
@@ -240,4 +250,19 @@ html {
   height: 2px;
   background: linear-gradient(90deg, var(--btb-creme), var(--btb-oliv), var(--btb-creme));
   margin: 3rem 0;
+}
+
+/* Lila Nebel hinter dem Logo (Rebranding BtMM) */
+.btmm-logo-nebel {
+  position: relative;
+  display: inline-block;
+}
+.btmm-logo-nebel::before {
+  content: '';
+  position: absolute;
+  inset: -45%;
+  background: radial-gradient(circle, rgba(var(--btmm-akzent-rgb), 0.55) 0%, rgba(var(--btmm-glow-rgb), 0.28) 40%, rgba(var(--btmm-glow-rgb), 0) 70%);
+  filter: blur(12px);
+  z-index: -1;
+  pointer-events: none;
 }

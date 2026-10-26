@@ -9,15 +9,16 @@ import { LogoLightbox } from '@/components/LogoLightbox'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
 import { AngeboteAccordion } from '@/components/AngeboteAccordion'
+import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: 'Back to Meaning Maximization – ein anderes Wirtschaftssystem',
+    title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
     description: 'Back to Meaning Maximization ist ein alternatives Wirtschaftsmodell, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gegründet in Freiburg, gedacht weltweit.',
     openGraph: {
-      title: 'Back to Meaning Maximization – ein anderes Wirtschaftssystem',
+      title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
       description: 'Ein alternatives Wirtschaftsmodell für Wirtschaft, die trägt.',
     },
   }
@@ -50,13 +51,13 @@ export default async function HomePage() {
           alt="Wald – ein hoch vernetztes Ökosystem"
         />
         <div className="hero-text" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
-          <div style={{ marginBottom: '1.5rem' }}>
+          <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
               src="/logo.png"
-              alt="Back to Meaning Maximization Logo"
+              alt={`${BRAND_FULL} Logo`}
               width={160}
               height={160}
-              style={{ margin: '0 auto', filter: 'drop-shadow(0 0 30px rgba(157, 78, 221, 0.9)) drop-shadow(0 0 20px rgba(157, 78, 221, 0.7)) drop-shadow(0 0 10px rgba(157, 78, 221, 0.6))' }}
+              style={{ margin: '0 auto', filter: 'drop-shadow(0 0 30px rgba(var(--btmm-glow-rgb), 0.9)) drop-shadow(0 0 20px rgba(var(--btmm-akzent-rgb), 0.7)) drop-shadow(0 0 10px rgba(var(--btmm-glow-rgb), 0.6))' }}
               priority
             />
           </div>
@@ -70,7 +71,7 @@ export default async function HomePage() {
             lineHeight: 1.1,
             textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
           }}>
-            Back to Meaning Maximization
+            {BRAND_LONG}
           </h1>
 
           <p style={{
