@@ -119,7 +119,7 @@ export function Footer() {
                 { href: '/mitmachen', label: 'Mitglied werden' },
                 { href: '/erfahrungen', label: 'Erfahrungen' },
                 { href: '/gruendung', label: 'Gründung' },
-                { href: '/spenden', label: 'Spenden' },
+                { href: '/offene-fragen', label: 'Offene Fragen' },
                 { href: '/zellen', label: 'Zellen' },
                 { href: '/faq', label: 'FAQ' },
                 { href: '/dokumente', label: 'Dokumente' },

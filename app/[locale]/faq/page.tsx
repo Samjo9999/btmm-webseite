@@ -1,97 +1,35 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import { getTranslations } from 'next-intl/server'
 import { setRequestLocale } from 'next-intl/server'
-import Link from 'next/link'
-import { SectionReveal } from '@/components/AnimatedCounter'
-import { HeroImageLightbox } from '@/components/HeroImageLightbox'
-import { FaqAccordion } from '@/components/FaqAccordion'
-import { SupportChat } from '@/components/SupportChat'
+import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
+import { seitenMeta, breadcrumbLd, absUrl, href, ORGANISATION_LD, KONTAKT_MAIL, SEITEN } from '@/lib/seiten'
 
-export const dynamic = 'force-dynamic'
+import { FAQ } from '@/lib/inhalte/faq'
+type P = { params: { locale: string } }
+export function generateMetadata({ params }: P): Metadata { return seitenMeta('faq', params.locale) }
 
-export const metadata: Metadata = {
-  title: 'FAQ – Häufige Fragen | Back to Meaning Maximization',
-  description: 'Häufige Fragen zu Back to Meaning Maximization, Mitgliedschaft, Körperarbeit, Spenden und der BtMM-App.',
-}
-
-export default async function FaqPage() {
-  const t = await getTranslations('faq')
-
-  const fragen = [
-    { frage: t('fragen.was_ist_btb.frage'), antwort: t('fragen.was_ist_btb.antwort') },
-    { frage: t('fragen.wie_mitmachen.frage'), antwort: t('fragen.wie_mitmachen.antwort') },
-    { frage: t('fragen.was_kostet.frage'), antwort: t('fragen.was_kostet.antwort') },
-    { frage: t('fragen.was_sind_coins.frage'), antwort: t('fragen.was_sind_coins.antwort') },
-    { frage: t('fragen.koerperarbeit_unterschied.frage'), antwort: t('fragen.koerperarbeit_unterschied.antwort') },
-    { frage: t('fragen.spenden_wohin.frage'), antwort: t('fragen.spenden_wohin.antwort') },
-    { frage: t('fragen.app_login.frage'), antwort: t('fragen.app_login.antwort') },
-    { frage: t('fragen.zelle_gruenden.frage'), antwort: t('fragen.zelle_gruenden.antwort') },
-  ]
-
+export default function Seite({ params: { locale } }: P) {
+  setRequestLocale(locale)
   return (
-    <>
-      <section style={{
-        position: 'relative',
-        overflow: 'hidden',
-        background: '#1a1505',
-        padding: '5rem 1.5rem 4rem', textAlign: 'center',
-      }}>
-        <Image
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"
-          alt="Grüne Hügel – Antworten finden"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-        <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"
-          alt="Grüne Hügel – Antworten finden"
-        />
-        <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>
-          <h1 style={{
-            fontFamily: 'var(--font-garamond)',
-            fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-            color: 'var(--btb-creme)',
-            marginBottom: '1rem',
-          }}>
-            {t('titel')}
-          </h1>
-          <p style={{ color: 'var(--btb-creme)', opacity: 0.75, lineHeight: 1.75 }}>
-            {t('untertitel')}
-          </p>
-        </div>
-      </section>
-
-      <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-        <div className="container-btb" style={{ maxWidth: 800 }}>
-          <SectionReveal>
-            <FaqAccordion fragen={fragen} />
-          </SectionReveal>
-
-          <SectionReveal delay={0.3}>
-            <div style={{
-              marginTop: '3rem',
-              background: 'var(--btb-creme)',
-              borderRadius: 12, padding: '2rem',
-            }}>
-              <h2 style={{
-                fontFamily: 'var(--font-garamond)',
-                color: 'var(--btb-oliv)',
-                fontSize: '1.5rem',
-                marginBottom: '0.75rem',
-                textAlign: 'center',
-              }}>
-                Deine Frage ist nicht dabei?
-              </h2>
-              <p style={{ opacity: 0.75, marginBottom: '1.5rem', lineHeight: 1.65, textAlign: 'center' }}>
-                Unser BtMM-Assistent kennt alle Dokumente und beantwortet deine Fragen sofort.
-              </p>
-              <SupportChat />
-            </div>
-          </SectionReveal>
-        </div>
-      </section>
-    </>
+    <SeitenRahmen>
+      <JsonLd daten={[ORGANISATION_LD, breadcrumbLd(['start', 'faq'], locale),
+        { '@type': 'FAQPage', url: absUrl('faq', locale),
+          mainEntity: FAQ.map((f) => ({ '@type': 'Question', name: f.frage, acceptedAnswer: { '@type': 'Answer', text: f.antwort } })) }]} />
+      <SeitenKopf titel="Häufige Fragen" unterzeile="Kurze Antworten – und ehrlich, wo etwas noch offen ist."
+        bild="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80" bildAlt="Grüne Hügellandschaft" />
+      <div className="btmm-inhalt">
+        <Abschnitt>
+          <div className="btmm-faq">
+            {FAQ.map((f) => (
+              <details key={f.frage}>
+                <summary>{f.frage}</summary>
+                <p>{f.antwort}</p>
+              </details>
+            ))}
+          </div>
+        </Abschnitt>
+        <WeiterLinks locale={locale} seiten={['offeneFragen', 'kosten', 'glossar', 'mitmachen']} />
+      </div>
+    </SeitenRahmen>
   )
 }
