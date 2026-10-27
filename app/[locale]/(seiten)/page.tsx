@@ -10,21 +10,16 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
 import { AngeboteAccordion } from '@/components/AngeboteAccordion'
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
+import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
+import { JsonLd, Karte } from '@/components/btmm/Bausteine'
 
 export const dynamic = 'force-dynamic'
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-    description: 'Back to Meaning Maximization ist ein alternatives Wirtschaftsmodell, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gegründet in Freiburg, gedacht weltweit.',
-    openGraph: {
-      title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-      description: 'Ein alternatives Wirtschaftsmodell für Wirtschaft, die trägt.',
-    },
-  }
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  return seitenMeta('start', params.locale)
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('home')
   const tc = await getTranslations('common')
 
@@ -106,6 +101,20 @@ export default async function HomePage() {
             </Link>
           </div>
 
+        </div>
+      </section>
+
+      {/* ── Kernseiten (Seitenstruktur SEO, modular aus lib/seiten.ts) ── */}
+      <JsonLd daten={[ORGANISATION_LD, { '@type': 'WebSite', name: BRAND_FULL, url: SITE_URL, inLanguage: 'de-DE', publisher: { '@id': ORGANISATION_LD['@id'] } }]} />
+      <section className="btmm-kopf" style={{ paddingTop: '3rem' }}>
+        <h2 style={{ color: 'var(--btmm-dunkel)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', maxWidth: 820, margin: '0 auto .75rem' }}>{SEITEN.start.titel}</h2>
+        <p className="btmm-unterzeile">Wir teilen Einkauf, Auto, Raum und Werkzeug – klein anfangen ab drei Leuten in Freiburg, später eine Genossenschaft.</p>
+        <div className="btmm-raster" style={{ maxWidth: 1100, margin: '2rem auto 0', textAlign: 'left' }}>
+          {KERNSEITEN.map((k) => (
+            <Karte key={k} titel={SEITEN[k].kurz} link={href(locale, k)}>
+              <p style={{ fontSize: '1rem', opacity: 0.8 }}>{SEITEN[k].beschreibung}</p>
+            </Karte>
+          ))}
         </div>
       </section>
 
