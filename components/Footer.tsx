@@ -1,6 +1,7 @@
 import Link from 'next/link'
 import { useTranslations } from 'next-intl'
 import { Mail, ExternalLink } from 'lucide-react'
+import { BRAND_LONG } from '@/lib/brand'
 
 export function Footer() {
   const t = useTranslations('common')
@@ -28,7 +29,7 @@ export function Footer() {
               color: 'var(--btb-creme)',
               marginBottom: '0.75rem',
             }}>
-              Back to Meaning Maximization
+              {BRAND_LONG}
             </div>
             <p style={{ fontSize: '0.9rem', opacity: 0.7, lineHeight: 1.6, marginBottom: '1rem' }}>
               {t('footer.tagline')}
@@ -118,7 +119,7 @@ export function Footer() {
                 { href: '/mitmachen', label: 'Mitglied werden' },
                 { href: '/erfahrungen', label: 'Erfahrungen' },
                 { href: '/gruendung', label: 'Gründung' },
-                { href: '/spenden', label: 'Spenden' },
+                { href: '/offene-fragen', label: 'Offene Fragen' },
                 { href: '/zellen', label: 'Zellen' },
                 { href: '/faq', label: 'FAQ' },
                 { href: '/dokumente', label: 'Dokumente' },
