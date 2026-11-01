@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
+import { NachhaltigkeitErgaenzung } from '@/components/btmm/NachhaltigkeitErgaenzung'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 
@@ -55,6 +56,8 @@ export default async function NachhaltigkeitPage() {
           </p>
         </div>
       </section>
+
+      <NachhaltigkeitErgaenzung />
 
       {/* Einführung */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
@@ -199,24 +202,16 @@ export default async function NachhaltigkeitPage() {
       {/* Back Link */}
       <section className="section" style={{ background: 'transparent', paddingTop: '2rem', paddingBottom: '4rem' }}>
         <div className="container-btb" style={{ maxWidth: 800, textAlign: 'center' }}>
-          <Link href="/" style={{
+          <Link href="/" className="btn-secondary" style={{
             display: 'inline-block',
             padding: '0.75rem 1.5rem',
-            border: '1px solid var(--btb-rot)',
-            color: 'var(--btb-rot)',
+            border: '1px solid var(--btmm-primary)',
+            color: 'var(--btmm-dunkel)',
             textDecoration: 'none',
             borderRadius: '4px',
             fontWeight: '600',
             transition: 'all 0.3s ease',
           }}
-            onMouseEnter={(e) => {
-              e.currentTarget.style.background = 'var(--btb-rot)'
-              e.currentTarget.style.color = 'var(--btb-creme)'
-            }}
-            onMouseLeave={(e) => {
-              e.currentTarget.style.background = 'transparent'
-              e.currentTarget.style.color = 'var(--btb-rot)'
-            }}
           >
             ← Zurück zur Startseite
           </Link>
