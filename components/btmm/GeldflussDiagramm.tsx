@@ -132,7 +132,7 @@ export function GeldflussDiagramm() {
             <div><dt>Soziales & Ökologie einschließlich 50 € Mindestanteil</dt><dd>100 €</dd></div>
           </dl>
         </div>
-        <p className="gf-hinweis"><strong>Kein Überschuss, kein Bonus:</strong> Die Reihenfolge bleibt wichtig. Läuft es schlechter, sinkt zuerst der Überschuss. Der Entwurf sieht danach den Einsatz freigegebener Rücklagen und gegebenenfalls weniger bezahlte Stunden vor. Es wird weder ein bestimmter Bonus noch eine bestimmte Anzahl bezahlter Stunden versprochen.</p>
+        <p className="gf-hinweis"><strong>Kein Überschuss, kein Bonus:</strong> Die Reihenfolge bleibt wichtig. Läuft es schlechter, sinkt zuerst der Überschuss. Der Entwurf sieht danach den Einsatz freigegebener Rücklagen und gegebenenfalls künftig weniger vereinbarte Arbeitsstunden vor. Bereits geleistete Arbeit muss bezahlt werden. Es wird weder ein bestimmter Bonus noch eine bestimmte Anzahl künftiger Arbeitsstunden versprochen.</p>
       </div>
 
       <details className="gf-details">
