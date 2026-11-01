@@ -69,7 +69,7 @@ export default async function AngebotePage() {
         <div className="container-btb" style={{ maxWidth: 800 }}>
           <div style={{
             borderRadius: 12,
-            border: '2px solid rgba(42,124,171,0.3)',
+            border: '2px solid rgba(var(--btmm-glow-rgb),0.3)',
             background: 'rgba(255,255,255,0.5)',
             overflow: 'hidden',
           }}>
