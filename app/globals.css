@@ -239,9 +239,9 @@ html {
   text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5);
 }
 
-/* H1 in Hero sections always BtB-Rot */
+/* Headerüberschriften in dunklem Logo-Violett. */
 .hero-text h1 {
-  color: var(--btb-rot) !important;
+  color: var(--btmm-dunkel) !important;
 }
 
 /* Divider */
@@ -321,3 +321,9 @@ a.btmm-karte:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 
 /* Startseiten-Header: halbierte Hintergrunddeckkraft und Logo-Violett. */
 .hero-text.btmm-start-hero { background: rgba(0, 0, 0, 0.225); }
 .hero-text.btmm-start-hero h1 { color: var(--btmm-dunkel, #780268) !important; }
+
+/* Buttons in den BtMM-Logofarben, inklusive ihrer Hover-Zustände. */
+.btn-primary, .btn-oliv, .btmm-knopf { background-color: var(--btmm-primary); color: var(--btmm-weiss); }
+.btn-primary:hover, .btn-oliv:hover, .btmm-knopf:hover { background-color: var(--btmm-dunkel); color: var(--btmm-weiss); }
+.btn-secondary { color: var(--btmm-dunkel); border-color: var(--btmm-primary); }
+.btn-secondary:hover { background-color: var(--btmm-primary); color: var(--btmm-weiss); }
