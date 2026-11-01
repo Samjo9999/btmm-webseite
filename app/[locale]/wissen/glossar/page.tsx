@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-GLOSSAR-IMPORT-START
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-GLOSSAR-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -17,6 +20,9 @@ export default function Seite({ params: { locale } }: P) {
           hasDefinedTerm: GLOSSAR.map((b) => ({ '@type': 'DefinedTerm', name: b.begriff, description: b.erklaerung })) }]} />
       <SeitenKopf titel="Glossar" unterzeile="Die wichtigsten Begriffe von BtMM, nach der Satzung v7.32.0 (Entwurf, rechtlich noch nicht geprüft)." />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-GLOSSAR-STAND-START */}
+<AktuellerDokumentenstand locale={locale} thema="wirtschaft" />
+{/* BTMM-ADD-GLOSSAR-STAND-END */}
         <Abschnitt>
           <dl className="btmm-raster">
             {GLOSSAR.map((b) => (
