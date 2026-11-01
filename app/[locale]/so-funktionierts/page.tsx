@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-SO-FUNKTIONIERTS-IMPORT-START
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-SO-FUNKTIONIERTS-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -26,6 +29,9 @@ export default function Seite({ params: { locale } }: P) {
       <SeitenKopf titel="So funktioniert's" unterzeile="In drei Stufen von drei Leuten zur Genossenschaft – klein anfangen, teilen, gründen."
         bild="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80" bildAlt="Weites Feld im Licht" />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-SO-FUNKTIONIERTS-STAND-START */}
+<AktuellerDokumentenstand locale={locale} thema="grundlagen" />
+{/* BTMM-ADD-SO-FUNKTIONIERTS-STAND-END */}
         <Abschnitt titel="Wie gründet man eine kleine Genossenschaft?">
           <p>Wir fangen nicht mit einer Gründung an, sondern mit dem Teilen. Erst wenn es im Alltag trägt, kommt die eingetragene Genossenschaft (eG).</p>
         </Abschnitt>

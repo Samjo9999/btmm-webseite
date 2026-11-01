@@ -1,3 +1,7 @@
+// BTMM-ADD-HOME-IMPORT-START
+import { ThemenUeberblick } from '@/components/btmm/ThemenUeberblick'
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-HOME-IMPORT-END
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { setRequestLocale } from 'next-intl/server'
@@ -118,6 +122,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </div>
       </section>
 
+{/* BTMM-ADD-HOME-THEMEN-START */}
+<section className="btmm-seite"><div className="btmm-inhalt"><ThemenUeberblick locale={locale} /><AktuellerDokumentenstand locale={locale} /></div></section>
+{/* BTMM-ADD-HOME-THEMEN-END */}
       {/* ── 2. WAS IST BTMM ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
         <div className="container-btb">

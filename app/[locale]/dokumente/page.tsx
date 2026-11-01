@@ -1,3 +1,6 @@
+// BTMM-ADD-DOKUMENTE-IMPORT-START
+import { DokumenteErgaenzung } from '@/components/btmm/DokumenteErgaenzung'
+// BTMM-ADD-DOKUMENTE-IMPORT-END
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -81,6 +84,9 @@ export default async function DokumentePage() {
 
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
         <div className="container-btb">
+{/* BTMM-ADD-DOKUMENTE-ERGAENZUNG-START */}
+<DokumenteErgaenzung />
+{/* BTMM-ADD-DOKUMENTE-ERGAENZUNG-END */}
           {/* Navigation */}
           <div style={{
             display: 'flex', gap: '0.75rem', marginBottom: '2.5rem', flexWrap: 'wrap',

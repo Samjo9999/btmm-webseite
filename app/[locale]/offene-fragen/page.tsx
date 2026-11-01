@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-OFFENE-FRAGEN-IMPORT-START
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-OFFENE-FRAGEN-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -25,6 +28,9 @@ export default function Seite({ params: { locale } }: P) {
       <SeitenKopf titel="Was noch offen ist" unterzeile="Wir sagen ehrlich, was noch nicht geklärt ist. Das klären wir mit Fachleuten, bevor mehr Menschen dazukommen."
         bild="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80" bildAlt="Lichtung im Wald" />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-OFFENE-FRAGEN-STAND-START */}
+<AktuellerDokumentenstand locale={locale} thema="grundlagen" />
+{/* BTMM-ADD-OFFENE-FRAGEN-STAND-END */}
         <Abschnitt>
           <div className="btmm-raster">
             {OFFEN.map((o) => (

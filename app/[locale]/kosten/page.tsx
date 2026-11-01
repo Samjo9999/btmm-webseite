@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-KOSTEN-IMPORT-START
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-KOSTEN-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -16,6 +19,9 @@ export default function Seite({ params: { locale } }: P) {
       <SeitenKopf titel="Was kostet es dich – und was nicht?" unterzeile="Kein Investment, keine Vorkasse. Der Anteil kommt erst mit der Genossenschaft."
         bild="https://images.unsplash.com/photo-1526304640581-d334cdbbf35f?w=1920&q=80" bildAlt="Münzen und Pflanze" />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-KOSTEN-STAND-START */}
+<AktuellerDokumentenstand locale={locale} thema="kosten" />
+{/* BTMM-ADD-KOSTEN-STAND-END */}
         <Abschnitt titel="Am Anfang">
           <div className="btmm-raster">
             <Karte titel="Kein Investment"><p>In den ersten beiden Stufen zahlst du nichts ein.</p></Karte>
