@@ -353,3 +353,13 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
   color: var(--btmm-dunkel) !important;
   text-shadow: none !important;
 }
+
+/* Hinweisboxen: horizontale Akzentlinien statt linker Randlinie. */
+.btmm-hinweis--offen, .btmm-hinweis--rechnung,
+.btmm-ergaenzung .btmm-hinweis--offen,
+.btmm-geldfluss .gf-hinweis {
+  border-left: 0;
+  border-right: 0;
+  border-top: 2px solid var(--btmm-akzent);
+  border-bottom: 2px solid var(--btmm-akzent);
+}
