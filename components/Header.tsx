@@ -7,6 +7,7 @@ import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Menu, X, Globe, ExternalLink } from 'lucide-react'
 import { locales, type Locale } from '@/i18n'
+import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 
 export function Header({ locale }: { locale: Locale }) {
   const t = useTranslations('common')
@@ -19,7 +20,8 @@ export function Header({ locale }: { locale: Locale }) {
     { href: '/nachhaltigkeit', label: t('nav.nachhaltigkeit') },
     { href: '/angebote', label: t('nav.angebote') },
     { href: '/mitmachen', label: t('nav.mitmachen') },
-    { href: '/spenden', label: t('nav.spenden') },
+    { href: '/so-funktionierts', label: "So funktioniert's" },
+    { href: '/wissen', label: 'Wissen' },
     { href: '/dokumente', label: t('nav.dokumente') },
     { href: '/app', label: t('nav.app') },
     { href: '/zellen', label: t('nav.zellen') },
@@ -57,7 +59,7 @@ export function Header({ locale }: { locale: Locale }) {
         <Link href="/" style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', textDecoration: 'none', flexShrink: 0 }}>
           <Image
             src="/logo.png"
-            alt="Back to Meaning Maximization Logo"
+            alt={`${BRAND_FULL} Logo`}
             width={44}
             height={44}
             style={{ objectFit: 'contain' }}
@@ -69,7 +71,7 @@ export function Header({ locale }: { locale: Locale }) {
             color: 'var(--btb-dunkel)',
             display: 'none',
           }} className="hidden md:block">
-            Back to Meaning Maximization
+            {BRAND_LONG}
           </span>
         </Link>
 

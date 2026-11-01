@@ -15,6 +15,11 @@ const config: Config = {
         'btb-blau': 'var(--btb-blau)',
         'btb-dunkel': 'var(--btb-dunkel)',
         'btb-weiss': 'var(--btb-weiss)',
+        'btmm-primary': 'var(--btmm-primary)',
+        'btmm-hell': 'var(--btmm-hell)',
+        'btmm-dunkel': 'var(--btmm-dunkel)',
+        'btmm-akzent': 'var(--btmm-akzent)',
+        'btmm-weiss': 'var(--btmm-weiss)',
       },
       fontFamily: {
         heading: ['var(--font-garamond)', 'Georgia', 'serif'],
