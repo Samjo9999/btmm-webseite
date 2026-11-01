@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-FAQ-IMPORT-START
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-FAQ-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -18,6 +21,9 @@ export default function Seite({ params: { locale } }: P) {
       <SeitenKopf titel="Häufige Fragen" unterzeile="Kurze Antworten – und ehrlich, wo etwas noch offen ist."
         bild="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80" bildAlt="Grüne Hügellandschaft" />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-FAQ-STAND-START */}
+<AktuellerDokumentenstand locale={locale} thema="kosten" />
+{/* BTMM-ADD-FAQ-STAND-END */}
         <Abschnitt>
           <div className="btmm-faq">
             {FAQ.map((f) => (

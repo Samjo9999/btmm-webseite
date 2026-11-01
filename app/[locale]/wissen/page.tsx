@@ -1,4 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+// BTMM-ADD-WISSEN-IMPORT-START
+import { ThemenUeberblick } from '@/components/btmm/ThemenUeberblick'
+// BTMM-ADD-WISSEN-IMPORT-END
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
 import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
@@ -18,6 +21,9 @@ export default function Seite({ params: { locale } }: P) {
       <SeitenKopf titel="Wissen" unterzeile="Ratgeber rund um Genossenschaft, Teilen und Gemeinschaft. Der Bereich wächst."
         bild="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80" bildAlt="Berge im Morgenlicht" />
       <div className="btmm-inhalt">
+{/* BTMM-ADD-WISSEN-THEMEN-START */}
+<ThemenUeberblick locale={locale} />
+{/* BTMM-ADD-WISSEN-THEMEN-END */}
         <Abschnitt>
           <div className="btmm-raster">
             {RATGEBER.map((r) => (
