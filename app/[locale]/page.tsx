@@ -65,7 +65,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(2.2rem, 6vw, 4rem)',
             fontWeight: 700,
-            color: 'var(--btb-rot)',
+            color: 'var(--btmm-dunkel, #780268)',
             marginBottom: '0.75rem',
             lineHeight: 1.1,
             textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
