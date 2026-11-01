@@ -1,5 +1,7 @@
 // Wiederverwendbare Bausteine für alle neuen BtMM-Seiten (Design wie BtMM-App).
 import Image from 'next/image'
+import { HeroImageLightbox } from '@/components/HeroImageLightbox'
+import { LogoLightbox } from '@/components/LogoLightbox'
 import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { SEITEN, href, type SeitenSchluessel } from '@/lib/seiten'
@@ -22,9 +24,10 @@ export function SeitenKopf({ titel, unterzeile, bild, bildAlt = '' }: { titel: s
     return (
       <section className="btmm-kopf btmm-kopf--bild">
         <Image src={bild} alt={bildAlt} fill style={{ objectFit: 'cover' }} priority />
+        <HeroImageLightbox src={bild} alt={bildAlt || titel} />
         <div className="btmm-kopf-glas">
           <span className="btmm-logo-nebel">
-            <Image src="/logo.png" alt={`${BRAND_FULL} Logo`} width={80} height={80} priority />
+            <LogoLightbox src="/logo.png" alt={`${BRAND_FULL} Logo`} width={80} height={80} priority />
           </span>
           <h1>{titel}</h1>
           {unterzeile && <p className="btmm-unterzeile">{unterzeile}</p>}
@@ -35,7 +38,7 @@ export function SeitenKopf({ titel, unterzeile, bild, bildAlt = '' }: { titel: s
   return (
     <section className="btmm-kopf">
       <span className="btmm-logo-nebel">
-        <Image src="/logo.png" alt={`${BRAND_FULL} Logo`} width={88} height={88} priority />
+        <LogoLightbox src="/logo.png" alt={`${BRAND_FULL} Logo`} width={88} height={88} priority />
       </span>
       <h1>{titel}</h1>
       {unterzeile && <p className="btmm-unterzeile">{unterzeile}</p>}

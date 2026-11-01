@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
-import { X } from 'lucide-react'
+import { ImageZoomDialog } from '@/components/ImageZoomDialog'
 
 interface LogoLightboxProps {
   src: string
@@ -50,62 +50,7 @@ export function LogoLightbox({ src, alt, width, height, className, style, priori
         }
       `}</style>
 
-      {open && (
-        <div
-          onClick={() => setOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            cursor: 'pointer',
-          }}
-        >
-          {/* Wald-Hintergrund */}
-          <Image
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
-            alt=""
-            fill
-            style={{ position: 'absolute', objectFit: 'cover' }}
-            priority
-          />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(26, 21, 5, 0.6)' }} />
-
-          <div
-            onClick={(e) => e.stopPropagation()}
-            style={{ position: 'relative', cursor: 'default', zIndex: 1 }}
-          >
-            <button
-              onClick={() => setOpen(false)}
-              style={{
-                position: 'absolute',
-                top: -44,
-                right: 0,
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                color: 'rgba(255,255,255,0.7)',
-              }}
-            >
-              <X size={32} />
-            </button>
-            <Image
-              src={src}
-              alt={alt}
-              width={480}
-              height={480}
-              style={{
-                maxWidth: '80vw',
-                maxHeight: '80vh',
-                objectFit: 'contain',
-                filter: 'drop-shadow(0 0 40px rgba(var(--btmm-glow-rgb), 0.5)) drop-shadow(0 8px 32px rgba(0,0,0,0.6))',
-              }}
-            />
-          </div>
-        </div>
-      )}
+      <ImageZoomDialog src={src} alt={alt} open={open} onOpenChange={setOpen} />
     </>
   )
 }
