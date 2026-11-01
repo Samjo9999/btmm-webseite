@@ -317,3 +317,7 @@ a.btmm-karte:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 
   border-radius: 24px; background: rgba(250,249,249,0.82); backdrop-filter: blur(6px); -webkit-backdrop-filter: blur(6px);
   box-shadow: 0 0 60px rgba(var(--btmm-glow-rgb), 0.45);
 }
+
+/* Startseiten-Header: halbierte Hintergrunddeckkraft und Logo-Violett. */
+.hero-text.btmm-start-hero { background: rgba(0, 0, 0, 0.225); }
+.hero-text.btmm-start-hero h1 { color: var(--btmm-dunkel, #780268) !important; }
