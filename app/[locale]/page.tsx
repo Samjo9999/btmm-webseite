@@ -49,7 +49,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
           src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
           alt="Wald – ein hoch vernetztes Ökosystem"
         />
-        <div className="hero-text" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
+        <div className="hero-text btmm-start-hero" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
               src="/logo.png"
