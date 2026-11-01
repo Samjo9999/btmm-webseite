@@ -15,11 +15,11 @@
   --btmm-glow-rgb:   158, 87, 164;
   --btmm-akzent-rgb: 176, 88, 179;
 
-  --btb-rot:    #b61818;
-  --btb-oliv:   #8fa942;
-  --btb-creme:  #f0e9b6;
-  --btb-blau:   #2a7cab;
-  --btb-dunkel: #1a1505;
+  --btb-rot:    var(--btmm-dunkel);
+  --btb-oliv:   var(--btmm-primary);
+  --btb-creme:  var(--btmm-weiss);
+  --btb-blau:   var(--btmm-primary);
+  --btb-dunkel: #2b1630;
   --btb-weiss:  #ffffff;
 
   --font-garamond: var(--font-garamond), 'EB Garamond', Garamond, Georgia, serif;
@@ -327,3 +327,9 @@ a.btmm-karte:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 
 .btn-primary:hover, .btn-oliv:hover, .btmm-knopf:hover { background-color: var(--btmm-dunkel); color: var(--btmm-weiss); }
 .btn-secondary { color: var(--btmm-dunkel); border-color: var(--btmm-primary); }
 .btn-secondary:hover { background-color: var(--btmm-primary); color: var(--btmm-weiss); }
+
+/* Einheitliche Flächen, Überschriften und Fokusfarben aus dem BtMM-Logo. */
+h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
+:focus-visible { outline-color: var(--btmm-dunkel); }
+.btmm-karte, .btmm-faq details, .btmm-weiter { border-color: var(--btmm-hell); }
+.divider-btb { background: linear-gradient(90deg, transparent, var(--btmm-primary), transparent); }
