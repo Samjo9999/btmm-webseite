@@ -333,3 +333,23 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
 :focus-visible { outline-color: var(--btmm-dunkel); }
 .btmm-karte, .btmm-faq details, .btmm-weiter { border-color: var(--btmm-hell); }
 .divider-btb { background: linear-gradient(90deg, transparent, var(--btmm-primary), transparent); }
+
+/* Gemeinsamer Headerstil für alle Seiten und beide Header-Komponenten. */
+:root { --btmm-header-flaeche: rgba(250, 249, 249, 0.41); }
+.hero-text, .hero-text.btmm-start-hero, .btmm-kopf-glas {
+  background: var(--btmm-header-flaeche);
+  border: 1px solid rgba(var(--btmm-glow-rgb), .2);
+  border-radius: 24px;
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 0 60px rgba(var(--btmm-glow-rgb), .25);
+  padding: 2.5rem 2rem;
+}
+.hero-text h1, .hero-text.btmm-start-hero h1, .btmm-kopf h1, main h1 {
+  color: var(--btmm-dunkel, #780268) !important;
+  text-shadow: none !important;
+}
+.hero-text p, .hero-text span, .btmm-kopf .btmm-unterzeile {
+  color: var(--btmm-dunkel) !important;
+  text-shadow: none !important;
+}
