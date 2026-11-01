@@ -30,7 +30,7 @@ const css = `
 .btmm-geldfluss .gf-summen dl { margin: .6rem 0 0; display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: .65rem; }
 .btmm-geldfluss .gf-summen dt { font-size: .8rem; line-height: 1.4; }
 .btmm-geldfluss .gf-summen dd { margin: .25rem 0 0; font-weight: 700; color: var(--gf-lila); }
-.btmm-geldfluss .gf-hinweis { border-left: 3px solid var(--btmm-primary, #9e57a4); padding: .65rem .9rem; margin: 1rem 0; background: rgba(var(--gf-glow), .06); font-size: .86rem; line-height: 1.65; }
+.btmm-geldfluss .gf-hinweis { border-top: 2px solid var(--btmm-akzent, #b058b3); border-bottom: 2px solid var(--btmm-akzent, #b058b3); padding: .65rem .9rem; margin: 1rem 0; background: rgba(var(--gf-glow), .06); font-size: .86rem; line-height: 1.65; }
 .btmm-geldfluss .gf-details { margin-top: 1rem; border: 1px solid rgba(var(--gf-glow), .24); border-radius: 12px; background: var(--btb-weiss, #fff); padding: 0 1.1rem; }
 .btmm-geldfluss .gf-details summary { cursor: pointer; padding: 1rem 0; font-weight: 700; color: var(--gf-lila); }
 .btmm-geldfluss .gf-details p { line-height: 1.7; }
