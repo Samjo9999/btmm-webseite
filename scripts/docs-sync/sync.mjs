@@ -4,8 +4,10 @@
 // Kein Schlüssel im Code: GDRIVE_SA_JSON und GDRIVE_DOCS_FOLDER_ID kommen aus der Umgebung.
 import { mkdirSync, readdirSync, rmSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
-import { pickLatest, parseDoc, isPublic, matchPdf, sortDocs, isPdfPath, DEFAULT_PREFIX } from './lib.mjs'
+import { pickLatest, parseDoc, isPublic, matchPdf, sortDocs, DEFAULT_PREFIX } from './lib.mjs'
 
+export const MD_ROOTS = new Set(['mds', 'md'])
+export const PDF_ROOTS = new Set(['pdf', 'pdfs'])
 export const PDF_WARN_MB = 10
 export const PDF_MAX_MB = 25
 
@@ -18,8 +20,11 @@ function clean(dir, ext, keep, log) {
 export async function syncDocs({ source, outDir, publicDir, pdfDir = join(publicDir, 'pdf'), prefix = DEFAULT_PREFIX, requireFlag = false,
   pdfMaxMb = PDF_MAX_MB, pdfWarnMb = PDF_WARN_MB, log = console.log }) {
   const all = await source.list()
-  const mdFiles = all.filter((f) => /\.md$/i.test(f.name) && !isPdfPath(f.path))
-  const pdfFiles = all.filter((f) => /\.pdf$/i.test(f.name) && isPdfPath(f.path))
+  // Oberste Ebene: NUR MDs/md (für .md) und pdf/pdfs (für .pdf). Alles andere (md-intern, png, ...) wird ignoriert.
+  const top = (f) => (f.path?.[0] ?? '').toLowerCase()
+  for (const f of all) if (!f.path?.length) log(`Ignoriert (Datei direkt in der Wurzel): ${f.name}`)
+  const mdFiles = all.filter((f) => MD_ROOTS.has(top(f)) && /\.md$/i.test(f.name))
+  const pdfFiles = all.filter((f) => PDF_ROOTS.has(top(f)) && /\.pdf$/i.test(f.name))
   const { latest, ignored } = pickLatest(mdFiles, prefix, 'md', log)
   const pdfs = pickLatest(pdfFiles, prefix, 'pdf', log)
   for (const n of [...ignored, ...pdfs.ignored]) log(`Ignoriert (Namensschema passt nicht): ${n}`)
@@ -109,7 +114,9 @@ export function driveSource(sa, folderId) {
           const q = encodeURIComponent(`'${id}' in parents and trashed = false`)
           const j = await (await get(`https://www.googleapis.com/drive/v3/files?q=${q}&fields=nextPageToken,files(id,name,mimeType,size)&pageSize=1000&supportsAllDrives=true&includeItemsFromAllDrives=true${page ? `&pageToken=${page}` : ''}`)).json()
           for (const f of j.files) {
-            if (f.mimeType === 'application/vnd.google-apps.folder') await walk(f.id, [...path, f.name], depth + 1)
+            const isDir = f.mimeType === 'application/vnd.google-apps.folder'
+            if (depth === 0 && isDir && !MD_ROOTS.has(f.name.toLowerCase()) && !PDF_ROOTS.has(f.name.toLowerCase())) continue
+            if (isDir) await walk(f.id, [...path, f.name], depth + 1)
             else out.push({ id: f.id, name: f.name, size: f.size, path })
           }
           page = j.nextPageToken
