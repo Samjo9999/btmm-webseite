@@ -16,13 +16,22 @@
 //    erscheint das Dokument gar nicht (keine Rückfall-Version).
 // 5. Frontmatter "aenderung" wird als Änderungsvermerk angezeigt.
 // 6. Aufräumen: Alles im Zielordner, was nicht zum aktuellen Satz gehört, wird gelöscht.
+// 7. Ordner werden rekursiv gelesen. Der nächstliegende Themen-Unterordner ist die Kategorie:
+//    "01-aussenkontakt" -> { ordnung: 1, label: "Aussenkontakt", schluessel: "01-aussenkontakt" }.
+//    Strukturordner ("MDs", "pdf") zählen nicht als Kategorie.
+// 8. Gleicher Slug in verschiedenen Kategorien = verschiedene Dokumente; der Slug wird dann
+//    zu "<kategorie>--<slug>" (mit Warnung). Innerhalb einer Kategorie gilt Regel 2.
+// 9. PDFs liegen unter einem Ordner "pdf" (rekursiv), Schema wie oben mit .pdf. Pro Dokument
+//    gilt die neueste PDF (Regel 2). Zuordnung: gleicher Slug + gleiche Kategorie, sonst
+//    gleicher Slug, wenn eindeutig. Gesperrtes MD (oeffentlich: false) => PDF auch gesperrt.
+//    PDF ohne MD: nur wenn DOCS_REQUIRE_PUBLIC_FLAG nicht gesetzt ist, sonst übersprungen.
 import matter from 'gray-matter'
 
 export const DEFAULT_PREFIX = 'BtMM'
 
-export function parseFilename(name, prefix = DEFAULT_PREFIX) {
+export function parseFilename(name, prefix = DEFAULT_PREFIX, ext = 'md') {
   const esc = prefix.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  const re = new RegExp(`^${esc}_(.+)_v(\\d+\\.\\d+(?:\\.\\d+)?)_(\\d{4}-\\d{2}-\\d{2})\\.md$`)
+  const re = new RegExp(`^${esc}_(.+)_v(\\d+\\.\\d+(?:\\.\\d+)?)_(\\d{4}-\\d{2}-\\d{2})\\.${ext}$`, 'i')
   const m = name.match(re)
   if (!m) return null
   const slug = m[1].toLowerCase().replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '')
@@ -39,18 +48,69 @@ export function compareVersions(a, b) {
   return 0
 }
 
-export function pickLatest(files, prefix = DEFAULT_PREFIX) {
+export const STRUKTUR_ORDNER = new Set(['mds', 'md', 'pdf', 'pdfs'])
+
+export function slugify(x) {
+  return String(x).toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^a-z0-9-]+/g, '-').replace(/^-+|-+$/g, '')
+}
+
+// Kategorie aus dem Ordnerpfad (Array von Ordnernamen relativ zum Wurzelordner).
+export function categoryFromPath(path = []) {
+  const name = [...path].reverse().find((n) => !STRUKTUR_ORDNER.has(n.toLowerCase()))
+  if (!name) return null
+  const m = name.match(/^(\d+)[\s._-]*(.*)$/)
+  const rest = (m ? m[2] : name).replace(/[-_]+/g, ' ').trim() || name
+  return {
+    schluessel: slugify(name),
+    ordnung: m ? Number(m[1]) : null,
+    label: rest.charAt(0).toUpperCase() + rest.slice(1),
+  }
+}
+
+export function isPdfPath(path = []) {
+  return path.some((n) => n.toLowerCase() === 'pdf' || n.toLowerCase() === 'pdfs')
+}
+
+const newer = (p, cur) => !cur || compareVersions(p.version, cur.version) > 0 ||
+  (compareVersions(p.version, cur.version) === 0 && p.datum > cur.datum)
+
+// Neueste Version je (Kategorie, Slug). Ergebnis-Slugs sind eindeutig (Regel 8).
+export function pickLatest(files, prefix = DEFAULT_PREFIX, ext = 'md', log = () => {}) {
   const best = new Map(), ignored = []
   for (const f of files) {
-    const p = parseFilename(f.name, prefix)
+    const p = parseFilename(f.name, prefix, ext)
     if (!p) { ignored.push(f.name); continue }
-    const cur = best.get(p.slug)
-    if (!cur || compareVersions(p.version, cur.version) > 0 ||
-        (compareVersions(p.version, cur.version) === 0 && p.datum > cur.datum)) {
-      best.set(p.slug, { ...p, id: f.id })
+    const kategorie = categoryFromPath(f.path)
+    const key = `${kategorie?.schluessel ?? ''}/${p.slug}`
+    const cand = { ...p, basisSlug: p.slug, id: f.id, size: f.size != null ? Number(f.size) : null, kategorie, pfad: [...(f.path ?? []), f.name].join('/') }
+    if (newer(p, best.get(key))) best.set(key, cand)
+  }
+  const list = [...best.values()]
+  const count = new Map()
+  for (const l of list) count.set(l.basisSlug, (count.get(l.basisSlug) ?? 0) + 1)
+  for (const l of list) {
+    if (count.get(l.basisSlug) > 1 && l.kategorie) {
+      l.slug = `${l.kategorie.schluessel}--${l.basisSlug}`
+      log(`Doppelter Slug "${l.basisSlug}" in mehreren Kategorien: ${l.pfad} -> ${l.slug}`)
     }
   }
-  return { latest: [...best.values()].sort((a, b) => a.slug.localeCompare(b.slug)), ignored }
+  return { latest: sortDocs(list), ignored }
+}
+
+export function sortDocs(list) {
+  const o = (d) => d.kategorie?.ordnung ?? (d.kategorie ? 9998 : 9999)
+  return list.sort((a, b) => o(a) - o(b) ||
+    (a.kategorie?.schluessel ?? '').localeCompare(b.kategorie?.schluessel ?? '') || a.slug.localeCompare(b.slug))
+}
+
+// PDF zu einem MD finden (Regel 9). pdfs = Ergebnis von pickLatest(..., 'pdf').
+export function matchPdf(doc, pdfs) {
+  const k = doc.kategorie?.schluessel ?? ''
+  const exact = pdfs.find((p) => p.basisSlug === doc.basisSlug && (p.kategorie?.schluessel ?? '') === k)
+  if (exact) return exact
+  const same = pdfs.filter((p) => p.basisSlug === doc.basisSlug)
+  return same.length === 1 ? same[0] : null
 }
 
 export function parseDoc(raw, slug) {

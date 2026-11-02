@@ -9,6 +9,13 @@ export type DriveDokument = {
   datum: string
   aenderung: string | null
   quelle: string
+  kategorie?: { schluessel: string; ordnung: number | null; label: string } | null
+  pdf?: { datei: string; version: string; datum: string; quelle: string } | null
+  nurPdf?: boolean
+}
+
+export function pdfUrl(d: DriveDokument) {
+  return d.pdf ? `/dokumente/pdf/${d.pdf.datei}` : null
 }
 
 const DIR = join(process.cwd(), 'content', 'drive-dokumente')
@@ -24,6 +31,7 @@ export function getDriveManifest(): DriveDokument[] {
 export function getDriveDokument(slug: string) {
   const meta = getDriveManifest().find((d) => d.slug === slug)
   if (!meta) return null
+  if (meta.nurPdf) return { ...meta, content: '' }
   try {
     return { ...meta, content: readFileSync(join(DIR, `${slug}.md`), 'utf-8') }
   } catch {
