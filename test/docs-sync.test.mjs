@@ -63,3 +63,14 @@ test('Sync gegen Fake-Drive: schreiben und aufräumen', async () => {
   const m2 = await syncDocs({ source: fakeDrive({ 'BtMM_satzung_v7.10_2026-11-02.md': '# S' }), outDir: out, publicDir: pub, requireFlag: true, log: () => {} })
   assert.deepEqual(m2, []); assert.deepEqual(readdirSync(pub), [])
 })
+
+test('parseDoc: Frontmatter + %%-Header-Zeilen', async () => {
+  const { parseDoc } = await import('../scripts/docs-sync/lib.mjs')
+  const raw = "---\naenderung: Umbenannt\n---\n%% header: BtMM\n%% header: v22\n# Konzept\nText\n"
+  const d = parseDoc(raw, 'x')
+  const assert = (await import('node:assert/strict')).default
+  assert.equal(d.titel, 'Konzept')
+  assert.equal(d.aenderung, 'Umbenannt')
+  assert.ok(!d.body.includes('%%'))
+  assert.ok(d.body.startsWith('# Konzept'))
+})
