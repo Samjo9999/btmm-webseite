@@ -7,7 +7,7 @@ Platzhalter: `[VERANTWORTLICHER: …]` und `[OFFEN: …]` vor Veröffentlichung 
 ---
 
 ## 1. Verantwortlicher
-[VERANTWORTLICHER: Name, ladungsfähige Anschrift]
+Johannes-Samuel Gartzke, Hildastraße 12, 79102 Freiburg
 
 Datenschutz-Kontakt: **datenschutz-gartzke+btmm@mail.grokbot.com**
 Support: support-gartzke+btmm@mail.grokbot.com [OFFEN: Support-Postfach noch nicht angelegt – erst nach Aktivierung veröffentlichen]
