@@ -7,6 +7,7 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { DokumentViewer } from '@/components/DokumentViewer'
 import { readFileSync } from 'fs'
 import { join } from 'path'
+import { getDriveManifest, formatDatum } from '@/lib/drive-dokumente'
 
 export const dynamic = 'force-dynamic'
 
@@ -15,7 +16,20 @@ export const metadata: Metadata = {
   description: 'Einführungen und weitere Dokumente von Back to Meaning Maximization als Leseansicht.',
 }
 
-async function getDokumente() {
+type Dok = { slug: string; titel: string; version: string; content: string; aenderung?: string | null; drive?: boolean }
+
+async function getDokumente(): Promise<Dok[]> {
+  // Sobald die Drive-Pipeline Dokumente geliefert hat, gelten nur diese.
+  const drive = getDriveManifest()
+  if (drive.length > 0) {
+    return drive.map((d) => {
+      let content = 'Dokument nicht gefunden.'
+      try {
+        content = readFileSync(join(process.cwd(), 'content', 'drive-dokumente', `${d.slug}.md`), 'utf-8')
+      } catch {}
+      return { slug: d.slug, titel: d.titel, version: `Version ${d.version} · Stand ${formatDatum(d.datum)}`, aenderung: d.aenderung, content, drive: true }
+    })
+  }
   const dokumente = [
     { slug: 'einfuehrung', titel: 'Einführung', version: 'Aktuell' },
     { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
@@ -118,15 +132,21 @@ export default async function DokumentePage() {
                       {doc.titel}
                     </h2>
                     <p style={{ fontSize: '0.85rem', opacity: 0.6 }}>{doc.version}</p>
+                    {doc.aenderung && (
+                      <p style={{ fontSize: '0.85rem', opacity: 0.8 }}>Änderung: {doc.aenderung}</p>
+                    )}
+                    {doc.drive && (
+                      <Link href={`/dokumente/${doc.slug}`} style={{ fontSize: '0.85rem', color: 'var(--btb-oliv)' }}>Einzelansicht</Link>
+                    )}
                   </div>
                   <a
-                    href={`/dokumente/${doc.slug}.pdf`}
+                    href={doc.drive ? `/dokumente/${doc.slug}.md` : `/dokumente/${doc.slug}.pdf`}
                     download
                     className="btn-secondary"
                     style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}
                   >
                     <Download size={16} />
-                    PDF herunterladen
+                    {doc.drive ? 'Markdown herunterladen' : 'PDF herunterladen'}
                   </a>
                 </div>
 
