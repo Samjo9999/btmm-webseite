@@ -60,7 +60,7 @@ export function parseDoc(raw, slug) {
     titel: h ? h[1].trim() : slug,
     oeffentlich: data.oeffentlich,
     aenderung: data.aenderung != null ? String(data.aenderung) : null,
-    body: content.replace(/^\s+/, ''),
+    body: content.replace(/^%%.*(?:\r?\n|$)/gm, '').replace(/^\s+/, ''),
   }
 }
 
