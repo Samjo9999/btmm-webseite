@@ -30,6 +30,7 @@ jobs:
           GDRIVE_DOCS_FOLDER_ID: ${{ secrets.GDRIVE_DOCS_FOLDER_ID || vars.GDRIVE_DOCS_FOLDER_ID }}
           DOCS_PROJECT_PREFIX: ${{ vars.DOCS_PROJECT_PREFIX || 'BtMM' }}
           DOCS_REQUIRE_PUBLIC_FLAG: ${{ vars.DOCS_REQUIRE_PUBLIC_FLAG || 'false' }}
+          DOCS_PDF_MAX_MB: ${{ vars.DOCS_PDF_MAX_MB || '25' }}
         run: npm run docs-sync
       # Kein direkter Commit auf master: Änderungen kommen als Auto-PR (Branch docs-sync).
       # Für direkten Commit diesen Schritt durch git add/commit/push ersetzen.
