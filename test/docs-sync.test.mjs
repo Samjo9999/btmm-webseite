@@ -44,7 +44,7 @@ test('Titel, Frontmatter, Freigabe', () => {
 })
 
 function fakeDrive(files) {
-  return { list: async () => Object.keys(files).map((name) => ({ id: name, name })), read: async (id) => files[id] }
+  return { list: async () => Object.keys(files).map((name) => ({ id: name, name, path: ['MDs'] })), read: async (id) => files[id] }
 }
 
 test('Sync gegen Fake-Drive: schreiben und aufräumen', async () => {
@@ -152,4 +152,23 @@ test('Sync rekursiv mit PDFs, Sperre, PDF ohne MD, Größenlimit', async () => {
   assert.deepEqual(m2.map((d) => d.slug), ['satzung'])
   assert.deepEqual(readdirSync(pdfDir), ['satzung.pdf'])
   assert.ok(logs2.some((l) => l.startsWith('PDF ohne MD übersprungen')))
+})
+
+test('nur MDs/ und pdf/ auf oberster Ebene; md-intern, png, Wurzeldateien ignoriert', async () => {
+  const root = mkdtempSync(join(tmpdir(), 'docs-'))
+  const out = join(root, 'out'), pub = join(root, 'pub'), logs = []
+  const m = await syncDocs({ source: fakeTree({
+    'md/03-konzept/BtMM_konzept_v1.0_2026-11-02.md': '# Konzept',
+    'md-intern/BtMM_geheim_v1.0_2026-11-02.md': '# Geheim',
+    'md-intern/02-recht/BtMM_notiz_v1.0_2026-11-02.md': '# Notiz',
+    'MD-INTERN/pdf/BtMM_geheim_v1.0_2026-11-02.pdf': '%PDF',
+    'png/BtMM_bild_v1.0_2026-11-02.md': '# Bild',
+    'code/pdf/BtMM_x_v1.0_2026-11-02.pdf': '%PDF',
+    'BtMM_wurzel_v1.0_2026-11-02.md': '# Wurzel',
+    'PDFS/04-finanzen/BtMM_plan_v1.0_2026-11-02.pdf': '%PDF plan',
+  }), outDir: out, publicDir: pub, log: (l) => logs.push(l) })
+  assert.deepEqual(m.map((d) => d.slug), ['konzept', 'plan'])
+  const alles = JSON.stringify(m) + readdirSync(out).join() + readdirSync(pub).join() + readdirSync(join(pub, 'pdf')).join()
+  for (const w of ['geheim', 'notiz', 'bild', 'wurzel', 'x.pdf']) assert.ok(!alles.includes(w), w)
+  assert.ok(logs.some((l) => l.includes('direkt in der Wurzel')))
 })
