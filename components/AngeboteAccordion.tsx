@@ -43,10 +43,10 @@ const FALLBACK_ANGEBOTE: Angebot[] = [
   {
     id: 'koerperarbeit-freiburg',
     titel: 'Back to Meaning Maximization Körperarbeit - 79102 Freiburg D',
-    beschreibung: 'Tiefgreifende Wellnessmethode für den gesamten Bewegungsapparat. Sanfte Schwingungen bewirken einen Reset auf allen Gelenkebenen.',
+    beschreibung: 'Ganzheitliche Körperarbeit zur Entspannung. Sanfte Schwingungen laden dazu ein, den ganzen Körper bewusst wahrzunehmen.',
     details: [
       'Eine Auszeit zum Entspannen und Durchatmen',
-      'Ideal zur Geburtsvorbereitung und postnatalen Regeneration',
+      'Zeit für Ruhe und bewusste Körperwahrnehmung',
       'Ganzheitlicher Ansatz: Körper, Geist und Nervensystem',
       'Einzelsitzungen und Pakete verfügbar',
     ],
