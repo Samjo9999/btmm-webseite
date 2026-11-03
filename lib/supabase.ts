@@ -1,10 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+import type { SupabaseClient } from '@supabase/supabase-js'
 
-// Public read-only client using anon key only – no service key on the website
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY
+
+// Public read-only client using anon key only – no service key on the website.
+// Without env (e.g. CI build) the client is null and callers must render empty data.
+export const supabase: SupabaseClient | null =
+  supabaseUrl && supabaseAnonKey ? createClient(supabaseUrl, supabaseAnonKey) : null
 
 export type FundraisingData = {
   aktuell_eur: number
