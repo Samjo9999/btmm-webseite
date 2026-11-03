@@ -282,7 +282,7 @@ export function SpendenFortschritt() {
 - Kontaktformular → `/api/contact` → Resend
 
 ### /gruendung
-- Offener Brief an die 7 Gründungsmitglieder
+- Offener Brief an die Gründungsmitglieder
 - Zeitplan + Kontaktformular
 
 ### /spenden

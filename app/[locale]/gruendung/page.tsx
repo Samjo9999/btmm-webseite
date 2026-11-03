@@ -9,7 +9,7 @@ import { ContactForm } from '@/components/ContactForm'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Gründung – Back to Meaning Maximization eG',
+  title: 'Gründung – Back to Meaning Maximization eG i.Gr.',
   description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Ein offener Brief an die Gründungsmitglieder. Werde Teil der Bewegung.',
 }
 

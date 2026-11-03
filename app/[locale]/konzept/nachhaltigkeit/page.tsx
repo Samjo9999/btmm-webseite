@@ -95,7 +95,7 @@ export default async function NachhaltigkeitPage() {
               1. Rechtsform: Genossenschaft + Förderverein
             </h3>
             <p style={{ lineHeight: 1.8, fontSize: '1rem', marginBottom: '1rem' }}>
-              <strong>Die eingetragene Genossenschaft (eG)</strong> hat eine einzige Prämisse: Sie kann niemals an Externe verkauft werden. Wer raus geht, geht raus. Die Anteile folgen nicht. Das ist nicht ein Risikoschutz — das ist ein struktureller Schutz vor Übernahme, Privatisierung, Börsengang.
+              <strong>Die Genossenschaft in Gründung (eG i.Gr.)</strong> hat eine einzige Prämisse: Sie soll niemals an Externe verkauft werden können. Wer raus geht, geht raus. Die Anteile folgen nicht. Das ist nicht ein Risikoschutz — das ist ein struktureller Schutz vor Übernahme, Privatisierung, Börsengang.
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1rem', marginBottom: '1rem' }}>
               <strong>Der Förderverein (e.V.)</strong> ist die transparente Schicht nach außen: Spendensammlung, öffentlichkeitsarbeit, Netzwerkaufbau. Seine Organe sind Teil der BtMM-Governance — nicht separat, sondern integriert.
