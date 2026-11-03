@@ -18,13 +18,10 @@ const PRESS_DIR = join(process.cwd(), 'public', 'press');
 
 // Mapping: slug → PDF-Dateiname in content/pdf/
 const pdfMapping = {
-  'konzept': 'BTB_Konzept_v16_0_0.pdf',
-  'satzung': 'BackToBalance_Satzung_2028.pdf',
   'einfuehrung': 'BtB_Einfuehrung.pdf',
   'wirtschaften': 'BtB_Wirtschaften_Anleitung_v1_1_0.pdf',
   'ideen-horizont': 'BTB_Ideen_Horizont_v2_0_0.pdf',
   'gemeinschaftskultur': 'BtB_Gemeinschaftskultur.pdf',
-  'spendenaufruf': 'BtB_Spendenaufruf_2028.pdf',
   'handwerk': 'BtB_Handwerk_Ergaenzung.pdf',
 };
 
@@ -245,8 +242,6 @@ async function main() {
 
   // Also copy to press folder (Konzept + Satzung)
   const pressFiles = {
-    'BTB_Konzept.pdf': join(OUTPUT_DIR, 'konzept.pdf'),
-    'BTB_Satzung.pdf': join(OUTPUT_DIR, 'satzung.pdf'),
   };
   for (const [pressName, source] of Object.entries(pressFiles)) {
     if (existsSync(source) && existsSync(PRESS_DIR)) {

@@ -19,7 +19,6 @@ export function Header({ locale }: { locale: Locale }) {
     { href: '/nachhaltigkeit', label: t('nav.nachhaltigkeit') },
     { href: '/angebote', label: t('nav.angebote') },
     { href: '/mitmachen', label: t('nav.mitmachen') },
-    { href: '/spenden', label: t('nav.spenden') },
     { href: '/dokumente', label: t('nav.dokumente') },
     { href: '/app', label: t('nav.app') },
     { href: '/zellen', label: t('nav.zellen') },

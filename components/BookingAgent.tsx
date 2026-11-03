@@ -405,7 +405,7 @@ export function BookingAgent() {
                     fontFamily: 'inherit',
                   }}
                 >
-                  Direkt buchen
+                  Termin anfragen
                 </a>
               </div>
             )}

@@ -60,9 +60,9 @@ export default function BuchungsbedingungenPage() {
               1. Vertragsschluss
             </h2>
             <p>
-              Mit Klick auf &bdquo;Jetzt verbindlich buchen&ldquo; kommt ein Vertrag
-              über die gewählte Dienstleistung zustande. Der Vertrag kommt mit Zugang der
-              Buchungsbestätigung per E-Mail zustande.
+              Über die Webseite kannst du derzeit nur eine unverbindliche Terminanfrage
+              stellen. Durch die Anfrage kommt noch kein Vertrag zustande. Wir melden uns
+              per E-Mail und stimmen den Termin mit dir ab.
             </p>
 
             <h2 style={headingStyle}>
@@ -70,8 +70,8 @@ export default function BuchungsbedingungenPage() {
             </h2>
             <p>
               Alle Preise in EUR. Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine
-              Umsatzsteuer erhoben und daher auch nicht ausgewiesen. Die Zahlung erfolgt
-              vor Ort in bar oder per Überweisung.
+              Umsatzsteuer erhoben und daher auch nicht ausgewiesen. Es gibt keine Vorkasse
+              und keine Online-Zahlung.
             </p>
 
             <h2 style={headingStyle}>
@@ -146,7 +146,7 @@ export default function BuchungsbedingungenPage() {
             <div style={{ marginTop: '3rem', padding: '1.5rem', background: 'var(--btb-creme)', borderRadius: 12 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
                 <strong>Anbieter:</strong><br />
-                Back to Meaning Maximization eG i.Gr.<br />
+                Johannes-Samuel Gartzke (Kleingewerbe; BtMM eG in Gründung, besteht noch nicht)<br />
                 Hildastr. 12, 79102 Freiburg im Breisgau<br />
                 E-Mail: office@b-t-m-m.com
               </p>

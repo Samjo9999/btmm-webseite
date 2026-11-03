@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Gemeinschaft",
     "gemeinschaft_text": "Lokale Zellen bilden das Herzstück von BtMM. Menschen kommen zusammen, unterstützen sich und gestalten gemeinsam ihre wirtschaftliche Zukunft.",
     "nachhaltigkeit_titel": "Nachhaltigkeit",
-    "nachhaltigkeit_text": "Genossenschaft in Gründung (eG i.Gr.) + Förderverein (e.V.). Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
+    "nachhaltigkeit_text": "Genossenschaft in Gründung (eG i.Gr.). Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
     "nachhaltigkeit_mehr_erfahren": "Mehr über Nachhaltigkeit",
     "nachhaltigkeit_mehr_erfahren_url": "/konzept/nachhaltigkeit"
   },
@@ -20,14 +20,12 @@
     "titel": "BtMM in Zahlen",
     "gruendungsmitglieder": "Gründungsmitglieder",
     "gruendungsmitglieder_ziel": "von 7",
-    "aktive_zellen": "Aktive Zellen",
-    "gespendete_euro": "Gespendete Euro",
-    "gespendete_euro_hinweis": "Live-Daten aus Supabase"
+    "aktive_zellen": "Aktive Zellen"
   },
   "angebote_teaser": {
     "titel": "Unsere Angebote",
     "text": "Somatische Körperarbeit für mehr Gleichgewicht und Vitalität. Individuelle Begleitung, die dem Rhythmus Ihres Körpers folgt – ohne Druck, ohne Eile.",
-    "text2": "Entdecken Sie tiefe Entspannung und nachhaltige Veränderung in einem geschützten, professionellen Rahmen in Freiburg. In 1–3 Sitzungen sind spürbare Veränderungen möglich.",
+    "text2": "Entdecken Sie tiefe Entspannung in einem geschützten, professionellen Rahmen in Freiburg. Nehmen Sie sich Zeit für sich.",
     "cta": "Angebote entdecken"
   },
   "app_teaser": {
@@ -42,11 +40,6 @@
     "cta": "App entdecken",
     "hinweis": "Nur für Mitglieder"
   },
-  "spenden_teaser": {
-    "titel": "Unterstütze BtMM",
-    "text": "Deine Spende hilft uns, die Infrastruktur aufzubauen, die eine gerechtere Wirtschaft ermöglicht. Jeder Beitrag zählt.",
-    "cta": "Jetzt spenden"
-  },
   "zellen_karte": {
     "titel": "BtMM-Zellen weltweit",
     "text": "Überall auf der Welt entstehen BtMM-Zellen – lokale Gemeinschaften, die gemeinsam wirtschaften."
@@ -60,20 +53,8 @@
   "zellen_alle": "Alle Zellen ansehen",
   "mitgliedschaft": {
     "titel": "Mitgliedschaft",
-    "untertitel": "Vier Wege, Teil von BtMM zu sein",
+    "untertitel": "Zwei Wege, Teil von BtMM zu sein",
     "stufen": [
-      {
-        "stufe": "Unterstützer",
-        "preis": "ab €50/Jahr",
-        "beschreibung": "Zeit, Fähigkeiten, Spenden",
-        "benefits": "10% Rabatt auf externe Leistungen"
-      },
-      {
-        "stufe": "Fördermitglied",
-        "preis": "€1.000/Jahr",
-        "beschreibung": "Frühes Commitment",
-        "benefits": "Einkaufspreise sofort"
-      },
       {
         "stufe": "Anwärter",
         "preis": "Variable Beteiligung",

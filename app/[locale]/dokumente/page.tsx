@@ -12,18 +12,15 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Dokumente – Back to Meaning Maximization',
-  description: 'Konzeptpapiere, Satzungsentwürfe und weitere Dokumente von Back to Meaning Maximization als Leseansicht.',
+  description: 'Einführungen und weitere Dokumente von Back to Meaning Maximization als Leseansicht.',
 }
 
 async function getDokumente() {
   const dokumente = [
-    { slug: 'konzept', titel: 'Vollkonzept', version: 'v16.1.0' },
-    { slug: 'satzung', titel: 'Satzung eG & e.V.', version: 'Entwurf' },
     { slug: 'einfuehrung', titel: 'Einführung', version: 'Aktuell' },
     { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
     { slug: 'ideen-horizont', titel: 'Ideen & Horizonte', version: 'v2.0.0' },
     { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur', version: 'Aktuell' },
-    { slug: 'spendenaufruf', titel: 'Spendenaufruf', version: 'Aktuell' },
     { slug: 'handwerk', titel: 'Handwerk & Zulassungen', version: 'Aktuell' },
   ]
 

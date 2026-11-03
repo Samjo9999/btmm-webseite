@@ -5,7 +5,6 @@
     "allgemein": "一般",
     "mitgliedschaft": "メンバーシップ",
     "koerperarbeit": "ボディワーク",
-    "spenden": "寄付",
     "app": "アプリ"
   },
   "fragen": {
@@ -27,11 +26,7 @@
     },
     "koerperarbeit_unterschied": {
       "frage": "BtMMボディワークとは？",
-      "antwort": "ソマティック・サポートであり、治療ではありません。"
-    },
-    "spenden_wohin": {
-      "frage": "寄付はどこに使われる？",
-      "antwort": "インフラの構築に使われます。"
+      "antwort": "リラクゼーションと自己認識のためのボディワークであり、治療ではなく、医療の代わりにもなりません。"
     },
     "app_login": {
       "frage": "アプリはどこ？",

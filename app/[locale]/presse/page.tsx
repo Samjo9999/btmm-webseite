@@ -36,8 +36,6 @@ const kernaussagen = [
 
 const downloads = [
   { key: 'logo_png' as const, href: '/press/logo.png' },
-  { key: 'konzept_pdf' as const, href: '/press/BTB_Konzept.pdf' },
-  { key: 'satzung_pdf' as const, href: '/press/BTB_Satzung.pdf' },
 ]
 
 export default async function PressePage() {

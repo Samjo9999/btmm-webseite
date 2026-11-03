@@ -19,7 +19,7 @@ const angebote: Angebot[] = [
   {
     id: 'koerperarbeit-freiburg',
     titel: 'Back to Meaning Maximization Körperarbeit Freiburg',
-    beschreibung: 'Tiefgreifende Wellnessmethode für den gesamten Bewegungsapparat. Sanfte Schwingungen bewirken einen Reset auf allen Gelenkebenen. Besonders wohltuend bei Rückenbeschwerden, Verspannungen, Kopfschmerzen und zur Geburtsvorbereitung.',
+    beschreibung: 'Ganzheitliche Körperarbeit zur Entspannung. Sanfte Schwingungen laden dazu ein, den ganzen Körper bewusst wahrzunehmen. Eine Auszeit zum Entspannen und Durchatmen.',
     ort: 'Freiburg',
     kategorie: 'Körperarbeit',
     preis: 'ab 70 €',

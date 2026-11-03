@@ -379,7 +379,7 @@ export default function PreisePage() {
                         className="btn-primary"
                         style={{ display: 'inline-block', fontSize: '0.9rem' }}
                       >
-                        Termin buchen
+                        Termin anfragen
                       </Link>
                     </div>
                   </SectionReveal>
@@ -390,8 +390,8 @@ export default function PreisePage() {
 
           <p style={{ fontSize: '0.8rem', opacity: 0.5, marginBottom: '2rem' }}>
               {vatEnabled
-                ? `Alle Preise verstehen sich als Nettopreise zzgl. ${vatRate}% MwSt. Terminbuchung direkt online über die Webseite.`
-                : 'Alle Preise sind Endpreise. Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine MwSt erhoben. Terminbuchung direkt online über die Webseite.'}
+                ? `Alle Preise verstehen sich als Nettopreise zzgl. ${vatRate}% MwSt. Termine nur auf unverbindliche Anfrage, keine Vorkasse.`
+                : 'Alle Preise sind Endpreise. Gemäß § 19 UStG (Kleinunternehmerregelung) wird keine MwSt erhoben. Termine nur auf unverbindliche Anfrage, keine Vorkasse.'}
           </p>
 
           <h2 style={{

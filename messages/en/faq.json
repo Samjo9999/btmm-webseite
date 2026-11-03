@@ -5,7 +5,6 @@
     "allgemein": "General",
     "mitgliedschaft": "Membership",
     "koerperarbeit": "Body Work",
-    "spenden": "Donations",
     "app": "App"
   },
   "fragen": {
@@ -15,11 +14,11 @@
     },
     "wie_mitmachen": {
       "frage": "How can I participate?",
-      "antwort": "You can join as a supporting member of the e.V. (from €50/year) or – once the founding is complete – become an active member of the cooperative. Write to us via the contact form on /mitmachen."
+      "antwort": "The cooperative is being founded and does not exist yet. Once it is founded, you can become a member. Write to us via the contact form on /mitmachen."
     },
     "was_kostet": {
       "frage": "What does membership cost?",
-      "antwort": "Supporting membership in the e.V. costs from €50 per year. Active membership in the cooperative is still in the founding phase – sign up for updates."
+      "antwort": "Membership in the cooperative is still in the founding phase – sign up for updates."
     },
     "was_sind_coins": {
       "frage": "What are BtMM Coins?",
@@ -27,11 +26,7 @@
     },
     "koerperarbeit_unterschied": {
       "frage": "What distinguishes BtMM body work from other approaches?",
-      "antwort": "BtMM body work is not therapy and not a wellness offering. It is somatic accompaniment that understands the body as an independent carrier of information. We work with what is – not with what should be."
-    },
-    "spenden_wohin": {
-      "frage": "Where does my donation go?",
-      "antwort": "Your donation goes into building the BtMM infrastructure: technical development, legal founding of the cooperative and the first community projects. The donation status is viewable live on the website."
+      "antwort": "BtMM body work is bodywork for relaxation and self-awareness, not therapy and no substitute for medical treatment."
     },
     "app_login": {
       "frage": "How do I access the BtMM app?",

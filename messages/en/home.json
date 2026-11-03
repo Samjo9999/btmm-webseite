@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Community",
     "gemeinschaft_text": "Local cells form the heart of BtMM. People come together, support each other and shape their economic future collectively.",
     "nachhaltigkeit_titel": "Sustainability",
-    "nachhaltigkeit_text": "Cooperative in formation (eG i.Gr.) + support association (e.V.). Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
+    "nachhaltigkeit_text": "Cooperative in formation (eG i.Gr.). Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
     "nachhaltigkeit_mehr_erfahren": "Learn more about sustainability",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -20,14 +20,12 @@
     "titel": "BtMM in Numbers",
     "gruendungsmitglieder": "Founding members",
     "gruendungsmitglieder_ziel": "of 7",
-    "aktive_zellen": "Active cells",
-    "gespendete_euro": "Euros donated",
-    "gespendete_euro_hinweis": "Live data from Supabase"
+    "aktive_zellen": "Active cells"
   },
   "angebote_teaser": {
     "titel": "Our Offerings",
     "text": "Somatic body work for more balance and vitality. Individual accompaniment that follows the rhythm of your body – without pressure, without haste.",
-    "text2": "Discover deep relaxation and lasting change in a safe, professional setting in Freiburg. Noticeable changes are possible in 1–3 sessions.",
+    "text2": "Discover deep relaxation in a safe, professional setting in Freiburg. Take time for yourself.",
     "cta": "Discover offerings"
   },
   "app_teaser": {
@@ -42,11 +40,6 @@
     "cta": "Discover app",
     "hinweis": "Members only"
   },
-  "spenden_teaser": {
-    "titel": "Support BtMM",
-    "text": "Your donation helps us build the infrastructure that enables a more just economy. Every contribution counts.",
-    "cta": "Donate now"
-  },
   "zellen_karte": {
     "titel": "BtMM Cells Worldwide",
     "text": "BtMM cells are emerging around the world – local communities that practice economic cooperation."
@@ -60,20 +53,8 @@
   "zellen_alle": "View all cells",
   "mitgliedschaft": {
     "titel": "Membership",
-    "untertitel": "Four ways to be part of BtMM",
+    "untertitel": "Two ways to be part of BtMM",
     "stufen": [
-      {
-        "stufe": "Supporter",
-        "preis": "from €50/year",
-        "beschreibung": "Time, skills, donations",
-        "benefits": "10% discount on external services"
-      },
-      {
-        "stufe": "Patron Member",
-        "preis": "€1,000/year",
-        "beschreibung": "Early commitment",
-        "benefits": "Wholesale prices immediately"
-      },
       {
         "stufe": "Apprentice",
         "preis": "Variable participation",

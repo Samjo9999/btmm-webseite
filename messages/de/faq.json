@@ -5,7 +5,6 @@
     "allgemein": "Allgemein",
     "mitgliedschaft": "Mitgliedschaft",
     "koerperarbeit": "Körperarbeit",
-    "spenden": "Spenden",
     "app": "App"
   },
   "fragen": {
@@ -15,11 +14,11 @@
     },
     "wie_mitmachen": {
       "frage": "Wie kann ich mitmachen?",
-      "antwort": "Du kannst als Fördermitglied des e.V. beitreten (ab 50€/Jahr) oder – sobald die Gründung abgeschlossen ist – Aktivmitglied der Genossenschaft werden. Schreib uns über das Kontaktformular auf /mitmachen."
+      "antwort": "Die Genossenschaft ist in Gründung und besteht noch nicht. Sobald sie gegründet ist, kannst du Mitglied werden. Schreib uns über das Kontaktformular auf /mitmachen."
     },
     "was_kostet": {
       "frage": "Was kostet eine Mitgliedschaft?",
-      "antwort": "Die Fördermitgliedschaft im e.V. kostet ab 50€ pro Jahr. Die Aktivmitgliedschaft in der Genossenschaft befindet sich noch in der Gründungsphase – melde dich für Updates an."
+      "antwort": "Die Mitgliedschaft in der Genossenschaft befindet sich noch in der Gründungsphase – melde dich für Updates an."
     },
     "was_sind_coins": {
       "frage": "Was sind BtMM-Coins?",
@@ -27,11 +26,7 @@
     },
     "koerperarbeit_unterschied": {
       "frage": "Was unterscheidet BtMM-Körperarbeit von anderen Ansätzen?",
-      "antwort": "BtMM-Körperarbeit ist keine Therapie und kein Wellness-Angebot. Es ist eine ganzheitliche Begleitung, die den Körper als eigenständigen Informationsträger versteht. Wir arbeiten mit dem, was ist – nicht mit dem, was sein sollte."
-    },
-    "spenden_wohin": {
-      "frage": "Wohin geht meine Spende?",
-      "antwort": "Deine Spende fließt in den Aufbau der BtMM-Infrastruktur: technische Entwicklung, rechtliche Gründung der Genossenschaft und die ersten Gemeinschaftsprojekte. Der Spendenstand ist live auf der Website einsehbar."
+      "antwort": "BtMM-Körperarbeit ist Körperarbeit zur Entspannung und Selbstwahrnehmung, keine Therapie und kein Ersatz für ärztliche Behandlung."
     },
     "app_login": {
       "frage": "Wie komme ich zur BtMM-App?",

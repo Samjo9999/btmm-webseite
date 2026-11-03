@@ -36,14 +36,14 @@ export default async function AblaufPage() {
       }}>
         <Image
           src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
-          alt="Ruhiger Behandlungsraum — Raum für Veränderung"
+          alt="Ruhiger Raum für Körperarbeit — Raum für Veränderung"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
-          alt="Ruhiger Behandlungsraum — Raum für Veränderung"
+          alt="Ruhiger Raum für Körperarbeit — Raum für Veränderung"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
           <p style={{ color: 'var(--btb-creme)', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}>
@@ -80,7 +80,7 @@ export default async function AblaufPage() {
               }}>
                 <Image
                   src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80"
-                  alt="Ruhiger Behandlungsraum mit warmem Licht — Raum für Körperarbeit"
+                  alt="Ruhiger Raum für Körperarbeit mit warmem Licht — Raum für Körperarbeit"
                   width={800}
                   height={533}
                   style={{ width: '100%', height: 'auto', display: 'block' }}
