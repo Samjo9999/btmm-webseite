@@ -133,7 +133,7 @@ export default function PreisePage() {
             marginBottom: '1rem',
             lineHeight: 1.7, fontSize: '0.95rem', color: 'var(--btb-dunkel)',
           }}>
-            <strong style={{ color: 'var(--btb-oliv)' }}>Warum ein Paket?</strong> Tiefsitzende Spannungsmuster können sich überlagern und lösen sich manchmal nicht in einer einzelnen Sitzung. Das 3er-Paket gibt dir die Möglichkeit, deinen Körper über mehrere Sitzungen zu begleiten.
+            <strong style={{ color: 'var(--btb-oliv)' }}>Warum ein Paket?</strong> Manche Menschen möchten die Körperarbeit über mehrere Termine kennenlernen. Das 3er-Paket fasst drei Sitzungen zusammen.
           </div>
 
           <div style={{
