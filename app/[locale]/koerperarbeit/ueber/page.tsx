@@ -36,14 +36,14 @@ export default async function UeberPage() {
       }}>
         <Image
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
-          alt="Heilende Hände — Körperarbeit"
+          alt="Achtsame Hände — Körperarbeit"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
           src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
-          alt="Heilende Hände — Körperarbeit"
+          alt="Achtsame Hände — Körperarbeit"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
           <p style={{ color: 'var(--btb-creme)', opacity: 0.6, marginBottom: '0.5rem', fontSize: '0.9rem' }}>
@@ -79,7 +79,7 @@ export default async function UeberPage() {
               }}>
                 <Image
                   src="/images/johannes-mit-hund.webp"
-                  alt="Johannes-Samuel Gartzke mit Hund im Gras"
+                  alt={t('ueber.bild_alt')}
                   fill
                   sizes="(max-width: 700px) 100vw, 400px"
                   style={{ objectFit: 'cover' }}
@@ -115,7 +115,7 @@ export default async function UeberPage() {
                 }}>
                   <Image
                     src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
-                    alt="Körperarbeiter bei einer achtsamen Behandlung — Hände und Präsenz"
+                    alt="Körperarbeiter bei einer achtsamen Begleitung — Hände und Präsenz"
                     width={800}
                     height={533}
                     style={{ width: '100%', height: 'auto', display: 'block' }}
