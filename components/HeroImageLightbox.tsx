@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import Image from 'next/image'
-import { X, Maximize2 } from 'lucide-react'
+import { ImageZoomDialog } from '@/components/ImageZoomDialog'
+import { Maximize2 } from 'lucide-react'
 
 interface HeroImageLightboxProps {
   src: string
@@ -59,65 +59,7 @@ export function HeroImageLightbox({ src, alt }: HeroImageLightboxProps) {
         <span>Bild ansehen</span>
       </button>
 
-      {/* Lightbox */}
-      {open && (
-        <div
-          onClick={() => setOpen(false)}
-          style={{
-            position: 'fixed',
-            inset: 0,
-            zIndex: 1000,
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'rgba(0, 0, 0, 0.92)',
-            backdropFilter: 'blur(8px)',
-            cursor: 'zoom-out',
-          }}
-        >
-          <button
-            onClick={() => setOpen(false)}
-            style={{
-              position: 'absolute',
-              top: 20,
-              right: 20,
-              background: 'rgba(255,255,255,0.15)',
-              border: 'none',
-              borderRadius: '50%',
-              width: 44,
-              height: 44,
-              cursor: 'pointer',
-              color: 'white',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-            }}
-          >
-            <X size={24} />
-          </button>
-          <div onClick={(e) => e.stopPropagation()} style={{ position: 'relative', width: '90vw', height: '85vh' }}>
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              style={{ objectFit: 'contain' }}
-              sizes="90vw"
-            />
-          </div>
-          <p style={{
-            position: 'absolute',
-            bottom: 20,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            color: 'rgba(255,255,255,0.6)',
-            fontSize: '0.85rem',
-            fontFamily: 'var(--font-garamond)',
-            fontStyle: 'italic',
-          }}>
-            {alt}
-          </p>
-        </div>
-      )}
+      <ImageZoomDialog src={src} alt={alt} open={open} onOpenChange={setOpen} />
     </>
   )
 }
