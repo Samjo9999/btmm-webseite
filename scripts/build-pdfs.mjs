@@ -24,7 +24,6 @@ const pdfMapping = {
   'wirtschaften': 'BtB_Wirtschaften_Anleitung_v1_1_0.pdf',
   'ideen-horizont': 'BTB_Ideen_Horizont_v2_0_0.pdf',
   'gemeinschaftskultur': 'BtB_Gemeinschaftskultur.pdf',
-  'spendenaufruf': 'BtB_Spendenaufruf_2028.pdf',
   'handwerk': 'BtB_Handwerk_Ergaenzung.pdf',
 };
 

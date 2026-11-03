@@ -23,7 +23,6 @@ async function getDokumente() {
     { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
     { slug: 'ideen-horizont', titel: 'Ideen & Horizonte', version: 'v2.0.0' },
     { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur', version: 'Aktuell' },
-    { slug: 'spendenaufruf', titel: 'Spendenaufruf', version: 'Aktuell' },
     { slug: 'handwerk', titel: 'Handwerk & Zulassungen', version: 'Aktuell' },
   ]
 

@@ -24,7 +24,6 @@ function ladeDokumente(): { slug: string; titel: string; content: string }[] {
     { slug: 'wirtschaften', titel: 'Wirtschaften im System' },
     { slug: 'ideen-horizont', titel: 'Ideen & Horizonte' },
     { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur' },
-    { slug: 'spendenaufruf', titel: 'Spendenaufruf' },
     { slug: 'handwerk', titel: 'Handwerk & Zulassungen' },
   ]
 
