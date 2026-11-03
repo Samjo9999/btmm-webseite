@@ -9,9 +9,9 @@
 //    Bei gleicher Version gewinnt das spätere Datum.
 // 3. Titel = erste "# "-Überschrift, sonst der Slug.
 // 4. Freigabe über Frontmatter "oeffentlich":
-//    - Standard (DOCS_REQUIRE_PUBLIC_FLAG nicht "true"): alles wird veröffentlicht,
-//      AUSSER Dateien mit "oeffentlich: false".
-//    - DOCS_REQUIRE_PUBLIC_FLAG=true: NUR Dateien mit "oeffentlich: true".
+//    - Standard (DOCS_REQUIRE_PUBLIC_FLAG nicht gesetzt oder "true"): NUR Dateien mit
+//      "oeffentlich: true" (SPANNUNGEN 89).
+//    - DOCS_REQUIRE_PUBLIC_FLAG=false: alles wird veröffentlicht, AUSSER "oeffentlich: false".
 //    Die Freigabe wird an der jeweils höchsten Version geprüft; ist die gesperrt,
 //    erscheint das Dokument gar nicht (keine Rückfall-Version).
 // 5. Frontmatter "aenderung" wird als Änderungsvermerk angezeigt.
@@ -24,7 +24,7 @@
 // 9. PDFs liegen unter einem Ordner "pdf" (rekursiv), Schema wie oben mit .pdf. Pro Dokument
 //    gilt die neueste PDF (Regel 2). Zuordnung: gleicher Slug + gleiche Kategorie, sonst
 //    gleicher Slug, wenn eindeutig. Gesperrtes MD (oeffentlich: false) => PDF auch gesperrt.
-//    PDF ohne MD: nur wenn DOCS_REQUIRE_PUBLIC_FLAG nicht gesetzt ist, sonst übersprungen.
+//    PDF ohne MD: nur wenn DOCS_REQUIRE_PUBLIC_FLAG=false, sonst übersprungen.
 import matter from 'gray-matter'
 
 export const DEFAULT_PREFIX = 'BtMM'

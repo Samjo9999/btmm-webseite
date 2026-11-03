@@ -138,7 +138,7 @@ if (import.meta.url === `file://${process.argv[1]}`) {
     outDir: 'content/drive-dokumente', publicDir: 'public/dokumente', pdfDir: 'public/dokumente/pdf',
     pdfMaxMb: Number(process.env.DOCS_PDF_MAX_MB) || PDF_MAX_MB,
     prefix: process.env.DOCS_PROJECT_PREFIX || DEFAULT_PREFIX,
-    requireFlag: process.env.DOCS_REQUIRE_PUBLIC_FLAG === 'true',
+    requireFlag: process.env.DOCS_REQUIRE_PUBLIC_FLAG !== 'false', // Standard: true
   })
   console.log(`${m.length} Dokument(e) synchronisiert.`)
 }
