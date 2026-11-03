@@ -20,9 +20,7 @@
     "titel": "संख्याओं में BtMM",
     "gruendungsmitglieder": "संस्थापक सदस्य",
     "gruendungsmitglieder_ziel": "7 में से",
-    "aktive_zellen": "सक्रिय सेल",
-    "gespendete_euro": "दान किए गए यूरो",
-    "gespendete_euro_hinweis": "Supabase से लाइव डेटा"
+    "aktive_zellen": "सक्रिय सेल"
   },
   "angebote_teaser": {
     "titel": "हमारी पेशकशें",

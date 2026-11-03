@@ -29,6 +29,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
   const t = useTranslations('common')
   const startedAt = useRef(Date.now())
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+  const [serverFehler, setServerFehler] = useState<string | null>(null)
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
     resolver: zodResolver(schema),
@@ -37,16 +38,20 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
 
   const onSubmit = async (data: FormData) => {
     setStatus('loading')
+    setServerFehler(null)
     try {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ ...data, typ, startedAt: startedAt.current }),
       })
-      if (res.ok) {
+      const antwort = await res.json().catch(() => null)
+      // Nur bei 2xx und success:true als gesendet anzeigen, sonst immer Fehlermeldung
+      if (res.ok && antwort?.success === true) {
         setStatus('success')
         reset()
       } else {
+        setServerFehler(typeof antwort?.error === 'string' ? antwort.error : null)
         setStatus('error')
       }
     } catch {
@@ -183,7 +188,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
           color: 'var(--btb-rot)', fontSize: '0.9rem',
         }}>
           <AlertCircle size={18} />
-          {t('form.fehler')}
+          {serverFehler || t('form.fehler')}
         </div>
       )}
 

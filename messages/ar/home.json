@@ -20,9 +20,7 @@
     "titel": "BtMM بالأرقام",
     "gruendungsmitglieder": "الأعضاء المؤسسون",
     "gruendungsmitglieder_ziel": "من 7",
-    "aktive_zellen": "خلايا نشطة",
-    "gespendete_euro": "يورو تم التبرع به",
-    "gespendete_euro_hinweis": "بيانات مباشرة من Supabase"
+    "aktive_zellen": "خلايا نشطة"
   },
   "angebote_teaser": {
     "titel": "عروضنا",

@@ -20,9 +20,7 @@
     "titel": "BtMM in Numbers",
     "gruendungsmitglieder": "Founding members",
     "gruendungsmitglieder_ziel": "of 7",
-    "aktive_zellen": "Active cells",
-    "gespendete_euro": "Euros donated",
-    "gespendete_euro_hinweis": "Live data from Supabase"
+    "aktive_zellen": "Active cells"
   },
   "angebote_teaser": {
     "titel": "Our Offerings",

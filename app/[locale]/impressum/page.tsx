@@ -13,7 +13,9 @@ export const metadata: Metadata = {
   description: 'Impressum und Datenschutzerklärung von Back to Meaning Maximization, Freiburg im Breisgau.',
 }
 
-export default async function ImpressumPage() {
+export default async function ImpressumPage({ params }: { params: Promise<{ locale: string }> }) {
+  const { locale } = await params
+  const kontaktformularUrl = `/${locale}/koerperarbeit/kontakt`
   return (
     <>
       <section style={{
@@ -61,7 +63,9 @@ export default async function ImpressumPage() {
                 <h3>Kontakt</h3>
                 <p>
                   E-Mail: office@b-t-m-m.com<br />
-                  Website: www.b-t-m-m.com
+                  Website: www.b-t-m-m.com<br />
+                  Kontaktformular: <a href={kontaktformularUrl}>{`www.b-t-m-m.com${kontaktformularUrl}`}</a>
+                  {contact.telefon ? (<><br />Telefon: {contact.telefon}</>) : null}
                   {contact.impressum_kontakt2 ? (<><br />{contact.impressum_kontakt2}</>) : null}
                 </p>
                 {contact.impressum_ust || contact.impressum_kleinunternehmer ? (

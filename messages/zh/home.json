@@ -20,9 +20,7 @@
     "titel": "BtMM 数据一览",
     "gruendungsmitglieder": "创始成员",
     "gruendungsmitglieder_ziel": "目标 7 人",
-    "aktive_zellen": "活跃细胞组",
-    "gespendete_euro": "已捐赠欧元",
-    "gespendete_euro_hinweis": "来自 Supabase 的实时数据"
+    "aktive_zellen": "活跃细胞组"
   },
   "angebote_teaser": {
     "titel": "我们的服务",

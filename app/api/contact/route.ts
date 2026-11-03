@@ -14,6 +14,37 @@ const contactSchema = z.object({
 
 const MIN_AUSFUELLZEIT_MS = 3000
 
+// Rate-Limit: max. 5 Anfragen pro IP in 10 Minuten.
+// Best effort: Der Speicher liegt nur im Arbeitsspeicher der jeweiligen Instanz. Auf
+// Serverless (Vercel) hat jede Instanz eigenen Speicher und verliert ihn bei Kaltstarts,
+// das Limit ist daher kein harter Schutz.
+const RATE_LIMIT_MAX = 5
+const RATE_LIMIT_WINDOW_MS = 10 * 60 * 1000
+const rateLimitStore = new Map<string, number[]>()
+
+function istRateLimitiert(ip: string): boolean {
+  const jetzt = Date.now()
+  const treffer = (rateLimitStore.get(ip) || []).filter((t) => jetzt - t < RATE_LIMIT_WINDOW_MS)
+  if (treffer.length >= RATE_LIMIT_MAX) {
+    rateLimitStore.set(ip, treffer)
+    return true
+  }
+  treffer.push(jetzt)
+  rateLimitStore.set(ip, treffer)
+  if (rateLimitStore.size > 5000) {
+    for (const [key, werte] of rateLimitStore) {
+      if (werte.every((t) => jetzt - t >= RATE_LIMIT_WINDOW_MS)) rateLimitStore.delete(key)
+    }
+  }
+  return false
+}
+
+function clientIp(request: NextRequest): string {
+  const forwarded = request.headers.get('x-forwarded-for')
+  if (forwarded) return forwarded.split(',')[0].trim()
+  return request.headers.get('x-real-ip') || 'unbekannt'
+}
+
 function esc(value: string): string {
   return value
     .replace(/&/g, '&amp;')
@@ -24,6 +55,13 @@ function esc(value: string): string {
 }
 
 export async function POST(request: NextRequest) {
+  if (istRateLimitiert(clientIp(request))) {
+    return NextResponse.json(
+      { error: 'Zu viele Anfragen. Bitte versuche es in einigen Minuten erneut.' },
+      { status: 429 },
+    )
+  }
+
   try {
     const body = await request.json()
     const data = contactSchema.parse(body)
@@ -36,7 +74,15 @@ export async function POST(request: NextRequest) {
 
     const resendApiKey = process.env.RESEND_API_KEY
     if (!resendApiKey) {
-      // Development fallback: log and return success
+      if (process.env.NODE_ENV === 'production') {
+        // In Produktion nie Erfolg melden, wenn nichts versendet wird
+        console.error('Kontaktformular: RESEND_API_KEY fehlt, Anfrage nicht versendet')
+        return NextResponse.json(
+          { error: 'Das Kontaktformular ist gerade nicht verfügbar. Bitte schreibe an office@b-t-m-m.com.' },
+          { status: 503 },
+        )
+      }
+      // Nur lokal/Entwicklung: nichts versenden, keine Personendaten loggen
       console.log('Contact form submission received (no Resend key, nicht versendet)')
       return NextResponse.json({ success: true, dev: true })
     }
