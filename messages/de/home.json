@@ -55,20 +55,8 @@
   "zellen_alle": "Alle Zellen ansehen",
   "mitgliedschaft": {
     "titel": "Mitgliedschaft",
-    "untertitel": "Vier Wege, Teil von BtMM zu sein",
+    "untertitel": "Zwei Wege, Teil von BtMM zu sein",
     "stufen": [
-      {
-        "stufe": "Unterstützer",
-        "preis": "ab €50/Jahr",
-        "beschreibung": "Zeit, Fähigkeiten, Spenden",
-        "benefits": "10% Rabatt auf externe Leistungen"
-      },
-      {
-        "stufe": "Fördermitglied",
-        "preis": "€1.000/Jahr",
-        "beschreibung": "Frühes Commitment",
-        "benefits": "Einkaufspreise sofort"
-      },
       {
         "stufe": "Anwärter",
         "preis": "Variable Beteiligung",

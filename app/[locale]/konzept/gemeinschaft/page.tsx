@@ -140,7 +140,6 @@ export default async function GemeinschaftPage() {
             <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>{t('gemeinschaft.stufen_text')}</p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem', marginBottom: '2rem' }}>
               {[
-                { key: 'stufen_unterstuetzer', highlight: false },
                 { key: 'stufen_anwaerter', highlight: false },
                 { key: 'stufen_vollmitglied', highlight: true },
               ].map(({ key, highlight }) => (

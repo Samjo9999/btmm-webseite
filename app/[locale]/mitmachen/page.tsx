@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { Heart, Users, Building2, CheckCircle, ArrowRight } from 'lucide-react'
+import { Building2, CheckCircle, ArrowRight } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { ContactForm } from '@/components/ContactForm'
@@ -10,7 +10,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Mitmachen – Back to Meaning Maximization',
-  description: 'Werde Teil von Back to Meaning Maximization: Unterstützer ab 50€/Jahr, Fördermitglied ab 1.000€/Jahr, oder Vollmitglied der Genossenschaft.',
+  description: 'Werde Teil von Back to Meaning Maximization: Interesse an der Mitgliedschaft in der Genossenschaft in Gründung (eG i.Gr.) melden.',
 }
 
 export default async function MitmachenPage() {
@@ -44,7 +44,7 @@ export default async function MitmachenPage() {
               Mitmachen
             </h1>
             <p style={{ color: 'var(--btb-creme)', opacity: 0.85, lineHeight: 1.8, fontSize: '1.05rem' }}>
-              Das System unterscheidet bewusst drei Stufen der Zugehörigkeit — nicht als Hierarchie, sondern als ehrliche Beschreibung dessen, was jemand gerade einbringt und was das System zurückgeben kann. Niemand wird zu einer höheren Stufe gedrängt.
+              Das System unterscheidet bewusst Stufen der Zugehörigkeit — nicht als Hierarchie, sondern als ehrliche Beschreibung dessen, was jemand gerade einbringt und was das System zurückgeben kann. Niemand wird zu einer höheren Stufe gedrängt.
             </p>
           </SectionReveal>
         </div>
@@ -58,113 +58,6 @@ export default async function MitmachenPage() {
             gap: '1.5rem',
             marginBottom: '4rem',
           }}>
-            {/* Unterstützer */}
-            <SectionReveal>
-              <div className="card-btb" style={{ border: '2px solid rgba(182,24,24,0.2)', height: '100%' }}>
-                <div style={{
-                  width: 56, height: 56, borderRadius: 12,
-                  background: 'rgba(182,24,24,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '1.25rem',
-                }}>
-                  <Heart size={28} style={{ color: 'var(--btb-rot)' }} />
-                </div>
-                <h2 style={{
-                  fontFamily: 'var(--font-garamond)',
-                  color: 'var(--btb-rot)',
-                  fontSize: '1.5rem',
-                  marginBottom: '0.5rem',
-                }}>
-                  Unterstützer
-                </h2>
-                <p style={{ fontSize: '0.85rem', color: 'var(--btb-dunkel)', opacity: 0.6, marginBottom: '1rem' }}>
-                  Unterstützer trägt die Idee — bevor das System selbst trägt
-                </p>
-                <div style={{
-                  fontSize: '2rem',
-                  fontFamily: 'var(--font-garamond)',
-                  fontWeight: 700,
-                  color: 'var(--btb-rot)',
-                  marginBottom: '0.25rem',
-                }}>
-                  ab 50 €
-                </div>
-                <p style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '1.5rem' }}>pro Jahr</p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
-                  {[
-                    '10 % Rabatt auf alle externen Leistungen',
-                    'Zugang zu Veranstaltungen',
-                    'Kein Einführungsprozess nötig',
-                    'Unterstützung der Gemeinschaft',
-                  ].map((item, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--btb-rot)', flexShrink: 0 }} />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a href="#kontakt-form" className="btn-secondary" style={{ width: '100%', justifyContent: 'center' }}>
-                  Unterstützer werden
-                </a>
-              </div>
-            </SectionReveal>
-
-            {/* Fördermitglied */}
-            <SectionReveal delay={0.12}>
-              <div className="card-btb" style={{ border: '2px solid rgba(42,124,171,0.3)', height: '100%' }}>
-                <div style={{
-                  width: 56, height: 56, borderRadius: 12,
-                  background: 'rgba(42,124,171,0.08)',
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  marginBottom: '1.25rem',
-                }}>
-                  <Users size={28} style={{ color: 'var(--btb-blau)' }} />
-                </div>
-                <h2 style={{
-                  fontFamily: 'var(--font-garamond)',
-                  color: 'var(--btb-blau)',
-                  fontSize: '1.5rem',
-                  marginBottom: '0.5rem',
-                }}>
-                  Fördermitglied
-                </h2>
-                <p style={{ fontSize: '0.85rem', color: 'var(--btb-dunkel)', opacity: 0.6, marginBottom: '1rem' }}>
-                  Frühes Commitment — du bist dabei, bevor das System stabil ist
-                </p>
-                <div style={{
-                  fontSize: '2rem',
-                  fontFamily: 'var(--font-garamond)',
-                  fontWeight: 700,
-                  color: 'var(--btb-blau)',
-                  marginBottom: '0.25rem',
-                }}>
-                  ab 1.000 €
-                </div>
-                <p style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '1.5rem' }}>pro Jahr</p>
-
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
-                  {[
-                    'Sofort Zugang zu Einkaufspreisen (EK)',
-                    '10 % Rabatt auf externe Leistungen',
-                    'Zugang zu Veranstaltungen & Updates',
-                    'Amortisiert sich durch EK-Preise schnell',
-                    'Mitsprache bei Projekten',
-                  ].map((item, i) => (
-                    <div key={i} style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}>
-                      <CheckCircle size={16} style={{ color: 'var(--btb-blau)', flexShrink: 0 }} />
-                      <span>{item}</span>
-                    </div>
-                  ))}
-                </div>
-
-                <a href="#kontakt-form" className="btn-secondary" style={{ width: '100%', justifyContent: 'center', borderColor: 'var(--btb-blau)', color: 'var(--btb-blau)' }}>
-                  Fördermitglied werden
-                </a>
-              </div>
-            </SectionReveal>
-
             {/* Vollmitglied */}
             <SectionReveal delay={0.24}>
               <div className="card-btb" style={{ border: '2px solid var(--btb-oliv)', height: '100%', position: 'relative' }}>

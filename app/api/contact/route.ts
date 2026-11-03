@@ -8,24 +8,43 @@ const contactSchema = z.object({
   telefon: z.string().optional(),
   betreff: z.string().optional(),
   typ: z.enum(['kontakt', 'mitmachen', 'gruendung', 'koerperarbeit']).optional(),
+  website: z.string().optional(), // Honeypot
+  startedAt: z.number().optional(), // Zeitpunkt, zu dem das Formular geladen wurde
 })
+
+const MIN_AUSFUELLZEIT_MS = 3000
+
+function esc(value: string): string {
+  return value
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+}
 
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
     const data = contactSchema.parse(body)
 
+    // Spam-Schutz: Honeypot gefüllt oder zu schnell abgeschickt -> still verwerfen
+    const zuSchnell = !data.startedAt || Date.now() - data.startedAt < MIN_AUSFUELLZEIT_MS
+    if (data.website || zuSchnell) {
+      return NextResponse.json({ success: true })
+    }
+
     const resendApiKey = process.env.RESEND_API_KEY
     if (!resendApiKey) {
       // Development fallback: log and return success
-      console.log('Contact form submission (no Resend key):', data)
+      console.log('Contact form submission received (no Resend key, nicht versendet)')
       return NextResponse.json({ success: true, dev: true })
     }
 
     const { Resend } = await import('resend')
     const resend = new Resend(resendApiKey)
 
-    const betreff = data.betreff || `Neue Nachricht von ${data.name}`
+    const betreff = (data.betreff || `Neue Nachricht von ${data.name}`).replace(/[\r\n]+/g, ' ')
     const typLabel = data.typ ? ` [${data.typ}]` : ''
 
     const { error } = await resend.emails.send({
@@ -34,13 +53,13 @@ export async function POST(request: NextRequest) {
       subject: `${betreff}${typLabel}`,
       html: `
         <h2>Neue Kontaktanfrage</h2>
-        <p><strong>Name:</strong> ${data.name}</p>
-        <p><strong>E-Mail:</strong> ${data.email}</p>
-        ${data.telefon ? `<p><strong>Telefon:</strong> ${data.telefon}</p>` : ''}
-        ${data.typ ? `<p><strong>Typ:</strong> ${data.typ}</p>` : ''}
+        <p><strong>Name:</strong> ${esc(data.name)}</p>
+        <p><strong>E-Mail:</strong> ${esc(data.email)}</p>
+        ${data.telefon ? `<p><strong>Telefon:</strong> ${esc(data.telefon)}</p>` : ''}
+        ${data.typ ? `<p><strong>Typ:</strong> ${esc(data.typ)}</p>` : ''}
         <hr />
         <p><strong>Nachricht:</strong></p>
-        <p>${data.nachricht.replace(/\n/g, '<br/>')}</p>
+        <p>${esc(data.nachricht).replace(/\n/g, '<br/>')}</p>
       `,
       reply_to: data.email,
     })

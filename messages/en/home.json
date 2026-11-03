@@ -55,20 +55,8 @@
   "zellen_alle": "View all cells",
   "mitgliedschaft": {
     "titel": "Membership",
-    "untertitel": "Four ways to be part of BtMM",
+    "untertitel": "Two ways to be part of BtMM",
     "stufen": [
-      {
-        "stufe": "Supporter",
-        "preis": "from €50/year",
-        "beschreibung": "Time, skills, donations",
-        "benefits": "10% discount on external services"
-      },
-      {
-        "stufe": "Patron Member",
-        "preis": "€1,000/year",
-        "beschreibung": "Early commitment",
-        "benefits": "Wholesale prices immediately"
-      },
       {
         "stufe": "Apprentice",
         "preis": "Variable participation",

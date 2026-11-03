@@ -45,5 +45,30 @@
   "zellen_karte": {
     "titel": "世界中のBtMMセル",
     "text": "あらゆる場所でBtMMセルが誕生しています — 共に経済を営む地域コミュニティ。"
+  },
+  "hero_poetisch": "森のように、すべての木が根のネットワークに支えられている——参加するすべての人を強くする経済システムが生まれつつあります。",
+  "hero_subtitel2": "誕生しつつある宇宙 · Freiburg · 世界中",
+  "was_ist_btb_sub": "三つの柱 – ひとつの全体",
+  "infinity": {
+    "text": "既存のシステムは円を描いて回り続けている——より速く、より狭く。Back to Meaning Maximizationは、そのループが破れ、新しいものが生まれる瞬間です。"
+  },
+  "zellen_alle": "すべてのセルを見る",
+  "mitgliedschaft": {
+    "titel": "メンバーシップ",
+    "untertitel": "BtMMの一部となる2つの方法",
+    "stufen": [
+      {
+        "stufe": "見習い",
+        "preis": "可変参加",
+        "beschreibung": "活動メンバーシップへの移行",
+        "benefits": "選定されたサービスで原価価格"
+      },
+      {
+        "stufe": "正会員",
+        "preis": "活動メンバーシップ",
+        "beschreibung": "完全参加",
+        "benefits": "報酬、投票権、連帯基金"
+      }
+    ]
   }
-  ,"hero_poetisch": "森のように、すべての木が根のネットワークに支えられている——参加するすべての人を強くする経済システムが生まれつつあります。","hero_subtitel2": "誕生しつつある宇宙 · Freiburg · 世界中","was_ist_btb_sub": "三つの柱 – ひとつの全体","infinity": {"text": "既存のシステムは円を描いて回り続けている——より速く、より狭く。Back to Meaning Maximizationは、そのループが破れ、新しいものが生まれる瞬間です。"},"zellen_alle": "すべてのセルを見る","mitgliedschaft": {"titel": "メンバーシップ","untertitel": "BtMMの一部となる4つの方法","stufen": [{"stufe": "サポーター","preis": "€50/年から","beschreibung": "時間、スキル、寄付","benefits": "外部サービスで10%割引"},{"stufe": "パトロンメンバー","preis": "€1,000/年","beschreibung": "早期コミットメント","benefits": "卸売価格をすぐに取得"},{"stufe": "見習い","preis": "可変参加","beschreibung": "活動メンバーシップへの移行","benefits": "選定されたサービスで原価価格"},{"stufe": "正会員","preis": "活動メンバーシップ","beschreibung": "完全参加","benefits": "報酬、投票権、連帯基金"}]}}
+}

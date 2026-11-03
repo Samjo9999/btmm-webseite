@@ -45,5 +45,30 @@
   "zellen_karte": {
     "titel": "全球 BtMM 细胞组",
     "text": "世界各地正在涌现 BtMM 细胞组——共同经营的本地社区。"
+  },
+  "hero_poetisch": "如同一片森林，每棵树都由根系网络支撑——一个让每个参与者都更强大的经济系统正在诞生。",
+  "hero_subtitel2": "一个正在诞生的宇宙 · Freiburg · 全球",
+  "was_ist_btb_sub": "三大支柱——一个整体",
+  "infinity": {
+    "text": "现有系统在不断循环——越来越快，越来越紧。Back to Meaning Maximization是循环被打破、新事物诞生的时刻。"
+  },
+  "zellen_alle": "查看所有细胞",
+  "mitgliedschaft": {
+    "titel": "会员资格",
+    "untertitel": "成为 BtMM 一部分的两种方式",
+    "stufen": [
+      {
+        "stufe": "学徒",
+        "preis": "可变参与",
+        "beschreibung": "向活跃会员身份的过渡",
+        "benefits": "精选服务享受成本价"
+      },
+      {
+        "stufe": "正式会员",
+        "preis": "活跃会员身份",
+        "beschreibung": "完全参与",
+        "benefits": "报酬、投票权、团结基金"
+      }
+    ]
   }
-  ,"hero_poetisch": "如同一片森林，每棵树都由根系网络支撑——一个让每个参与者都更强大的经济系统正在诞生。","hero_subtitel2": "一个正在诞生的宇宙 · Freiburg · 全球","was_ist_btb_sub": "三大支柱——一个整体","infinity": {"text": "现有系统在不断循环——越来越快，越来越紧。Back to Meaning Maximization是循环被打破、新事物诞生的时刻。"},"zellen_alle": "查看所有细胞","mitgliedschaft": {"titel": "会员资格","untertitel": "成为 BtMM 一部分的四种方式","stufen": [{"stufe": "支持者","preis": "€50/年起","beschreibung": "时间、技能、捐赠","benefits": "外部服务享受 10% 折扣"},{"stufe": "赞助会员","preis": "€1,000/年","beschreibung": "早期承诺","beschreibung": "立即获得批发价格"},{"stufe": "学徒","preis": "可变参与","beschreibung": "向活跃会员身份的过渡","benefits": "精选服务享受成本价"},{"stufe": "正式会员","preis": "活跃会员身份","beschreibung": "完全参与","benefits": "报酬、投票权、团结基金"}]}}
+}

@@ -1,5 +1,10 @@
 import type { Metadata } from 'next'
 import { SectionReveal } from '@/components/AnimatedCounter'
+import contact from '@/data/contact.json'
+
+// §19 UStG-Satz: nur sichtbar, wenn impressum_kleinunternehmer in data/contact.json true ist.
+const KLEINUNTERNEHMER_SATZ =
+  'Gemäß § 19 UStG wird keine Umsatzsteuer berechnet und ausgewiesen (Kleinunternehmerregelung).'
 
 export const dynamic = 'force-dynamic'
 
@@ -52,16 +57,20 @@ export default async function ImpressumPage() {
                   &bdquo;Back to Meaning Maximization&ldquo; ist nicht eingetragen. Anbieter dieser Seite ist
                   Johannes-Samuel Gartzke.
                 </p>
-                <p style={{ background: '#fff3a0', padding: '0.5rem' }}>
-                  [OFFEN: zweiter schneller Kontaktweg neben E-Mail, Angabe zur Umsatzsteuer –
-                  vom Nutzer zu ergänzen]
-                </p>
 
                 <h3>Kontakt</h3>
                 <p>
                   E-Mail: office@b-t-m-m.com<br />
                   Website: www.b-t-m-m.com
+                  {contact.impressum_kontakt2 ? (<><br />{contact.impressum_kontakt2}</>) : null}
                 </p>
+                {contact.impressum_ust || contact.impressum_kleinunternehmer ? (
+                  <>
+                    <h3>Umsatzsteuer</h3>
+                    {contact.impressum_ust ? <p>{contact.impressum_ust}</p> : null}
+                    {contact.impressum_kleinunternehmer ? <p>{KLEINUNTERNEHMER_SATZ}</p> : null}
+                  </>
+                ) : null}
 
                 <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
                 <p>

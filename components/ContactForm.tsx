@@ -1,6 +1,7 @@
 'use client'
 
-import { useState } from 'react'
+import { useRef, useState } from 'react'
+import Link from 'next/link'
 import { useForm } from 'react-hook-form'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { z } from 'zod'
@@ -13,6 +14,7 @@ const schema = z.object({
   nachricht: z.string().min(10, 'Nachricht muss mindestens 10 Zeichen haben'),
   telefon: z.string().optional(),
   betreff: z.string().optional(),
+  website: z.string().optional(),
 })
 
 type FormData = z.infer<typeof schema>
@@ -25,6 +27,7 @@ type Props = {
 
 export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
   const t = useTranslations('common')
+  const startedAt = useRef(Date.now())
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({
@@ -38,7 +41,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
       const res = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...data, typ }),
+        body: JSON.stringify({ ...data, typ, startedAt: startedAt.current }),
       })
       if (res.ok) {
         setStatus('success')
@@ -162,6 +165,17 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
         />
         {errors.nachricht && <p style={errorStyle}>{errors.nachricht.message}</p>}
       </div>
+
+      {/* Honeypot: für Menschen unsichtbar, Bots füllen es aus */}
+      <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
+        <label htmlFor="website">Website</label>
+        <input id="website" type="text" tabIndex={-1} autoComplete="off" {...register('website')} />
+      </div>
+
+      <p style={{ fontSize: '0.8rem', color: 'var(--btb-dunkel)', opacity: 0.7, margin: 0 }}>
+        Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage per E-Mail an uns übermittelt.
+        Mehr dazu in der <Link href="/impressum#datenschutz" style={{ color: 'var(--btb-blau)' }}>Datenschutzerklärung</Link>.
+      </p>
 
       {status === 'error' && (
         <div style={{

@@ -401,7 +401,7 @@ export default async function HomePage() {
                 Teil unseres Netzwerks werden
               </h2>
               <p style={{ lineHeight: 1.75, opacity: 0.8, marginBottom: '1.75rem' }}>
-                Back to Meaning Maximization wächst durch Menschen wie dich. Als Praktizierender, Unternehmer oder Unterstützer kannst du Teil eines Systems sein, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gemeinsam schaffen wir eine Alternative — lokal und global.
+                Back to Meaning Maximization wächst durch Menschen wie dich. Als Praktizierender, Unternehmer oder Interessierter kannst du Teil eines Systems sein, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gemeinsam schaffen wir eine Alternative — lokal und global.
               </p>
               <div style={{ marginTop: '1.5rem' }}>
                 <Link href="/mitmachen" className="btn-oliv">

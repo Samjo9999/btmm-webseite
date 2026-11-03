@@ -45,5 +45,30 @@
   "zellen_karte": {
     "titel": "Células BtMM en el mundo",
     "text": "En todo el mundo surgen células BtMM: comunidades locales que gestionan su economía de forma conjunta."
+  },
+  "hero_poetisch": "Como un bosque, donde cada árbol es sostenido por la red de raíces – así surge un sistema económico que fortalece a cada uno de sus miembros.",
+  "hero_subtitel2": "Un universo en formación · Freiburg · Mundial",
+  "was_ist_btb_sub": "Tres pilares – un todo",
+  "infinity": {
+    "text": "El sistema existente gira en círculos – cada vez más rápido, cada vez más estrecho. Back to Meaning Maximization es el momento en que el bucle se rompe y algo nuevo emerge."
+  },
+  "zellen_alle": "Ver todas las células",
+  "mitgliedschaft": {
+    "titel": "Membresía",
+    "untertitel": "Dos formas de ser parte de BtMM",
+    "stufen": [
+      {
+        "stufe": "Aprendiz",
+        "preis": "Participación variable",
+        "beschreibung": "Transición a membresía activa",
+        "benefits": "Precios de costo en servicios seleccionados"
+      },
+      {
+        "stufe": "Miembro Pleno",
+        "preis": "Membresía activa",
+        "beschreibung": "Participación completa",
+        "benefits": "Compensación, derecho a voto, fondo de solidaridad"
+      }
+    ]
   }
-  ,"hero_poetisch": "Como un bosque, donde cada árbol es sostenido por la red de raíces – así surge un sistema económico que fortalece a cada uno de sus miembros.","hero_subtitel2": "Un universo en formación · Freiburg · Mundial","was_ist_btb_sub": "Tres pilares – un todo","infinity": {"text": "El sistema existente gira en círculos – cada vez más rápido, cada vez más estrecho. Back to Meaning Maximization es el momento en que el bucle se rompe y algo nuevo emerge."},"zellen_alle": "Ver todas las células","mitgliedschaft": {"titel": "Membresía","untertitel": "Cuatro formas de ser parte de BtMM","stufen": [{"stufe": "Colaborador","preis": "desde €50/año","beschreibung": "Tiempo, habilidades, donaciones","benefits": "10% descuento en servicios externos"},{"stufe": "Miembro Patrocinador","preis": "€1.000/año","beschreibung": "Compromiso temprano","benefits": "Precios mayoristas inmediatamente"},{"stufe": "Aprendiz","preis": "Participación variable","beschreibung": "Transición a membresía activa","benefits": "Precios de costo en servicios seleccionados"},{"stufe": "Miembro Pleno","preis": "Membresía activa","beschreibung": "Participación completa","benefits": "Compensación, derecho a voto, fondo de solidaridad"}]}}
+}

@@ -55,20 +55,8 @@
   "zellen_alle": "Voir toutes les cellules",
   "mitgliedschaft": {
     "titel": "Adhésion",
-    "untertitel": "Quatre façons de faire partie de BtMM",
+    "untertitel": "Deux façons de faire partie de BtMM",
     "stufen": [
-      {
-        "stufe": "Sympathisant",
-        "preis": "à partir de €50/an",
-        "beschreibung": "Temps, compétences, dons",
-        "benefits": "10% de réduction sur les services externes"
-      },
-      {
-        "stufe": "Membre bienfaiteur",
-        "preis": "€1.000/an",
-        "beschreibung": "Engagement précoce",
-        "benefits": "Prix de gros immédiatement"
-      },
       {
         "stufe": "Candidat",
         "preis": "Participation variable",
