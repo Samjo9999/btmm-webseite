@@ -39,8 +39,6 @@
     "titel": "ডাউনলোড এবং মিডিয়া",
     "logo_png": "লোগো (PNG)",
     "logo_svg": "লোগো (SVG)",
-    "konzept_pdf": "ধারণা (PDF)",
-    "satzung_pdf": "সংবিধান (PDF)",
     "herunterladen": "ডাউনলোড"
   },
   "kontakt": {
@@ -48,7 +46,7 @@
     "name_label": "যোগাযোগ ব্যক্তি",
     "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "ই-মেইল",
-    "email": "office@b-t-m-m.com",
+    "email": "office@b-m-m.com",
     "hinweis": "আমরা সাধারণত ২ কার্যদিবসের মধ্যে উত্তর দিই।"
   }
 }

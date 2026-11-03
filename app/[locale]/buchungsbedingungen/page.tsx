@@ -109,7 +109,7 @@ export default function BuchungsbedingungenPage() {
             )}
             <p style={{ marginTop: '1rem' }}>
               Die Stornierung kann über das Stornierungsformular auf der Termine-Seite oder per
-              E-Mail an office@b-t-m-m.com erfolgen.
+              E-Mail an office@b-m-m.com erfolgen.
             </p>
 
             <h2 style={headingStyle}>
@@ -148,7 +148,7 @@ export default function BuchungsbedingungenPage() {
                 <strong>Anbieter:</strong><br />
                 Johannes-Samuel Gartzke (Kleingewerbe; BtMM eG in Gründung, besteht noch nicht)<br />
                 Hildastr. 12, 79102 Freiburg im Breisgau<br />
-                E-Mail: office@b-t-m-m.com
+                E-Mail: office@b-m-m.com
               </p>
             </div>
           </div>

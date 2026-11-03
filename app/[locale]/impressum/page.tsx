@@ -62,9 +62,9 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
 
                 <h3>Kontakt</h3>
                 <p>
-                  E-Mail: office@b-t-m-m.com<br />
+                  E-Mail: office@b-m-m.com<br />
                   Website: www.b-t-m-m.com<br />
-                  Kontaktformular: <a href={kontaktformularUrl}>{`www.b-t-m-m.com${kontaktformularUrl}`}</a>
+                  Zweiter Kontaktweg (Kontaktformular): <a href={kontaktformularUrl}>{`www.b-t-m-m.com${kontaktformularUrl}`}</a>
                   {contact.telefon ? (<><br />Telefon: {contact.telefon}</>) : null}
                   {contact.impressum_kontakt2 ? (<><br />{contact.impressum_kontakt2}</>) : null}
                 </p>
@@ -233,7 +233,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   Johannes-Samuel Gartzke (Kleingewerbe; BtMM eG in Gründung, besteht noch nicht)<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br /><br />
-                  E-Mail: office@b-t-m-m.com
+                  E-Mail: office@b-m-m.com
                 </p>
                 <p>
                   Verantwortliche Stelle ist die natürliche oder juristische Person, die allein oder

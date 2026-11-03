@@ -39,8 +39,6 @@
     "titel": "下载与媒体库",
     "logo_png": "标志 (PNG)",
     "logo_svg": "标志 (SVG)",
-    "konzept_pdf": "概念 (PDF)",
-    "satzung_pdf": "章程 (PDF)",
     "herunterladen": "下载"
   },
   "kontakt": {
@@ -48,7 +46,7 @@
     "name_label": "联系人",
     "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "电子邮件",
-    "email": "office@b-t-m-m.com",
+    "email": "office@b-m-m.com",
     "hinweis": "我们通常在2个工作日内回复。"
   }
 }

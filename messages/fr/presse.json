@@ -39,8 +39,6 @@
     "titel": "Téléchargements et médiathèque",
     "logo_png": "Logo (PNG)",
     "logo_svg": "Logo (SVG)",
-    "konzept_pdf": "Concept (PDF)",
-    "satzung_pdf": "Statuts (PDF)",
     "herunterladen": "Télécharger"
   },
   "kontakt": {
@@ -48,7 +46,7 @@
     "name_label": "Personne de contact",
     "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "E-mail",
-    "email": "office@b-t-m-m.com",
+    "email": "office@b-m-m.com",
     "hinweis": "Nous répondons généralement sous 2 jours ouvrables."
   }
 }

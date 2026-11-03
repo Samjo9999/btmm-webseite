@@ -39,8 +39,6 @@
     "titel": "التنزيلات والمكتبة الإعلامية",
     "logo_png": "الشعار (PNG)",
     "logo_svg": "الشعار (SVG)",
-    "konzept_pdf": "المفهوم (PDF)",
-    "satzung_pdf": "النظام الأساسي (PDF)",
     "herunterladen": "تحميل"
   },
   "kontakt": {
@@ -48,7 +46,7 @@
     "name_label": "جهة الاتصال",
     "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "البريد الإلكتروني",
-    "email": "office@b-t-m-m.com",
+    "email": "office@b-m-m.com",
     "hinweis": "نرد عادةً خلال يومي عمل."
   }
 }

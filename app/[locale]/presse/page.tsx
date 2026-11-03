@@ -36,8 +36,6 @@ const kernaussagen = [
 
 const downloads = [
   { key: 'logo_png' as const, href: '/press/logo.png' },
-  { key: 'konzept_pdf' as const, href: '/press/BTB_Konzept.pdf' },
-  { key: 'satzung_pdf' as const, href: '/press/BTB_Satzung.pdf' },
 ]
 
 export default async function PressePage() {
@@ -84,7 +82,7 @@ export default async function PressePage() {
               {t('hero.untertitel')}
             </p>
             <a
-              href="mailto:office@b-t-m-m.com"
+              href="mailto:office@b-m-m.com"
               className="btn-primary"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >

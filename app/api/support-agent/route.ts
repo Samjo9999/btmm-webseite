@@ -18,8 +18,6 @@ interface DokumentAbschnitt {
 
 function ladeDokumente(): { slug: string; titel: string; content: string }[] {
   const docs = [
-    { slug: 'konzept', titel: 'Vollkonzept' },
-    { slug: 'satzung', titel: 'Satzung' },
     { slug: 'einfuehrung', titel: 'Einführung' },
     { slug: 'wirtschaften', titel: 'Wirtschaften im System' },
     { slug: 'ideen-horizont', titel: 'Ideen & Horizonte' },
