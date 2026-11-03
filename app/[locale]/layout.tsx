@@ -10,6 +10,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { ScrollHint } from '@/components/ScrollHint'
 import { ScrollToTop } from '@/components/ScrollToTop'
+import { BRAND_FULL } from '@/lib/brand'
 
 const ChatWidget = dynamic(
   () => import('@/components/ChatWidget').then(mod => ({ default: mod.ChatWidget })),
@@ -31,8 +32,8 @@ const garamond = EB_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Back to Meaning Maximization – Wirtschaft, die trägt.',
-    template: '%s | Back to Meaning Maximization',
+    default: `${BRAND_FULL} – Wirtschaft, die trägt.`,
+    template: `%s | ${BRAND_FULL}`,
   },
   description:
     'Back to Meaning Maximization verbindet wirtschaftliche Stärke mit menschlicher Würde. Somatische Körperarbeit, Gemeinschaft und ein alternatives Wirtschaftsmodell in Freiburg.',
@@ -41,7 +42,7 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'de_DE',
     url: 'https://b-t-m-m.com',
-    siteName: 'Back to Meaning Maximization',
+    siteName: BRAND_FULL,
     images: [{ url: '/og-image.png', width: 1200, height: 630 }],
   },
   twitter: { card: 'summary_large_image' },
