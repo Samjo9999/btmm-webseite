@@ -67,8 +67,14 @@ export async function POST(request: NextRequest) {
     const data = contactSchema.parse(body)
 
     // Spam-Schutz: Honeypot gefüllt oder zu schnell abgeschickt -> still verwerfen
-    const zuSchnell = !data.startedAt || Date.now() - data.startedAt < MIN_AUSFUELLZEIT_MS
-    if (data.website || zuSchnell) {
+    if (data.website) {
+      return NextResponse.json({ success: true })
+    }
+    // Ohne startedAt (z. B. veraltete Seite): sichtbarer Fehler statt still verwerfen
+    if (!data.startedAt) {
+      return NextResponse.json({ error: 'Bitte Seite neu laden.' }, { status: 400 })
+    }
+    if (Date.now() - data.startedAt < MIN_AUSFUELLZEIT_MS) {
       return NextResponse.json({ success: true })
     }
 
