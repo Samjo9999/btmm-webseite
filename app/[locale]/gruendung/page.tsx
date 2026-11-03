@@ -15,10 +15,12 @@ export const metadata: Metadata = {
 
 const schritte = [
   { schritt: '1', titel: 'Gründungsmitglieder finden', text: '7 Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
-  { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Ein Termin, eine Unterschrift, 100 € Einlage. Die Back to Meaning Maximization eG wird beim Genossenschaftsregister Freiburg eingetragen.' },
-  { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Mitgliedschaft im BWGV, Gewerbeanmeldung, erste Großhandelseinkäufe. Die operative Arbeit übernehmen die, die Zeit haben.' },
-  { schritt: '4', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
-  { schritt: '5', titel: 'Wachstum', text: 'App geht live, Pool füllt sich, Stundensatz steigt. Weitere Mitglieder und Zellen kommen dazu.' },
+  { schritt: '2', titel: 'Gründungsversammlung', text: 'Mindestens drei Gründungsmitglieder unterschreiben die Satzung und wählen Vorstand und Aufsichtsrat.' },
+  { schritt: '3', titel: 'Prüfungsverband', text: 'Die eG tritt einem genossenschaftlichen Prüfungsverband bei. Der prüft das Vorhaben und erstellt das Gründungsgutachten.' },
+  { schritt: '4', titel: 'Anmeldung', text: 'Der Vorstand meldet die eG beim Genossenschaftsregister an. Nur seine Unterschriften beglaubigt ein Notar.' },
+  { schritt: '5', titel: 'Eintragung', text: 'Ab dann heißt sie „BtMM eG“, bis dahin „eG i. G.“.' },
+  { schritt: '6', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
+  { schritt: '7', titel: 'Wachstum', text: 'App geht live, Pool füllt sich, Stundensatz steigt. Weitere Mitglieder und Zellen kommen dazu.' },
 ]
 
 export default async function GruendungPage() {
@@ -76,7 +78,7 @@ export default async function GruendungPage() {
                 Für die Gründung der Genossenschaft braucht es mindestens drei Menschen, unser Ziel sind fünf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
               </p>
               <p>
-                <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
+                <strong>Der formale Aufwand ist überschaubar:</strong> deine Unterschrift unter die Satzung, 100 € Geschäftsanteil (Satzung v7.44.2 § 6 Abs. 1), auch in Raten ab 10 € im Monat. Für Mitglieder ist kein Notar nötig; wer später beitritt, unterschreibt nur eine Beitrittserklärung. Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
               </p>
               <p>
                 Was wir nicht suchen, sind Menschen, die ein fertiges Produkt kaufen wollen. Wir suchen Mitgründer — Menschen, die die Idee tragen und bereit sind, ihren Namen dafür zu geben. Manche werden von Tag eins operativ mitarbeiten. Andere tragen das System still mit — und das ist genauso wertvoll.
@@ -88,7 +90,7 @@ export default async function GruendungPage() {
                 Wenn du glaubst, dass du diese Person sein könntest — melde dich. Wir werden sprechen, uns kennenlernen, und dann entscheiden wir gemeinsam, ob es passt.
               </p>
               <p style={{ fontFamily: 'var(--font-garamond)', fontStyle: 'italic', color: 'var(--btb-rot)' }}>
-                – Samjo, Freiburg 2028
+                – Samjo
               </p>
             </div>
           </SectionReveal>
@@ -175,8 +177,8 @@ export default async function GruendungPage() {
             <div className="prose-btb" style={{ marginBottom: '2rem' }}>
               <p>Ein Gründungsmitglied bringt vor allem eins mit: die ehrliche Überzeugung, dass dieses System entstehen soll.</p>
               <ul>
-                <li><strong>Einlage:</strong> 100 € — auch in Raten ab 10 € im Monat, voll eingezahlt spätestens zehn Monate nach der Zulassung</li>
-                <li><strong>Zeitaufwand Gründung:</strong> Gründungsversammlung + Notartermin (wenige Stunden)</li>
+                <li><strong>Einlage:</strong> 100 € Geschäftsanteil (Satzung v7.44.2 § 6 Abs. 1) — auch in Raten ab 10 € im Monat, voll eingezahlt spätestens zehn Monate nach der Zulassung</li>
+                <li><strong>Zeitaufwand Gründung:</strong> Gründungsversammlung mit Unterschrift unter die Satzung (wenige Stunden). Für Mitglieder ist kein Notar nötig; wer später beitritt, unterschreibt nur eine Beitrittserklärung.</li>
                 <li><strong>Danach:</strong> So viel oder wenig aktive Beteiligung, wie du geben kannst</li>
                 <li><strong>Was zählt:</strong> Dein Name, dein Bekenntnis, deine Stimme bei Entscheidungen</li>
                 <li><strong>Perspektive:</strong> Langfristig — kein kurzfristiges Investment</li>
