@@ -73,12 +73,17 @@ export default async function UeberPage() {
           }}>
             <SectionReveal>
               <div style={{
-                background: 'linear-gradient(135deg, var(--btb-creme), rgba(143,169,66,0.15))',
-                borderRadius: 16, aspectRatio: '3/4',
-                display: 'flex', alignItems: 'center', justifyContent: 'center',
+                position: 'relative',
+                borderRadius: 16, aspectRatio: '4/3', overflow: 'hidden',
                 border: '2px solid rgba(143,169,66,0.2)',
               }}>
-                <p style={{ opacity: 0.4, fontSize: '0.85rem' }}>TODO: Portrait Samjo</p>
+                <Image
+                  src="/images/johannes-mit-hund.webp"
+                  alt="Johannes-Samuel Gartzke mit Hund im Gras"
+                  fill
+                  sizes="(max-width: 700px) 100vw, 400px"
+                  style={{ objectFit: 'cover' }}
+                />
               </div>
             </SectionReveal>
 
