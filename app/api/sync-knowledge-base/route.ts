@@ -15,12 +15,11 @@ import { join } from 'path'
 
 const DOKUMENTE_META: Record<string, { titel: string; version?: string; tags: string[] }> = {
   konzept: { titel: 'Vollkonzept', version: 'v15.0.0', tags: ['kern', 'wirtschaft', 'gemeinschaft'] },
-  satzung: { titel: 'Satzung eG & e.V.', tags: ['recht', 'struktur'] },
+  satzung: { titel: 'Satzung eG (Entwurf)', tags: ['recht', 'struktur'] },
   einfuehrung: { titel: 'Einführung', tags: ['einstieg', 'überblick'] },
   wirtschaften: { titel: 'Wirtschaften im System', version: 'v1.1.0', tags: ['wirtschaft', 'pool', 'coins'] },
   'ideen-horizont': { titel: 'Ideen & Horizonte', version: 'v2.0.0', tags: ['vision', 'zukunft'] },
   gemeinschaftskultur: { titel: 'Gemeinschaftskultur', tags: ['gemeinschaft', 'werte', 'kultur'] },
-  spendenaufruf: { titel: 'Spendenaufruf', tags: ['spenden', 'finanzierung'] },
   handwerk: { titel: 'Handwerk & Zulassungen', tags: ['handwerk', 'recht', 'berufe'] },
 }
 

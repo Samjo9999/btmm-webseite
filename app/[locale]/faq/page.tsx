@@ -12,7 +12,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'FAQ – Häufige Fragen | Back to Meaning Maximization',
-  description: 'Häufige Fragen zu Back to Meaning Maximization, Mitgliedschaft, Körperarbeit, Spenden und der BtMM-App.',
+  description: 'Häufige Fragen zu Back to Meaning Maximization, Mitgliedschaft, Körperarbeit und der BtMM-App.',
 }
 
 export default async function FaqPage() {
@@ -24,7 +24,6 @@ export default async function FaqPage() {
     { frage: t('fragen.was_kostet.frage'), antwort: t('fragen.was_kostet.antwort') },
     { frage: t('fragen.was_sind_coins.frage'), antwort: t('fragen.was_sind_coins.antwort') },
     { frage: t('fragen.koerperarbeit_unterschied.frage'), antwort: t('fragen.koerperarbeit_unterschied.antwort') },
-    { frage: t('fragen.spenden_wohin.frage'), antwort: t('fragen.spenden_wohin.antwort') },
     { frage: t('fragen.app_login.frage'), antwort: t('fragen.app_login.antwort') },
     { frage: t('fragen.zelle_gruenden.frage'), antwort: t('fragen.zelle_gruenden.antwort') },
   ]

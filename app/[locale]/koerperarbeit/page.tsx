@@ -24,7 +24,7 @@ export default async function KoerperarbeitPage() {
     { href: '/koerperarbeit/methode', label: 'Methode' },
     { href: '/koerperarbeit/ablauf', label: 'Ablauf' },
     { href: '/koerperarbeit/fuer-wen', label: 'Für wen?' },
-    { href: '/koerperarbeit/preise', label: 'Preise & Buchen' },
+    { href: '/koerperarbeit/preise', label: 'Preise & Anfrage' },
     { href: '/koerperarbeit/ueber', label: 'Über Samjo' },
     { href: '/koerperarbeit/anfahrt', label: 'Anfahrt' },
     { href: '/koerperarbeit/kontakt', label: 'Kontakt' },

@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Сообщество",
     "gemeinschaft_text": "Местные ячейки — сердце BtMM.",
     "nachhaltigkeit_titel": "Устойчивость",
-    "nachhaltigkeit_text": "Кооператив в стадии создания (eG i.Gr.) + ассоциация поддержки (e.V.). Долгосрочное мышление вместо краткосрочной выгоды.",
+    "nachhaltigkeit_text": "Кооператив в стадии создания (eG i.Gr.). Долгосрочное мышление вместо краткосрочной выгоды.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -41,11 +41,6 @@
     "workspace_text": "Цифровое рабочее пространство для проектов.",
     "cta": "Открыть приложение",
     "hinweis": "Только для участников"
-  },
-  "spenden_teaser": {
-    "titel": "Поддержи BtMM",
-    "text": "Твоё пожертвование помогает нам создать инфраструктуру. Каждый вклад важен.",
-    "cta": "Пожертвовать сейчас"
   },
   "zellen_karte": {
     "titel": "Ячейки BtMM по всему миру",

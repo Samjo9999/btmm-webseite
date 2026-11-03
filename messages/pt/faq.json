@@ -5,7 +5,6 @@
     "allgemein": "Geral",
     "mitgliedschaft": "Adesão",
     "koerperarbeit": "Trabalho Corporal",
-    "spenden": "Doações",
     "app": "App"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "O que distingue o trabalho corporal BtMM?",
       "antwort": "O trabalho corporal BtMM é um acompanhamento somático, não uma terapia."
-    },
-    "spenden_wohin": {
-      "frage": "Para onde vai a minha doação?",
-      "antwort": "Para a construção da infraestrutura BtMM."
     },
     "app_login": {
       "frage": "Como acedo à App BtMM?",

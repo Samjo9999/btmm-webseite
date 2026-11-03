@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Gemeinschaft",
     "gemeinschaft_text": "Lokale Zellen bilden das Herzstück von BtMM. Menschen kommen zusammen, unterstützen sich und gestalten gemeinsam ihre wirtschaftliche Zukunft.",
     "nachhaltigkeit_titel": "Nachhaltigkeit",
-    "nachhaltigkeit_text": "Genossenschaft in Gründung (eG i.Gr.) + Förderverein (e.V.). Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
+    "nachhaltigkeit_text": "Genossenschaft in Gründung (eG i.Gr.). Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
     "nachhaltigkeit_mehr_erfahren": "Mehr über Nachhaltigkeit",
     "nachhaltigkeit_mehr_erfahren_url": "/konzept/nachhaltigkeit"
   },
@@ -41,11 +41,6 @@
     "workspace_text": "Gemeinsamer digitaler Arbeitsraum für Projekte und Zusammenarbeit.",
     "cta": "App entdecken",
     "hinweis": "Nur für Mitglieder"
-  },
-  "spenden_teaser": {
-    "titel": "Unterstütze BtMM",
-    "text": "Deine Spende hilft uns, die Infrastruktur aufzubauen, die eine gerechtere Wirtschaft ermöglicht. Jeder Beitrag zählt.",
-    "cta": "Jetzt spenden"
   },
   "zellen_karte": {
     "titel": "BtMM-Zellen weltweit",

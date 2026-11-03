@@ -5,7 +5,6 @@
     "allgemein": "常规",
     "mitgliedschaft": "会员",
     "koerperarbeit": "身体疗愈",
-    "spenden": "捐赠",
     "app": "应用"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "BtMM 身体疗愈与其他方法有何不同？",
       "antwort": "BtMM 身体疗愈既不是治疗也不是保健服务。它是一种身体伴随，将身体视为独立的信息载体。我们处理当下的状态——而不是应该如何。"
-    },
-    "spenden_wohin": {
-      "frage": "我的捐款用在哪里？",
-      "antwort": "你的捐款用于建设 BtMM 基础设施：技术开发、合作社的法律设立以及首批社区项目。捐赠进度在网站上实时可见。"
     },
     "app_login": {
       "frage": "如何访问 BtMM 应用？",

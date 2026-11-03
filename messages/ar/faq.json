@@ -5,7 +5,6 @@
     "allgemein": "عام",
     "mitgliedschaft": "العضوية",
     "koerperarbeit": "العمل الجسدي",
-    "spenden": "التبرعات",
     "app": "التطبيق"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "ما الذي يميّز العمل الجسدي وفق BtMM؟",
       "antwort": "العمل الجسدي وفق BtMM هو مرافقة جسدية وليس علاجًا."
-    },
-    "spenden_wohin": {
-      "frage": "أين تذهب تبرعاتي؟",
-      "antwort": "في بناء البنية التحتية لـ BtMM."
     },
     "app_login": {
       "frage": "كيف أصل إلى تطبيق BtMM؟",

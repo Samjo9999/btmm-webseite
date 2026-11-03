@@ -5,7 +5,6 @@
     "allgemein": "সাধারণ",
     "mitgliedschaft": "সদস্যপদ",
     "koerperarbeit": "শরীরকর্ম",
-    "spenden": "দান",
     "app": "অ্যাপ"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "BtMM শরীরকর্মের বিশেষত্ব কী?",
       "antwort": "BtMM শরীরকর্ম হল সোমাটিক সঙ্গ, থেরাপি নয়।"
-    },
-    "spenden_wohin": {
-      "frage": "আমার দান কোথায় যায়?",
-      "antwort": "BtMM অবকাঠামো নির্মাণে।"
     },
     "app_login": {
       "frage": "BtMM অ্যাপে কীভাবে যাব?",

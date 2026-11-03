@@ -5,7 +5,6 @@
     "allgemein": "Общее",
     "mitgliedschaft": "Членство",
     "koerperarbeit": "Телесная работа",
-    "spenden": "Пожертвования",
     "app": "Приложение"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "Что такое телесная работа BtMM?",
       "antwort": "Соматическое сопровождение, не терапия."
-    },
-    "spenden_wohin": {
-      "frage": "Куда идёт моё пожертвование?",
-      "antwort": "На создание инфраструктуры."
     },
     "app_login": {
       "frage": "Где приложение?",

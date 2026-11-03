@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Community",
     "gemeinschaft_text": "Local cells form the heart of BtMM. People come together, support each other and shape their economic future collectively.",
     "nachhaltigkeit_titel": "Sustainability",
-    "nachhaltigkeit_text": "Cooperative in formation (eG i.Gr.) + support association (e.V.). Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
+    "nachhaltigkeit_text": "Cooperative in formation (eG i.Gr.). Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
     "nachhaltigkeit_mehr_erfahren": "Learn more about sustainability",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -41,11 +41,6 @@
     "workspace_text": "Shared digital workspace for projects and collaboration.",
     "cta": "Discover app",
     "hinweis": "Members only"
-  },
-  "spenden_teaser": {
-    "titel": "Support BtMM",
-    "text": "Your donation helps us build the infrastructure that enables a more just economy. Every contribution counts.",
-    "cta": "Donate now"
   },
   "zellen_karte": {
     "titel": "BtMM Cells Worldwide",

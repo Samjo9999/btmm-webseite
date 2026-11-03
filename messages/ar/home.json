@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "المجتمع",
     "gemeinschaft_text": "الخلايا المحلية هي قلب BtMM النابض. يجتمع الناس ويتعاونون ويصنعون مستقبلهم الاقتصادي معًا.",
     "nachhaltigkeit_titel": "الاستدامة",
-    "nachhaltigkeit_text": "تعاونية قيد التأسيس (eG i.Gr.) + جمعية دعم (e.V.). تفكير طويل الأمد بدلاً من الربح قصير الأجل. BtMM يعتمد على هياكل تنمو وتستمر عبر الأجيال.",
+    "nachhaltigkeit_text": "تعاونية قيد التأسيس (eG i.Gr.). تفكير طويل الأمد بدلاً من الربح قصير الأجل. BtMM يعتمد على هياكل تنمو وتستمر عبر الأجيال.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -41,11 +41,6 @@
     "workspace_text": "مساحة عمل رقمية مشتركة للمشاريع والتعاون.",
     "cta": "اكتشف التطبيق",
     "hinweis": "للأعضاء فقط"
-  },
-  "spenden_teaser": {
-    "titel": "ادعم BtMM",
-    "text": "تبرعك يساعدنا في بناء البنية التحتية التي تمكّن اقتصادًا أكثر عدالة. كل مساهمة تحسب.",
-    "cta": "تبرع الآن"
   },
   "zellen_karte": {
     "titel": "خلايا BtMM حول العالم",

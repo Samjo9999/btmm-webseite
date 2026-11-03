@@ -5,7 +5,6 @@
     "allgemein": "Général",
     "mitgliedschaft": "Adhésion",
     "koerperarbeit": "Travail corporel",
-    "spenden": "Dons",
     "app": "Appli"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "Qu'est-ce que le travail corporel BtMM ?",
       "antwort": "Accompagnement somatique, pas une thérapie."
-    },
-    "spenden_wohin": {
-      "frage": "Où va mon don ?",
-      "antwort": "Dans la construction de l'infrastructure."
     },
     "app_login": {
       "frage": "Où est l'appli ?",

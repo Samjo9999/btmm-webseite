@@ -5,7 +5,6 @@
     "allgemein": "General",
     "mitgliedschaft": "Membresía",
     "koerperarbeit": "Trabajo corporal",
-    "spenden": "Donaciones",
     "app": "App"
   },
   "fragen": {
@@ -28,10 +27,6 @@
     "koerperarbeit_unterschied": {
       "frage": "¿En qué se diferencia el trabajo corporal BtMM de otros enfoques?",
       "antwort": "El trabajo corporal BtMM no es una terapia ni una oferta de bienestar. Es un acompañamiento somático que entiende el cuerpo como un portador de información autónomo. Trabajamos con lo que es, no con lo que debería ser."
-    },
-    "spenden_wohin": {
-      "frage": "¿A dónde va mi donación?",
-      "antwort": "Tu donación se destina a la construcción de la infraestructura de BtMM: desarrollo técnico, constitución legal de la cooperativa y los primeros proyectos comunitarios. El estado de las donaciones es visible en tiempo real en la web."
     },
     "app_login": {
       "frage": "¿Cómo accedo a la app de BtMM?",

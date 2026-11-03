@@ -42,10 +42,19 @@ export default async function ImpressumPage() {
               <div className="prose-btb">
                 <h3>Angaben gemäß § 5 DDG (ehem. TMG)</h3>
                 <p>
-                  Back to Meaning Maximization eG<br />
+                  Johannes-Samuel Gartzke (Kleingewerbe)<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br />
                   Deutschland
+                </p>
+                <p>
+                  BtMM eG in Gründung, besteht noch nicht. Die geplante Genossenschaft
+                  &bdquo;Back to Meaning Maximization&ldquo; ist nicht eingetragen. Anbieter dieser Seite ist
+                  Johannes-Samuel Gartzke.
+                </p>
+                <p style={{ background: '#fff3a0', padding: '0.5rem' }}>
+                  [OFFEN: zweiter schneller Kontaktweg neben E-Mail, Angabe zur Umsatzsteuer –
+                  vom Nutzer zu ergänzen]
                 </p>
 
                 <h3>Kontakt</h3>
@@ -56,7 +65,7 @@ export default async function ImpressumPage() {
 
                 <h3>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h3>
                 <p>
-                  Back to Meaning Maximization eG<br />
+                  Johannes-Samuel Gartzke<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau
                 </p>
@@ -208,7 +217,7 @@ export default async function ImpressumPage() {
                 <h4>Hinweis zur verantwortlichen Stelle</h4>
                 <p>
                   Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br /><br />
-                  Back to Meaning Maximization eG + e.V.<br />
+                  Johannes-Samuel Gartzke (Kleingewerbe; BtMM eG in Gründung, besteht noch nicht)<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br /><br />
                   E-Mail: office@b-t-m-m.com

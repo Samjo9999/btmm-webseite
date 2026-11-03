@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Comunidad",
     "gemeinschaft_text": "Las células locales son el corazón de BtMM. Las personas se reúnen, se apoyan mutuamente y construyen juntas su futuro económico.",
     "nachhaltigkeit_titel": "Sostenibilidad",
-    "nachhaltigkeit_text": "Cooperativa en fundación (eG i.Gr.) + asociación de apoyo (e.V.). Pensamiento a largo plazo en lugar de beneficio a corto plazo. BtMM apuesta por estructuras que perduren y crezcan a lo largo de generaciones.",
+    "nachhaltigkeit_text": "Cooperativa en fundación (eG i.Gr.). Pensamiento a largo plazo en lugar de beneficio a corto plazo. BtMM apuesta por estructuras que perduren y crezcan a lo largo de generaciones.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -41,11 +41,6 @@
     "workspace_text": "Espacio de trabajo digital compartido para proyectos y colaboración.",
     "cta": "Descubrir la app",
     "hinweis": "Solo para miembros"
-  },
-  "spenden_teaser": {
-    "titel": "Apoya a BtMM",
-    "text": "Tu donación nos ayuda a construir la infraestructura que hace posible una economía más justa. Cada aportación cuenta.",
-    "cta": "Donar ahora"
   },
   "zellen_karte": {
     "titel": "Células BtMM en el mundo",
