@@ -248,7 +248,7 @@ export default async function MitmachenPage() {
                   Du möchtest Gründungsmitglied werden?
                 </h3>
                 <p style={{ opacity: 0.75, fontSize: '0.95rem', lineHeight: 1.65 }}>
-                  Wir suchen 7 Gründungsmitglieder für die Genossenschaft. Einlage ab 100 € — oder in Arbeitsstunden. Vollmitgliedschaft ab der ersten geleisteten Stunde.
+                  Für die Gründung braucht es mindestens drei Menschen, unser Ziel sind fünf. Geschäftsanteil 100 € — oder in Arbeitsstunden. Vollmitgliedschaft ab der ersten geleisteten Stunde.
                 </p>
               </div>
               <Link href="/gruendung" className="btn-primary" style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
