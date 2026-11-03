@@ -1,3 +1,7 @@
+// BTMM-ADD-HOME-IMPORT-START
+import { ThemenUeberblick } from '@/components/btmm/ThemenUeberblick'
+import { AktuellerDokumentenstand } from '@/components/btmm/AktuellerDokumentenstand'
+// BTMM-ADD-HOME-IMPORT-END
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
 import { setRequestLocale } from 'next-intl/server'
@@ -10,21 +14,16 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
 import { AngeboteAccordion } from '@/components/AngeboteAccordion'
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
+import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
+import { JsonLd, Karte } from '@/components/btmm/Bausteine'
 
 export const dynamic = 'force-dynamic'
 
-export async function generateMetadata(): Promise<Metadata> {
-  return {
-    title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-    description: 'Back to Meaning Maximization ist ein alternatives Wirtschaftsmodell, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gegründet in Freiburg, gedacht weltweit.',
-    openGraph: {
-      title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-      description: 'Ein alternatives Wirtschaftsmodell für Wirtschaft, die trägt.',
-    },
-  }
+export async function generateMetadata({ params }: { params: { locale: string } }): Promise<Metadata> {
+  return seitenMeta('start', params.locale)
 }
 
-export default async function HomePage() {
+export default async function HomePage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('home')
   const tc = await getTranslations('common')
 
@@ -50,7 +49,7 @@ export default async function HomePage() {
           src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
           alt="Wald – ein hoch vernetztes Ökosystem"
         />
-        <div className="hero-text" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
+        <div className="hero-text btmm-start-hero" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
               src="/logo.png"
@@ -66,7 +65,7 @@ export default async function HomePage() {
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(2.2rem, 6vw, 4rem)',
             fontWeight: 700,
-            color: 'var(--btb-rot)',
+            color: 'var(--btmm-dunkel, #780268)',
             marginBottom: '0.75rem',
             lineHeight: 1.1,
             textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
@@ -109,6 +108,23 @@ export default async function HomePage() {
         </div>
       </section>
 
+      {/* ── Kernseiten (Seitenstruktur SEO, modular aus lib/seiten.ts) ── */}
+      <JsonLd daten={[ORGANISATION_LD, { '@type': 'WebSite', name: BRAND_FULL, url: SITE_URL, inLanguage: 'de-DE', publisher: { '@id': ORGANISATION_LD['@id'] } }]} />
+      <section className="btmm-kopf" style={{ paddingTop: '3rem' }}>
+        <h2 style={{ color: 'var(--btmm-dunkel)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', maxWidth: 820, margin: '0 auto .75rem' }}>{SEITEN.start.titel}</h2>
+        <p className="btmm-unterzeile">Wir teilen Einkauf, Auto, Raum und Werkzeug – klein anfangen ab drei Leuten in Freiburg, später eine Genossenschaft.</p>
+        <div className="btmm-raster" style={{ maxWidth: 1100, margin: '2rem auto 0', textAlign: 'left' }}>
+          {KERNSEITEN.map((k) => (
+            <Karte key={k} titel={SEITEN[k].kurz} link={href(locale, k)}>
+              <p style={{ fontSize: '1rem', opacity: 0.8 }}>{SEITEN[k].beschreibung}</p>
+            </Karte>
+          ))}
+        </div>
+      </section>
+
+{/* BTMM-ADD-HOME-THEMEN-START */}
+<section className="btmm-seite"><div className="btmm-inhalt"><ThemenUeberblick locale={locale} /><AktuellerDokumentenstand locale={locale} /></div></section>
+{/* BTMM-ADD-HOME-THEMEN-END */}
       {/* ── 2. WAS IST BTMM ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
         <div className="container-btb">
