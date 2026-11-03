@@ -10,9 +10,9 @@
   },
   "kurzprofil": {
     "titel": "সংক্ষিপ্ত পরিচিতি",
-    "beschreibung": "[প্লেসহোল্ডার] Back to Meaning Maximization একটি সমবায়ভাবে সংগঠিত অর্থনৈতিক বিকল্প যা সমান মূল্যের কাজ, ভাগাভাগি করা পরিকাঠামো এবং আন্তর্জাতিক সহযোগিতাকে একটি সাধারণ ব্যবস্থায় একত্রিত করে।",
+    "beschreibung": "Back to Meaning Maximization একটি সমবায়ভাবে সংগঠিত অর্থনৈতিক বিকল্প যা সমান মূল্যের কাজ, ভাগাভাগি করা পরিকাঠামো এবং আন্তর্জাতিক সহযোগিতাকে একটি সাধারণ ব্যবস্থায় একত্রিত করে।",
     "rechtsform_label": "আইনি ধরন",
-    "rechtsform": "নিবন্ধিত সহকারিতা (eG)",
+    "rechtsform": "প্রতিষ্ঠাধীন সমবায় (eG i.Gr.)",
     "gruendungsort_label": "প্রতিষ্ঠার স্থান",
     "gruendungsort": "ফ্রাইবুর্গ, জার্মানি",
     "gruendungsjahr_label": "প্রতিষ্ঠার বছর",
@@ -46,9 +46,9 @@
   "kontakt": {
     "titel": "সংবাদ যোগাযোগ",
     "name_label": "যোগাযোগ ব্যক্তি",
-    "name": "[প্লেসহোল্ডার]",
+    "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "ই-মেইল",
-    "email": "[প্লেসহোল্ডার]",
+    "email": "office@b-t-m-m.com",
     "hinweis": "আমরা সাধারণত ২ কার্যদিবসের মধ্যে উত্তর দিই।"
   }
 }

@@ -10,9 +10,9 @@
   },
   "kurzprofil": {
     "titel": "نبذة",
-    "beschreibung": "[عنصر نائب] Back to Meaning Maximization هو بديل اقتصادي منظم تعاونياً يجمع بين العمل المتساوي القيمة والبنية التحتية المشتركة والتعاون الدولي في نظام مشترك.",
+    "beschreibung": "Back to Meaning Maximization هو بديل اقتصادي منظم تعاونياً يجمع بين العمل المتساوي القيمة والبنية التحتية المشتركة والتعاون الدولي في نظام مشترك.",
     "rechtsform_label": "الشكل القانوني",
-    "rechtsform": "تعاونية مسجلة (eG)",
+    "rechtsform": "تعاونية قيد التأسيس (eG i.Gr.)",
     "gruendungsort_label": "مكان التأسيس",
     "gruendungsort": "فرايبورغ، ألمانيا",
     "gruendungsjahr_label": "سنة التأسيس",
@@ -46,9 +46,9 @@
   "kontakt": {
     "titel": "اتصال صحفي",
     "name_label": "جهة الاتصال",
-    "name": "[عنصر نائب]",
+    "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "البريد الإلكتروني",
-    "email": "[عنصر نائب]",
+    "email": "office@b-t-m-m.com",
     "hinweis": "نرد عادةً خلال يومي عمل."
   }
 }

@@ -27,7 +27,7 @@
     "schritt2_titel": "プロセス",
     "schritt2_text": "身体とのワーク。",
     "schritt3_titel": "統合",
-    "schritt3_text": "最後に統合の時間。",
+    "schritt3_text": "各セッションの最後に、統合のための時間を取ります。何を体験しましたか？体は何を持ち帰りますか？",
     "schritt4_titel": "余韻",
     "schritt4_text": "効果はその後数日間にわたって広がります。"
   },
@@ -64,12 +64,12 @@
   "ueber": {
     "titel": "ガイドについて",
     "name": "Samjo",
-    "text1": "TODO",
-    "text2": "TODO",
+    "text1": "ヨハネス＝ザムエル・ガルツケ（通称サムヨ）は、シュヴァルツヴァルトのhappyfarmで育ちました。オーバーキルヒにあるこの農場は、2003年から自給自足、手仕事、ボディワーク、共同生活を一つにしています。システミック・ボディワークの研修から、人をまるごと捉えるホリスティックな方法、Back to Meaning Maximizationが生まれました。",
+    "text2": "体は一つのシステムです。すべてはつながり、互いに影響し合っています。この考え方がすべてのセッションの土台です。Back to Meaning Maximizationは単なる技術ではありません。体は自分に必要なものを知っており、やさしく的確な刺激がバランスに戻る手助けになる、という確信です。",
     "qualifikationen_titel": "資格",
-    "qualifikation1": "TODO",
-    "qualifikation2": "TODO",
-    "qualifikation3": "TODO"
+    "qualifikation1": "システミック・ボディワークの研修",
+    "qualifikation2": "happyfarmでホリスティックな暮らしの中で育つ（2003年から）",
+    "qualifikation3": "Back to Meaning Maximizationユニバース創設者 – フライブルク"
   },
   "kontakt": {
     "titel": "お問い合わせ・アクセス",

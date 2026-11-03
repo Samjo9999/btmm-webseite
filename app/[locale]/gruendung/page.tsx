@@ -9,8 +9,8 @@ import { ContactForm } from '@/components/ContactForm'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Gründung – Back to Meaning Maximization eG',
-  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Ein offener Brief an die 7 Gründungsmitglieder. Werde Teil der Bewegung.',
+  title: 'Gründung – Back to Meaning Maximization eG i.Gr.',
+  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Ein offener Brief an die Gründungsmitglieder. Werde Teil der Bewegung.',
 }
 
 const schritte = [
@@ -48,7 +48,7 @@ export default async function GruendungPage() {
             color: 'var(--btb-creme)',
             marginBottom: '1rem',
           }}>
-            An die 7 Gründungsmitglieder
+            An die Gründungsmitglieder
           </h1>
           <p style={{
             color: 'var(--btb-oliv)',
@@ -73,10 +73,10 @@ export default async function GruendungPage() {
                 Back to Meaning Maximization entsteht gerade. Nicht als fertiges System, das von oben eingeführt wird, sondern als lebendiger Prozess, der von den Menschen geprägt wird, die es aufbauen.
               </p>
               <p>
-                Wir suchen 7 Gründungsmitglieder für die Genossenschaft. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind 7 Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
+                Für die Gründung der Genossenschaft braucht es mindestens drei Menschen, unser Ziel sind fünf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
               </p>
               <p>
-                <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Einlage (oder in Arbeitsstunden). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
+                <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
               </p>
               <p>
                 Was wir nicht suchen, sind Menschen, die ein fertiges Produkt kaufen wollen. Wir suchen Mitgründer — Menschen, die die Idee tragen und bereit sind, ihren Namen dafür zu geben. Manche werden von Tag eins operativ mitarbeiten. Andere tragen das System still mit — und das ist genauso wertvoll.
@@ -175,7 +175,7 @@ export default async function GruendungPage() {
             <div className="prose-btb" style={{ marginBottom: '2rem' }}>
               <p>Ein Gründungsmitglied bringt vor allem eins mit: die ehrliche Überzeugung, dass dieses System entstehen soll.</p>
               <ul>
-                <li><strong>Einlage:</strong> 100 € — oder gleichwertig in Arbeitsstunden</li>
+                <li><strong>Einlage:</strong> 100 € — auch in Raten ab 10 € im Monat, voll eingezahlt spätestens zehn Monate nach der Zulassung</li>
                 <li><strong>Zeitaufwand Gründung:</strong> Gründungsversammlung + Notartermin (wenige Stunden)</li>
                 <li><strong>Danach:</strong> So viel oder wenig aktive Beteiligung, wie du geben kannst</li>
                 <li><strong>Was zählt:</strong> Dein Name, dein Bekenntnis, deine Stimme bei Entscheidungen</li>

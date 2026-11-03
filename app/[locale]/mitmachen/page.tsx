@@ -194,7 +194,7 @@ export default async function MitmachenPage() {
                   Vollmitglied
                 </h2>
                 <p style={{ fontSize: '0.85rem', color: 'var(--btb-dunkel)', opacity: 0.6, marginBottom: '1rem' }}>
-                  Back to Meaning Maximization eG — Alltag, Arbeitszeit, Mitgestaltung
+                  Back to Meaning Maximization eG i.Gr. — Alltag, Arbeitszeit, Mitgestaltung
                 </p>
                 <div style={{
                   fontSize: '2rem',
@@ -205,7 +205,7 @@ export default async function MitmachenPage() {
                 }}>
                   100 €
                 </div>
-                <p style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '1.5rem' }}>Einlage (oder in Arbeitsstunden)</p>
+                <p style={{ fontSize: '0.85rem', opacity: 0.6, marginBottom: '1.5rem' }}>Einlage (auch in Raten ab 10 € im Monat)</p>
 
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.6rem', marginBottom: '1.75rem' }}>
                   {[
@@ -248,7 +248,7 @@ export default async function MitmachenPage() {
                   Du möchtest Gründungsmitglied werden?
                 </h3>
                 <p style={{ opacity: 0.75, fontSize: '0.95rem', lineHeight: 1.65 }}>
-                  Wir suchen 7 Gründungsmitglieder für die Genossenschaft. Einlage ab 100 € — oder in Arbeitsstunden. Vollmitgliedschaft ab der ersten geleisteten Stunde.
+                  Für die Gründung braucht es mindestens drei Menschen, unser Ziel sind fünf. Geschäftsanteil 100 € — auch in Raten ab 10 € im Monat. Vollmitgliedschaft ab der ersten Rate.
                 </p>
               </div>
               <Link href="/gruendung" className="btn-primary" style={{ flexShrink: 0, display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
