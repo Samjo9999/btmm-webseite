@@ -42,13 +42,15 @@ function formatDate(iso: string): string {
 }
 
 export default async function ChronikPage() {
-  const { data: entries } = await supabase
+  const { data: entries } = supabase
+    ? await supabase
     .from('chronicle_entries')
     .select('id, title, content, category, is_public, created_at, images')
     .eq('is_public', true)
     .not('approved_at', 'is', null)
     .order('created_at', { ascending: false })
     .limit(50)
+    : { data: null }
 
   const items: ChronicleEntry[] = entries ?? []
 
