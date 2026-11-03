@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "test": "node --test test/",
+    "docs-sync": "node scripts/docs-sync/sync.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
