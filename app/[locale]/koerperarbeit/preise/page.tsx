@@ -404,11 +404,11 @@ export default function PreisePage() {
           </h2>
           <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap', marginBottom: '2rem' }}>
             <a
-              href="mailto:office@b-m-m.com"
+              href="mailto:office@b-t-m-m.com"
               className="btn-secondary"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
             >
-              <Mail size={16} /> office@b-m-m.com
+              <Mail size={16} /> office@b-t-m-m.com
             </a>
           </div>
 

@@ -34,14 +34,14 @@ export function Footer() {
               {t('footer.tagline')}
             </p>
             <a
-              href="mailto:office@b-m-m.com"
+              href="mailto:office@b-t-m-m.com"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none',
               }}
             >
               <Mail size={15} />
-              office@b-m-m.com
+              office@b-t-m-m.com
             </a>
           </div>
 

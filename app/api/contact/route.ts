@@ -84,7 +84,7 @@ export async function POST(request: NextRequest) {
         // In Produktion nie Erfolg melden, wenn nichts versendet wird
         console.error('Kontaktformular: RESEND_API_KEY fehlt, Anfrage nicht versendet')
         return NextResponse.json(
-          { error: 'Das Kontaktformular ist gerade nicht verfügbar. Bitte schreibe an office@b-m-m.com.' },
+          { error: 'Das Kontaktformular ist gerade nicht verfügbar. Bitte schreibe an office@b-t-m-m.com.' },
           { status: 503 },
         )
       }
@@ -100,8 +100,8 @@ export async function POST(request: NextRequest) {
     const typLabel = data.typ ? ` [${data.typ}]` : ''
 
     const { error } = await resend.emails.send({
-      from: 'BtMM Website <office@b-m-m.com>',
-      to: ['office@b-m-m.com'],
+      from: 'BtMM Website <noreply@b-t-m-m.com>',
+      to: ['office@b-t-m-m.com'],
       subject: `${betreff}${typLabel}`,
       html: `
         <h2>Neue Kontaktanfrage</h2>
