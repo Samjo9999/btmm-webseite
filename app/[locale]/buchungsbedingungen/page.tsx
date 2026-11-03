@@ -146,7 +146,7 @@ export default function BuchungsbedingungenPage() {
             <div style={{ marginTop: '3rem', padding: '1.5rem', background: 'var(--btb-creme)', borderRadius: 12 }}>
               <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>
                 <strong>Anbieter:</strong><br />
-                Back to Meaning Maximization eG<br />
+                Back to Meaning Maximization eG i.Gr.<br />
                 Hildastr. 12, 79102 Freiburg im Breisgau<br />
                 E-Mail: office@b-t-m-m.com
               </p>

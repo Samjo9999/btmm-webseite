@@ -194,7 +194,7 @@ export default async function MitmachenPage() {
                   Vollmitglied
                 </h2>
                 <p style={{ fontSize: '0.85rem', color: 'var(--btb-dunkel)', opacity: 0.6, marginBottom: '1rem' }}>
-                  Back to Meaning Maximization eG — Alltag, Arbeitszeit, Mitgestaltung
+                  Back to Meaning Maximization eG i.Gr. — Alltag, Arbeitszeit, Mitgestaltung
                 </p>
                 <div style={{
                   fontSize: '2rem',
