@@ -27,7 +27,7 @@ Back to Meaning Maximization ist ein genossenschaftlich organisiertes Wirtschaft
 | Stufe | Was diese Person einbringt | Was das System zurückgibt |
 |---|---|---|
 | **Unterstützer** | Freizeit, Fähigkeiten, mind. 50 € Spende/Jahr | 10 % Rabatt auf externe Leistungen |
-| **Fördermitglied** | Mehr Zeit, Mitarbeit in Projekten | EK-Preise auf ausgewählte Leistungen |
+| **Förderkundin oder Förderkunde** | Mehr Zeit, Mitarbeit in Projekten | EK-Preise auf ausgewählte Leistungen |
 | **Vollmitglied** | Alltag, Arbeitszeit, Stundenerfassung | Vollständige Vergütung, Solidarfonds, Stimmrecht |
 
 Der Einstieg ist niedrigschwellig. Wer wenig Kapital mitbringt, kann seine Einlage in Arbeitsstunden leisten. **Vollmitgliedschaft ab der ersten geleisteten Stunde.**
