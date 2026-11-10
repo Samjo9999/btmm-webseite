@@ -11,5 +11,7 @@ export const BRAND_COLORS = {
   hell: '#ddcddf',
   dunkel: '#780268',
   akzent: '#b058b3',
-  weiss: '#faf9f9',
+  weiss: '#fbfafa',
+  text: '#2a1028',
+  box: 'rgba(255,255,255,0.80)',
 } as const

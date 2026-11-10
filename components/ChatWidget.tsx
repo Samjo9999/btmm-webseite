@@ -185,7 +185,7 @@ export function ChatWidget() {
             width: 56,
             height: 56,
             borderRadius: '50%',
-            background: '#2a7cab',
+            background: 'var(--btmm-dunkel)',
             color: '#fff',
             border: 'none',
             boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
@@ -230,7 +230,7 @@ export function ChatWidget() {
           {/* --- Header --- */}
           <div
             style={{
-              background: '#2a7cab',
+              background: 'var(--btmm-dunkel)',
               color: '#fff',
               padding: '0.75rem 1rem',
               display: 'flex',
@@ -299,7 +299,7 @@ export function ChatWidget() {
                     style={{
                       alignSelf: 'center',
                       fontSize: '0.78rem',
-                      color: '#2a7cab',
+                      color: 'var(--btmm-dunkel)',
                       background: 'none',
                       border: 'none',
                       cursor: 'pointer',
@@ -345,7 +345,7 @@ export function ChatWidget() {
                       style={{
                         padding: '0.35rem 0.6rem',
                         borderRadius: 6,
-                        background: '#2a7cab',
+                        background: 'var(--btmm-dunkel)',
                         color: '#fff',
                         border: 'none',
                         fontSize: '0.78rem',
@@ -373,7 +373,7 @@ export function ChatWidget() {
                         width: 28,
                         height: 28,
                         borderRadius: '50%',
-                        background: msg.role === 'assistant' ? '#2a7cab' : '#b61818',
+                        background: msg.role === 'assistant' ? 'var(--btmm-dunkel)' : 'var(--btmm-dunkel)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -389,7 +389,7 @@ export function ChatWidget() {
                     <div
                       style={{
                         background:
-                          msg.role === 'assistant' ? '#f0e9b6' : 'rgba(42,124,171,0.15)',
+                          msg.role === 'assistant' ? 'var(--btmm-hell)' : 'rgba(120,2,104,0.15)',
                         borderRadius:
                           msg.role === 'assistant'
                             ? '4px 12px 12px 12px'
@@ -425,21 +425,21 @@ export function ChatWidget() {
                         style={{
                           padding: '0.4rem 0.75rem',
                           borderRadius: 20,
-                          border: '1.5px solid #2a7cab',
+                          border: '1.5px solid var(--btmm-dunkel)',
                           background: '#fff',
-                          color: '#2a7cab',
+                          color: 'var(--btmm-dunkel)',
                           fontSize: '0.82rem',
                           cursor: 'pointer',
                           fontWeight: 500,
                           transition: 'background 0.15s, color 0.15s',
                         }}
                         onMouseEnter={e => {
-                          e.currentTarget.style.background = '#2a7cab'
+                          e.currentTarget.style.background = 'var(--btmm-dunkel)'
                           e.currentTarget.style.color = '#fff'
                         }}
                         onMouseLeave={e => {
                           e.currentTarget.style.background = '#fff'
-                          e.currentTarget.style.color = '#2a7cab'
+                          e.currentTarget.style.color = 'var(--btmm-dunkel)'
                         }}
                       >
                         {label}
@@ -456,7 +456,7 @@ export function ChatWidget() {
                         width: 28,
                         height: 28,
                         borderRadius: '50%',
-                        background: '#2a7cab',
+                        background: 'var(--btmm-dunkel)',
                         display: 'flex',
                         alignItems: 'center',
                         justifyContent: 'center',
@@ -467,7 +467,7 @@ export function ChatWidget() {
                     </div>
                     <div
                       style={{
-                        background: '#f0e9b6',
+                        background: 'var(--btmm-hell)',
                         borderRadius: '4px 12px 12px 12px',
                         padding: '0.55rem 0.8rem',
                         display: 'flex',
@@ -522,7 +522,7 @@ export function ChatWidget() {
                   disabled={loading || !input.trim()}
                   aria-label="Senden"
                   style={{
-                    background: '#2a7cab',
+                    background: 'var(--btmm-dunkel)',
                     color: '#fff',
                     border: 'none',
                     borderRadius: 8,
@@ -550,7 +550,7 @@ export function ChatWidget() {
                   flexShrink: 0,
                 }}
               >
-                Powered by <strong style={{ color: '#2a7cab' }}>BtMM</strong>
+                Powered by <strong style={{ color: 'var(--btmm-dunkel)' }}>BtMM</strong>
               </div>
             </>
           )}
@@ -589,7 +589,7 @@ function dotStyle(index: number): React.CSSProperties {
     width: 6,
     height: 6,
     borderRadius: '50%',
-    background: '#2a7cab',
+    background: 'var(--btmm-dunkel)',
     display: 'inline-block',
     animation: 'btb-chat-dot 1.4s infinite ease-in-out',
     animationDelay: `${index * 0.16}s`,

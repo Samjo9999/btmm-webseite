@@ -20,6 +20,7 @@ const config: Config = {
         'btmm-dunkel': 'var(--btmm-dunkel)',
         'btmm-akzent': 'var(--btmm-akzent)',
         'btmm-weiss': 'var(--btmm-weiss)',
+        'btmm-text': 'var(--btmm-text)',
       },
       fontFamily: {
         heading: ['var(--font-garamond)', 'Georgia', 'serif'],

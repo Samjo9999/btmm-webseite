@@ -13,7 +13,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Kontakt & Anfahrt – Körperarbeit Freiburg | BtMM',
+  title: 'Kontakt und Anfahrt',
   description: 'Kontakt für BtMM-Körperarbeit in Freiburg. Adresse, Telefon, E-Mail und Anfahrt.',
 }
 
@@ -26,18 +26,18 @@ export default async function KontaktPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+          src="/images/stock/bergsee-gipfel.webp"
           alt="Freiburg im Breisgau — Schwarzwald"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=1920&q=80"
+          src="/images/stock/bergsee-gipfel.webp"
           alt="Freiburg im Breisgau — Schwarzwald"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -145,7 +145,7 @@ export default async function KontaktPage() {
                   display: 'flex', alignItems: 'center', justifyContent: 'center',
                   flexDirection: 'column', gap: '0.5rem',
                   color: 'var(--btb-dunkel)', opacity: 0.5,
-                  border: '1px solid rgba(143,169,66,0.2)',
+                  border: '1px solid rgba(158,87,164,0.2)',
                 }}>
                   <MapPin size={28} />
                   <p style={{ fontSize: '0.85rem' }}>TODO: Google Maps Embed</p>

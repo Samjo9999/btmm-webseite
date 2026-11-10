@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 170" role="img" aria-hidden="true">
+  
+  <circle cx="120" cy="80" r="62" fill="#ddcddf" stroke="#780268" stroke-width="6"/>
+  <circle cx="120" cy="80" r="48" fill="none" stroke="#b058b3" stroke-width="3"/>
+  <text x="120" y="92" text-anchor="middle" font-family="Georgia, serif" font-size="48" font-weight="700" fill="#780268">1</text>
+  <text x="120" y="154" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#2a1028">Stunde</text>
+
+</svg>

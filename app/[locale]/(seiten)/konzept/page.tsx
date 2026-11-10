@@ -9,8 +9,8 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Das Konzept – Back to Meaning Maximization',
-  description: 'Das BtMM-Konzept: Gleicher Stundensatz, Pool-Dreiteilung, BtMM-Coins, selbstverwaltete Zellen und internationale Vision.',
+  title: 'Das Konzept',
+  description: 'Das BtMM-Konzept: drei Säulen, gleiche Stunde, BtMM-Coins, selbstverwaltete Zellen. Die Genossenschaft ist geplant und noch nicht gegründet.',
 }
 
 export default async function KonzeptPage() {
@@ -23,19 +23,19 @@ export default async function KonzeptPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem',
         textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80"
+          src="/images/stock/baumkronen.webp"
           alt="Baumkrone – das Konzept von unten nach oben"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?w=1920&q=80"
+          src="/images/stock/baumkronen.webp"
           alt="Baumkrone – das Konzept von unten nach oben"
         />
         <div className="hero-text" style={{ maxWidth: 720, position: 'relative', zIndex: 2 }}>
@@ -78,10 +78,10 @@ export default async function KonzeptPage() {
               Was wäre, wenn faire Löhne und günstige Preise kein Widerspruch wären?
             </h2>
             <p style={{ lineHeight: 1.8, fontSize: '1.05rem', marginBottom: '1rem', textAlign: 'center', maxWidth: 660, margin: '0 auto 1rem' }}>
-              Im konventionellen Markt verteuert jede Lohnerhöhung das Produkt. Im Back to Meaning Maximization System kommt der Lohn aus dem gemeinsamen Pool — Produktpreise decken nur Materialkosten. Der EK-Preis-Vorteil gilt für alle internen Leistungen und Produkte: Lebensmittel, Handwerk, Körperarbeit, Unterricht, Reparaturen, Wohnen. Je größer das Sortiment, desto mehr Ersparnis.
+              Im konventionellen Markt verteuert jede Lohnerhöhung das Produkt. Im BtMM-System gilt das intern nicht: geteilt wird, was sich teilen lässt, gearbeitet wird zum gleichen Lohn, besessen wird gemeinsam. Der frühere Einkommens-Pool ist ersetzt. Intern zahlst du Selbstkosten, nicht den Marktpreis.
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1.05rem', textAlign: 'center', maxWidth: 660, margin: '0 auto 2rem' }}>
-              Eine Stunde ist eine Stunde — ob kochen, bauen, heilen oder programmieren. Der Ziel-Stundensatz liegt bei 20 € netto – ein Wert, der ein gutes Leben ohne Luxus ermöglicht und auch bei externer Marktmiete die Lebenshaltung deckt. Auch für die Mittelschicht ein Gewinn: höheres Netto und EK-Preise auf alles Interne. Im voll ausgebauten System decken 47 Stunden im Monat die gesamte Lebenshaltung.
+              Eine Stunde ist eine Stunde — ob kochen, bauen, pflegen oder programmieren. Mindestens der gesetzliche Mindestlohn, als Ziel 20 € je Stunde. Alle Zahlen dazu sind Modellrechnungen, keine Prognose. Die eG ist geplant und noch nicht gegründet.
             </p>
           </SectionReveal>
 
@@ -94,11 +94,11 @@ export default async function KonzeptPage() {
           }}>
             {[
               { icon: Scale, label: 'Gleicher Stundensatz', detail: '1 Stunde = 1 Stunde, egal welcher Beruf', color: 'var(--btb-rot)' },
-              { icon: TrendingUp, label: 'Pool-Dreiteilung', detail: '⅓ Vergütung · ⅓ Reinvestition · ⅓ Sozial', color: 'var(--btb-rot)' },
+              { icon: TrendingUp, label: 'Verteilungs-Kaskade', detail: 'Zuerst Hilfe und Lohn, dann drei Schalen', color: 'var(--btb-rot)' },
               { icon: Heart, label: 'BtMM-Coin', detail: '1 Coin = 1 Stunde — internes Tauschmittel', color: 'var(--btb-blau)' },
               { icon: Users, label: 'Selbstverwaltete Zellen', detail: 'Demokratisch, dezentral, eigenverantwortlich', color: 'var(--btb-blau)' },
               { icon: Shield, label: 'Solidarfonds', detail: 'Schwangerschaft, Krankheit, Übergänge', color: 'var(--btb-oliv)' },
-              { icon: Globe, label: 'Weltweit ein System', detail: 'Keine Kopie — Teil des Netzwerks', color: 'var(--btb-oliv)' },
+              { icon: Globe, label: 'Ein System, später weltweit', detail: 'Geplant, heute noch keine Zellen', color: 'var(--btb-oliv)' },
             ].map((item, i) => {
               const Icon = item.icon
               return (
@@ -151,7 +151,7 @@ export default async function KonzeptPage() {
                 text: t('uebersicht.wirtschaft_text'),
                 href: '/konzept/wirtschaft',
                 color: 'var(--btb-rot)',
-                highlights: ['Pool & Dreiteilung', 'Gleicher Stundensatz', 'BtMM-Coin', 'EK-Preis-Vorteil', 'Modellrechnungen'],
+                highlights: ['Drei Säulen', 'Gleiche Stunde', 'BtMM-Coin', 'Selbstkosten', 'Modellrechnungen'],
               },
               {
                 icon: <Users size={40} style={{ color: 'var(--btb-blau)' }} />,
@@ -159,7 +159,7 @@ export default async function KonzeptPage() {
                 text: t('uebersicht.gemeinschaft_text'),
                 href: '/konzept/gemeinschaft',
                 color: 'var(--btb-blau)',
-                highlights: ['Selbstverwaltete Zellen', 'Solidarfonds', 'Rhythmusanerkennung', 'Konsequenzen statt Strafen', '3 Mitgliedsstufen'],
+                highlights: ['Selbstverwaltete Zellen', 'Solidarfonds', 'Aufnahmeweg', 'Konsequenzen statt Strafen', 'Formen der Beteiligung'],
               },
               {
                 icon: <Globe size={40} style={{ color: 'var(--btb-oliv)' }} />,

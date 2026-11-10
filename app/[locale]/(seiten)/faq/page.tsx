@@ -11,7 +11,7 @@ import { SupportChat } from '@/components/SupportChat'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'FAQ – Häufige Fragen | Back to Meaning Maximization',
+  title: 'Häufige Fragen',
   description: 'Häufige Fragen zu Back to Meaning Maximization, Mitgliedschaft, Körperarbeit und der BtMM-App.',
 }
 
@@ -19,7 +19,7 @@ export default async function FaqPage() {
   const t = await getTranslations('faq')
 
   const fragen = [
-    { frage: t('fragen.was_ist_btb.frage'), antwort: t('fragen.was_ist_btb.antwort') },
+    { frage: t('fragen.was_ist_btmm.frage'), antwort: t('fragen.was_ist_btmm.antwort') },
     { frage: t('fragen.wie_mitmachen.frage'), antwort: t('fragen.wie_mitmachen.antwort') },
     { frage: t('fragen.was_kostet.frage'), antwort: t('fragen.was_kostet.antwort') },
     { frage: t('fragen.was_sind_coins.frage'), antwort: t('fragen.was_sind_coins.antwort') },
@@ -33,18 +33,18 @@ export default async function FaqPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"
+          src="/images/stock/gruene-berge.webp"
           alt="Grüne Hügel – Antworten finden"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1501854140801-50d01698950b?w=1920&q=80"
+          src="/images/stock/gruene-berge.webp"
           alt="Grüne Hügel – Antworten finden"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>

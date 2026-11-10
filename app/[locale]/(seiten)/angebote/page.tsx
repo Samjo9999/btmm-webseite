@@ -25,19 +25,19 @@ export default async function AngebotePage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem',
         textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&q=80"
+          src="/images/stock/see-nebel.webp"
           alt="Berglandschaft – Natur als Inspiration"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?w=1920&q=80"
+          src="/images/stock/see-nebel.webp"
           alt="Berglandschaft – Natur als Inspiration"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>
@@ -69,7 +69,7 @@ export default async function AngebotePage() {
         <div className="container-btb" style={{ maxWidth: 800 }}>
           <div style={{
             borderRadius: 12,
-            border: '2px solid rgba(42,124,171,0.3)',
+            border: '2px solid rgba(120,2,104,0.3)',
             background: 'rgba(255,255,255,0.5)',
             overflow: 'hidden',
           }}>
@@ -93,7 +93,7 @@ export default async function AngebotePage() {
                     textTransform: 'uppercase',
                     letterSpacing: '0.1em',
                     color: 'white',
-                    background: 'var(--btb-blau, #2a7cab)',
+                    background: 'var(--btb-blau, var(--btmm-dunkel))',
                     padding: '0.15rem 0.5rem',
                     borderRadius: 4,
                     marginRight: '0.5rem',

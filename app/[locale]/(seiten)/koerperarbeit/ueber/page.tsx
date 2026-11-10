@@ -12,7 +12,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Über den Begleiter – Körperarbeit Freiburg | BtMM',
+  title: 'Über den Begleiter',
   description: 'Samjo – Körperarbeiter und Begleiter bei Back to Meaning Maximization in Freiburg. Ausbildung, Ansatz und Hintergrund.',
 }
 
@@ -31,18 +31,18 @@ export default async function UeberPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
+          src="/images/stock/waldblumen.webp"
           alt="Achtsame Hände — Körperarbeit"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1490750967868-88aa4f44baee?w=1920&q=80"
+          src="/images/stock/waldblumen.webp"
           alt="Achtsame Hände — Körperarbeit"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -75,7 +75,7 @@ export default async function UeberPage() {
               <div style={{
                 position: 'relative',
                 borderRadius: 16, aspectRatio: '4/3', overflow: 'hidden',
-                border: '2px solid rgba(143,169,66,0.2)',
+                border: '2px solid rgba(158,87,164,0.2)',
               }}>
                 <Image
                   src="/images/johannes-mit-hund.webp"
@@ -114,7 +114,7 @@ export default async function UeberPage() {
                   marginBottom: '2rem',
                 }}>
                   <Image
-                    src="https://images.unsplash.com/photo-1544161515-4ab6ce6db874?w=800&q=80"
+                    src="/images/stock/jungpflanzen.webp"
                     alt="Körperarbeiter bei einer achtsamen Begleitung — Hände und Präsenz"
                     width={800}
                     height={533}

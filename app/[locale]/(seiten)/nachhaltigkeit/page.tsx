@@ -8,7 +8,7 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Nachhaltigkeit – Back to Meaning Maximization',
+  title: 'Nachhaltigkeit',
   description: 'Wie Back to Meaning Maximization echte Nachhaltigkeit verankert: im Geschäftsmodell, in der Governance und in den täglichen Praktiken.',
 }
 
@@ -20,19 +20,19 @@ export default async function NachhaltigkeitPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#051010',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem',
         textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
+          src="/images/stock/sonnenwald.webp"
           alt="Waldweg – Nachhaltigkeit durch Struktur"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
+          src="/images/stock/sonnenwald.webp"
           alt="Waldweg – Nachhaltigkeit durch Struktur"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -95,7 +95,7 @@ export default async function NachhaltigkeitPage() {
               <strong>Die Genossenschaft in Gründung (eG i.Gr.)</strong> hat eine einzige Prämisse: Sie soll niemals an Externe verkauft werden können. Wer raus geht, geht raus. Die Anteile folgen nicht. Das ist nicht ein Risikoschutz — das ist ein struktureller Schutz vor Übernahme, Privatisierung, Börsengang.
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1rem' }}>
-              Ergebnis: Ein System, das langfristig stabilität garantiert — nicht durch Verträge, sondern durch Rechtsform.
+              Ziel: Ein System, das sich über die Rechtsform der Genossenschaft gegen Verkauf an Externe schützt — nicht durch ein Versprechen, sondern durch die geplante Satzung.
             </p>
           </SectionReveal>
         </div>
@@ -117,12 +117,12 @@ export default async function NachhaltigkeitPage() {
               Im konventionellen System ist Nachhaltigkeit immer ein Zusatzkost — etwas, das die Profitabilität reduziert. Im BtMM-System ist es Standard:
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1rem', marginBottom: '1rem' }}>
-              Der erwirtschaftete Pool wird in <strong>drei gleiche Teile</strong> geteilt:
+              Was die Betriebe über den Lohn hinaus erwirtschaften, verteilt sich auf drei Schalen. Zuerst kommen Rücklage und gleicher Grundlohn. Im Aufbau liegen die Anteile in Korridoren, im reifen System etwa je ein Drittel:
             </p>
             <ul style={{ lineHeight: 1.8, fontSize: '1rem', marginBottom: '1rem', paddingLeft: '2rem' }}>
-              <li><strong>Vergütung:</strong> An die Mitglieder (als Coins)</li>
-              <li><strong>Reinvestition:</strong> Fixkosten, Infrastruktur, Wachstum</li>
-              <li><strong>Sozial- und Öko-Anteil:</strong> Gemeinschaftsprojekte, ökologische Initiativen, Solidarfonds</li>
+              <li><strong>Bonus:</strong> als Bonus-Coins, pro Stunde für alle gleich</li>
+              <li><strong>Reinvestition:</strong> Häuser, Werkzeug, Infrastruktur</li>
+              <li><strong>Sozial- und Öko-Anteil:</strong> Solidarfonds, gemeinschaftliche und ökologische Vorhaben</li>
             </ul>
             <p style={{ lineHeight: 1.8, fontSize: '1rem' }}>
               Diese Quote ist nicht verhandelbar. Sie sitzt in der Satzung. Ein System, das nur sich nährt, hat keine Zukunft — das ist nicht eine Idee, das ist eine mathematische Regel.

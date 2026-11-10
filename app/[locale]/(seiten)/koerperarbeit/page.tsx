@@ -11,7 +11,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Körperarbeit Freiburg – BtMM ganzheitliche Begleitung',
+  title: 'Körperarbeit',
   description: 'Körperarbeit und ganzheitliche Begleitung in Freiburg. BtMM-Methode für mehr Gleichgewicht, Vitalität und Lebendigkeit. Ganzheitliche Körperarbeit Freiburg.',
   keywords: ['Körperarbeit Freiburg', 'ganzheitliche Körperarbeit', 'ganzheitliche Körperarbeit Freiburg', 'BtMM Körperarbeit', 'Bodywork Freiburg'],
 }
@@ -36,31 +36,31 @@ export default async function KoerperarbeitPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1920&q=80"
+          src="/images/stock/tannenwald.webp"
           alt="Balance und Ruhe"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5?w=1920&q=80"
+          src="/images/stock/tannenwald.webp"
           alt="Balance und Ruhe"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>
           <h1 style={{
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(2.2rem, 5vw, 4rem)',
-            color: 'var(--btb-rot, #b61818)',
+            color: 'var(--btb-rot, var(--btmm-dunkel))',
             marginBottom: '0.25rem',
           }}>
             {t('landing.titel')}
           </h1>
           <p style={{
-            color: 'var(--btb-rot, #b61818)',
+            color: 'var(--btb-rot, var(--btmm-dunkel))',
             fontSize: 'clamp(1.2rem, 2.5vw, 1.6rem)',
             fontFamily: 'var(--font-garamond)',
             marginBottom: '0.5rem',

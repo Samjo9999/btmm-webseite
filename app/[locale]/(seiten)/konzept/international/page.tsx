@@ -8,7 +8,7 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'International – BtMM Konzept',
+  title: 'International',
   description: 'Einheitliches System, weltweite Zellen und politische Wirkung durch Existenz: Die internationale Vision von Back to Meaning Maximization.',
 }
 
@@ -24,14 +24,14 @@ export default async function InternationalPage() {
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80"
+          src="/images/stock/bergland.webp"
           alt="Sonnenstrahlen durch Berge – weltweite Vision"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?w=1920&q=80"
+          src="/images/stock/bergland.webp"
           alt="Sonnenstrahlen durch Berge – weltweite Vision"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>

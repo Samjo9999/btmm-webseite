@@ -11,7 +11,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Ablauf einer Sitzung – Körperarbeit Freiburg | BtMM',
+  title: 'Ablauf einer Sitzung',
   description: 'Was dich in einer Sitzung BtMM-Körperarbeit erwartet: Ankommen, Prozess, Integration, Nachklingen.',
 }
 
@@ -31,18 +31,18 @@ export default async function AblaufPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
+          src="/images/stock/jungpflanzen.webp"
           alt="Ruhiger Raum für Körperarbeit — Raum für Veränderung"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1600618528240-fb9fc964b853?w=1920&q=80"
+          src="/images/stock/jungpflanzen.webp"
           alt="Ruhiger Raum für Körperarbeit — Raum für Veränderung"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -79,7 +79,7 @@ export default async function AblaufPage() {
                 width: '100%',
               }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1540555700478-4be289fbec6d?w=800&q=80"
+                  src="/images/stock/bergsee-still.webp"
                   alt="Ruhiger Raum für Körperarbeit mit warmem Licht — Raum für Körperarbeit"
                   width={800}
                   height={533}

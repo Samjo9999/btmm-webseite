@@ -91,18 +91,18 @@ export default function PreisePage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
+          src="/images/stock/sonnenwald.webp"
           alt="Waldweg — Ruhe und Klarheit"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1441974231531-c6227db76b6e?w=1920&q=80"
+          src="/images/stock/sonnenwald.webp"
           alt="Waldweg — Ruhe und Klarheit"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -127,8 +127,8 @@ export default function PreisePage() {
         <div className="container-btb" style={{ maxWidth: 900 }}>
 
           <div style={{
-            background: 'rgba(143,169,66,0.08)',
-            border: '1.5px solid rgba(143,169,66,0.2)',
+            background: 'rgba(158,87,164,0.08)',
+            border: '1.5px solid rgba(158,87,164,0.2)',
             borderRadius: 12, padding: '1.25rem',
             marginBottom: '1rem',
             lineHeight: 1.7, fontSize: '0.95rem', color: 'var(--btb-dunkel)',
@@ -137,8 +137,8 @@ export default function PreisePage() {
           </div>
 
           <div style={{
-            background: 'rgba(42,124,171,0.08)',
-            border: '1.5px solid rgba(42,124,171,0.2)',
+            background: 'rgba(120,2,104,0.08)',
+            border: '1.5px solid rgba(120,2,104,0.2)',
             borderRadius: 12, padding: '1.25rem',
             marginBottom: '2rem',
             display: 'flex', gap: '0.75rem', alignItems: 'flex-start',
@@ -255,14 +255,14 @@ export default function PreisePage() {
                 return (
                   <SectionReveal key={card.key} delay={i * 0.12}>
                     <div className="card-btb" style={{
-                      border: card.isPromotion ? '2px solid #b61818' : card.featured ? '2px solid var(--btb-oliv)' : '1.5px solid var(--btb-creme)',
+                      border: card.isPromotion ? '2px solid var(--btmm-dunkel)' : card.featured ? '2px solid var(--btb-oliv)' : '1.5px solid var(--btb-creme)',
                       position: 'relative',
                       textAlign: 'center',
                     }}>
                       {card.isPromotion && (
                         <div style={{
                           position: 'absolute', top: -14, left: '50%', transform: 'translateX(-50%)',
-                          background: '#b61818', color: 'white',
+                          background: 'var(--btmm-dunkel)', color: 'white',
                           borderRadius: 20, padding: '0.2rem 0.8rem',
                           fontSize: '0.75rem', fontWeight: 700,
                           display: 'flex', alignItems: 'center', gap: '0.3rem',
@@ -295,7 +295,7 @@ export default function PreisePage() {
                         fontSize: 'clamp(2rem, 4vw, 2.8rem)',
                         fontFamily: 'var(--font-garamond)',
                         fontWeight: 700,
-                        color: card.isPromotion ? '#b61818' : 'var(--btb-rot)',
+                        color: card.isPromotion ? 'var(--btmm-dunkel)' : 'var(--btb-rot)',
                         marginBottom: '0.25rem',
                       }}>
                         {card.isPromotion && card.originalPrice && (
@@ -313,7 +313,7 @@ export default function PreisePage() {
                         {card.price} €
                       </div>
                       {card.isPromotion && card.promotionEndsAt && (
-                        <p style={{ fontSize: '0.8rem', color: '#b61818', fontWeight: 600, marginBottom: '0.25rem' }}>
+                        <p style={{ fontSize: '0.8rem', color: 'var(--btmm-dunkel)', fontWeight: 600, marginBottom: '0.25rem' }}>
                           Nur noch bis {new Date(card.promotionEndsAt).toLocaleDateString('de-DE', { day: 'numeric', month: 'long' })}!
                         </p>
                       )}
@@ -352,8 +352,8 @@ export default function PreisePage() {
 
                       {card.positions && card.positions.length > 0 && (
                         <div style={{
-                          background: 'rgba(143,169,66,0.06)',
-                          border: '1px solid rgba(143,169,66,0.15)',
+                          background: 'rgba(158,87,164,0.06)',
+                          border: '1px solid rgba(158,87,164,0.15)',
                           borderRadius: 8,
                           padding: '0.5rem 0.65rem',
                           textAlign: 'left',

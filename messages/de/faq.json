@@ -1,6 +1,6 @@
 {
   "titel": "Häufige Fragen",
-  "untertitel": "Antworten auf die wichtigsten Fragen zu Back to Meaning Maximization",
+  "untertitel": "Antworten auf die wichtigsten Fragen. Wo etwas noch offen ist, sagen wir das.",
   "kategorien": {
     "allgemein": "Allgemein",
     "mitgliedschaft": "Mitgliedschaft",
@@ -10,19 +10,19 @@
   "fragen": {
     "was_ist_btmm": {
       "frage": "Was ist Back to Meaning Maximization?",
-      "antwort": "Back to Meaning Maximization (BtMM) ist ein Gemeinschaftsprojekt, das ein alternatives Wirtschaftsmodell entwickelt und erprobt. Es verbindet wirtschaftliche Kooperation mit ganzheitlicher Körperarbeit und dem Aufbau lokaler Gemeinschaften."
+      "antwort": "Back to Meaning Maximization (BtMM) ist eine geplante Genossenschaft. Sie will ein besseres Leben für alle, die mitmachen: mehr freie Zeit, gutes Essen, Gesundheit, Bildung und Wohnen ohne Rendite. Dafür teilen die Mitglieder, was einzeln teuer ist, arbeiten in eigenen Betrieben zum gleichen Lohn und besitzen gemeinsam, was nie verkauft wird. Die eG besteht noch nicht."
     },
     "wie_mitmachen": {
       "frage": "Wie kann ich mitmachen?",
-      "antwort": "Die Genossenschaft ist in Gründung und besteht noch nicht. Sobald sie gegründet ist, kannst du Mitglied werden. Schreib uns über das Kontaktformular auf /mitmachen."
+      "antwort": "Schon vor der Gründung kannst du dich als Unterstützerin oder Unterstützer melden (mit Zeit oder ab 50 € im Jahr). Mitglied der eG wirst du erst, wenn es sie gibt, über den geplanten Aufnahmeweg der Zelle. Wer in oder bei Freiburg lebt, kann zu den ersten drei gehören. Schreib uns über das Formular auf der Seite Mitmachen."
     },
     "was_kostet": {
       "frage": "Was kostet eine Mitgliedschaft?",
-      "antwort": "Die Mitgliedschaft in der Genossenschaft befindet sich noch in der Gründungsphase – melde dich für Updates an."
+      "antwort": "Der Geschäftsanteil beträgt 100 €, auch in Raten ab 10 € im Monat. Dazu kommt ein Beitrag, der nie höher sein darf als deine Ersparnis. Einen Solidarbeitrag von 20 € im Monat zahlst du erst, wenn der Solidarfonds Leistungen zahlt. Unterstützen geht ab 50 € im Jahr, Förderkundin oder Förderkunde ab 1.000 € im Jahr. Alle Beträge stammen aus den Entwürfen und können sich vor der Gründung noch ändern."
     },
     "was_sind_coins": {
       "frage": "Was sind BtMM-Coins?",
-      "antwort": "BtMM-Coins sind die interne Währung der Gemeinschaft. Mitglieder können damit Leistungen tauschen – z.B. Körperarbeit gegen Beratung – ohne Geldfluss. Die Coins werden über die BtMM-App verwaltet."
+      "antwort": "Ein Coin entspricht immer einer Stunde Arbeit. Du kannst damit Stunde gegen Stunde tauschen. Willkommens- und Bonus-Coins werden nur innerhalb von BtMM eingesetzt und nie ausgezahlt. Die Coin-Ordnung ist ein Entwurf und gilt erst nach Beschluss der Generalversammlung."
     },
     "koerperarbeit_unterschied": {
       "frage": "Was unterscheidet BtMM-Körperarbeit von anderen Ansätzen?",
@@ -34,7 +34,7 @@
     },
     "zelle_gruenden": {
       "frage": "Kann ich eine eigene Zelle gründen?",
-      "antwort": "Ja! BtMM lebt von lokalen Zellen. Wenn du in deiner Stadt oder deinem Ort eine Zelle gründen möchtest, melde dich bei uns. Wir begleiten dich durch den Prozess."
+      "antwort": "Neue Zellen sind geplant, sobald die Genossenschaft besteht. Von weitem kannst du dich vormerken lassen; sind am eigenen Ort drei Menschen da, wird der Keim bekannt gemacht. Eine eigene Gründung neben der eG ist nicht der Weg: die drei werden über eine bestehende Zelle Mitglied und bilden dann ihre eigene Zelle. Heute gibt es noch keine Zellen."
     }
   }
 }

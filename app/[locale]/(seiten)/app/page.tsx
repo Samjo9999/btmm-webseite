@@ -8,15 +8,15 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Die BtMM-App – Back to Meaning Maximization',
-  description: 'Die BtMM-App für Mitglieder: Pool, Coins, Workspace, Abstimmung und Berufsmodule. Login unter app.b-t-m-m.com.',
+  title: 'Die BtMM-App',
+  description: 'Die geplante BtMM-App für Mitglieder: Nutzen-Bilanz, Coins, Workspace und Abstimmung. Login unter app.b-t-m-m.com.',
 }
 
 const features = [
   {
     icon: Users,
-    titel: 'Pool',
-    text: 'Der gemeinsame Pool bündelt Ressourcen aller Mitglieder. Projekte werden gemeinsam finanziert, und jeder kann auf den Pool zugreifen, wenn er ihn braucht. Transparenz ist dabei keine Option, sondern Grundprinzip.',
+    titel: 'Nutzen-Bilanz',
+    text: 'Die App soll dir zeigen, was du sparst und was du beiträgst. Der frühere gemeinsame Einkommens-Pool ist kein aktuelles Modell mehr. Transparenz in der Zelle bleibt ein Grundsatz.',
     color: 'var(--btb-blau)',
   },
   {
@@ -55,14 +55,14 @@ export default async function AppPage() {
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80"
+          src="/images/stock/nebelwald.webp"
           alt="Nebelwald – Technologie trifft Natur"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?w=1920&q=80"
+          src="/images/stock/nebelwald.webp"
           alt="Nebelwald – Technologie trifft Natur"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>

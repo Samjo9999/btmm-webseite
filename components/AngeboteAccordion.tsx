@@ -175,7 +175,7 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
             key={angebot.id}
             style={{
               borderRadius: 12,
-              border: `2px solid ${isOpen ? 'var(--btb-oliv)' : 'rgba(143,169,66,0.3)'}`,
+              border: `2px solid ${isOpen ? 'var(--btb-oliv)' : 'rgba(158,87,164,0.3)'}`,
               background: isOpen ? 'var(--btb-weiss)' : 'rgba(255,255,255,0.5)',
               overflow: 'hidden',
               transition: 'border-color 0.3s, background 0.3s',
@@ -224,7 +224,7 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                       textTransform: 'uppercase',
                       letterSpacing: '0.08em',
                       color: 'white',
-                      background: '#b61818',
+                      background: 'var(--btmm-dunkel)',
                       padding: '0.15rem 0.5rem',
                       borderRadius: 4,
                       animation: 'pulse-badge 2s ease-in-out infinite',

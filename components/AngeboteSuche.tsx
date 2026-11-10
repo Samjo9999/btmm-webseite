@@ -99,7 +99,7 @@ export function AngeboteSuche() {
               }}
               onMouseEnter={(e) => {
                 e.currentTarget.style.transform = 'translateY(-2px)'
-                e.currentTarget.style.boxShadow = '0 8px 30px rgba(26,21,5,0.12)'
+                e.currentTarget.style.boxShadow = '0 8px 30px rgba(42,16,40,0.12)'
               }}
               onMouseLeave={(e) => {
                 e.currentTarget.style.transform = 'translateY(0)'

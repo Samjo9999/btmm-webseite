@@ -63,8 +63,8 @@ export default function AnfahrtPage() {
             marginBottom: '2rem',
           }}>
             <div style={{
-              background: 'rgba(42,124,171,0.06)',
-              border: '1.5px solid rgba(42,124,171,0.15)',
+              background: 'rgba(120,2,104,0.06)',
+              border: '1.5px solid rgba(120,2,104,0.15)',
               borderRadius: 12,
               padding: '1.25rem',
             }}>
@@ -82,8 +82,8 @@ export default function AnfahrtPage() {
             </div>
 
             <div style={{
-              background: 'rgba(143,169,66,0.06)',
-              border: '1.5px solid rgba(143,169,66,0.15)',
+              background: 'rgba(158,87,164,0.06)',
+              border: '1.5px solid rgba(158,87,164,0.15)',
               borderRadius: 12,
               padding: '1.25rem',
             }}>

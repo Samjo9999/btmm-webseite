@@ -1,34 +1,34 @@
 {
   "meta": {
-    "title": "Zellen – Back to Meaning Maximization",
-    "description": "Entdecke die BtMM-Zellen rund um die Welt. Lokale Gemeinschaften, ein gemeinsames System."
+    "title": "Zellen",
+    "description": "Geplante BtMM-Zellen: selbstverwaltete lokale Gemeinschaften unter derselben Satzung. Heute gibt es noch keine bestehenden Zellen."
   },
   "hero": {
     "titel": "Zellen",
-    "untertitel": "Lokale Gemeinschaften, ein gemeinsames System"
+    "untertitel": "Geplant: lokale Gemeinschaften, ein gemeinsames System. Heute noch keine bestehenden Zellen."
   },
   "overview": {
-    "zellen_aktiv": "Zellen aktiv oder in Gründung",
-    "mitglieder": "Aktive Mitglieder",
+    "zellen_aktiv": "Zellen (geplant)",
+    "mitglieder": "Mitglieder (noch keine)",
     "fachbereiche": "Fachbereiche"
   },
   "stats": {
-    "titel": "BtMM-Zellen in Zahlen"
+    "titel": "Wie Zellen gedacht sind"
   },
   "zellenliste": {
-    "neue_zelle_titel": "Neue Zelle",
-    "neue_zelle_text": "Du möchtest eine BtMM-Zelle in deiner Nähe gründen?",
+    "neue_zelle_titel": "Einen Keim vormerken",
+    "neue_zelle_text": "Die ersten drei müssen in Freiburg leben, alle anderen nicht. Sind am eigenen Ort drei Menschen da, wird der Keim bekannt gemacht. Eine eigene Gründung neben der eG ist nicht der Weg.",
     "neue_zelle_button": "Kontakt aufnehmen"
   },
   "info": {
     "titel": "Wie funktionieren Zellen?",
-    "text1": "Jede Zelle ist eine lokale Gemeinschaft von BtMM-Mitgliedern, die zusammenarbeiten, Ressourcen teilen und Leistungen tauschen. Dezentral organisiert — aber mit gemeinsamen Werten und Systemen verbunden.",
-    "text2": "Zellen können verschiedene Schwerpunkte haben — Körperarbeit, Handwerk, Beratung, Bildung. Was zählt: Die Menschen arbeiten im Sinne einer gerechteren Wirtschaft zusammen."
+    "text1": "Jede Zelle soll eine lokale, selbstverwaltete Gemeinschaft sein, verbunden durch dieselbe Satzung und die gemeinsame App. Die Verwaltung bleibt in der Zelle. Das ist das geplante Bild, kein heutiger Bestand.",
+    "text2": "Schwerpunkte können später verschieden sein — Handwerk, Bildung, Pflege, Körperarbeit als Alltag, nicht als Heilversprechen. Was zählt: gleiche Stunde, Nutzen-Regel, gemeinsames Eigentum."
   },
   "details": {
     "mitglieder": "Mitglieder",
     "schwerpunkte": "Schwerpunkte",
-    "status_aktiv": "Aktiv",
+    "status_aktiv": "Geplant",
     "status_planung": "Planung",
     "details_button": "Details"
   }

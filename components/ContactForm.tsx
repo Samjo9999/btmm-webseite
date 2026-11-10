@@ -90,7 +90,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
     return (
       <div style={{
         padding: '2rem',
-        background: 'rgba(143, 169, 66, 0.1)',
+        background: 'rgba(158, 87, 164, 0.1)',
         borderRadius: 12,
         border: '1.5px solid var(--btb-oliv)',
         display: 'flex', alignItems: 'flex-start', gap: '1rem',

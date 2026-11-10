@@ -65,13 +65,13 @@ export function LogoLightbox({ src, alt, width, height, className, style, priori
         >
           {/* Wald-Hintergrund */}
           <Image
-            src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
+            src="/images/stock/wald-wurzeln.webp"
             alt=""
             fill
             style={{ position: 'absolute', objectFit: 'cover' }}
             priority
           />
-          <div style={{ position: 'absolute', inset: 0, background: 'rgba(26, 21, 5, 0.6)' }} />
+          <div style={{ position: 'absolute', inset: 0, background: 'rgba(42, 16, 40, 0.6)' }} />
 
           <div
             onClick={(e) => e.stopPropagation()}

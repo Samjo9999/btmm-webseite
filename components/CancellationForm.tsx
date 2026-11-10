@@ -63,7 +63,7 @@ export function CancellationForm() {
 
   return (
     <div style={{
-      background: 'var(--btb-creme, #f0e9b6)',
+      background: 'var(--btb-creme, var(--btmm-hell))',
       borderRadius: 12,
       padding: '1.5rem',
       maxWidth: 480,
@@ -105,7 +105,7 @@ export function CancellationForm() {
             type="submit"
             disabled={loading || !bookingId.trim() || !email.trim()}
             style={{
-              background: 'var(--btb-blau, #2a7cab)',
+              background: 'var(--btb-blau, var(--btmm-dunkel))',
               color: 'white',
               border: 'none',
               borderRadius: 8,
@@ -136,7 +136,7 @@ export function CancellationForm() {
           border: '1px solid rgba(182,24,24,0.2)',
         }}>
           <div style={{ display: 'flex', alignItems: 'flex-start', gap: '0.5rem', marginBottom: '0.75rem' }}>
-            <AlertTriangle size={18} style={{ color: 'var(--btb-rot, #b61818)', flexShrink: 0, marginTop: 2 }} />
+            <AlertTriangle size={18} style={{ color: 'var(--btb-rot, var(--btmm-dunkel))', flexShrink: 0, marginTop: 2 }} />
             <span style={{ fontSize: '0.9rem' }}>
               {lateCancellation.message}
             </span>
@@ -147,7 +147,7 @@ export function CancellationForm() {
               onClick={handleForceCancel}
               disabled={loading}
               style={{
-                background: 'var(--btb-rot, #b61818)',
+                background: 'var(--btb-rot, var(--btmm-dunkel))',
                 color: 'white',
                 border: 'none',
                 borderRadius: 8,
@@ -165,8 +165,8 @@ export function CancellationForm() {
               onClick={() => setLateCancellation(null)}
               style={{
                 background: 'transparent',
-                color: 'var(--btb-blau, #2a7cab)',
-                border: '1px solid var(--btb-blau, #2a7cab)',
+                color: 'var(--btb-blau, var(--btmm-dunkel))',
+                border: '1px solid var(--btb-blau, var(--btmm-dunkel))',
                 borderRadius: 8,
                 padding: '0.6rem 1rem',
                 fontWeight: 600,
@@ -186,15 +186,15 @@ export function CancellationForm() {
           marginTop: '0.75rem',
           padding: '0.75rem 1rem',
           borderRadius: 8,
-          background: result.success ? 'rgba(143,169,66,0.15)' : 'rgba(182,24,24,0.1)',
+          background: result.success ? 'rgba(158,87,164,0.15)' : 'rgba(182,24,24,0.1)',
           display: 'flex',
           alignItems: 'flex-start',
           gap: '0.5rem',
           fontSize: '0.9rem',
         }}>
           {result.success
-            ? <CheckCircle2 size={18} style={{ color: 'var(--btb-oliv, #8fa942)', flexShrink: 0, marginTop: 2 }} />
-            : <XCircle size={18} style={{ color: 'var(--btb-rot, #b61818)', flexShrink: 0, marginTop: 2 }} />
+            ? <CheckCircle2 size={18} style={{ color: 'var(--btb-oliv, var(--btmm-primary))', flexShrink: 0, marginTop: 2 }} />
+            : <XCircle size={18} style={{ color: 'var(--btb-rot, var(--btmm-dunkel))', flexShrink: 0, marginTop: 2 }} />
           }
           <span>{result.message}</span>
         </div>

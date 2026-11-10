@@ -12,7 +12,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Für wen ist Körperarbeit? – BtMM Freiburg',
+  title: 'Für wen ist Körperarbeit?',
   description: 'Für wen ist BtMM-Körperarbeit geeignet? Indikationen, Zielgruppe und Hinweise für ganzheitliche Begleitung in Freiburg.',
 }
 
@@ -36,18 +36,18 @@ export default async function FuerWenPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=80"
+          src="/images/stock/wasserfall.webp"
           alt="Bewegung und Körperarbeit für alle"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=1920&q=80"
+          src="/images/stock/wasserfall.webp"
           alt="Bewegung und Körperarbeit für alle"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -86,7 +86,7 @@ export default async function FuerWenPage() {
                 width: '100%',
               }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?w=800&q=80"
+                  src="/images/stock/wasserfall.webp"
                   alt="Rücken und Körperhaltung — wo Spannungsmuster entstehen"
                   width={800}
                   height={533}

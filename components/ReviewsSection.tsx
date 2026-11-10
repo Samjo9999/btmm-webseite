@@ -131,7 +131,7 @@ export function ReviewsSection({ companyId, serviceId }: ReviewsSectionProps) {
           {reviews.map((review) => (
             <div key={review.id} style={{
               background: 'var(--btb-creme)',
-              border: '1px solid rgba(143,169,66,0.15)',
+              border: '1px solid rgba(158,87,164,0.15)',
               borderRadius: 10,
               padding: '1.25rem',
             }}>
@@ -182,8 +182,8 @@ export function ReviewsSection({ companyId, serviceId }: ReviewsSectionProps) {
 
       {submitted && (
         <div style={{
-          background: 'rgba(143,169,66,0.1)',
-          border: '1px solid rgba(143,169,66,0.3)',
+          background: 'rgba(158,87,164,0.1)',
+          border: '1px solid rgba(158,87,164,0.3)',
           borderRadius: 10,
           padding: '1rem 1.25rem',
           fontSize: '0.9rem',
@@ -197,7 +197,7 @@ export function ReviewsSection({ companyId, serviceId }: ReviewsSectionProps) {
       {showForm && !submitted && (
         <form onSubmit={handleSubmit} style={{
           background: 'var(--btb-creme)',
-          border: '1px solid rgba(143,169,66,0.2)',
+          border: '1px solid rgba(158,87,164,0.2)',
           borderRadius: 12,
           padding: '1.5rem',
           marginTop: '1rem',

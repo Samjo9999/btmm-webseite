@@ -62,11 +62,11 @@ async function main() {
             @import url('https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,600;0,700;1,400&display=swap');
 
             :root {
-              --btb-rot: #b61818;
-              --btb-oliv: #8fa942;
-              --btb-creme: #f0e9b6;
-              --btb-blau: #2a7cab;
-              --btb-dunkel: #1a1505;
+              --btb-rot: var(--btmm-dunkel);
+              --btb-oliv: var(--btmm-primary);
+              --btb-creme: var(--btmm-hell);
+              --btb-blau: var(--btmm-dunkel);
+              --btb-dunkel: var(--btmm-text);
             }
 
             @page {
@@ -123,7 +123,7 @@ async function main() {
               font-weight: 700;
               margin-top: 2rem;
               padding-bottom: 0.3rem;
-              border-bottom: 2px solid rgba(143, 169, 66, 0.3);
+              border-bottom: 2px solid rgba(158, 87, 164, 0.3);
             }
 
             h3 {
@@ -160,7 +160,7 @@ async function main() {
             }
             td {
               padding: 0.5rem 0.75rem;
-              border-bottom: 1px solid rgba(143, 169, 66, 0.15);
+              border-bottom: 1px solid rgba(158, 87, 164, 0.15);
             }
             tr:nth-child(even) td {
               background: rgba(240, 233, 182, 0.3);
@@ -169,7 +169,7 @@ async function main() {
             /* Blockquotes */
             blockquote {
               border-left: 4px solid var(--btb-oliv);
-              background: rgba(143, 169, 66, 0.08);
+              background: rgba(158, 87, 164, 0.08);
               padding: 0.8rem 1.2rem;
               margin: 1.2rem 28mm 1.2rem 0;
               border-radius: 0 8px 8px 0;
@@ -192,7 +192,7 @@ async function main() {
 
             /* Code blocks */
             code {
-              background: rgba(42, 124, 171, 0.1);
+              background: rgba(120, 2, 104, 0.1);
               padding: 0.15rem 0.4rem;
               border-radius: 3px;
               font-size: 0.9em;
@@ -208,7 +208,7 @@ async function main() {
               opacity: 0.6;
               margin-top: 2rem;
               padding: 1rem 0;
-              border-top: 1px solid rgba(143, 169, 66, 0.2);
+              border-top: 1px solid rgba(158, 87, 164, 0.2);
             }
           `,
           pdf_options: {
