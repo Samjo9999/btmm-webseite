@@ -1,0 +1,47 @@
+name: Dokumente aus Drive synchronisieren
+
+on:
+  schedule:
+    - cron: '30 5 * * *' # 05:30 UTC = 06:30 Berlin (Winter) / 07:30 (Sommer)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: docs-sync
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - run: npm test
+      - name: Dokumente aus Drive holen
+        env:
+          GDRIVE_SA_JSON: ${{ secrets.GDRIVE_SA_JSON }}
+          GDRIVE_DOCS_FOLDER_ID: ${{ secrets.GDRIVE_DOCS_FOLDER_ID || vars.GDRIVE_DOCS_FOLDER_ID }}
+          DOCS_PROJECT_PREFIX: ${{ vars.DOCS_PROJECT_PREFIX || 'BtMM' }}
+          DOCS_REQUIRE_PUBLIC_FLAG: ${{ vars.DOCS_REQUIRE_PUBLIC_FLAG || 'true' }}
+          DOCS_PDF_MAX_MB: ${{ vars.DOCS_PDF_MAX_MB || '25' }}
+        run: npm run docs-sync
+      # Kein direkter Commit auf master: Änderungen kommen als Auto-PR (Branch docs-sync).
+      # Für direkten Commit diesen Schritt durch git add/commit/push ersetzen.
+      - uses: peter-evans/create-pull-request@v7
+        with:
+          branch: docs-sync
+          base: master
+          commit-message: 'docs: Dokumente aus Drive synchronisiert'
+          title: 'Dokumente aus Drive synchronisiert'
+          body: 'Automatisch erzeugt vom Workflow „Dokumente aus Drive synchronisieren“. Bitte prüfen und mergen.'
+          add-paths: |
+            content/drive-dokumente
+            public/dokumente
+          delete-branch: true

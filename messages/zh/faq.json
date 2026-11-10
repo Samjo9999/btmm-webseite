@@ -4,14 +4,13 @@
   "kategorien": {
     "allgemein": "常规",
     "mitgliedschaft": "会员",
-    "koerperarbeit": "身体疗愈",
-    "spenden": "捐赠",
+    "koerperarbeit": "身体放松",
     "app": "应用"
   },
   "fragen": {
     "was_ist_btmm": {
       "frage": "什么是 Back to Meaning Maximization？",
-      "antwort": "Back to Meaning Maximization (BtMM) 是一个社区项目，致力于开发和实践一种替代性经济模式。它将经济合作与身体疗愈以及本地社区建设相结合。"
+      "antwort": "Back to Meaning Maximization (BtMM) 是一个社区项目，致力于开发和实践一种替代性经济模式。它将经济合作与身体放松以及本地社区建设相结合。"
     },
     "wie_mitmachen": {
       "frage": "我如何参与？",
@@ -23,15 +22,11 @@
     },
     "was_sind_coins": {
       "frage": "什么是 BtMM-Coins？",
-      "antwort": "BtMM-Coins 是社区的内部货币。成员可以用它交换服务——例如用身体疗愈换咨询——无需现金流。Coins 通过 BtMM 应用管理。"
+      "antwort": "BtMM-Coins 是社区的内部货币。成员可以用它交换服务——例如用身体放松换咨询——无需现金流。Coins 通过 BtMM 应用管理。"
     },
     "koerperarbeit_unterschied": {
-      "frage": "BtMM 身体疗愈与其他方法有何不同？",
-      "antwort": "BtMM 身体疗愈既不是治疗也不是保健服务。它是一种身体伴随，将身体视为独立的信息载体。我们处理当下的状态——而不是应该如何。"
-    },
-    "spenden_wohin": {
-      "frage": "我的捐款用在哪里？",
-      "antwort": "你的捐款用于建设 BtMM 基础设施：技术开发、合作社的法律设立以及首批社区项目。捐赠进度在网站上实时可见。"
+      "frage": "BtMM 身体放松与其他方法有何不同？",
+      "antwort": "BtMM 身体工作是一种用于放松和自我觉察的身体工作，不是治疗，也不能替代医疗。"
     },
     "app_login": {
       "frage": "如何访问 BtMM 应用？",

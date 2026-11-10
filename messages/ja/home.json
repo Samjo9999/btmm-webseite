@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "コミュニティ",
     "gemeinschaft_text": "地域のセルがBtMMの中心です。",
     "nachhaltigkeit_titel": "持続可能性",
-    "nachhaltigkeit_text": "計画された登録協同組合（eG）+支援協会（e.V.）。短期的な利益ではなく長期的な思考。",
+    "nachhaltigkeit_text": "設立中の協同組合（eG i.Gr.）。短期的な利益ではなく長期的な思考。",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -20,14 +20,12 @@
     "titel": "数字で見るBtMM",
     "gruendungsmitglieder": "創設メンバー",
     "gruendungsmitglieder_ziel": "/ 7",
-    "aktive_zellen": "アクティブなセル",
-    "gespendete_euro": "寄付されたユーロ",
-    "gespendete_euro_hinweis": "リアルタイムデータ"
+    "aktive_zellen": "アクティブなセル"
   },
   "angebote_teaser": {
     "titel": "当社のサービス",
     "text": "バランスと活力のためのソマティック・ボディワーク。あなたの体のリズムに従う個別のサポート—プレッシャーなし、急き立てなし。",
-    "text2": "フライブルクの安全で専門的な環境での深いリラクゼーションと永続的な変化を発見します。1-3回のセッションで著しい変化が可能です。",
+    "text2": "フライブルクの安心できるプロフェッショナルな環境で、深いリラクゼーションを体験してください。自分のための時間を。",
     "cta": "サービスを探索"
   },
   "app_teaser": {
@@ -42,13 +40,33 @@
     "cta": "アプリを見る",
     "hinweis": "メンバー限定"
   },
-  "spenden_teaser": {
-    "titel": "BtMMを支援する",
-    "text": "あなたの寄付がインフラ構築を支えます。すべての貢献が力になります。",
-    "cta": "今すぐ寄付する"
-  },
   "zellen_karte": {
     "titel": "世界中のBtMMセル",
     "text": "あらゆる場所でBtMMセルが誕生しています — 共に経済を営む地域コミュニティ。"
+  },
+  "hero_poetisch": "森のように、すべての木が根のネットワークに支えられている——参加するすべての人を強くする経済システムが生まれつつあります。",
+  "hero_subtitel2": "誕生しつつある宇宙 · Freiburg · 世界中",
+  "was_ist_btb_sub": "三つの柱 – ひとつの全体",
+  "infinity": {
+    "text": "既存のシステムは円を描いて回り続けている——より速く、より狭く。Back to Meaning Maximizationは、そのループが破れ、新しいものが生まれる瞬間です。"
+  },
+  "zellen_alle": "すべてのセルを見る",
+  "mitgliedschaft": {
+    "titel": "メンバーシップ",
+    "untertitel": "BtMMの一部となる2つの方法",
+    "stufen": [
+      {
+        "stufe": "見習い",
+        "preis": "可変参加",
+        "beschreibung": "活動メンバーシップへの移行",
+        "benefits": "選定されたサービスで原価価格"
+      },
+      {
+        "stufe": "正会員",
+        "preis": "活動メンバーシップ",
+        "beschreibung": "完全参加",
+        "benefits": "報酬、投票権、連帯基金"
+      }
+    ]
   }
-  ,"hero_poetisch": "森のように、すべての木が根のネットワークに支えられている——参加するすべての人を強くする経済システムが生まれつつあります。","hero_subtitel2": "誕生しつつある宇宙 · Freiburg · 世界中","was_ist_btb_sub": "三つの柱 – ひとつの全体","infinity": {"text": "既存のシステムは円を描いて回り続けている——より速く、より狭く。Back to Meaning Maximizationは、そのループが破れ、新しいものが生まれる瞬間です。"},"zellen_alle": "すべてのセルを見る","mitgliedschaft": {"titel": "メンバーシップ","untertitel": "BtMMの一部となる4つの方法","stufen": [{"stufe": "サポーター","preis": "€50/年から","beschreibung": "時間、スキル、寄付","benefits": "外部サービスで10%割引"},{"stufe": "パトロンメンバー","preis": "€1,000/年","beschreibung": "早期コミットメント","benefits": "卸売価格をすぐに取得"},{"stufe": "見習い","preis": "可変参加","beschreibung": "活動メンバーシップへの移行","benefits": "選定されたサービスで原価価格"},{"stufe": "正会員","preis": "活動メンバーシップ","beschreibung": "完全参加","benefits": "報酬、投票権、連帯基金"}]}}
+}

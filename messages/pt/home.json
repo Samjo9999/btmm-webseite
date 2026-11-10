@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Comunidade",
     "gemeinschaft_text": "As células locais são o coração do BtMM. As pessoas unem-se, apoiam-se mutuamente e constroem juntas o seu futuro económico.",
     "nachhaltigkeit_titel": "Sustentabilidade",
-    "nachhaltigkeit_text": "Cooperativa registada prevista (eG) + associação de apoio (e.V.). Pensamento a longo prazo em vez de lucro a curto prazo. BtMM aposta em estruturas que sustentam e crescem ao longo de gerações.",
+    "nachhaltigkeit_text": "Cooperativa em fundação (eG i.Gr.). Pensamento a longo prazo em vez de lucro a curto prazo. BtMM aposta em estruturas que sustentam e crescem ao longo de gerações.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -20,14 +20,12 @@
     "titel": "BtMM em números",
     "gruendungsmitglieder": "Membros fundadores",
     "gruendungsmitglieder_ziel": "de 7",
-    "aktive_zellen": "Células ativas",
-    "gespendete_euro": "Euros doados",
-    "gespendete_euro_hinweis": "Dados em tempo real do Supabase"
+    "aktive_zellen": "Células ativas"
   },
   "angebote_teaser": {
     "titel": "Nossas Ofertas",
     "text": "Trabalho corporal somático para mais equilíbrio e vitalidade. Acompanhamento individual que segue o ritmo do seu corpo — sem pressão, sem pressa.",
-    "text2": "Descubra relaxamento profundo e mudança duradoura num ambiente seguro e profissional em Freiburg. Mudanças notáveis são possíveis em 1-3 sessões.",
+    "text2": "Descubra um relaxamento profundo num ambiente protegido e profissional em Friburgo. Reserve tempo para si.",
     "cta": "Explorar ofertas"
   },
   "app_teaser": {
@@ -42,13 +40,33 @@
     "cta": "Descubra a App",
     "hinweis": "Apenas para membros"
   },
-  "spenden_teaser": {
-    "titel": "Apoie o BtMM",
-    "text": "A sua doação ajuda-nos a construir a infraestrutura que possibilita uma economia mais justa. Cada contribuição conta.",
-    "cta": "Doe agora"
-  },
   "zellen_karte": {
     "titel": "Células BtMM pelo mundo",
     "text": "Em todo o mundo surgem células BtMM – comunidades locais que gerem a sua economia em conjunto."
+  },
+  "hero_poetisch": "Como uma floresta, onde cada árvore é sustentada pela rede de raízes – assim surge um sistema econômico que fortalece cada um de seus membros.",
+  "hero_subtitel2": "Um universo em formação · Freiburg · Mundial",
+  "was_ist_btb_sub": "Três pilares – um todo",
+  "infinity": {
+    "text": "O sistema existente gira em círculos – cada vez mais rápido, cada vez mais apertado. Back to Meaning Maximization é o momento em que o ciclo se rompe e algo novo emerge."
+  },
+  "zellen_alle": "Ver todas as células",
+  "mitgliedschaft": {
+    "titel": "Adesão",
+    "untertitel": "Duas formas de fazer parte do BtMM",
+    "stufen": [
+      {
+        "stufe": "Aprendiz",
+        "preis": "Participação variável",
+        "beschreibung": "Transição para adesão ativa",
+        "benefits": "Preços de custo em serviços selecionados"
+      },
+      {
+        "stufe": "Membro Pleno",
+        "preis": "Adesão ativa",
+        "beschreibung": "Participação completa",
+        "benefits": "Compensação, direito de voto, fundo de solidariedade"
+      }
+    ]
   }
-  ,"hero_poetisch": "Como uma floresta, onde cada árvore é sustentada pela rede de raízes – assim surge um sistema econômico que fortalece cada um de seus membros.","hero_subtitel2": "Um universo em formação · Freiburg · Mundial","was_ist_btb_sub": "Três pilares – um todo","infinity": {"text": "O sistema existente gira em círculos – cada vez mais rápido, cada vez mais apertado. Back to Meaning Maximization é o momento em que o ciclo se rompe e algo novo emerge."},"zellen_alle": "Ver todas as células","mitgliedschaft": {"titel": "Adesão","untertitel": "Quatro formas de fazer parte do BtMM","stufen": [{"stufe": "Apoiante","preis": "a partir de €50/ano","beschreibung": "Tempo, habilidades, doações","benefits": "10% de desconto em serviços externos"},{"stufe": "Membro Patrocinador","preis": "€1.000/ano","beschreibung": "Compromisso antecipado","benefits": "Preços por grosso imediatamente"},{"stufe": "Aprendiz","preis": "Participação variável","beschreibung": "Transição para adesão ativa","benefits": "Preços de custo em serviços selecionados"},{"stufe": "Membro Pleno","preis": "Adesão ativa","beschreibung": "Participação completa","benefits": "Compensação, direito de voto, fundo de solidariedade"}]}}
+}

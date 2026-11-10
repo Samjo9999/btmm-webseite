@@ -1,31 +1,11 @@
 {
   "meta": {
     "title": "服务项目 – Back to Meaning Maximization",
-    "description": "我们的服务：在弗莱堡提供身体疗愈工作，助您恢复平衡与活力。"
+    "description": "弗莱堡的整体身体工作：留出时间放松和觉察身体。"
   },
   "hero": {
     "titel": "服务项目",
     "untertitel": "我们为您提供的服务"
-  },
-  "koerperarbeit": {
-    "label": "身体疗愈",
-    "titel": "身心疗愈陪伴，重获平衡与活力",
-    "text": "在弗莱堡体验深层放松。我们的身体疗愈将温柔的触碰与身体觉知相结合——适合渴望宁静、连接与新活力的人。",
-    "aspekte_titel": "等待您的体验",
-    "aspekt1_titel": "深层放松",
-    "aspekt1_text": "身体回归自然平衡。长期的紧张得以释放。",
-    "aspekt2_titel": "身体临在",
-    "aspekt2_text": "用心的陪伴，跟随您身体的节奏——不施压，不催促。",
-    "aspekt3_titel": "焕发活力",
-    "aspekt3_text": "当紧张消退，能量、清晰与生活喜悦的空间便由此而生。",
-    "cta_mehr": "了解更多",
-    "cta_termin": "预约",
-    "preise_titel": "价格",
-    "erstsitzung": "首次体验",
-    "einzelsitzung": "单次疗程",
-    "paket": "3次套餐",
-    "minuten": "分钟",
-    "mitglieder_hinweis": "BtMM会员通过BtMM币交换疗程——无需现金支付。"
   },
   "weitere": {
     "titel": "更多服务",

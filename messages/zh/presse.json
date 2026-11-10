@@ -10,9 +10,9 @@
   },
   "kurzprofil": {
     "titel": "简介",
-    "beschreibung": "[占位符] Back to Meaning Maximization是一种合作组织的经济替代方案，将平等价值的劳动、共享基础设施和国际合作结合在一个共同体系中。",
+    "beschreibung": "Back to Meaning Maximization是一种合作组织的经济替代方案，将平等价值的劳动、共享基础设施和国际合作结合在一个共同体系中。",
     "rechtsform_label": "法律形式",
-    "rechtsform": "注册合作社 (eG)",
+    "rechtsform": "筹建中的合作社 (eG i.Gr.)",
     "gruendungsort_label": "创立地点",
     "gruendungsort": "德国弗莱堡",
     "gruendungsjahr_label": "创立年份",
@@ -39,16 +39,14 @@
     "titel": "下载与媒体库",
     "logo_png": "标志 (PNG)",
     "logo_svg": "标志 (SVG)",
-    "konzept_pdf": "概念 (PDF)",
-    "satzung_pdf": "章程 (PDF)",
     "herunterladen": "下载"
   },
   "kontakt": {
     "titel": "新闻联系",
     "name_label": "联系人",
-    "name": "[占位符]",
+    "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "电子邮件",
-    "email": "[占位符]",
+    "email": "office@b-t-m-m.com",
     "hinweis": "我们通常在2个工作日内回复。"
   }
 }

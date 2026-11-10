@@ -1,31 +1,11 @@
 {
   "meta": {
     "title": "Ofertas – Back to Meaning Maximization",
-    "description": "Nuestras ofertas: trabajo corporal somático para más equilibrio y vitalidad en Friburgo."
+    "description": "Trabajo corporal holístico en Friburgo: tiempo para la relajación y la conciencia corporal."
   },
   "hero": {
     "titel": "Ofertas",
     "untertitel": "Lo que te ofrecemos"
-  },
-  "koerperarbeit": {
-    "label": "Trabajo corporal",
-    "titel": "Acompañamiento somático para más equilibrio y vitalidad",
-    "text": "Descubre una relajación profunda en Friburgo. Nuestro trabajo corporal combina el tacto suave con la atención somática, para personas que anhelan calma, conexión y nueva vitalidad.",
-    "aspekte_titel": "Qué te espera",
-    "aspekt1_titel": "Relajación profunda",
-    "aspekt1_text": "El cuerpo recupera su equilibrio natural. La tensión crónica puede disolverse.",
-    "aspekt2_titel": "Presencia somática",
-    "aspekt2_text": "Acompañamiento atento que sigue el ritmo de tu cuerpo, sin presión, sin prisa.",
-    "aspekt3_titel": "Nueva vitalidad",
-    "aspekt3_text": "Cuando la tensión cede, surge espacio para la energía, la claridad y la alegría de vivir.",
-    "cta_mehr": "Saber más",
-    "cta_termin": "Reservar cita",
-    "preise_titel": "Precios",
-    "erstsitzung": "Primera sesión",
-    "einzelsitzung": "Sesión individual",
-    "paket": "Paquete de 3",
-    "minuten": "min.",
-    "mitglieder_hinweis": "Los miembros de BtMM intercambian sesiones mediante BtMM-Coins, sin necesidad de dinero."
   },
   "weitere": {
     "titel": "Más ofertas",

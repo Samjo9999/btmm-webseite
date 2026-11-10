@@ -5,7 +5,6 @@
     "allgemein": "Geral",
     "mitgliedschaft": "Adesão",
     "koerperarbeit": "Trabalho Corporal",
-    "spenden": "Doações",
     "app": "App"
   },
   "fragen": {
@@ -15,11 +14,11 @@
     },
     "wie_mitmachen": {
       "frage": "Como posso participar?",
-      "antwort": "Pode aderir como membro patrocinador da associação (a partir de 50€/ano) ou tornar-se membro ativo da cooperativa."
+      "antwort": "A cooperativa está em fundação e ainda não existe. Depois de fundada, poderá tornar-se membro. Escreva-nos através do formulário de contacto em /mitmachen."
     },
     "was_kostet": {
       "frage": "Quanto custa a adesão?",
-      "antwort": "A adesão como patrocinador na associação custa a partir de 50€ por ano."
+      "antwort": "A adesão à cooperativa ainda está em fase de fundação. Inscreva-se para receber novidades."
     },
     "was_sind_coins": {
       "frage": "O que são BtMM-Coins?",
@@ -27,11 +26,7 @@
     },
     "koerperarbeit_unterschied": {
       "frage": "O que distingue o trabalho corporal BtMM?",
-      "antwort": "O trabalho corporal BtMM é um acompanhamento somático, não uma terapia."
-    },
-    "spenden_wohin": {
-      "frage": "Para onde vai a minha doação?",
-      "antwort": "Para a construção da infraestrutura BtMM."
+      "antwort": "O trabalho corporal BtMM é trabalho corporal para relaxamento e autopercepção, não uma terapia nem um substituto de tratamento médico."
     },
     "app_login": {
       "frage": "Como acedo à App BtMM?",

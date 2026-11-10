@@ -10,9 +10,9 @@
   },
   "kurzprofil": {
     "titel": "概要",
-    "beschreibung": "[プレースホルダー] Back to Meaning Maximizationは、同等価値の労働、共有インフラ、国際協力を共通システムに統合した協同組合型経済代替案です。",
+    "beschreibung": "Back to Meaning Maximizationは、同等価値の労働、共有インフラ、国際協力を共通システムに統合した協同組合型経済代替案です。",
     "rechtsform_label": "法的形態",
-    "rechtsform": "登録協同組合 (eG)",
+    "rechtsform": "設立中の協同組合 (eG i.Gr.)",
     "gruendungsort_label": "設立地",
     "gruendungsort": "ドイツ・フライブルク",
     "gruendungsjahr_label": "設立年",
@@ -39,16 +39,14 @@
     "titel": "ダウンロードとメディア",
     "logo_png": "ロゴ (PNG)",
     "logo_svg": "ロゴ (SVG)",
-    "konzept_pdf": "コンセプト (PDF)",
-    "satzung_pdf": "定款 (PDF)",
     "herunterladen": "ダウンロード"
   },
   "kontakt": {
     "titel": "プレス連絡先",
     "name_label": "担当者",
-    "name": "[プレースホルダー]",
+    "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "メール",
-    "email": "[プレースホルダー]",
+    "email": "office@b-t-m-m.com",
     "hinweis": "通常2営業日以内にご返答いたします。"
   }
 }

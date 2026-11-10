@@ -10,9 +10,9 @@
   },
   "kurzprofil": {
     "titel": "संक्षिप्त परिचय",
-    "beschreibung": "[प्लेसहोल्डर] Back to Meaning Maximization एक सहकारी रूप से संगठित आर्थिक विकल्प है जो समान मूल्य के कार्य, साझा बुनियादी ढांचे और अंतर्राष्ट्रीय सहयोग को एक सामान्य प्रणाली में जोड़ता है।",
+    "beschreibung": "Back to Meaning Maximization एक सहकारी रूप से संगठित आर्थिक विकल्प है जो समान मूल्य के कार्य, साझा बुनियादी ढांचे और अंतर्राष्ट्रीय सहयोग को एक सामान्य प्रणाली में जोड़ता है।",
     "rechtsform_label": "कानूनी रूप",
-    "rechtsform": "पंजीकृत सहकारी (eG)",
+    "rechtsform": "स्थापनाधीन सहकारी समिति (eG i.Gr.)",
     "gruendungsort_label": "स्थापना स्थान",
     "gruendungsort": "फ्रीबर्ग, जर्मनी",
     "gruendungsjahr_label": "स्थापना वर्ष",
@@ -39,16 +39,14 @@
     "titel": "डाउनलोड और मीडिया",
     "logo_png": "लोगो (PNG)",
     "logo_svg": "लोगो (SVG)",
-    "konzept_pdf": "अवधारणा (PDF)",
-    "satzung_pdf": "विधान (PDF)",
     "herunterladen": "डाउनलोड"
   },
   "kontakt": {
     "titel": "प्रेस संपर्क",
     "name_label": "संपर्क व्यक्ति",
-    "name": "[प्लेसहोल्डर]",
+    "name": "Back to Meaning Maximization eG i.Gr.",
     "email_label": "ई-मेल",
-    "email": "[प्लेसहोल्डर]",
+    "email": "office@b-t-m-m.com",
     "hinweis": "हम आमतौर पर 2 कार्य दिवसों के भीतर उत्तर देते हैं।"
   }
 }
