@@ -4,7 +4,7 @@ import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSe
 
 export default function ErfahrungenPage() {
   return (
-    <main style={{ minHeight: '100vh', background: 'var(--btb-creme, #f0e9b6)' }}>
+    <main style={{ minHeight: '100vh', background: 'var(--btb-creme, var(--btmm-hell))' }}>
       {/* Hero */}
       <section style={{
         position: 'relative',
@@ -16,7 +16,7 @@ export default function ErfahrungenPage() {
         overflow: 'hidden',
       }}>
         <img
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+          src="/images/stock/wiesenlicht.webp"
           alt="Gemeinschaft"
           style={{
             position: 'absolute',
@@ -29,9 +29,9 @@ export default function ErfahrungenPage() {
         <div style={{
           position: 'absolute',
           inset: 0,
-          background: 'linear-gradient(to bottom, rgba(26,21,5,0.5), rgba(26,21,5,0.7))',
+          background: 'linear-gradient(to bottom, rgba(42,16,40,0.5), rgba(42,16,40,0.7))',
         }} />
-        <div style={{ position: 'relative', textAlign: 'center', color: 'var(--btb-creme, #f0e9b6)' }}>
+        <div style={{ position: 'relative', textAlign: 'center', color: 'var(--btb-creme, var(--btmm-hell))' }}>
           <h1 style={{
             fontFamily: 'var(--font-garamond, "EB Garamond", serif)',
             fontSize: 'clamp(2rem, 5vw, 3.5rem)',

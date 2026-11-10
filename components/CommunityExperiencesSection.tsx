@@ -96,7 +96,7 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
   if (loading) return null
 
   return (
-    <section className="section" style={{ background: 'var(--btb-creme, #f0e9b6)' }}>
+    <section className="section" style={{ background: 'var(--btb-creme, var(--btmm-hell))' }}>
       <div className="container-btb" style={{ maxWidth: '800px', margin: '0 auto' }}>
         <h2 style={{
           fontFamily: 'var(--font-garamond)',
@@ -127,8 +127,8 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                   <Star
                     key={s}
                     size={18}
-                    fill={s <= Math.round(averageRating) ? '#8fa942' : 'none'}
-                    stroke={s <= Math.round(averageRating) ? '#8fa942' : '#ccc'}
+                    fill={s <= Math.round(averageRating) ? 'var(--btmm-primary)' : 'none'}
+                    stroke={s <= Math.round(averageRating) ? 'var(--btmm-primary)' : '#ccc'}
                   />
                 ))}
               </div>
@@ -156,8 +156,8 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                       <Star
                         key={s}
                         size={14}
-                        fill={s <= review.rating ? '#8fa942' : 'none'}
-                        stroke={s <= review.rating ? '#8fa942' : '#ccc'}
+                        fill={s <= review.rating ? 'var(--btmm-primary)' : 'none'}
+                        stroke={s <= review.rating ? 'var(--btmm-primary)' : '#ccc'}
                       />
                     ))}
                   </div>
@@ -168,7 +168,7 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                       gap: '4px',
                       fontSize: '0.75rem',
                       background: '#e8f4fd',
-                      color: '#2a7cab',
+                      color: 'var(--btmm-dunkel)',
                       padding: '2px 8px',
                       borderRadius: '4px',
                       fontWeight: 500,
@@ -203,7 +203,7 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
             <Link
               href="/erfahrungen"
               style={{
-                color: 'var(--btb-blau, #2a7cab)',
+                color: 'var(--btb-blau, var(--btmm-dunkel))',
                 fontWeight: 600,
                 fontSize: '0.95rem',
                 textDecoration: 'none',
@@ -223,7 +223,7 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                 display: 'inline-flex',
                 alignItems: 'center',
                 gap: '0.5rem',
-                background: 'var(--btb-oliv, #8fa942)',
+                background: 'var(--btb-oliv, var(--btmm-primary))',
                 color: '#fff',
                 border: 'none',
                 borderRadius: '8px',
@@ -244,8 +244,8 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
           <div style={{
             textAlign: 'center',
             padding: '1.5rem',
-            background: 'rgba(143,169,66,0.1)',
-            border: '1px solid rgba(143,169,66,0.3)',
+            background: 'rgba(158,87,164,0.1)',
+            border: '1px solid rgba(158,87,164,0.3)',
             borderRadius: '10px',
           }}>
             <p style={{ color: 'var(--btb-oliv)', fontWeight: 600, fontSize: '1.1rem', marginBottom: '0.5rem' }}>
@@ -312,8 +312,8 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                     >
                       <Star
                         size={28}
-                        fill={s <= (hoverRating || rating) ? '#8fa942' : 'none'}
-                        stroke={s <= (hoverRating || rating) ? '#8fa942' : '#ccc'}
+                        fill={s <= (hoverRating || rating) ? 'var(--btmm-primary)' : 'none'}
+                        stroke={s <= (hoverRating || rating) ? 'var(--btmm-primary)' : '#ccc'}
                       />
                     </button>
                   ))}
@@ -353,7 +353,7 @@ export function CommunityExperiencesSection({ showAll = false }: CommunityExperi
                   justifyContent: 'center',
                   gap: '0.5rem',
                   padding: '0.75rem 1.5rem',
-                  background: 'var(--btb-oliv, #8fa942)',
+                  background: 'var(--btb-oliv, var(--btmm-primary))',
                   color: '#fff',
                   border: 'none',
                   borderRadius: '8px',

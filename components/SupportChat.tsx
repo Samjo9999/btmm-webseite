@@ -121,7 +121,7 @@ export function SupportChat() {
               }
             </div>
             <div style={{
-              background: msg.rolle === 'agent' ? 'var(--btb-creme)' : 'rgba(42,124,171,0.1)',
+              background: msg.rolle === 'agent' ? 'var(--btb-creme)' : 'rgba(120,2,104,0.1)',
               borderRadius: 10,
               padding: '0.5rem 0.75rem',
               maxWidth: '82%',
@@ -157,7 +157,7 @@ export function SupportChat() {
         {zeigeFormular && (
           <div style={{
             padding: '0.75rem',
-            background: 'rgba(143,169,66,0.08)',
+            background: 'rgba(158,87,164,0.08)',
             borderRadius: 10,
             border: '1px dashed var(--btb-oliv)',
           }}>

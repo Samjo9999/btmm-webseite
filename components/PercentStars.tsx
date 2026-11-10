@@ -19,14 +19,14 @@ export function PercentStars({ percent, count, averageRating, distribution, maxS
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
       {/* Header: percent + average */}
       <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', flexWrap: 'wrap' }}>
-        <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--btb-oliv, #8fa942)' }}>
+        <span style={{ fontSize: '2rem', fontWeight: 700, color: 'var(--btb-oliv, var(--btmm-primary))' }}>
           {avg > 0 ? avg.toFixed(1) : '–'}
         </span>
         <div style={{ display: 'flex', gap: '0.15rem' }}>
           {Array.from({ length: maxStars }, (_, i) => i + 1).map(s => (
             <Star key={s} size={18}
-              fill={s <= Math.round(avg) ? 'var(--btb-oliv, #8fa942)' : 'none'}
-              stroke={s <= Math.round(avg) ? 'var(--btb-oliv, #8fa942)' : '#ccc'}
+              fill={s <= Math.round(avg) ? 'var(--btb-oliv, var(--btmm-primary))' : 'none'}
+              stroke={s <= Math.round(avg) ? 'var(--btb-oliv, var(--btmm-primary))' : '#ccc'}
             />
           ))}
         </div>
@@ -48,13 +48,13 @@ export function PercentStars({ percent, count, averageRating, distribution, maxS
                 </span>
                 <div style={{
                   flex: 1, height: 10, borderRadius: 5,
-                  background: 'rgba(143,169,66,0.12)',
+                  background: 'rgba(158,87,164,0.12)',
                   overflow: 'hidden',
                   maxWidth: 200,
                 }}>
                   <div style={{
                     width: `${pct}%`, height: '100%',
-                    background: 'var(--btb-oliv, #8fa942)',
+                    background: 'var(--btb-oliv, var(--btmm-primary))',
                     borderRadius: 5,
                     transition: 'width 0.3s',
                   }} />

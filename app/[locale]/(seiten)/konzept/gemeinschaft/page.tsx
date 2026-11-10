@@ -8,7 +8,7 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Gemeinschaft – BtMM Konzept',
+  title: 'Gemeinschaft',
   description: 'Zellen, Solidarfonds, Gleichwürdigkeit, Konsequenzsystem und Mitgliedsstufen: Die gemeinschaftlichen Grundlagen von Back to Meaning Maximization.',
 }
 
@@ -24,14 +24,14 @@ export default async function GemeinschaftPage() {
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80"
+          src="/images/stock/tannenwald.webp"
           alt="Waldlichtung – Gemeinschaft im Licht"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1511497584788-876760111969?w=1920&q=80"
+          src="/images/stock/tannenwald.webp"
           alt="Waldlichtung – Gemeinschaft im Licht"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>

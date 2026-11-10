@@ -12,7 +12,7 @@ import { getDriveManifest, formatDatum, pdfUrl } from '@/lib/drive-dokumente'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Dokumente – Back to Meaning Maximization',
+  title: 'Dokumente',
   description: 'Einführungen und weitere Dokumente von Back to Meaning Maximization als Leseansicht.',
 }
 
@@ -59,18 +59,18 @@ export default async function DokumentePage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"
+          src="/images/stock/wald-lichtung.webp"
           alt="Waldweg – Transparenz und Klarheit"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"
+          src="/images/stock/wald-lichtung.webp"
           alt="Waldweg – Transparenz und Klarheit"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>

@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
   const doc = getDriveDokument(params.slug)
-  return { title: doc ? `${doc.titel} – Back to Meaning Maximization` : 'Dokument' }
+  return { title: doc ? `${doc.titel}` : 'Dokument' }
 }
 
 export default function DokumentSeite({ params }: { params: { locale: string; slug: string } }) {

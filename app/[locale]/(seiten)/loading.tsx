@@ -15,8 +15,8 @@ export default function Loading() {
         <div style={{
           width: 48,
           height: 48,
-          border: '3px solid var(--btb-creme, #f0e9b6)',
-          borderTopColor: 'var(--btb-oliv, #8fa942)',
+          border: '3px solid var(--btb-creme, var(--btmm-hell))',
+          borderTopColor: 'var(--btb-oliv, var(--btmm-primary))',
           borderRadius: '50%',
           animation: 'spin 0.8s linear infinite',
         }} />

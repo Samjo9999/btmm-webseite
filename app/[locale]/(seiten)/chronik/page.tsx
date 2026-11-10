@@ -8,7 +8,7 @@ export const dynamic = 'force-dynamic'
 export const revalidate = 0
 
 export const metadata: Metadata = {
-  title: 'Chronik – Back to Meaning Maximization',
+  title: 'Chronik',
   description:
     'Die öffentliche Chronik von Back to Meaning Maximization: Meilensteine, Beschlüsse und Geschichten unserer Genossenschaft.',
 }
@@ -70,20 +70,20 @@ export default async function ChronikPage() {
         style={{
           position: 'relative',
           overflow: 'hidden',
-          background: '#1a1505',
+          background: 'var(--btmm-text)',
           padding: '5rem 1.5rem 4rem',
           textAlign: 'center',
         }}
       >
         <Image
-          src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1920&q=80"
+          src="/images/stock/buecher.webp"
           alt="Altes Buch - unsere Geschichte"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=1920&q=80"
+          src="/images/stock/buecher.webp"
           alt="Altes Buch - unsere Geschichte"
         />
         <div

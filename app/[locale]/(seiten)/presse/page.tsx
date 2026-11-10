@@ -47,19 +47,19 @@ export default async function PressePage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem',
         textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
+          src="/images/stock/berggrat.webp"
           alt="Berggipfel – Weitblick"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?w=1920&q=80"
+          src="/images/stock/berggrat.webp"
           alt="Berggipfel – Weitblick"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>

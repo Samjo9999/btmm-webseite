@@ -9,7 +9,7 @@ const KLEINUNTERNEHMER_SATZ =
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Impressum & Datenschutz – Back to Meaning Maximization',
+  title: 'Impressum und Datenschutz',
   description: 'Impressum und Datenschutzerklärung von Back to Meaning Maximization, Freiburg im Breisgau.',
 }
 

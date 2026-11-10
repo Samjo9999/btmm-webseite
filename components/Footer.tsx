@@ -8,8 +8,8 @@ export function Footer() {
 
   return (
     <footer style={{
-      background: 'var(--btb-dunkel)',
-      color: 'var(--btb-creme)',
+      background: 'var(--btmm-text)',
+      color: 'var(--btmm-hell)',
       padding: '3rem 0 1.5rem',
       marginTop: '4rem',
     }}>
@@ -26,7 +26,7 @@ export function Footer() {
               fontFamily: 'var(--font-garamond)',
               fontSize: '1.4rem',
               fontWeight: 700,
-              color: 'var(--btb-creme)',
+              color: 'var(--btmm-hell)',
               marginBottom: '0.75rem',
             }}>
               {BRAND_LONG}
@@ -38,7 +38,7 @@ export function Footer() {
               href="mailto:office@b-t-m-m.com"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none',
+                color: 'var(--btmm-hell)', fontSize: '0.875rem', textDecoration: 'none',
               }}
             >
               <Mail size={15} />
@@ -51,7 +51,7 @@ export function Footer() {
             <h4 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: '1rem',
-              color: 'var(--btb-oliv)',
+              color: 'var(--btmm-hell)',
               marginBottom: '0.75rem',
             }}>
               {t('nav.konzept')}
@@ -66,7 +66,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
+                  style={{ color: 'var(--btmm-hell)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
                   {item.label}
@@ -80,7 +80,7 @@ export function Footer() {
             <h4 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: '1rem',
-              color: 'var(--btb-oliv)',
+              color: 'var(--btmm-hell)',
               marginBottom: '0.75rem',
             }}>
               {t('nav.angebote')}
@@ -95,7 +95,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
+                  style={{ color: 'var(--btmm-hell)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
                   {item.label}
@@ -109,7 +109,7 @@ export function Footer() {
             <h4 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: '1rem',
-              color: 'var(--btb-oliv)',
+              color: 'var(--btmm-hell)',
               marginBottom: '0.75rem',
             }}>
               Mitmachen
@@ -126,7 +126,7 @@ export function Footer() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
+                  style={{ color: 'var(--btmm-hell)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
                   {item.label}
@@ -140,7 +140,7 @@ export function Footer() {
             <h4 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: '1rem',
-              color: 'var(--btb-oliv)',
+              color: 'var(--btmm-hell)',
               marginBottom: '0.75rem',
             }}>
               App
@@ -154,7 +154,7 @@ export function Footer() {
               rel="noopener noreferrer"
               style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
-                color: 'var(--btb-oliv)', fontSize: '0.875rem', textDecoration: 'none', fontWeight: 600,
+                color: 'var(--btmm-hell)', fontSize: '0.875rem', textDecoration: 'none', fontWeight: 600,
               }}
             >
               app.b-t-m-m.com
@@ -176,15 +176,15 @@ export function Footer() {
             {t('footer.copyright')}
           </p>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
-            <Link href="/impressum" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href="/impressum" style={{ color: 'var(--btmm-hell)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               {t('footer.impressum')}
             </Link>
-            <Link href="/impressum#datenschutz" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href="/impressum#datenschutz" style={{ color: 'var(--btmm-hell)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               {t('footer.datenschutz')}
             </Link>
-            <Link href="/buchungsbedingungen" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href="/buchungsbedingungen" style={{ color: 'var(--btmm-hell)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               Buchungsbedingungen
             </Link>

@@ -82,7 +82,7 @@ export default function BuchungsbedingungenPage() {
                 {services.map(svc => (
                   <div key={svc.id} style={{
                     padding: '1rem 1.25rem',
-                    background: 'var(--btb-creme, #f0e9b6)',
+                    background: 'var(--btb-creme, var(--btmm-hell))',
                     borderRadius: 10,
                   }}>
                     <p style={{ fontWeight: 700, marginBottom: '0.5rem' }}>{svc.name}</p>

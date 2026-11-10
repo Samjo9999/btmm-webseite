@@ -136,14 +136,14 @@ export function BookingAgent() {
             width: 56,
             height: 56,
             borderRadius: '50%',
-            background: '#2a7cab',
+            background: 'var(--btmm-dunkel)',
             color: 'white',
             border: 'none',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            boxShadow: '0 4px 16px rgba(42,124,171,0.4)',
+            boxShadow: '0 4px 16px rgba(120,2,104,0.4)',
             zIndex: 9999,
             transition: 'transform 0.2s',
           }}
@@ -163,8 +163,8 @@ export function BookingAgent() {
           width: 340,
           maxHeight: 480,
           borderRadius: 16,
-          background: '#f0e9b6',
-          border: '1px solid rgba(42,124,171,0.25)',
+          background: 'var(--btmm-hell)',
+          border: '1px solid rgba(120,2,104,0.25)',
           boxShadow: '0 8px 32px rgba(0,0,0,0.15)',
           zIndex: 9999,
           overflow: 'hidden',
@@ -174,7 +174,7 @@ export function BookingAgent() {
         }}>
           {/* Header */}
           <div style={{
-            background: '#2a7cab',
+            background: 'var(--btmm-dunkel)',
             color: 'white',
             padding: '0.75rem 1rem',
             display: 'flex',
@@ -221,13 +221,13 @@ export function BookingAgent() {
                 </p>
                 {services.length === 0 ? (
                   <div style={{ textAlign: 'center', padding: '1rem' }}>
-                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: '#2a7cab' }} />
+                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: 'var(--btmm-dunkel)' }} />
                   </div>
                 ) : (
                   <button
                     onClick={() => setStep('services')}
                     style={{
-                      background: '#2a7cab',
+                      background: 'var(--btmm-dunkel)',
                       color: 'white',
                       border: 'none',
                       borderRadius: 10,
@@ -258,7 +258,7 @@ export function BookingAgent() {
                       onClick={() => handleSelectService(s)}
                       style={{
                         background: 'white',
-                        border: '1px solid rgba(42,124,171,0.2)',
+                        border: '1px solid rgba(120,2,104,0.2)',
                         borderRadius: 10,
                         padding: '0.7rem 0.9rem',
                         textAlign: 'left',
@@ -269,8 +269,8 @@ export function BookingAgent() {
                         fontFamily: 'inherit',
                         transition: 'border-color 0.2s',
                       }}
-                      onMouseOver={(e) => (e.currentTarget.style.borderColor = '#2a7cab')}
-                      onMouseOut={(e) => (e.currentTarget.style.borderColor = 'rgba(42,124,171,0.2)')}
+                      onMouseOver={(e) => (e.currentTarget.style.borderColor = 'var(--btmm-dunkel)')}
+                      onMouseOut={(e) => (e.currentTarget.style.borderColor = 'rgba(120,2,104,0.2)')}
                     >
                       <div>
                         <div style={{ fontWeight: 600, color: '#3d3520', fontSize: '0.9rem' }}>{s.name}</div>
@@ -278,7 +278,7 @@ export function BookingAgent() {
                           <Clock size={11} style={{ display: 'inline', verticalAlign: '-1px' }} /> {s.duration_min} Min.
                         </div>
                       </div>
-                      <ChevronRight size={16} style={{ color: '#2a7cab' }} />
+                      <ChevronRight size={16} style={{ color: 'var(--btmm-dunkel)' }} />
                     </button>
                   ))}
                 </div>
@@ -291,7 +291,7 @@ export function BookingAgent() {
                 <button
                   onClick={() => setStep('services')}
                   style={{
-                    background: 'transparent', border: 'none', color: '#2a7cab',
+                    background: 'transparent', border: 'none', color: 'var(--btmm-dunkel)',
                     cursor: 'pointer', fontSize: '0.8rem', padding: 0, marginBottom: '0.5rem',
                     fontFamily: 'inherit',
                   }}
@@ -303,7 +303,7 @@ export function BookingAgent() {
                 </p>
                 {loading ? (
                   <div style={{ textAlign: 'center', padding: '1.5rem' }}>
-                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: '#2a7cab' }} />
+                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: 'var(--btmm-dunkel)' }} />
                     <p style={{ fontSize: '0.8rem', color: '#888', marginTop: '0.5rem' }}>Suche freie Termine...</p>
                   </div>
                 ) : dates.length === 0 ? (
@@ -318,7 +318,7 @@ export function BookingAgent() {
                         onClick={() => handleSelectDate(d)}
                         style={{
                           background: 'white',
-                          border: '1px solid rgba(143,169,66,0.3)',
+                          border: '1px solid rgba(158,87,164,0.3)',
                           borderRadius: 8,
                           padding: '0.6rem 0.9rem',
                           textAlign: 'left',
@@ -332,11 +332,11 @@ export function BookingAgent() {
                           color: '#3d3520',
                           transition: 'border-color 0.2s',
                         }}
-                        onMouseOver={(e) => (e.currentTarget.style.borderColor = '#8fa942')}
-                        onMouseOut={(e) => (e.currentTarget.style.borderColor = 'rgba(143,169,66,0.3)')}
+                        onMouseOver={(e) => (e.currentTarget.style.borderColor = 'var(--btmm-primary)')}
+                        onMouseOut={(e) => (e.currentTarget.style.borderColor = 'rgba(158,87,164,0.3)')}
                       >
                         {formatDate(d)}
-                        <ChevronRight size={16} style={{ color: '#8fa942' }} />
+                        <ChevronRight size={16} style={{ color: 'var(--btmm-primary)' }} />
                       </button>
                     ))}
                   </div>
@@ -350,7 +350,7 @@ export function BookingAgent() {
                 <button
                   onClick={() => setStep('dates')}
                   style={{
-                    background: 'transparent', border: 'none', color: '#2a7cab',
+                    background: 'transparent', border: 'none', color: 'var(--btmm-dunkel)',
                     cursor: 'pointer', fontSize: '0.8rem', padding: 0, marginBottom: '0.5rem',
                     fontFamily: 'inherit',
                   }}
@@ -362,7 +362,7 @@ export function BookingAgent() {
                 </p>
                 {loading ? (
                   <div style={{ textAlign: 'center', padding: '1.5rem' }}>
-                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: '#2a7cab' }} />
+                    <Loader2 size={20} style={{ animation: 'spin 1s linear infinite', color: 'var(--btmm-dunkel)' }} />
                   </div>
                 ) : slots.length === 0 ? (
                   <p style={{ fontSize: '0.85rem', color: '#888' }}>Keine freien Zeiten.</p>
@@ -373,7 +373,7 @@ export function BookingAgent() {
                         key={s.start_time}
                         style={{
                           background: 'white',
-                          border: '1px solid rgba(143,169,66,0.3)',
+                          border: '1px solid rgba(158,87,164,0.3)',
                           borderRadius: 8,
                           padding: '0.5rem',
                           textAlign: 'center',
@@ -391,7 +391,7 @@ export function BookingAgent() {
                   href="/koerperarbeit/buchen"
                   style={{
                     display: 'block',
-                    background: '#8fa942',
+                    background: 'var(--btmm-primary)',
                     color: 'white',
                     border: 'none',
                     borderRadius: 10,

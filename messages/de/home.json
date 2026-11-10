@@ -1,7 +1,7 @@
 {
   "hero": {
-    "tagline": "Wirtschaft, die trägt.",
-    "untertitel": "Back to Meaning Maximization verbindet wirtschaftliche Stärke mit menschlicher Würde – für eine Welt, in der Arbeit und Leben im Gleichgewicht stehen.",
+    "tagline": "Ein besseres Leben. Gemeinsam.",
+    "untertitel": "Back to Meaning Maximization will mehr freie Zeit, gutes Essen, Gesundheit, Bildung und Wohnen ohne Rendite — als Genossenschaft im Aufbau.",
     "cta_konzept": "Konzept kennenlernen",
     "cta_mitmachen": "Jetzt mitmachen"
   },
@@ -19,22 +19,22 @@
   "stats": {
     "titel": "BtMM in Zahlen",
     "gruendungsmitglieder": "Gründungsmitglieder",
-    "gruendungsmitglieder_ziel": "von 7",
+    "gruendungsmitglieder_ziel": "Ziel: drei am selben Ort",
     "aktive_zellen": "Aktive Zellen"
   },
   "angebote_teaser": {
     "titel": "Unsere Angebote",
-    "text": "Somatische Körperarbeit für mehr Gleichgewicht und Vitalität. Individuelle Begleitung, die dem Rhythmus Ihres Körpers folgt – ohne Druck, ohne Eile.",
-    "text2": "Entdecken Sie tiefe Entspannung in einem geschützten, professionellen Rahmen in Freiburg. Nehmen Sie sich Zeit für sich.",
+    "text": "Geplante Angebote entstehen mit den Gemeinschaftsbetrieben, zum Beispiel im Jahreskreis. Was heute schon gebucht werden kann, siehst du unter Angebote — ohne Heilversprechen.",
+    "text2": "Die Genossenschaft besteht noch nicht. Einzelne Leistungen können unabhängig davon angeboten werden.",
     "cta": "Angebote entdecken"
   },
   "app_teaser": {
     "titel": "Die BtMM-App",
     "untertitel": "Dein digitales Werkzeug für die Gemeinschaft",
-    "pool_titel": "Pool",
-    "pool_text": "Gemeinsame Ressourcen, die jedem Mitglied zugutekommen.",
+    "pool_titel": "Nutzen-Bilanz",
+    "pool_text": "Die App soll dir zeigen, was du sparst und was du beiträgst. Der frühere Einkommens-Pool ist kein aktuelles Modell mehr.",
     "coins_titel": "BtMM-Coins",
-    "coins_text": "Interne Währung für den Tausch von Leistungen innerhalb der Gemeinschaft.",
+    "coins_text": "Ein Coin entspricht einer Stunde. Willkommens- und Bonus-Coins werden nicht ausgezahlt.",
     "workspace_titel": "Workspace",
     "workspace_text": "Gemeinsamer digitaler Arbeitsraum für Projekte und Zusammenarbeit.",
     "cta": "App entdecken",
@@ -52,20 +52,20 @@
   },
   "zellen_alle": "Alle Zellen ansehen",
   "mitgliedschaft": {
-    "titel": "Mitgliedschaft",
-    "untertitel": "Zwei Wege, Teil von BtMM zu sein",
+    "titel": "So kannst du dabei sein",
+    "untertitel": "Verschiedene Wege, kein Zwang zu einer höheren Stufe",
     "stufen": [
       {
-        "stufe": "Anwärter",
-        "preis": "Variable Beteiligung",
-        "beschreibung": "Übergang zur Aktivmitgliedschaft",
-        "benefits": "Kostenpreise auf ausgewählte Leistungen"
+        "stufe": "Unterstützerin oder Unterstützer",
+        "preis": "ab 50 € / Jahr",
+        "beschreibung": "Ohne Pflichten dabei sein",
+        "benefits": "10 % Rabatt auf externe Leistungen"
       },
       {
-        "stufe": "Vollmitglied",
-        "preis": "Aktivmitgliedschaft",
-        "beschreibung": "Vollständige Partizipation",
-        "benefits": "Vergütung, Stimmrecht, Solidarfonds"
+        "stufe": "Nutzungsmitglied",
+        "preis": "100 € Geschäftsanteil",
+        "beschreibung": "Selbstkosten, eigenes Einkommen, Stimme",
+        "benefits": "Auch in Raten ab 10 € im Monat"
       }
     ]
   }

@@ -9,16 +9,16 @@ import { ContactForm } from '@/components/ContactForm'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Gründung – Back to Meaning Maximization eG i.Gr.',
-  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Ein offener Brief an die Gründungsmitglieder. Werde Teil der Bewegung.',
+  title: 'Gründung',
+  description: 'Offener Brief zur geplanten Gründung der Back to Meaning Maximization eG: drei Menschen in Freiburg, erst leben, dann gründen.',
 }
 
 const schritte = [
-  { schritt: '1', titel: 'Gründungsmitglieder finden', text: '7 Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
-  { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Ein Termin, eine Unterschrift, 100 € Einlage. Die Back to Meaning Maximization eG wird beim Genossenschaftsregister Freiburg eingetragen.' },
-  { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Mitgliedschaft im BWGV, Gewerbeanmeldung, erste Großhandelseinkäufe. Die operative Arbeit übernehmen die, die Zeit haben.' },
-  { schritt: '4', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
-  { schritt: '5', titel: 'Wachstum', text: 'App geht live, Pool füllt sich, Stundensatz steigt. Weitere Mitglieder und Zellen kommen dazu.' },
+  { schritt: '1', titel: 'Erst leben', text: 'Gemeinsamer Einkauf und Zeit-Tausch, noch ohne Genossenschaft. Jede und jeder kauft auf eigene Rechnung; es gibt keine gemeinsame Kasse (rechtlich offen, Fachleute fragen).' },
+  { schritt: '2', titel: 'Drei Menschen am selben Ort', text: 'Die ersten drei leben in Freiburg oder in der Nähe. Zu fünft geht der Anfang schneller. Das Gesetz verlangt drei Mitglieder.' },
+  { schritt: '3', titel: 'Gründung, wenn der erste Betrieb anstellt', text: 'Gegründet wird so früh wie möglich, sobald wir drei sind und der erste Betrieb Menschen anstellen will. Geschäftsanteil 100 €, auch in Raten ab 10 € im Monat. Ob die eG direkt zu dritt gegründet wird, klärt die Erstberatung beim Prüfungsverband.' },
+  { schritt: '4', titel: 'Prüfungsverband und erster Betrieb', text: 'Prüfung der Satzung, dann der Jahreskreis des ersten Betriebs. Angestellt wird erst, wenn belegte Aufträge den Mindestlohn tragen.' },
+  { schritt: '5', titel: 'Die Zelle wächst', text: 'Nutzen-Bilanz, gleiche Stunde, später weitere Mitglieder und — wenn es passt — neue Zellen. Kein fester Termin, keine zugesagte Wachstumsgeschwindigkeit.' },
 ]
 
 export default async function GruendungPage() {
@@ -27,18 +27,18 @@ export default async function GruendungPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
+          src="/images/stock/feld-morgen.webp"
           alt="Sonnenaufgang über Feld – ein neuer Anfang"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1500382017468-9049fed747ef?w=1920&q=80"
+          src="/images/stock/feld-morgen.webp"
           alt="Sonnenaufgang über Feld – ein neuer Anfang"
         />
         <div className="hero-text" style={{ maxWidth: 760, position: 'relative', zIndex: 2 }}>
@@ -73,10 +73,10 @@ export default async function GruendungPage() {
                 Back to Meaning Maximization entsteht gerade. Nicht als fertiges System, das von oben eingeführt wird, sondern als lebendiger Prozess, der von den Menschen geprägt wird, die es aufbauen.
               </p>
               <p>
-                Für die Gründung der Genossenschaft braucht es mindestens drei Menschen, unser Ziel sind fünf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
+                Für die Gründung braucht es drei Menschen am selben Ort. Zu fünft geht der Anfang schneller. Die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen. Die operative Arbeit übernehmen zunächst die, die Zeit haben.
               </p>
               <p>
-                <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
+                <strong>Wenn gegründet wird:</strong> deine Unterschrift unter die Satzung, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Gründungsmitglieder haben keine Sonderrechte: Wer später kommt, bekommt denselben Lohn und dieselbe Stimme. Der Vorteil der Ersten ist die Zeit, nicht ein Vorrecht.
               </p>
               <p>
                 Was wir nicht suchen, sind Menschen, die ein fertiges Produkt kaufen wollen. Wir suchen Mitgründer — Menschen, die die Idee tragen und bereit sind, ihren Namen dafür zu geben. Manche werden von Tag eins operativ mitarbeiten. Andere tragen das System still mit — und das ist genauso wertvoll.
@@ -88,7 +88,7 @@ export default async function GruendungPage() {
                 Wenn du glaubst, dass du diese Person sein könntest — melde dich. Wir werden sprechen, uns kennenlernen, und dann entscheiden wir gemeinsam, ob es passt.
               </p>
               <p style={{ fontFamily: 'var(--font-garamond)', fontStyle: 'italic', color: 'var(--btb-rot)' }}>
-                – Samjo, Freiburg 2028
+                – Samjo, Freiburg
               </p>
             </div>
           </SectionReveal>
@@ -108,14 +108,14 @@ export default async function GruendungPage() {
               Der Weg
             </h2>
             <p style={{ opacity: 0.7, lineHeight: 1.7, marginBottom: '2.5rem' }}>
-              Kein fester Zeitplan — das System wächst in dem Tempo, das zu den Menschen passt, die es aufbauen. Was feststeht, ist die Reihenfolge.
+              Kein Gründungstermin. Erst leben, dann gründen. Die Reihenfolge folgt dem Konzept; die Dauer hängt davon ab, wann drei Menschen da sind und der erste Betrieb anstellen kann.
             </p>
           </SectionReveal>
 
           <div style={{ position: 'relative' }}>
             <div style={{
               position: 'absolute', left: 24, top: 0, bottom: 0, width: 2,
-              background: 'rgba(143,169,66,0.3)',
+              background: 'rgba(158,87,164,0.35)',
             }} />
 
             {schritte.map((item, i) => (
@@ -182,7 +182,7 @@ export default async function GruendungPage() {
                 <li><strong>Perspektive:</strong> Langfristig — kein kurzfristiges Investment</li>
               </ul>
               <p style={{ marginTop: '1rem', fontStyle: 'italic', opacity: 0.8 }}>
-                Die operative Aufbauarbeit liegt anfangs bei 1–2 Personen. Die anderen Gründungsmitglieder tragen das System mit — durch ihr Commitment und ihre Stimme. Beides ist unverzichtbar.
+                Für den Aufbau gibt niemand mehr Zeit, als 48 Stunden Wochenarbeit zulassen. In Zeit gerechnet ist der Anfang zuerst ein Minus; die Modellrechnung sieht die Zeit später zurück. Das ist keine Zusage.
               </p>
             </div>
           </SectionReveal>

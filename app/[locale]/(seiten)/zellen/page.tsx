@@ -8,31 +8,21 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Zellen – Back to Meaning Maximization',
-  description: 'Entdecke die BtMM-Zellen rund um die Welt. Lokale Gemeinschaften, ein gemeinsames System.',
+  title: 'Zellen',
+  description: 'Geplante BtMM-Zellen: selbstverwaltete lokale Gemeinschaften. Heute gibt es noch keine bestehenden Zellen. Der erste Keim ist in Freiburg geplant.',
 }
 
 // Sample cell data — in production, this would come from a database
 const cells = [
   {
     id: 1,
-    name: 'Freiburg (Gründungszelle)',
+    name: 'Freiburg (geplanter erster Keim)',
     location: 'Freiburg im Breisgau, Deutschland',
     coordinates: { lat: 48.0021, lon: 7.8421 },
-    members: 4,
-    focus: ['Körperarbeit', 'Handwerk', 'Beratung'],
-    status: 'aktiv',
-    color: 'var(--btb-rot)',
-  },
-  {
-    id: 2,
-    name: 'Berlin (Gründungsvorbereitung)',
-    location: 'Berlin, Deutschland',
-    coordinates: { lat: 52.5200, lon: 13.4050 },
     members: 0,
-    focus: ['Bildung', 'Technologie'],
+    focus: ['Gemeinsamer Einkauf', 'erster Betrieb (geplant)'],
     status: 'planung',
-    color: 'var(--btb-blau)',
+    color: 'var(--btmm-dunkel)',
   },
 ]
 
@@ -42,19 +32,19 @@ export default async function ZellenPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#1a1505',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
-          alt="Netzwerk von Lichtern – dezentrales System"
+          src="/images/stock/waldblumen.webp"
+          alt="Waldwiese mit Blumen"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=1920&q=80"
-          alt="Netzwerk von Lichtern – dezentrales System"
+          src="/images/stock/waldblumen.webp"
+          alt="Waldwiese mit Blumen"
         />
         <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>
           <SectionReveal>
@@ -93,7 +83,7 @@ export default async function ZellenPage() {
                 }}>
                   {cells.length}
                 </div>
-                <p style={{ color: 'var(--btb-dunkel)', opacity: 0.7 }}>Zellen aktiv oder in Gründung</p>
+                <p style={{ color: 'var(--btb-dunkel)', opacity: 0.7 }}>Geplante Keime</p>
               </div>
 
               <div className="card-btb" style={{ textAlign: 'center' }}>
@@ -106,7 +96,7 @@ export default async function ZellenPage() {
                 }}>
                   {cells.reduce((sum, c) => sum + c.members, 0)}
                 </div>
-                <p style={{ color: 'var(--btb-dunkel)', opacity: 0.7 }}>Aktive Mitglieder</p>
+                <p style={{ color: 'var(--btb-dunkel)', opacity: 0.7 }}>Mitglieder (noch keine)</p>
               </div>
 
               <div className="card-btb" style={{ textAlign: 'center' }}>
@@ -164,7 +154,7 @@ export default async function ZellenPage() {
                       textTransform: 'uppercase',
                       padding: '0.3rem 0.6rem',
                       borderRadius: 4,
-                      background: cell.status === 'aktiv' ? 'rgba(143,169,66,0.1)' : 'rgba(42,124,171,0.1)',
+                      background: cell.status === 'aktiv' ? 'rgba(158,87,164,0.1)' : 'rgba(120,2,104,0.1)',
                       color: cell.status === 'aktiv' ? 'var(--btb-oliv)' : 'var(--btb-blau)',
                     }}>
                       {cell.status === 'aktiv' ? '🟢 Aktiv' : '🔄 Planung'}
@@ -249,7 +239,7 @@ export default async function ZellenPage() {
                 justifyContent: 'center',
                 alignItems: 'center',
                 textAlign: 'center',
-                background: 'linear-gradient(135deg, rgba(182,24,24,0.05), rgba(143,169,66,0.05))',
+                background: 'linear-gradient(135deg, rgba(182,24,24,0.05), rgba(158,87,164,0.05))',
                 borderStyle: 'dashed',
               }}>
                 <div style={{

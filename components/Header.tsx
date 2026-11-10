@@ -45,12 +45,13 @@ export function Header({ locale }: { locale: Locale }) {
 
   return (
     <header style={{
-      background: 'var(--btb-weiss)',
+      background: 'var(--btmm-box)',
       borderBottom: '2px solid var(--btb-creme)',
+      backdropFilter: 'blur(10px)', WebkitBackdropFilter: 'blur(10px)',
       position: 'sticky',
       top: 0,
       zIndex: 100,
-      boxShadow: '0 2px 8px rgba(26,21,5,0.06)',
+      boxShadow: '0 2px 8px rgba(42,16,40,0.06)',
     }}>
       <div className="container-btb" style={{ display: 'flex', alignItems: 'center', height: 64, gap: '1.5rem' }}>
         {/* Logo */}
@@ -118,7 +119,7 @@ export function Header({ locale }: { locale: Locale }) {
             {langOpen && (
               <div style={{
                 position: 'absolute', top: '100%', right: 0, marginTop: 4,
-                background: 'var(--btb-weiss)',
+                background: 'var(--btmm-box)',
                 border: '1px solid var(--btb-creme)',
                 borderRadius: 8,
                 boxShadow: '0 4px 20px rgba(0,0,0,0.12)',
@@ -178,7 +179,7 @@ export function Header({ locale }: { locale: Locale }) {
         <div
           className="lg:hidden"
           style={{
-            background: 'var(--btb-weiss)',
+            background: 'var(--btmm-box)',
             borderTop: '1px solid var(--btb-creme)',
             padding: '1rem 1.5rem',
           }}

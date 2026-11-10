@@ -10,7 +10,7 @@ import { Header } from '@/components/Header'
 import { Footer } from '@/components/Footer'
 import { ScrollHint } from '@/components/ScrollHint'
 import { ScrollToTop } from '@/components/ScrollToTop'
-import { BRAND_FULL } from '@/lib/brand'
+import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 
 const ChatWidget = dynamic(
   () => import('@/components/ChatWidget').then(mod => ({ default: mod.ChatWidget })),
@@ -32,11 +32,11 @@ const garamond = EB_Garamond({
 
 export const metadata: Metadata = {
   title: {
-    default: `${BRAND_FULL} – Wirtschaft, die trägt.`,
-    template: `%s | ${BRAND_FULL}`,
+    default: `${BRAND_LONG} – Wirtschaft, die trägt.`,
+    template: `%s | ${BRAND_LONG}`,
   },
   description:
-    'Back to Meaning Maximization verbindet wirtschaftliche Stärke mit menschlicher Würde. Somatische Körperarbeit, Gemeinschaft und ein alternatives Wirtschaftsmodell in Freiburg.',
+    'Back to Meaning Maximization ist eine Genossenschaft im Aufbau. Teilen, was einzeln teuer ist, gleicher Lohn für jede Stunde, gemeinsames Eigentum, das nicht verkauft wird. Gegründet wird in Freiburg, sobald drei Menschen da sind und der erste Betrieb anstellen will.',
   metadataBase: new URL('https://b-t-m-m.com'),
   openGraph: {
     type: 'website',

@@ -1,54 +1,74 @@
 import type { Metadata } from 'next'
 import { getTranslations } from 'next-intl/server'
-import { setRequestLocale } from 'next-intl/server'
 import Link from 'next/link'
 import Image from 'next/image'
-import { TrendingUp, Users, Leaf, Smartphone, CreditCard, Layout, ExternalLink } from 'lucide-react'
-import { AnimatedCounter, SectionReveal } from '@/components/AnimatedCounter'
+import { SectionReveal } from '@/components/AnimatedCounter'
 import { LogoLightbox } from '@/components/LogoLightbox'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
-import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
-import { AngeboteAccordion } from '@/components/AngeboteAccordion'
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 
 export const dynamic = 'force-dynamic'
 
 export async function generateMetadata(): Promise<Metadata> {
   return {
-    title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-    description: 'Back to Meaning Maximization ist ein alternatives Wirtschaftsmodell, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gegründet in Freiburg, gedacht weltweit.',
+    title: { absolute: `${BRAND_LONG} – Wirtschaft, die trägt.` },
+    description:
+      'Back to Meaning Maximization ist eine Genossenschaft im Aufbau: teilen, was einzeln teuer ist, gleicher Lohn für jede Stunde, gemeinsames Eigentum, das nicht verkauft wird. Noch nicht gegründet. Sitz geplant in Freiburg.',
     openGraph: {
-      title: `${BRAND_FULL} – ein anderes Wirtschaftssystem`,
-      description: 'Ein alternatives Wirtschaftsmodell für Wirtschaft, die trägt.',
+      title: `${BRAND_LONG} – Wirtschaft, die trägt.`,
+      description:
+        'Eine Genossenschaft im Aufbau. Erst leben, dann gründen. Alle Zahlen sind Modellrechnungen, keine Prognose.',
     },
   }
 }
 
+const SAULEN = [
+  {
+    grafik: '/graphics/drei-saeulen.svg',
+    titel: 'Teilen',
+    text: 'Ihr teilt Einkauf, Carsharing, Räume, Werkzeug und Buchhaltung. Jede und jeder behält das eigene Einkommen. Der Beitrag darf nie höher sein als das, was du sparst.',
+  },
+  {
+    grafik: '/graphics/coin-stunde.svg',
+    titel: 'Arbeiten',
+    text: 'Wer in einem Betrieb der Gemeinschaft arbeitet, ist angestellt. Jede Stunde bekommt denselben Lohn, mindestens den Mindestlohn, als Ziel 20 Euro. Teams von höchstens zwölf Menschen, ohne Chefs.',
+  },
+  {
+    grafik: '/graphics/waage.svg',
+    titel: 'Besitzen',
+    text: 'Häuser, Land und Werkstätten gehören allen. Sie werden nie verkauft. Die Miete deckt nur die Kosten.',
+  },
+]
+
+const WEGE = [
+  { titel: 'Unterstützerin oder Unterstützer', kopf: 'ab 50 € im Jahr', text: '10 % Rabatt auf externe Leistungen. Kein Einführungsprozess, kein Zeitaufwand. Dein Beitrag senkt die Kosten, die sonst auf die Mitglieder umgelegt werden.' },
+  { titel: 'Förderkundin oder Förderkunde', kopf: 'ab 1.000 € im Jahr', text: 'Zugang zu den Selbstkostenpreisen des gemeinsamen Einkaufs. Ob sich der Betrag über die Preise lohnt, hängt von deinem Verbrauch ab — es ist Unterstützung, keine Geldanlage.' },
+  { titel: 'Nutzungsmitglied', kopf: '100 € Geschäftsanteil', text: 'Du nutzt alles Gemeinsame zum Selbstkostenpreis, behältst dein Einkommen und hast Stimmrecht. Den Anteil kannst du in Raten ab 10 € im Monat zahlen. Mitglied bist du ab der ersten Rate — nach der Aufnahme.' },
+  { titel: 'Betriebsmitglied', kopf: 'Arbeit in einem Gemeinschaftsbetrieb', text: 'Angestellt bei der Genossenschaft, gleicher Stundenlohn, Sozialversicherung, Bonus-Coins, Solidarfonds. Du gestaltest den Betrieb mit.' },
+]
+
 export default async function HomePage() {
-  const t = await getTranslations('home')
   const tc = await getTranslations('common')
 
   return (
     <>
-      {/* ── 1. HERO ── */}
       <section style={{
         minHeight: '85vh',
-        background: 'var(--btb-creme)',
+        background: 'var(--btmm-text)',
         display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
         textAlign: 'center', padding: '3rem 1.5rem',
         position: 'relative', overflow: 'hidden',
       }}>
-        {/* Forest background image */}
         <Image
-          src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
-          alt="Wald – ein hoch vernetztes Ökosystem"
+          src="/images/stock/wald-wurzeln.webp"
+          alt="Waldweg zwischen Bäumen – ein vernetztes Ökosystem"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1448375240586-882707db888b?w=1920&q=80"
-          alt="Wald – ein hoch vernetztes Ökosystem"
+          src="/images/stock/wald-wurzeln.webp"
+          alt="Waldweg zwischen Bäumen – ein vernetztes Ökosystem"
         />
         <div className="hero-text" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
@@ -66,10 +86,8 @@ export default async function HomePage() {
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(2.2rem, 6vw, 4rem)',
             fontWeight: 700,
-            color: 'var(--btb-rot)',
             marginBottom: '0.75rem',
             lineHeight: 1.1,
-            textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
           }}>
             {BRAND_LONG}
           </h1>
@@ -78,39 +96,29 @@ export default async function HomePage() {
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(1.2rem, 2.5vw, 1.8rem)',
             fontWeight: 500,
-            color: '#ffffff',
             marginBottom: '1.5rem',
             lineHeight: 1.4,
-            textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
           }}>
-            Ein anderes Wirtschaftssystem
+            Ein besseres Leben. Gemeinsam.
           </p>
 
           <p style={{
             fontSize: 'clamp(0.95rem, 1.8vw, 1.1rem)',
-            color: '#ffffff',
             lineHeight: 1.7,
             maxWidth: 560,
             margin: '0 auto 2.5rem',
-            textShadow: '0 1px 6px rgba(0,0,0,0.6)',
           }}>
-            Back to Meaning Maximization verbindet wirtschaftliche Stärke mit menschlicher Würde — ein System, in dem Bedeutung über Gewinn geht.
+            Wir wollen mehr freie Zeit, gutes Essen, Gesundheit, Bildung und Wohnen ohne Rendite. Dafür teilen wir, was einzeln teuer ist, arbeiten in eigenen Betrieben zum gleichen Lohn und besitzen gemeinsam, was nie verkauft wird.
           </p>
 
           <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/konzept" className="btn-primary">
-              Das Konzept
-            </Link>
-            <Link href="/mitmachen" className="btn-secondary">
-              Mitmachen
-            </Link>
+            <Link href="/konzept" className="btn-primary">Das Konzept</Link>
+            <Link href="/mitmachen" className="btn-secondary">Mitmachen</Link>
           </div>
-
         </div>
       </section>
 
-      {/* ── 2. WAS IST BTMM ── */}
-      <section className="section" style={{ background: 'var(--btb-weiss)' }}>
+      <section className="section" style={{ background: 'var(--btmm-hell)' }}>
         <div className="container-btb">
           <SectionReveal>
             <h2 style={{
@@ -118,57 +126,27 @@ export default async function HomePage() {
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
               textAlign: 'center',
               marginBottom: '0.75rem',
-              color: 'var(--btb-oliv)',
             }}>
-              Wirtschaft, die trägt
+              Ein Haus mit drei Säulen
             </h2>
-            <p style={{ textAlign: 'center', opacity: 0.6, marginBottom: '3rem', maxWidth: 540, margin: '0 auto 3rem' }}>
-              Back to Meaning Maximization ist eine Vision von Wirtschaft, die Menschen und Gemeinschaft ins Zentrum stellt.
+            <p style={{ textAlign: 'center', marginBottom: '3rem', maxWidth: 580, marginInline: 'auto' }}>
+              Nutzen, was es Gutes schon gibt. Bauen, wo etwas fehlt. Wachstum heißt hier Lebensstandard-Wachstum — nicht mehr Umsatz.
             </p>
           </SectionReveal>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(260px, 1fr))',
             gap: '1.5rem',
           }}>
-            {[
-              {
-                icon: <TrendingUp size={32} style={{ color: 'var(--btb-rot)' }} />,
-                titel: 'Wirtschaft mit Sinn',
-                text: 'Profitabilität, die einem höheren Zweck dient — nicht Selbstzweck, sondern Mittel zum Zweck.',
-                href: '/konzept/wirtschaft',
-              },
-              {
-                icon: <Users size={32} style={{ color: 'var(--btb-blau)' }} />,
-                titel: 'Gemeinschaft',
-                text: 'Ein Netzwerk von Menschen und Betrieben, die zusammen wirtschaften und voneinander lernen.',
-                href: '/konzept/gemeinschaft',
-              },
-              {
-                icon: <Leaf size={32} style={{ color: 'var(--btb-oliv)' }} />,
-                titel: 'Nachhaltigkeit',
-                text: 'Wirtschaft, die Ressourcen respektiert und für zukünftige Generationen bewahrt.',
-                href: '/nachhaltigkeit',
-              },
-            ].map((item, i) => (
-              <SectionReveal key={i} delay={i * 0.15}>
-                <div className="card-btb" style={{ height: '100%' }}>
-                  <div style={{ marginBottom: '1rem' }}>{item.icon}</div>
-                  <h3 style={{
-                    fontFamily: 'var(--font-garamond)',
-                    fontSize: '1.3rem',
-                    color: 'var(--btb-dunkel)',
-                    marginBottom: '0.75rem',
-                  }}>
+            {SAULEN.map((item, i) => (
+              <SectionReveal key={item.titel} delay={i * 0.12}>
+                <div className="card-btb" style={{ height: '100%', textAlign: 'center' }}>
+                  <Image src={item.grafik} alt="" width={200} height={130} style={{ margin: '0 auto 1rem' }} />
+                  <h3 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.35rem', marginBottom: '0.75rem' }}>
                     {item.titel}
                   </h3>
-                  <p style={{ color: 'var(--btb-dunkel)', opacity: 0.75, lineHeight: 1.7, marginBottom: '1.25rem' }}>
-                    {item.text}
-                  </p>
-                  <Link href={item.href} style={{ color: 'var(--btb-blau)', fontWeight: 600, fontSize: '0.9rem' }}>
-                    {tc('actions.mehr_erfahren')} →
-                  </Link>
+                  <p style={{ lineHeight: 1.7 }}>{item.text}</p>
                 </div>
               </SectionReveal>
             ))}
@@ -176,8 +154,7 @@ export default async function HomePage() {
         </div>
       </section>
 
-      {/* ── 2b. ANGEBOTE ── */}
-      <section className="section" style={{ background: 'var(--btb-creme)' }}>
+      <section className="section" style={{ background: 'var(--btmm-weiss)' }}>
         <div className="container-btb">
           <SectionReveal>
             <h2 style={{
@@ -185,92 +162,75 @@ export default async function HomePage() {
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
               textAlign: 'center',
               marginBottom: '0.75rem',
-              color: 'var(--btb-oliv)',
             }}>
-              Unser Angebot
+              So kannst du dabei sein
             </h2>
-            <p style={{ textAlign: 'center', opacity: 0.65, marginBottom: '2.5rem', maxWidth: 560, margin: '0 auto 2.5rem' }}>
-              Dienstleistungen und Expertise von erfahrenen Praktizierenden aus unserem Netzwerk.
-            </p>
-          </SectionReveal>
-          <AngeboteAccordion domain="b-t-m-m.com" />
-        </div>
-      </section>
-
-      {/* ── 3. APP TEASER ── */}
-      <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-        <div className="container-btb">
-          <SectionReveal>
-            <h2 style={{
-              fontFamily: 'var(--font-garamond)',
-              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              textAlign: 'center',
-              color: 'var(--btb-oliv)',
-              marginBottom: '0.5rem',
-            }}>
-              Das BtM Universe
-            </h2>
-            <p style={{ textAlign: 'center', opacity: 0.65, marginBottom: '2.5rem' }}>
-              Die Plattform für Zusammenarbeit, Buchungen und gegenseitige Unterstützung innerhalb unseres Netzwerks.
+            <p style={{ textAlign: 'center', marginBottom: '2.5rem', maxWidth: 580, marginInline: 'auto' }}>
+              Verschiedene Wege, kein Zwang zu einer höheren Stufe. Die Genossenschaft gibt es noch nicht — gegründet wird, sobald der erste Betrieb Menschen anstellen will und drei Menschen da sind.
             </p>
           </SectionReveal>
 
           <div style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
             gap: '1.25rem',
             marginBottom: '2rem',
           }}>
-            {[
-              { icon: <Users size={24} />, titel: 'Vernetzung', text: 'Finde und buche Dienstleistungen von Praktizierenden im Netzwerk.' },
-              { icon: <CreditCard size={24} />, titel: 'Tausch-System', text: 'Arbeitsleistung wird fair bewertet und getauscht innerhalb des Systems.' },
-              { icon: <Layout size={24} />, titel: 'Workspace', text: 'Dein Betrieb, deine Angebote, deine Gemeinschaft — alles an einem Ort.' },
-            ].map((item, i) => (
-              <SectionReveal key={i} delay={i * 0.12}>
-                <div className="card-btb" style={{ textAlign: 'center' }}>
-                  <div style={{
-                    color: 'var(--btb-blau)',
-                    marginBottom: '0.75rem',
-                    display: 'flex', justifyContent: 'center',
-                  }}>
-                    {item.icon}
-                  </div>
-                  <h3 style={{
-                    fontFamily: 'var(--font-garamond)',
-                    fontSize: '1.1rem',
-                    color: 'var(--btb-dunkel)',
-                    marginBottom: '0.5rem',
-                  }}>
-                    {item.titel}
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--btb-dunkel)', opacity: 0.7, lineHeight: 1.6 }}>
-                    {item.text}
-                  </p>
+            {WEGE.map((w, i) => (
+              <SectionReveal key={w.titel} delay={i * 0.1}>
+                <div className="card-btb" style={{ height: '100%' }}>
+                  <h3 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.2rem', marginBottom: '0.35rem' }}>{w.titel}</h3>
+                  <p style={{ fontWeight: 600, marginBottom: '0.75rem', color: 'var(--btmm-dunkel)' }}>{w.kopf}</p>
+                  <p style={{ lineHeight: 1.65, fontSize: '0.95rem' }}>{w.text}</p>
                 </div>
               </SectionReveal>
             ))}
           </div>
-
-          <div style={{ textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/app" className="btn-secondary">
-              Zur App
-            </Link>
-            <a
-              href="https://app.b-t-m-m.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
-            >
-              Login <ExternalLink size={15} />
-            </a>
+          <p style={{ textAlign: 'center', marginBottom: '1.5rem', maxWidth: 640, marginInline: 'auto', lineHeight: 1.7 }}>
+            Weitere Wege: Gemeinschaftsdienst, Ideen-Weg, von weitem dabei und Partner. Die ersten drei müssen in oder bei Freiburg leben — alle anderen nicht.
+          </p>
+          <div style={{ textAlign: 'center' }}>
+            <Link href="/mitmachen" className="btn-primary">{tc('actions.mehr_erfahren')} →</Link>
           </div>
         </div>
       </section>
 
-      {/* ── 4. INFINITY LOOP ── */}
+      <section className="section" style={{ background: 'var(--btmm-hell)' }}>
+        <div className="container-btb">
+          <div style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+            gap: '2rem',
+            alignItems: 'center',
+          }}>
+            <SectionReveal>
+              <div className="card-btb">
+                <Image src="/graphics/brunnen.svg" alt="Brunnen mit Schalen: erst Rücklage und Hilfe, dann gleicher Lohn, dann drei Schalen" width={320} height={200} style={{ margin: '0 auto 1rem' }} />
+                <h2 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.7rem', marginBottom: '0.75rem' }}>
+                  Der Brunnen mit den Schalen
+                </h2>
+                <p style={{ lineHeight: 1.7 }}>
+                  Die Betriebe verdienen Geld. Zuerst füllt sich eine Schale für schlechte Zeiten und für Menschen, die Hilfe brauchen. Dann bekommt jede Stunde denselben Lohn. Was überläuft, verteilt sich auf drei Schalen: Bonus, gemeinsame Häuser und Werkstätten, Hilfe und Natur. Im Aufbau liegen die Anteile in Korridoren, im reifen System etwa je ein Drittel. Wenn ein Monat schlecht läuft, sinkt zuerst der Bonus. Der Lohn fällt nie unter den Mindestlohn.
+                </p>
+              </div>
+            </SectionReveal>
+            <SectionReveal delay={0.12}>
+              <div className="card-btb">
+                <Image src="/graphics/coin-stunde.svg" alt="Ein BtMM-Coin entspricht einer Stunde" width={240} height={160} style={{ margin: '0 auto 1rem' }} />
+                <h2 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.7rem', marginBottom: '0.75rem' }}>
+                  Der BtMM-Coin
+                </h2>
+                <p style={{ lineHeight: 1.7 }}>
+                  Ein Coin entspricht immer einer Stunde Arbeit. Er zählt bezahlte Stunden, trägt den Bonus und ermöglicht den Tausch Stunde gegen Stunde, ohne Euro. Willkommens- und Bonus-Coins werden nur innerhalb von BtMM eingesetzt und nie ausgezahlt. Die genaue rechtliche Ausgestaltung prüft der Prüfungsverband vor der Gründung.
+                </p>
+              </div>
+            </SectionReveal>
+          </div>
+        </div>
+      </section>
+
       <section style={{
-        background: 'linear-gradient(135deg, #1a5a8a 0%, var(--btb-blau) 50%, #1a5a8a 100%)',
+        background: 'linear-gradient(135deg, var(--btmm-dunkel) 0%, var(--btmm-primary) 50%, var(--btmm-dunkel) 100%)',
         padding: '4rem 1.5rem',
         textAlign: 'center',
       }}>
@@ -278,137 +238,71 @@ export default async function HomePage() {
           <SectionReveal>
             <Image
               src="/infinity-gold.png"
-              alt="Infinity Loop – Back to Meaning Maximization"
+              alt="Unendlichkeitsschleife – Sinnmaximierung statt Kreislauf um des Wachstums willen"
               width={200}
               height={200}
               style={{ margin: '0 auto 1rem', objectFit: 'contain' }}
             />
           </SectionReveal>
-          <SectionReveal delay={0.2}>
-            <h2 style={{
-              fontFamily: 'var(--font-garamond)',
-              fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
-              color: 'var(--btb-creme)',
-              marginBottom: '0.75rem',
-              fontStyle: 'italic',
-            }}>
-              Wirtschaft neu denken
-            </h2>
-            <p style={{
-              color: 'var(--btb-creme)',
-              opacity: 0.85,
-              lineHeight: 1.75,
-              fontSize: '1.05rem',
-              maxWidth: 540,
-              margin: '0 auto',
-            }}>
-              Die heutige Wirtschaft ist in einem Zirkel gefangen: Wachstum um des Wachstums willen, Gewinn als Maß aller Dinge. Back to Meaning Maximization fragt: Was wäre anders, wenn wir Bedeutung, Gemeinschaft und Nachhaltigkeit ins Zentrum stellen würden?
-            </p>
+          <SectionReveal delay={0.15}>
+            <div className="hero-text" style={{ maxWidth: 640 }}>
+              <h2 style={{
+                fontFamily: 'var(--font-garamond)',
+                fontSize: 'clamp(1.6rem, 3.5vw, 2.4rem)',
+                marginBottom: '0.75rem',
+                fontStyle: 'italic',
+              }}>
+                Lebensstandard-Wachstum statt Wirtschaftswachstum
+              </h2>
+              <p style={{ lineHeight: 1.75, fontSize: '1.05rem' }}>
+                Die übliche Wirtschaft will mehr Umsatz. Wir wollen, dass das Leben besser wird: mehr Zeit, Gesundheit, Bildung und Natur. Das kann sogar wachsen, wenn weniger gekauft wird.
+              </p>
+            </div>
           </SectionReveal>
         </div>
       </section>
 
-      {/* ── 5. MEMBERSHIP TIERS ── */}
-      <section className="section" style={{ background: 'var(--btb-weiss)' }}>
+      <section className="section" style={{ background: 'var(--btmm-weiss)' }}>
         <div className="container-btb">
           <SectionReveal>
             <h2 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
               textAlign: 'center',
-              marginBottom: '0.75rem',
-              color: 'var(--btb-oliv)',
+              marginBottom: '0.5rem',
             }}>
-              {t('mitgliedschaft.titel')}
+              Die BtMM-App
             </h2>
-            <p style={{ textAlign: 'center', opacity: 0.65, marginBottom: '3rem', maxWidth: 560, margin: '0 auto 3rem' }}>
-              {t('mitgliedschaft.untertitel')}
+            <p style={{ textAlign: 'center', marginBottom: '2rem', maxWidth: 560, marginInline: 'auto', lineHeight: 1.7 }}>
+              Geplant als Werkzeug für Nutzen-Bilanz, Stunden, Coins und Abstimmung in den Zellen. Zugang für Mitglieder unter app.b-t-m-m.com.
             </p>
           </SectionReveal>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(240px, 1fr))',
-            gap: '1.5rem',
-            marginBottom: '2rem',
-          }}>
-            {t.raw('mitgliedschaft.stufen').map((tier: any, i: number) => (
-              <SectionReveal key={i} delay={i * 0.12}>
-                <div className="card-btb" style={{ height: '100%', display: 'flex', flexDirection: 'column' }}>
-                  <h3 style={{
-                    fontFamily: 'var(--font-garamond)',
-                    fontSize: '1.25rem',
-                    color: 'var(--btb-rot)',
-                    marginBottom: '0.5rem',
-                  }}>
-                    {tier.stufe}
-                  </h3>
-                  <p style={{
-                    fontSize: '1rem',
-                    fontWeight: 600,
-                    color: 'var(--btb-oliv)',
-                    marginBottom: '0.75rem',
-                  }}>
-                    {tier.preis}
-                  </p>
-                  <p style={{
-                    fontSize: '0.9rem',
-                    color: 'var(--btb-dunkel)',
-                    opacity: 0.7,
-                    lineHeight: 1.6,
-                    marginBottom: '1rem',
-                    flex: 1,
-                  }}>
-                    {tier.beschreibung}
-                  </p>
-                  <div style={{
-                    paddingTop: '1rem',
-                    borderTop: '1px solid rgba(143,169,66,0.15)',
-                    fontSize: '0.85rem',
-                    color: 'var(--btb-blau)',
-                    fontWeight: 600,
-                  }}>
-                    {tier.benefits}
-                  </div>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center' }}>
-            <Link href="/mitmachen" className="btn-primary">
-              {tc('actions.mehr_erfahren')} →
-            </Link>
+          <div style={{ textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <Link href="/app" className="btn-secondary">Zur App-Seite</Link>
           </div>
         </div>
       </section>
 
-      {/* ── 6. MEMBERSHIP CTA ── */}
-      <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-        <div className="container-btb">
-          <div style={{
-            maxWidth: 680, margin: '0 auto',
-            background: 'var(--btb-creme)',
-            borderRadius: 16, padding: '2.5rem',
-            border: '1px solid rgba(143,169,66,0.2)',
-          }}>
+      <section className="section" style={{ background: 'var(--btmm-hell)' }}>
+        <div className="container-btb" style={{ maxWidth: 720 }}>
+          <div className="hinweis-kasten" style={{ marginBottom: '2rem' }}>
+            <p>
+              <strong>Ehrlich gesagt:</strong> Die Genossenschaft besteht noch nicht. Es gibt noch keine Mitglieder und keine laufenden Gemeinschaftsbetriebe. Alle Zahlen auf dieser Seite sind Modellrechnungen auf offen benannten Annahmen, keine Prognose und kein Versprechen. Rechtliche Fragen prüft der Prüfungsverband und eine Rechtsberatung vor der Gründung.
+            </p>
+          </div>
+          <div className="card-btb">
             <SectionReveal>
               <h2 style={{
                 fontFamily: 'var(--font-garamond)',
                 fontSize: 'clamp(1.6rem, 3vw, 2.2rem)',
-                color: 'var(--btb-oliv)',
                 marginBottom: '0.75rem',
               }}>
-                Teil unseres Netzwerks werden
+                Wenn dich das anspricht
               </h2>
-              <p style={{ lineHeight: 1.75, opacity: 0.8, marginBottom: '1.75rem' }}>
-                Back to Meaning Maximization wächst durch Menschen wie dich. Als Praktizierender, Unternehmer oder Interessierter kannst du Teil eines Systems sein, das wirtschaftliche Stärke mit menschlicher Würde verbindet. Gemeinsam schaffen wir eine Alternative — lokal und global.
+              <p style={{ lineHeight: 1.75, marginBottom: '1.75rem' }}>
+                Schreib uns. Ob als Unterstützerin oder Unterstützer, als eine der ersten drei in Freiburg oder von weitem: Die Tür ist offen. Das Konzept, die Satzung (Entwurf) und der Rechner liegen unter Dokumente.
               </p>
-              <div style={{ marginTop: '1.5rem' }}>
-                <Link href="/mitmachen" className="btn-oliv">
-                  Mitmachen
-                </Link>
-              </div>
+              <Link href="/mitmachen" className="btn-primary">Mitmachen</Link>
             </SectionReveal>
           </div>
         </div>

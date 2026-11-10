@@ -15,18 +15,18 @@ export default function BewertungenPage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+          src="/images/stock/wiesenlicht.webp"
           alt="Gemeinschaft und Vertrauen"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?w=1920&q=80"
+          src="/images/stock/wiesenlicht.webp"
           alt="Gemeinschaft und Vertrauen"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>

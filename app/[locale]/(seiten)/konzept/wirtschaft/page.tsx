@@ -8,8 +8,8 @@ import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Wirtschaft – BtMM Konzept',
-  description: 'Pool, Dreiteilung, BtMM-Coin, EK-Preis-Vorteil und Modellrechnungen: Das wirtschaftliche Fundament von Back to Meaning Maximization.',
+  title: 'Wirtschaft',
+  description: 'Drei Säulen, Verteilungs-Kaskade, BtMM-Coin und Modellrechnungen: das wirtschaftliche Fundament von Back to Meaning Maximization. Die eG ist geplant und noch nicht gegründet.',
 }
 
 export default async function WirtschaftPage() {
@@ -24,14 +24,14 @@ export default async function WirtschaftPage() {
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1920&q=80"
+          src="/images/stock/waldpfad.webp"
           alt="Weizenfeld – Wirtschaft die nährt"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1473773508845-188df298d2d1?w=1920&q=80"
+          src="/images/stock/waldpfad.webp"
           alt="Weizenfeld – Wirtschaft die nährt"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -67,7 +67,7 @@ export default async function WirtschaftPage() {
             </p>
           </SectionReveal>
 
-          {/* Pool */}
+          {/* Drei Säulen */}
           <SectionReveal delay={0.1}>
             <h2 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.8rem', color: 'var(--btb-rot)', marginBottom: '1rem' }}>
               {t('wirtschaft.pool_titel')}

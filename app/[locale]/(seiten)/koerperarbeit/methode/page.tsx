@@ -12,7 +12,7 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Methode – Körperarbeit Freiburg | BtMM',
+  title: 'Methode',
   description: 'Die BtMM-Methode der Körperarbeit: achtsame Präsenz, Begleitung statt Führung, Integration. Ganzheitliche Körperarbeit Freiburg.',
 }
 
@@ -25,18 +25,18 @@ export default async function MethodePage() {
       <section style={{
         position: 'relative',
         overflow: 'hidden',
-        background: '#0d1a05',
+        background: 'var(--btmm-text)',
         padding: '5rem 1.5rem 4rem', textAlign: 'center',
       }}>
         <Image
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80"
+          src="/images/stock/felsenlicht.webp"
           alt="Achtsamkeit und Präsenz"
           fill
           style={{ objectFit: 'cover' }}
           priority
         />
         <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1920&q=80"
+          src="/images/stock/felsenlicht.webp"
           alt="Achtsamkeit und Präsenz"
         />
         <div className="hero-text" style={{ maxWidth: 640, position: 'relative', zIndex: 2 }}>
@@ -87,7 +87,7 @@ export default async function MethodePage() {
                 width: '100%',
               }}>
                 <Image
-                  src="https://images.unsplash.com/photo-1519823551278-64ac92734fb1?w=800&q=80"
+                  src="/images/stock/sonnenwald.webp"
                   alt="Sanfte Berührung bei der Körperarbeit — achtsame Hände auf dem Rücken"
                   width={800}
                   height={533}
@@ -115,7 +115,7 @@ export default async function MethodePage() {
               { titel: t('methode.prinzip3_titel'), text: t('methode.prinzip3_text') },
             ].map((item, i) => (
               <SectionReveal key={i} delay={0.3 + i * 0.12}>
-                <div className="card-btb" style={{ border: '1.5px solid rgba(143,169,66,0.2)' }}>
+                <div className="card-btb" style={{ border: '1.5px solid rgba(158,87,164,0.2)' }}>
                   <h3 style={{
                     fontFamily: 'var(--font-garamond)',
                     color: 'var(--btb-rot)',
