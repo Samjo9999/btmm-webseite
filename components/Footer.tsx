@@ -180,7 +180,7 @@ export function Footer() {
               className="hover:opacity-100">
               {t('footer.impressum')}
             </Link>
-            <Link href="/impressum#datenschutz" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href="/datenschutz" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               {t('footer.datenschutz')}
             </Link>
