@@ -154,4 +154,5 @@ export const ORGANISATION_LD = {
   email: KONTAKT_MAIL,
   address: { '@type': 'PostalAddress', addressLocality: 'Freiburg im Breisgau', addressCountry: 'DE' },
   description: 'Geplante Genossenschaft (eG in Gründung) in Freiburg: teilen, was allein teuer ist.',
+  // foundingDate erst nach Eintragung setzen — öffentlich kein Gründungsdatum.
 }
