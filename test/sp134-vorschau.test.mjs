@@ -27,9 +27,22 @@ test('Feedback-Gate: gesperrt + Mock-Zustände ohne Auth', () => {
   const frei = readFileSync(join(root, 'feedback.html'), 'utf8')
   assert.match(gesperrt, /Schreiben nur nach Melde dich/)
   assert.match(gesperrt, /mailto:office@b-t-m-m\.com/)
-  assert.match(frei, /Eingereicht/)
-  assert.match(frei, /Freigeschaltet/)
   assert.match(gesperrt, /Kein .Anmelden. \/ .Konto erstellen. hier/)
+  assert.match(frei, /Freigeschaltet/)
+  assert.match(frei, /Eingereicht · KI-Prüfung/)
+})
+
+test('03c/03d KI-Prüfung Mock: läuft / ok / abgelehnt, keine echte API', () => {
+  const html = readFileSync(join(root, 'feedback.html'), 'utf8')
+  assert.match(html, /Eingereicht · KI-Prüfung läuft/)
+  assert.match(html, /KI-Prüfung: ok/)
+  assert.match(html, /KI-Prüfung: nicht freigegeben/)
+  assert.match(html, /ki-abgelehnt/)
+  assert.match(html, /keine echte API/)
+  assert.match(html, /kein Moderator-Dashboard|Kein Moderator-UI|Kein Admin-Dashboard/)
+  assert.equal(existsSync(join(root, '_screens/03c-feedback-eingereicht-1440x900.png')), true)
+  assert.equal(existsSync(join(root, '_screens/03d-feedback-ki-ok-1440x900.png')), true)
+  assert.equal(existsSync(join(root, '_screens/03d-feedback-ki-abgelehnt-1440x900.png')), true)
 })
 
 test('KI-Chat Preview: Mock, keine Live-API', () => {
