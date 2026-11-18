@@ -1,0 +1,213 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Feedback – freigeschaltet (Mock) | BtMM</title>
+<meta name="description" content="Feedback nach persönlicher Freischaltung. Mitmacher/Unterstützer. Kritik willkommen, Spam nein. Preview-Mock ohne Auth.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<p class="prototyp-band">Prototyp · Preview · nicht veröffentlicht</p>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="kopf">
+  <a class="marke" href="index.html"><span class="logo-scheibe"><img src="bilder/logo.png" alt=""></span><span>BtMM</span><span class="nur-sr">, Startseite</span></a>
+  <nav class="nav-desk" aria-label="Hauptnavigation">
+    <a href="index.html">Start</a>
+    <a href="bewertungen.html">Bewertungen</a>
+    <a href="ki-chat.html">Fragen (KI)</a>
+    <a href="feedback.html" aria-current="page">Feedback</a>
+    <a href="text-stufen.html">Teilen · Tiefe</a>
+  </nav>
+  <details class="nav-mobil">
+    <summary>Menü</summary>
+    <nav aria-label="Hauptnavigation">
+      <a href="index.html">Start</a>
+      <a href="bewertungen.html">Bewertungen</a>
+      <a href="ki-chat.html">Fragen (KI)</a>
+      <a href="feedback.html" aria-current="page">Feedback</a>
+      <a href="text-stufen.html">Teilen · Tiefe</a>
+    </nav>
+  </details>
+  <a class="knopf klein cta" href="mailto:office@b-t-m-m.com">Melde dich</a>
+</header>
+<main id="inhalt" class="unterseite breit">
+  <p class="brot">Start · Feedback · Freischaltungs-Mock</p>
+  <h1>Feedback für freigeschaltete Mitmacher</h1>
+  <p class="einleitung">Clickdummy ohne Auth/Server. Umschalten zeigt die UX-Zustände. UI-Preview freigegeben (Nutzer-Ja Sp. 134). Auth/Speicherung bleiben Mock — echte Kontoanlage braucht separates Nutzer-Ja.</p>
+
+  <div class="toggle-mock" role="group" aria-label="Freischaltungs-Mock (ohne Auth)">
+    <span style="font-weight:700;color:#5c1757">Mock-Toggle</span>
+    <label><input type="radio" name="zustand" value="frei" checked> Freigeschaltet</label>
+    <label><input type="radio" name="zustand" value="gesperrt"> Gesperrt</label>
+    <label><input type="radio" name="zustand" value="eingereicht"> Eingereicht · KI-Prüfung</label>
+    <label><input type="radio" name="zustand" value="ki-ok"> KI: freigegeben</label>
+    <label><input type="radio" name="zustand" value="ki-abgelehnt"> KI: abgelehnt</label>
+    <span class="fein">nur UI · keine E-Mails · kein Server · ohne manuelle Moderator-Oberfläche</span>
+  </div>
+
+  <!-- FREIGESCHALTET -->
+  <div id="z-frei" class="zustand-panel">
+    <p><span class="badge">Freigeschaltet als Interessent/in · Mitmacher</span><span class="badge">Mock</span><span class="badge warn">nur nach Freischaltung</span></p>
+    <div class="account-chip" style="margin-top:.8em"><span class="punkt" aria-hidden="true"></span> Interessent/in · freigeschaltet als Mitmacher/Unterstützer (Mock)</div>
+    <aside class="hinweis-kasten" role="note">
+      <p><strong>Hinweis.</strong> Du bist freigeschaltet. Sachliche Kritik ist willkommen. Beleidigungen und Spam werden nicht veröffentlicht. Beiträge erscheinen erst nach <strong>KI-Prüfung</strong> — nicht sofort öffentlich. Ohne manuelle Moderator-Oberfläche. Nie „Mitglied“ vor eG-Eintragung.</p>
+    </aside>
+    <div class="kritik-spam" role="note">
+      <div class="ok"><strong>Kritik willkommen</strong> Unbequem und ehrlich — wenn du mitmachst oder unterstützt.</div>
+      <div class="nein"><strong>Spam &amp; Hater</strong> Werden nicht freigeschaltet; Zugang kann entzogen werden.</div>
+    </div>
+    <div class="feedback-layout">
+      <form class="formular" id="fb-form" action="#" onsubmit="return false;">
+        <h2>Neue Rückmeldung</h2>
+        <p class="badge warn" style="margin-bottom:.7em">Illustration · nur nach Freischaltung</p>
+        <label for="kat">Kategorie</label>
+        <select id="kat">
+          <option>Webseite / Texte</option>
+          <option>Idee / Säulen</option>
+          <option>Treffen / Praxis</option>
+          <option>Sonstiges</option>
+        </select>
+        <label for="fb">Dein Feedback</label>
+        <textarea id="fb" placeholder="Was sollte klarer, einfacher oder tiefer werden? Auch Kritik."></textarea>
+        <p style="font-size:.88rem;color:#5e4a63;margin:0 0 .9em;font-family:var(--ui)">Wird nicht sofort öffentlich. Erst nach Moderation. Mock — keine Speicherung.</p>
+        <div class="knoepfe">
+          <button class="knopf" type="button" id="btn-absenden">Absenden (Mock)</button>
+          <a class="knopf zweit" href="feedback-gesperrt.html">Hauptgate (gesperrt)</a>
+        </div>
+      </form>
+      <div>
+        <h2 style="font-family:var(--display);color:#780268;font-size:1.25rem;margin-bottom:.6em">Thread (Mock)</h2>
+        <div class="thread">
+          <article class="thread-karte">
+            <p class="wer"><span class="platzhalter-badge">Platzhalter</span> Du · Webseite / Texte</p>
+            <p class="wann">intern · freigeschaltet</p>
+            <p>Die Säulen-Seite könnte eine kurze und eine tiefe Version haben — sonst springen Leute ab.</p>
+          </article>
+          <article class="thread-karte">
+            <p class="wer"><span class="platzhalter-badge">Platzhalter</span> BtMM · Antwort (Mock)</p>
+            <p class="wann">intern</p>
+            <p>Danke — genau dafür gibt es die Text-Stufen (Kurz → Mehr dazu → Tiefe).</p>
+          </article>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GESPERRT (Toggle) -->
+  <div id="z-gesperrt" class="zustand-panel" hidden>
+    <p><span class="badge warn">Zustand: gesperrt</span><span class="badge">Mock-Toggle</span></p>
+    <div class="gate-karte" style="margin-top:1em">
+      <h2>Schreiben nur nach persönlicher Freischaltung</h2>
+      <p>Feedback und Bewertungsvorschläge sind für Menschen, die wirklich mitmachen oder unterstützen wollen — auch mit Kritik. Schreib uns kurz, wer du bist und wie du mitbauen willst. Danach schalten wir den Schreibzugang frei.</p>
+      <div class="knoepfe" style="margin-top:1em">
+        <a class="knopf" href="mailto:office@b-t-m-m.com">Melde dich</a>
+        <a class="knopf zweit" href="feedback-gesperrt.html">Volle Gate-Seite</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- EINGEREICHT · KI-PRÜFUNG (03c) -->
+  <div id="z-eingereicht" class="zustand-panel" hidden>
+    <p><span class="badge">Eingereicht · KI-Prüfung läuft</span><span class="badge">nicht öffentlich</span><span class="badge">Mock</span></p>
+    <div class="account-chip" style="margin-top:.8em"><span class="punkt" aria-hidden="true"></span> Interessent/in · freigeschaltet als Mitmacher/Unterstützer (Mock)</div>
+    <div class="gate-karte" style="margin-top:1em;border-top:4px solid #9e57a4;border-bottom:4px solid #9e57a4">
+      <h2>Danke — KI-Prüfung läuft</h2>
+      <p>Dein Feedback ist <strong>eingereicht</strong>. Es ist <strong>nicht sofort öffentlich</strong>. Die Prüfung übernimmt eine <strong>KI</strong> (ohne manuelle Moderator-Oberfläche): Spam und Beleidigungen bleiben draußen; <strong>sachliche Kritik ist willkommen</strong>.</p>
+      <p style="margin-top:.7em;font-size:.95rem;color:#5e4a63">Mock-Zustand (03c). Keine echte KI-API, keine Speicherung, kein Server. Anbieter/Kosten erst nach Nutzer-Ja.</p>
+      <div class="knoepfe" style="margin-top:1.1em">
+        <button class="knopf zweit" type="button" id="btn-zurueck-form">Zurück zum Formular (Mock)</button>
+        <button class="knopf" type="button" id="btn-mock-ki-ok">Mock: KI ok</button>
+        <button class="knopf zweit" type="button" id="btn-mock-ki-nein">Mock: KI abgelehnt</button>
+      </div>
+    </div>
+    <article class="thread-karte" style="margin-top:1.2em;max-width:36em">
+      <p class="wer">Dein Beitrag · wartend</p>
+      <p class="wann">Status: eingereicht · KI-Prüfung läuft</p>
+      <p id="eingereicht-vorschau" style="font-style:italic;color:#5e4a63">[Dein Text erscheint hier nach Absenden — Platzhalter]</p>
+    </article>
+  </div>
+
+  <!-- 03d OK · KI freigegeben -->
+  <div id="z-ki-ok" class="zustand-panel" hidden>
+    <p><span class="badge">KI-Prüfung: ok</span><span class="badge">zur Veröffentlichung freigegeben</span><span class="badge">Mock</span></p>
+    <div class="account-chip" style="margin-top:.8em"><span class="punkt" aria-hidden="true"></span> Interessent/in · Mitmacher/Unterstützer (Mock)</div>
+    <div class="gate-karte" style="margin-top:1em;border-top:4px solid #2a8a4a;border-bottom:4px solid #2a8a4a">
+      <h2>KI-Prüfung: ok — Kritik freigegeben</h2>
+      <p>Dein Beitrag hat die KI-Prüfung bestanden. Sachliche Kritik und konstruktive Rückmeldung sind willkommen. Der Beitrag ist <strong>zur Veröffentlichung freigegeben</strong> (im Live-System; hier nur Mock).</p>
+      <p style="margin-top:.7em;font-size:.95rem;color:#5e4a63">Kein Moderator-UI. Ergebnis für dich als Mitmacher/in sichtbar. Preview — keine echte API.</p>
+      <div class="knoepfe" style="margin-top:1.1em">
+        <button class="knopf zweit" type="button" data-goto="frei">Neues Feedback (Mock)</button>
+        <a class="knopf" href="mailto:office@b-t-m-m.com">Melde dich</a>
+      </div>
+    </div>
+    <article class="thread-karte" style="margin-top:1.2em;max-width:36em">
+      <p class="wer">Dein Beitrag · freigegeben</p>
+      <p class="wann">KI-Prüfung: ok · Kritik freigegeben</p>
+      <p style="font-style:italic">„[PLATZHALTER] Die Säulen-Seite könnte eine kurze und eine tiefe Version haben — sonst springen Leute ab.“</p>
+    </article>
+  </div>
+
+  <!-- 03d Abgelehnt -->
+  <div id="z-ki-abgelehnt" class="zustand-panel" hidden>
+    <p><span class="badge warn">KI-Prüfung: nicht freigegeben</span><span class="badge">Spam/Beleidigung</span><span class="badge">Mock</span></p>
+    <div class="account-chip" style="margin-top:.8em"><span class="punkt" aria-hidden="true"></span> Interessent/in · Mitmacher/Unterstützer (Mock)</div>
+    <div class="gate-karte" style="margin-top:1em;border-top:4px solid #8a0d4a;border-bottom:4px solid #8a0d4a">
+      <h2>KI-Prüfung: nicht freigegeben</h2>
+      <p>Dein Beitrag wurde <strong>nicht freigegeben</strong>. Die KI hat ihn als Spam, Beleidigung oder ähnlichen unerwünschten Inhalt eingestuft. Sachliche Kritik wäre willkommen — Hater und Trolling nicht.</p>
+      <p style="margin-top:.7em">Das ist keine Strafe und kein öffentliches Bloßstellen. Du kannst dich melden, wenn du denkst, dass das ein Fehler war — oder neu formulieren und erneut einreichen (nach Freischaltung).</p>
+      <p style="margin-top:.7em;font-size:.95rem;color:#5e4a63">Mock-Zustand (03d abgelehnt). Kein Admin-Dashboard. Klar benannt als Spam oder Beleidigung — ohne technische Details.</p>
+      <div class="knoepfe" style="margin-top:1.1em">
+        <a class="knopf" href="mailto:office@b-t-m-m.com?subject=BtMM%20Feedback%20KI-Pruefung">Melde dich (Kontakt bei Ablehnung)</a>
+        <button class="knopf zweit" type="button" data-goto="frei">Neu formulieren (Mock)</button>
+      </div>
+      <p style="margin-top:.8em;font-size:.9rem;font-family:var(--ui)"><a href="mailto:office@b-t-m-m.com">office@b-t-m-m.com</a> — wenn du denkst, die KI hat geirrt.</p>
+    </div>
+  </div>
+</main>
+<footer class="fuss">
+  <p><a href="index.html">Start</a><a href="bewertungen.html">Bewertungen</a><a href="feedback.html">Feedback</a><a href="feedback-gesperrt.html">Gate</a></p>
+  <p>Back to Meaning Maximization (BtMM) · Freiburg · <a href="mailto:office@b-t-m-m.com">office@b-t-m-m.com</a></p>
+  <p class="fein">Prototyp 18. November 2026 · Preview · Freischaltungs-Mock · Sp. 134</p>
+</footer>
+<script>
+(function () {
+  var panels = {
+    frei: document.getElementById('z-frei'),
+    gesperrt: document.getElementById('z-gesperrt'),
+    eingereicht: document.getElementById('z-eingereicht'),
+    'ki-ok': document.getElementById('z-ki-ok'),
+    'ki-abgelehnt': document.getElementById('z-ki-abgelehnt')
+  };
+  function show(key) {
+    Object.keys(panels).forEach(function (k) { if (panels[k]) panels[k].hidden = (k !== key); });
+    var r = document.querySelector('input[name="zustand"][value="' + key + '"]');
+    if (r) r.checked = true;
+  }
+  document.querySelectorAll('input[name="zustand"]').forEach(function (el) {
+    el.addEventListener('change', function () { if (el.checked) show(el.value); });
+  });
+  var btn = document.getElementById('btn-absenden');
+  if (btn) btn.addEventListener('click', function () {
+    var ta = document.getElementById('fb');
+    var prev = document.getElementById('eingereicht-vorschau');
+    if (prev) prev.textContent = (ta && ta.value.trim()) ? ta.value.trim() : '[PLATZHALTER Demo-Text · KI-Prüfung läuft]';
+    show('eingereicht');
+  });
+  var back = document.getElementById('btn-zurueck-form');
+  if (back) back.addEventListener('click', function () { show('frei'); });
+  var ok = document.getElementById('btn-mock-ki-ok');
+  if (ok) ok.addEventListener('click', function () { show('ki-ok'); });
+  var nein = document.getElementById('btn-mock-ki-nein');
+  if (nein) nein.addEventListener('click', function () { show('ki-abgelehnt'); });
+  document.querySelectorAll('[data-goto]').forEach(function (el) {
+    el.addEventListener('click', function () { show(el.getAttribute('data-goto')); });
+  });
+  var q = new URLSearchParams(location.search).get('zustand');
+  var map = { eingereicht: 'eingereicht', gesperrt: 'gesperrt', frei: 'frei', 'ki-ok': 'ki-ok', 'ki-abgelehnt': 'ki-abgelehnt', ok: 'ki-ok', abgelehnt: 'ki-abgelehnt' };
+  if (q && map[q]) show(map[q]);
+})();
+</script>
+</body>
+</html>
