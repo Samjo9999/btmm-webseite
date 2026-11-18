@@ -292,8 +292,8 @@ a.btmm-karte:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 
 .btmm-karte h3 { color: var(--btmm-dunkel); font-size: 1.3rem; margin-bottom: 0.35rem; }
 .btmm-zahl { font-size: 2rem; font-weight: 600; color: var(--btmm-primary); }
 .btmm-hinweis { border-radius: 0.5rem; padding: 1rem 1.2rem; margin-top: 1rem; font-size: 1.05rem; line-height: 1.6; }
-.btmm-hinweis--offen { background: #fff7e6; border-left: 4px solid #c98a00; }
-.btmm-hinweis--rechnung { background: rgba(var(--btmm-glow-rgb), 0.08); border-left: 4px solid var(--btmm-primary); }
+.btmm-hinweis--offen { background: #fff7e6; border-top: 4px solid #c98a00; border-bottom: 4px solid #c98a00; }
+.btmm-hinweis--rechnung { background: rgba(var(--btmm-glow-rgb), 0.08); border-top: 4px solid var(--btmm-primary); border-bottom: 4px solid var(--btmm-primary); }
 .btmm-marke {
   display: inline-block; font-size: 0.8rem; letter-spacing: .04em; text-transform: uppercase;
   padding: 0.1rem 0.55rem; border-radius: 999px; margin-left: .4rem; vertical-align: middle;
@@ -354,12 +354,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
   text-shadow: none !important;
 }
 
-/* Hinweisboxen: horizontale Akzentlinien statt linker Randlinie. */
-.btmm-hinweis--offen, .btmm-hinweis--rechnung,
+/* Hinweisboxen: Rahmen oben/unten (DESIGN 22:46), kein border-left. */
 .btmm-ergaenzung .btmm-hinweis--offen,
 .btmm-geldfluss .gf-hinweis {
   border-left: 0;
   border-right: 0;
-  border-top: 2px solid var(--btmm-akzent);
-  border-bottom: 2px solid var(--btmm-akzent);
+  border-top: 4px solid var(--btmm-akzent);
+  border-bottom: 4px solid var(--btmm-akzent);
 }

@@ -60,7 +60,7 @@ a { color: var(--btmm-dunkel); }
 .brot { font-size: .9rem; color: var(--leise); margin-bottom: .6em; font-family: var(--ui); }
 .unterseite h1 { color: var(--btmm-dunkel); font-family: var(--display); font-size: clamp(1.9rem, 4vw, 2.75rem); line-height: 1.1; font-weight: 600; }
 .einleitung { font-size: 1.15rem; margin: .6em 0 1em; max-width: 42em; }
-.hinweis-kasten { margin: .8em 0 1.1em; padding: .7em 1em; border-left: 4px solid #8a0d4a; background: #f6eef6; border-radius: 0 12px 12px 0; max-width: 46em; }
+.hinweis-kasten { margin: .8em 0 1.1em; padding: .7em 1em; border-top: 4px solid #8a0d4a; border-bottom: 4px solid #8a0d4a; background: #f6eef6; border-radius: 12px; max-width: 46em; }
 .hinweis-kasten p { margin: 0; }
 .hinweis-kasten strong { color: var(--meta); }
 .badge { display: inline-block; margin: .15em .35em .15em 0; padding: .22em .65em; border-radius: 999px; background: #f3e8f4; color: var(--meta); font-size: .85rem; font-weight: 600; font-family: var(--ui); }
@@ -119,7 +119,7 @@ a { color: var(--btmm-dunkel); }
   border-radius: 10px; border: 1px solid rgba(var(--btmm-glow-rgb), .3); background: #faf9f9;
   font: 500 .92rem/1.3 var(--ui); color: var(--btb-dunkel); cursor: default;
 }
-.disclaimer-box { padding: .85em 1em; border-radius: 14px; background: #f6eef6; border-left: 4px solid var(--btmm-dunkel); font-size: .92rem; }
+.disclaimer-box { padding: .85em 1em; border-radius: 14px; background: #f6eef6; border-top: 4px solid var(--btmm-dunkel); border-bottom: 4px solid var(--btmm-dunkel); font-size: .92rem; }
 .disclaimer-box strong { color: var(--meta); display: block; margin-bottom: .25em; font-family: var(--ui); font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; }
 .wissen-leer { padding: .85em 1em; border-radius: 14px; border: 1px dashed rgba(var(--btmm-glow-rgb), .5); background: #fff; font-size: .92rem; color: var(--leise); }
 
@@ -156,9 +156,9 @@ a { color: var(--btmm-dunkel); }
 .stufe-block { margin: 0 0 1.6em; padding: 1.15em 1.25em; border-radius: 16px; background: #fff; border: 1px solid rgba(var(--btmm-glow-rgb), .35); scroll-margin-top: 120px; }
 .stufe-block .stufe-label { font-family: var(--ui); font-size: .78rem; letter-spacing: .05em; text-transform: uppercase; color: var(--meta); font-weight: 700; margin-bottom: .35em; }
 .stufe-block h2 { font-family: var(--display); color: var(--btmm-dunkel); font-size: 1.35rem; margin-bottom: .45em; }
-.stufe-block.kurz { border-left: 4px solid var(--btmm-primary); }
-.stufe-block.mehr { border-left: 4px solid var(--btmm-dunkel); }
-.stufe-block.tiefe { border-left: 4px solid var(--nacht); background: linear-gradient(135deg, #fff, #f6eef6); }
+.stufe-block.kurz { border-top: 4px solid var(--btmm-primary); border-bottom: 4px solid var(--btmm-primary); }
+.stufe-block.mehr { border-top: 4px solid var(--btmm-dunkel); border-bottom: 4px solid var(--btmm-dunkel); }
+.stufe-block.tiefe { border-top: 4px solid var(--nacht); border-bottom: 4px solid var(--nacht); background: linear-gradient(135deg, #fff, #f6eef6); }
 .universum-tuer {
   display: flex; flex-wrap: wrap; align-items: center; gap: 14px; margin-top: 1.2em;
   padding: 1.2em 1.3em; border-radius: 16px; background: var(--nacht); color: #f3e9f4;
@@ -218,8 +218,8 @@ a { color: var(--btmm-dunkel); }
 .gate-karte li { margin: .25em 0; }
 .kritik-spam { display: grid; gap: 10px; margin: 1em 0; max-width: 46em; }
 .kritik-spam .ok, .kritik-spam .nein { padding: .75em 1em; border-radius: 12px; font-size: .98rem; }
-.kritik-spam .ok { background: #eef6f0; border-left: 4px solid #2a8a4a; }
-.kritik-spam .nein { background: #f6eef0; border-left: 4px solid #8a0d4a; }
+.kritik-spam .ok { background: #eef6f0; border-top: 4px solid #2a8a4a; border-bottom: 4px solid #2a8a4a; }
+.kritik-spam .nein { background: #f6eef0; border-top: 4px solid #8a0d4a; border-bottom: 4px solid #8a0d4a; }
 .kritik-spam strong { font-family: var(--ui); font-size: .82rem; letter-spacing: .03em; text-transform: uppercase; display: block; margin-bottom: .25em; }
 .toggle-mock { display: flex; flex-wrap: wrap; align-items: center; gap: 10px; margin: 1em 0 1.2em; padding: .7em 1em; border-radius: 12px; background: #f3e8f4; border: 1px dashed rgba(var(--btmm-glow-rgb), .5); font-family: var(--ui); font-size: .9rem; }
 .toggle-mock label { font-weight: 600; color: var(--meta); cursor: pointer; display: inline-flex; align-items: center; gap: 8px; min-height: 44px; }

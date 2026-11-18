@@ -14,7 +14,8 @@
 ## Copy-Stand
 
 - Bewertungen-Einleitung (01): **„Lesen ist öffentlich. Schreiben ist kein Self-Service.“**
-- Feedback-Prüfung: **KI-Mock** (ok / abgelehnt) — kein Moderator-UI, keine echte API
+- Feedback-Prüfung: **KI-Mock** (ok / abgelehnt) — ohne manuelle Moderator-Oberfläche, keine echte API
+- Rahmen 22:46: Hinweis-/Info-Kästen mit `border-top` + `border-bottom` (kein `border-left`; Tür-Linien ausgenommen)
 - Scaleway/Anbieter/Kosten: erst später mit Nutzer-Ja
 
 ## Zugang

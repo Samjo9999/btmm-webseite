@@ -45,5 +45,15 @@
         }
       ]
     }
+  ],
+  "rewrites": [
+    {
+      "source": "/vorschau/bewertung-chat-feedback/",
+      "destination": "/vorschau/bewertung-chat-feedback/index.html"
+    },
+    {
+      "source": "/vorschau/bewertung-chat-feedback",
+      "destination": "/vorschau/bewertung-chat-feedback/index.html"
+    }
   ]
 }
