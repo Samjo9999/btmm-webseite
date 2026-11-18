@@ -14,7 +14,7 @@ export const metadata: Metadata = {
 }
 
 const schritte = [
-  { schritt: '1', titel: 'Gründungsmitglieder finden', text: '7 Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
+  { schritt: '1', titel: 'Gründungsmitglieder finden', text: 'Mindestens drei Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
   { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Ein Termin, eine Unterschrift, 100 € Einlage. Die Back to Meaning Maximization eG wird beim Genossenschaftsregister Freiburg eingetragen.' },
   { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Mitgliedschaft im BWGV, Gewerbeanmeldung, erste Großhandelseinkäufe. Die operative Arbeit übernehmen die, die Zeit haben.' },
   { schritt: '4', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
