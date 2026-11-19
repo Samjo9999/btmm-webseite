@@ -9,7 +9,7 @@ import type { WissenChunk } from './search'
 export type LoadedCorpus = {
   chunks: WissenChunk[]
   docCount: number
-  source: 'index-public' | 'content/dokumente'
+  source: 'index-public' | 'content/dokumente' | 'wissen-mitglieder'
   builtAt?: string
 }
 
@@ -78,5 +78,24 @@ export function loadPublicCorpus(): LoadedCorpus {
     chunks,
     docCount: docs.size,
     source: 'content/dokumente',
+  }
+}
+
+/** Mitmacher-Corpus (Prompt 117) — nur serverseitig, nie public/. */
+export function loadMitmacherCorpus(): LoadedCorpus {
+  const p = join(process.cwd(), 'content', 'wissen-mitglieder', 'index.json')
+  if (!existsSync(p)) {
+    throw new Error('Mitmacher-Index fehlt: content/wissen-mitglieder/index.json')
+  }
+  const raw = JSON.parse(readFileSync(p, 'utf8')) as {
+    builtAt?: string
+    docCount?: number
+    chunks: WissenChunk[]
+  }
+  return {
+    source: 'wissen-mitglieder',
+    builtAt: raw.builtAt,
+    docCount: raw.docCount ?? 0,
+    chunks: raw.chunks || [],
   }
 }
