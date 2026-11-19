@@ -4,6 +4,12 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      { source: '/admin', destination: '/admin/index.html' },
+      { source: '/admin/', destination: '/admin/index.html' },
+    ]
+  },
   async headers() {
     return [
       {
