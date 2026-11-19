@@ -8,7 +8,9 @@
     "start": "next start",
     "lint": "eslint .",
     "test": "node --test test/*.test.mjs",
-    "docs-sync": "node scripts/docs-sync/sync.mjs"
+    "docs-sync": "node scripts/docs-sync/sync.mjs",
+    "wissen:reindex": "node scripts/build-wissen-mitglieder.mjs",
+    "wissen:reindex:edge": "node scripts/build-wissen-mitglieder.mjs --sync-edge"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
