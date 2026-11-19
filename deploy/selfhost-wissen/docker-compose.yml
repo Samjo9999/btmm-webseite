@@ -1,0 +1,14 @@
+# Sp.144 H250 Prep — lokal / Box. KEIN Cloud-Mieten.
+# Start (Beispiel): docker compose up -d
+# API: http://127.0.0.1:11434/v1/chat/completions (OpenAI-kompatibel via Ollama)
+services:
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+    restart: unless-stopped
+
+volumes:
+  ollama_data:
