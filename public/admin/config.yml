@@ -1,0 +1,1108 @@
+# Decap CMS — BtMM Web (OSS, 0 €). Nicht direkt master für Live.
+locale: de
+backend:
+  name: github
+  repo: Samjo9999/btmm-webseite
+  branch: content/cms
+  # base_url + auth_endpoint setzt index.html zur Laufzeit
+  squash_merges: true
+  commit_messages:
+    create: "cms: {{collection}} angelegt"
+    update: "cms: {{collection}} aktualisiert"
+    delete: "cms: {{collection}} gelöscht"
+    uploadMedia: "cms: Medien {{path}}"
+    deleteMedia: "cms: Medien {{path}} gelöscht"
+
+media_folder: public/images/cms
+public_folder: /images/cms
+publish_mode: simple
+
+collections:
+  - name: home_de
+    label: Startseite (DE)
+    files:
+      - name: home
+        label: home.json
+        file: messages/de/home.json
+        format: json
+        fields:
+          - label: "hero"
+            name: hero
+            widget: object
+            fields:
+              - label: "tagline"
+                name: tagline
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: text
+              - label: "cta konzept"
+                name: cta_konzept
+                widget: string
+              - label: "cta mitmachen"
+                name: cta_mitmachen
+                widget: string
+          - label: "was ist btmm"
+            name: was_ist_btmm
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "wirtschaft titel"
+                name: wirtschaft_titel
+                widget: string
+              - label: "wirtschaft text"
+                name: wirtschaft_text
+                widget: text
+              - label: "gemeinschaft titel"
+                name: gemeinschaft_titel
+                widget: string
+              - label: "gemeinschaft text"
+                name: gemeinschaft_text
+                widget: text
+              - label: "nachhaltigkeit titel"
+                name: nachhaltigkeit_titel
+                widget: string
+              - label: "nachhaltigkeit text"
+                name: nachhaltigkeit_text
+                widget: text
+              - label: "nachhaltigkeit mehr erfahren"
+                name: nachhaltigkeit_mehr_erfahren
+                widget: string
+              - label: "nachhaltigkeit mehr erfahren url"
+                name: nachhaltigkeit_mehr_erfahren_url
+                widget: string
+          - label: "stats"
+            name: stats
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "gruendungsmitglieder"
+                name: gruendungsmitglieder
+                widget: string
+              - label: "gruendungsmitglieder ziel"
+                name: gruendungsmitglieder_ziel
+                widget: string
+              - label: "aktive zellen"
+                name: aktive_zellen
+                widget: string
+          - label: "angebote teaser"
+            name: angebote_teaser
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "text"
+                name: text
+                widget: text
+              - label: "text2"
+                name: text2
+                widget: text
+              - label: "cta"
+                name: cta
+                widget: string
+          - label: "app teaser"
+            name: app_teaser
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "pool titel"
+                name: pool_titel
+                widget: string
+              - label: "pool text"
+                name: pool_text
+                widget: string
+              - label: "coins titel"
+                name: coins_titel
+                widget: string
+              - label: "coins text"
+                name: coins_text
+                widget: string
+              - label: "workspace titel"
+                name: workspace_titel
+                widget: string
+              - label: "workspace text"
+                name: workspace_text
+                widget: string
+              - label: "cta"
+                name: cta
+                widget: string
+              - label: "hinweis"
+                name: hinweis
+                widget: string
+          - label: "zellen karte"
+            name: zellen_karte
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "text"
+                name: text
+                widget: text
+          - label: "hero poetisch"
+            name: hero_poetisch
+            widget: text
+          - label: "hero subtitel2"
+            name: hero_subtitel2
+            widget: string
+          - label: "was ist btb sub"
+            name: was_ist_btb_sub
+            widget: string
+          - label: "infinity"
+            name: infinity
+            widget: object
+            fields:
+              - label: "text"
+                name: text
+                widget: text
+          - label: "zellen alle"
+            name: zellen_alle
+            widget: string
+          - label: "mitgliedschaft"
+            name: mitgliedschaft
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "stufen"
+                name: stufen
+                widget: list
+                fields:
+                  - label: "stufe"
+                    name: stufe
+                    widget: string
+                  - label: "preis"
+                    name: preis
+                    widget: string
+                  - label: "beschreibung"
+                    name: beschreibung
+                    widget: string
+                  - label: "benefits"
+                    name: benefits
+                    widget: string
+
+  - name: konzept_de
+    label: Konzept (DE)
+    files:
+      - name: konzept
+        label: konzept.json
+        file: messages/de/konzept.json
+        format: json
+        fields:
+          - label: "uebersicht"
+            name: uebersicht
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "text"
+                name: text
+                widget: text
+              - label: "wirtschaft titel"
+                name: wirtschaft_titel
+                widget: string
+              - label: "wirtschaft text"
+                name: wirtschaft_text
+                widget: text
+              - label: "gemeinschaft titel"
+                name: gemeinschaft_titel
+                widget: string
+              - label: "gemeinschaft text"
+                name: gemeinschaft_text
+                widget: text
+              - label: "international titel"
+                name: international_titel
+                widget: string
+              - label: "international text"
+                name: international_text
+                widget: text
+          - label: "wirtschaft"
+            name: wirtschaft
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "intro"
+                name: intro
+                widget: text
+              - label: "pool titel"
+                name: pool_titel
+                widget: string
+              - label: "pool text"
+                name: pool_text
+                widget: text
+              - label: "pool detail"
+                name: pool_detail
+                widget: text
+              - label: "dreiteilung titel"
+                name: dreiteilung_titel
+                widget: string
+              - label: "dreiteilung text"
+                name: dreiteilung_text
+                widget: text
+              - label: "dreiteilung verguetung"
+                name: dreiteilung_verguetung
+                widget: text
+              - label: "dreiteilung reinvest"
+                name: dreiteilung_reinvest
+                widget: text
+              - label: "dreiteilung sozial"
+                name: dreiteilung_sozial
+                widget: text
+              - label: "stundensatz titel"
+                name: stundensatz_titel
+                widget: string
+              - label: "stundensatz text"
+                name: stundensatz_text
+                widget: text
+              - label: "coins titel"
+                name: coins_titel
+                widget: string
+              - label: "coins text"
+                name: coins_text
+                widget: text
+              - label: "coins detail"
+                name: coins_detail
+                widget: text
+              - label: "coins itadakimasu"
+                name: coins_itadakimasu
+                widget: text
+              - label: "modell titel"
+                name: modell_titel
+                widget: string
+              - label: "modell text"
+                name: modell_text
+                widget: text
+              - label: "modell phase1"
+                name: modell_phase1
+                widget: string
+              - label: "modell phase2"
+                name: modell_phase2
+                widget: string
+              - label: "modell phase3"
+                name: modell_phase3
+                widget: string
+              - label: "modell phase4"
+                name: modell_phase4
+                widget: string
+              - label: "modell phase5"
+                name: modell_phase5
+                widget: string
+              - label: "ek titel"
+                name: ek_titel
+                widget: string
+              - label: "ek text"
+                name: ek_text
+                widget: text
+              - label: "geringverdiener titel"
+                name: geringverdiener_titel
+                widget: string
+              - label: "geringverdiener text"
+                name: geringverdiener_text
+                widget: text
+              - label: "mittelschicht titel"
+                name: mittelschicht_titel
+                widget: string
+              - label: "mittelschicht text"
+                name: mittelschicht_text
+                widget: text
+              - label: "megafirma titel"
+                name: megafirma_titel
+                widget: string
+              - label: "megafirma text"
+                name: megafirma_text
+                widget: text
+              - label: "megafirma unesco"
+                name: megafirma_unesco
+                widget: text
+          - label: "gemeinschaft"
+            name: gemeinschaft
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "intro"
+                name: intro
+                widget: text
+              - label: "zellen titel"
+                name: zellen_titel
+                widget: string
+              - label: "zellen text"
+                name: zellen_text
+                widget: text
+              - label: "zellen detail"
+                name: zellen_detail
+                widget: text
+              - label: "solidar titel"
+                name: solidar_titel
+                widget: string
+              - label: "solidar text"
+                name: solidar_text
+                widget: text
+              - label: "solidar rhythmus"
+                name: solidar_rhythmus
+                widget: text
+              - label: "solidar kapazitaet"
+                name: solidar_kapazitaet
+                widget: text
+              - label: "gleichwuerdigkeit titel"
+                name: gleichwuerdigkeit_titel
+                widget: string
+              - label: "gleichwuerdigkeit text"
+                name: gleichwuerdigkeit_text
+                widget: text
+              - label: "gleichwuerdigkeit transparenz"
+                name: gleichwuerdigkeit_transparenz
+                widget: text
+              - label: "konsequenz titel"
+                name: konsequenz_titel
+                widget: string
+              - label: "konsequenz text"
+                name: konsequenz_text
+                widget: text
+              - label: "konsequenz stufen"
+                name: konsequenz_stufen
+                widget: text
+              - label: "stufen titel"
+                name: stufen_titel
+                widget: string
+              - label: "stufen text"
+                name: stufen_text
+                widget: text
+              - label: "stufen anwaerter"
+                name: stufen_anwaerter
+                widget: text
+              - label: "stufen vollmitglied"
+                name: stufen_vollmitglied
+                widget: text
+              - label: "bildung titel"
+                name: bildung_titel
+                widget: string
+              - label: "bildung text"
+                name: bildung_text
+                widget: text
+              - label: "bildung nachweis"
+                name: bildung_nachweis
+                widget: text
+              - label: "bildung kinder"
+                name: bildung_kinder
+                widget: text
+              - label: "bildung kollektiv"
+                name: bildung_kollektiv
+                widget: text
+              - label: "bildung grenze"
+                name: bildung_grenze
+                widget: text
+              - label: "nicht ist titel"
+                name: nicht_ist_titel
+                widget: string
+              - label: "nicht kommunismus"
+                name: nicht_kommunismus
+                widget: text
+              - label: "nicht anarchismus"
+                name: nicht_anarchismus
+                widget: text
+              - label: "nicht investment"
+                name: nicht_investment
+                widget: text
+              - label: "wohnraum titel"
+                name: wohnraum_titel
+                widget: string
+              - label: "wohnraum text"
+                name: wohnraum_text
+                widget: text
+              - label: "wohnraum stufe1"
+                name: wohnraum_stufe1
+                widget: text
+              - label: "wohnraum stufe2"
+                name: wohnraum_stufe2
+                widget: text
+              - label: "wohnraum stufe3"
+                name: wohnraum_stufe3
+                widget: text
+              - label: "wohnraum stufe4"
+                name: wohnraum_stufe4
+                widget: text
+              - label: "wohnraum stufe5"
+                name: wohnraum_stufe5
+                widget: text
+              - label: "wohnraum detail"
+                name: wohnraum_detail
+                widget: text
+          - label: "international"
+            name: international
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "intro"
+                name: intro
+                widget: text
+              - label: "vision titel"
+                name: vision_titel
+                widget: string
+              - label: "vision text"
+                name: vision_text
+                widget: text
+              - label: "einheit titel"
+                name: einheit_titel
+                widget: string
+              - label: "einheit text"
+                name: einheit_text
+                widget: text
+              - label: "einheit detail"
+                name: einheit_detail
+                widget: text
+              - label: "zellen weltweit titel"
+                name: zellen_weltweit_titel
+                widget: string
+              - label: "zellen weltweit text"
+                name: zellen_weltweit_text
+                widget: text
+              - label: "politische wirkung titel"
+                name: politische_wirkung_titel
+                widget: string
+              - label: "politische wirkung text"
+                name: politische_wirkung_text
+                widget: text
+              - label: "sinnmaximierung titel"
+                name: sinnmaximierung_titel
+                widget: string
+              - label: "sinnmaximierung text"
+                name: sinnmaximierung_text
+                widget: text
+          - label: "nachhaltigkeit"
+            name: nachhaltigkeit
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "intro"
+                name: intro
+                widget: text
+              - label: "rechtsform titel"
+                name: rechtsform_titel
+                widget: string
+              - label: "rechtsform text"
+                name: rechtsform_text
+                widget: text
+              - label: "dreiteilung titel"
+                name: dreiteilung_titel
+                widget: string
+              - label: "dreiteilung text"
+                name: dreiteilung_text
+                widget: text
+              - label: "praxis titel"
+                name: praxis_titel
+                widget: string
+              - label: "praxis text"
+                name: praxis_text
+                widget: text
+              - label: "immobilien titel"
+                name: immobilien_titel
+                widget: string
+              - label: "immobilien text"
+                name: immobilien_text
+                widget: text
+              - label: "energie titel"
+                name: energie_titel
+                widget: string
+              - label: "energie text"
+                name: energie_text
+                widget: text
+              - label: "lebensmittel titel"
+                name: lebensmittel_titel
+                widget: string
+              - label: "lebensmittel text"
+                name: lebensmittel_text
+                widget: text
+
+  - name: common_de
+    label: Navigation/Footer (DE)
+    files:
+      - name: common
+        label: common.json
+        file: messages/de/common.json
+        format: json
+        fields:
+          - label: "nav"
+            name: nav
+            widget: object
+            fields:
+              - label: "konzept"
+                name: konzept
+                widget: string
+              - label: "nachhaltigkeit"
+                name: nachhaltigkeit
+                widget: string
+              - label: "koerperarbeit"
+                name: koerperarbeit
+                widget: string
+              - label: "angebote"
+                name: angebote
+                widget: string
+              - label: "mitmachen"
+                name: mitmachen
+                widget: string
+              - label: "app"
+                name: app
+                widget: string
+              - label: "dokumente"
+                name: dokumente
+                widget: string
+              - label: "zellen"
+                name: zellen
+                widget: string
+              - label: "presse"
+                name: presse
+                widget: string
+              - label: "faq"
+                name: faq
+                widget: string
+              - label: "login"
+                name: login
+                widget: string
+          - label: "footer"
+            name: footer
+            widget: object
+            fields:
+              - label: "impressum"
+                name: impressum
+                widget: string
+              - label: "datenschutz"
+                name: datenschutz
+                widget: string
+              - label: "kontakt"
+                name: kontakt
+                widget: string
+              - label: "tagline"
+                name: tagline
+                widget: string
+              - label: "copyright"
+                name: copyright
+                widget: string
+          - label: "actions"
+            name: actions
+            widget: object
+            fields:
+              - label: "mehr erfahren"
+                name: mehr_erfahren
+                widget: string
+              - label: "jetzt mitmachen"
+                name: jetzt_mitmachen
+                widget: string
+              - label: "termin buchen"
+                name: termin_buchen
+                widget: string
+              - label: "kontakt aufnehmen"
+                name: kontakt_aufnehmen
+                widget: string
+              - label: "app entdecken"
+                name: app_entdecken
+                widget: string
+              - label: "senden"
+                name: senden
+                widget: string
+              - label: "laden"
+                name: laden
+                widget: string
+              - label: "zurueck"
+                name: zurueck
+                widget: string
+              - label: "herunterladen"
+                name: herunterladen
+                widget: string
+          - label: "form"
+            name: form
+            widget: object
+            fields:
+              - label: "name"
+                name: name
+                widget: string
+              - label: "email"
+                name: email
+                widget: string
+              - label: "nachricht"
+                name: nachricht
+                widget: string
+              - label: "telefon"
+                name: telefon
+                widget: string
+              - label: "betreff"
+                name: betreff
+                widget: string
+              - label: "pflichtfeld"
+                name: pflichtfeld
+                widget: string
+              - label: "senden"
+                name: senden
+                widget: string
+              - label: "erfolg"
+                name: erfolg
+                widget: string
+              - label: "fehler"
+                name: fehler
+                widget: string
+          - label: "language"
+            name: language
+            widget: object
+            fields:
+              - label: "de"
+                name: de
+                widget: string
+              - label: "en"
+                name: en
+                widget: string
+              - label: "zh"
+                name: zh
+                widget: string
+              - label: "es"
+                name: es
+                widget: string
+              - label: "hi"
+                name: hi
+                widget: string
+              - label: "ar"
+                name: ar
+                widget: string
+              - label: "bn"
+                name: bn
+                widget: string
+              - label: "pt"
+                name: pt
+                widget: string
+              - label: "ru"
+                name: ru
+                widget: string
+              - label: "ja"
+                name: ja
+                widget: string
+              - label: "fr"
+                name: fr
+                widget: string
+
+  - name: faq_de
+    label: FAQ (DE)
+    files:
+      - name: faq
+        label: faq.json
+        file: messages/de/faq.json
+        format: json
+        fields:
+          - label: "titel"
+            name: titel
+            widget: string
+          - label: "untertitel"
+            name: untertitel
+            widget: string
+          - label: "kategorien"
+            name: kategorien
+            widget: object
+            fields:
+              - label: "allgemein"
+                name: allgemein
+                widget: string
+              - label: "mitgliedschaft"
+                name: mitgliedschaft
+                widget: string
+              - label: "koerperarbeit"
+                name: koerperarbeit
+                widget: string
+              - label: "app"
+                name: app
+                widget: string
+          - label: "fragen"
+            name: fragen
+            widget: object
+            fields:
+              - label: "was ist btmm"
+                name: was_ist_btmm
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "wie mitmachen"
+                name: wie_mitmachen
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "was kostet"
+                name: was_kostet
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "was sind coins"
+                name: was_sind_coins
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "koerperarbeit unterschied"
+                name: koerperarbeit_unterschied
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "app login"
+                name: app_login
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+              - label: "zelle gruenden"
+                name: zelle_gruenden
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "frage"
+                    name: frage
+                    widget: string
+                  - label: "antwort"
+                    name: antwort
+                    widget: text
+
+  - name: angebote_de
+    label: Angebote (DE)
+    files:
+      - name: angebote
+        label: angebote.json
+        file: messages/de/angebote.json
+        format: json
+        fields:
+          - label: "meta"
+            name: meta
+            widget: object
+            fields:
+              - label: "title"
+                name: title
+                widget: string
+              - label: "description"
+                name: description
+                widget: text
+          - label: "hero"
+            name: hero
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+          - label: "weitere"
+            name: weitere
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "text"
+                name: text
+                widget: text
+              - label: "cta"
+                name: cta
+                widget: string
+
+  - name: presse_de
+    label: Presse (DE)
+    files:
+      - name: presse
+        label: presse.json
+        file: messages/de/presse.json
+        format: json
+        fields:
+          - label: "meta"
+            name: meta
+            widget: object
+            fields:
+              - label: "title"
+                name: title
+                widget: string
+              - label: "description"
+                name: description
+                widget: text
+          - label: "hero"
+            name: hero
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+              - label: "kontakt button"
+                name: kontakt_button
+                widget: string
+          - label: "kurzprofil"
+            name: kurzprofil
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "beschreibung"
+                name: beschreibung
+                widget: text
+              - label: "rechtsform label"
+                name: rechtsform_label
+                widget: string
+              - label: "rechtsform"
+                name: rechtsform
+                widget: string
+              - label: "gruendungsort label"
+                name: gruendungsort_label
+                widget: string
+              - label: "gruendungsort"
+                name: gruendungsort
+                widget: string
+              - label: "gruendungsjahr label"
+                name: gruendungsjahr_label
+                widget: string
+              - label: "gruendungsjahr"
+                name: gruendungsjahr
+                widget: string
+              - label: "website label"
+                name: website_label
+                widget: string
+              - label: "website"
+                name: website
+                widget: string
+          - label: "kernaussagen"
+            name: kernaussagen
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "gleichwuerdig"
+                name: gleichwuerdig
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "titel"
+                    name: titel
+                    widget: string
+                  - label: "text"
+                    name: text
+                    widget: string
+              - label: "infrastruktur"
+                name: infrastruktur
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "titel"
+                    name: titel
+                    widget: string
+                  - label: "text"
+                    name: text
+                    widget: string
+              - label: "international"
+                name: international
+                widget: object
+                collapsed: true
+                fields:
+                  - label: "titel"
+                    name: titel
+                    widget: string
+                  - label: "text"
+                    name: text
+                    widget: string
+          - label: "downloads"
+            name: downloads
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "logo png"
+                name: logo_png
+                widget: string
+              - label: "logo svg"
+                name: logo_svg
+                widget: string
+              - label: "herunterladen"
+                name: herunterladen
+                widget: string
+          - label: "kontakt"
+            name: kontakt
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "name label"
+                name: name_label
+                widget: string
+              - label: "name"
+                name: name
+                widget: string
+              - label: "email label"
+                name: email_label
+                widget: string
+              - label: "email"
+                name: email
+                widget: string
+              - label: "hinweis"
+                name: hinweis
+                widget: string
+
+  - name: zellen_de
+    label: Zellen (DE)
+    files:
+      - name: zellen
+        label: zellen.json
+        file: messages/de/zellen.json
+        format: json
+        fields:
+          - label: "meta"
+            name: meta
+            widget: object
+            fields:
+              - label: "title"
+                name: title
+                widget: string
+              - label: "description"
+                name: description
+                widget: text
+          - label: "hero"
+            name: hero
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "untertitel"
+                name: untertitel
+                widget: string
+          - label: "overview"
+            name: overview
+            widget: object
+            fields:
+              - label: "zellen aktiv"
+                name: zellen_aktiv
+                widget: string
+              - label: "mitglieder"
+                name: mitglieder
+                widget: string
+              - label: "fachbereiche"
+                name: fachbereiche
+                widget: string
+          - label: "stats"
+            name: stats
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+          - label: "zellenliste"
+            name: zellenliste
+            widget: object
+            fields:
+              - label: "neue zelle titel"
+                name: neue_zelle_titel
+                widget: string
+              - label: "neue zelle text"
+                name: neue_zelle_text
+                widget: string
+              - label: "neue zelle button"
+                name: neue_zelle_button
+                widget: string
+          - label: "info"
+            name: info
+            widget: object
+            fields:
+              - label: "titel"
+                name: titel
+                widget: string
+              - label: "text1"
+                name: text1
+                widget: text
+              - label: "text2"
+                name: text2
+                widget: text
+          - label: "details"
+            name: details
+            widget: object
+            fields:
+              - label: "mitglieder"
+                name: mitglieder
+                widget: string
+              - label: "schwerpunkte"
+                name: schwerpunkte
+                widget: string
+              - label: "status aktiv"
+                name: status_aktiv
+                widget: string
+              - label: "status planung"
+                name: status_planung
+                widget: string
+              - label: "details button"
+                name: details_button
+                widget: string
