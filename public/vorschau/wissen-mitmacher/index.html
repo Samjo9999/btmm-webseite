@@ -64,7 +64,7 @@ document.getElementById('form').addEventListener('submit', async (e) => {
     const headers = {
       'content-type': 'application/json',
       authorization: 'Bearer ' + token(),
-      apikey: localStorage.getItem('btmm_wissen_anon') || '',
+      apikey: localStorage.getItem('btmm_wissen_anon') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhjbmdtc2hqdXFvdWNkbGdpa2FvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyMTcwMDUsImV4cCI6MjA2Mzc5MzAwNX0.4QxA7DHlBApSHi49JEGNW0voyyf4gOudOyLbq941Buo',
     }
     let res = await fetch(edge, { method: 'POST', headers, body: JSON.stringify({ frage: q }) })
     if (res.status === 404 || res.status === 0) {
