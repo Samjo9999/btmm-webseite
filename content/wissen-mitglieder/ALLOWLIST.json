@@ -1,0 +1,26 @@
+{
+  "labelNote": "Vor eG: Mitmacher/Interessent. Satzung/08a: Entwurf, noch nicht beschlossen.",
+  "btmmRootHint": "/workspace/projekte/btmm",
+  "blacklistPathPatterns": [
+    "06-intern",
+    "md-intern",
+    "INTERN_",
+    "/_ersetzt/",
+    "ABNAHMEN_",
+    "Autopilot_",
+    "Befund_",
+    "Rechtspruefung_Aktumo"
+  ],
+  "sources": [
+    { "rel": "DOKUMENTE/00_BtMM_einfach_erklaert_Start_hier_v1_14_0.md", "entwurf": false },
+    { "rel": "DOKUMENTE/01_BtMM_Einfuehrung_v4_18_1.md", "entwurf": false },
+    { "rel": "DOKUMENTE/02_BtMM_Aufruf_Beteiligung_v2_11_0.md", "entwurf": false },
+    { "rel": "DOKUMENTE/04_BtMM_Wirtschaften_Anleitung_v3_14_0.md", "entwurf": false },
+    { "rel": "DOKUMENTE/07_BtMM_Konzept_v22_68_0.md", "entwurf": false },
+    { "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_2_aussen_ENTWURF.md", "entwurf": true },
+    { "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_2_schlank_ENTWURF.md", "entwurf": true },
+    { "rel": "DOKUMENTE/28_BtMM_Aufnahme_kurz_erklaert_v1_7_0.md", "entwurf": false },
+    { "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md", "entwurf": false, "id": "normen-kurz" }
+  ],
+  "driveSyncNote": "Geltende MDs liegen unter projekte/btmm/DOKUMENTE (Spiegel Drive). Neu-Indizierung: node scripts/build-wissen-mitglieder.mjs — schreibt index.json; optional --sync-edge kopiert nach BtMM-App Edge corpus.json."
+}
