@@ -69,14 +69,15 @@ export function resolveWissenLlmRuntime(env: {
   const enabled = isWissenLlmEnabled(env.enabled)
   const tier = parseWissenLlmTier(env.tier)
   const live = enabled && tier !== 'off'
-  if (!live || tier === 'off') {
+  if (!live) {
     return {
       enabled,
-      tier: live ? tier : 'off',
+      tier: 'off',
       live: false,
       meta: { label: 'extractive (Schalter aus)', provider: 'extractive', budgetEurMon: null },
     }
   }
+  // live ⇒ tier ist s5|s15|s50|h250
   const def = WISSEN_LLM_TIERS[tier]
   return {
     enabled,
