@@ -4,11 +4,6 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-
-  
-  async redirects() {
-    return [{ source: '/admin', destination: '/admin/', permanent: false }]
-  },
   async headers() {
     return [
       {
