@@ -11,6 +11,6 @@ export default createMiddleware({
 export const config = {
   matcher: [
     // vorschau/* = static HTML clickdummy (Sp. 134 u. a.), kein Locale-Prefix
-    '/((?!api|_next|_vercel|vorschau|.*\\..*).*)',
+    '/((?!api|_next|_vercel|vorschau|admin|.*\\..*).*)',
   ],
 }
