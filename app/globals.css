@@ -207,7 +207,7 @@ html {
 /* Clickable logo hint */
 .logo-lightbox-trigger:hover {
   transform: scale(1.05);
-  filter: drop-shadow(0 0 20px rgba(var(--btmm-glow-rgb), 0.6));
+  filter: drop-shadow(0 0 28px rgba(158, 87, 164, 0.95)) drop-shadow(0 0 48px rgba(176, 88, 179, 0.7)) drop-shadow(0 4px 18px rgba(0, 0, 0, 0.4));
 }
 
 /* Konzept aspect cards */
@@ -261,10 +261,19 @@ html {
   content: '';
   position: absolute;
   inset: -45%;
-  background: radial-gradient(circle, rgba(var(--btmm-akzent-rgb), 0.55) 0%, rgba(var(--btmm-glow-rgb), 0.28) 40%, rgba(var(--btmm-glow-rgb), 0) 70%);
+  /* Sp.146: helleres Lavendel im Kern (SPECS) */
+  background: radial-gradient(circle,
+    rgba(232, 200, 236, 0.38) 0%,
+    rgba(var(--btmm-akzent-rgb), 0.42) 35%,
+    rgba(var(--btmm-glow-rgb), 0.28) 52%,
+    rgba(var(--btmm-glow-rgb), 0) 70%);
   filter: blur(12px);
   z-index: -1;
   pointer-events: none;
+}
+.btmm-hero-logo {
+  width: clamp(200px, 45vw, 320px) !important;
+  height: auto !important;
 }
 
 /* ── BtMM-Bausteine (Design wie BtMM-App: creme Grund, weiße Karten, Radius 0.5rem, Garamond, lila Glow) ── */

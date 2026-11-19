@@ -52,11 +52,12 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <div className="hero-text btmm-start-hero" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
-              src="/logo-hero-white.png"
+              src="/logo.png"
               alt={`${BRAND_FULL} Logo`}
-              width={160}
-              height={160}
-              style={{ margin: '0 auto', filter: 'drop-shadow(0 0 30px rgba(var(--btmm-glow-rgb), 0.9)) drop-shadow(0 0 20px rgba(var(--btmm-akzent-rgb), 0.7)) drop-shadow(0 0 10px rgba(var(--btmm-glow-rgb), 0.6))' }}
+              width={320}
+              height={320}
+              className="btmm-hero-logo"
+              style={{ margin: '0 auto', filter: 'drop-shadow(0 0 28px rgba(158, 87, 164, 0.95)) drop-shadow(0 0 48px rgba(176, 88, 179, 0.7)) drop-shadow(0 4px 18px rgba(0, 0, 0, 0.4))' }}
               priority
             />
           </div>
