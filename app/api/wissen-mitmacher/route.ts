@@ -3,11 +3,13 @@ import { createClient } from '@supabase/supabase-js'
 import { z } from 'zod'
 import { loadMitmacherCorpus } from '@/lib/wissen/loadCorpus'
 import { formatExtractiveAnswer, searchChunks, type WissenChunk } from '@/lib/wissen/search'
+import { resolveWissenLlmRuntime } from '@/lib/wissen/llmTiers'
 
 /**
  * Mitmacher-Wissenssuche (Prompt 117).
  * Auth = Bearer JWT App-Supabase. Corpus serverseitig.
- * Extractive immer; Generativ (Scaleway) wenn SCALEWAY_SECRET_KEY + generative:true.
+ * Extractive Default. Generativ nur wenn WISSEN_LLM_ENABLED=true + TIER (s5|s15|s50|h250)
+ * + Secret/Base-URL. Stufen vorbereitet; Live erst nach Dirigent-Karte.
  */
 
 const schema = z.object({
@@ -88,6 +90,61 @@ async function generateScaleway(
   }
 }
 
+
+async function generateOpenAiCompat(
+  frage: string,
+  hits: WissenChunk[],
+  abruf: string,
+  baseUrl: string,
+  apiKey: string,
+  model: string
+): Promise<string | null> {
+  if (!hits.length) return null
+  const system =
+    `Du bist der BtMM-Mitmacher-Assistent (Genossenschaft Freiburg). Antworte auf Deutsch, knapp und klar.\n` +
+    `Nutze NUR den gelieferten Corpus-Kontext. Wenn der Kontext nicht reicht: sag es und rate nicht.\n` +
+    `Pflicht: ${DISCLAIMER}\n` +
+    `Entwürfe immer mit Label „${LABEL_ENTWURF}“ kennzeichnen. Behaupte nie, ZAG/KWG sei freigegeben.\n` +
+    `Am Ende: kurze Quellenliste (Dokument + Abschnitt). Abruf-Datum: ${abruf}.`
+  const headers: Record<string, string> = { 'Content-Type': 'application/json' }
+  if (apiKey) headers.Authorization = `Bearer ${apiKey}`
+  try {
+    const res = await fetch(`${baseUrl}/chat/completions`, {
+      method: 'POST',
+      headers,
+      body: JSON.stringify({
+        model,
+        temperature: 0.2,
+        max_tokens: 900,
+        messages: [
+          { role: 'system', content: system },
+          {
+            role: 'user',
+            content: `Frage: ${frage}\n\nCorpus-Kontext:\n${buildContext(hits)}`,
+          },
+        ],
+      }),
+    })
+    if (!res.ok) {
+      console.error('selfhost-llm', res.status, await res.text())
+      return null
+    }
+    const data = (await res.json()) as {
+      choices?: { message?: { content?: string } }[]
+    }
+    const textOut = data?.choices?.[0]?.message?.content
+    if (typeof textOut !== 'string' || !textOut.trim()) return null
+    let antwort = textOut.trim()
+    if (!antwort.includes('Keine Rechtsberatung')) {
+      antwort += `\n\n—\n${DISCLAIMER}\nAbruf: ${abruf} · Self-Host ${model}`
+    }
+    return antwort
+  } catch (e) {
+    console.error('selfhost-llm', e)
+    return null
+  }
+}
+
 export async function POST(request: NextRequest) {
   try {
     const auth = request.headers.get('authorization') || ''
@@ -128,17 +185,46 @@ export async function POST(request: NextRequest) {
         `${DISCLAIMER} Abruf: ${abruf}. Extractive.`
       ) || antwort
 
+    const runtime = resolveWissenLlmRuntime({
+      enabled: process.env.WISSEN_LLM_ENABLED,
+      tier: process.env.WISSEN_LLM_TIER,
+    })
     const secret = (process.env.SCALEWAY_SECRET_KEY || '').trim()
-    if (wantGen && secret) {
-      const gen = await generateScaleway(frage, hits, abruf, secret)
+    const selfBase = (process.env.SELFHOST_LLM_BASE_URL || '').trim().replace(/\/$/, '')
+    const selfKey = (process.env.SELFHOST_LLM_API_KEY || '').trim()
+    const selfModel =
+      (process.env.SELFHOST_LLM_MODEL || '').trim() || 'mistral-small'
+
+    if (wantGen && runtime.live) {
+      let gen: string | null = null
+      let modelUsed = SCALEWAY_MODEL
+      let provider: 'scaleway' | 'selfhost' = 'scaleway'
+      if (runtime.meta.provider === 'scaleway' && secret) {
+        gen = await generateScaleway(frage, hits, abruf, secret)
+        provider = 'scaleway'
+        modelUsed = SCALEWAY_MODEL
+      } else if (runtime.meta.provider === 'selfhost' && selfBase) {
+        gen = await generateOpenAiCompat(
+          frage,
+          hits,
+          abruf,
+          selfBase,
+          selfKey,
+          selfModel
+        )
+        provider = 'selfhost'
+        modelUsed = selfModel
+      }
       if (gen) {
         return NextResponse.json({
           antwort: gen,
           beantwortet: true,
           quellen,
           generative: true,
-          provider: 'scaleway',
-          model: SCALEWAY_MODEL,
+          provider,
+          model: modelUsed,
+          tier: runtime.tier,
+          budgetEurMon: runtime.meta.budgetEurMon,
           rolle: 'mitmacher',
           corpus: {
             source: corpus.source,
@@ -150,6 +236,13 @@ export async function POST(request: NextRequest) {
       }
     }
 
+    let provider: string = 'extractive'
+    if (wantGen && !runtime.live) provider = 'llm_switch_off'
+    else if (wantGen && runtime.meta.provider === 'scaleway' && !secret)
+      provider = 'scaleway_missing'
+    else if (wantGen && runtime.meta.provider === 'selfhost' && !selfBase)
+      provider = 'selfhost_missing'
+
     return NextResponse.json({
       antwort: antwortMit.includes('Keine Rechtsberatung')
         ? antwortMit
@@ -157,7 +250,9 @@ export async function POST(request: NextRequest) {
       beantwortet,
       quellen,
       generative: false,
-      provider: wantGen && !secret ? 'scaleway_missing' : 'extractive',
+      provider,
+      tier: runtime.tier,
+      llmEnabled: runtime.enabled,
       rolle: 'mitmacher',
       corpus: {
         source: corpus.source,

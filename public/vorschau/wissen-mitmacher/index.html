@@ -8,14 +8,15 @@
 <link rel="stylesheet" href="../wissen-chat/stil.css">
 </head>
 <body>
-<p class="prototyp-band">Prototyp · Mitmacher hinter App-Login · extractive + optional Scaleway-Generativ</p>
+<p class="prototyp-band">Prototyp · Mitmacher hinter App-Login · live = extractive (LLM-Schalter aus)</p>
 <main class="unterseite breit" id="inhalt" style="max-width:48rem;margin:1.5rem auto;padding:0 1rem">
   <h1>Frag BtMM (Mitmacher)</h1>
   <p class="einleitung">Zugang = dieselbe Supabase-Session wie die BtMM-App. Corpus serverseitig. Vor eG: Mitmacher/Interessent. Keine Rechtsberatung. ZAG/KWG nie als freigegeben.</p>
+  <p class="leise">Vorbereitete Stufen (umschaltbar, <strong>nicht live</strong>): S5 / S15 / S50 € Scaleway · H250 Self-Host. Live-LLM erst nach Dirigent-Karte (`WISSEN_LLM_ENABLED`).</p>
   <p id="status" class="leise">Prüfe Session…</p>
   <label class="leise" style="display:flex;gap:.5rem;align-items:center;margin:.75rem 0">
-    <input type="checkbox" id="gen" checked>
-    Generativ (Scaleway mistral-small, Deckel 5 €/Mon) — sonst nur extractive
+    <input type="checkbox" id="gen">
+    Generativ anfragen (Server ignoriert, solange Schalter aus — Fallback extractive)
   </label>
   <div class="chat-fenster" style="margin-top:1rem">
     <div class="chat-verlauf" id="chat"></div>
@@ -41,14 +42,14 @@ function bubble(role, text) {
   d.textContent = text
   chat.appendChild(d)
 }
-bubble('bot', 'Mit Login: Mitmacher-Corpus. Haken „Generativ“ = Scaleway (mit extractive Fallback).')
+bubble('bot', 'Mit Login: Mitmacher-Corpus. Live = extractive. Generativ-Stufen S5/S15/S50/H250 vorbereitet, Schalter aus.')
 function token() { return (tok.value || localStorage.getItem('btmm_wissen_access_token') || '').trim() }
 function unlock() {
   const ok = token().length > 20
   input.disabled = !ok
   send.disabled = !ok
   status.textContent = ok
-    ? ('Mitmacher-Session bereit · ' + (gen.checked ? 'Generativ+Fallback' : 'nur extractive'))
+    ? ('Mitmacher-Session bereit · ' + (gen.checked ? 'Generativ angefragt (Server entscheidet)' : 'nur extractive'))
     : 'Token fehlt — App-Login oder Token einfügen'
 }
 tok.addEventListener('input', () => {
@@ -85,7 +86,9 @@ document.getElementById('form').addEventListener('submit', async (e) => {
     }
     const data = await res.json()
     if (!res.ok) throw new Error(data.error || ('HTTP ' + res.status))
-    const meta = data.generative ? ' [generativ]' : ' [extractive]'
+    const meta = data.generative
+      ? ' [generativ ' + (data.tier || '') + ']'
+      : ' [extractive' + (data.provider === 'llm_switch_off' ? ' · Schalter aus' : '') + ']'
     bubble('bot', (data.antwort || JSON.stringify(data)) + meta)
   } catch (err) {
     bubble('bot', 'Fehler: ' + (err && err.message ? err.message : err))
