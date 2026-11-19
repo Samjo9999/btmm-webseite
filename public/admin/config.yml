@@ -4,7 +4,8 @@ backend:
   name: github
   repo: Samjo9999/btmm-webseite
   branch: content/cms
-  # base_url + auth_endpoint setzt index.html zur Laufzeit
+  base_url: https://vorschau.b-t-m-m.com
+  auth_endpoint: api/auth
   squash_merges: true
   commit_messages:
     create: "cms: {{collection}} angelegt"
