@@ -52,7 +52,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <div className="hero-text btmm-start-hero" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
-              src="/logo.png"
+              src="/logo-hero-white.png"
               alt={`${BRAND_FULL} Logo`}
               width={160}
               height={160}
@@ -82,7 +82,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             lineHeight: 1.4,
             textShadow: '0 2px 12px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
           }}>
-            Ein anderes Wirtschaftssystem
+            Wirtschaften auf Augenhöhe
           </p>
 
           <p style={{
