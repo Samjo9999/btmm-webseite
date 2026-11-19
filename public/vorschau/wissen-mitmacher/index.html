@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BtMM Mitmacher-Wissen (Preview)</title>
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="../wissen-chat/stil.css">
+</head>
+<body>
+<p class="prototyp-band">Prototyp · Mitmacher hinter App-Login · extractive · kein LLM</p>
+<main class="unterseite breit" id="inhalt" style="max-width:48rem;margin:1.5rem auto;padding:0 1rem">
+  <h1>Frag BtMM (Mitmacher)</h1>
+  <p class="einleitung">Zugang = dieselbe Supabase-Session wie die BtMM-App. Corpus serverseitig. Vor eG: Mitmacher/Interessent. Keine Rechtsberatung.</p>
+  <p id="status" class="leise">Prüfe Session…</p>
+  <div class="chat-fenster" style="margin-top:1rem">
+    <div class="chat-verlauf" id="chat"></div>
+    <form class="chat-eingabe" id="form">
+      <input id="in" type="text" placeholder="Frage …" disabled autocomplete="off">
+      <button class="knopf klein" id="send" type="submit" disabled>Senden</button>
+    </form>
+  </div>
+  <p class="leise" style="margin-top:1rem">Login in der App, dann hier denselben Browser nutzen — oder Access-Token unten einfügen (nur Preview).</p>
+  <label class="leise" for="tok">Access-Token (Preview)</label>
+  <input id="tok" type="password" style="width:100%;margin:.4rem 0 1rem" placeholder="eyJ… aus App-Session">
+</main>
+<script>
+const chat = document.getElementById('chat')
+const status = document.getElementById('status')
+const input = document.getElementById('in')
+const send = document.getElementById('send')
+const tok = document.getElementById('tok')
+function bubble(role, text) {
+  const d = document.createElement('div')
+  d.className = 'blase ' + (role === 'user' ? 'user' : 'bot')
+  d.textContent = text
+  chat.appendChild(d)
+}
+bubble('bot', 'Mit Login: Mitmacher-Corpus (00/01/02/04/07/28 + Satzung/08a Entwurf + Normen). Extractive.')
+function token() { return (tok.value || localStorage.getItem('btmm_wissen_access_token') || '').trim() }
+function unlock() {
+  const ok = token().length > 20
+  input.disabled = !ok
+  send.disabled = !ok
+  status.textContent = ok ? 'Mitmacher-Session bereit · API /api/wissen-mitmacher' : 'Token fehlt — App-Login oder Token einfügen'
+}
+tok.addEventListener('input', () => {
+  if (tok.value.trim()) localStorage.setItem('btmm_wissen_access_token', tok.value.trim())
+  unlock()
+})
+if (localStorage.getItem('btmm_wissen_access_token')) {
+  tok.value = localStorage.getItem('btmm_wissen_access_token')
+}
+unlock()
+document.getElementById('form').addEventListener('submit', async (e) => {
+  e.preventDefault()
+  const q = input.value.trim()
+  if (q.length < 3) return
+  input.value = ''
+  bubble('user', q)
+  send.disabled = true
+  try {
+    const edge = 'https://xcngmshjuqoucdlgikao.supabase.co/functions/v1/wissen-mitmacher'
+    const headers = {
+      'content-type': 'application/json',
+      authorization: 'Bearer ' + token(),
+      apikey: localStorage.getItem('btmm_wissen_anon') || 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Inhjbmdtc2hqdXFvdWNkbGdpa2FvIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDgyMTcwMDUsImV4cCI6MjA2Mzc5MzAwNX0.4QxA7DHlBApSHi49JEGNW0voyyf4gOudOyLbq941Buo',
+    }
+    let res = await fetch(edge, { method: 'POST', headers, body: JSON.stringify({ frage: q }) })
+    if (res.status === 404 || res.status === 0) {
+      res = await fetch('/api/wissen-mitmacher', {
+        method: 'POST',
+        headers: { 'content-type': 'application/json', authorization: 'Bearer ' + token() },
+        body: JSON.stringify({ frage: q }),
+      })
+    }
+    const data = await res.json()
+    if (!res.ok) throw new Error(data.error || ('HTTP ' + res.status))
+    bubble('bot', data.antwort || JSON.stringify(data))
+  } catch (err) {
+    bubble('bot', 'Fehler: ' + (err && err.message ? err.message : err))
+  } finally {
+    unlock()
+  }
+})
+</script>
+</body>
+</html>
