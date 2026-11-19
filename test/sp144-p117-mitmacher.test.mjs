@@ -18,5 +18,14 @@ assert.ok(hits.length >= 1)
 const route = fs.readFileSync(path.join(root, 'app/api/wissen-mitmacher/route.ts'), 'utf8')
 assert.match(route, /Keine Rechtsberatung/)
 assert.match(route, /getUser/)
+assert.match(route, /SCALEWAY_SECRET_KEY/)
+assert.match(route, /mistral-small-3.2-24b-instruct-2506/)
 assert.doesNotMatch(route, /ANTHROPIC/)
-console.log('p117 mitmacher ok', data.docCount, data.chunks.length)
+
+const preview = fs.readFileSync(
+  path.join(root, 'public/vorschau/wissen-mitmacher/index.html'),
+  'utf8'
+)
+assert.match(preview, /generative/)
+assert.match(preview, /Generativ/)
+console.log('p117 mitmacher+scaleway ok', data.docCount, data.chunks.length)

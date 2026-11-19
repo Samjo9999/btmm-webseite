@@ -1,7 +1,6 @@
 /**
  * BtMM Wissens-Retrieval (extractive) — Port der gemeinsamen Lib
- * (wissen-mcp/src/corpus.mjs). ANTHROPIC / generative Stufe absichtlich aus
- * bis Nutzer-Ja.
+ * (wissen-mcp/src/corpus.mjs). Scaleway-Generativ hinter Auth; öffentlich ohne LLM.
  */
 
 export type WissenChunk = {
@@ -9,6 +8,7 @@ export type WissenChunk = {
   abschnitt: string
   text: string
   rel: string
+  entwurf?: boolean
   score?: number
 }
 
