@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Fragen zu BtMM (KI) – Preview</title>
-<meta name="description" content="Fragen zu BtMM anhand freigegebener Texte. Kann irren, keine Rechtsberatung. Preview-Mock — noch keine Live-API.">
+<title>Fragen zu BtMM (Wissen) – Preview</title>
+<meta name="description" content="Fragen zu BtMM anhand freigegebener Texte. Extractive, kein LLM.">
 <meta name="robots" content="noindex,nofollow">
 <link rel="stylesheet" href="stil.css">
 </head>
@@ -12,7 +12,7 @@
 <p class="prototyp-band">Prototyp · Preview · nicht veröffentlicht</p>
 <a class="skip" href="#inhalt">Zum Inhalt</a>
 <header class="kopf">
-  <a class="marke" href="index.html"><span class="logo-scheibe"><img src="bilder/logo.png" alt=""></span><span>BtMM</span><span class="nur-sr">, Startseite</span></a>
+  <a class="marke" href="index.html"><span class="logo-scheibe"><img src="bilder/logo.png" alt=""></span><span>BtMM</span></a>
   <nav class="nav-desk" aria-label="Hauptnavigation">
     <a href="index.html">Start</a>
     <a href="bewertungen.html">Bewertungen</a>
@@ -30,76 +30,35 @@
       <a href="text-stufen.html">Teilen · Tiefe</a>
     </nav>
   </details>
-  <a class="knopf klein cta" href="mailto:office@b-t-m-m.com">Melde dich</a>
 </header>
 <main id="inhalt" class="unterseite breit">
-  <p class="brot">Start · Fragen (KI)</p>
+  <p class="brot">Start · Fragen (Wissen)</p>
   <h1>Frag BtMM</h1>
-  <p class="einleitung">Ein Chat, der nur aus freigegebenen öffentlichen Texten antwortet. In diesem Preview: Mock-Antworten — keine echte KI-API. Kann irren. Keine Rechtsberatung.</p>
-  <p><span class="badge">Mock-UI</span><span class="badge warn">keine Live-API</span><span class="badge">nur freigegebene Docs</span></p>
-
+  <p class="einleitung">Nur freigegebene öffentliche Texte. Extractive mit Quellen — kein LLM-API-Key. Internes Material: lokales MCP.</p>
+  <p><span class="badge">extractive</span><span class="badge warn">kein LLM</span><span class="badge">nur freigegebene Docs</span></p>
+  <p id="index-meta" class="leise" style="font-family:var(--ui);font-size:.9rem;margin:.8em 0">Lade Index…</p>
   <div class="chat-layout" style="margin-top:1.2em">
-    <div class="chat-fenster" role="region" aria-label="Chat-Fenster (Mock)">
-      <div class="chat-kopf">
-        <strong>BtMM-Fragen</strong>
-        <span class="badge nacht">Preview-Mock</span>
-      </div>
-      <div class="chat-verlauf">
-        <div class="blase bot">
-          <span class="meta">BtMM-Assistent · Mock</span>
-          Hallo. Ich beantworte Fragen zu BtMM anhand freigegebener Texte. Ich kann irren und gebe keine Rechtsberatung. Bitte keine Gesundheits- oder Sonderdaten eingeben. In diesem Preview sind die Antworten Platzhalter — die Wissensbasis wird als Whitelist nachgezogen.
-        </div>
-        <div class="blase user">
-          <span class="meta">Du</span>
-          Was ist BtMM in einem Satz?
-        </div>
-        <div class="blase bot">
-          <span class="meta">BtMM-Assistent · Mock · Platzhalter</span>
-          BtMM (Back to Meaning Maximization) ist eine geplante Genossenschaft in Freiburg: Teilen, gemeinsames Arbeiten und gemeinsames Eigentum. Noch nicht eingetragen. Gründung so bald wie möglich, sobald drei Mitglieder da sind.
-          <p class="quellen">Quellen (Whitelist, Preview): freigegebene Start-/Erklärtexte</p>
-        </div>
-        <div class="blase user">
-          <span class="meta">Du</span>
-          Kostet Mitmachen etwas?
-        </div>
-        <div class="blase bot">
-          <span class="meta">BtMM-Assistent · Mock · Platzhalter</span>
-          Öffentlich bitten wir um Zeit, Können und Weitersagen — nicht um Geld. Kein Förderbeitrag, kein Bezahlknopf auf der Seite. Wenn du mitbauen willst: melde dich.
-          <p class="quellen">Quellen: Leitplanken öffentliche Ansprache (freigegeben)</p>
+    <div class="chat-fenster" role="region" aria-label="Wissens-Chat">
+      <div class="chat-kopf"><strong>BtMM-Wissen</strong><span class="badge nacht">Preview</span></div>
+      <div class="chat-verlauf" id="chat-verlauf">
+        <div class="blase bot"><span class="meta">BtMM-Wissen</span>
+          Hallo. Frag z.&nbsp;B. „Was ist der Keim?“. Quellen stehen unter der Antwort. Kann irren — keine Rechtsberatung.
         </div>
       </div>
-      <form class="chat-eingabe" action="#" onsubmit="return false;" aria-label="Nachricht (Mock, nicht verbunden)">
+      <form class="chat-eingabe" id="chat-form" aria-label="Frage stellen">
         <label class="nur-sr" for="chat-in">Deine Frage</label>
-        <input id="chat-in" type="text" placeholder="Frage stellen … (Mock, keine API)" disabled>
-        <button class="knopf klein is-disabled" type="button" disabled>Senden</button>
+        <input id="chat-in" type="text" placeholder="Frage stellen …" disabled autocomplete="off">
+        <button class="knopf klein is-disabled" id="chat-send" type="submit" disabled>Senden</button>
       </form>
     </div>
     <aside class="chat-seite">
       <div class="disclaimer-box">
         <strong>Disclaimer</strong>
-        <p>Kann irren. Keine Rechtsberatung. Kein Ersatz für Gespräche mit Menschen. Nur freigegebene Docs — keine internen Entwürfe. Keine Gesundheits- oder Sonderdaten eingeben.</p>
-      </div>
-      <div class="wissen-leer">
-        <strong style="color:#5c1757;font-family:var(--ui);font-size:.82rem;letter-spacing:.03em;text-transform:uppercase;display:block;margin-bottom:.3em">Wissensbasis</strong>
-        In diesem Preview: Whitelist folgt. Echte API erst nach Anbieterwahl, Kostenklärung und Nutzer-Ja.
-      </div>
-      <div class="beispiel-fragen">
-        <h2>Beispielfragen</h2>
-        <span class="frage">Was bedeuten die drei Säulen?</span>
-        <span class="frage">Wann wird gegründet?</span>
-        <span class="frage">Wie kann ich mitmachen ohne Geld?</span>
-        <span class="frage">Was ist die Universum-Tür?</span>
+        <p>Kann irren. Keine Rechtsberatung. Nur freigegebene Docs — keine internen Entwürfe. Keine Gesundheits- oder Sonderdaten eingeben.</p>
       </div>
     </aside>
   </div>
-  <aside class="hinweis-kasten" role="note" style="margin-top:1.2em">
-    <p><strong>Hinweis.</strong> Preview-Mock. Live-Chat und Anbieterwahl brauchen Nutzer-Ja. Antworten sind keine Zusagen.</p>
-  </aside>
 </main>
-<footer class="fuss">
-  <p><a href="index.html">Start</a><a href="bewertungen.html">Bewertungen</a><a href="ki-chat.html">Fragen (KI)</a><a href="feedback.html">Feedback</a></p>
-  <p>Back to Meaning Maximization (BtMM) · Freiburg · <a href="mailto:office@b-t-m-m.com">office@b-t-m-m.com</a></p>
-  <p class="fein">Prototyp 18. November 2026, Europe/Berlin · Preview · Autor-Copy</p>
-</footer>
+<script src="app-wissen.js"></script>
 </body>
 </html>

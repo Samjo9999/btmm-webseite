@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>BtMM Wissens-Chat – Vorschau</title>
+<meta name="description" content="Fragen zu BtMM anhand freigegebener öffentlicher Texte. Extractive, kein LLM. Entwurf/Vorschau.">
+<meta name="robots" content="noindex,nofollow">
+<link rel="stylesheet" href="stil.css">
+</head>
+<body>
+<p class="prototyp-band">Prototyp · Preview · nicht veröffentlicht · nur öffentliche Docs</p>
+<a class="skip" href="#inhalt">Zum Inhalt</a>
+<header class="kopf">
+  <a class="marke" href="/"><span class="logo-scheibe"><img src="../bewertung-chat-feedback/bilder/logo.png" alt=""></span><span>BtMM</span></a>
+  <nav class="nav-desk" aria-label="Hauptnavigation">
+    <a href="/">Start</a>
+    <a href="/vorschau/bewertung-chat-feedback/">Sp.134</a>
+    <a href="/vorschau/wissen-chat/" aria-current="page">Wissens-Chat</a>
+  </nav>
+</header>
+<main id="inhalt" class="unterseite breit">
+  <p class="brot">Vorschau · Wissens-Chat</p>
+  <h1>Frag BtMM</h1>
+  <p class="einleitung">Antworten nur aus freigegebenen öffentlichen Texten (MDs 01–04 + Website-Dokumente). Extractive mit Quellen — <strong>kein</strong> LLM, kein API-Key. Internes Material nur über das lokale MCP.</p>
+  <p><span class="badge">extractive</span><span class="badge warn">kein LLM</span><span class="badge">nur öffentlich</span></p>
+  <p id="index-meta" class="leise" style="font-family:var(--ui);font-size:.9rem;margin:.8em 0">Lade Index…</p>
+
+  <div class="chat-layout" style="margin-top:1.2em">
+    <div class="chat-fenster" role="region" aria-label="Wissens-Chat">
+      <div class="chat-kopf">
+        <strong>BtMM-Wissen</strong>
+        <span class="badge nacht">Preview</span>
+      </div>
+      <div class="chat-verlauf" id="chat-verlauf">
+        <div class="blase bot">
+          <span class="meta">BtMM-Wissen</span>
+          Hallo. Frag z.&nbsp;B. „Was ist der Keim?“ oder „Solidarfonds“. Ich zitiere nur öffentliche Docs und nenne die Quelle. Kann irren — keine Rechtsberatung.
+        </div>
+      </div>
+      <form class="chat-eingabe" id="chat-form" aria-label="Frage stellen">
+        <label class="nur-sr" for="chat-in">Deine Frage</label>
+        <input id="chat-in" type="text" placeholder="Frage stellen …" disabled autocomplete="off">
+        <button class="knopf klein is-disabled" id="chat-send" type="submit" disabled>Senden</button>
+      </form>
+    </div>
+    <aside class="chat-seite">
+      <div class="disclaimer-box">
+        <strong>Disclaimer</strong>
+        <p>Kann irren. Keine Rechtsberatung. Nur freigegebene öffentliche Docs — kein md-intern. Keine Gesundheitsdaten eingeben.</p>
+      </div>
+      <div class="disclaimer-box" style="margin-top:1em">
+        <strong>MCP (intern, lokal)</strong>
+        <p style="font-family:var(--ui);font-size:.9rem"><code>node /workspace/projekte/btmm/wissen-mcp/bin/mcp.js</code></p>
+      </div>
+    </aside>
+  </div>
+</main>
+<script src="app.js"></script>
+</body>
+</html>
