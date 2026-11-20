@@ -233,8 +233,19 @@ export default async function HomePage({ params: { locale } }: { params: { local
               alt="Infinity Loop – Back to Meaning Maximization"
               width={200}
               height={200}
-              style={{ margin: '0 auto 1rem', objectFit: 'contain' }}
+              style={{ margin: '0 auto 0.5rem', objectFit: 'contain' }}
             />
+            <p style={{
+              fontFamily: 'var(--font-garamond)',
+              fontStyle: 'italic',
+              fontSize: '0.95rem',
+              color: 'var(--btb-creme)',
+              opacity: 0.85,
+              margin: '0 auto 1.25rem',
+              maxWidth: 420,
+            }}>
+              {t('infinity.caption')}
+            </p>
           </SectionReveal>
           <SectionReveal delay={0.2}>
             <h2 style={{
