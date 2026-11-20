@@ -99,7 +99,7 @@ export default async function KontaktPage() {
                   <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <MapPin size={20} style={{ color: 'var(--btb-rot)', marginTop: 2, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{contactData.praxisort}</p>
+                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{t('kontakt.praxisort')}</p>
                     </div>
                   </div>
 
