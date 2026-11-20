@@ -1,54 +1,61 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>BtMM – Back to Meaning Maximization · Ein besseres Leben. Gemeinsam. (Prototyp)</title>
-<meta name="description" content="BtMM ist eine Genossenschaft im Aufbau: teilen, was einzeln teuer ist, arbeiten zum gleichen Lohn für jede Stunde, gemeinsam besitzen, was nie verkauft wird.">
-<meta name="robots" content="noindex">
-<link rel="stylesheet" href="stil.css">
-<link rel="stylesheet" href="site-nav.css">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Eintreten · BtMM – Back to Meaning Maximization</title>
+<link rel="stylesheet" href="/tuer/tuer.css">
 </head>
-<body data-seite="start" data-basis="/tuer/">
-<div id="app">
-  <!-- Ohne JavaScript und für Suchmaschinen: normale Startseite mit allen Seiten als echte Links -->
-  <main class="unterseite">
-    <h1>Ein besseres Leben. Gemeinsam.</h1>
-    <p class="slogan">BtMM – wirtschaften auf Augenhöhe</p>
-    <p class="einleitung">Back to Meaning Maximization ist eine Genossenschaft im Aufbau. Wir teilen, was einzeln teuer ist, arbeiten zum gleichen Lohn für jede Stunde und besitzen gemeinsam, was nie verkauft wird.</p>
-    <section class="nachlesen" aria-labelledby="nachlesen-titel">
-      <h2 id="nachlesen-titel">Was nachlesen?</h2>
-      <p class="nachlesen-zeile"><strong>Nachlesen:</strong>
-        <a href="/de/dokumente">Einfach erklärt</a> ·
-        <a href="/de/konzept">Konzept</a> ·
-        <a href="/de/dokumente">Dokumente</a> ·
-        <a href="/de/so-funktionierts">So funktioniert&#x27;s</a></p>
-    </section>
-    <nav aria-label="Alle Seiten"><ul>
-      <li><a href="/de/so-funktionierts">So funktioniert&#x27;s</a></li>
-      <li><a href="/de/was-du-sparst">Was du sparst</a></li>
-      <li><a href="/de/faq">FAQ</a></li>
-      <li><a href="/de/koerperarbeit">Körperarbeit</a></li>
-      <li><a href="/de/zellen">Zellen</a></li>
-      <li><a href="/de/geldfluss">Geldfluss</a></li>
-      <li><a href="/de/kosten">Kosten</a></li>
-      <li><a href="/de/konzept">Konzept</a></li>
-      <li><a href="/de/mitmachen">Mitmachen</a></li>
-      <li><a href="/de/unterstuetzen">Unterstützen</a></li>
-      <li><a href="/de/gruendung">Gründung</a></li>
-      <li><a href="/de/dokumente">Dokumente</a></li>
-      <li><a href="/de/offene-fragen">Offene Fragen</a></li>
-      <li><a href="/de/chronik">Chronik</a></li>
-      <li><a href="/de">Bewertungen &amp; Feedback</a></li>
-      <li><a href="/de">Leichte Sprache</a></li>
-      <li><a href="/de">Weitersagen</a></li>
-      <li><a href="/de">Barrierefreiheit</a></li>
-      <li><a href="/de">Sprach-Eingabe</a></li>
-    </ul></nav>
-  </main>
-</div>
-<script src="site-nav.js"></script>
-<script src="daten.js"></script>
-<script src="app.js"></script>
+<body class="phase-tuer">
+<main id="tuer" class="tuer" aria-labelledby="tuer-titel">
+  <div class="tuer-rahmen" aria-hidden="true">
+    <div class="fluegel links"></div><div class="fluegel rechts"></div>
+    <img class="tuer-licht" src="/tuer/bilder/logo.png" alt="">
+  </div>
+  <div class="tuer-text">
+    <img class="tuer-logo" src="/tuer/bilder/logo.png" alt="BtMM – Back to Meaning Maximization">
+    <h1 id="tuer-titel">Tritt ein</h1>
+    <p>Wir lernen dich mit ein paar Fragen kennen und zeigen dir dann deinen Weg durch BtMM.</p>
+    <button class="knopf hell" id="eintreten" type="button">Eintreten</button>
+  </div>
+</main>
+
+<main id="dialog" class="dialog" hidden aria-live="polite">
+  <header class="kopf">
+    <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
+    <div><b>BtMM-KI</b><span>fragt, du antwortest</span></div>
+    <button type="button" class="leise" id="loeschen">Antworten löschen</button>
+  </header>
+  <p class="hinweis-kasten" id="ds-hinweis">Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen. <a href="/de/impressum">Datenschutz</a></p>
+  <ol class="verlauf" id="verlauf"></ol>
+  <form class="eingabe" id="eingabe" autocomplete="off">
+    <label for="antwort" class="nur-sr">Deine Antwort</label>
+    <textarea id="antwort" rows="2" placeholder="Schreib oder sprich deine Antwort …"></textarea>
+    <button type="button" class="rund mik" id="mik" aria-label="Per Sprache antworten" aria-pressed="false">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+    </button>
+    <button type="submit" class="rund senden" aria-label="Antwort senden">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+  <div class="blatt" id="mik-hinweis" hidden role="dialog" aria-labelledby="mik-titel">
+    <h2 id="mik-titel">Mikrofon</h2>
+    <p>Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.</p>
+    <button type="button" class="knopf" id="mik-start">Mikrofon starten</button>
+    <button type="button" class="knopf zweit" id="mik-tippen">Lieber tippen</button>
+  </div>
+</main>
+
+<main id="pfad" class="pfad" hidden>
+  <header class="pfad-kopf">
+    <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
+    <h1>Dein Weg durch BtMM</h1>
+    <p id="profil-satz"></p>
+  </header>
+  <ol class="schritte" id="schritte"></ol>
+  <p class="pfad-fuss"><a class="knopf" href="/de" id="zur-start">Zur Startseite</a></p>
+</main>
+<script src="/tuer/tuer.js"></script>
 </body>
 </html>
