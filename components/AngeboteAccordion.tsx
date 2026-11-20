@@ -46,7 +46,7 @@ const FESTE_ANGEBOTE: Angebot[] = [
   {
     id: 'back-to-balance',
     titel: 'Back to Balance – Körperarbeit',
-    beschreibung: 'Ganzheitliche Körperarbeit in Freiburg von Johannes-Samuel Gartzke, dem Gründer von BtMM. Zeit für den eigenen Körper, für Wahrnehmung und Entspannung.',
+    beschreibung: 'Back to Balance ist ganzheitliche Körperarbeit in Freiburg: Zeit für den eigenen Körper, für Wahrnehmung und Entspannung.',
     details: [
       'Einzelsitzungen in Freiburg',
       'Termine nach Absprache',

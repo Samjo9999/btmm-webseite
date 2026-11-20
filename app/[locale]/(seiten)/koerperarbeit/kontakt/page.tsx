@@ -3,7 +3,7 @@ import Image from 'next/image'
 import { getTranslations } from 'next-intl/server'
 import { setRequestLocale } from 'next-intl/server'
 import Link from 'next/link'
-import { MapPin, Mail, Phone } from 'lucide-react'
+import { MapPin, Mail } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { NextAvailabilityFloat } from '@/components/NextAvailabilityFloat'
@@ -83,7 +83,7 @@ export default async function KontaktPage() {
               />
             </SectionReveal>
 
-            {/* Kontaktdaten & Anfahrt */}
+            {/* Kontaktdaten */}
             <SectionReveal delay={0.2}>
               <div>
                 <h2 style={{
@@ -117,32 +117,7 @@ export default async function KontaktPage() {
                     <span>{contactData.email}</span>
                   </a>
 
-                  {contactData.telefon && (
-                    <a
-                      href={`tel:${contactData.telefon.replace(/\s/g, '')}`}
-                      style={{
-                        display: 'flex', gap: '0.75rem', alignItems: 'center',
-                        color: 'var(--btb-dunkel)', textDecoration: 'none',
-                      }}
-                    >
-                      <Phone size={20} style={{ color: 'var(--btb-blau)', flexShrink: 0 }} />
-                      <span>{contactData.telefon}</span>
-                    </a>
-                  )}
                 </div>
-
-                <h2 style={{
-                  fontFamily: 'var(--font-garamond)',
-                  color: 'var(--btb-oliv)',
-                  fontSize: '1.5rem',
-                  marginBottom: '1rem',
-                }}>
-                  {t('kontakt.anfahrt_titel')}
-                </h2>
-
-                <p style={{ lineHeight: 1.7, opacity: 0.8 }}>
-                  {t('kontakt.anfahrt_text')}
-                </p>
 
                 <div style={{ marginTop: '1rem' }}>
                   <Link href="/koerperarbeit/preise" className="btn-primary">
