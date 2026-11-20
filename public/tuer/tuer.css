@@ -24,6 +24,8 @@ a{color:var(--lila)}
 .tuer-logo{width:110px;filter:drop-shadow(0 0 24px rgba(255,230,250,.7))}
 .tuer h1{font-size:2.4em;margin:.3em 0 .2em;font-weight:600}
 .tuer p{margin:0 0 1.4em;opacity:.92}
+.tuer .tuer-ohne{margin:1.1em 0 0;font-size:.8em}
+.tuer-ohne a{color:#fff;opacity:.8}
 .oeffnet .fluegel.links{transform:perspective(900px) rotateY(80deg)}
 .oeffnet .fluegel.rechts{transform:perspective(900px) rotateY(-80deg)}
 .oeffnet .tuer-text{opacity:0}
@@ -36,6 +38,8 @@ a{color:var(--lila)}
 .kopf-logo{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(144,75,151,.5))}
 .kopf div{flex:1;display:flex;flex-direction:column;line-height:1.15}
 .kopf span{font-size:.75em;color:var(--grau)}
+.kopf-aktionen{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:end}
+.kopf-aktionen .leise{padding:0;line-height:1.3}
 .hinweis-kasten{margin:12px 16px 0;padding:10px 0;border-top:1px solid var(--lila2);border-bottom:1px solid var(--lila2);font-size:.8em;color:var(--grau)}
 .verlauf{list-style:none;margin:0;padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
 .blase{max-width:86%;padding:10px 14px;border-radius:18px;animation:rein .3s ease}
@@ -49,6 +53,7 @@ a{color:var(--lila)}
 .rund svg{width:22px;height:22px}
 .senden{background:var(--lila);color:#fff}
 .mik{background:#fff;color:var(--lila);border:1px solid var(--lila2)}
+.eingabe textarea:disabled,.rund:disabled{opacity:.45;cursor:not-allowed}
 .hoert .mik{background:#c0305a;color:#fff;border-color:#c0305a;animation:puls 1.2s infinite}
 @keyframes puls{50%{box-shadow:0 0 0 8px rgba(192,48,90,.2)}}
 .blatt{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:20px 20px calc(20px + env(safe-area-inset-bottom));border-top:2px solid var(--lila2);box-shadow:0 -10px 40px rgba(40,0,40,.18);z-index:5;display:flex;flex-direction:column;gap:10px;max-width:640px;margin:0 auto}
@@ -65,8 +70,22 @@ a{color:var(--lila)}
 .schritt:last-child{border-bottom:1px solid var(--linie)}
 .schritt .nr{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--lila2);color:var(--lila);font-weight:700}
 .schritt.jetzt .nr{background:var(--lila);color:#fff}
+.schritt>div{flex:1;min-width:0}
+.bild-rahmen{display:inline-grid;place-items:center;height:72px;min-width:72px;padding:6px;margin:0 0 8px;border-radius:12px;background:#fff;border:1px solid var(--linie);overflow:hidden}
+.bild-rahmen.dunkel{background:var(--lila);border-color:var(--lila)}
+.bild-rahmen.foto{padding:0;width:112px}
+.schritt-bild{max-height:60px;max-width:100px;object-fit:contain;display:block}
+.bild-rahmen.foto .schritt-bild{width:112px;height:72px;max-height:none;max-width:none;object-fit:cover}
+.schritt .bezug{margin:0 0 2px;font-size:.85em;font-style:italic;color:var(--lila2)}
 .schritt h2{margin:2px 0 4px;font-size:1.15em}
 .schritt p{margin:0 0 10px;font-size:.92em;color:var(--grau)}
 .schritt .knopf{font-size:.85em;padding:.45em 1.2em}
 .schritt:not(.jetzt) .knopf{background:transparent;color:var(--lila);border:1px solid var(--lila2)}
-.pfad-fuss{text-align:center;margin-top:24px}
+.pfad-fuss{text-align:center;margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:14px}
+.pfad-fuss .leise{font-size:.85em}
+
+/* Rechts-nach-links (ar): Blasen und Pfeil spiegeln */
+[dir=rtl] .blase.frage{border-bottom-left-radius:18px;border-bottom-right-radius:6px}
+[dir=rtl] .blase.antwort{border-bottom-right-radius:18px;border-bottom-left-radius:6px}
+[dir=rtl] .senden svg{transform:scaleX(-1)}
+[dir=rtl] .tuer-rahmen{direction:ltr}

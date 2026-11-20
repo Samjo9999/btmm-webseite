@@ -11,6 +11,7 @@ import { Footer } from '@/components/Footer'
 import { ScrollHint } from '@/components/ScrollHint'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { BRAND_FULL } from '@/lib/brand'
+import { PfadLeiste } from '@/components/btmm/PfadLeiste'
 
 const ChatWidget = dynamic(
   () => import('@/components/ChatWidget').then(mod => ({ default: mod.ChatWidget })),
@@ -80,6 +81,7 @@ export default async function LocaleLayout({
           <main>{children}</main>
           <ScrollHint />
           <Footer />
+          <PfadLeiste locale={locale} />
           <ChatWidget />
           <BookingAgent />
         </NextIntlClientProvider>
