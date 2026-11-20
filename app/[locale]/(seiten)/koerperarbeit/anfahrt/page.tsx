@@ -1,5 +1,12 @@
+import type { Metadata } from 'next'
 import Link from 'next/link'
-import { MapPin, Train, Clock, Phone } from 'lucide-react'
+import { MapPin, Clock, Phone, Mail } from 'lucide-react'
+import contactData from '@/data/contact.json'
+
+export const metadata: Metadata = {
+  title: 'Anfahrt – Körperarbeit Freiburg',
+  description: 'Körperarbeit in Freiburg im Breisgau. Der Raum wird noch bekanntgegeben – bei Fragen erreichen Sie uns per Telefon, E-Mail oder Kontaktformular.',
+}
 
 export default function AnfahrtPage() {
   return (
@@ -24,13 +31,13 @@ export default function AnfahrtPage() {
             color: 'var(--btb-dunkel)',
             marginBottom: '0.5rem',
           }}>
-            So finden Sie zu uns
+            Ort &amp; Anfahrt
           </h1>
           <p style={{ opacity: 0.6, marginBottom: '2rem', lineHeight: 1.7 }}>
-            Ganzheitliche Körperarbeit im Herzen von Freiburg — zentral gelegen, gut erreichbar.
+            Ganzheitliche Körperarbeit in Freiburg im Breisgau.
           </p>
 
-          {/* Adresse */}
+          {/* Ort */}
           <div style={{
             background: 'var(--btb-creme)',
             borderRadius: 12,
@@ -46,119 +53,32 @@ export default function AnfahrtPage() {
                 Back to Meaning Maximization — Ganzheitliche Körperarbeit
               </p>
               <p style={{ fontSize: '1rem', color: 'var(--btb-dunkel)', lineHeight: 1.6 }}>
-                Hildastraße 12<br />
-                79102 Freiburg im Breisgau
+                {contactData.praxisort}
               </p>
               <p style={{ fontSize: '0.9rem', color: 'var(--btb-dunkel)', opacity: 0.7, marginTop: '0.5rem', lineHeight: 1.6 }}>
-                Im Gebäude des ehemaligen Artraums — auf der gegenüberliegenden Straßenseite der Straßenbahnhaltestelle.
+                Der Raum steht noch nicht fest. Sobald er feststeht, finden Sie Adresse und Wegbeschreibung hier.
               </p>
             </div>
           </div>
 
-          {/* Anfahrtsbeschreibung */}
+          {/* Vor dem Termin */}
           <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
-            gap: '1rem',
-            marginBottom: '2rem',
-          }}>
-            <div style={{
-              background: 'rgba(42,124,171,0.06)',
-              border: '1.5px solid rgba(42,124,171,0.15)',
-              borderRadius: 12,
-              padding: '1.25rem',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <Train size={20} style={{ color: 'var(--btb-blau)' }} />
-                <h3 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.1rem', color: 'var(--btb-dunkel)' }}>
-                  Mit der Straßenbahn
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--btb-dunkel)', opacity: 0.8 }}>
-                Die Praxis liegt am Anfang der Hildastraße, direkt an der Straßenbahnhaltestelle.
-                Von der Haltestelle aus sehen Sie das Gebäude auf der gegenüberliegenden Straßenseite —
-                dort wo der ehemalige Artraum war. Wenige Schritte vom Hauptbahnhof entfernt.
-              </p>
-            </div>
-
-            <div style={{
-              background: 'rgba(143,169,66,0.06)',
-              border: '1.5px solid rgba(143,169,66,0.15)',
-              borderRadius: 12,
-              padding: '1.25rem',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <MapPin size={20} style={{ color: 'var(--btb-oliv)' }} />
-                <h3 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.1rem', color: 'var(--btb-dunkel)' }}>
-                  Mit dem Auto
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--btb-dunkel)', opacity: 0.8 }}>
-                Parkplätze finden Sie in den umliegenden Seitenstraßen oder im Parkhaus am Hauptbahnhof.
-                Die Hildastraße liegt zentral in der Innenstadt, wenige Gehminuten vom Bahnhof entfernt.
-              </p>
-            </div>
-
-            <div style={{
-              background: 'rgba(182,24,24,0.04)',
-              border: '1.5px solid rgba(182,24,24,0.1)',
-              borderRadius: 12,
-              padding: '1.25rem',
-            }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
-                <Clock size={20} style={{ color: 'var(--btb-rot)' }} />
-                <h3 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.1rem', color: 'var(--btb-dunkel)' }}>
-                  Vor dem Termin
-                </h3>
-              </div>
-              <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--btb-dunkel)', opacity: 0.8 }}>
-                Bitte kommen Sie 5 Minuten vor Ihrem Termin.
-                Tragen Sie bequeme Kleidung — die Arbeit findet in entspannter Atmosphäre statt.
-                Bei Fragen zur Anfahrt erreichen Sie uns unter 0176 44453687.
-              </p>
-            </div>
-          </div>
-
-          {/* OpenStreetMap Embed */}
-          <div style={{
+            background: 'rgba(182,24,24,0.04)',
+            border: '1.5px solid rgba(182,24,24,0.1)',
             borderRadius: 12,
-            overflow: 'hidden',
-            border: '1.5px solid var(--btb-creme)',
+            padding: '1.25rem',
             marginBottom: '2rem',
           }}>
-            <iframe
-              src="https://www.openstreetmap.org/export/embed.html?bbox=7.836%2C47.992%2C7.843%2C47.996&layer=mapnik&marker=47.9938%2C7.8396"
-              style={{ width: '100%', height: 350, border: 0 }}
-              loading="lazy"
-              title="Standort Back to Meaning Maximization — Hildastraße 12, Freiburg"
-            />
-            <div style={{
-              background: 'var(--btb-creme)',
-              padding: '0.75rem 1rem',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              flexWrap: 'wrap',
-              gap: '0.5rem',
-            }}>
-              <span style={{ fontSize: '0.85rem', color: 'var(--btb-dunkel)' }}>
-                <MapPin size={14} style={{ display: 'inline', verticalAlign: '-2px', marginRight: 4 }} />
-                Hildastraße 12, 79102 Freiburg im Breisgau
-              </span>
-              <a
-                href="https://www.google.com/maps/dir/?api=1&destination=47.9938,7.8396"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  color: 'var(--btb-blau)',
-                  fontWeight: 600,
-                  fontSize: '0.85rem',
-                  textDecoration: 'none',
-                }}
-              >
-                Route planen →
-              </a>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.75rem' }}>
+              <Clock size={20} style={{ color: 'var(--btb-rot)' }} />
+              <h2 style={{ fontFamily: 'var(--font-garamond)', fontSize: '1.1rem', color: 'var(--btb-dunkel)' }}>
+                Vor dem Termin
+              </h2>
             </div>
+            <p style={{ fontSize: '0.9rem', lineHeight: 1.7, color: 'var(--btb-dunkel)', opacity: 0.8 }}>
+              Bitte kommen Sie 5 Minuten vor Ihrem Termin.
+              Tragen Sie bequeme Kleidung — die Arbeit findet in entspannter Atmosphäre statt.
+            </p>
           </div>
 
           {/* Kontakt */}
@@ -167,15 +87,24 @@ export default function AnfahrtPage() {
             marginBottom: '2rem',
           }}>
             <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '1rem' }}>
-              Fragen zur Anfahrt? Wir helfen gerne.
+              Fragen zum Ort? Wir helfen gerne.
             </p>
-            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
+            <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
               <a href="tel:017644453687" style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 color: 'var(--btb-blau)', fontWeight: 600, textDecoration: 'none',
               }}>
                 <Phone size={16} /> 0176 44453687
               </a>
+              <a href={`mailto:${contactData.email}`} style={{
+                display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
+                color: 'var(--btb-blau)', fontWeight: 600, textDecoration: 'none',
+              }}>
+                <Mail size={16} /> {contactData.email}
+              </a>
+              <Link href="/koerperarbeit/kontakt" style={{ color: 'var(--btb-blau)', fontWeight: 600, textDecoration: 'none' }}>
+                Kontaktformular
+              </Link>
               <Link href="/koerperarbeit/preise" className="btn-primary" style={{ fontSize: '0.9rem' }}>
                 Termin buchen
               </Link>

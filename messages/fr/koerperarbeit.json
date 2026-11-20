@@ -84,7 +84,8 @@
     "titel": "Contact et accès",
     "untertitel": "Comment nous joindre",
     "formular_titel": "Écrivez-nous",
-    "anfahrt_titel": "Accès",
-    "adresse_titel": "Adresse"
+    "anfahrt_titel": "Lieu",
+    "adresse_titel": "Coordonnées",
+    "anfahrt_text": "La salle pour le travail corporel à Fribourg n’est pas encore fixée et sera annoncée ici. Pour toute question, écrivez-nous via le formulaire ou par e-mail."
   }
 }

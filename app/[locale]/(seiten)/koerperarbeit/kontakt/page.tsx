@@ -13,8 +13,8 @@ import contactData from '@/data/contact.json'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Kontakt & Anfahrt – Körperarbeit Freiburg | BtMM',
-  description: 'Kontakt für BtMM-Körperarbeit in Freiburg. Adresse, Telefon, E-Mail und Anfahrt.',
+  title: 'Kontakt – Körperarbeit Freiburg',
+  description: 'Kontakt für BtMM-Körperarbeit in Freiburg: E-Mail und Kontaktformular. Der Raum wird noch bekanntgegeben.',
 }
 
 export default async function KontaktPage() {
@@ -99,8 +99,7 @@ export default async function KontaktPage() {
                   <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <MapPin size={20} style={{ color: 'var(--btb-rot)', marginTop: 2, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{contactData.adresse.strasse}</p>
-                      <p style={{ opacity: 0.7 }}>{contactData.adresse.plz} {contactData.adresse.ort}</p>
+                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{contactData.praxisort}</p>
                     </div>
                   </div>
 
@@ -115,7 +114,7 @@ export default async function KontaktPage() {
                     <span>{contactData.email}</span>
                   </a>
 
-                  {contactData.telefon !== '+49 (0) TODO' && (
+                  {contactData.telefon && contactData.telefon !== '+49 (0) TODO' && (
                     <a
                       href={`tel:${contactData.telefon}`}
                       style={{
@@ -138,18 +137,9 @@ export default async function KontaktPage() {
                   {t('kontakt.anfahrt_titel')}
                 </h2>
 
-                {/* Map placeholder */}
-                <div style={{
-                  background: 'var(--btb-creme)',
-                  borderRadius: 12, height: 220,
-                  display: 'flex', alignItems: 'center', justifyContent: 'center',
-                  flexDirection: 'column', gap: '0.5rem',
-                  color: 'var(--btb-dunkel)', opacity: 0.5,
-                  border: '1px solid rgba(143,169,66,0.2)',
-                }}>
-                  <MapPin size={28} />
-                  <p style={{ fontSize: '0.85rem' }}>TODO: Google Maps Embed</p>
-                </div>
+                <p style={{ lineHeight: 1.7, opacity: 0.8 }}>
+                  {t('kontakt.anfahrt_text')}
+                </p>
 
                 <div style={{ marginTop: '1rem' }}>
                   <Link href="/koerperarbeit/preise" className="btn-primary">
