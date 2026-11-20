@@ -86,7 +86,8 @@
     "formular_titel": "Write to Us",
     "anfahrt_titel": "Location",
     "adresse_titel": "Contact details",
-    "anfahrt_text": "The room for the bodywork sessions in Freiburg has not been fixed yet and will be announced here. If you have questions, just write to us via the form or by email.",
-    "praxisort": "Freiburg · room to be announced"
+    "anfahrt_text": "Sessions take place in Freiburg by arrangement. The address above is the founder's postal address, not a practice room. We will agree on the place of your session with you.",
+    "gruender": "Johannes-Samuel Gartzke · Founder",
+    "postanschrift_hinweis": "Founder's postal address – not a practice room."
   }
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronDown, MapPin, Euro, ArrowRight, Star } from 'lucide-react'
+import { ChevronDown, MapPin, Euro, ArrowRight, Star, Search } from 'lucide-react'
 
 interface ServiceData {
   id: string
@@ -34,28 +34,32 @@ interface Angebot {
   link: string
   verfuegbar: boolean
   hasPromotion: boolean
+  extern?: boolean
+  hinweis?: string
 }
 
 const BASE_COMPANY_ID = '396ad7a6-e4d1-4c7d-abc1-ef9f2c4c2da9'
 const SERVICES_API_BASE = 'https://xcngmshjuqoucdlgikao.supabase.co/functions/v1/public-booking/services'
 
-const FALLBACK_ANGEBOTE: Angebot[] = [
+// Feste Angebote, unabhängig von der Buchungs-API (Nutzer 20.11.2026: „Mein btb Angebot steht ja.“)
+const FESTE_ANGEBOTE: Angebot[] = [
   {
-    id: 'koerperarbeit-freiburg',
-    titel: 'Back to Meaning Maximization Körperarbeit - 79102 Freiburg D',
-    beschreibung: 'Ganzheitliche Körperarbeit zur Entspannung. Sanfte Schwingungen laden dazu ein, den ganzen Körper bewusst wahrzunehmen.',
+    id: 'back-to-balance',
+    titel: 'Back to Balance – Körperarbeit',
+    beschreibung: 'Ganzheitliche Körperarbeit in Freiburg von Johannes-Samuel Gartzke, dem Gründer von BtMM. Zeit für den eigenen Körper, für Wahrnehmung und Entspannung.',
     details: [
-      'Eine Auszeit zum Entspannen und Durchatmen',
-      'Zeit für Ruhe und bewusste Körperwahrnehmung',
-      'Ganzheitlicher Ansatz: Körper, Geist und Nervensystem',
-      'Einzelsitzungen und Pakete verfügbar',
+      'Einzelsitzungen in Freiburg',
+      'Termine nach Absprache',
+      'Buchung und Preise auf der BtB-Webseite',
     ],
     ort: 'Freiburg',
     kategorie: 'Körperarbeit',
-    preis: 'ab 70 €',
-    link: '/koerperarbeit',
+    preis: 'Preise auf der BtB-Webseite',
+    link: 'https://www.backtobalance.online',
     verfuegbar: true,
     hasPromotion: false,
+    extern: true,
+    hinweis: 'Das Angebot wächst mit den Mitgliedern.',
   },
 ]
 
@@ -128,8 +132,11 @@ interface AngeboteAccordionProps {
 }
 
 export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionProps = {}) {
-  const [openId, setOpenId] = useState<string | null>(null)
-  const [angebote, setAngebote] = useState<Angebot[]>(FALLBACK_ANGEBOTE)
+  const [openId, setOpenId] = useState<string | null>('back-to-balance')
+  const [apiAngebote, setApiAngebote] = useState<Angebot[]>([])
+  const [suche, setSuche] = useState('')
+  const [kategorie, setKategorie] = useState('')
+  const [ort, setOrt] = useState('')
   const [vatEnabled, setVatEnabled] = useState(false)
   const [vatRate, setVatRate] = useState(19)
 
@@ -146,18 +153,70 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
         setVatRate(data.vat_rate ?? 19)
 
         if (visible.length > 0) {
-          setAngebote(servicesToAngebote(visible, data.vat_enabled ?? false, data.vat_rate ?? 19))
+          setApiAngebote(servicesToAngebote(visible, data.vat_enabled ?? false, data.vat_rate ?? 19))
         } else {
-          setAngebote([]) // No services enabled — show nothing
+          setApiAngebote([]) // Keine API-Angebote freigegeben
         }
       })
       .catch(() => {
-        // Keep fallback on error
+        // Bei Fehler nur feste Angebote zeigen
       })
   }, [domain])
 
+  const alle = [...FESTE_ANGEBOTE, ...apiAngebote]
+  const kategorien = Array.from(new Set(alle.map(a => a.kategorie).filter(Boolean))).sort()
+  const orte = Array.from(new Set(alle.map(a => a.ort).filter(Boolean))).sort()
+  const term = suche.trim().toLowerCase()
+  const angebote = alle.filter(a =>
+    (!kategorie || a.kategorie === kategorie) &&
+    (!ort || a.ort === ort) &&
+    (!term || [a.titel, a.beschreibung, a.ort, a.kategorie, ...a.details].some(x => x.toLowerCase().includes(term)))
+  )
+  const feldStil: React.CSSProperties = {
+    padding: '0.7rem 0.9rem',
+    borderRadius: 10,
+    border: '1.5px solid rgba(var(--btmm-glow-rgb),0.35)',
+    background: 'var(--btb-weiss)',
+    fontFamily: 'inherit',
+    fontSize: '0.95rem',
+    color: 'var(--btb-dunkel)',
+  }
+
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+      {/* Suche und Filter */}
+      <div role="search" style={{ display: 'flex', gap: '0.6rem', flexWrap: 'wrap', marginBottom: '0.5rem' }}>
+        <label style={{ position: 'relative', flex: '1 1 240px' }}>
+          <span className="sr-only">Angebote durchsuchen</span>
+          <Search size={18} style={{ position: 'absolute', left: '0.8rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--btb-oliv)', opacity: 0.6 }} />
+          <input
+            type="search"
+            value={suche}
+            onChange={e => setSuche(e.target.value)}
+            placeholder="Angebote durchsuchen …"
+            style={{ ...feldStil, width: '100%', paddingLeft: '2.4rem' }}
+          />
+        </label>
+        <select aria-label="Nach Kategorie filtern" value={kategorie} onChange={e => setKategorie(e.target.value)} style={{ ...feldStil, flex: '0 1 180px' }}>
+          <option value="">Alle Kategorien</option>
+          {kategorien.map(k => <option key={k} value={k}>{k}</option>)}
+        </select>
+        <select aria-label="Nach Ort filtern" value={ort} onChange={e => setOrt(e.target.value)} style={{ ...feldStil, flex: '0 1 160px' }}>
+          <option value="">Alle Orte</option>
+          {orte.map(o => <option key={o} value={o}>{o}</option>)}
+        </select>
+      </div>
+      <p aria-live="polite" style={{ fontSize: '0.85rem', opacity: 0.6, margin: '0 0 0.5rem' }}>
+        {angebote.length === 1 ? '1 Angebot' : `${angebote.length} Angebote`}
+      </p>
+      {angebote.length === 0 && (
+        <p style={{ textAlign: 'center', padding: '1.5rem 0', opacity: 0.7 }}>
+          Kein Angebot passt zu deiner Suche.{' '}
+          <button onClick={() => { setSuche(''); setKategorie(''); setOrt('') }} style={{ background: 'none', border: 'none', color: 'var(--btb-blau)', fontWeight: 600, cursor: 'pointer', fontFamily: 'inherit', fontSize: 'inherit' }}>
+            Filter zurücksetzen
+          </button>
+        </p>
+      )}
       <style dangerouslySetInnerHTML={{ __html: pulseKeyframes }} />
       <p style={{
         textAlign: 'center',
@@ -298,6 +357,12 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                   ))}
                 </ul>
 
+                {angebot.hinweis && (
+                  <p style={{ fontSize: '0.95rem', fontStyle: 'italic', color: 'var(--btb-dunkel)', margin: '0 0 1.25rem' }}>
+                    {angebot.hinweis}
+                  </p>
+                )}
+
                 <div style={{
                   display: 'flex',
                   gap: '1.5rem',
@@ -311,30 +376,43 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                   <span style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--btb-blau)' }}>
                     <Euro size={16} /> {angebot.preis}
                   </span>
-                  <Link
+                  {!angebot.extern && <Link
                     href={`${angebot.link}/bewertungen`}
                     style={{ display: 'flex', alignItems: 'center', gap: '0.35rem', color: 'var(--btb-oliv)', fontSize: '0.9rem', fontWeight: 600, textDecoration: 'none' }}
                     onClick={(e) => e.stopPropagation()}
                   >
                     <Star size={16} /> Erfahrungen
-                  </Link>
+                  </Link>}
                 </div>
 
-                <Link
-                  href={angebot.link}
-                  style={{
-                    display: 'inline-flex',
-                    alignItems: 'center',
-                    gap: '0.5rem',
-                    color: 'var(--btb-blau)',
-                    fontWeight: 600,
-                    fontSize: '0.95rem',
-                    textDecoration: 'none',
-                  }}
-                  onClick={(e) => e.stopPropagation()}
-                >
-                  Mehr erfahren <ArrowRight size={16} />
-                </Link>
+                {angebot.extern ? (
+                  <a
+                    href={angebot.link}
+                    target="_blank"
+                    rel="noopener"
+                    className="btn-primary"
+                    style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.9rem' }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Zur BtB-Webseite <ArrowRight size={16} />
+                  </a>
+                ) : (
+                  <Link
+                    href={angebot.link}
+                    style={{
+                      display: 'inline-flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: 'var(--btb-blau)',
+                      fontWeight: 600,
+                      fontSize: '0.95rem',
+                      textDecoration: 'none',
+                    }}
+                    onClick={(e) => e.stopPropagation()}
+                  >
+                    Mehr erfahren <ArrowRight size={16} />
+                  </Link>
+                )}
               </div>
             </div>
           </div>

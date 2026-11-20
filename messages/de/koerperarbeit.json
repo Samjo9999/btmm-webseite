@@ -86,7 +86,8 @@
     "formular_titel": "Schreiben Sie uns",
     "anfahrt_titel": "Ort",
     "adresse_titel": "Kontaktdaten",
-    "anfahrt_text": "Der Raum für die Körperarbeit in Freiburg steht noch nicht fest und wird hier bekanntgegeben. Bei Fragen schreiben Sie uns gern über das Formular oder per E-Mail.",
-    "praxisort": "Freiburg · Raum wird noch bekanntgegeben"
+    "anfahrt_text": "Termine finden in Freiburg nach Absprache statt. Die Anschrift oben ist die Postanschrift des Gründers, kein Praxisraum. Den Ort Ihres Termins sprechen wir mit Ihnen ab.",
+    "gruender": "Johannes-Samuel Gartzke · Gründer",
+    "postanschrift_hinweis": "Postanschrift des Gründers – kein Praxisraum."
   }
 }

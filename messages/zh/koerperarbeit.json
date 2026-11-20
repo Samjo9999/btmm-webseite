@@ -83,7 +83,8 @@
     "formular_titel": "给我们写信",
     "anfahrt_titel": "地点",
     "adresse_titel": "联系方式",
-    "anfahrt_text": "弗莱堡身体疗愈的场地尚未确定，确定后将在此公布。如有问题，欢迎通过表单或电子邮件联系我们。",
-    "praxisort": "弗莱堡 · 场地待公布"
+    "anfahrt_text": "课程在弗莱堡按预约进行。上方地址是创始人的邮寄地址，并非诊疗场所。具体地点将与您另行约定。",
+    "gruender": "Johannes-Samuel Gartzke · 创始人",
+    "postanschrift_hinweis": "创始人邮寄地址 – 并非诊疗场所。"
   }
 }

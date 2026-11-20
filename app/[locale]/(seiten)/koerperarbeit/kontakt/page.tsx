@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Kontakt – Körperarbeit Freiburg',
-  description: 'Kontakt für BtMM-Körperarbeit in Freiburg: E-Mail und Kontaktformular. Der Raum wird noch bekanntgegeben.',
+  description: 'Kontakt für BtMM-Körperarbeit in Freiburg: Gründer Johannes-Samuel Gartzke, Telefon, E-Mail und Kontaktformular. Termine nach Absprache.',
 }
 
 export default async function KontaktPage() {
@@ -99,7 +99,12 @@ export default async function KontaktPage() {
                   <div style={{ display: 'flex', gap: '0.75rem', alignItems: 'flex-start' }}>
                     <MapPin size={20} style={{ color: 'var(--btb-rot)', marginTop: 2, flexShrink: 0 }} />
                     <div>
-                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{t('kontakt.praxisort')}</p>
+                      <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{t('kontakt.gruender')}</p>
+                      <p style={{ lineHeight: 1.6 }}>
+                        {contactData.adresse.strasse}<br />
+                        {contactData.adresse.plz} {contactData.adresse.ort}
+                      </p>
+                      <p style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '0.25rem' }}>{t('kontakt.postanschrift_hinweis')}</p>
                     </div>
                   </div>
 
@@ -114,9 +119,9 @@ export default async function KontaktPage() {
                     <span>{contactData.email}</span>
                   </a>
 
-                  {contactData.telefon && contactData.telefon !== '+49 (0) TODO' && (
+                  {contactData.telefon && (
                     <a
-                      href={`tel:${contactData.telefon}`}
+                      href={`tel:${contactData.telefon.replace(/\s/g, '')}`}
                       style={{
                         display: 'flex', gap: '0.75rem', alignItems: 'center',
                         color: 'var(--btb-dunkel)', textDecoration: 'none',

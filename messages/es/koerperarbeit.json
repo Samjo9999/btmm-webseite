@@ -83,7 +83,8 @@
     "formular_titel": "Escríbenos",
     "anfahrt_titel": "Lugar",
     "adresse_titel": "Datos de contacto",
-    "anfahrt_text": "La sala para el trabajo corporal en Friburgo aún no está definida y se anunciará aquí. Si tiene preguntas, escríbanos por el formulario o por correo electrónico.",
-    "praxisort": "Friburgo · sala por anunciar"
+    "anfahrt_text": "Las sesiones se realizan en Friburgo previo acuerdo. La dirección de arriba es la dirección postal del fundador, no una consulta. Acordaremos con usted el lugar de su sesión.",
+    "gruender": "Johannes-Samuel Gartzke · Fundador",
+    "postanschrift_hinweis": "Dirección postal del fundador – no es una consulta."
   }
 }

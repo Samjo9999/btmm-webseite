@@ -1,13 +1,12 @@
 {
   "email": "office@b-t-m-m.com",
-  "telefon": "",
+  "telefon": "0176 44453687",
   "adresse": {
     "strasse": "Hildastr. 12",
     "plz": "79102",
     "ort": "Freiburg im Breisgau",
     "land": "Deutschland"
   },
-  "praxisort": "Freiburg · Raum wird noch bekanntgegeben",
   "latitude": 47.9938,
   "longitude": 7.8396,
   "company_id": "396ad7a6-e4d1-4c7d-abc1-ef9f2c4c2da9",
@@ -17,5 +16,6 @@
   "impressum_vertretung": "Johannes-Samuel Gartzke – BtMM eG in Gründung, besteht noch nicht",
   "impressum_kontakt2": "",
   "impressum_ust": "",
-  "impressum_kleinunternehmer": false
+  "impressum_kleinunternehmer": false,
+  "gruender_name": "Johannes-Samuel Gartzke"
 }

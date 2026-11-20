@@ -5,7 +5,7 @@ import contactData from '@/data/contact.json'
 
 export const metadata: Metadata = {
   title: 'Anfahrt – Körperarbeit Freiburg',
-  description: 'Körperarbeit in Freiburg im Breisgau. Der Raum wird noch bekanntgegeben – bei Fragen erreichen Sie uns per Telefon, E-Mail oder Kontaktformular.',
+  description: 'Körperarbeit in Freiburg im Breisgau, Termine nach Absprache. Kontakt zum Gründer per Telefon, E-Mail oder Kontaktformular.',
 }
 
 export default function AnfahrtPage() {
@@ -50,13 +50,14 @@ export default function AnfahrtPage() {
             <MapPin size={24} style={{ color: 'var(--btb-rot)', flexShrink: 0, marginTop: 2 }} />
             <div>
               <p style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--btb-dunkel)', marginBottom: '0.25rem' }}>
-                Back to Meaning Maximization — Ganzheitliche Körperarbeit
+                {contactData.gruender_name} · Gründer
               </p>
               <p style={{ fontSize: '1rem', color: 'var(--btb-dunkel)', lineHeight: 1.6 }}>
-                {contactData.praxisort}
+                {contactData.adresse.strasse}<br />
+                {contactData.adresse.plz} {contactData.adresse.ort}
               </p>
               <p style={{ fontSize: '0.9rem', color: 'var(--btb-dunkel)', opacity: 0.7, marginTop: '0.5rem', lineHeight: 1.6 }}>
-                Der Raum steht noch nicht fest. Sobald er feststeht, finden Sie Adresse und Wegbeschreibung hier.
+                Das ist die Postanschrift des Gründers, kein Praxisraum. Termine finden in Freiburg nach Absprache statt – den Ort Ihres Termins sprechen wir mit Ihnen ab.
               </p>
             </div>
           </div>
@@ -87,14 +88,14 @@ export default function AnfahrtPage() {
             marginBottom: '2rem',
           }}>
             <p style={{ fontSize: '0.9rem', opacity: 0.6, marginBottom: '1rem' }}>
-              Fragen zum Ort? Wir helfen gerne.
+              Fragen? Schreiben Sie mir oder rufen Sie an.
             </p>
             <div style={{ display: 'flex', gap: '1rem', justifyContent: 'center', alignItems: 'center', flexWrap: 'wrap' }}>
-              <a href="tel:017644453687" style={{
+              <a href={`tel:${contactData.telefon.replace(/\s/g, '')}`} style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
                 color: 'var(--btb-blau)', fontWeight: 600, textDecoration: 'none',
               }}>
-                <Phone size={16} /> 0176 44453687
+                <Phone size={16} /> {contactData.telefon}
               </a>
               <a href={`mailto:${contactData.email}`} style={{
                 display: 'inline-flex', alignItems: 'center', gap: '0.4rem',
