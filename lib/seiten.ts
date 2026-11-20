@@ -107,7 +107,6 @@ export const KERNSEITEN: SeitenSchluessel[] = [
   'wasDuSparst',
   'kosten',
   'offeneFragen',
-  'backToBalance',
   'faq',
   'mitmachen',
 ]

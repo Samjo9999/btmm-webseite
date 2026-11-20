@@ -12,7 +12,6 @@ import { AnimatedCounter, SectionReveal } from '@/components/AnimatedCounter'
 import { LogoLightbox } from '@/components/LogoLightbox'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSection'
-import { AngeboteAccordion } from '@/components/AngeboteAccordion'
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
@@ -193,95 +192,31 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </div>
       </section>
 
-      {/* ── 2b. ANGEBOTE ── */}
-      <section className="section" style={{ background: 'var(--btb-creme)' }}>
-        <div className="container-btb">
-          <SectionReveal>
-            <h2 style={{
-              fontFamily: 'var(--font-garamond)',
-              fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              textAlign: 'center',
-              marginBottom: '0.75rem',
-              color: 'var(--btb-oliv)',
-            }}>
-              Unser Angebot
-            </h2>
-            <p style={{ textAlign: 'center', opacity: 0.65, marginBottom: '2.5rem', maxWidth: 560, margin: '0 auto 2.5rem' }}>
-              Dienstleistungen und Expertise von erfahrenen Praktizierenden aus unserem Netzwerk.
-            </p>
-          </SectionReveal>
-          <AngeboteAccordion domain="b-t-m-m.com" />
-        </div>
-      </section>
-
-      {/* ── 3. APP TEASER ── */}
+      {/* ── 3. APP TEASER (Nutzer 20.11.: nur Link + kurze Beschreibung) ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-        <div className="container-btb">
+        <div className="container-btb" style={{ textAlign: 'center' }}>
           <SectionReveal>
             <h2 style={{
               fontFamily: 'var(--font-garamond)',
               fontSize: 'clamp(1.8rem, 3.5vw, 2.6rem)',
-              textAlign: 'center',
               color: 'var(--btb-oliv)',
               marginBottom: '0.5rem',
             }}>
-              Das BtM Universe
+              Die BtMM-App
             </h2>
-            <p style={{ textAlign: 'center', opacity: 0.65, marginBottom: '2.5rem' }}>
-              Die Plattform für Zusammenarbeit, Buchungen und gegenseitige Unterstützung innerhalb unseres Netzwerks.
+            <p style={{ opacity: 0.75, marginBottom: '2rem' }}>
+              Die BtMM-App ist der digitale Workspace von BtMM.
             </p>
           </SectionReveal>
-
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
-            gap: '1.25rem',
-            marginBottom: '2rem',
-          }}>
-            {[
-              { icon: <Users size={24} />, titel: 'Vernetzung', text: 'Finde und buche Dienstleistungen von Praktizierenden im Netzwerk.' },
-              { icon: <CreditCard size={24} />, titel: 'Tausch-System', text: 'Arbeitsleistung wird fair bewertet und getauscht innerhalb des Systems.' },
-              { icon: <Layout size={24} />, titel: 'Workspace', text: 'Dein Betrieb, deine Angebote, deine Gemeinschaft — alles an einem Ort.' },
-            ].map((item, i) => (
-              <SectionReveal key={i} delay={i * 0.12}>
-                <div className="card-btb" style={{ textAlign: 'center' }}>
-                  <div style={{
-                    color: 'var(--btb-blau)',
-                    marginBottom: '0.75rem',
-                    display: 'flex', justifyContent: 'center',
-                  }}>
-                    {item.icon}
-                  </div>
-                  <h3 style={{
-                    fontFamily: 'var(--font-garamond)',
-                    fontSize: '1.1rem',
-                    color: 'var(--btb-dunkel)',
-                    marginBottom: '0.5rem',
-                  }}>
-                    {item.titel}
-                  </h3>
-                  <p style={{ fontSize: '0.9rem', color: 'var(--btb-dunkel)', opacity: 0.7, lineHeight: 1.6 }}>
-                    {item.text}
-                  </p>
-                </div>
-              </SectionReveal>
-            ))}
-          </div>
-
-          <div style={{ textAlign: 'center', display: 'flex', gap: '1rem', justifyContent: 'center', flexWrap: 'wrap' }}>
-            <Link href="/app" className="btn-secondary">
-              Zur App
-            </Link>
-            <a
-              href="https://app.b-t-m-m.com"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="btn-primary"
-              style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
-            >
-              Login <ExternalLink size={15} />
-            </a>
-          </div>
+          <a
+            href="https://app.b-t-m-m.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="btn-primary"
+            style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}
+          >
+            Zur App <ExternalLink size={15} />
+          </a>
         </div>
       </section>
 

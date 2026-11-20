@@ -4,7 +4,6 @@ import { getTranslations } from 'next-intl/server'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { AngeboteAccordion } from '@/components/AngeboteAccordion'
-import { CancellationForm } from '@/components/CancellationForm'
 
 export const dynamic = 'force-dynamic'
 
@@ -64,78 +63,8 @@ export default async function AngebotePage() {
         </div>
       </section>
 
-      {/* Stornierung */}
-      <section style={{ background: 'var(--btb-weiss)', padding: '2rem 1.5rem' }}>
-        <div className="container-btb" style={{ maxWidth: 800 }}>
-          <div style={{
-            borderRadius: 12,
-            border: '2px solid rgba(var(--btmm-glow-rgb),0.3)',
-            background: 'rgba(255,255,255,0.5)',
-            overflow: 'hidden',
-          }}>
-            <details>
-              <summary style={{
-                width: '100%',
-                padding: '1.25rem 1.5rem',
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'space-between',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-garamond)',
-                fontSize: '1.3rem',
-                color: 'var(--btb-dunkel)',
-                listStyle: 'none',
-              }}>
-                <div>
-                  <span style={{
-                    fontSize: '0.7rem',
-                    fontWeight: 600,
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.1em',
-                    color: 'white',
-                    background: 'var(--btb-blau, #2a7cab)',
-                    padding: '0.15rem 0.5rem',
-                    borderRadius: 4,
-                    marginRight: '0.5rem',
-                  }}>
-                    Service
-                  </span>
-                  Termin stornieren
-                </div>
-              </summary>
-              <div style={{ padding: '0 1.5rem 1.5rem' }}>
-                <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '1rem', lineHeight: 1.6 }}>
-                  Gib deine Buchungs-ID und E-Mail-Adresse ein um einen Termin zu stornieren.
-                  Die Buchungs-ID findest du in deiner Bestaetigungs-E-Mail.
-                </p>
-                <CancellationForm />
-              </div>
-            </details>
-          </div>
-        </div>
-      </section>
-
-      {/* Angebote mit Tree Pose */}
+      {/* Angebote */}
       <section className="section" style={{ background: 'var(--btb-creme)', position: 'relative', overflow: 'hidden' }}>
-        {/* Tree Pose Silhouette im Hintergrund */}
-        <div style={{
-          position: 'absolute',
-          right: '-2rem',
-          top: '50%',
-          transform: 'translateY(-50%)',
-          width: '300px',
-          height: '600px',
-          opacity: 0.08,
-          pointerEvents: 'none',
-        }}>
-          <Image
-            src="/tree-pose.svg"
-            alt=""
-            fill
-            style={{ objectFit: 'contain' }}
-          />
-        </div>
-
         <div className="container-btb" style={{ maxWidth: 800, position: 'relative', zIndex: 1 }}>
           <SectionReveal>
             <AngeboteAccordion />
