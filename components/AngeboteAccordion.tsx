@@ -59,7 +59,6 @@ const FESTE_ANGEBOTE: Angebot[] = [
     verfuegbar: true,
     hasPromotion: false,
     extern: true,
-    hinweis: 'Das Angebot wächst mit den Mitgliedern.',
   },
 ]
 
@@ -218,14 +217,6 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
         </p>
       )}
       <style dangerouslySetInnerHTML={{ __html: pulseKeyframes }} />
-      <p style={{
-        textAlign: 'center',
-        marginBottom: '2rem',
-        opacity: 0.7,
-        fontSize: '1rem',
-      }}>
-        Weitere Angebote wachsen mit jedem neuen Mitglied und jeder Fähigkeit im System.
-      </p>
 
       {angebote.map((angebot) => {
         const isOpen = openId === angebot.id

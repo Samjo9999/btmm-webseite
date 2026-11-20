@@ -31,9 +31,6 @@ export default function BuchenPage() {
               Anfrage per E-Mail senden
             </a>
           </p>
-          <p>
-            Oder nutze das <Link href="/koerperarbeit/kontakt">Kontaktformular</Link>.
-          </p>
         </div>
       </section>
     </div>
