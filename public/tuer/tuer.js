@@ -214,6 +214,10 @@
     window.scrollTo(0, 0);
   }
 
+  /* Wer aus der Tür auf die Webseite geht, wird in dieser Sitzung nicht erneut umgeleitet. */
+  function durch() { try { sessionStorage.setItem('btmm-tuer-durch', '1'); } catch (e) {} }
+  document.addEventListener('click', function (e) { var a = e.target.closest && e.target.closest('a[href^="/de"]'); if (a) durch(); }, true);
+
   /* ---------- Tür ---------- */
   function dialogStarten() {
     $('tuer').hidden = true; $('dialog').hidden = false; document.body.className = 'phase-dialog';

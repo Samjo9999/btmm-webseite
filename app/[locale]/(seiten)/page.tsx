@@ -15,6 +15,7 @@ import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSe
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
+import { TuerWeiche } from '@/components/btmm/TuerWeiche'
 
 export const dynamic = 'force-dynamic'
 
@@ -28,6 +29,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
 
   return (
     <>
+      <TuerWeiche locale={locale} />
       {/* ── 1. HERO ── */}
       <section style={{
         minHeight: '85vh',
