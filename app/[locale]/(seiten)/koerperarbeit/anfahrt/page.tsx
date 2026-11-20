@@ -5,7 +5,7 @@ import contactData from '@/data/contact.json'
 
 export const metadata: Metadata = {
   title: 'Anfahrt – Körperarbeit Freiburg',
-  description: 'Körperarbeit in Freiburg im Breisgau, Termine nach Absprache. Kontakt zum Gründer per Telefon, E-Mail oder Kontaktformular.',
+  description: 'Körperarbeit in Freiburg im Breisgau von Back to Balance. Termine, Preise und Ort auf der BtB-Webseite.',
 }
 
 export default function AnfahrtPage() {
@@ -50,15 +50,14 @@ export default function AnfahrtPage() {
             <MapPin size={24} style={{ color: 'var(--btb-rot)', flexShrink: 0, marginTop: 2 }} />
             <div>
               <p style={{ fontWeight: 700, fontSize: '1.1rem', color: 'var(--btb-dunkel)', marginBottom: '0.25rem' }}>
-                {contactData.gruender_name} · Gründer
+                Körperarbeit von Back to Balance
               </p>
-              <p style={{ fontSize: '1rem', color: 'var(--btb-dunkel)', lineHeight: 1.6 }}>
-                {contactData.adresse.strasse}<br />
-                {contactData.adresse.plz} {contactData.adresse.ort}
+              <p style={{ fontSize: '0.95rem', color: 'var(--btb-dunkel)', lineHeight: 1.6, marginBottom: '0.75rem' }}>
+                Die Körperarbeit bietet Back to Balance an. Termine, Preise und alles zum Ort finden Sie auf der BtB-Webseite.
               </p>
-              <p style={{ fontSize: '0.9rem', color: 'var(--btb-dunkel)', opacity: 0.7, marginTop: '0.5rem', lineHeight: 1.6 }}>
-                Das ist die Postanschrift des Gründers, kein Praxisraum. Termine finden in Freiburg nach Absprache statt – den Ort Ihres Termins sprechen wir mit Ihnen ab.
-              </p>
+              <a href="https://www.backtobalance.online" target="_blank" rel="noopener" className="btn-primary" style={{ fontSize: '0.9rem' }}>
+                Zur BtB-Webseite
+              </a>
             </div>
           </div>
 

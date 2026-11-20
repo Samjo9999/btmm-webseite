@@ -14,7 +14,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Kontakt – Körperarbeit Freiburg',
-  description: 'Kontakt für BtMM-Körperarbeit in Freiburg: Gründer Johannes-Samuel Gartzke, Telefon, E-Mail und Kontaktformular. Termine nach Absprache.',
+  description: 'Kontakt zur Körperarbeit in Freiburg: E-Mail, Telefon und Kontaktformular. Termine, Preise und Ort auf der Webseite von Back to Balance.',
 }
 
 export default async function KontaktPage() {
@@ -100,11 +100,9 @@ export default async function KontaktPage() {
                     <MapPin size={20} style={{ color: 'var(--btb-rot)', marginTop: 2, flexShrink: 0 }} />
                     <div>
                       <p style={{ fontWeight: 600, marginBottom: '0.2rem' }}>{t('kontakt.gruender')}</p>
-                      <p style={{ lineHeight: 1.6 }}>
-                        {contactData.adresse.strasse}<br />
-                        {contactData.adresse.plz} {contactData.adresse.ort}
-                      </p>
-                      <p style={{ fontSize: '0.85rem', opacity: 0.7, marginTop: '0.25rem' }}>{t('kontakt.postanschrift_hinweis')}</p>
+                      <a href="https://www.backtobalance.online" target="_blank" rel="noopener" style={{ color: 'var(--btb-blau)', fontWeight: 600, textDecoration: 'none' }}>
+                        {t('kontakt.btb_link')} →
+                      </a>
                     </div>
                   </div>
 

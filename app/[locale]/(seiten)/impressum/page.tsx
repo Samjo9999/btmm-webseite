@@ -49,7 +49,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
               <div className="prose-btb">
                 <h3>Angaben gemäß § 5 DDG (ehem. TMG)</h3>
                 <p>
-                  Johannes-Samuel Gartzke (Kleingewerbe)<br />
+                  Johannes-Samuel Gartzke (Kleingewerbe; Gründer von BtMM)<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br />
                   Deutschland
