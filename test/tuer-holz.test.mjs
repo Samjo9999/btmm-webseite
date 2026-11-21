@@ -44,7 +44,7 @@ test('Tür-CSS: Band ohne linken Rahmen, reduced-motion nur Fade, --tuer-y', () 
   assert.match(css, /\.oeffnet \.fluegel,\s*\.oeffnet \.fluegel\.links,\s*\.oeffnet \.fluegel\.rechts\{transform:none;opacity:0\}/)
   assert.match(css, /--tuer-y:50%/)
   assert.match(css, /--tuer-y:48\.3%/)
-  assert.match(css, /max-height:175px/)
+  assert.match(css, /max-height:160px/)
   assert.doesNotMatch(css, /\.tuer-licht\{|\.tuer-logo\{/)
 })
 
