@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 // Tür: der Kennenlern-Pfad passt sich individuell an (Nutzer 21.11.2026 00:35).
 // Nachweis: unterschiedliche Profile ergeben unterschiedliche Schritt-Auswahl und -Reihenfolge, nicht nur andere Sätze.
 import { test } from 'node:test'
@@ -47,6 +48,23 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
 })
 
+test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+  for (const [k, d] of Object.entries(PF.SCHRITTE)) {
+    const b = PF.BILDER[d.bild]; assert.ok(b, k)
+    assert.match(b.src, /^\/tuer\/bilder\/weg\/[a-z]+\.jpg$/, b.src)
+    assert.match(b.webp, /^\/tuer\/bilder\/weg\/[a-z]+\.webp$/, b.webp)
+    const jpgUrl = new URL('../public' + b.src, import.meta.url)
+    const webpUrl = new URL('../public' + b.webp, import.meta.url)
+    assert.ok(existsSync(jpgUrl), b.src)
+    assert.ok(existsSync(webpUrl), b.webp)
+    for (const [label, buf] of [['jpg', readFileSync(jpgUrl)], ['webp', readFileSync(webpUrl)]]) {
+      const s = buf.toString('latin1')
+      assert.ok(s.includes('trainedAlgorithmicMedia'), `DigitalSourceType fehlt in ${label} ${b.src}`)
+      assert.ok(s.includes('Bilder erstellt mit Grok (KI)'), `Credit fehlt in ${label} ${b.src}`)
+    }
+  }
+})
+
 test('Bilder je Schritt nach Merkmal, ohne Doppelung, nur vorhandene', () => {
   for (const pers of ['macher', 'pruefer']) {
     const p = profilAus('de', PERSONA[pers]); const k = PF.pfadBauen(p); const b = PF.bilderWaehlen(k, p)
@@ -59,9 +77,39 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
   const keys = Object.keys(PF.SCHRITTE)
   for (const [l, T] of Object.entries(TEXTE)) {
     for (const k of keys) assert.ok(T.schritte[k]?.[0] && T.schritte[k]?.[1], `${l} schritt ${k}`)
-    for (const id of Object.keys(PF.BILDER)) assert.ok(T.alt[id], `${l} alt ${id}`)
+    assert.ok(T.kiLabel, `${l} kiLabel`)
+    assert.match(T.bildCredit, /Grok/, `${l} bildCredit`)
+    assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
+    for (const id of Object.keys(PF.BILDER)) {
+      assert.ok(T.alt[id], `${l} alt ${id}`)
+      const prefix = {de: 'KI-generiertes Bild: ', en: 'AI-generated image: ', fr: 'Image générée par IA: ', es: 'Imagen generada por IA: ', pt: 'Imagem gerada por IA: ', ru: 'Изображение, созданное ИИ: ', ar: 'صورة مُنشأة بالذكاء الاصطناعي: ', hi: 'एआई-जनरेटेड चित्र: ', bn: 'এআই-সৃষ্ট ছবি: ', ja: 'AI生成画像: ', zh: 'AI生成的图片: '}[l]
+      assert.ok(prefix && T.alt[id].startsWith(prefix), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
+    }
     for (const k of keys) { const bz = PF.bezugKey(k, { neugierig: 1, vorbei: 1, anpacken: 1, weit: 1 }); assert.ok(T.bezug[bz], `${l} bezug ${bz}`) }
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
+  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild – Personen fiktiv')
+  assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
+  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Vier Menschen stehen in einer alten Werkstatt an der Hobelbank, teilen Brot und unterhalten sich')
+  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Bauernküche Karotten, Kartoffeln und Äpfel in Beutel und Gläser auf')
+  assert.equal(TEXTE.de.alt.sinn, 'KI-generiertes Bild: Fünf Menschen sitzen in der Dämmerung im Garten um eine Laterne und unterhalten sich bei Tee und Brot')
+  assert.equal(TEXTE.de.alt.vorbei, 'KI-generiertes Bild: Eine Frau steht in der offenen Tür eines Steinhauses und begrüßt zwei Gäste, drinnen ein gedeckter Tisch')
+  assert.equal(TEXTE.de.schritte.sinn[0], 'Gemeinschaft')
+  assert.equal(TEXTE.de.schritte.sinn[1], 'Wie Entscheidungen in BtMM fallen und woran sich das Miteinander ausrichtet.')
+  assert.equal(TEXTE.de.schritte.vorbei[0], 'Kennenlernen vor Ort')
+  assert.equal(TEXTE.de.schritte.vorbei[1], 'Wie du uns vor Ort kennenlernen kannst.')
+  for (const [l, T] of Object.entries(TEXTE)) {
+    const beside = [T.schritte.sinn[0], T.schritte.sinn[1], T.schritte.vorbei[0], T.schritte.vorbei[1], T.bezug.sinn, T.bezug.vorbei].join(' ')
+    assert.doesNotMatch(beside, /unserem Treffen|letzten Abend|our meeting|last evening|notre rencontre|dernier soir/i, `${l} 07/10-Text klingt nach Treffen/Abend: ${beside}`)
+  }
+})
+
+
+test('Tür-Seite verlinkt ein lokales Icon, kein externes Favicon', () => {
+  const html = readFileSync(new URL('../public/tuer/index.html', import.meta.url), 'utf8')
+  const m = html.match(/<link\s+rel="icon"[^>]*>/)
+  assert.ok(m, 'link rel=icon fehlt')
+  assert.match(m[0], /href="\/tuer\/bilder\/logo\.png"/)
+  assert.doesNotMatch(m[0], /https?:/)
 })
