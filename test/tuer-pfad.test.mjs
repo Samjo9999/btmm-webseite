@@ -48,13 +48,17 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
 })
 
-test('eigene Grafik je Schritt: Datei vorhanden, keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+test('eigenes Bild je Schritt: jpg mit C2PA plus webp, keine Silhouetten/Logos, keine Fotos von Johannes', () => {
   for (const [k, d] of Object.entries(PF.SCHRITTE)) {
     const b = PF.BILDER[d.bild]; assert.ok(b, k)
-    for (const src of [b.src, b.gross]) {
-      assert.match(src, /^\/tuer\/bilder\/weg\/[a-z]+-(720|1280)\.webp$/, src)
-      assert.ok(existsSync(new URL('../public' + src, import.meta.url)), src)
-    }
+    assert.match(b.src, /^\/tuer\/bilder\/weg\/[a-z]+\.jpg$/, b.src)
+    assert.match(b.webp, /^\/tuer\/bilder\/weg\/[a-z]+\.webp$/, b.webp)
+    const jpgUrl = new URL('../public' + b.src, import.meta.url)
+    const webpUrl = new URL('../public' + b.webp, import.meta.url)
+    assert.ok(existsSync(jpgUrl), b.src)
+    assert.ok(existsSync(webpUrl), b.webp)
+    const jpg = readFileSync(jpgUrl)
+    assert.ok(jpg.includes('jumb') && jpg.includes('c2pa'), 'C2PA fehlt in ' + b.src)
   }
 })
 
@@ -70,9 +74,18 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
   const keys = Object.keys(PF.SCHRITTE)
   for (const [l, T] of Object.entries(TEXTE)) {
     for (const k of keys) assert.ok(T.schritte[k]?.[0] && T.schritte[k]?.[1], `${l} schritt ${k}`)
-    for (const id of Object.keys(PF.BILDER)) assert.ok(T.alt[id], `${l} alt ${id}`)
+    assert.ok(T.kiLabel, `${l} kiLabel`)
+    assert.match(T.bildCredit, /Grok/, `${l} bildCredit`)
+    assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
+    for (const id of Object.keys(PF.BILDER)) {
+      assert.ok(T.alt[id], `${l} alt ${id}`)
+      assert.ok(T.alt[id].startsWith(T.kiLabel + ': '), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
+    }
     for (const k of keys) { const bz = PF.bezugKey(k, { neugierig: 1, vorbei: 1, anpacken: 1, weit: 1 }); assert.ok(T.bezug[bz], `${l} bezug ${bz}`) }
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
+  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild')
+  assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
+  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Mehrere Hände teilen ein frisches Brot über einer Werkbank mit Hobel und Stechbeiteln')
 })
