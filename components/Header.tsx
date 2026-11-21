@@ -68,7 +68,7 @@ export function Header({ locale }: { locale: Locale }) {
             fontFamily: 'var(--font-garamond)',
             fontWeight: 700,
             fontSize: '1.1rem',
-            color: 'var(--btb-dunkel)',
+            color: 'var(--btmm-dunkel)',
             display: 'none',
           }} className="hidden md:block">
             {BRAND_LONG}
