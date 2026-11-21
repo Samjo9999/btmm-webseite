@@ -17,6 +17,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Mikrofon",
     mikText: "Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.",
     mikStart: "Mikrofon starten", mikTippen: "Lieber tippen",
+    ohneSpeicher: "Dein Browser lässt gerade kein Speichern zu (z. B. privater Modus). Die Fragen funktionieren trotzdem, aber dein Weg geht beim Neuladen verloren.",
+    mikFehler: "Das Mikrofon ist nicht freigegeben. Du kannst es in den Browser-Einstellungen erlauben oder einfach tippen.",
     pfadH1: "Dein Weg durch BtMM", zurStart: "Zur Startseite", hier: "Hier anfangen", ansehen: "Ansehen",
     willkommen: "Schön, dass du da bist. Antworte so, wie es dir gerade einfällt, mit Text oder Sprache.",
     danke: "Danke, das hilft mir weiter.",
@@ -77,8 +79,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Goldene Unendlichkeitsschleife, die zum Kreis wird", unendlichDunkel: "Weiße Unendlichkeitsschleife auf dunklem Grund",
       kreis: "BtMM-Zeichen: ein Kreis aus verschlungenen Linien", baumDunkel: "Gezeichneter Baum, der aus einer stehenden Figur wächst",
-      baumHell: "Heller Baum, der aus einer stehenden Figur wächst", logo: "BtMM-Logo",
-      wiese: "Johannes mit seinem Hund auf einer Wiese", portraet: "Porträt von Johannes"
+      baumHell: "Heller Baum, der aus einer stehenden Figur wächst", logo: "BtMM-Logo"
     },
     merkmale: {
       freund: ["freund", "freundin", "bekannt", "kollege", "kollegin", "familie", "mutter", "vater", "bruder", "schwester", "erzählt", "empfohlen", "empfehlung", "mitbewohn", "wg", "chor"],
@@ -112,6 +113,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Microphone",
     mikText: "Your voice is only used to type your answer. The conversion is done by your browser's speech recognition service (e.g. Google or Apple), not by our servers. We do not store any recording. You can stop at any time.",
     mikStart: "Start microphone", mikTippen: "I'd rather type",
+    ohneSpeicher: "Your browser isn't allowing storage right now (e.g. private mode). The questions still work, but your path will be lost if you reload.",
+    mikFehler: "The microphone isn't allowed. You can enable it in your browser settings or just type.",
     pfadH1: "Your path through BtMM", zurStart: "To the home page", hier: "Start here", ansehen: "Take a look",
     willkommen: "Nice to have you here. Answer however it comes to mind, by text or by voice.",
     danke: "Thank you, that helps me.",
@@ -166,8 +169,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Golden infinity loop turning into a circle", unendlichDunkel: "White infinity loop on a dark background",
       kreis: "BtMM sign: a circle of intertwined lines", baumDunkel: "Drawn tree growing out of a standing figure",
-      baumHell: "Light tree growing out of a standing figure", logo: "BtMM logo",
-      wiese: "Johannes with his dog in a meadow", portraet: "Portrait of Johannes"
+      baumHell: "Light tree growing out of a standing figure", logo: "BtMM logo"
     },
     merkmale: {
       freund: ["friend", "buddy", "colleague", "coworker", "co-worker", "family", "mother", " mom", " mum", "father", " dad", "brother", "sister", "partner", "told me", "recommend", "word of mouth", "roommate", "flatmate", "neighbo"],
@@ -201,6 +203,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Microphone",
     mikText: "Ta voix sert uniquement à taper ta réponse. La conversion est effectuée par le service de reconnaissance vocale de ton navigateur (par ex. Google ou Apple), pas par nos serveurs. Nous ne conservons aucun enregistrement. Tu peux arrêter à tout moment.",
     mikStart: "Activer le microphone", mikTippen: "Je préfère écrire",
+    ohneSpeicher: "Ton navigateur n’autorise pas l’enregistrement pour le moment (p. ex. mode privé). Les questions fonctionnent quand même, mais ton parcours sera perdu si tu recharges la page.",
+    mikFehler: "Le micro n’est pas autorisé. Tu peux l’activer dans les réglages du navigateur ou simplement écrire.",
     pfadH1: "Ton chemin à travers BtMM", zurStart: "Vers la page d'accueil", hier: "Commencer ici", ansehen: "Voir",
     willkommen: "Ravi que tu sois là. Réponds comme ça te vient, par écrit ou à voix haute.",
     danke: "Merci, ça m'aide.",
@@ -255,8 +259,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Boucle de l'infini dorée qui devient un cercle", unendlichDunkel: "Boucle de l'infini blanche sur fond sombre",
       kreis: "Signe de BtMM : un cercle de lignes entrelacées", baumDunkel: "Arbre dessiné qui pousse à partir d'une silhouette debout",
-      baumHell: "Arbre clair qui pousse à partir d'une silhouette debout", logo: "Logo de BtMM",
-      wiese: "Johannes avec son chien dans un pré", portraet: "Portrait de Johannes"
+      baumHell: "Arbre clair qui pousse à partir d'une silhouette debout", logo: "Logo de BtMM"
     },
     merkmale: {
       freund: [" ami", " amie", "copain", "copine", "collegue", "famille", " mere", " pere", " maman", " papa", "frere", "soeur", "m'a parle", "m'en a parle", "raconte", "recommand", "conseille", "bouche a oreille", "colocataire", "coloc", "voisin"],
@@ -290,6 +293,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Micrófono",
     mikText: "Tu voz solo se usa para escribir la respuesta. La conversión la realiza el servicio de reconocimiento de voz de tu navegador (p. ej., Google o Apple), no nuestros servidores. No guardamos ninguna grabación. Puedes detenerlo en cualquier momento.",
     mikStart: "Activar micrófono", mikTippen: "Prefiero escribir",
+    ohneSpeicher: "Tu navegador no permite guardar datos ahora mismo (p. ej., modo privado). Las preguntas funcionan igual, pero tu camino se perderá si recargas la página.",
+    mikFehler: "El micrófono no está permitido. Puedes activarlo en los ajustes del navegador o simplemente escribir.",
     pfadH1: "Tu camino por BtMM", zurStart: "Ir a la página de inicio", hier: "Empezar aquí", ansehen: "Ver",
     willkommen: "Qué bien que estés aquí. Responde como te salga, por escrito o con la voz.",
     danke: "Gracias, eso me ayuda.",
@@ -344,8 +349,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Bucle de infinito dorado que se convierte en círculo", unendlichDunkel: "Bucle de infinito blanco sobre fondo oscuro",
       kreis: "Signo de BtMM: un círculo de líneas entrelazadas", baumDunkel: "Árbol dibujado que crece de una figura de pie",
-      baumHell: "Árbol claro que crece de una figura de pie", logo: "Logotipo de BtMM",
-      wiese: "Johannes con su perro en un prado", portraet: "Retrato de Johannes"
+      baumHell: "Árbol claro que crece de una figura de pie", logo: "Logotipo de BtMM"
     },
     merkmale: {
       freund: ["amig", "colega", "companer", "familia", "madre", " mama", "padre", " papa", "herman", "me conto", "me hablo", "recomend", "boca a boca", "vecin", "conocid"],
@@ -379,6 +383,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Microfone",
     mikText: "Sua voz é usada apenas para digitar a resposta. A conversão é feita pelo serviço de reconhecimento de voz do seu navegador (por exemplo, Google ou Apple), não pelos nossos servidores. Não armazenamos nenhuma gravação. Você pode parar a qualquer momento.",
     mikStart: "Ativar microfone", mikTippen: "Prefiro digitar",
+    ohneSpeicher: "Seu navegador não está permitindo salvar dados agora (por exemplo, modo privado). As perguntas funcionam mesmo assim, mas seu caminho se perde se você recarregar a página.",
+    mikFehler: "O microfone não está liberado. Você pode permitir nas configurações do navegador ou simplesmente digitar.",
     pfadH1: "Seu caminho pelo BtMM", zurStart: "Ir para a página inicial", hier: "Começar aqui", ansehen: "Ver",
     willkommen: "Que bom que você está aqui. Responda como vier à cabeça, por texto ou por voz.",
     danke: "Obrigado, isso me ajuda.",
@@ -433,8 +439,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Laço do infinito dourado que se torna um círculo", unendlichDunkel: "Laço do infinito branco sobre fundo escuro",
       kreis: "Símbolo do BtMM: um círculo de linhas entrelaçadas", baumDunkel: "Árvore desenhada que cresce de uma figura em pé",
-      baumHell: "Árvore clara que cresce de uma figura em pé", logo: "Logotipo do BtMM",
-      wiese: "Johannes com seu cachorro num prado", portraet: "Retrato de Johannes"
+      baumHell: "Árvore clara que cresce de uma figura em pé", logo: "Logotipo do BtMM"
     },
     merkmale: {
       freund: ["amig", "colega", "familia", " mae", " pai ", "irma", "me contou", "me falou", "recomend", "indicou", "indicacao", "boca a boca", "vizinh", "conhecid"],
@@ -468,6 +473,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "Микрофон",
     mikText: "Твой голос используется только для того, чтобы набрать ответ. Преобразование выполняет служба распознавания речи твоего браузера (например, Google или Apple), а не наши серверы. Мы не сохраняем никаких записей. Ты можешь остановить в любой момент.",
     mikStart: "Включить микрофон", mikTippen: "Лучше напишу",
+    ohneSpeicher: "Сейчас браузер не разрешает сохранять данные (например, в приватном режиме). Вопросы всё равно работают, но при перезагрузке страницы твой путь пропадёт.",
+    mikFehler: "Доступ к микрофону не разрешён. Его можно включить в настройках браузера или просто напиши ответ.",
     pfadH1: "Твой путь по BtMM", zurStart: "На главную", hier: "Начать здесь", ansehen: "Посмотреть",
     willkommen: "Хорошо, что ты здесь. Отвечай так, как приходит в голову, текстом или голосом.",
     danke: "Спасибо, это мне помогает.",
@@ -522,8 +529,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "Золотая петля бесконечности, которая становится кругом", unendlichDunkel: "Белая петля бесконечности на тёмном фоне",
       kreis: "Знак BtMM: круг из переплетённых линий", baumDunkel: "Нарисованное дерево, вырастающее из стоящей фигуры",
-      baumHell: "Светлое дерево, вырастающее из стоящей фигуры", logo: "Логотип BtMM",
-      wiese: "Йоханнес со своей собакой на лугу", portraet: "Портрет Йоханнеса"
+      baumHell: "Светлое дерево, вырастающее из стоящей фигуры", logo: "Логотип BtMM"
     },
     merkmale: {
       freund: ["друг", "друз", "подруг", "знаком", "коллег", "семья", "семьи", "мама", "мать", "папа", "отец", "брат", "сестр", "рассказал", "рассказыв", "посовет", "рекоменд", "сосед"],
@@ -557,6 +563,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "الميكروفون",
     mikText: "يُستخدم صوتك فقط لكتابة الإجابة. تتم عملية التحويل عبر خدمة التعرّف على الكلام في متصفحك (مثل Google أو Apple)، وليس عبر خوادمنا. نحن لا نحفظ أي تسجيل. يمكنك الإيقاف في أي وقت.",
     mikStart: "تشغيل الميكروفون", mikTippen: "أفضّل الكتابة",
+    ohneSpeicher: "متصفحك لا يسمح بالحفظ حاليًا (مثلًا في الوضع الخاص). الأسئلة تعمل مع ذلك، لكن طريقك سيضيع عند إعادة تحميل الصفحة.",
+    mikFehler: "الميكروفون غير مسموح به. يمكنك السماح به من إعدادات المتصفح أو الكتابة ببساطة.",
     pfadH1: "طريقك عبر BtMM", zurStart: "إلى الصفحة الرئيسية", hier: "ابدأ من هنا", ansehen: "اطّلع",
     willkommen: "يسعدنا وجودك هنا. أجب كما يخطر لك، بالكتابة أو بالصوت.",
     danke: "شكرًا، هذا يساعدني.",
@@ -611,8 +619,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "حلقة لا نهاية ذهبية تتحول إلى دائرة", unendlichDunkel: "حلقة لا نهاية بيضاء على خلفية داكنة",
       kreis: "رمز BtMM: دائرة من خطوط متشابكة", baumDunkel: "شجرة مرسومة تنمو من شخص واقف",
-      baumHell: "شجرة فاتحة تنمو من شخص واقف", logo: "شعار BtMM",
-      wiese: "يوهانس مع كلبه في مرج", portraet: "صورة شخصية ليوهانس"
+      baumHell: "شجرة فاتحة تنمو من شخص واقف", logo: "شعار BtMM"
     },
     merkmale: {
       freund: ["صديق", "اصدقاء", "زميل", "عائلة", "عائلتي", "اسرتي", "والدتي", "والدي", "امي ", "ابي ", "اخي ", "اختي", "اخبرني", "اخبرتني", "حكى لي", "نصحني", "اوصى", "توصية", "جاري", "جارتي"],
@@ -646,6 +653,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "माइक्रोफ़ोन",
     mikText: "आपकी आवाज़ का उपयोग सिर्फ़ जवाब टाइप करने के लिए होता है। यह रूपांतरण आपके ब्राउज़र की वाक् पहचान सेवा (जैसे Google या Apple) करती है, हमारे सर्वर नहीं। हम कोई रिकॉर्डिंग सहेजते नहीं हैं। आप कभी भी रोक सकते हैं।",
     mikStart: "माइक्रोफ़ोन चालू करें", mikTippen: "टाइप करना बेहतर है",
+    ohneSpeicher: "आपका ब्राउज़र अभी सहेजने की अनुमति नहीं दे रहा (जैसे प्राइवेट मोड)। सवाल फिर भी चलेंगे, लेकिन पेज दोबारा लोड करने पर आपका रास्ता खो जाएगा।",
+    mikFehler: "माइक्रोफ़ोन की अनुमति नहीं है। आप इसे ब्राउज़र सेटिंग्स में चालू कर सकते हैं या बस टाइप कर सकते हैं।",
     pfadH1: "BtMM में आपका रास्ता", zurStart: "मुखपृष्ठ पर जाएँ", hier: "यहाँ से शुरू करें", ansehen: "देखें",
     willkommen: "अच्छा लगा कि आप यहाँ हैं। जैसा मन में आए वैसा जवाब दें, लिखकर या बोलकर।",
     danke: "धन्यवाद, इससे मदद मिलती है।",
@@ -700,8 +709,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "सुनहरा अनंत-लूप जो एक वृत्त बन जाता है", unendlichDunkel: "गहरी पृष्ठभूमि पर सफ़ेद अनंत-लूप",
       kreis: "BtMM का चिह्न: आपस में गुँथी रेखाओं का एक वृत्त", baumDunkel: "खड़ी आकृति से उगता हुआ चित्रित पेड़",
-      baumHell: "खड़ी आकृति से उगता हुआ हल्के रंग का पेड़", logo: "BtMM लोगो",
-      wiese: "घास के मैदान में अपने कुत्ते के साथ योहानेस", portraet: "योहानेस का चित्र"
+      baumHell: "खड़ी आकृति से उगता हुआ हल्के रंग का पेड़", logo: "BtMM लोगो"
     },
     merkmale: {
       freund: ["दोस्त", "मित्र", "सहकर्मी", "परिवार", "माँ", "मां", "पिता", "पापा", "भाई", "बहन", "बताया", "सलाह", "सिफारिश", "सिफ़ारिश", "पड़ोसी", "friend"],
@@ -735,6 +743,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "মাইক্রোফোন",
     mikText: "আপনার কণ্ঠ শুধু উত্তর টাইপ করার জন্য ব্যবহার করা হয়। এই রূপান্তর করে আপনার ব্রাউজারের স্পিচ রিকগনিশন পরিষেবা (যেমন Google বা Apple), আমাদের সার্ভার নয়। আমরা কোনো রেকর্ডিং সংরক্ষণ করি না। আপনি যেকোনো সময় থামাতে পারেন।",
     mikStart: "মাইক্রোফোন চালু করুন", mikTippen: "টাইপ করাই ভালো",
+    ohneSpeicher: "আপনার ব্রাউজার এখন সংরক্ষণ করতে দিচ্ছে না (যেমন প্রাইভেট মোড)। প্রশ্নগুলো তবুও চলবে, কিন্তু পেজ রিলোড করলে আপনার পথ হারিয়ে যাবে।",
+    mikFehler: "মাইক্রোফোনের অনুমতি নেই। ব্রাউজারের সেটিংসে এটি চালু করতে পারেন, অথবা শুধু টাইপ করুন।",
     pfadH1: "BtMM-এ আপনার পথ", zurStart: "মূল পাতায় যান", hier: "এখান থেকে শুরু করুন", ansehen: "দেখুন",
     willkommen: "আপনি এসেছেন, ভালো লাগল। যেমন মনে আসে তেমন উত্তর দিন, লিখে বা বলে।",
     danke: "ধন্যবাদ, এতে আমার সাহায্য হয়।",
@@ -789,8 +799,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "সোনালি অসীম-লুপ যা একটি বৃত্তে পরিণত হয়", unendlichDunkel: "গাঢ় পটভূমিতে সাদা অসীম-লুপ",
       kreis: "BtMM-এর চিহ্ন: জড়ানো রেখার একটি বৃত্ত", baumDunkel: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা আঁকা গাছ",
-      baumHell: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা হালকা রঙের গাছ", logo: "BtMM লোগো",
-      wiese: "মাঠে নিজের কুকুরের সঙ্গে ইয়োহানেস", portraet: "ইয়োহানেসের প্রতিকৃতি"
+      baumHell: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা হালকা রঙের গাছ", logo: "BtMM লোগো"
     },
     merkmale: {
       freund: ["বন্ধু", "বান্ধবী", "সহকর্মী", "পরিবার", "আমার মা", "মায়ের", "বাবা", "ভাই", "বোন", "বলেছে", "বলেছিল", "বলেছেন", "পরামর্শ", "সুপারিশ", "প্রতিবেশী"],
@@ -824,6 +833,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "マイク",
     mikText: "音声は回答を入力するためだけに使われます。変換を行うのはお使いのブラウザの音声認識サービス（例：GoogleやApple）で、当社のサーバーではありません。録音は一切保存しません。いつでも停止できます。",
     mikStart: "マイクを開始", mikTippen: "入力のほうがいい",
+    ohneSpeicher: "現在、ブラウザが保存を許可していません（プライベートモードなど）。質問はそのまま使えますが、再読み込みするとあなたの道は失われます。",
+    mikFehler: "マイクが許可されていません。ブラウザの設定で許可するか、そのまま入力してください。",
     pfadH1: "BtMMを巡るあなたの道", zurStart: "トップページへ", hier: "ここから始める", ansehen: "見る",
     willkommen: "ようこそ。思いついたままに、文字でも音声でも答えてください。",
     danke: "ありがとうございます。参考になります。",
@@ -878,8 +889,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "円へと変わっていく金色の無限ループ", unendlichDunkel: "暗い背景に白い無限ループ",
       kreis: "BtMMのシンボル：絡み合う線でできた円", baumDunkel: "立っている人の姿から伸びる木のイラスト",
-      baumHell: "立っている人の姿から伸びる明るい色の木", logo: "BtMMのロゴ",
-      wiese: "草地で愛犬と過ごすヨハネス", portraet: "ヨハネスの肖像"
+      baumHell: "立っている人の姿から伸びる明るい色の木", logo: "BtMMのロゴ"
     },
     merkmale: {
       freund: ["友達", "友だち", "友人", "知人", "知り合い", "同僚", "家族", "母", "父", "兄", "姉", "弟", "妹", "聞いた", "教えてもら", "勧め", "すすめ", "紹介", "口コミ", "ルームメイト"],
@@ -913,6 +923,8 @@ window.BTMM_TUER_TEXTE = {
     mikTitel: "麦克风",
     mikText: "你的语音只用于输入回答。转换由你浏览器的语音识别服务（例如 Google 或 Apple）完成，而不是我们的服务器。我们不保存任何录音。你可以随时停止。",
     mikStart: "开启麦克风", mikTippen: "还是打字吧",
+    ohneSpeicher: "你的浏览器目前不允许保存数据（例如隐私模式）。问题仍可正常回答，但重新加载页面后你的路径会丢失。",
+    mikFehler: "麦克风未获授权。你可以在浏览器设置中允许，或者直接打字。",
     pfadH1: "你穿越 BtMM 的路", zurStart: "前往首页", hier: "从这里开始", ansehen: "查看",
     willkommen: "很高兴你来了。想到什么就回答什么，可以打字，也可以说话。",
     danke: "谢谢，这对我很有帮助。",
@@ -967,8 +979,7 @@ window.BTMM_TUER_TEXTE = {
     alt: {
       unendlichGold: "逐渐变成圆圈的金色无限环", unendlichDunkel: "深色背景上的白色无限环",
       kreis: "BtMM 标志：由交织线条组成的圆", baumDunkel: "从站立人形中长出的手绘树",
-      baumHell: "从站立人形中长出的浅色树", logo: "BtMM 标志",
-      wiese: "约翰内斯和他的狗在草地上", portraet: "约翰内斯的肖像"
+      baumHell: "从站立人形中长出的浅色树", logo: "BtMM 标志"
     },
     merkmale: {
       freund: ["朋友", "熟人", "同事", "家人", "妈妈", "母亲", "爸爸", "父亲", "哥哥", "姐姐", "弟弟", "妹妹", "告诉我", "跟我说", "推荐", "介绍", "口碑", "室友", "邻居"],

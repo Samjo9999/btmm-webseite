@@ -11,7 +11,10 @@ a{color:var(--lila)}
 .knopf.hell{background:#fff;color:var(--lila);box-shadow:0 0 40px rgba(255,220,250,.6)}
 .knopf.zweit{background:transparent;color:var(--lila);border:1px solid var(--lila2)}
 .leise{border:0;background:none;color:var(--grau);font:inherit;font-size:.8em;text-decoration:underline;cursor:pointer}
-:focus-visible{outline:3px solid #d58fd0;outline-offset:2px}
+:focus-visible{outline:3px solid var(--lila);outline-offset:2px}
+.tuer :focus-visible{outline-color:#fff}
+.pfad h1:focus{outline:none}
+.pfad h1:focus-visible{outline:3px solid var(--lila)}
 
 /* Tür */
 .tuer{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,#904b97 0%,#4a0a42 55%,#22061f 100%);color:#fff;text-align:center;overflow:hidden;position:relative;padding:24px}
@@ -20,7 +23,8 @@ a{color:var(--lila)}
 .fluegel.links{transform-origin:left center;border-radius:110px 0 0 0}
 .fluegel.rechts{transform-origin:right center;border-radius:0 110px 0 0}
 .tuer-licht{position:absolute;width:120px;opacity:0;filter:drop-shadow(0 0 30px #fff);transition:opacity .8s}
-.tuer-text{position:relative;z-index:2;max-width:26em;transition:opacity .5s}
+.tuer-text{position:relative;z-index:2;max-width:min(26em,calc(2 * min(42vw,220px) - 36px));overflow-wrap:anywhere;transition:opacity .5s}
+[dir=rtl] .tuer-text{line-height:1.6}
 .tuer-logo{width:110px;filter:drop-shadow(0 0 24px rgba(255,230,250,.7))}
 .tuer h1{font-size:2.4em;margin:.3em 0 .2em;font-weight:600}
 .tuer p{margin:0 0 1.4em;opacity:.92}
@@ -30,7 +34,7 @@ a{color:var(--lila)}
 .oeffnet .fluegel.rechts{transform:perspective(900px) rotateY(-80deg)}
 .oeffnet .tuer-text{opacity:0}
 .oeffnet .tuer-licht{opacity:1}
-@media (prefers-reduced-motion:reduce){.fluegel,.tuer-text,.tuer-licht{transition:none}}
+@media (prefers-reduced-motion:reduce){.fluegel,.tuer-text,.tuer-licht{transition:none}.blase{animation:none}.hoert .mik{animation:none}}
 
 /* Dialog */
 .dialog{max-width:640px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
@@ -39,8 +43,9 @@ a{color:var(--lila)}
 .kopf div{flex:1;display:flex;flex-direction:column;line-height:1.15}
 .kopf span{font-size:.75em;color:var(--grau)}
 .kopf-aktionen{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:end}
-.kopf-aktionen .leise{padding:0;line-height:1.3}
+.kopf-aktionen .leise{padding:4px 0;line-height:1.3}
 .hinweis-kasten{margin:12px 16px 0;padding:10px 0;border-top:1px solid var(--lila2);border-bottom:1px solid var(--lila2);font-size:.8em;color:var(--grau)}
+.fehler-kasten{margin:12px 16px 0;padding:10px 0;border-top:2px solid #a3123f;border-bottom:2px solid #a3123f;font-size:.85em;color:#7d0e30}
 .verlauf{list-style:none;margin:0;padding:16px;flex:1;display:flex;flex-direction:column;gap:10px}
 .blase{max-width:86%;padding:10px 14px;border-radius:18px;animation:rein .3s ease}
 .blase.frage{align-self:flex-start;background:#fff;border:1px solid var(--linie);border-bottom-left-radius:6px;font-weight:600}

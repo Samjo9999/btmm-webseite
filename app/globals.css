@@ -374,3 +374,18 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
 
 /* Pfad-Leiste (Kennenlern-Weg aus der Tür): Scroll-Hinweis ausblenden, solange die Leiste unten steht */
 body.pfad-leiste-an [data-scroll-hint] { display: none !important; }
+
+/* UX-Härtung 21.11.2026: Sprunglink, Fokus auf <main> ohne Ring beim Mausklick, weniger Bewegung */
+.zum-inhalt {
+  position: absolute; left: 0.75rem; top: -4rem; z-index: 1000;
+  padding: 0.6rem 1rem; border-radius: 0.5rem;
+  background: var(--btmm-dunkel); color: #fff !important; font-weight: 600; text-decoration: none;
+}
+.zum-inhalt:focus { top: 0.75rem; }
+main#inhalt:focus { outline: none; }
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important; animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important; scroll-behavior: auto !important;
+  }
+}
