@@ -78,10 +78,13 @@
     "bild_alt": "约翰内斯-萨穆埃尔·加茨克与他的狗在草地上"
   },
   "kontakt": {
-    "titel": "联系与到达",
+    "titel": "联系",
     "untertitel": "如何联系我们",
     "formular_titel": "给我们写信",
-    "anfahrt_titel": "到达方式",
-    "adresse_titel": "地址"
+    "anfahrt_titel": "地点",
+    "adresse_titel": "联系方式",
+    "anfahrt_text": "身体工作由 Back to Balance 提供。预约、价格及地点信息请见 BtB 网站。",
+    "gruender": "Back to Balance 身体工作",
+    "btb_link": "前往 BtB 网站"
   }
 }

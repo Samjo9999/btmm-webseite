@@ -81,10 +81,13 @@
     "bild_alt": "Johannes-Samuel Gartzke with his dog in the grass"
   },
   "kontakt": {
-    "titel": "Contact & Directions",
+    "titel": "Contact",
     "untertitel": "How to Reach Us",
     "formular_titel": "Write to Us",
-    "anfahrt_titel": "Directions",
-    "adresse_titel": "Address"
+    "anfahrt_titel": "Location",
+    "adresse_titel": "Contact details",
+    "anfahrt_text": "The bodywork is offered by Back to Balance. You will find appointments, prices and everything about the location on the BtB website.",
+    "gruender": "Bodywork by Back to Balance",
+    "btb_link": "Go to the BtB website"
   }
 }

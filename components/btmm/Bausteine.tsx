@@ -18,7 +18,7 @@ export function JsonLd({ daten }: { daten: object | object[] }) {
 }
 
 /** Seitenkopf. Mit `bild` bleibt das farbige Foto der Webseite der Hintergrund (wie bisher),
- *  Logo mit lila Nebel und Titel liegen darüber; ohne `bild` creme Grund mit Glow wie in der App. */
+ *  Titel liegt darüber (kein Logo auf Unterseiten, Nutzer 20.11.); ohne `bild` creme Grund. */
 export function SeitenKopf({ titel, unterzeile, bild, bildAlt = '' }: { titel: string; unterzeile?: string; bild?: string; bildAlt?: string }) {
   if (bild) {
     return (
@@ -26,9 +26,6 @@ export function SeitenKopf({ titel, unterzeile, bild, bildAlt = '' }: { titel: s
         <Image src={bild} alt={bildAlt} fill style={{ objectFit: 'cover' }} priority />
         <HeroImageLightbox src={bild} alt={bildAlt || titel} />
         <div className="btmm-kopf-glas">
-          <span className="btmm-logo-nebel">
-            <LogoLightbox src="/logo.png" alt={`${BRAND_FULL} Logo`} width={80} height={80} priority />
-          </span>
           <h1>{titel}</h1>
           {unterzeile && <p className="btmm-unterzeile">{unterzeile}</p>}
         </div>
@@ -37,9 +34,6 @@ export function SeitenKopf({ titel, unterzeile, bild, bildAlt = '' }: { titel: s
   }
   return (
     <section className="btmm-kopf">
-      <span className="btmm-logo-nebel">
-        <LogoLightbox src="/logo.png" alt={`${BRAND_FULL} Logo`} width={88} height={88} priority />
-      </span>
       <h1>{titel}</h1>
       {unterzeile && <p className="btmm-unterzeile">{unterzeile}</p>}
     </section>

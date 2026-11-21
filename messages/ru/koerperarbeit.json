@@ -78,10 +78,13 @@
     "bild_alt": "Йоханнес-Самуэль Гарцке с собакой на траве"
   },
   "kontakt": {
-    "titel": "Контакт и маршрут",
+    "titel": "Контакт",
     "untertitel": "Как с нами связаться",
     "formular_titel": "Напиши нам",
-    "anfahrt_titel": "Маршрут",
-    "adresse_titel": "Адрес"
+    "anfahrt_titel": "Место",
+    "adresse_titel": "Контакты",
+    "anfahrt_text": "Телесную практику предлагает Back to Balance. Запись, цены и всё о месте проведения – на сайте BtB.",
+    "gruender": "Телесная практика от Back to Balance",
+    "btb_link": "На сайт BtB"
   }
 }

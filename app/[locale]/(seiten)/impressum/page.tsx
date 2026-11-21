@@ -15,7 +15,6 @@ export const metadata: Metadata = {
 
 export default async function ImpressumPage({ params }: { params: Promise<{ locale: string }> }) {
   const { locale } = await params
-  const kontaktformularUrl = `/${locale}/koerperarbeit/kontakt`
   return (
     <>
       <section style={{
@@ -64,7 +63,6 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                 <p>
                   E-Mail: office@b-t-m-m.com<br />
                   Website: www.b-t-m-m.com<br />
-                  Zweiter Kontaktweg (Kontaktformular): <a href={kontaktformularUrl}>{`www.b-t-m-m.com${kontaktformularUrl}`}</a>
                   {contact.telefon ? (<><br />Telefon: {contact.telefon}</>) : null}
                   {contact.impressum_kontakt2 ? (<><br />{contact.impressum_kontakt2}</>) : null}
                 </p>

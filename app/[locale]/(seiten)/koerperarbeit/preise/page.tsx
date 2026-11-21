@@ -419,9 +419,6 @@ export default function PreisePage() {
             <Link href="/koerperarbeit/bewertungen" className="btn-secondary">
               Kundenerfahrungen ansehen
             </Link>
-            <Link href="/koerperarbeit/anfahrt" className="btn-secondary">
-              Anfahrt & Standort
-            </Link>
           </div>
         </div>
       </section>

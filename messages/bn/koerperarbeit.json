@@ -78,10 +78,13 @@
     "bild_alt": "ঘাসের উপর কুকুরের সাথে ইয়োহানেস-স্যামুয়েল গার্টস্কে"
   },
   "kontakt": {
-    "titel": "যোগাযোগ ও পথনির্দেশ",
+    "titel": "যোগাযোগ",
     "untertitel": "আমাদের কাছে কীভাবে পৌঁছাবেন",
     "formular_titel": "আমাদের লিখুন",
-    "anfahrt_titel": "পথনির্দেশ",
-    "adresse_titel": "ঠিকানা"
+    "anfahrt_titel": "স্থান",
+    "adresse_titel": "যোগাযোগের তথ্য",
+    "anfahrt_text": "বডিওয়ার্ক দেয় Back to Balance। অ্যাপয়েন্টমেন্ট, দাম ও স্থানের সব তথ্য BtB ওয়েবসাইটে পাবেন।",
+    "gruender": "Back to Balance-এর বডিওয়ার্ক",
+    "btb_link": "BtB ওয়েবসাইটে যান"
   }
 }

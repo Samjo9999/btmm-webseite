@@ -78,10 +78,13 @@
     "bild_alt": "يوهانس صموئيل غارتسكه مع كلبه على العشب"
   },
   "kontakt": {
-    "titel": "الاتصال والوصول",
+    "titel": "الاتصال",
     "untertitel": "كيف تصل إلينا",
     "formular_titel": "اكتب لنا",
-    "anfahrt_titel": "الوصول",
-    "adresse_titel": "العنوان"
+    "anfahrt_titel": "المكان",
+    "adresse_titel": "بيانات التواصل",
+    "anfahrt_text": "يقدّم Back to Balance العمل الجسدي. ستجد المواعيد والأسعار وكل ما يخص المكان على موقع BtB.",
+    "gruender": "العمل الجسدي من Back to Balance",
+    "btb_link": "إلى موقع BtB"
   }
 }

@@ -78,10 +78,13 @@
     "bild_alt": "Johannes-Samuel Gartzke com o seu cão na relva"
   },
   "kontakt": {
-    "titel": "Contacto e direções",
+    "titel": "Contacto",
     "untertitel": "Como chegar até nós",
     "formular_titel": "Escreva-nos",
-    "anfahrt_titel": "Direções",
-    "adresse_titel": "Morada"
+    "anfahrt_titel": "Local",
+    "adresse_titel": "Contactos",
+    "anfahrt_text": "O trabalho corporal é oferecido pela Back to Balance. Marcações, preços e tudo sobre o local estão no site da BtB.",
+    "gruender": "Trabalho corporal da Back to Balance",
+    "btb_link": "Ir para o site da BtB"
   }
 }

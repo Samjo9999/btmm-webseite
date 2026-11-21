@@ -27,7 +27,6 @@ export default function Seite({ params: { locale } }: P) {
           <div className="btmm-raster">
             <Karte titel="Ablauf" link={`/${locale}/koerperarbeit/ablauf`}><p>Wie eine Sitzung abläuft.</p></Karte>
             <Karte titel="Preise" link={`/${locale}/koerperarbeit/preise`}><p>Was eine Sitzung kostet.</p></Karte>
-            <Karte titel="Kontakt" link={`/${locale}/koerperarbeit/kontakt`}><p>Fragen und Termine.</p></Karte>
           </div>
         </Abschnitt>
         <Abschnitt titel="Teil von BtMM">

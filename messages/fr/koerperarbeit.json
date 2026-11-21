@@ -81,10 +81,13 @@
     "bild_alt": "Johannes-Samuel Gartzke avec son chien dans l'herbe"
   },
   "kontakt": {
-    "titel": "Contact et accès",
+    "titel": "Contact",
     "untertitel": "Comment nous joindre",
     "formular_titel": "Écrivez-nous",
-    "anfahrt_titel": "Accès",
-    "adresse_titel": "Adresse"
+    "anfahrt_titel": "Lieu",
+    "adresse_titel": "Coordonnées",
+    "anfahrt_text": "Le travail corporel est proposé par Back to Balance. Rendez-vous, tarifs et informations sur le lieu se trouvent sur le site de BtB.",
+    "gruender": "Travail corporel de Back to Balance",
+    "btb_link": "Vers le site de BtB"
   }
 }

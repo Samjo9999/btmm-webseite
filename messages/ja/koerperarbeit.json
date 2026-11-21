@@ -78,10 +78,13 @@
     "bild_alt": "芝生の上で犬と一緒にいるヨハネス＝ザムエル・ガルツケ"
   },
   "kontakt": {
-    "titel": "お問い合わせ・アクセス",
+    "titel": "お問い合わせ",
     "untertitel": "ご連絡方法",
     "formular_titel": "お問い合わせフォーム",
-    "anfahrt_titel": "アクセス",
-    "adresse_titel": "住所"
+    "anfahrt_titel": "場所",
+    "adresse_titel": "連絡先",
+    "anfahrt_text": "ボディワークは Back to Balance が提供しています。予約、料金、場所については BtB のウェブサイトをご覧ください。",
+    "gruender": "Back to Balance のボディワーク",
+    "btb_link": "BtB のウェブサイトへ"
   }
 }

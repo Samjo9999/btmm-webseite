@@ -78,10 +78,13 @@
     "bild_alt": "घास पर अपने कुत्ते के साथ योहानेस-सैमुअल गार्त्स्के"
   },
   "kontakt": {
-    "titel": "संपर्क और मार्ग",
+    "titel": "संपर्क",
     "untertitel": "हम तक कैसे पहुँचें",
     "formular_titel": "हमें लिखें",
-    "anfahrt_titel": "मार्ग",
-    "adresse_titel": "पता"
+    "anfahrt_titel": "स्थान",
+    "adresse_titel": "संपर्क विवरण",
+    "anfahrt_text": "बॉडीवर्क Back to Balance प्रदान करता है। अपॉइंटमेंट, कीमतें और स्थान की जानकारी BtB वेबसाइट पर मिलेगी।",
+    "gruender": "Back to Balance का बॉडीवर्क",
+    "btb_link": "BtB वेबसाइट पर जाएँ"
   }
 }
