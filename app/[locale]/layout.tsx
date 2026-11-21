@@ -12,6 +12,7 @@ import { ScrollHint } from '@/components/ScrollHint'
 import { ScrollToTop } from '@/components/ScrollToTop'
 import { BRAND_FULL } from '@/lib/brand'
 import { PfadLeiste } from '@/components/btmm/PfadLeiste'
+import { ZumInhalt } from '@/components/btmm/ZumInhalt'
 
 const ChatWidget = dynamic(
   () => import('@/components/ChatWidget').then(mod => ({ default: mod.ChatWidget })),
@@ -76,9 +77,10 @@ export default async function LocaleLayout({
     >
       <body>
         <NextIntlClientProvider messages={messages}>
+          <ZumInhalt locale={locale} />
           <Header locale={locale as Locale} />
           <ScrollToTop />
-          <main>{children}</main>
+          <main id="inhalt" tabIndex={-1}>{children}</main>
           <ScrollHint />
           <Footer />
           <PfadLeiste locale={locale} />

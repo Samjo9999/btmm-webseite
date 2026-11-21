@@ -4,6 +4,10 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Tür ist statisch unter /tuer/index.html; /tuer und /tuer/ landeten sonst über die Locale-Weiche auf 404
+  async redirects() {
+    return [{ source: '/tuer', destination: '/tuer/index.html', permanent: false }]
+  },
   images: {
     remotePatterns: [
       {
