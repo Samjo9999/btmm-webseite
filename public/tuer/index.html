@@ -10,15 +10,28 @@
 <body class="phase-tuer">
 <main id="tuer" class="tuer" aria-labelledby="tuer-titel">
   <div class="tuer-rahmen" aria-hidden="true">
-    <div class="fluegel links"></div><div class="fluegel rechts"></div>
-    <img class="tuer-licht" src="/tuer/bilder/logo-glow-schrift-weiss.png" alt="">
+    <div class="tuer-licht-flaeche"></div>
+    <div class="fluegel links"><picture>
+      <source type="image/webp" media="(min-width:900px), (min-aspect-ratio:1/1)" srcset="/tuer/bilder/holz/desktop-links.webp">
+      <source type="image/jpeg" media="(min-width:900px), (min-aspect-ratio:1/1)" srcset="/tuer/bilder/holz/desktop-links.jpg">
+      <source type="image/webp" srcset="/tuer/bilder/holz/mobil-links.webp">
+      <img src="/tuer/bilder/holz/mobil-links.jpg" alt="" width="591" height="2560">
+    </picture></div>
+    <div class="fluegel rechts"><picture>
+      <source type="image/webp" media="(min-width:900px), (min-aspect-ratio:1/1)" srcset="/tuer/bilder/holz/desktop-rechts.webp">
+      <source type="image/jpeg" media="(min-width:900px), (min-aspect-ratio:1/1)" srcset="/tuer/bilder/holz/desktop-rechts.jpg">
+      <source type="image/webp" srcset="/tuer/bilder/holz/mobil-rechts.webp">
+      <img src="/tuer/bilder/holz/mobil-rechts.jpg" alt="" width="591" height="2560">
+    </picture></div>
   </div>
-  <div class="tuer-text">
-    <img class="tuer-logo" src="/tuer/bilder/logo-glow-schrift-weiss.png" alt="BtMM – Back to Meaning Maximization">
+  <div class="tuer-band">
+    <span class="nur-sr">BtMM – Back to Meaning Maximization</span>
     <h1 id="tuer-titel" data-t="tuerH1">Tritt ein</h1>
     <p data-t="tuerP">Wir lernen dich mit ein paar Fragen kennen und zeigen dir dann deinen Weg durch BtMM.</p>
-    <button class="knopf hell" id="eintreten" type="button" data-t="eintreten">Eintreten</button>
-    <p class="tuer-ohne"><a href="/de" class="ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a></p>
+    <div class="reihe">
+      <button class="knopf hell" id="eintreten" type="button" data-t="eintreten">Eintreten</button>
+      <p class="tuer-ohne"><a href="/de" class="ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a></p>
+    </div>
   </div>
 </main>
 

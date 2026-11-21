@@ -13,24 +13,48 @@ a{color:var(--lila)}
 .leise{border:0;background:none;color:var(--grau);font:inherit;font-size:.8em;text-decoration:underline;cursor:pointer}
 :focus-visible{outline:3px solid #d58fd0;outline-offset:2px}
 
-/* Tür */
-.tuer{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,#904b97 0%,#4a0a42 55%,#22061f 100%);color:#fff;text-align:center;overflow:hidden;position:relative;padding:24px}
-.tuer-rahmen{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;pointer-events:none}
-.fluegel{width:min(42vw,220px);height:min(78vh,520px);background:linear-gradient(180deg,#5a0d50,#3a0734);border:1px solid rgba(255,255,255,.15);transition:transform 1s ease}
-.fluegel.links{transform-origin:left center;border-radius:110px 0 0 0}
-.fluegel.rechts{transform-origin:right center;border-radius:0 110px 0 0}
-.tuer-licht{position:absolute;width:120px;opacity:0;filter:drop-shadow(0 0 30px #fff);transition:opacity .8s}
-.tuer-text{position:relative;z-index:2;max-width:26em;transition:opacity .5s}
-.tuer-logo{width:110px;filter:drop-shadow(0 0 24px rgba(255,230,250,.7))}
-.tuer h1{font-size:2.4em;margin:.3em 0 .2em;font-weight:600}
-.tuer p{margin:0 0 1.4em;opacity:.92}
-.tuer .tuer-ohne{margin:1.1em 0 0;font-size:.8em}
-.tuer-ohne a{color:#fff;opacity:.8}
-.oeffnet .fluegel.links{transform:perspective(900px) rotateY(80deg)}
-.oeffnet .fluegel.rechts{transform:perspective(900px) rotateY(-80deg)}
-.oeffnet .tuer-text{opacity:0}
-.oeffnet .tuer-licht{opacity:1}
-@media (prefers-reduced-motion:reduce){.fluegel,.tuer-text,.tuer-licht{transition:none}}
+/* Tür: bildschirmfüllend, Logo im Holz. --tuer-y ist die vertikale Lage des Medaillons
+ * (Platzhalter V1 Teak-Gold; bei V4-Assets hier anpassen). .tuer-licht und .tuer-logo entfallen. */
+:root{
+  --tuer-band-grund:rgba(20,8,24,.80);
+  --tuer-band-linie:rgba(250,249,249,.22);
+  --tuer-link:#e9d3ec;
+  --btmm-logo-text-glow:#faf9f9;
+}
+.tuer{--tuer-y:48.5%;min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:#140818;color:#fff;text-align:center;overflow:hidden;position:relative;perspective:1400px}
+@media (min-width:900px),(min-aspect-ratio:1/1){.tuer{--tuer-y:48%}}
+.tuer-rahmen{position:absolute;inset:0;pointer-events:none}
+.tuer-licht-flaeche{position:absolute;inset:0;background:radial-gradient(ellipse at 50% var(--tuer-y),#fff6e0 0%,#f3c98a 22%,#7a3a5a 55%,#140818 100%)}
+.fluegel{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;border:0;border-radius:0;background:none;transition:transform 1.1s cubic-bezier(.6,.05,.3,1)}
+.fluegel img{width:100%;height:100%;object-fit:cover;display:block}
+.fluegel.links{left:0;transform-origin:left center}
+.fluegel.links img{object-position:right var(--tuer-y)}
+.fluegel.rechts{right:0;transform-origin:right center}
+.fluegel.rechts img{object-position:left var(--tuer-y)}
+.tuer-band{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;background:var(--tuer-band-grund);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--tuer-band-linie);border-bottom:1px solid var(--tuer-band-linie);border-left:0;border-right:0;padding:18px 22px calc(22px + env(safe-area-inset-bottom));max-height:34%}
+.tuer-band h1{font-size:40px;margin:0 0 6px;color:var(--btmm-logo-text-glow);font-weight:600;line-height:1.1}
+.tuer-band p{font-size:18px;color:#faf9f9;margin:0 auto 16px;max-width:30em;line-height:1.4;opacity:1}
+.tuer-band .ohne{color:var(--tuer-link)}
+.tuer-band .tuer-ohne{margin:1.1em 0 0;font-size:16px}
+.tuer-band .knopf.hell{box-shadow:none}
+.oeffnet .fluegel.links{transform:rotateY(62deg)}
+.oeffnet .fluegel.rechts{transform:rotateY(-62deg)}
+.oeffnet .tuer-band{opacity:0;transition:opacity .4s}
+@media (min-width:900px){
+  .tuer-band{padding:20px 40px 26px;max-height:30%}
+  .tuer-band h1{font-size:44px}
+  .tuer-band p{margin-bottom:14px}
+  .tuer-band .reihe{display:flex;gap:28px;justify-content:center;align-items:center}
+  .tuer-band .tuer-ohne{margin:0;display:inline}
+}
+@media (max-height:699px){
+  .tuer-band h1{font-size:32px}
+  .tuer-band p{font-size:16px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fluegel{transition:opacity .4s}
+  .oeffnet .fluegel{transform:none;opacity:0}
+}
 
 /* Dialog */
 .dialog{max-width:640px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
