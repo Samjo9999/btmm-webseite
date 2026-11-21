@@ -79,13 +79,24 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
     assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
     for (const id of Object.keys(PF.BILDER)) {
       assert.ok(T.alt[id], `${l} alt ${id}`)
-      assert.ok(T.alt[id].startsWith(T.kiLabel + ': '), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
+      const prefix = {de: 'KI-generiertes Bild: ', en: 'AI-generated image: ', fr: 'Image générée par IA: ', es: 'Imagen generada por IA: ', pt: 'Imagem gerada por IA: ', ru: 'Изображение, созданное ИИ: ', ar: 'صورة مُنشأة بالذكاء الاصطناعي: ', hi: 'एआई-जनरेटेड चित्र: ', bn: 'এআই-সৃষ্ট ছবি: ', ja: 'AI生成画像: ', zh: 'AI生成的图片: '}[l]
+      assert.ok(prefix && T.alt[id].startsWith(prefix), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
     }
     for (const k of keys) { const bz = PF.bezugKey(k, { neugierig: 1, vorbei: 1, anpacken: 1, weit: 1 }); assert.ok(T.bezug[bz], `${l} bezug ${bz}`) }
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
-  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild')
+  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild – Personen fiktiv')
   assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
   assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Mehrere Hände teilen ein frisches Brot über einer Werkbank mit Hobel und Stechbeiteln')
+  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Küche lachend Gemüse und Äpfel aus einer Erntekiste in Beutel und Gläser auf')
+})
+
+
+test('Tür-Seite verlinkt ein lokales Icon, kein externes Favicon', () => {
+  const html = readFileSync(new URL('../public/tuer/index.html', import.meta.url), 'utf8')
+  const m = html.match(/<link\s+rel="icon"[^>]*>/)
+  assert.ok(m, 'link rel=icon fehlt')
+  assert.match(m[0], /href="\/tuer\/bilder\/logo\.png"/)
+  assert.doesNotMatch(m[0], /https?:/)
 })
