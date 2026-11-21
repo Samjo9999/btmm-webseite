@@ -47,7 +47,6 @@
   var MAX_FRAGEN = 6;
 
   var SCHRITTE = PF.SCHRITTE, BILDER = PF.BILDER;
-  function bildUrl(src) { return '/_next/image?url=' + encodeURIComponent(src) + '&w=256&q=70'; }
 
   /* ---------- Zustand ---------- */
   var st = laden(KEY) || { antworten: [], profil: {}, gestellt: [] };
@@ -178,16 +177,16 @@
     $('profil-satz').textContent = profilSatz(st.profil);
     var ol = $('schritte'); ol.innerHTML = '';
     pf.schritte.forEach(function (d, i) {
-      var k = d.key, bildId = d.bild || SCHRITTE[k].bild, bild = BILDER[bildId], li = document.createElement('li');
+      var k = d.key, bildId = BILDER[d.bild] ? d.bild : SCHRITTE[k].bild, bild = BILDER[bildId], li = document.createElement('li');
       li.className = 'schritt' + (i === 0 ? ' jetzt' : '');
-      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><span class="bild-rahmen"><img class="schritt-bild" loading="lazy" decoding="async"></span><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
-      var rahmen = li.querySelector('.bild-rahmen');
-      if (bild.dunkel) rahmen.classList.add('dunkel');
-      if (bild.foto) rahmen.classList.add('foto');
+      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><span class="bild-rahmen"><img class="schritt-bild" width="1280" height="720" decoding="async"></span><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
       var img = li.querySelector('img');
-      img.alt = T.alt[bildId];
-      img.onerror = function () { img.onerror = null; img.src = bild.src; };
-      img.src = bildUrl(bild.src);
+      if (i > 1) img.loading = 'lazy';
+      img.alt = T.alt[bildId] || '';
+      img.sizes = '(max-width: 640px) calc(100vw - 80px), 560px';
+      img.srcset = bild.src + ' 720w, ' + bild.gross + ' 1280w';
+      img.src = bild.src;
+      img.onerror = function () { img.onerror = null; li.querySelector('.bild-rahmen').hidden = true; };
       li.querySelector('.bezug').textContent = d.bezug + T.dp;
       li.querySelector('h2').textContent = d.titel;
       li.querySelector('.text').textContent = T.schritte[k][1];

@@ -77,10 +77,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Damit du in Ruhe dranbleiben kannst"
     },
     alt: {
-      unendlichGold: "Goldene Unendlichkeitsschleife, die zum Kreis wird", unendlichDunkel: "Weiße Unendlichkeitsschleife auf dunklem Grund",
-      kreis: "BtMM-Zeichen: ein Kreis aus verschlungenen Linien", baumDunkel: "Gezeichneter Baum, der aus einer stehenden Figur wächst",
-      baumHell: "Heller Baum, der aus einer stehenden Figur wächst", logo: "BtMM-Logo"
+      grundlagen: "Gemalte Szene: Menschen teilen Brot, arbeiten gemeinsam an einer Werkbank, ein Haus ruht in offenen Händen",
+      sparen: "Gemalte Küche, in der Ernte und Brot gemeinsam in Beutel gefüllt werden",
+      arbeiten: "Gemalte Werkstatt, mehrere Menschen arbeiten nebeneinander an einer Werkbank",
+      wohnen: "Gemalte Holzhäuser um einen gemeinsamen Gemüsegarten im lila Abendlicht",
+      skeptisch: "Gemalte Person am Tisch mit geschlossenen Mappen, leerem Heft, Tasse und Lupe",
+      dokumente: "Gemalter Schreibtisch mit geschlossenen Mappen, Füllfeder und Lampe",
+      sinn: "Gemalter Kreis von Menschen im Gespräch um eine Laterne",
+      gruenden: "Gemalte Szene: drei Menschen pflanzen gemeinsam einen jungen Baum",
+      freiburg: "Gemalte Aussicht auf rote Sandsteinhäuser und einen Kirchturm, drei Menschen auf einer Bank",
+      vorbei: "Gemalte offene Haustür mit Gästen am Teetisch, zwei Menschen kommen an",
+      anpacken: "Gemalte Szene: Menschen pflanzen, tragen einen Balken und richten ein Holzgestell auf",
+      folgen: "Gemalter Weg im Abendlicht, eine Person geht voraus, daneben eine Bank mit geschlossenem Buch"
     },
+    bildCredit: "Illustrationen erstellt mit Grok",
     merkmale: {
       freund: ["freund", "freundin", "bekannt", "kollege", "kollegin", "familie", "mutter", "vater", "bruder", "schwester", "erzählt", "empfohlen", "empfehlung", "mitbewohn", "wg", "chor"],
       online: ["instagram", "internet", "google", "gesucht", "online", "social", "facebook", "tiktok", "youtube", "webseite", "website", "artikel", "zeitung", "podcast"],
@@ -167,10 +177,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "So you can stay tuned at your own pace"
     },
     alt: {
-      unendlichGold: "Golden infinity loop turning into a circle", unendlichDunkel: "White infinity loop on a dark background",
-      kreis: "BtMM sign: a circle of intertwined lines", baumDunkel: "Drawn tree growing out of a standing figure",
-      baumHell: "Light tree growing out of a standing figure", logo: "BtMM logo"
+      grundlagen: "Painted scene: people share bread, work together at a workbench, a house rests in open hands",
+      sparen: "Painted kitchen where harvest and bread are packed into bags together",
+      arbeiten: "Painted workshop, several people working side by side at a workbench",
+      wohnen: "Painted wooden houses around a shared vegetable garden in purple evening light",
+      skeptisch: "Painted person at a table with closed folders, an empty notebook, a cup and a magnifying glass",
+      dokumente: "Painted desk with closed folders, a fountain pen and a lamp",
+      sinn: "Painted circle of people talking around a lantern",
+      gruenden: "Painted scene: three people planting a young tree together",
+      freiburg: "Painted view of red sandstone houses and a church tower, three people on a bench",
+      vorbei: "Painted open front door with guests at a tea table, two people arriving",
+      anpacken: "Painted scene: people planting, carrying a beam and raising a wooden frame",
+      folgen: "Painted path in evening light, one person walking ahead, a bench with a closed book beside it"
     },
+    bildCredit: "Illustrations created with Grok",
     merkmale: {
       freund: ["friend", "buddy", "colleague", "coworker", "co-worker", "family", "mother", " mom", " mum", "father", " dad", "brother", "sister", "partner", "told me", "recommend", "word of mouth", "roommate", "flatmate", "neighbo"],
       online: ["instagram", "internet", "google", "searched", "online", "social media", "facebook", "tiktok", "youtube", "website", " web", "article", "newspaper", "podcast", "reddit", "linkedin"],
@@ -257,10 +277,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Pour que tu puisses suivre tranquillement"
     },
     alt: {
-      unendlichGold: "Boucle de l'infini dorée qui devient un cercle", unendlichDunkel: "Boucle de l'infini blanche sur fond sombre",
-      kreis: "Signe de BtMM : un cercle de lignes entrelacées", baumDunkel: "Arbre dessiné qui pousse à partir d'une silhouette debout",
-      baumHell: "Arbre clair qui pousse à partir d'une silhouette debout", logo: "Logo de BtMM"
+      grundlagen: "Scène peinte : des personnes partagent du pain, travaillent ensemble à un établi, une maison repose dans des mains ouvertes",
+      sparen: "Cuisine peinte où récolte et pain sont mis ensemble dans des sacs",
+      arbeiten: "Atelier peint, plusieurs personnes travaillent côte à côte à un établi",
+      wohnen: "Maisons en bois peintes autour d’un potager commun dans la lumière violette du soir",
+      skeptisch: "Personne peinte à une table avec des dossiers fermés, un cahier vide, une tasse et une loupe",
+      dokumente: "Bureau peint avec des dossiers fermés, un stylo-plume et une lampe",
+      sinn: "Cercle peint de personnes qui discutent autour d’une lanterne",
+      gruenden: "Scène peinte : trois personnes plantent ensemble un jeune arbre",
+      freiburg: "Vue peinte sur des maisons en grès rouge et un clocher, trois personnes sur un banc",
+      vorbei: "Porte d’entrée ouverte peinte, des invités autour d’une table à thé, deux personnes arrivent",
+      anpacken: "Scène peinte : des personnes plantent, portent une poutre et dressent une charpente en bois",
+      folgen: "Chemin peint dans la lumière du soir, une personne marche devant, à côté un banc avec un livre fermé"
     },
+    bildCredit: "Illustrations créées avec Grok",
     merkmale: {
       freund: [" ami", " amie", "copain", "copine", "collegue", "famille", " mere", " pere", " maman", " papa", "frere", "soeur", "m'a parle", "m'en a parle", "raconte", "recommand", "conseille", "bouche a oreille", "colocataire", "coloc", "voisin"],
       online: ["instagram", "internet", "google", "cherche", "en ligne", "reseaux sociaux", "facebook", "tiktok", "youtube", "site web", "site internet", "le site", "votre site", "ton site", "article", "journal", "podcast"],
@@ -347,10 +377,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Para que puedas seguir al tanto con calma"
     },
     alt: {
-      unendlichGold: "Bucle de infinito dorado que se convierte en círculo", unendlichDunkel: "Bucle de infinito blanco sobre fondo oscuro",
-      kreis: "Signo de BtMM: un círculo de líneas entrelazadas", baumDunkel: "Árbol dibujado que crece de una figura de pie",
-      baumHell: "Árbol claro que crece de una figura de pie", logo: "Logotipo de BtMM"
+      grundlagen: "Escena pintada: personas comparten pan, trabajan juntas en un banco de trabajo, una casa descansa en manos abiertas",
+      sparen: "Cocina pintada donde la cosecha y el pan se reparten juntos en bolsas",
+      arbeiten: "Taller pintado, varias personas trabajan una al lado de otra en un banco de trabajo",
+      wohnen: "Casas de madera pintadas alrededor de un huerto común con luz violeta de atardecer",
+      skeptisch: "Persona pintada en una mesa con carpetas cerradas, un cuaderno vacío, una taza y una lupa",
+      dokumente: "Escritorio pintado con carpetas cerradas, una pluma estilográfica y una lámpara",
+      sinn: "Círculo pintado de personas conversando alrededor de un farol",
+      gruenden: "Escena pintada: tres personas plantan juntas un árbol joven",
+      freiburg: "Vista pintada de casas de arenisca roja y un campanario, tres personas en un banco",
+      vorbei: "Puerta de casa abierta pintada, invitados en una mesa de té, dos personas llegan",
+      anpacken: "Escena pintada: personas plantan, cargan una viga y levantan una estructura de madera",
+      folgen: "Camino pintado con luz de atardecer, una persona va delante, al lado un banco con un libro cerrado"
     },
+    bildCredit: "Ilustraciones creadas con Grok",
     merkmale: {
       freund: ["amig", "colega", "companer", "familia", "madre", " mama", "padre", " papa", "herman", "me conto", "me hablo", "recomend", "boca a boca", "vecin", "conocid"],
       online: ["instagram", "internet", "google", "busque", "buscando", "en linea", "online", "redes sociales", "facebook", "tiktok", "youtube", "pagina web", "sitio web", " web", "articulo", "periodico", "podcast"],
@@ -437,10 +477,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Para você acompanhar com calma"
     },
     alt: {
-      unendlichGold: "Laço do infinito dourado que se torna um círculo", unendlichDunkel: "Laço do infinito branco sobre fundo escuro",
-      kreis: "Símbolo do BtMM: um círculo de linhas entrelaçadas", baumDunkel: "Árvore desenhada que cresce de uma figura em pé",
-      baumHell: "Árvore clara que cresce de uma figura em pé", logo: "Logotipo do BtMM"
+      grundlagen: "Cena pintada: pessoas dividem pão, trabalham juntas numa bancada, uma casa repousa em mãos abertas",
+      sparen: "Cozinha pintada onde colheita e pão são colocados juntos em sacolas",
+      arbeiten: "Oficina pintada, várias pessoas trabalham lado a lado numa bancada",
+      wohnen: "Casas de madeira pintadas em volta de uma horta comum na luz lilás do fim de tarde",
+      skeptisch: "Pessoa pintada à mesa com pastas fechadas, caderno vazio, xícara e lupa",
+      dokumente: "Escrivaninha pintada com pastas fechadas, caneta-tinteiro e luminária",
+      sinn: "Círculo pintado de pessoas conversando em volta de uma lanterna",
+      gruenden: "Cena pintada: três pessoas plantam juntas uma árvore jovem",
+      freiburg: "Vista pintada de casas de arenito vermelho e uma torre de igreja, três pessoas num banco",
+      vorbei: "Porta de casa aberta pintada, convidados numa mesa de chá, duas pessoas chegando",
+      anpacken: "Cena pintada: pessoas plantam, carregam uma viga e levantam uma estrutura de madeira",
+      folgen: "Caminho pintado na luz do fim de tarde, uma pessoa vai à frente, ao lado um banco com um livro fechado"
     },
+    bildCredit: "Ilustrações criadas com Grok",
     merkmale: {
       freund: ["amig", "colega", "familia", " mae", " pai ", "irma", "me contou", "me falou", "recomend", "indicou", "indicacao", "boca a boca", "vizinh", "conhecid"],
       online: ["instagram", "internet", "google", "pesquis", "procurei", "online", "redes sociais", "facebook", "tiktok", "youtube", " site", "artigo", "jornal", "podcast"],
@@ -527,10 +577,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Чтобы ты мог(ла) спокойно следить дальше"
     },
     alt: {
-      unendlichGold: "Золотая петля бесконечности, которая становится кругом", unendlichDunkel: "Белая петля бесконечности на тёмном фоне",
-      kreis: "Знак BtMM: круг из переплетённых линий", baumDunkel: "Нарисованное дерево, вырастающее из стоящей фигуры",
-      baumHell: "Светлое дерево, вырастающее из стоящей фигуры", logo: "Логотип BtMM"
+      grundlagen: "Рисованная сцена: люди делят хлеб, вместе работают у верстака, дом лежит в открытых ладонях",
+      sparen: "Рисованная кухня, где урожай и хлеб вместе раскладывают по сумкам",
+      arbeiten: "Рисованная мастерская, несколько человек работают рядом за верстаком",
+      wohnen: "Рисованные деревянные дома вокруг общего огорода в лиловом вечернем свете",
+      skeptisch: "Рисованный человек за столом с закрытыми папками, пустой тетрадью, чашкой и лупой",
+      dokumente: "Рисованный письменный стол с закрытыми папками, перьевой ручкой и лампой",
+      sinn: "Рисованный круг людей, беседующих вокруг фонаря",
+      gruenden: "Рисованная сцена: трое вместе сажают молодое дерево",
+      freiburg: "Рисованный вид на дома из красного песчаника и церковную башню, трое на скамейке",
+      vorbei: "Рисованная открытая входная дверь, гости за чайным столом, двое приходят",
+      anpacken: "Рисованная сцена: люди сажают растения, несут балку и ставят деревянный каркас",
+      folgen: "Рисованная дорога в вечернем свете, человек идёт впереди, рядом скамейка с закрытой книгой"
     },
+    bildCredit: "Иллюстрации созданы с помощью Grok",
     merkmale: {
       freund: ["друг", "друз", "подруг", "знаком", "коллег", "семья", "семьи", "мама", "мать", "папа", "отец", "брат", "сестр", "рассказал", "рассказыв", "посовет", "рекоменд", "сосед"],
       online: ["инстаграм", "instagram", "интернет", "гугл", "google", "яндекс", "нашел", "нашла", "искал", "онлайн", "соцсет", "фейсбук", "телеграм", "тикток", "ютуб", "youtube", "сайт", "статья", "статью", "статье", "газет", "подкаст"],
@@ -617,10 +677,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "حتى تتابع على مهل"
     },
     alt: {
-      unendlichGold: "حلقة لا نهاية ذهبية تتحول إلى دائرة", unendlichDunkel: "حلقة لا نهاية بيضاء على خلفية داكنة",
-      kreis: "رمز BtMM: دائرة من خطوط متشابكة", baumDunkel: "شجرة مرسومة تنمو من شخص واقف",
-      baumHell: "شجرة فاتحة تنمو من شخص واقف", logo: "شعار BtMM"
+      grundlagen: "مشهد مرسوم: أشخاص يتقاسمون الخبز ويعملون معًا على طاولة عمل، وبيت يستقر في أيدٍ مفتوحة",
+      sparen: "مطبخ مرسوم تُعبّأ فيه المحاصيل والخبز معًا في أكياس",
+      arbeiten: "ورشة مرسومة، عدة أشخاص يعملون جنبًا إلى جنب على طاولة عمل",
+      wohnen: "بيوت خشبية مرسومة حول حديقة خضار مشتركة في ضوء مسائي بنفسجي",
+      skeptisch: "شخص مرسوم إلى طاولة عليها ملفات مغلقة ودفتر فارغ وكوب وعدسة مكبرة",
+      dokumente: "مكتب مرسوم عليه ملفات مغلقة وقلم حبر ومصباح",
+      sinn: "دائرة مرسومة من أشخاص يتحدثون حول فانوس",
+      gruenden: "مشهد مرسوم: ثلاثة أشخاص يزرعون معًا شجرة صغيرة",
+      freiburg: "منظر مرسوم لبيوت من الحجر الرملي الأحمر وبرج كنيسة، وثلاثة أشخاص على مقعد",
+      vorbei: "باب بيت مفتوح مرسوم، ضيوف حول طاولة شاي، وشخصان يصلان",
+      anpacken: "مشهد مرسوم: أشخاص يزرعون ويحملون عارضة ويقيمون هيكلًا خشبيًا",
+      folgen: "طريق مرسوم في ضوء المساء، شخص يسير في المقدمة، وبجانبه مقعد عليه كتاب مغلق"
     },
+    bildCredit: "رسوم توضيحية أُنشئت باستخدام Grok",
     merkmale: {
       freund: ["صديق", "اصدقاء", "زميل", "عائلة", "عائلتي", "اسرتي", "والدتي", "والدي", "امي ", "ابي ", "اخي ", "اختي", "اخبرني", "اخبرتني", "حكى لي", "نصحني", "اوصى", "توصية", "جاري", "جارتي"],
       online: ["انستغرام", "انستجرام", "instagram", "الانترنت", "انترنت", "جوجل", "غوغل", "google", "بحثت", "اونلاين", "وسائل التواصل", "فيسبوك", "تيك توك", "يوتيوب", "موقع", "مقال", "جريدة", "صحيفة", "بودكاست"],
@@ -707,10 +777,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "ताकि आप आराम से जुड़े रह सकें"
     },
     alt: {
-      unendlichGold: "सुनहरा अनंत-लूप जो एक वृत्त बन जाता है", unendlichDunkel: "गहरी पृष्ठभूमि पर सफ़ेद अनंत-लूप",
-      kreis: "BtMM का चिह्न: आपस में गुँथी रेखाओं का एक वृत्त", baumDunkel: "खड़ी आकृति से उगता हुआ चित्रित पेड़",
-      baumHell: "खड़ी आकृति से उगता हुआ हल्के रंग का पेड़", logo: "BtMM लोगो"
+      grundlagen: "चित्रित दृश्य: लोग रोटी बाँटते हैं, कार्यबेंच पर साथ काम करते हैं, एक घर खुली हथेलियों में टिका है",
+      sparen: "चित्रित रसोई, जहाँ फ़सल और रोटी मिलकर थैलों में भरी जा रही है",
+      arbeiten: "चित्रित कार्यशाला, कई लोग एक कार्यबेंच पर साथ-साथ काम कर रहे हैं",
+      wohnen: "बैंगनी शाम की रोशनी में साझा सब्ज़ी बगीचे के चारों ओर चित्रित लकड़ी के घर",
+      skeptisch: "मेज़ पर बंद फ़ाइलों, खाली कॉपी, कप और आवर्धक लेंस के साथ चित्रित व्यक्ति",
+      dokumente: "बंद फ़ाइलों, फ़ाउंटेन पेन और लैंप के साथ चित्रित मेज़",
+      sinn: "एक लालटेन के चारों ओर बातचीत करते लोगों का चित्रित घेरा",
+      gruenden: "चित्रित दृश्य: तीन लोग मिलकर एक नया पौधा लगा रहे हैं",
+      freiburg: "लाल बलुआ पत्थर के घरों और चर्च की मीनार का चित्रित दृश्य, बेंच पर तीन लोग",
+      vorbei: "चित्रित खुला दरवाज़ा, चाय की मेज़ पर मेहमान, दो लोग आ रहे हैं",
+      anpacken: "चित्रित दृश्य: लोग पौधे लगाते हैं, शहतीर उठाते हैं और लकड़ी का ढाँचा खड़ा करते हैं",
+      folgen: "शाम की रोशनी में चित्रित रास्ता, एक व्यक्ति आगे चल रहा है, पास में बंद किताब वाली बेंच"
     },
+    bildCredit: "चित्र Grok से बनाए गए",
     merkmale: {
       freund: ["दोस्त", "मित्र", "सहकर्मी", "परिवार", "माँ", "मां", "पिता", "पापा", "भाई", "बहन", "बताया", "सलाह", "सिफारिश", "सिफ़ारिश", "पड़ोसी", "friend"],
       online: ["इंस्टाग्राम", "instagram", "इंटरनेट", "internet", "गूगल", "google", "खोजा", "ऑनलाइन", "online", "सोशल मीडिया", "फेसबुक", "यूट्यूब", "youtube", "वेबसाइट", "लेख", "अख़बार", "अखबार", "पॉडकास्ट"],
@@ -797,10 +877,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "যাতে আপনি ধীরে-সুস্থে সঙ্গে থাকতে পারেন"
     },
     alt: {
-      unendlichGold: "সোনালি অসীম-লুপ যা একটি বৃত্তে পরিণত হয়", unendlichDunkel: "গাঢ় পটভূমিতে সাদা অসীম-লুপ",
-      kreis: "BtMM-এর চিহ্ন: জড়ানো রেখার একটি বৃত্ত", baumDunkel: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা আঁকা গাছ",
-      baumHell: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা হালকা রঙের গাছ", logo: "BtMM লোগো"
+      grundlagen: "আঁকা দৃশ্য: মানুষ রুটি ভাগ করে নিচ্ছে, একসঙ্গে কাজের টেবিলে কাজ করছে, খোলা হাতে একটি বাড়ি",
+      sparen: "আঁকা রান্নাঘর, যেখানে ফসল আর রুটি একসঙ্গে ব্যাগে ভরা হচ্ছে",
+      arbeiten: "আঁকা কর্মশালা, কয়েকজন পাশাপাশি একটি কাজের টেবিলে কাজ করছে",
+      wohnen: "বেগুনি সন্ধ্যার আলোয় একটি সাধারণ সবজি বাগানের চারপাশে আঁকা কাঠের বাড়ি",
+      skeptisch: "টেবিলে বন্ধ ফাইল, খালি খাতা, কাপ ও আতশ কাচ নিয়ে আঁকা একজন মানুষ",
+      dokumente: "বন্ধ ফাইল, ঝরনা কলম ও বাতিসহ আঁকা লেখার টেবিল",
+      sinn: "একটি লণ্ঠনের চারপাশে কথা বলা মানুষের আঁকা বৃত্ত",
+      gruenden: "আঁকা দৃশ্য: তিনজন মিলে একটি কচি গাছ লাগাচ্ছে",
+      freiburg: "লাল বেলেপাথরের বাড়ি ও গির্জার চূড়ার আঁকা দৃশ্য, বেঞ্চে তিনজন",
+      vorbei: "আঁকা খোলা দরজা, চায়ের টেবিলে অতিথি, দুজন আসছে",
+      anpacken: "আঁকা দৃশ্য: মানুষ গাছ লাগাচ্ছে, কড়িকাঠ বইছে আর কাঠের কাঠামো দাঁড় করাচ্ছে",
+      folgen: "সন্ধ্যার আলোয় আঁকা পথ, একজন সামনে হাঁটছে, পাশে বন্ধ বইসহ একটি বেঞ্চ"
     },
+    bildCredit: "চিত্রগুলো Grok দিয়ে তৈরি",
     merkmale: {
       freund: ["বন্ধু", "বান্ধবী", "সহকর্মী", "পরিবার", "আমার মা", "মায়ের", "বাবা", "ভাই", "বোন", "বলেছে", "বলেছিল", "বলেছেন", "পরামর্শ", "সুপারিশ", "প্রতিবেশী"],
       online: ["ইনস্টাগ্রাম", "instagram", "ইন্টারনেট", "গুগল", "google", "খুঁজ", "অনলাইন", "online", "সোশ্যাল মিডিয়া", "ফেসবুক", "ইউটিউব", "youtube", "ওয়েবসাইট", "প্রবন্ধ", "নিবন্ধ", "খবরের কাগজ", "পত্রিকা", "পডকাস্ট"],
@@ -887,10 +977,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "ゆっくり見守れるように"
     },
     alt: {
-      unendlichGold: "円へと変わっていく金色の無限ループ", unendlichDunkel: "暗い背景に白い無限ループ",
-      kreis: "BtMMのシンボル：絡み合う線でできた円", baumDunkel: "立っている人の姿から伸びる木のイラスト",
-      baumHell: "立っている人の姿から伸びる明るい色の木", logo: "BtMMのロゴ"
+      grundlagen: "描かれた場面：人々がパンを分け合い、作業台で一緒に働き、開いた手のひらに家がのっている",
+      sparen: "収穫物とパンを一緒に袋に詰めている、描かれた台所",
+      arbeiten: "描かれた工房、数人が作業台で並んで働いている",
+      wohnen: "紫の夕暮れの光の中、共同の菜園を囲む描かれた木の家々",
+      skeptisch: "閉じたファイル、白紙のノート、カップと虫眼鏡が置かれた机に向かう描かれた人",
+      dokumente: "閉じたファイル、万年筆、ランプが置かれた描かれた机",
+      sinn: "ランタンを囲んで語り合う人々の描かれた輪",
+      gruenden: "描かれた場面：三人で若い木を植えている",
+      freiburg: "赤い砂岩の家並みと教会の塔を望む描かれた景色、ベンチに三人",
+      vorbei: "開いた玄関とお茶のテーブルを囲む客、到着する二人の描かれた場面",
+      anpacken: "描かれた場面：人々が植物を植え、梁を運び、木の骨組みを立てている",
+      folgen: "夕暮れの光の中の描かれた道、先を歩く一人、そばに閉じた本が置かれたベンチ"
     },
+    bildCredit: "イラストは Grok で作成",
     merkmale: {
       freund: ["友達", "友だち", "友人", "知人", "知り合い", "同僚", "家族", "母", "父", "兄", "姉", "弟", "妹", "聞いた", "教えてもら", "勧め", "すすめ", "紹介", "口コミ", "ルームメイト"],
       online: ["インスタ", "instagram", "インターネット", "ネット", "グーグル", "google", "検索", "オンライン", "sns", "フェイスブック", "ティックトック", "ユーチューブ", "youtube", "ウェブ", "サイト", "ホームページ", "記事", "新聞", "ポッドキャスト"],
@@ -977,10 +1077,20 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "让你可以慢慢持续关注"
     },
     alt: {
-      unendlichGold: "逐渐变成圆圈的金色无限环", unendlichDunkel: "深色背景上的白色无限环",
-      kreis: "BtMM 标志：由交织线条组成的圆", baumDunkel: "从站立人形中长出的手绘树",
-      baumHell: "从站立人形中长出的浅色树", logo: "BtMM 标志"
+      grundlagen: "手绘场景：人们分享面包，在工作台旁一起劳动，一座房子安放在张开的双手中",
+      sparen: "手绘厨房，人们一起把收成和面包装进袋子",
+      arbeiten: "手绘工坊，几个人在工作台旁并肩劳动",
+      wohnen: "紫色暮光中，手绘木屋环绕着一座共同的菜园",
+      skeptisch: "手绘人物坐在桌前，桌上有合上的文件夹、空白本子、杯子和放大镜",
+      dokumente: "手绘书桌，上面有合上的文件夹、钢笔和台灯",
+      sinn: "手绘的一圈人围着灯笼交谈",
+      gruenden: "手绘场景：三个人一起种下一棵小树",
+      freiburg: "手绘红砂岩房屋和教堂塔楼的景色，三个人坐在长椅上",
+      vorbei: "手绘敞开的家门，客人围坐茶桌，两个人正走进来",
+      anpacken: "手绘场景：人们种植、抬着横梁并竖起木架",
+      folgen: "暮光中的手绘小路，一个人走在前面，旁边是一张放着合上的书的长椅"
     },
+    bildCredit: "插图由 Grok 生成",
     merkmale: {
       freund: ["朋友", "熟人", "同事", "家人", "妈妈", "母亲", "爸爸", "父亲", "哥哥", "姐姐", "弟弟", "妹妹", "告诉我", "跟我说", "推荐", "介绍", "口碑", "室友", "邻居"],
       online: ["instagram", "网上", "互联网", "网络", "谷歌", "google", "百度", "搜索", "在线", "社交媒体", "微信", "微博", "小红书", "抖音", "脸书", "youtube", "网站", "文章", "报纸", "播客"],
