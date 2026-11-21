@@ -207,7 +207,7 @@
   }
   $('eintreten').addEventListener('click', function () {
     document.body.classList.add('oeffnet');
-    setTimeout(dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1100);
+    setTimeout(dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 400 : 1100);
   });
   // „Zurück zum Weg“ aus der Pfad-Leiste: direkt die Pfad-Übersicht zeigen
   if (params.has('pfad') && st.fertig) pfadZeigen();
