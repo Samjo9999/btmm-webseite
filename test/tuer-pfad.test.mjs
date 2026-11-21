@@ -48,7 +48,7 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
 })
 
-test('eigenes Bild je Schritt: jpg mit C2PA plus webp, keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine Silhouetten/Logos, keine Fotos von Johannes', () => {
   for (const [k, d] of Object.entries(PF.SCHRITTE)) {
     const b = PF.BILDER[d.bild]; assert.ok(b, k)
     assert.match(b.src, /^\/tuer\/bilder\/weg\/[a-z]+\.jpg$/, b.src)
@@ -57,8 +57,11 @@ test('eigenes Bild je Schritt: jpg mit C2PA plus webp, keine Silhouetten/Logos, 
     const webpUrl = new URL('../public' + b.webp, import.meta.url)
     assert.ok(existsSync(jpgUrl), b.src)
     assert.ok(existsSync(webpUrl), b.webp)
-    const jpg = readFileSync(jpgUrl)
-    assert.ok(jpg.includes('jumb') && jpg.includes('c2pa'), 'C2PA fehlt in ' + b.src)
+    for (const [label, buf] of [['jpg', readFileSync(jpgUrl)], ['webp', readFileSync(webpUrl)]]) {
+      const s = buf.toString('latin1')
+      assert.ok(s.includes('trainedAlgorithmicMedia'), `DigitalSourceType fehlt in ${label} ${b.src}`)
+      assert.ok(s.includes('Bilder erstellt mit Grok (KI)'), `Credit fehlt in ${label} ${b.src}`)
+    }
   }
 })
 
@@ -88,8 +91,18 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
   assert.equal(Object.keys(TEXTE).length, 11)
   assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild – Personen fiktiv')
   assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
-  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Mehrere Hände teilen ein frisches Brot über einer Werkbank mit Hobel und Stechbeiteln')
-  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Küche lachend Gemüse und Äpfel aus einer Erntekiste in Beutel und Gläser auf')
+  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Vier Menschen stehen in einer alten Werkstatt an der Hobelbank, teilen Brot und unterhalten sich')
+  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Bauernküche Karotten, Kartoffeln und Äpfel in Beutel und Gläser auf')
+  assert.equal(TEXTE.de.alt.sinn, 'KI-generiertes Bild: Fünf Menschen sitzen in der Dämmerung im Garten um eine Laterne und unterhalten sich bei Tee und Brot')
+  assert.equal(TEXTE.de.alt.vorbei, 'KI-generiertes Bild: Eine Frau steht in der offenen Tür eines Steinhauses und begrüßt zwei Gäste, drinnen ein gedeckter Tisch')
+  assert.equal(TEXTE.de.schritte.sinn[0], 'Gemeinschaft')
+  assert.equal(TEXTE.de.schritte.sinn[1], 'Wie Entscheidungen in BtMM fallen und woran sich das Miteinander ausrichtet.')
+  assert.equal(TEXTE.de.schritte.vorbei[0], 'Kennenlernen vor Ort')
+  assert.equal(TEXTE.de.schritte.vorbei[1], 'Wie du uns vor Ort kennenlernen kannst.')
+  for (const [l, T] of Object.entries(TEXTE)) {
+    const beside = [T.schritte.sinn[0], T.schritte.sinn[1], T.schritte.vorbei[0], T.schritte.vorbei[1], T.bezug.sinn, T.bezug.vorbei].join(' ')
+    assert.doesNotMatch(beside, /unserem Treffen|letzten Abend|our meeting|last evening|notre rencontre|dernier soir/i, `${l} 07/10-Text klingt nach Treffen/Abend: ${beside}`)
+  }
 })
 
 
