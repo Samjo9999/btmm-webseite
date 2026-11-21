@@ -8,33 +8,27 @@
   var RUECKFALL_AUS = ['region', 'firma', 'social', 'auto', 'chor', 'stelle', 'haus', 'abend', 'lesen'];
   var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden'];
 
-  /* Schritte: Pfad ohne Locale, Standardbild */
+  /* Schritte: Pfad ohne Locale. Jeder Schritt hat seine eigene gemalte Grafik (Nutzer 21.11.2026 01:20:
+   * „Liebe nicht die silhouetten neben. Lieber eigene Grafiken“; Herkunft: Design-Bot, HERKUNFT.md). */
   var SCHRITTE = {
-    grundlagen: { href: '/so-funktionierts', bild: 'unendlichGold' },
-    sparen:     { href: '/was-du-sparst', bild: 'kreis' },
-    arbeiten:   { href: '/zellen', bild: 'baumDunkel' },
-    wohnen:     { href: '/konzept', bild: 'baumHell' },
-    skeptisch:  { href: '/faq', bild: 'unendlichDunkel' },
-    dokumente:  { href: '/dokumente', bild: 'logo' },
-    sinn:       { href: '/wissen', bild: 'baumHell' },
-    gruenden:   { href: '/gruendung', bild: 'baumHell' },
-    freiburg:   { href: '/gruendung', bild: 'baumDunkel' },
-    vorbei:     { href: '/mitmachen', bild: 'kreis' },
-    anpacken:   { href: '/mitmachen', bild: 'kreis' },
-    folgen:     { href: '/chronik', bild: 'logo' }
+    grundlagen: { href: '/so-funktionierts', bild: 'grundlagen' },
+    sparen:     { href: '/was-du-sparst', bild: 'sparen' },
+    arbeiten:   { href: '/zellen', bild: 'arbeiten' },
+    wohnen:     { href: '/konzept', bild: 'wohnen' },
+    skeptisch:  { href: '/faq', bild: 'skeptisch' },
+    dokumente:  { href: '/dokumente', bild: 'dokumente' },
+    sinn:       { href: '/wissen', bild: 'sinn' },
+    gruenden:   { href: '/gruendung', bild: 'gruenden' },
+    freiburg:   { href: '/gruendung', bild: 'freiburg' },
+    vorbei:     { href: '/mitmachen', bild: 'vorbei' },
+    anpacken:   { href: '/mitmachen', bild: 'anpacken' },
+    folgen:     { href: '/chronik', bild: 'folgen' }
   };
-  /* Nur Bilder, die schon im Repo (public/) liegen */
-  var BILDER = {
-    unendlichGold: { src: '/infinity-gold.png' }, unendlichDunkel: { src: '/infinity-dark.png' },
-    kreis: { src: '/logo-hero-white.png', dunkel: true }, baumDunkel: { src: '/logo-tree-dark.png' },
-    baumHell: { src: '/logo-tree-light.png', dunkel: true }, logo: { src: '/logo.png' }
-  };
-  /* Bild nach dem Merkmal, das den Schritt begründet */
-  var BILD_NACH_MERKMAL = {
-    start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'baumHell', online: 'logo', skeptisch: 'unendlichDunkel',
-    sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'baumHell', gruenden: 'baumHell',
-    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel'
-  };
+  /* Grafiken 16:9 als webp in zwei Breiten (720 für Handy, 1280 für Desktop/DPR 2) */
+  var BILDER = {};
+  Object.keys(SCHRITTE).forEach(function (k) {
+    BILDER[k] = { src: '/tuer/bilder/weg/' + k + '-720.webp', gross: '/tuer/bilder/weg/' + k + '-1280.webp' };
+  });
 
   function grund(t) {
     return (t || '').toLowerCase().replace(/[’`´]/g, "'").normalize('NFD')
@@ -92,14 +86,9 @@
       default: return k;
     }
   }
-  /* Bild je Schritt nach Merkmal; doppelte Bilder im selben Weg vermeiden */
-  function bilderWaehlen(keys, p) {
-    var benutzt = {};
-    return keys.map(function (k) {
-      var wahl = [BILD_NACH_MERKMAL[bezugKey(k, p)], SCHRITTE[k].bild].concat(Object.keys(BILDER));
-      for (var i = 0; i < wahl.length; i++) if (wahl[i] && !benutzt[wahl[i]]) { benutzt[wahl[i]] = 1; return wahl[i]; }
-      return SCHRITTE[k].bild;
-    });
+  /* Bild je Schritt: die eigene Grafik des Schritts (Schritte sind im Weg eindeutig, also keine Doppelung) */
+  function bilderWaehlen(keys) {
+    return keys.map(function (k) { return SCHRITTE[k].bild; });
   }
   function profilSatz(P, p) {
     var teile = [];

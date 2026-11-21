@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 // Tür: der Kennenlern-Pfad passt sich individuell an (Nutzer 21.11.2026 00:35).
 // Nachweis: unterschiedliche Profile ergeben unterschiedliche Schritt-Auswahl und -Reihenfolge, nicht nur andere Sätze.
 import { test } from 'node:test'
@@ -45,6 +46,16 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   // gleiche Merkmale, andere Stärke → andere Reihenfolge
   const x = PF.pfadBauen({ sparen: 3, wohnen: 1 }), y = PF.pfadBauen({ sparen: 1, wohnen: 3 })
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
+})
+
+test('eigene Grafik je Schritt: Datei vorhanden, keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+  for (const [k, d] of Object.entries(PF.SCHRITTE)) {
+    const b = PF.BILDER[d.bild]; assert.ok(b, k)
+    for (const src of [b.src, b.gross]) {
+      assert.match(src, /^\/tuer\/bilder\/weg\/[a-z]+-(720|1280)\.webp$/, src)
+      assert.ok(existsSync(new URL('../public' + src, import.meta.url)), src)
+    }
+  }
 })
 
 test('Bilder je Schritt nach Merkmal, ohne Doppelung, nur vorhandene', () => {
