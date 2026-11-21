@@ -13,7 +13,8 @@ export function ScrollHint() {
     const scrollable = document.documentElement.scrollHeight > window.innerHeight
     const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)
     // W1: nur im Hero zeigen; sobald gescrollt wird (> 120 px), nicht mehr über dem Inhalt stehen
-    setVisible(scrollable && !atBottom && window.scrollY <= 120)
+    const grundsaetzlich = scrollable && !atBottom && window.scrollY <= 120
+    if (!grundsaetzlich) { setVisible(false); return }
 
     // Hint kurz unsichtbar machen um den echten Hintergrund zu messen
     if (ref.current) {
@@ -55,6 +56,23 @@ export function ScrollHint() {
         setDunkel(helligkeitSum / count < 140)
       }
 
+      // W1 r2: Nie über einem Knopf oder Link stehen (z. B. „Mitmachen“ im Hero auf 390×844).
+      // Geprüft wird die Fläche, die der Hinweis unten mittig einnimmt (ca. 170 × 60 px + Abstand).
+      const mitte = window.innerWidth / 2
+      const unten = window.innerHeight - 24
+      let ueberlappt = false
+      for (const dy of [4, 20, 36, 52, 68]) {
+        for (const dx of [-85, -42, 0, 42, 85]) {
+          const el = document.elementFromPoint(mitte + dx, unten - dy)
+          const ziel = el?.closest('a, button, input, select, textarea, [role="button"]')
+          // Flächige Klickzonen (z. B. „Bild vergrößern“ über dem ganzen Hero-Bild) zählen nicht
+          const flaechig = ziel ? ziel.getBoundingClientRect().height > 200 : false
+          if (ziel && !flaechig && !ziel.closest('[data-scroll-hint]')) { ueberlappt = true; break }
+        }
+        if (ueberlappt) break
+      }
+      setVisible(!ueberlappt)
+
       if (ref.current) {
         ref.current.style.visibility = 'visible'
       }
@@ -62,10 +80,16 @@ export function ScrollHint() {
   }, [])
 
   useEffect(() => {
-    check()
+    const t0 = window.requestAnimationFrame(check)
+    // Hero-Animationen und Schriften verschieben Knöpfe nach dem ersten Rendern: nachprüfen
+    const t1 = window.setTimeout(check, 700)
+    const t2 = window.setTimeout(check, 1600)
     window.addEventListener('scroll', check, { passive: true })
     window.addEventListener('resize', check, { passive: true })
     return () => {
+      window.cancelAnimationFrame(t0)
+      window.clearTimeout(t1)
+      window.clearTimeout(t2)
       window.removeEventListener('scroll', check)
       window.removeEventListener('resize', check)
     }
