@@ -13,8 +13,7 @@ a{color:var(--lila)}
 .leise{border:0;background:none;color:var(--grau);font:inherit;font-size:.8em;text-decoration:underline;cursor:pointer}
 :focus-visible{outline:3px solid var(--lila);outline-offset:2px}
 .tuer :focus-visible{outline-color:#fff}
-.pfad h1:focus{outline:none}
-.pfad h1:focus-visible{outline:3px solid var(--lila)}
+.pfad h1:focus,.pfad h1:focus-visible{outline:none}
 
 /* Tür */
 .tuer{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,#904b97 0%,#4a0a42 55%,#22061f 100%);color:#fff;text-align:center;overflow:hidden;position:relative;padding:24px}
