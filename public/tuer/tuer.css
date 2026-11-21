@@ -80,6 +80,33 @@ a{color:var(--lila)}
   .tuer-band .knopf{padding:8px 16px}
   .tuer-band .bild-credit{margin:2px auto 0;font-size:11px}
 }
+/* Handy quer: Band als Seitenleiste (rechts, bei rtl links). Kein linker Rahmen.
+ * Tür in den übrigen 62 %, Desktop-Assets, object-position an der Flügelnaht zentriert. */
+@media (orientation: landscape) and (max-height: 500px){
+  .tuer-rahmen{inset:0 38% 0 0}
+  .fluegel.links img{object-position:right center;transform:none}
+  .fluegel.rechts img{object-position:left center;transform:none}
+  .tuer-band{
+    top:0;bottom:0;left:auto;right:0;width:38%;max-height:none;
+    display:flex;flex-direction:column;justify-content:safe center;
+    overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:12px 14px;padding-right:calc(14px + env(safe-area-inset-right));
+    border:0;border-left:0;border-right:0;border-top:0;border-bottom:0;
+    box-shadow:-12px 0 28px rgba(20,8,24,.4)
+  }
+  .tuer-band h1{font-size:24px;margin:0 0 6px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){
+    display:block;font-size:15px;line-height:1.35;margin:0 auto 10px;max-width:none;white-space:normal
+  }
+  .tuer-band .reihe{gap:12px;flex-wrap:wrap}
+  .tuer-band .bild-credit{margin:8px auto 0;font-size:11px}
+  html[dir=rtl] .tuer-rahmen{inset:0 0 0 38%}
+  html[dir=rtl] .tuer-band{
+    left:0;right:auto;
+    padding-right:14px;padding-left:calc(14px + env(safe-area-inset-left));
+    border-left:0;box-shadow:12px 0 28px rgba(20,8,24,.4)
+  }
+}
 @media (prefers-reduced-motion:reduce){
   .fluegel{transition:opacity .4s}
   .oeffnet .fluegel,

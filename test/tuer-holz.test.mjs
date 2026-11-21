@@ -70,4 +70,7 @@ test('Tür: sichtbarer lokalisierter Bild-Credit, ohne linken Rahmen', () => {
   assert.match(css, /margin:6px auto 0/)
   assert.match(css, /max-height:500px/)
   assert.match(css, /min-height:44px/)
+  assert.match(css, /orientation:\s*landscape/)
+  assert.match(css, /html\[dir=rtl\] \.tuer-band\{[^}]*border-left:0/)
+  assert.doesNotMatch(css, /orientation:[\s\S]*?max-height:\s*500px\)[\s\S]*?\.tuer-band\{[^}]*border-left:\s*[^0]/)
 })
