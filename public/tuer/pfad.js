@@ -16,25 +16,24 @@
     wohnen:     { href: '/konzept', bild: 'baumHell' },
     skeptisch:  { href: '/faq', bild: 'unendlichDunkel' },
     dokumente:  { href: '/dokumente', bild: 'logo' },
-    sinn:       { href: '/wissen', bild: 'wiese' },
+    sinn:       { href: '/wissen', bild: 'baumHell' },
     gruenden:   { href: '/gruendung', bild: 'baumHell' },
     freiburg:   { href: '/gruendung', bild: 'baumDunkel' },
-    vorbei:     { href: '/mitmachen', bild: 'portraet' },
-    anpacken:   { href: '/mitmachen', bild: 'wiese' },
+    vorbei:     { href: '/mitmachen', bild: 'kreis' },
+    anpacken:   { href: '/mitmachen', bild: 'kreis' },
     folgen:     { href: '/chronik', bild: 'logo' }
   };
   /* Nur Bilder, die schon im Repo (public/) liegen */
   var BILDER = {
     unendlichGold: { src: '/infinity-gold.png' }, unendlichDunkel: { src: '/infinity-dark.png' },
     kreis: { src: '/logo-hero-white.png', dunkel: true }, baumDunkel: { src: '/logo-tree-dark.png' },
-    baumHell: { src: '/logo-tree-light.png', dunkel: true }, logo: { src: '/logo.png' },
-    wiese: { src: '/images/johannes-mit-hund.webp', foto: true }, portraet: { src: '/profil-johannes.jpg', foto: true }
+    baumHell: { src: '/logo-tree-light.png', dunkel: true }, logo: { src: '/logo.png' }
   };
   /* Bild nach dem Merkmal, das den Schritt begründet */
   var BILD_NACH_MERKMAL = {
-    start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'wiese', online: 'logo', skeptisch: 'unendlichDunkel',
-    sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'wiese', gruenden: 'baumHell',
-    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'portraet', anpacken: 'portraet', nurlesen: 'logo', dranbleiben: 'unendlichDunkel'
+    start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'baumHell', online: 'logo', skeptisch: 'unendlichDunkel',
+    sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'baumHell', gruenden: 'baumHell',
+    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel'
   };
 
   function grund(t) {
