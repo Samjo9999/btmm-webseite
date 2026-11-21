@@ -33,33 +33,52 @@ a{color:var(--lila)}
 .fluegel.rechts img{object-position:left var(--tuer-y)}
 .tuer-band{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;background:var(--tuer-band-grund);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--tuer-band-linie);border-bottom:1px solid var(--tuer-band-linie);border-left:0;border-right:0;padding:14px 22px calc(12px + env(safe-area-inset-bottom));max-height:34%}
 .tuer-band h1{font-size:40px;margin:0 0 6px;color:var(--btmm-logo-text-glow);font-weight:600;line-height:1.1}
-.tuer-band p{font-size:18px;color:#faf9f9;margin:0 auto 10px;max-width:30em;line-height:1.4;opacity:1}
+.tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:18px;color:#faf9f9;margin:0 auto 10px;max-width:30em;line-height:1.4;opacity:1}
 .tuer-band .ohne{color:var(--tuer-link)}
-.tuer-band .tuer-ohne{margin:8px 0 0;font-size:16px}
+.tuer-band .reihe{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
+.tuer-band .tuer-ohne{margin:0;font-size:16px}
+.tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
 .tuer-band .knopf.hell{box-shadow:none}
-.tuer-band .bild-credit{margin:6px 0 0;font-size:13px;line-height:1.3;color:var(--tuer-link);border:0;border-left:0}
+.tuer-band .bild-credit{margin:6px auto 0;text-align:center;font-size:13px;line-height:1.3;color:var(--tuer-link);border:0;border-left:0;max-width:none}
 .oeffnet .fluegel.links{transform:rotateY(62deg)}
 .oeffnet .fluegel.rechts{transform:rotateY(-62deg)}
 .oeffnet .tuer-band{opacity:0;transition:opacity .4s}
 @media (min-width:900px){
   .tuer-band{padding:6px 40px 6px;max-height:160px}
   .tuer-band h1{font-size:42px;margin:0 0 2px}
-  .tuer-band p{margin-bottom:4px;max-width:46em;white-space:nowrap}
-  .tuer-band .reihe{display:flex;gap:28px;justify-content:center;align-items:center}
-  .tuer-band .tuer-ohne{margin:0;display:inline}
-  .tuer-band .bild-credit{margin:4px 0 0}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){margin-bottom:4px;max-width:46em;white-space:nowrap}
+  .tuer-band .reihe{gap:28px}
+  .tuer-band .tuer-ohne{display:inline}
+  .tuer-band .bild-credit{margin:6px auto 0}
 }
 /* Kurze Desktop-Höhen (z. B. 1280×800, 1366×768): Band kompakter, Logo etwas höher, Ring oben frei. */
 @media (min-width:900px) and (max-height:820px){
   .tuer-band{padding:4px 40px 4px;max-height:145px}
   .tuer-band h1{font-size:32px;margin:0 0 0}
-  .tuer-band p{font-size:16px;margin-bottom:4px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:16px;margin-bottom:4px}
   .fluegel.links img,
   .fluegel.rechts img{transform:translateY(-16px)}
 }
 @media (max-height:699px){
   .tuer-band h1{font-size:32px}
-  .tuer-band p{font-size:16px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:16px}
+}
+
+/* Schmale Hochkant-Viewports: Knopf+Link in einer Zeile halten (z. B. en bei 360 px). */
+@media (max-width:420px){
+  .tuer-band{padding-left:16px;padding-right:16px}
+  .tuer-band .reihe{gap:10px}
+}
+/* Handy quer / sehr niedrige Höhe: Absatz aus, kompaktes Band, Tippflächen ≥ 44 px.
+ * Logo-Ring kann hier physisch nicht frei bleiben (siehe Commit/Rückmeldung). */
+@media (max-height:500px){
+  .tuer-band{padding:4px 16px calc(4px + env(safe-area-inset-bottom));max-height:none}
+  .tuer-band h1{font-size:22px;margin:0}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){display:none}
+  .tuer-band .reihe{gap:12px}
+  .tuer-band .tuer-ohne{margin:0;display:inline}
+  .tuer-band .knopf{padding:8px 16px}
+  .tuer-band .bild-credit{margin:2px auto 0;font-size:11px}
 }
 @media (prefers-reduced-motion:reduce){
   .fluegel{transition:opacity .4s}

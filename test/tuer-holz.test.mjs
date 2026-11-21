@@ -67,4 +67,7 @@ test('Tür: sichtbarer lokalisierter Bild-Credit, ohne linken Rahmen', () => {
     const re = new RegExp(l + ':[\\s\\S]*?bildCredit:\\s*"')
     assert.match(jsTexte, re, 'bildCredit in ' + l)
   }
+  assert.match(css, /margin:6px auto 0/)
+  assert.match(css, /max-height:500px/)
+  assert.match(css, /min-height:44px/)
 })
