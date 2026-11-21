@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="robots" content="noindex,nofollow">
+<title>Eintreten · BtMM – Back to Meaning Maximization</title>
+<link rel="stylesheet" href="/tuer/tuer.css">
+</head>
+<body class="phase-tuer">
+<main id="tuer" class="tuer" aria-labelledby="tuer-titel">
+  <div class="tuer-rahmen" aria-hidden="true">
+    <div class="fluegel links"></div><div class="fluegel rechts"></div>
+    <img class="tuer-licht" src="/tuer/bilder/logo.png" alt="">
+  </div>
+  <div class="tuer-text">
+    <img class="tuer-logo" src="/tuer/bilder/logo.png" alt="BtMM – Back to Meaning Maximization">
+    <h1 id="tuer-titel" data-t="tuerH1">Tritt ein</h1>
+    <p data-t="tuerP">Wir lernen dich mit ein paar Fragen kennen und zeigen dir dann deinen Weg durch BtMM.</p>
+    <button class="knopf hell" id="eintreten" type="button" data-t="eintreten">Eintreten</button>
+    <p class="tuer-ohne"><a href="/de" class="ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a></p>
+  </div>
+</main>
+
+<main id="dialog" class="dialog" hidden aria-live="polite">
+  <header class="kopf">
+    <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
+    <div><b data-t="kopfName">BtMM-KI</b><span data-t="kopfSub">fragt, du antwortest</span></div>
+    <nav class="kopf-aktionen">
+      <a href="/de" class="leise ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a>
+      <button type="button" class="leise" id="loeschen" data-t="loeschen">Antworten löschen</button>
+    </nav>
+  </header>
+  <p class="hinweis-kasten" id="ds-hinweis"><span data-t="ds">Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen.</span> <a href="/de/impressum#datenschutz" data-t="dsLink" data-ort="/impressum#datenschutz">Datenschutz</a></p>
+  <ol class="verlauf" id="verlauf"></ol>
+  <form class="eingabe" id="eingabe" autocomplete="off">
+    <label for="antwort" class="nur-sr" data-t="antwortLabel">Deine Antwort</label>
+    <textarea id="antwort" rows="2" placeholder="Schreib oder sprich deine Antwort …" data-t-ph="placeholder" disabled></textarea>
+    <button type="button" class="rund mik" id="mik" aria-label="Per Sprache antworten" data-t-aria="mikAria" aria-pressed="false" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
+    </button>
+    <button type="submit" class="rund senden" id="senden" aria-label="Antwort senden" data-t-aria="sendenAria" disabled>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+    </button>
+  </form>
+  <div class="blatt" id="mik-hinweis" hidden role="dialog" aria-labelledby="mik-titel">
+    <h2 id="mik-titel" data-t="mikTitel">Mikrofon</h2>
+    <p data-t="mikText">Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.</p>
+    <button type="button" class="knopf" id="mik-start" data-t="mikStart">Mikrofon starten</button>
+    <button type="button" class="knopf zweit" id="mik-tippen" data-t="mikTippen">Lieber tippen</button>
+  </div>
+</main>
+
+<main id="pfad" class="pfad" hidden>
+  <header class="pfad-kopf">
+    <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
+    <h1 data-t="pfadH1">Dein Weg durch BtMM</h1>
+    <p id="profil-satz"></p>
+  </header>
+  <ol class="schritte" id="schritte"></ol>
+  <p class="pfad-fuss">
+    <a class="knopf" href="/de" id="kennenlernen" data-t="starten">Kennenlernen starten</a>
+    <a class="leise ohne" href="/de" id="zur-start" data-t="zurStart" data-ort="start">Zur Startseite</a>
+  </p>
+</main>
+<script src="/tuer/texte.js"></script>
+<script src="/tuer/pfad.js"></script>
+<script src="/tuer/tuer.js"></script>
+</body>
+</html>

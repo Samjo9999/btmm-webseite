@@ -75,6 +75,7 @@ export function ScrollHint() {
   return (
     <motion.div
       ref={ref}
+      data-scroll-hint
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
