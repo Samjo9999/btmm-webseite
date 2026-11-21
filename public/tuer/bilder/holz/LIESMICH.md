@@ -1,7 +1,10 @@
-# Tür-Bilder (Platzhalter)
+# Tür-Bilder (V4 Teak, Logo als Hauptmotiv)
 
-Stand: V1 Teak mit Gold-Logo als Platzhalter. Die endgültigen V4-Assets (Logo als Hauptmotiv statt Mandala, nur Teak mit Gold) ersetzen diese Dateien unter denselben Namen, ohne Pfadänderung im HTML.
+Stand: V4 Teak mit Gold-Logo. Dateinamen, Formate und Maße entsprechen den früheren Platzhaltern, damit HTML-Pfade unverändert bleiben.
 
-Ausgeliefert unverändert (XMP `compositeWithTrainedAlgorithmicMedia` bleibt erhalten, kein Strip in einer Bildoptimierung). Nur die zum Viewport passende Flügel-Datei links und rechts wird geladen; die Gesamtbilder (`mobil.*`, `desktop.*`) liegen als Fallback bereit und werden von der Seite nicht vorab angefordert.
+- mobil: 1182×2560, Flügel 591×2560
+- desktop: 2560×1600, Flügel 1280×1600
 
-Platzhalter-Quelle: Design-Paket `tuer-holz-ornament-2026-11-21`, Variante V1 Teak-Gold / Fassung Gold.
+Ausgeliefert unverändert (XMP `compositeWithTrainedAlgorithmicMedia` bleibt erhalten, kein Strip). Nur die zum Viewport passende Flügel-Datei links und rechts wird geladen; die Gesamtbilder (`mobil.*`, `desktop.*`) liegen als Fallback bereit und werden von der Seite nicht vorab angefordert.
+
+Quelle: Design-Paket `tuer-holz-ornament-2026-11-21`, Variante V4 Teak-Logo / Fassung Gold (21.11.2026).

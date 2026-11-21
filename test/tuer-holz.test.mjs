@@ -39,7 +39,9 @@ test('Tür-CSS: Band ohne linken Rahmen, reduced-motion nur Fade, --tuer-y', () 
   assert.match(css, /\.tuer-band\{[^}]*border-left:0/)
   assert.match(css, /prefers-reduced-motion:reduce/)
   assert.match(css, /\.oeffnet \.fluegel\{transform:none;opacity:0\}/)
-  assert.match(css, /--tuer-y:48\.5%/)
+  assert.match(css, /--tuer-y:50%/)
+  assert.match(css, /--tuer-y:48\.3%/)
+  assert.match(css, /max-height:175px/)
   assert.doesNotMatch(css, /\.tuer-licht\{|\.tuer-logo\{/)
 })
 
@@ -47,4 +49,19 @@ test('11 Locales und ?ohne-tuer= bleiben', () => {
   assert.match(js, /\['de', 'en', 'zh', 'es', 'hi', 'ar', 'bn', 'pt', 'ru', 'ja', 'fr'\]/)
   assert.match(weiche, /ohne-tuer/)
   assert.match(js, /params\.get\('lang'\)/)
+})
+
+test('Tür: sichtbarer lokalisierter Bild-Credit, ohne linken Rahmen', () => {
+  const html = readFileSync(join(root, 'public/tuer/index.html'), 'utf8')
+  const css = readFileSync(join(root, 'public/tuer/tuer.css'), 'utf8')
+  const jsTexte = readFileSync(join(root, 'public/tuer/texte.js'), 'utf8')
+  assert.match(html, /class="bild-credit"[^>]*data-t="bildCredit"/)
+  assert.match(html, /Bilder erstellt mit Grok \(KI\)/)
+  assert.doesNotMatch(css, /\.tuer-band \.bild-credit\{[^}]*border-left:\s*[^0]/)
+  assert.match(css, /\.tuer-band \.bild-credit\{[^}]*color:var\(--tuer-link\)/)
+  const locales = ['de', 'en', 'zh', 'es', 'hi', 'ar', 'bn', 'pt', 'ru', 'ja', 'fr']
+  for (const l of locales) {
+    const re = new RegExp(l + ':[\\s\\S]*?bildCredit:\\s*"')
+    assert.match(jsTexte, re, 'bildCredit in ' + l)
+  }
 })
