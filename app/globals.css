@@ -362,10 +362,21 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
   color: var(--btmm-dunkel, #780268) !important;
   text-shadow: none !important;
 }
-/* Start-Hero: h1 sitzt am Glow-Logo, Schrift weiß (Design 21.11.2026) */
+/* Start-Hero: h1 sitzt am Glow-Logo, Schrift weiß (Design 21.11.2026).
+   Die weiße Schrift lag auf dem hellen Glas-Nebel nur bei 1,7–2,9:1
+   (Test-Bot zu #35). Dezente Fläche in Lila-Dunkel #2a1030, ohne linken
+   Farbrahmen; α 0,78 hält #faf9f9 auch über Weiß über AA (ca. 8,2:1). */
 .hero-text.btmm-start-hero h1 {
   color: var(--btmm-logo-text-glow, #faf9f9) !important;
-  text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5) !important;
+  background: rgba(42, 16, 48, 0.78);
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
+  padding: 0.28em 0.7em 0.34em;
+  border: 0;
+  border-radius: 0.7rem;
+  box-shadow: none;
+  text-shadow: none !important;
 }
 .hero-text p, .hero-text span, .btmm-kopf .btmm-unterzeile {
   color: var(--btmm-dunkel) !important;
