@@ -8,8 +8,8 @@
   var RUECKFALL_AUS = ['region', 'firma', 'social', 'auto', 'chor', 'stelle', 'haus', 'abend', 'lesen'];
   var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden'];
 
-  /* Schritte: Pfad ohne Locale. Jeder Schritt hat seine eigene gemalte Grafik (Nutzer 21.11.2026 01:20:
-   * „Liebe nicht die silhouetten neben. Lieber eigene Grafiken“; Herkunft: Design-Bot, HERKUNFT.md). */
+  /* Schritte: Pfad ohne Locale. Jeder Schritt hat sein eigenes Bild im Fotostil (Nutzer 21.11.2026 10:07:
+   * realistischer Fotostil statt comichaft; Herkunft: Design-Bot, docs/tuer-weg-bilder-HERKUNFT.md). */
   var SCHRITTE = {
     grundlagen: { href: '/so-funktionierts', bild: 'grundlagen' },
     sparen:     { href: '/was-du-sparst', bild: 'sparen' },
@@ -24,10 +24,11 @@
     anpacken:   { href: '/mitmachen', bild: 'anpacken' },
     folgen:     { href: '/chronik', bild: 'folgen' }
   };
-  /* Grafiken 16:9 als webp in zwei Breiten (720 für Handy, 1280 für Desktop/DPR 2) */
+  /* Bilder 16:9, 1280×720: jpg bitgleich mit C2PA, webp als zusätzliche Quelle. Keine 720er-Variante,
+   * weil eine Verkleinerung der jpg die Herkunftsdaten zerstören würde. */
   var BILDER = {};
   Object.keys(SCHRITTE).forEach(function (k) {
-    BILDER[k] = { src: '/tuer/bilder/weg/' + k + '-720.webp', gross: '/tuer/bilder/weg/' + k + '-1280.webp' };
+    BILDER[k] = { src: '/tuer/bilder/weg/' + k + '.jpg', webp: '/tuer/bilder/weg/' + k + '.webp' };
   });
 
   function grund(t) {
@@ -86,7 +87,7 @@
       default: return k;
     }
   }
-  /* Bild je Schritt: die eigene Grafik des Schritts (Schritte sind im Weg eindeutig, also keine Doppelung) */
+  /* Bild je Schritt: das eigene Motiv des Schritts (Schritte sind im Weg eindeutig, also keine Doppelung) */
   function bilderWaehlen(keys) {
     return keys.map(function (k) { return SCHRITTE[k].bild; });
   }
