@@ -83,6 +83,11 @@ html {
   outline-offset: 2px;
 }
 
+/* W1 (Design-Bot 21.11.2026): mobil unten Platz für den Chat-Knopf, damit der letzte Inhalt nicht darunter liegt */
+@media (max-width: 639px) {
+  body { padding-bottom: 88px; }
+}
+
 /* Section spacing */
 .section {
   padding: 4rem 1.5rem;

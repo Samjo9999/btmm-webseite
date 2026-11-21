@@ -29,14 +29,16 @@ export function HeroImageLightbox({ src, alt }: HeroImageLightboxProps) {
         }}
       />
 
-      {/* Hinweis-Icon unten rechts */}
+      {/* Hinweis oben rechts (W1: nicht unten neben Chat-Knopf und Scroll-Hinweis), ≥ 44 px */}
       <button
+        type="button"
         onClick={() => setOpen(true)}
-        aria-label="Bild vergrößern"
         style={{
           position: 'absolute',
-          bottom: 16,
+          top: 16,
           right: 16,
+          minHeight: 44,
+          minWidth: 44,
           zIndex: 3,
           background: 'rgba(0, 0, 0, 0.5)',
           backdropFilter: 'blur(4px)',
@@ -48,7 +50,7 @@ export function HeroImageLightbox({ src, alt }: HeroImageLightboxProps) {
           alignItems: 'center',
           gap: 6,
           color: 'white',
-          fontSize: '0.75rem',
+          fontSize: '0.85rem',
           fontFamily: 'inherit',
           transition: 'background 0.2s',
         }}
