@@ -11,6 +11,10 @@
   --btmm-dunkel:  #780268;
   --btmm-akzent:  #b058b3;
   --btmm-weiss:   #faf9f9;
+  /* Logo-Schrift: mit Glow weiß, ohne Glow lila (Design 21.11.2026) */
+  --btmm-logo-text-glow: #faf9f9;
+  --btmm-logo-text-normal: #780268;
+  --btmm-logo-text-normal-dunkel: #d49ad7;
   /* Glow/Nebel um das Logo (RGB von --btmm-primary / --btmm-akzent) */
   --btmm-glow-rgb:   158, 87, 164;
   --btmm-akzent-rgb: 176, 88, 179;
@@ -329,7 +333,7 @@ a.btmm-karte:hover { opacity: 1; transform: translateY(-2px); box-shadow: 0 6px 
 
 /* Startseiten-Header: halbierte Hintergrunddeckkraft und Logo-Violett. */
 .hero-text.btmm-start-hero { background: rgba(0, 0, 0, 0.225); }
-.hero-text.btmm-start-hero h1 { color: var(--btmm-dunkel, #780268) !important; }
+.hero-text.btmm-start-hero h1 { color: var(--btmm-logo-text-glow, #faf9f9) !important; }
 
 /* Buttons in den BtMM-Logofarben, inklusive ihrer Hover-Zustände. */
 .btn-primary, .btn-oliv, .btmm-knopf { background-color: var(--btmm-primary); color: var(--btmm-weiss); }
@@ -354,9 +358,14 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
   box-shadow: 0 0 60px rgba(var(--btmm-glow-rgb), .25);
   padding: 2.5rem 2rem;
 }
-.hero-text h1, .hero-text.btmm-start-hero h1, .btmm-kopf h1, main h1 {
+.hero-text h1, .btmm-kopf h1, main h1 {
   color: var(--btmm-dunkel, #780268) !important;
   text-shadow: none !important;
+}
+/* Start-Hero: h1 sitzt am Glow-Logo, Schrift weiß (Design 21.11.2026) */
+.hero-text.btmm-start-hero h1 {
+  color: var(--btmm-logo-text-glow, #faf9f9) !important;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5) !important;
 }
 .hero-text p, .hero-text span, .btmm-kopf .btmm-unterzeile {
   color: var(--btmm-dunkel) !important;
