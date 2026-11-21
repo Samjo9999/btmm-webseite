@@ -28,17 +28,20 @@ test('Tür: eine Fassung, feste holz-Pfade, keine Varianten-Parameter', () => {
   assert.doesNotMatch(zusammen, /v1-teak|v2-zeder|v3-rotlack/)
   assert.match(html, /\/tuer\/bilder\/holz\/(mobil|desktop)-(links|rechts)\.(webp|jpg)/)
   for (const name of [
-    'mobil-links.webp', 'mobil-rechts.webp', 'desktop-links.webp', 'desktop-rechts.webp',
-    'mobil.webp', 'desktop.webp', 'mobil-links.jpg', 'desktop.jpg'
+    'mobil-links.webp', 'mobil-links.jpg', 'mobil-rechts.webp', 'mobil-rechts.jpg',
+    'desktop-links.webp', 'desktop-links.jpg', 'desktop-rechts.webp', 'desktop-rechts.jpg'
   ]) {
     assert.ok(existsSync(join(root, 'public/tuer/bilder/holz', name)), name)
+  }
+  for (const name of ['mobil.webp', 'mobil.jpg', 'desktop.webp', 'desktop.jpg']) {
+    assert.equal(existsSync(join(root, 'public/tuer/bilder/holz', name)), false, 'unbenutztes Gesamtbild ' + name)
   }
 })
 
 test('Tür-CSS: Band ohne linken Rahmen, reduced-motion nur Fade, --tuer-y', () => {
   assert.match(css, /\.tuer-band\{[^}]*border-left:0/)
   assert.match(css, /prefers-reduced-motion:reduce/)
-  assert.match(css, /\.oeffnet \.fluegel\{transform:none;opacity:0\}/)
+  assert.match(css, /\.oeffnet \.fluegel,\s*\.oeffnet \.fluegel\.links,\s*\.oeffnet \.fluegel\.rechts\{transform:none;opacity:0\}/)
   assert.match(css, /--tuer-y:50%/)
   assert.match(css, /--tuer-y:48\.3%/)
   assert.match(css, /max-height:175px/)

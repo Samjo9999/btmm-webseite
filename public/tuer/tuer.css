@@ -54,7 +54,9 @@ a{color:var(--lila)}
 }
 @media (prefers-reduced-motion:reduce){
   .fluegel{transition:opacity .4s}
-  .oeffnet .fluegel{transform:none;opacity:0}
+  .oeffnet .fluegel,
+  .oeffnet .fluegel.links,
+  .oeffnet .fluegel.rechts{transform:none;opacity:0}
 }
 
 /* Dialog */
