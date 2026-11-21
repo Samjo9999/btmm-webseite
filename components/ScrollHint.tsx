@@ -12,7 +12,8 @@ export function ScrollHint() {
   const check = useCallback(() => {
     const scrollable = document.documentElement.scrollHeight > window.innerHeight
     const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)
-    setVisible(scrollable && !atBottom)
+    // W1: nur im Hero zeigen; sobald gescrollt wird (> 120 px), nicht mehr über dem Inhalt stehen
+    setVisible(scrollable && !atBottom && window.scrollY <= 120)
 
     // Hint kurz unsichtbar machen um den echten Hintergrund zu messen
     if (ref.current) {
