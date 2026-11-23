@@ -30,14 +30,7 @@
   function auswerten(text) { return PF.auswerten(MERKMALE, text); }
 
   /* ---------- Fragen (offen, Auswahl nach Profil) ---------- */
-  var FRAGEN = [
-    { id: 'herkunft', immer: true }, { id: 'motiv', immer: true },
-    { id: 'sparen', wenn: 'sparen' }, { id: 'arbeit', wenn: 'arbeiten' }, { id: 'wohnen', wenn: 'wohnen' },
-    { id: 'zweifel', wenn: 'skeptisch' }, { id: 'sinn', wenn: 'sinn' },
-    { id: 'ort', immer: true }, { id: 'zeit', immer: true }
-  ];
-  FRAGEN.forEach(function (f) { f.text = T.fragen[f.id]; });
-  var MAX_FRAGEN = 6;
+  var FRAGEN = PF.FRAGEN.map(function (f) { return { id: f.id, immer: f.immer, wenn: f.wenn, text: T.fragen[f.id] || DE.fragen[f.id] }; });
 
   var SCHRITTE = PF.SCHRITTE, BILDER = PF.BILDER;
   function bildUrl(src) { return '/_next/image?url=' + encodeURIComponent(src) + '&w=256&q=70'; }
@@ -50,18 +43,7 @@
   if (st.lang && st.lang !== LANG && !st.fertig) st = { antworten: [], profil: {}, gestellt: [] };
   st.lang = LANG;
 
-  function naechsteFrage() {
-    if (st.gestellt.length >= MAX_FRAGEN) return null;
-    var p = st.profil;
-    var kandidaten = FRAGEN.filter(function (f) { return st.gestellt.indexOf(f.id) === -1; });
-    var vertiefung = kandidaten.filter(function (f) { return f.wenn && p[f.wenn]; })
-      .sort(function (a, b) { return (p[b.wenn] || 0) - (p[a.wenn] || 0); })[0];
-    var fest = kandidaten.filter(function (f) { return f.immer; });
-    if (st.gestellt.length < 2) return fest[0];
-    var rest = MAX_FRAGEN - st.gestellt.length;
-    if (vertiefung && rest > fest.length) return vertiefung;
-    return fest[0] || vertiefung || null;
-  }
+  function naechsteFrage() { return PF.naechsteFrage(st, FRAGEN); }
 
   function echo(treffer) {
     var keys = Object.keys(treffer).sort(function (a, b) { return treffer[b] - treffer[a]; });

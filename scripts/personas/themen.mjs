@@ -7,7 +7,7 @@ export const THEMEN = {
   lohn:               { min: 2, w: ['stundenlohn', 'pro stunde', 'jede stunde', 'netto', 'vergütet', 'lohn', 'gleich bezahlt', 'gleich viel'] },
   einkauf:            { min: 2, w: ['einkauf', 'ek-preis', 'spar', 'günstig', 'kosten', 'teilen', 'großhandel', 'material', 'pro person im monat'] },
   unternehmer:        { min: 2, w: ['unternehmen', 'betrieb', 'marktmacht', 'juristische person', 'kunden', 'umsatz', 'gewinn'] },
-  kunde:              { min: 2, w: ['kunden', 'marktpreis', 'leistungen', 'angebot', 'buchen', 'preise', 'intern'] },
+  kunde:              { min: 2, w: ['kunde', 'marktpreis', 'preisliste', 'leistungen', 'angebot', 'buchen', 'preise', 'intern'] },
   belege:             { min: 2, w: ['satzung', 'dokument', 'prüf', 'risik', 'offene fragen', 'quelle', 'nachlesen', 'herunterladen'] },
   gruendung:          { min: 2, w: ['gründung', 'gründungsmitglied', 'eingetragene genossenschaft', 'mitglieder', 'notar', 'register'] },
   mitmachen:          { min: 1, w: ['mitmachen', 'mitglied werden', 'dabei sein', 'kontakt aufnehmen', 'anfrage'] },

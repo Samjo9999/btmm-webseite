@@ -18,7 +18,7 @@ export const TABU = {
   jobcenter: [wort('job ?cent(?:er|re)'), wort('arbeitsamt'), wort('p(?:ô|o)le emploi'), wort('france travail'), wort('oficina de empleo'), wort('centro de emprego'),
     wort('центр занятости'), teil('مكتب العمل'), teil('مركز التوظيف'), teil('就业中心'), teil('ハローワーク'), teil('ジョブセンター'), teil('रोज़?गार (?:कार्यालय|केंद्र)'), teil('কর্মসংস্থান কেন্দ্র')],
   krankheit: [wort('krankheit'), ganz('krank'), wort('illness'), wort('sickness'), wort('disease'), wort('maladie'), wort('enfermedad'), wort('doen(?:ç|c)a'),
-    wort('болезн'), ganz('ال?مرض'), teil('疾病'), teil('生病'), teil('患病'), teil('病気'), teil('疾患'), teil('बीमारी'), teil('অসুস্থ'), teil('রোগ')],
+    wort('болезн'), ganz('ال?مرض'), teil('疾病'), teil('生病'), teil('患病'), teil('病気'), teil('疾患'), teil('बीमारी'), teil('অসুস্থ'), wort('রোগ')],
   erkrankung: [wort('erkrank'), wort('заболева')],
   elternzeit: [wort('elternzeit'), wort('parental leave'), wort('maternity leave'), wort('paternity leave'), wort('cong(?:é|e) (?:parental|maternit)'), wort('permiso parental'),
     wort('baja por maternidad'), wort('licen(?:ç|c)a[- ](?:parental|maternidade)'), wort('декрет'), wort('отпуск по уходу'), teil('إجازة الأمومة'), teil('إجازة الوالدين'),
@@ -60,6 +60,18 @@ export function scanPfad(repo, seiten) {
   const quellen = [...dateien(join(repo, 'public/tuer'), (p) => /\.(html|js|css)$/.test(p)), join(repo, 'components/btmm/PfadLeiste.tsx'), join(repo, 'components/btmm/TuerWeiche.tsx')]
   for (const f of quellen) if (existsSync(f)) { res.gescannt.push(relative(repo, f)); add(scanText(readFileSync(f, 'utf8'), relative(repo, f))) }
   if (seiten) for (const s of seiten.seiten) if (s.html) { res.gescannt.push(s.url); add(scanText(s.html, s.url)) }
+  return res
+}
+/** Ausgeliefert (Wunsch Test-Bot): alles, was Besucher bekommen oder was in HTML/Payload landet:
+ *  Sprachdateien (messages/**, gehen als Payload auf jede Seite), public/** (statisch), Seiten- und Komponenten-Quelltext,
+ *  lib/inhalte, content/** (Dokumente, Wissens-Index). Prüft damit auch alt-Texte, Meta und data-Attribute im Quelltext. */
+export function scanAusgeliefert(repo) {
+  const res = { treffer: [], hinweise: [], dateien: 0 }
+  for (const d of ['messages', 'public', 'app', 'components', 'lib', 'content'])
+    for (const f of dateien(join(repo, d), (p) => /\.(json|md|mdx|ts|tsx|js|mjs|html|txt|xml|css)$/.test(p) && !/node_modules/.test(p))) {
+      res.dateien++
+      const r = scanText(readFileSync(f, 'utf8'), relative(repo, f)); res.treffer.push(...r.treffer); res.hinweise.push(...r.hinweise)
+    }
   return res
 }
 /** Repo-weit (nur Bericht): messages, content, public, lib, app. */

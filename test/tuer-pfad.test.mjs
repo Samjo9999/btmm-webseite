@@ -10,6 +10,7 @@ const require = createRequire(import.meta.url)
 const PF = require('../public/tuer/pfad.js')
 const sandbox = { window: {} }
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte.js', import.meta.url), 'utf8'), sandbox)
+vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-luecken.js', import.meta.url), 'utf8'), sandbox)
 const TEXTE = sandbox.window.BTMM_TUER_TEXTE
 
 function profilAus(lang, antworten) {
@@ -64,4 +65,12 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
+})
+
+test('Lücken-Gruppen bekommen eigene Schritte (PR #38)', () => {
+  const k = PF.pfadBauen(profilAus('de', ['Ich suche jemanden für eine neue Küche, als Kundin.', 'Wir haben zwei Kinder.']))
+  assert.ok(k.includes('kunde') && k.includes('lebensphase'), k.join(','))
+  const e = PF.pfadBauen(profilAus('de', ['Ich bin gerade mit der Ausbildung fertig.']))
+  assert.ok(e.includes('einstieg'), e.join(','))
+  for (const key of ['kunde', 'einstieg', 'lebensphase']) assert.ok(PF.SCHRITTE[key].href.startsWith('/fuer-dich/'))
 })

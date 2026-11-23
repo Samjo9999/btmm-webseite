@@ -15,7 +15,7 @@ export const ARCHETYPEN = {
     needs: { unternehmer: 3, betrieb_entlastung: 3, lohn: 2, belege: 1 } },
   solo: { w: 10, label: 'Solo-Selbstständige/Freiberufler', schwelle: 0.56, eigen: ['handwerk', 'arbeiten'],
     needs: { betrieb_entlastung: 3, lohn: 2, gemeinschaft: 1, einkauf: 1 } },
-  kunde: { w: 15, label: 'Verbraucher/Kunden', schwelle: 0.52, eigen: ['sparen'],
+  kunde: { w: 15, label: 'Verbraucher/Kunden', schwelle: 0.52, eigen: ['kunde', 'sparen'],
     needs: { kunde: 3, einkauf: 2, idee: 1 } },
   interessiert: { w: 10, label: 'Interessierte ohne Handwerksbezug', schwelle: 0.52, eigen: ['grundlagen', 'sinn'],
     needs: { idee: 3, gemeinschaft: 2, wohnen: 1 } },
@@ -118,6 +118,9 @@ const LAGE = {
 export function antwortFuer(rand, persona, frageId) {
   const a = A[persona.typ]
   if (rand() < persona.leerRate) return ALLG.leer[(rand() * ALLG.leer.length) | 0]
+  if (frageId === 'lage') { // Lebensphase: meist ehrlich beantwortet, manchmal ausweichend
+    return rand() < 0.75 ? LAGE[persona.lage][(rand() * LAGE[persona.lage].length) | 0] : ALLG.leer[(rand() * ALLG.leer.length) | 0]
+  }
   let pool = (a && a[frageId]) || ALLG[frageId]
   if (!pool) { // Vertiefungsfrage ohne eigene Antwort: kurze Motiv-Wiederholung oder leer
     pool = rand() < 0.5 && a && a.motiv ? a.motiv : ALLG.leer

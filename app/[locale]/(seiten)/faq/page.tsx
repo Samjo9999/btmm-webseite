@@ -8,6 +8,7 @@ import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, Json
 import { seitenMeta, breadcrumbLd, absUrl, href, ORGANISATION_LD, KONTAKT_MAIL, SEITEN } from '@/lib/seiten'
 
 import { FAQ } from '@/lib/inhalte/faq'
+import { FaqLohn } from '@/components/btmm/FaqLohn'
 type P = { params: { locale: string } }
 export function generateMetadata({ params }: P): Metadata { return seitenMeta('faq', params.locale) }
 
@@ -25,6 +26,7 @@ export default function Seite({ params: { locale } }: P) {
 <AktuellerDokumentenstand locale={locale} thema="kosten" />
 {/* BTMM-ADD-FAQ-STAND-END */}
         <Abschnitt>
+          <FaqLohn locale={locale} />
           <div className="btmm-faq">
             {FAQ.map((f) => (
               <details key={f.frage}>

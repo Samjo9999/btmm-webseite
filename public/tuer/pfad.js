@@ -6,7 +6,7 @@
   'use strict';
   // Deutsche Wörter, die in anderen Sprachen oft etwas anderes bedeuten, nicht als Rückfall nutzen.
   var RUECKFALL_AUS = ['region', 'firma', 'social', 'auto', 'chor', 'stelle', 'haus', 'abend', 'lesen'];
-  var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden'];
+  var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase'];
 
   /* Schritte: Pfad ohne Locale, Standardbild */
   var SCHRITTE = {
@@ -21,7 +21,11 @@
     freiburg:   { href: '/gruendung', bild: 'baumDunkel' },
     vorbei:     { href: '/mitmachen', bild: 'kreis' },
     anpacken:   { href: '/mitmachen', bild: 'kreis' },
-    folgen:     { href: '/chronik', bild: 'logo' }
+    folgen:     { href: '/chronik', bild: 'logo' },
+    /* PR #38: Gruppen ohne eigenen Pfad, Inhalte unter /fuer-dich/* */
+    kunde:      { href: '/fuer-dich/kunden', bild: 'kreis' },
+    einstieg:   { href: '/fuer-dich/berufseinstieg', bild: 'baumHell' },
+    lebensphase:{ href: '/fuer-dich/lebensphasen', bild: 'unendlichGold' }
   };
   /* Nur Bilder, die schon im Repo (public/) liegen */
   var BILDER = {
@@ -33,7 +37,8 @@
   var BILD_NACH_MERKMAL = {
     start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'baumHell', online: 'logo', skeptisch: 'unendlichDunkel',
     sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'baumHell', gruenden: 'baumHell',
-    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel'
+    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel',
+    kunde: 'kreis', einstieg: 'baumHell', lebensphase: 'unendlichGold'
   };
 
   function grund(t) {
@@ -63,13 +68,14 @@
 
   /* Profil → Schrittfolge. Jeder Kandidat bekommt eine Gewichtung aus dem Profil; sortiert wird absteigend.
    * Bindung (anpacken / vorbei / folgen) steht immer am Ende. */
-  var REIHE = ['skeptisch', 'grundlagen', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'dokumente', 'freiburg', 'gruenden'];
+  var REIHE = ['skeptisch', 'grundlagen', 'kunde', 'sparen', 'arbeiten', 'einstieg', 'wohnen', 'sinn', 'lebensphase', 'dokumente', 'freiburg', 'gruenden'];
   function pfadBauen(p) {
     p = p || {};
     var w = {};
     var nurGruenden = p.gruenden && !p.neugierig && !p.skeptisch;
     if (!nurGruenden) w.grundlagen = 2 + 2 * (p.neugierig || 0) + (p.freund ? 1 : 0);
-    ['sparen', 'arbeiten', 'wohnen', 'sinn'].forEach(function (m) { if (p[m]) w[m] = 3 * p[m]; });
+    ['sparen', 'arbeiten', 'wohnen', 'sinn', 'kunde', 'einstieg'].forEach(function (m) { if (p[m]) w[m] = 3 * p[m]; });
+    if (p.lebensphase) w.lebensphase = 2 * p.lebensphase;
     if (p.skeptisch) { w.skeptisch = 3 * p.skeptisch + 1; w.dokumente = 2 * p.skeptisch + (p.online ? 1 : 0); }
     if (p.freiburg && !p.weit) w.freiburg = 1 + (p.vorbei || 0) + (p.vorort || 0) + (p.gruenden || 0);
     else if (p.gruenden) w.gruenden = 2 * p.gruenden;
@@ -113,7 +119,30 @@
     return P.vor + satz + P.nach;
   }
 
-  var API = { SCHRITTE: SCHRITTE, BILDER: BILDER, MOTIVE: MOTIVE, grund: grund, norm: norm, merkmaleFuer: merkmaleFuer, auswerten: auswerten, pfadBauen: pfadBauen, bezugKey: bezugKey, bilderWaehlen: bilderWaehlen, profilSatz: profilSatz };
+  /* Fragen (offen, Auswahl nach Profil). Hier statt in tuer.js, damit Tür und Persona-Harness dieselbe Logik nutzen.
+   * PR #38: feste Frage „lage“ (Lebensphase, tabufrei) nach dem Motiv; dafür eine Frage mehr (7). */
+  var FRAGEN = [
+    { id: 'herkunft', immer: true }, { id: 'motiv', immer: true }, { id: 'lage', immer: true },
+    { id: 'sparen', wenn: 'sparen' }, { id: 'arbeit', wenn: 'arbeiten' }, { id: 'wohnen', wenn: 'wohnen' },
+    { id: 'zweifel', wenn: 'skeptisch' }, { id: 'sinn', wenn: 'sinn' },
+    { id: 'ort', immer: true }, { id: 'zeit', immer: true }
+  ];
+  var MAX_FRAGEN = 7;
+  function naechsteFrage(st, fragen) {
+    fragen = fragen || FRAGEN;
+    if (st.gestellt.length >= MAX_FRAGEN) return null;
+    var p = st.profil;
+    var kandidaten = fragen.filter(function (f) { return st.gestellt.indexOf(f.id) === -1; });
+    var vertiefung = kandidaten.filter(function (f) { return f.wenn && p[f.wenn]; })
+      .sort(function (a, b) { return (p[b.wenn] || 0) - (p[a.wenn] || 0); })[0];
+    var fest = kandidaten.filter(function (f) { return f.immer; });
+    if (st.gestellt.length < 3) return fest[0];
+    var rest = MAX_FRAGEN - st.gestellt.length;
+    if (vertiefung && rest > fest.length) return vertiefung;
+    return fest[0] || vertiefung || null;
+  }
+
+  var API = { FRAGEN: FRAGEN, MAX_FRAGEN: MAX_FRAGEN, naechsteFrage: naechsteFrage, SCHRITTE: SCHRITTE, BILDER: BILDER, MOTIVE: MOTIVE, grund: grund, norm: norm, merkmaleFuer: merkmaleFuer, auswerten: auswerten, pfadBauen: pfadBauen, bezugKey: bezugKey, bilderWaehlen: bilderWaehlen, profilSatz: profilSatz };
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
   wurzel.BTMM_TUER_PFAD = API;
 })(typeof window !== 'undefined' ? window : globalThis);
