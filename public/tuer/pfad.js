@@ -12,7 +12,7 @@
   var SCHRITTE = {
     grundlagen: { href: '/so-funktionierts', bild: 'unendlichGold' },
     sparen:     { href: '/was-du-sparst', bild: 'kreis' },
-    arbeiten:   { href: '/zellen', bild: 'baumDunkel' },
+    arbeiten:   { href: '/konzept/wirtschaft', bild: 'baumDunkel' },
     wohnen:     { href: '/konzept', bild: 'baumHell' },
     skeptisch:  { href: '/faq', bild: 'unendlichDunkel' },
     dokumente:  { href: '/dokumente', bild: 'logo' },
