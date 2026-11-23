@@ -9,10 +9,15 @@ import { getTranslations } from 'next-intl/server'
 
 export async function HandwerkNutzen({ locale, kompakt = false }: { locale: string; kompakt?: boolean }) {
   const t = await getTranslations({ locale, namespace: 'konzept.handwerk' })
+  const tw = await getTranslations({ locale, namespace: 'konzept.wirtschaft' })
   const punkte = ['haftpflicht', 'steuer', 'verwaltung'] as const
   return (
     <section className="btmm-handwerk" aria-labelledby="btmm-handwerk-titel">
       <h2 id="btmm-handwerk-titel">{t('titel')}</h2>
+      {!kompakt && (
+        // Kernaussage „Megafirma“ (Marktmacht, Betriebshaftpflicht für alle) oben im Einstieg.
+        <p className="btmm-handwerk-kern"><strong>{tw('megafirma_titel')}:</strong> {tw('megafirma_text')}</p>
+      )}
       <p className="btmm-handwerk-intro">{t('intro')}</p>
       <div className="btmm-raster">
         {punkte.map((p) => (

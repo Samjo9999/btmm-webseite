@@ -48,7 +48,7 @@ Coins können intern für Produkte und Dienstleistungen eingesetzt oder in Euro 
 
 | Phase | Zeithorizont | Was realistisch ist |
 |---|---|---|
-| Keimphase | Monat 1–3 | 0 €/h · Fundament legen, Einkommen überbrücken |
+| Keimphase | Monat 1–3 | 0 €/h · ehrenamtlich · Fundament legen |
 | Erste Einnahmen | Monat 3–9 | ~8 €/h · Zusammenlegung |
 | Wendepunkt | Monat 6–12 | 1.170 € Außenumsatz reicht |
 | System lebt | Jahr 1–2 | 8–10 €/h · volle Dreiteilung beginnt |

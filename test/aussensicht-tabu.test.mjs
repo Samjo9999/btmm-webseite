@@ -8,7 +8,8 @@ import { RX } from './tabu-woerter.mjs'
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 // Ausnahmen: allgemeine Wortbestandteile, kein Bezug auf Gründerfamilie/Tabuthema.
 const ERLAUBT = [/werdende (und junge )?Eltern/i]
-const OEFFENTLICH = ['messages', 'app', 'components', 'lib', 'public', 'content/dokumente', 'content/wissen']
+// content/wissen-mitglieder: nur serverseitig (JWT), nicht öffentlich – bewusst ausgenommen.
+const OEFFENTLICH = ['messages', 'app', 'components', 'lib', 'public', 'content/dokumente', 'content/wissen', 'content/drive-dokumente']
 
 function dateien(d) {
   return fs.readdirSync(d, { withFileTypes: true }).flatMap((e) => {
