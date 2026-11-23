@@ -14,7 +14,8 @@ a{color:var(--lila)}
 :focus-visible{outline:3px solid #d58fd0;outline-offset:2px}
 
 /* Tür: bildschirmfüllend, Logo im Holz. --tuer-y ist die vertikale Lage des Medaillons
- * (--tuer-y: mobil 50 %, Desktop 48,3 %). 47/46 % würden den Logo-Ring bei 16:10 nicht heben (Asset füllt den Viewport exakt) und bei 16:9 leicht senken; Abstand ≥ 16 px kommt über ein kompakteres Band, bei Höhe ≤ 820 px zusätzlich leichte Anhebung der Flügel. */
+ * (--tuer-y: mobil 50 %, Desktop 48,3 %). Desktop-Band 175 px wie 39f46dd (erste Tür),
+ * ohne translateY und ohne 145/160-px-Reduktion. */
 :root{
   --tuer-band-grund:rgba(20,8,24,.80);
   --tuer-band-linie:rgba(250,249,249,.22);
@@ -35,49 +36,33 @@ a{color:var(--lila)}
 .tuer-band h1{font-size:40px;margin:0 0 6px;color:var(--btmm-logo-text-glow);font-weight:600;line-height:1.1}
 .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:18px;color:#faf9f9;margin:0 auto 10px;max-width:30em;line-height:1.4;opacity:1}
 .tuer-band .ohne{color:var(--tuer-link)}
-.tuer-band .reihe{display:flex;gap:16px;justify-content:center;align-items:center;flex-wrap:wrap}
-.tuer-band .tuer-ohne{margin:0;font-size:16px}
-.tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+.tuer-band .tuer-ohne{margin:8px 0 0;font-size:16px;line-height:1.4}
 .tuer-band .knopf.hell{box-shadow:none}
 .tuer-band .bild-credit{margin:6px auto 0;text-align:center;font-size:13px;line-height:1.3;color:var(--tuer-link);border:0;border-left:0;max-width:none}
 .oeffnet .fluegel.links{transform:rotateY(62deg)}
 .oeffnet .fluegel.rechts{transform:rotateY(-62deg)}
 .oeffnet .tuer-band{opacity:0;transition:opacity .4s}
 @media (min-width:900px){
-  .tuer-band{padding:6px 40px 6px;max-height:160px}
-  .tuer-band h1{font-size:42px;margin:0 0 2px}
-  .tuer-band p:not(.tuer-ohne):not(.bild-credit){margin-bottom:4px;max-width:46em;white-space:nowrap}
-  .tuer-band .reihe{gap:28px}
-  .tuer-band .tuer-ohne{display:inline}
+  .tuer-band{padding:10px 40px 10px;max-height:175px}
+  .tuer-band h1{font-size:42px;margin:0 0 4px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){margin-bottom:8px;max-width:46em;white-space:nowrap}
+  .tuer-band .reihe{display:flex;gap:28px;justify-content:center;align-items:center}
+  .tuer-band .tuer-ohne{margin:0;display:inline}
   .tuer-band .bild-credit{margin:6px auto 0}
-}
-/* Kurze Desktop-Höhen (z. B. 1280×800, 1366×768): Band kompakter, Logo etwas höher, Ring oben frei. */
-@media (min-width:900px) and (max-height:820px){
-  .tuer-band{padding:4px 40px 4px;max-height:145px}
-  .tuer-band h1{font-size:32px;margin:0 0 0}
-  .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:16px;margin-bottom:4px}
-  .fluegel.links img,
-  .fluegel.rechts img{transform:translateY(-16px)}
 }
 @media (max-height:699px){
   .tuer-band h1{font-size:32px}
   .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:16px}
 }
-
-/* Schmale Hochkant-Viewports: Knopf+Link in einer Zeile halten (z. B. en bei 360 px). */
-@media (max-width:420px){
-  .tuer-band{padding-left:16px;padding-right:16px}
-  .tuer-band .reihe{gap:10px}
-}
-/* Handy quer / sehr niedrige Höhe: Absatz aus, kompaktes Band, Tippflächen ≥ 44 px.
- * Logo-Ring kann hier physisch nicht frei bleiben (siehe Commit/Rückmeldung). */
+/* Handy quer / sehr niedrige Höhe: kompakter Fallback, Tippflächen ≥ 44 px.
+ * Bei Querformat überschreibt die Seitenleiste darunter diesen Block. */
 @media (max-height:500px){
   .tuer-band{padding:4px 16px calc(4px + env(safe-area-inset-bottom));max-height:none}
   .tuer-band h1{font-size:22px;margin:0}
   .tuer-band p:not(.tuer-ohne):not(.bild-credit){display:none}
-  .tuer-band .reihe{gap:12px}
+  .tuer-band .reihe{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
   .tuer-band .tuer-ohne{margin:0;display:inline}
-  .tuer-band .knopf{padding:8px 16px}
+  .tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;padding:8px 16px}
   .tuer-band .bild-credit{margin:2px auto 0;font-size:11px}
 }
 /* Handy quer: Band als Seitenleiste (rechts, bei rtl links). Kein linker Rahmen.
@@ -98,7 +83,8 @@ a{color:var(--lila)}
   .tuer-band p:not(.tuer-ohne):not(.bild-credit){
     display:block;font-size:15px;line-height:1.35;margin:0 auto 10px;max-width:none;white-space:normal
   }
-  .tuer-band .reihe{gap:12px;flex-wrap:wrap}
+  .tuer-band .reihe{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
+  .tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
   .tuer-band .bild-credit{margin:8px auto 0;font-size:11px}
   html[dir=rtl] .tuer-rahmen{inset:0 0 0 38%}
   html[dir=rtl] .tuer-band{
