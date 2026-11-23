@@ -8,7 +8,7 @@ from playwright.sync_api import sync_playwright
 BASIS = sys.argv[1] if len(sys.argv) > 1 else 'http://127.0.0.1:3101'
 AUS = sys.argv[2] if len(sys.argv) > 2 else '.'
 assert re.match(r'^http://(127\.0\.0\.1|localhost)(:\d+)?$', BASIS)
-alt = {}
+alt = json.load(open(f'{AUS}/pfade.json')) if os.path.exists(f'{AUS}/pfade.json') else {}
 G = {'mobil': (390, 844), 'desktop': (1440, 900)}
 STD = {'herkunft': 'Ein Bekannter hat es empfohlen.', 'ort': 'In der Nähe von Freiburg.', 'zeit': 'Erst mal lesen.'}
 P = {
@@ -28,7 +28,7 @@ P = {
 NEU = [('n1-berufseinstieg', '/de/fuer-dich/berufseinstieg', None), ('n2-kunden', '/de/fuer-dich/kunden', None),
        ('n3-lebensphasen', '/de/fuer-dich/lebensphasen', None), ('n4-faq-lohn', '/de/faq', '#arbeit-bezahlt'),
        ('n5-konzept-stundensatz', '/de/konzept', 'text=Das erste Ziel sind 20 € brutto')]
-ergebnis = {}
+ergebnis = dict(alt)
 def geh(pg, url):
     for i in range(8):
         try:
@@ -69,7 +69,9 @@ with sync_playwright() as pw:
             pg.screenshot(path=f'{AUS}/{name}-{gname}-3-erste-zielseite.png')
             ergebnis[f'{name}-{gname}'] = {'fragen': gestellt, 'schritte': schritte, 'ersteZielseite': ziel}
             ctx.close()
+            json.dump(ergebnis, open(f'{AUS}/pfade.json', 'w'), ensure_ascii=False, indent=1)
         for name, url, anker in NEU:
+            if os.path.exists(f'{AUS}/{name}-{gname}.png'): continue
             ctx = b.new_context(viewport={'width': w, 'height': h}, device_scale_factor=2, locale='de-DE')
             pg = ctx.new_page(); geh(pg, f'{BASIS}{url}?ohne-tuer=1'); pg.wait_for_load_state('networkidle'); time.sleep(1.2)
             if anker:
