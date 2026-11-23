@@ -1,0 +1,93 @@
+{
+  "btmmRootHint": "/workspace/projekte/btmm",
+  "internalOnlyFamilies": [
+    "15-geschaeftsmodell-3j",
+    "15-geschaeftsmodell",
+    "foerderung",
+    "foerderung-eigenkapital-2028",
+    "foerderung-eigenkapital",
+    "annahmen-und-quellen",
+    "3-jahres-plan"
+  ],
+  "preferRels": [
+    "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
+    "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
+    "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
+    "DOKUMENTE/07_BtMM_Konzept_v22_69_0.md",
+    "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md",
+    "DOKUMENTE/08_BtMM_Satzung_eG_v9_0_5_schlank_ENTWURF.md",
+    "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_3_schlank_ENTWURF.md",
+    "DRIVE/offizielles/btmm/dokumente/04-finanzen/BtMM_3-jahres-plan_v3.9_2026-11-19.md",
+    "DRIVE/offizielles/btmm/dokumente/04-finanzen/BtMM_annahmen-und-quellen_v1.9_2026-11-19.md"
+  ],
+  "internalExtras": [
+    {
+      "id": "btmm-app",
+      "env": "BTMM_APP_ROOT",
+      "isFile": false,
+      "relPrefix": "BtMM-App",
+      "maxDepth": 1,
+      "files": [
+        "README.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/btmm/repos/BtMM-App",
+        "/workspace/btmm-app-sofortfixes"
+      ]
+    },
+    {
+      "id": "werkzeugkasten",
+      "env": "WERKZEUGKASTEN_ROOT",
+      "isFile": false,
+      "relPrefix": "werkzeugkasten",
+      "files": [
+        "STAND.md",
+        "WISSEN.md",
+        "CODE-STAND.md",
+        "README.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/werkzeugkasten",
+        "/workspace/repos/holzbau-werkzeugkasten"
+      ]
+    },
+    {
+      "id": "branchen-software",
+      "env": "BRANCHEN_SOFTWARE_ROOT",
+      "isFile": false,
+      "relPrefix": "branchen-software",
+      "maxDepth": 1,
+      "candidates": [
+        "/workspace/projekte/branchen-software"
+      ]
+    },
+    {
+      "id": "normen-kurz",
+      "env": "NORMEN_KURZ_FILE",
+      "isFile": true,
+      "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md",
+      "candidates": [
+        "/workspace/projekte/btmm/pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md"
+      ]
+    },
+    {
+      "id": "btmm-pos",
+      "env": "BTMM_POS_ROOT",
+      "isFile": false,
+      "relPrefix": "btmm-pos",
+      "maxDepth": 1,
+      "files": [
+        "README.md",
+        "LIESMICH.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/btmm/repos/btmm-pos",
+        "/workspace/projekte/btmm-pos",
+        "/workspace/repos/btmm-pos"
+      ]
+    }
+  ]
+}

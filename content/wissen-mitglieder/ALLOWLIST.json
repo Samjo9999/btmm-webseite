@@ -9,18 +9,22 @@
     "ABNAHMEN_",
     "Autopilot_",
     "Befund_",
-    "Rechtspruefung_Aktumo"
+    "Rechtspruefung_Aktumo",
+    "15-geschaeftsmodell",
+    "annahmen-und-quellen",
+    "foerderung"
   ],
   "sources": [
-    { "rel": "DOKUMENTE/00_BtMM_einfach_erklaert_Start_hier_v1_14_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/01_BtMM_Einfuehrung_v4_18_1.md", "entwurf": false },
-    { "rel": "DOKUMENTE/02_BtMM_Aufruf_Beteiligung_v2_11_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/04_BtMM_Wirtschaften_Anleitung_v3_14_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/07_BtMM_Konzept_v22_68_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_2_aussen_ENTWURF.md", "entwurf": true },
-    { "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_2_schlank_ENTWURF.md", "entwurf": true },
-    { "rel": "DOKUMENTE/28_BtMM_Aufnahme_kurz_erklaert_v1_7_0.md", "entwurf": false },
+    { "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md", "entwurf": false },
+    { "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md", "entwurf": false },
+    { "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md", "entwurf": false },
+    { "rel": "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md", "entwurf": false },
+    { "rel": "DOKUMENTE/07_BtMM_Konzept_v22_69_0.md", "entwurf": false },
+    { "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md", "entwurf": true },
+    { "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_0_5_schlank_ENTWURF.md", "entwurf": true },
+    { "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_3_schlank_ENTWURF.md", "entwurf": true },
+    { "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md", "entwurf": false },
     { "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md", "entwurf": false, "id": "normen-kurz" }
   ],
-  "driveSyncNote": "Geltende MDs liegen unter projekte/btmm/DOKUMENTE (Spiegel Drive). Neu-Indizierung: node scripts/build-wissen-mitglieder.mjs — schreibt index.json; optional --sync-edge kopiert nach BtMM-App Edge corpus.json."
+  "driveSyncNote": "Geltende Fassungen: Drive-MDs (00 v1.17.0, 04 v3.15.2, 28 v1.9.1) und DOKUMENTE (07 v22.69.0, Satzung außen v9.1.3, 08a v2.0.3). Neu-Indizierung: npm run wissen:reindex. Dok 15, Förderung, Annahmen stehen nicht auf dieser Allowlist."
 }

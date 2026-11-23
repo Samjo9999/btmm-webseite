@@ -34,3 +34,9 @@ Stripe-API-Keys.env
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# Interner Wissens-Index: nie unter public/ ausliefern, nie committen
+/content/wissen-internal/
+/packages/wissen-mcp/indexes/
+
+/packages/wissen-mcp/node_modules/
