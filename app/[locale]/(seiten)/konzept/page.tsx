@@ -97,7 +97,7 @@ export default async function KonzeptPage() {
               { icon: TrendingUp, label: 'Pool-Dreiteilung', detail: '⅓ Vergütung · ⅓ Reinvestition · ⅓ Sozial', color: 'var(--btb-rot)' },
               { icon: Heart, label: 'BtMM-Coin', detail: '1 Coin = 1 Stunde — internes Tauschmittel', color: 'var(--btb-blau)' },
               { icon: Users, label: 'Selbstverwaltete Zellen', detail: 'Demokratisch, dezentral, eigenverantwortlich', color: 'var(--btb-blau)' },
-              { icon: Shield, label: 'Solidarfonds', detail: 'Schwangerschaft, Krankheit, Übergänge', color: 'var(--btb-oliv)' },
+              { icon: Shield, label: 'Solidarfonds', detail: 'Lebensphasen und Übergänge', color: 'var(--btb-oliv)' },
               { icon: Globe, label: 'Weltweit ein System', detail: 'Keine Kopie — Teil des Netzwerks', color: 'var(--btb-oliv)' },
             ].map((item, i) => {
               const Icon = item.icon
@@ -107,7 +107,7 @@ export default async function KonzeptPage() {
                     padding: '1.25rem',
                     background: 'var(--btb-creme)',
                     borderRadius: 10,
-                    borderLeft: `4px solid ${item.color}`,
+                    borderTop: `3px solid ${item.color}`,
                     height: '100%',
                   }}>
                     <Icon size={22} style={{ color: item.color, marginBottom: '0.5rem' }} />

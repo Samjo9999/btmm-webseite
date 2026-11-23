@@ -2,7 +2,11 @@
 // Das Root-Layout rendert kein <html>/<body>, daher hier selbst – sonst React #418.
 import type { Metadata } from 'next'
 
-export const metadata: Metadata = { title: 'Seite nicht gefunden', robots: { index: false } }
+export const metadata: Metadata = {
+  title: 'Seite nicht gefunden',
+  description: 'Diese Seite gibt es bei BtMM – Back to Meaning Maximization nicht (mehr). Zur Startseite: b-t-m-m.com',
+  robots: { index: false },
+}
 
 export default function RootNotFound() {
   return (

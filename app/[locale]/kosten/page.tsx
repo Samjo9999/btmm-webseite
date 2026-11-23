@@ -17,7 +17,7 @@ export default function Seite({ params: { locale } }: P) {
       <JsonLd daten={[ORGANISATION_LD, breadcrumbLd(['start', 'kosten'], locale),
         { '@type': 'WebPage', name: SEITEN.kosten.titel, url: absUrl('kosten', locale), description: SEITEN.kosten.beschreibung }]} />
       <SeitenKopf titel="Was kostet es dich – und was nicht?" unterzeile="Kein Investment, keine Vorkasse. Der Anteil kommt erst mit der Genossenschaft."
-        bild="https://images.unsplash.com/photo-1526304640581-d334cdbbf35f?w=1920&q=80" bildAlt="Münzen und Pflanze" />
+        bild="/images/kosten-feld.jpg" bildAlt="Weites Feld im Licht" />
       <div className="btmm-inhalt">
 {/* BTMM-ADD-KOSTEN-STAND-START */}
 <AktuellerDokumentenstand locale={locale} thema="kosten" />

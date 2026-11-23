@@ -89,12 +89,12 @@ export default async function GemeinschaftPage() {
               gap: '1rem',
               marginBottom: '2rem',
             }}>
-              <div className="card-btb" style={{ borderLeft: '4px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
+              <div className="card-btb" style={{ borderTop: '3px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
                 <p style={{ fontWeight: 600, lineHeight: 1.6, fontSize: '0.95rem' }}>
                   {t('gemeinschaft.solidar_rhythmus')}
                 </p>
               </div>
-              <div className="card-btb" style={{ borderLeft: '4px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
+              <div className="card-btb" style={{ borderTop: '3px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
                 <p style={{ fontWeight: 600, lineHeight: 1.6, fontSize: '0.95rem' }}>
                   {t('gemeinschaft.solidar_kapazitaet')}
                 </p>
@@ -120,7 +120,7 @@ export default async function GemeinschaftPage() {
             </h2>
             <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>{t('gemeinschaft.konsequenz_text')}</p>
             <blockquote style={{
-              borderLeft: '4px solid var(--btb-oliv)',
+              borderTop: '3px solid var(--btb-oliv)',
               paddingLeft: '1.5rem',
               fontStyle: 'italic',
               color: 'var(--btb-dunkel)',
@@ -188,7 +188,7 @@ export default async function GemeinschaftPage() {
               {t('gemeinschaft.bildung_titel')}
             </h2>
             <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>{t('gemeinschaft.bildung_text')}</p>
-            <div className="card-btb" style={{ borderLeft: '4px solid var(--btb-oliv)', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
+            <div className="card-btb" style={{ borderTop: '3px solid var(--btb-oliv)', paddingLeft: '1.5rem', marginBottom: '1.5rem' }}>
               <p style={{ fontWeight: 600, lineHeight: 1.6, fontSize: '0.95rem' }}>
                 {t('gemeinschaft.bildung_nachweis')}
               </p>
@@ -196,7 +196,7 @@ export default async function GemeinschaftPage() {
             <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>{t('gemeinschaft.bildung_kinder')}</p>
             <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>{t('gemeinschaft.bildung_kollektiv')}</p>
             <blockquote style={{
-              borderLeft: '4px solid var(--btb-oliv)',
+              borderTop: '3px solid var(--btb-oliv)',
               paddingLeft: '1.5rem',
               fontStyle: 'italic',
               color: 'var(--btb-dunkel)',
@@ -220,7 +220,7 @@ export default async function GemeinschaftPage() {
               marginBottom: '2rem',
             }}>
               {['nicht_kommunismus', 'nicht_anarchismus', 'nicht_investment'].map((key) => (
-                <div key={key} className="card-btb" style={{ borderLeft: '4px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
+                <div key={key} className="card-btb" style={{ borderTop: '3px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
                   <p style={{ fontWeight: 600, lineHeight: 1.6, fontSize: '0.95rem' }}>
                     {t(`gemeinschaft.${key}`)}
                   </p>
