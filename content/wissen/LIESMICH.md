@@ -8,6 +8,6 @@ Neu bauen (Box):
 BTMM_ROOT=/workspace/projekte/btmm npm run wissen:reindex
 ```
 
-schreibt `content/wissen/index-public.json` und die Spiegel unter `public/wissen/` sowie die Vorschau-Pfade. Tabuwörter führen zu einem harten Build-Abbruch. `WISSEN_LLM_ENABLED` bleibt unberührt.
+schreibt `content/wissen/index-public.json` (Quelle, nicht ausgeliefert) und genau einmal `public/wissen/index-public.json`. Vorschau-Chats laden denselben Index (`/wissen/index-public.json`, plus Rewrites der alten Vorschau-Pfade). Tabuwörter führen zu einem harten Build-Abbruch. `WISSEN_LLM_ENABLED` bleibt unberührt.
 
 Der public-Index darf erst nach Test-OK und Freigabe des Datenschutz-Bots live gehen.

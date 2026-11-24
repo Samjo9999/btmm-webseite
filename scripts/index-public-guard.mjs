@@ -102,12 +102,22 @@ export function findIndexHits(payload) {
   return hits
 }
 
-export const INDEX_COPIES = [
+/** Quelle (nicht ausgeliefert) + die einzige ausgelieferte Datei. */
+export const INDEX_WRITE_TARGETS = [
   'content/wissen/index-public.json',
   'public/wissen/index-public.json',
+]
+
+/** Alias für Tests/Guard: dieselben Dateien, die existieren und tabu-frei sein müssen. */
+export const INDEX_COPIES = INDEX_WRITE_TARGETS
+
+/** Diese Pfade dürfen nicht (mehr) als eigene Kopien ausgeliefert werden. */
+export const FORBIDDEN_PUBLIC_COPIES = [
   'public/vorschau/wissen-chat/index-public.json',
   'public/vorschau/bewertung-chat-feedback/index-public.json',
 ]
+
+export const DELIVERED_INDEX = 'public/wissen/index-public.json'
 
 const SCAN_EXTS = new Set(['.json', '.md', '.html', '.js', '.mjs', '.txt', '.csv', '.xml', '.svg'])
 
@@ -166,10 +176,24 @@ export function checkPublicIndexes(root) {
     }
   }
 
+  for (const rel of FORBIDDEN_PUBLIC_COPIES) {
+    try {
+      readFileSync(join(root, rel))
+      errors.push(`ausgelieferte Kopie verboten (nur ${DELIVERED_INDEX} erlaubt): ${rel}`)
+    } catch {
+      /* fehlt = gut */
+    }
+  }
+
   const pubRoot = join(root, 'public')
   for (const file of walk(pubRoot)) {
     const rel = relative(root, file).replace(/\\/g, '/')
-    if (rel.endsWith('index-public.json')) continue
+    if (rel.endsWith('index-public.json')) {
+      if (rel !== DELIVERED_INDEX) {
+        errors.push(`ausgelieferte Kopie verboten (nur ${DELIVERED_INDEX} erlaubt): ${rel}`)
+      }
+      continue
+    }
     if (!SCAN_EXTS.has(extname(file).toLowerCase()) && !rel.endsWith('index-public.json')) {
       // Pfade auch in sonstigen Textdateien; Binär überspringen
       if (!['.map', '.css'].includes(extname(file).toLowerCase())) continue

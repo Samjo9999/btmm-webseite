@@ -23,14 +23,14 @@ assertClean('public', pub)
 assertClean('mitmacher', mit)
 
 const pubCopy = join(root, 'public/wissen/index-public.json')
-if (existsSync(pubCopy)) assertClean('public/wissen', pubCopy)
+assert.ok(existsSync(pubCopy), 'ausgelieferter Index public/wissen/index-public.json fehlt')
+assertClean('public/wissen', pubCopy)
 
 for (const rel of [
   'public/vorschau/wissen-chat/index-public.json',
   'public/vorschau/bewertung-chat-feedback/index-public.json',
 ]) {
-  const f = join(root, rel)
-  if (existsSync(f)) assertClean(rel, f)
+  assert.equal(existsSync(join(root, rel)), false, `keine ausgelieferte Kopie: ${rel}`)
 }
 
 assert.equal(existsSync(join(root, 'public/wissen-internal')), false, 'kein internal unter public/')
@@ -50,8 +50,6 @@ const rg = spawnSync(
     'content/wissen/index-public.json',
     'content/wissen-mitglieder/index.json',
     'public/wissen/index-public.json',
-    'public/vorschau/wissen-chat/index-public.json',
-    'public/vorschau/bewertung-chat-feedback/index-public.json',
   ],
   { cwd: root, encoding: 'utf8' }
 )

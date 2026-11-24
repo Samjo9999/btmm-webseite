@@ -133,10 +133,17 @@ const pubCompact = compactPublic(pub)
 const publicTargets = [
   path.join(webRoot, 'content', 'wissen', 'index-public.json'),
   path.join(webRoot, 'public', 'wissen', 'index-public.json'),
+]
+for (const f of publicTargets) writeJson(f, pubCompact)
+
+// Keine zweiten Auslieferungs-Kopien unter den Vorschau-Pfaden.
+const leftoverPublicCopies = [
   path.join(webRoot, 'public', 'vorschau', 'wissen-chat', 'index-public.json'),
   path.join(webRoot, 'public', 'vorschau', 'bewertung-chat-feedback', 'index-public.json'),
 ]
-for (const f of publicTargets) writeJson(f, pubCompact)
+for (const f of leftoverPublicCopies) {
+  if (fs.existsSync(f)) fs.unlinkSync(f)
+}
 
 writeJson(path.join(webRoot, 'content', 'wissen-mitglieder', 'index.json'), mit)
 

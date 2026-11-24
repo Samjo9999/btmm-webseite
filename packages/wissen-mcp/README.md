@@ -8,7 +8,7 @@ Lebt in `Samjo9999/btmm-webseite` unter `packages/wissen-mcp` (kein eigenes Repo
 
 | Stufe | Ausgabe | Inhalt |
 |---|---|---|
-| **public** | `content/wissen/index-public.json` und Spiegel unter `public/wissen/` bzw. Vorschau | neueste öffentliche Fassungen (Drive MDs 01–04 + Website `content/dokumente`), ohne Dok 15, Förderung, Annahmen, 3-Jahres-Plan |
+| **public** | `content/wissen/index-public.json` (Quelle) und einmal `public/wissen/index-public.json` (ausgeliefert; Vorschau per Rewrite/Fetch) | neueste öffentliche Fassungen (Drive MDs 01–04 + Website `content/dokumente`), ohne Dok 15, Förderung, Annahmen, 3-Jahres-Plan |
 | **mitmacher** | `content/wissen-mitglieder/index.json` (**nicht** unter `public/`) | Allowlist, geltende Versionen (Satzung v9.1.3, 07 v22.69.0, …) |
 | **internal** | `content/wissen-internal/index.json` (gitignored, nie Client) | alles öffentliche plus intern, App-README, Werkzeugkasten, Branchen-Software, Finanzplan v3.9, Dok 15 / Förderung / Annahmen |
 

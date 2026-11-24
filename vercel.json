@@ -63,6 +63,14 @@
   ],
   "rewrites": [
     {
+      "source": "/vorschau/wissen-chat/index-public.json",
+      "destination": "/wissen/index-public.json"
+    },
+    {
+      "source": "/vorschau/bewertung-chat-feedback/index-public.json",
+      "destination": "/wissen/index-public.json"
+    },
+    {
       "source": "/vorschau/bewertung-chat-feedback/",
       "destination": "/vorschau/bewertung-chat-feedback/index.html"
     },
