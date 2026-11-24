@@ -60,43 +60,52 @@
     li.className = 'blase ' + wer;
     li.textContent = text;
     verlauf.appendChild(li);
-    li.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    nachUnten();
     return li;
+  }
+  /* Runde 4 (Mobil-Fix): immer ans Ende scrollen. Die Eingabeleiste mit den Chips ist unten angeheftet;
+   * so stehen letzte Frage, Chips und Eingabefeld zusammen im sichtbaren Bereich (früher: scrollIntoView unter die Leiste). */
+  var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function nachUnten() {
+    requestAnimationFrame(function () { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: ruhig ? 'auto' : 'smooth' }); });
   }
   function frageStellen() {
     var f = naechsteFrage();
     if (!f) return pfadZeigen();
     st.gestellt.push(f.id); st.offen = f.id; speichern();
     blase(f.text, 'frage');
-    if (f.id === 'lage') wahlZeigen(T.lageWahl || DE.lageWahl);
+    var schluessel = PF.WAHL_TEXT[f.id], liste = schluessel && (T[schluessel] || DE[schluessel]);
     eingabeFrei(true);
-    feld.focus({ preventScroll: true });
+    // Mit Chips kein Autofokus: sonst öffnet die Tastatur auf dem Handy und verdeckt die Chips
+    if (liste && liste.length) wahlZeigen(liste); else feld.focus({ preventScroll: true });
   }
-  /* PR #38 Runde 3: Antwort-Vorschläge zum Antippen für die Lebensphase (freie Antwort bleibt möglich) */
+  /* PR #38 Runde 3/4: Antwort-Chips zum Antippen (motiv, lage, zeit) in der unten angehefteten Leiste; freie Antwort bleibt möglich */
+  var wahl = $('wahl');
   function wahlZeigen(liste) {
-    if (!liste || !liste.length) return;
-    var li = document.createElement('li');
-    li.className = 'blase wahl';
-    liste.forEach(function (txt) {
+    wahl.innerHTML = '';
+    var h = document.createElement('p'); h.className = 'wahl-hinweis'; h.textContent = T.wahlHinweis || DE.wahlHinweis || '';
+    wahl.appendChild(h);
+    liste.forEach(function (txt, i) {
       var b = document.createElement('button');
       b.type = 'button'; b.className = 'wahl-knopf'; b.textContent = txt;
-      b.addEventListener('click', function () { antworten(txt); });
-      li.appendChild(b);
+      b.addEventListener('click', function () { antworten(txt, i); });
+      wahl.appendChild(b);
     });
-    verlauf.appendChild(li);
-    li.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    wahl.hidden = false;
+    nachUnten();
   }
-  function wahlWeg() { [].forEach.call(verlauf.querySelectorAll('.wahl'), function (x) { x.parentNode.removeChild(x); }); }
-  function antworten(text) {
+  function wahlWeg() { wahl.hidden = true; wahl.innerHTML = ''; }
+  function antworten(text, wahlIndex) {
     text = (text || '').trim();
     if (!st.offen) return;            // ohne offene Frage wird nichts gespeichert
     if (!text) { feld.focus(); return; }
     stopMik();
     wahlWeg();
     blase(text, 'antwort');
-    var t = auswerten(text);
+    var chip = typeof wahlIndex === 'number';
+    var t = chip ? PF.wahlProfil(st.offen, wahlIndex) : auswerten(text);
     Object.keys(t).forEach(function (k) { st.profil[k] = (st.profil[k] || 0) + t[k]; });
-    st.antworten.push({ frage: st.offen, text: text });
+    st.antworten.push(chip ? { frage: st.offen, text: text, wahl: wahlIndex } : { frage: st.offen, text: text });
     st.offen = null;
     speichern();
     feld.value = '';
@@ -107,6 +116,7 @@
     }, 450);
   }
   $('eingabe').addEventListener('submit', function (e) { e.preventDefault(); antworten(feld.value); });
+  feld.addEventListener('focus', function () { setTimeout(nachUnten, 250); });
   feld.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); antworten(feld.value); } });
   $('loeschen').addEventListener('click', function () { try { sessionStorage.removeItem(KEY); sessionStorage.removeItem(PFAD_KEY); } catch (e) {} location.replace(location.pathname + '?lang=' + LANG); });
 

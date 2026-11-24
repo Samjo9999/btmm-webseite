@@ -3,6 +3,8 @@
  * Berufseinstieg, Kundinnen und Kunden, Lebensphasen (Solidarfonds), Ruhestand, Unterstützen.
  * Texte: lib/inhalte/tuer-luecken.ts und lib/inhalte/tuer-r3.ts (Runde 3, quellenbelegt).
  * Eigene Route, damit sie sich nicht mit dem Außensicht-Branch überschneidet.
+ * Runde 4: statt app/[locale]/(seiten)/fuer-dich/[thema] je Thema eine feste Route (fuer-dich/<thema>/page.tsx), weil die Lint-Regel
+ * @next/next/no-html-link-for-pages zwei dynamische Segmente in einem Pfad als „passt auf alles“ liest (Lint über Basis).
  */
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
@@ -17,11 +19,7 @@ import Link from 'next/link'
 
 const THEMEN = ['berufseinstieg', 'kunden', 'lebensphasen', 'ruhestand', 'unterstuetzen'] as const
 type Thema = (typeof THEMEN)[number]
-type P = { params: { locale: string; thema: string } }
-
-export function generateStaticParams() {
-  return THEMEN.map((thema) => ({ thema }))
-}
+export type FuerDichThema = Thema
 
 function kopf(t: ReturnType<typeof lueckenTexte>, thema: Thema, locale: string) {
   if (thema === 'berufseinstieg') return { titel: t.einstieg.titel, kurz: t.einstieg.kurz }
@@ -30,15 +28,14 @@ function kopf(t: ReturnType<typeof lueckenTexte>, thema: Thema, locale: string) 
   return { titel: t.lebensphasen.titel, kurz: t.lebensphasen.kurz }
 }
 
-export function generateMetadata({ params }: P): Metadata {
-  if (!THEMEN.includes(params.thema as Thema)) return {}
-  const k = kopf(lueckenTexte(params.locale), params.thema as Thema, params.locale)
-  const url = `${SITE_URL}/${params.locale}/fuer-dich/${params.thema}`
+export function fuerDichMeta(thema: Thema, locale: string): Metadata {
+  const k = kopf(lueckenTexte(locale), thema, locale)
+  const url = `${SITE_URL}/${locale}/fuer-dich/${thema}`
   return { title: { absolute: `${k.titel} | ${BRAND_FULL}` }, description: k.kurz, alternates: { canonical: url }, openGraph: { title: k.titel, description: k.kurz, url } }
 }
 
-export default async function Seite({ params: { locale, thema } }: P) {
-  if (!THEMEN.includes(thema as Thema)) notFound()
+export async function FuerDichSeite({ locale, thema }: { locale: string; thema: Thema }) {
+  if (!THEMEN.includes(thema)) notFound()
   setRequestLocale(locale)
   const t = lueckenTexte(locale)
   const k = kopf(t, thema as Thema, locale)

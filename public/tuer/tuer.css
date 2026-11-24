@@ -45,12 +45,15 @@ a{color:var(--lila)}
 .blase{max-width:86%;padding:10px 14px;border-radius:18px;animation:rein .3s ease}
 .blase.frage{align-self:flex-start;background:#fff;border:1px solid var(--linie);border-bottom-left-radius:6px;font-weight:600}
 .blase.echo{align-self:flex-start;background:transparent;color:var(--grau);font-style:italic;padding:2px 14px}
-.blase.wahl{align-self:flex-end;max-width:100%;padding:0;background:transparent;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
-.wahl-knopf{font:inherit;font-size:.95em;padding:8px 14px;border-radius:18px;border:1px solid var(--lila);background:#fff;color:var(--lila);cursor:pointer}
+/* Runde 4: Chips in der unten angehefteten Leiste, direkt über dem Eingabefeld (Mobil ohne Scrollen) */
+.unten{position:sticky;bottom:0;z-index:2;background:var(--creme);border-top:1px solid var(--linie)}
+.wahl-leiste{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px 0}
+.wahl-hinweis{width:100%;margin:0;font-size:.72em;color:var(--grau)}
+.wahl-knopf{font:inherit;font-size:.86em;line-height:1.2;padding:6px 12px;border-radius:16px;border:1px solid var(--lila);background:#fff;color:var(--lila);cursor:pointer}
 .wahl-knopf:hover,.wahl-knopf:focus-visible{background:var(--lila);color:#fff}
 .blase.antwort{align-self:flex-end;background:var(--lila);color:#fff;border-bottom-right-radius:6px}
 @keyframes rein{from{opacity:0;transform:translateY(6px)}}
-.eingabe{position:sticky;bottom:0;display:flex;gap:8px;align-items:flex-end;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--creme);border-top:1px solid var(--linie)}
+.eingabe{display:flex;gap:8px;align-items:flex-end;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--creme)}
 .eingabe textarea{flex:1;resize:none;font:inherit;font-size:18px;padding:10px 14px;border:1px solid var(--lila2);border-radius:20px;background:#fff;color:var(--tinte);min-height:46px}
 .rund{width:46px;height:46px;flex:none;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer}
 .rund svg{width:22px;height:22px}
@@ -61,6 +64,18 @@ a{color:var(--lila)}
 @keyframes puls{50%{box-shadow:0 0 0 8px rgba(192,48,90,.2)}}
 .blatt{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:20px 20px calc(20px + env(safe-area-inset-bottom));border-top:2px solid var(--lila2);box-shadow:0 -10px 40px rgba(40,0,40,.18);z-index:5;display:flex;flex-direction:column;gap:10px;max-width:640px;margin:0 auto}
 .blatt h2{margin:0;font-size:1.2em}.blatt p{margin:0 0 6px;font-size:.88em}
+
+/* Runde 4: kompakter auf kleinen Höhen (Handy quer 844×390): Kopf nicht angeheftet, Eingabe einzeilig */
+@media (max-height:520px){
+  body{font-size:17px}
+  .kopf{position:static;padding:6px 12px}.kopf-logo{width:28px;height:28px}
+  .hinweis-kasten{margin-top:6px;padding:6px 0}
+  .verlauf{padding:10px 16px;gap:6px}
+  .wahl-leiste{padding:6px 12px 0;gap:5px}.wahl-knopf{padding:4px 10px;font-size:.82em}
+  .eingabe{padding:6px 12px calc(6px + env(safe-area-inset-bottom))}
+  .eingabe textarea{min-height:38px;height:38px;padding:7px 12px;font-size:16px}
+  .rund{width:38px;height:38px}
+}
 
 /* Pfad */
 .pfad{max-width:640px;margin:0 auto;padding:24px 16px 40px}

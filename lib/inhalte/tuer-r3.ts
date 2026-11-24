@@ -2,7 +2,9 @@
  * PR #38, Runde 3: Ruhestand (Erfahrung weitergeben) und Unterstützen ohne Mitgliedschaft.
  * Abschnitt 4 fehlte in KONZEPTTEXT-TUER-LUECKEN-2026-11-24.md (Stand 24.11. 01:10); daher NUR belegte Sätze aus:
  *  - 07 BtMM Konzept v22.69.0, Z.1357: „Erfahrung im Rentenalter zählt im Zeit-Tausch als Stunde der Kategorie Bildung.“
- *  - 07 BtMM Konzept v22.69.0, Z.1485: Qualifizierungsfonds Stufe A „bis 1.000 € – Zuschuss gegen Weitergabe: zehn Stunden Mentoring oder Lehre im Zeit-Tausch“
+ *  - Runde 4 (BtMM-Bot, 24.11.): 07 Konzept v22.69.0 Z.251, 348 (Nutzungsmitglied, Selbstkostenpreis); 05 Gemeinschaftskultur Z.95, 164
+ *    (Wissen weitergeben/Neue einarbeiten, Stunde für Stunde); 24 Partner werden v1.5.1 Z.46 (Satzung § 15a Abs. 5, Betrieb ohne Nachfolge).
+ *    Qualifizierungsfonds-Zuschuss (Z.1485) entfernt: gilt für Lernende, nicht für den Ruhestand.
  *  - Satzungsentwurf § 4 Abs. 2 (lib/inhalte/glossar.ts): Unterstützer:in „teilt die Grundwerte und unterstützt in der Freizeit mit Fähigkeiten, Zeit oder Geld, ohne Mitglied zu sein“
  *  - lib/inhalte/vertiefungen.ts:61: „Unterstützen ist ein eigener, vollwertiger Weg …“
  *  - 04 Wirtschaften-Anleitung v3.15.1, Z.209 (v3.14.0 Z.206): Direktkredite nachrangig, „Dein Notgroschen und deine Altersvorsorge gehören nicht hierher.“
@@ -20,14 +22,16 @@ export type R3Texte = {
 export const R3: Record<string, R3Texte> = {
   de: {
     marke: 'Nach der Gründung, im Aufbau',
-    quelle: 'Quellen: Konzept v22.69.0 (Zeit-Tausch, Qualifizierungsfonds), Satzungsentwurf § 4 Abs. 2, Wirtschaften-Anleitung v3.15.1 (Direktkredite).',
+    quelle: 'Quellen: Konzept v22.69.0 (Z. 251, 348 Nutzungsmitglied; Z. 1357 Zeit-Tausch), Gemeinschaftskultur (Z. 95, 164), Partner werden v1.5.1 (Satzung § 15a Abs. 5), Satzungsentwurf § 4 Abs. 2, Wirtschaften-Anleitung v3.15.1 (Direktkredite).',
     geld: { titel: 'Wichtig, wenn du mit Geld helfen willst', text: 'Direktkredite sind nachrangig: Zurückgezahlt wird nur aus freiem Vermögen, und in einer Insolvenz kommen alle anderen Gläubiger zuerst. Im schlimmsten Fall kann das Geld ganz verloren gehen. Gib deshalb nur, was du verlieren könntest: Dein Notgroschen und deine Altersvorsorge gehören nicht hierher.' },
     ruhestand: {
       titel: 'Im Ruhestand: Erfahrung weitergeben',
       kurz: 'Deine Erfahrung zählt: im Zeit-Tausch, beim Weitergeben von Wissen und als Unterstützung.',
       punkte: [
+        'Du behältst deine Rente und kannst als Nutzungsmitglied Vollmitglied mit gleicher Stimme sein — gegen einen kleinen Beitrag nutzt du gemeinsame Bausteine zum Selbstkostenpreis (Einkauf, Räume, Werkzeug, Verwaltung, Körperarbeit).',
         'Erfahrung im Rentenalter zählt im Zeit-Tausch als Stunde der Kategorie Bildung.',
-        'Wissen weitergeben: Im geplanten Qualifizierungsfonds gibt es Zuschüsse bis 1.000 € gegen zehn Stunden Mentoring oder Lehre im Zeit-Tausch.',
+        'Wissen weitergeben und Neue einarbeiten zählt im Zeit-Tausch Stunde für Stunde — im eigenen Tempo, ohne Vollzeitdruck.',
+        'Wer vor dem Ruhestand einen Betrieb ohne Nachfolge hat, kann ihn schrittweise oder mit bis zu drei Jahren Übergang als Gemeinschaftsbetrieb einbringen (Satzung § 15a Abs. 5).',
         'Du kannst auch ohne Mitgliedschaft unterstützen, mit Fähigkeiten, Zeit oder Geld.',
       ],
       offen: 'Fragen zur Rente sind noch offen.',
@@ -44,14 +48,16 @@ export const R3: Record<string, R3Texte> = {
   },
   en: {
     marke: 'After the founding, being set up',
-    quelle: 'Sources: Concept v22.69.0 (time exchange, qualification fund), draft statutes § 4 (2), Economic guide v3.15.1 (direct loans).',
+    quelle: 'Sources: Concept v22.69.0 (l. 251, 348 user membership; l. 1357 time exchange), Community culture (l. 95, 164), Becoming a partner v1.5.1 (statutes § 15a (5)), draft statutes § 4 (2), Economic guide v3.15.1 (direct loans).',
     geld: { titel: 'Important if you want to help with money', text: 'Direct loans are subordinated: they are only repaid from free assets, and in an insolvency all other creditors come first. In the worst case the money can be lost completely. So only give what you could afford to lose: your emergency savings and your retirement provision do not belong here.' },
     ruhestand: {
       titel: 'In retirement: passing on experience',
       kurz: 'Your experience counts: in the time exchange, when passing on knowledge and as support.',
       punkte: [
+        'You keep your pension and, as a user member, can be a full member with an equal vote — for a small contribution you use shared building blocks at cost price (purchasing, rooms, tools, administration, bodywork).',
         'Experience at retirement age counts in the time exchange as an hour in the education category.',
-        'Passing on knowledge: the planned qualification fund offers grants of up to €1,000 in return for ten hours of mentoring or teaching in the time exchange.',
+        'Passing on knowledge and training newcomers counts hour for hour in the time exchange — at your own pace, without full-time pressure.',
+        'If you have a business without a successor before retiring, you can bring it in as a community business step by step or with a transition of up to three years (statutes § 15a (5)).',
         'You can also support without being a member, with skills, time or money.',
       ],
       offen: 'Questions about pensions are still open.',
@@ -68,14 +74,16 @@ export const R3: Record<string, R3Texte> = {
   },
   fr: {
     marke: 'Après la fondation, en construction',
-    quelle: 'Sources : Concept v22.69.0 (échange de temps, fonds de qualification), projet de statuts § 4 al. 2, guide économique v3.15.1 (prêts directs).',
+    quelle: 'Sources : Concept v22.69.0 (l. 251, 348 membre usager ; l. 1357 échange de temps), Culture commune (l. 95, 164), Devenir partenaire v1.5.1 (statuts § 15a al. 5), projet de statuts § 4 al. 2, guide économique v3.15.1 (prêts directs).',
     geld: { titel: 'Important si tu veux aider avec de l’argent', text: 'Les prêts directs sont subordonnés : ils ne sont remboursés qu’à partir du patrimoine libre, et en cas d’insolvabilité tous les autres créanciers passent avant. Dans le pire des cas, l’argent peut être entièrement perdu. Ne donne donc que ce que tu pourrais perdre : ton épargne de secours et ta prévoyance retraite n’ont rien à faire ici.' },
     ruhestand: {
       titel: 'À la retraite : transmettre son expérience',
       kurz: 'Ton expérience compte : dans l’échange de temps, en transmettant ton savoir et comme soutien.',
       punkte: [
+        'Tu gardes ta retraite et, en tant que membre usager, tu peux être membre à part entière avec une voix égale — contre une petite cotisation, tu utilises des services communs à prix coûtant (achats, locaux, outils, administration, travail corporel).',
         'L’expérience à l’âge de la retraite compte dans l’échange de temps comme une heure de la catégorie formation.',
-        'Transmettre son savoir : le fonds de qualification prévu accorde des aides jusqu’à 1 000 € en échange de dix heures de mentorat ou d’enseignement dans l’échange de temps.',
+        'Transmettre son savoir et former les nouveaux compte heure pour heure dans l’échange de temps — à ton rythme, sans pression du temps plein.',
+        'Si tu as, avant la retraite, une entreprise sans successeur, tu peux l’apporter comme entreprise commune, progressivement ou avec une transition allant jusqu’à trois ans (statuts § 15a al. 5).',
         'Tu peux aussi soutenir sans être membre, avec tes compétences, ton temps ou de l’argent.',
       ],
       offen: 'Les questions sur la retraite sont encore ouvertes.',
@@ -92,14 +100,16 @@ export const R3: Record<string, R3Texte> = {
   },
   es: {
     marke: 'Tras la fundación, en construcción',
-    quelle: 'Fuentes: Concepto v22.69.0 (intercambio de tiempo, fondo de cualificación), borrador de estatutos § 4.2, guía económica v3.15.1 (préstamos directos).',
+    quelle: 'Fuentes: Concepto v22.69.0 (l. 251, 348 miembro usuario; l. 1357 intercambio de tiempo), Cultura comunitaria (l. 95, 164), Ser socio v1.5.1 (estatutos § 15a.5), borrador de estatutos § 4.2, guía económica v3.15.1 (préstamos directos).',
     geld: { titel: 'Importante si quieres ayudar con dinero', text: 'Los préstamos directos son subordinados: solo se devuelven con patrimonio libre y, en caso de insolvencia, todos los demás acreedores van primero. En el peor de los casos el dinero puede perderse por completo. Por eso da solo lo que podrías perder: tu colchón de emergencia y tu previsión para la jubilación no van aquí.' },
     ruhestand: {
       titel: 'En la jubilación: transmitir experiencia',
       kurz: 'Tu experiencia cuenta: en el intercambio de tiempo, al transmitir conocimientos y como apoyo.',
       punkte: [
+        'Conservas tu pensión y, como miembro usuario, puedes ser miembro de pleno derecho con el mismo voto: por una pequeña cuota usas servicios comunes a precio de coste (compras, espacios, herramientas, administración, trabajo corporal).',
         'La experiencia en edad de jubilación cuenta en el intercambio de tiempo como una hora de la categoría formación.',
-        'Transmitir conocimientos: el fondo de cualificación previsto da ayudas de hasta 1.000 € a cambio de diez horas de mentoría o enseñanza en el intercambio de tiempo.',
+        'Transmitir conocimientos y formar a los nuevos cuenta hora por hora en el intercambio de tiempo, a tu ritmo y sin la presión de la jornada completa.',
+        'Si antes de jubilarte tienes una empresa sin sucesión, puedes aportarla como empresa comunitaria de forma gradual o con una transición de hasta tres años (estatutos § 15a.5).',
         'También puedes apoyar sin ser miembro, con habilidades, tiempo o dinero.',
       ],
       offen: 'Las preguntas sobre la pensión siguen abiertas.',
@@ -116,14 +126,16 @@ export const R3: Record<string, R3Texte> = {
   },
   pt: {
     marke: 'Após a fundação, em construção',
-    quelle: 'Fontes: Conceito v22.69.0 (troca de tempo, fundo de qualificação), projeto de estatuto § 4.º n.º 2, guia económico v3.15.1 (empréstimos diretos).',
+    quelle: 'Fontes: Conceito v22.69.0 (l. 251, 348 membro utilizador; l. 1357 troca de tempo), Cultura comunitária (l. 95, 164), Tornar-se parceiro v1.5.1 (estatuto § 15a n.º 5), projeto de estatuto § 4.º n.º 2, guia económico v3.15.1 (empréstimos diretos).',
     geld: { titel: 'Importante se queres ajudar com dinheiro', text: 'Os empréstimos diretos são subordinados: só são reembolsados a partir de património livre e, numa insolvência, todos os outros credores vêm primeiro. No pior caso, o dinheiro pode perder-se por completo. Por isso dá apenas o que poderias perder: a tua reserva de emergência e a tua previdência para a reforma não pertencem aqui.' },
     ruhestand: {
       titel: 'Na reforma: passar a experiência',
       kurz: 'A tua experiência conta: na troca de tempo, ao passar conhecimento e como apoio.',
       punkte: [
+        'Manténs a tua reforma e, como membro utilizador, podes ser membro de pleno direito com voto igual — com uma pequena contribuição usas serviços comuns a preço de custo (compras, espaços, ferramentas, administração, trabalho corporal).',
         'A experiência na idade da reforma conta na troca de tempo como uma hora da categoria formação.',
-        'Passar conhecimento: o fundo de qualificação previsto dá apoios até 1.000 € em troca de dez horas de mentoria ou ensino na troca de tempo.',
+        'Passar conhecimento e integrar quem chega conta hora a hora na troca de tempo — ao teu ritmo, sem pressão de tempo inteiro.',
+        'Quem tem, antes da reforma, um negócio sem sucessão pode integrá-lo como negócio comunitário aos poucos ou com uma transição até três anos (estatuto § 15a n.º 5).',
         'Também podes apoiar sem ser membro, com competências, tempo ou dinheiro.',
       ],
       offen: 'As questões sobre a reforma ainda estão em aberto.',
@@ -140,14 +152,16 @@ export const R3: Record<string, R3Texte> = {
   },
   ru: {
     marke: 'После основания, в процессе создания',
-    quelle: 'Источники: Концепция v22.69.0 (обмен временем, фонд квалификации), проект устава § 4 п. 2, экономическое руководство v3.15.1 (прямые займы).',
+    quelle: 'Источники: Концепция v22.69.0 (стр. 251, 348 пользовательское членство; стр. 1357 обмен временем), Культура сообщества (стр. 95, 164), Стать партнёром v1.5.1 (устав § 15a п. 5), проект устава § 4 п. 2, экономическое руководство v3.15.1 (прямые займы).',
     geld: { titel: 'Важно, если хочешь помочь деньгами', text: 'Прямые займы являются субординированными: их возвращают только из свободного имущества, а при банкротстве сначала удовлетворяются все остальные кредиторы. В худшем случае деньги могут быть потеряны полностью. Поэтому давай только то, что можешь позволить себе потерять: твой резерв на чёрный день и пенсионные накопления сюда не относятся.' },
     ruhestand: {
       titel: 'На пенсии: передавать опыт',
       kurz: 'Твой опыт важен: в обмене временем, при передаче знаний и как поддержка.',
       punkte: [
+        'Ты сохраняешь свою пенсию и как пользовательский член можешь быть полноправным членом с равным голосом — за небольшой взнос ты пользуешься общими услугами по себестоимости (закупки, помещения, инструменты, администрирование, телесные практики).',
         'Опыт в пенсионном возрасте засчитывается в обмене временем как час категории «образование».',
-        'Передавать знания: планируемый фонд квалификации даёт субсидии до 1000 € в обмен на десять часов наставничества или обучения в обмене временем.',
+        'Передача знаний и введение новичков в работу засчитываются в обмене временем час за часом — в своём темпе, без давления полной занятости.',
+        'Если перед выходом на пенсию у тебя есть дело без преемника, ты можешь внести его как общее предприятие постепенно или с переходным периодом до трёх лет (устав § 15a п. 5).',
         'Ты можешь поддерживать и без членства — навыками, временем или деньгами.',
       ],
       offen: 'Вопросы о пенсии пока открыты.',
@@ -164,14 +178,16 @@ export const R3: Record<string, R3Texte> = {
   },
   ar: {
     marke: 'بعد التأسيس، قيد الإنشاء',
-    quelle: 'المصادر: المفهوم v22.69.0 (تبادل الوقت، صندوق التأهيل)، مسودة النظام الأساسي المادة 4 الفقرة 2، الدليل الاقتصادي v3.15.1 (القروض المباشرة).',
+    quelle: 'المصادر: المفهوم v22.69.0 (س 251، 348 عضوية الانتفاع؛ س 1357 تبادل الوقت)، ثقافة المجتمع (س 95، 164)، أن تصبح شريكًا v1.5.1 (النظام الأساسي المادة 15أ الفقرة 5)، مسودة النظام الأساسي المادة 4 الفقرة 2، الدليل الاقتصادي v3.15.1 (القروض المباشرة).',
     geld: { titel: 'مهم إذا أردت المساعدة بالمال', text: 'القروض المباشرة قروض ثانوية: لا تُسدَّد إلا من الأصول الحرة، وفي حالة الإعسار يأتي جميع الدائنين الآخرين أولًا. في أسوأ الأحوال قد يضيع المال كله. لذلك لا تقدّم إلا ما يمكنك تحمّل خسارته: مدخرات الطوارئ ومدخرات التقاعد لا مكان لها هنا.' },
     ruhestand: {
       titel: 'في التقاعد: نقل الخبرة',
       kurz: 'خبرتك لها قيمة: في تبادل الوقت، وفي نقل المعرفة، وكدعم.',
       punkte: [
+        'تحتفظ بمعاشك التقاعدي، ويمكنك بصفتك عضو انتفاع أن تكون عضوًا كاملًا بصوت متساوٍ — مقابل مساهمة صغيرة تستخدم خدمات مشتركة بسعر التكلفة (الشراء، المساحات، الأدوات، الإدارة، العمل الجسدي).',
         'تُحتسب الخبرة في سن التقاعد في تبادل الوقت كساعة من فئة التعليم.',
-        'نقل المعرفة: يقدّم صندوق التأهيل المخطط منحًا تصل إلى 1000 يورو مقابل عشر ساعات من الإرشاد أو التعليم في تبادل الوقت.',
+        'نقل المعرفة وتأهيل القادمين الجدد يُحتسب في تبادل الوقت ساعةً بساعة — بإيقاعك الخاص ودون ضغط الدوام الكامل.',
+        'من لديه قبل التقاعد منشأة بلا خلف يمكنه إدخالها كمنشأة مشتركة تدريجيًا أو بفترة انتقالية تصل إلى ثلاث سنوات (النظام الأساسي المادة 15أ الفقرة 5).',
         'يمكنك أيضًا الدعم دون عضوية، بالمهارات أو الوقت أو المال.',
       ],
       offen: 'الأسئلة المتعلقة بالتقاعد لا تزال مفتوحة.',
@@ -188,14 +204,16 @@ export const R3: Record<string, R3Texte> = {
   },
   hi: {
     marke: 'स्थापना के बाद, निर्माणाधीन',
-    quelle: 'स्रोत: अवधारणा v22.69.0 (समय-विनिमय, योग्यता कोष), उपनियम मसौदा § 4 (2), आर्थिक मार्गदर्शिका v3.15.1 (प्रत्यक्ष ऋण)।',
+    quelle: 'स्रोत: अवधारणा v22.69.0 (पंक्ति 251, 348 उपयोगकर्ता-सदस्यता; पंक्ति 1357 समय-विनिमय), सामुदायिक संस्कृति (पंक्ति 95, 164), साझेदार बनना v1.5.1 (उपनियम § 15a (5)), उपनियम मसौदा § 4 (2), आर्थिक मार्गदर्शिका v3.15.1 (प्रत्यक्ष ऋण)।',
     geld: { titel: 'ज़रूरी, अगर तुम पैसे से मदद करना चाहते हो', text: 'प्रत्यक्ष ऋण अधीनस्थ होते हैं: इन्हें केवल मुक्त संपत्ति से लौटाया जाता है, और दिवालियापन में बाकी सभी लेनदार पहले आते हैं। सबसे बुरी स्थिति में पैसा पूरी तरह डूब सकता है। इसलिए केवल उतना दो जितना खो सकते हो: तुम्हारी आपातकालीन बचत और सेवानिवृत्ति की बचत यहाँ नहीं आती।' },
     ruhestand: {
       titel: 'सेवानिवृत्ति में: अनुभव आगे बढ़ाना',
       kurz: 'तुम्हारा अनुभव मायने रखता है: समय-विनिमय में, ज्ञान आगे बढ़ाने में और सहयोग के रूप में।',
       punkte: [
+        'तुम अपनी पेंशन रखते हो और उपयोगकर्ता-सदस्य के रूप में बराबर वोट वाले पूर्ण सदस्य बन सकते हो — छोटे से योगदान पर तुम साझा सेवाएँ लागत मूल्य पर इस्तेमाल करते हो (ख़रीद, जगह, औज़ार, प्रशासन, शारीरिक कार्य)।',
         'सेवानिवृत्ति की उम्र का अनुभव समय-विनिमय में शिक्षा श्रेणी के एक घंटे के रूप में गिना जाता है।',
-        'ज्ञान आगे बढ़ाना: योजनाबद्ध योग्यता कोष समय-विनिमय में दस घंटे की मेंटरिंग या शिक्षण के बदले 1,000 € तक का अनुदान देता है।',
+        'ज्ञान आगे बढ़ाना और नए लोगों को काम सिखाना समय-विनिमय में घंटे-दर-घंटे गिना जाता है — अपनी गति से, पूर्णकालिक दबाव के बिना।',
+        'जिसके पास सेवानिवृत्ति से पहले बिना उत्तराधिकारी का व्यवसाय है, वह उसे धीरे-धीरे या तीन साल तक के संक्रमण के साथ साझा व्यवसाय के रूप में ला सकता है (उपनियम § 15a (5))।',
         'तुम सदस्य बने बिना भी कौशल, समय या पैसे से सहयोग कर सकते हो।',
       ],
       offen: 'पेंशन से जुड़े सवाल अभी खुले हैं।',
@@ -212,14 +230,16 @@ export const R3: Record<string, R3Texte> = {
   },
   bn: {
     marke: 'প্রতিষ্ঠার পরে, গড়ে উঠছে',
-    quelle: 'উৎস: ধারণা v22.69.0 (সময়-বিনিময়, যোগ্যতা তহবিল), সংবিধির খসড়া § ৪ (২), অর্থনৈতিক নির্দেশিকা v3.15.1 (সরাসরি ঋণ)।',
+    quelle: 'উৎস: ধারণা v22.69.0 (লাইন ২৫১, ৩৪৮ ব্যবহারকারী-সদস্যপদ; লাইন ১৩৫৭ সময়-বিনিময়), সম্প্রদায় সংস্কৃতি (লাইন ৯৫, ১৬৪), অংশীদার হওয়া v1.5.1 (সংবিধি § ১৫ক (৫)), সংবিধির খসড়া § ৪ (২), অর্থনৈতিক নির্দেশিকা v3.15.1 (সরাসরি ঋণ)।',
     geld: { titel: 'টাকা দিয়ে সাহায্য করতে চাইলে জরুরি', text: 'সরাসরি ঋণ অধস্তন: শুধু মুক্ত সম্পদ থেকে ফেরত দেওয়া হয়, আর দেউলিয়া হলে অন্য সব পাওনাদার আগে পায়। সবচেয়ে খারাপ ক্ষেত্রে পুরো টাকা হারিয়ে যেতে পারে। তাই শুধু ততটুকুই দাও যা হারাতে পারো: জরুরি সঞ্চয় আর অবসরের সঞ্চয় এখানে নয়।' },
     ruhestand: {
       titel: 'অবসরে: অভিজ্ঞতা এগিয়ে দেওয়া',
       kurz: 'তোমার অভিজ্ঞতার মূল্য আছে: সময়-বিনিময়ে, জ্ঞান এগিয়ে দেওয়ায় এবং সহায়তা হিসেবে।',
       punkte: [
+        'তুমি তোমার পেনশন রাখো এবং ব্যবহারকারী-সদস্য হিসেবে সমান ভোটসহ পূর্ণ সদস্য হতে পারো — সামান্য চাঁদার বিনিময়ে তুমি যৌথ পরিষেবা খরচ-মূল্যে ব্যবহার করো (কেনাকাটা, জায়গা, যন্ত্রপাতি, প্রশাসন, শারীরিক চর্চা)।',
         'অবসরের বয়সের অভিজ্ঞতা সময়-বিনিময়ে শিক্ষা বিভাগের এক ঘণ্টা হিসেবে গণ্য হয়।',
-        'জ্ঞান এগিয়ে দেওয়া: পরিকল্পিত যোগ্যতা তহবিল সময়-বিনিময়ে দশ ঘণ্টা মেন্টরিং বা শিক্ষাদানের বিনিময়ে ১,০০০ € পর্যন্ত অনুদান দেয়।',
+        'জ্ঞান দেওয়া ও নতুনদের কাজ শেখানো সময়-বিনিময়ে ঘণ্টা ধরে ধরে গোনা হয় — নিজের গতিতে, পূর্ণকালীন চাপ ছাড়া।',
+        'অবসরের আগে যার উত্তরসূরিহীন ব্যবসা আছে, সে সেটিকে ধাপে ধাপে বা সর্বোচ্চ তিন বছরের রূপান্তরকালসহ যৌথ ব্যবসা হিসেবে আনতে পারে (সংবিধি § ১৫ক (৫))।',
         'সদস্য না হয়েও তুমি দক্ষতা, সময় বা টাকা দিয়ে সহায়তা করতে পারো।',
       ],
       offen: 'অবসর ভাতা নিয়ে প্রশ্নগুলো এখনো খোলা।',
@@ -236,14 +256,16 @@ export const R3: Record<string, R3Texte> = {
   },
   ja: {
     marke: '設立後、準備中',
-    quelle: '出典：コンセプト v22.69.0（時間交換、資格基金）、定款草案 第4条第2項、経済ガイド v3.15.1（直接融資）。',
+    quelle: '出典：コンセプト v22.69.0（251・348行 利用組合員、1357行 時間交換）、コミュニティ文化（95・164行）、パートナーになる v1.5.1（定款 第15a条第5項）、定款草案 第4条第2項、経済ガイド v3.15.1（直接融資）。',
     geld: { titel: 'お金で支援したい場合に大切なこと', text: '直接融資は劣後です。返済は自由な資産からのみ行われ、破産時には他のすべての債権者が優先されます。最悪の場合、お金はすべて失われる可能性があります。だから失っても困らない分だけにしてください。生活防衛資金や老後の備えはここに入れるものではありません。' },
     ruhestand: {
       titel: '退職後：経験を伝える',
       kurz: 'あなたの経験には価値があります。時間交換で、知識を伝えることで、そして支援として。',
       punkte: [
+        '年金はそのまま受け取れ、利用組合員として同じ議決権を持つ正組合員になれます。少額の負担で、共同のサービス（仕入れ、場所、道具、事務、ボディワーク）を原価で利用できます。',
         '年金年齢の経験は、時間交換で「教育」カテゴリーの1時間として数えられます。',
-        '知識を伝える：計画中の資格基金は、時間交換での10時間のメンタリングまたは指導と引き換えに、最大1,000€の助成を行います。',
+        '知識を伝え、新しい人を育てることは、時間交換で1時間ずつ数えられます。自分のペースで、フルタイムの重圧なしに。',
+        '退職前に後継者のいない事業を持っている人は、段階的に、または最長3年の移行期間を設けて、共同事業として持ち込めます（定款 第15a条第5項）。',
         '組合員にならなくても、技能・時間・お金で支援できます。',
       ],
       offen: '年金に関する問いはまだ未解決です。',
@@ -260,14 +282,16 @@ export const R3: Record<string, R3Texte> = {
   },
   zh: {
     marke: '成立之后，筹建中',
-    quelle: '来源：概念 v22.69.0（时间交换、资格基金）、章程草案第4条第2款、经济指南 v3.15.1（直接贷款）。',
+    quelle: '来源：概念 v22.69.0（第251、348行 使用型成员；第1357行 时间交换）、社区文化（第95、164行）、成为合作伙伴 v1.5.1（章程第15a条第5款）、章程草案第4条第2款、经济指南 v3.15.1（直接贷款）。',
     geld: { titel: '如果你想用钱帮忙，请注意', text: '直接贷款是次级的：只用自由资产偿还，破产时所有其他债权人优先。最坏情况下，钱可能全部损失。所以只拿出你能承受损失的钱：你的应急储蓄和养老储备不属于这里。' },
     ruhestand: {
       titel: '退休后：传承经验',
       kurz: '你的经验有价值：在时间交换中、在传授知识中，以及作为支持。',
       punkte: [
+        '你保留自己的养老金，并可以作为使用型成员成为拥有平等表决权的正式成员——只需少量会费，即可按成本价使用共同服务（采购、场地、工具、行政、身体工作）。',
         '退休年龄的经验在时间交换中按“教育”类别的一小时计算。',
-        '传授知识：计划中的资格基金提供最高 1,000 € 的补助，换取时间交换中十小时的指导或授课。',
+        '传授知识和带新人在时间交换中按小时计算——按你自己的节奏，没有全职压力。',
+        '退休前拥有无人接班企业的人，可以逐步或以最长三年的过渡期将其作为共同企业并入（章程第15a条第5款）。',
         '你也可以不成为成员而提供支持，用技能、时间或金钱。',
       ],
       offen: '关于养老金的问题仍未解决。',

@@ -203,3 +203,25 @@ export function antwortFuer(rand, persona, frageId) {
   if (persona.alter === '18-29' && rand() < 0.3) t = t.toLowerCase().replace(/[.,]/g, '')
   return t
 }
+
+// ---------- Runde 4: Antwort-Chips (motiv, lage, zeit) ----------
+// Annahme (nicht gemessen): Wer Chips nutzt, wählt meist den passenden Chip, manche einen benachbarten (unsicher, neugierig, prüfend).
+// Indizes = Reihenfolge in public/tuer/texte-r4.js (motiv) bzw. lageWahl / zeitWahl.
+// motiv: 0 Handwerk/Betrieb, 1 Solo, 2 Fair einkaufen & nutzen, 3 Erst mal prüfen, 4 Mitmachen/gründen, 5 Unterstützen, 6 Neugierig
+export const CHIP_MOTIV = {
+  meister: { 0: 80, 6: 10, 1: 5, 3: 5 }, geselle_werkstatt: { 0: 75, 1: 10, 6: 10, 3: 5 }, tischler: { 0: 85, 6: 10, 3: 5 },
+  gewerke: { 0: 75, 1: 10, 6: 10, 3: 5 }, unternehmer: { 0: 65, 1: 10, 6: 15, 3: 10 }, solo: { 1: 75, 0: 10, 6: 10, 3: 5 },
+  kunde: { 2: 75, 6: 15, 3: 10 }, interessiert: { 6: 75, 4: 10, 3: 10, 5: 5 }, skeptiker: { 3: 80, 6: 15, 2: 5 },
+  gruender_sparer: { 4: 70, 6: 15, 2: 10, 3: 5 }, unterstuetzer: { 5: 75, 6: 15, 4: 10 },
+}
+// lage: 0 Ausbildung/Berufseinstieg, 1 Familie, 2 Wechsel, 3 Ruhestand, 4 Lieber nicht sagen (wie beim Freitext: 25 % sagen es nicht)
+const LAGE_CHIP = { berufseinstieg: 0, familie: 1, umbruch: 2, ruhestand: 3 }
+// zeit: 0 kurz lesen, 1 genauer ansehen, 2 in Ruhe vertiefen, 3 vorbeikommen, 4 anpacken
+const ZEIT_CHIP = { standard: { 0: 35, 1: 35, 3: 15, 4: 15 }, aktiv: { 1: 25, 3: 25, 4: 50 } }
+const ziehe = (rand, gew) => { const e = Object.entries(gew); let t = rand() * e.reduce((x, [, w]) => x + w, 0); for (const [k, w] of e) { t -= w; if (t <= 0) return +k } return +e[e.length - 1][0] }
+export function chipFuer(rand, persona, frageId) {
+  if (frageId === 'motiv') return ziehe(rand, CHIP_MOTIV[persona.typ])
+  if (frageId === 'lage') return rand() < 0.75 ? LAGE_CHIP[persona.lage] : 4
+  if (frageId === 'zeit') return persona.vertiefer ? 2 : ziehe(rand, ['gruender_sparer', 'unterstuetzer'].includes(persona.typ) ? ZEIT_CHIP.aktiv : ZEIT_CHIP.standard)
+  return null
+}

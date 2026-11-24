@@ -12,6 +12,7 @@ const sandbox = { window: {} }
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte.js', import.meta.url), 'utf8'), sandbox)
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-luecken.js', import.meta.url), 'utf8'), sandbox)
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-r3.js', import.meta.url), 'utf8'), sandbox)
+vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-r4.js', import.meta.url), 'utf8'), sandbox)
 const TEXTE = sandbox.window.BTMM_TUER_TEXTE
 
 function profilAus(lang, antworten) {
@@ -90,4 +91,28 @@ test('Runde 3: Ruhestand und Unterstützen haben eigene Schritte und Texte in al
   assert.ok(PF.pfadBauen(p).includes('ruhestand'))
   const q = PF.auswerten(M, 'Ich möchte euch unterstützen, ohne selbst Mitglied zu werden.')
   assert.equal(PF.pfadBauen(q)[0], 'unterstuetzen')
+})
+
+test('Runde 4: Chips für motiv, lage und zeit in allen Sprachen, Bedeutung unabhängig von der Wortwahl', () => {
+  for (const [l, T] of Object.entries(TEXTE)) {
+    for (const [f, key] of Object.entries(PF.WAHL_TEXT)) assert.equal((T[key] || []).length, PF.WAHL[f].length, l + ' ' + key)
+    assert.ok(T.wahlHinweis, l + ' wahlHinweis')
+  }
+  const pfad = (idx) => PF.pfadBauen(PF.wahlProfil('motiv', idx))
+  assert.equal(pfad(2)[0], 'kunde'); assert.equal(pfad(3)[0], 'skeptisch'); assert.equal(pfad(5)[0], 'unterstuetzen')
+  assert.ok(pfad(0).includes('arbeiten')); assert.ok(pfad(4).includes('gruenden'))
+  const lage = { ...PF.wahlProfil('motiv', 0) }; for (const [k, v] of Object.entries(PF.wahlProfil('lage', 3))) lage[k] = (lage[k] || 0) + v
+  assert.ok(PF.pfadBauen(lage).includes('ruhestand'))
+})
+
+test('Runde 4: Freitext – Kunden-Verben schlagen „Betrieb“, eigener Betrieb bleibt Arbeit', () => {
+  const M = PF.merkmaleFuer(TEXTE.de, TEXTE.de, 'de')
+  const k = PF.auswerten(M, 'Ich will bei fairen Betrieben einkaufen.')
+  assert.ok(k.kunde && !k.arbeiten, JSON.stringify(k))
+  const b = PF.auswerten(M, 'Ich habe einen eigenen Betrieb und will Material günstiger einkaufen.')
+  assert.ok(b.arbeiten, JSON.stringify(b))
+  const s = PF.auswerten(M, 'Wo ist der Haken? Klingt zu schön, um wahr zu sein.')
+  assert.ok(s.skeptisch, JSON.stringify(s))
+  const e = PF.auswerten(PF.merkmaleFuer(TEXTE.en, TEXTE.de, 'en'), 'I want to buy from fair businesses.')
+  assert.ok(e.kunde && !e.arbeiten, JSON.stringify(e))
 })

@@ -59,6 +59,9 @@
       if (lang !== 'de') liste = liste.concat(DE.merkmale[k].filter(function (w) { return RUECKFALL_AUS.indexOf(w) === -1; }));
       M[k] = liste.map(grund).filter(Boolean);
     });
+    /* Runde 4: Kunden-Verben schlagen „Betrieb“, wenn kein eigener Betrieb genannt ist (nicht aufzählbar, damit auswerten nur Merkmale sieht) */
+    var V = T.vorrang || DE.vorrang || {};
+    Object.defineProperty(M, '_vorrang', { value: { kv: (V.kundeVerben || []).map(grund).filter(Boolean), eb: (V.eigenerBetrieb || []).map(grund).filter(Boolean) }, enumerable: false });
     return M;
   }
   function auswerten(M, text) {
@@ -66,7 +69,25 @@
     Object.keys(M).forEach(function (k) {
       M[k].forEach(function (w) { if (t.indexOf(w) !== -1) treffer[k] = (treffer[k] || 0) + 1; });
     });
+    var V = M._vorrang;
+    if (V && treffer.arbeiten) {
+      var hat = function (l) { return l.some(function (w) { return t.indexOf(w) !== -1; }); };
+      if (hat(V.kv) && !hat(V.eb)) { delete treffer.arbeiten; treffer.kunde = (treffer.kunde || 0) + 1; }
+    }
     return treffer;
+  }
+  /* Runde 4: Antwort-Chips. Jeder Chip trägt seine Merkmale selbst (Index = Reihenfolge in texte-r4.js / lageWahl),
+   * damit die Zuordnung nicht von der Wortwahl abhängt. Freitext läuft weiter über auswerten(). */
+  var WAHL = {
+    motiv: [{ arbeiten: 2 }, { arbeiten: 2 }, { kunde: 2, sparen: 1 }, { skeptisch: 2 }, { gruenden: 2 }, { unterstuetzen: 2 }, { neugierig: 2 }],
+    lage: [{ einstieg: 2 }, { lebensphase: 2 }, { lebensphase: 2 }, { ruhestand: 2 }, {}],
+    zeit: [{ nurlesen: 1 }, {}, { neugierig: 1 }, { vorbei: 1 }, { anpacken: 1 }]
+  };
+  var WAHL_TEXT = { motiv: 'motivWahl', lage: 'lageWahl', zeit: 'zeitWahl' };
+  function wahlProfil(frageId, i) {
+    var m = (WAHL[frageId] || [])[i] || {}, out = {};
+    Object.keys(m).forEach(function (k) { out[k] = m[k]; });
+    return out;
   }
 
   /* Profil → Schrittfolge. Jeder Kandidat bekommt eine Gewichtung aus dem Profil; sortiert wird absteigend.
@@ -151,7 +172,7 @@
     return fest[0] || vertiefung || null;
   }
 
-  var API = { FRAGEN: FRAGEN, MAX_FRAGEN: MAX_FRAGEN, naechsteFrage: naechsteFrage, SCHRITTE: SCHRITTE, BILDER: BILDER, MOTIVE: MOTIVE, grund: grund, norm: norm, merkmaleFuer: merkmaleFuer, auswerten: auswerten, pfadBauen: pfadBauen, bezugKey: bezugKey, bilderWaehlen: bilderWaehlen, profilSatz: profilSatz };
+  var API = { WAHL: WAHL, WAHL_TEXT: WAHL_TEXT, wahlProfil: wahlProfil, FRAGEN: FRAGEN, MAX_FRAGEN: MAX_FRAGEN, naechsteFrage: naechsteFrage, SCHRITTE: SCHRITTE, BILDER: BILDER, MOTIVE: MOTIVE, grund: grund, norm: norm, merkmaleFuer: merkmaleFuer, auswerten: auswerten, pfadBauen: pfadBauen, bezugKey: bezugKey, bilderWaehlen: bilderWaehlen, profilSatz: profilSatz };
   if (typeof module !== 'undefined' && module.exports) module.exports = API;
   wurzel.BTMM_TUER_PFAD = API;
 })(typeof window !== 'undefined' ? window : globalThis);

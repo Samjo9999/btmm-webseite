@@ -8,7 +8,7 @@ import { createRequire } from 'node:module'
 import { execSync } from 'node:child_process'
 import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
-import { ARCHETYPEN, ALTER, LEBENSLAGE_NACH_ALTER, LEBENSLAGE_NEED, GERAETE, VERTIEFER_ANTEIL, antwortFuer, bankWaehlen } from './personas.mjs'
+import { ARCHETYPEN, ALTER, LEBENSLAGE_NACH_ALTER, LEBENSLAGE_NEED, GERAETE, VERTIEFER_ANTEIL, antwortFuer, bankWaehlen, chipFuer } from './personas.mjs'
 import { themenAuf, THEMEN } from './themen.mjs'
 import { scanPfad, scanAusgeliefert } from './tabu.mjs'
 
@@ -19,12 +19,15 @@ const N = Number(String(opt('--n', '1000')).replace(/_/g, ''))
 const SEEDS = opt('--seeds', '1').split(',').map(Number)
 const AUS = opt('--aus', null)
 const BANK = opt('--bank', 'a'); bankWaehlen(BANK)
+// Runde 4: Anteil Chip-Nutzer (Rest Freitext); 0 = reiner Freitext wie r1–r3
+const CHIP = Number(opt('--chip', '0'))
 const SEITEN = JSON.parse(readFileSync(opt('--seiten'), 'utf8'))
 
 const PF = require(REPO + 'public/tuer/pfad.js')
 const sb = { window: {} }; vm.runInNewContext(readFileSync(REPO + 'public/tuer/texte.js', 'utf8'), sb)
 try { vm.runInNewContext(readFileSync(REPO + 'public/tuer/texte-luecken.js', 'utf8'), sb) } catch {}
 try { vm.runInNewContext(readFileSync(REPO + 'public/tuer/texte-r3.js', 'utf8'), sb) } catch {}
+try { vm.runInNewContext(readFileSync(REPO + 'public/tuer/texte-r4.js', 'utf8'), sb) } catch {}
 const TEXTE = sb.window.BTMM_TUER_TEXTE
 const M = PF.merkmaleFuer(TEXTE.de, TEXTE.de, 'de')
 let commit = 'unbekannt'; try { commit = execSync('git rev-parse HEAD', { cwd: REPO }).toString().trim() } catch {}
@@ -57,9 +60,10 @@ function einLauf(r) {
   const typ = pick(r, ARCHETYPEN), A = ARCHETYPEN[typ]
   const alter = pick(r, ALTER), lage = pick(r, LEBENSLAGE_NACH_ALTER[alter]), geraet = pick(r, GERAETE)
   const vertiefer = r() < VERTIEFER_ANTEIL
-  const persona = { typ, alter, lage, geraet, vertiefer, leerRate: geraet === 'hochkant' ? 0.12 : 0.07 }
+  const weg = CHIP > 0 && r() < CHIP ? 'chip' : 'freitext'
+  const persona = { typ, alter, lage, geraet, vertiefer, weg, leerRate: geraet === 'hochkant' ? 0.12 : 0.07 }
   const G = GERAET[geraet]
-  const res = { typ, alter, lage, geraet, vertiefer, lageErkannt: 0, ueberzeugt: 0, pfadTreffer: 0, abbruch: 0, ohneTuer: 0, pfad: null, fehlend: [] }
+  const res = { typ, alter, lage, geraet, vertiefer, weg, wegTyp: weg + '|' + typ, wegLage: weg + '|' + lage, lageErkannt: 0, ueberzeugt: 0, pfadTreffer: 0, abbruch: 0, ohneTuer: 0, pfad: null, fehlend: [] }
   // Tür
   let hrefs
   if (r() < G.ohne) { res.ohneTuer = 1; hrefs = [''] }
@@ -68,7 +72,7 @@ function einLauf(r) {
     for (let f; (f = naechsteFrage(st));) {
       if (r() < G.abbruch) { res.abbruch = 1; return res }
       st.gestellt.push(f.id)
-      const t = PF.auswerten(M, antwortFuer(r, persona, f.id))
+      const t = weg === 'chip' && PF.WAHL[f.id] ? PF.wahlProfil(f.id, chipFuer(r, persona, f.id)) : PF.auswerten(M, antwortFuer(r, persona, f.id))
       for (const k in t) st.profil[k] = (st.profil[k] || 0) + t[k]
     }
     const LAGE_MERKMAL = { berufseinstieg: 'einstieg', familie: 'lebensphase', umbruch: 'lebensphase', ruhestand: PF.SCHRITTE.ruhestand ? 'ruhestand' : 'lebensphase' }
@@ -102,7 +106,7 @@ function einLauf(r) {
 
 function lauf(seed, n) {
   const r = rng(seed * 2654435761)
-  const dims = ['typ', 'alter', 'lage', 'geraet', 'vertiefer']
+  const dims = ['typ', 'alter', 'lage', 'geraet', 'vertiefer', 'weg', 'wegTyp', 'wegLage']
   const agg = {}; for (const d of dims) agg[d] = {}
   const pfade = {}, fehlend = {}, fehlendGeraet = {}, nGeraet = {}
   let ges = { n: 0, mitPfad: 0, ueberzeugt: 0, pfadTreffer: 0, abbruch: 0, ohneTuer: 0 }
@@ -113,7 +117,7 @@ function lauf(seed, n) {
       const k = String(x[d]), g = (agg[d][k] ||= { n: 0, mitPfad: 0, ueberzeugt: 0, pfadTreffer: 0, abbruch: 0, lageImPfad: 0, lageErkannt: 0, lageSchrittBeiErkannt: 0 })
       g.n++; g.ueberzeugt += x.ueberzeugt; g.abbruch += x.abbruch; if (x.pfad) g.mitPfad++
       // Pfad-Treffer je Gruppe: Lebenslage braucht zusätzlich Lage-Inhalt im Pfad
-      g.pfadTreffer += d === 'lage' ? (x.pfadTreffer && x.lageImPfad ? 1 : 0) : x.pfadTreffer
+      g.pfadTreffer += (d === 'lage' || d === 'wegLage') ? (x.pfadTreffer && x.lageImPfad ? 1 : 0) : x.pfadTreffer
       g.lageImPfad += x.lageImPfad || 0
       if (x.pfad && x.lageErkannt) { g.lageErkannt++; g.lageSchrittBeiErkannt += x.lageImPfad }
     }
@@ -148,7 +152,7 @@ const laeufe = SEEDS.map((s) => lauf(s, N))
 const ms = Date.now() - t0
 
 // Spannen über Seeds und Abweichung gegen Vergleichslauf
-const gruppen = (o) => Object.fromEntries(['typ', 'alter', 'lage', 'geraet', 'vertiefer'].flatMap((d) => Object.entries(o[d]).map(([k, v]) => [d + ':' + k, v])))
+const gruppen = (o) => Object.fromEntries(['typ', 'alter', 'lage', 'geraet', 'vertiefer', 'weg'].flatMap((d) => Object.entries(o[d]).map(([k, v]) => [d + ':' + k, v])))
 const G0 = laeufe.map(gruppen)
 const spanne = {}; for (const k of Object.keys(G0[0])) { const v = G0.map((g) => g[k]?.ueberzeugt ?? 0); spanne[k] = +((Math.max(...v) - Math.min(...v)) * 100).toFixed(2) }
 let abweichung = null
@@ -167,7 +171,7 @@ if (tabuAus.treffer.length) pruef.push(`Tabu-Treffer in ausgelieferten Dateien: 
 if (Object.keys(endpunkte).length) pruef.push(`Pfadziele nicht 200: ${Object.values(endpunkte).flat().length}`)
 
 const ergebnis = {
-  zeit: new Date().toISOString(), commit, bank: BANK, tuerGeaendertUncommitted: dirty, n: N, seeds: SEEDS, laufzeitMs: ms, kostenEuro: 0,
+  zeit: new Date().toISOString(), commit, bank: BANK, chipAnteil: CHIP, tuerGeaendertUncommitted: dirty, n: N, seeds: SEEDS, laufzeitMs: ms, kostenEuro: 0,
   modell: 'deterministisch, kein LLM; Überzeugt = gewichtete Abdeckung der Persona-Bedürfnisse durch die gelesenen Pfadseiten ≥ persönliche Schwelle',
   stopp: { bestanden: pruef.length === 0, offen: pruef },
   spanneSeedsPp: SEEDS.length > 1 ? spanne : null, abweichungPp: abweichung,
@@ -178,7 +182,7 @@ const ergebnis = {
 }
 if (AUS) { mkdirSync(AUS, { recursive: true }); writeFileSync(AUS + '/ergebnis.json', JSON.stringify(ergebnis, null, 1)) }
 const pct = (x) => (x * 100).toFixed(1).padStart(5)
-console.log(`commit ${commit.slice(0, 7)}${dirty ? '+lokal' : ''}  Bank ${BANK}  N=${N} seeds=${SEEDS} ${ms} ms  Kosten 0 €`)
-for (const d of ['typ', 'alter', 'lage', 'geraet', 'vertiefer']) { console.log(`-- ${d}`); for (const [k, v] of Object.entries(laeufe[0][d])) console.log(`  ${k.padEnd(18)} überzeugt ${pct(v.ueberzeugt)} %  Pfad ${pct(v.pfadTreffer)} %  Abbruch ${pct(v.abbruch)} %${d === 'lage' ? '  Lage erkannt ' + pct(v.lageErkannt) + ' %, davon Lage-Schritt ' + pct(v.lageSchrittBeiErkannt) + ' %' : ''}${SEEDS.length > 1 ? '  Spanne ' + spanne[d + ':' + k] + ' pp' : ''}${abweichung ? '  Δ ' + abweichung[d + ':' + k] + ' pp' : ''}`) }
+console.log(`commit ${commit.slice(0, 7)}${dirty ? '+lokal' : ''}  Bank ${BANK}  Chip-Anteil ${CHIP}  N=${N} seeds=${SEEDS} ${ms} ms  Kosten 0 €`)
+for (const d of ['typ', 'alter', 'lage', 'geraet', 'vertiefer', 'weg']) { console.log(`-- ${d}`); for (const [k, v] of Object.entries(laeufe[0][d])) console.log(`  ${k.padEnd(18)} überzeugt ${pct(v.ueberzeugt)} %  Pfad ${pct(v.pfadTreffer)} %  Abbruch ${pct(v.abbruch)} %${d === 'lage' ? '  Lage erkannt ' + pct(v.lageErkannt) + ' %, davon Lage-Schritt ' + pct(v.lageSchrittBeiErkannt) + ' %' : ''}${SEEDS.length > 1 ? '  Spanne ' + spanne[d + ':' + k] + ' pp' : ''}${abweichung ? '  Δ ' + abweichung[d + ':' + k] + ' pp' : ''}`) }
 console.log(`Tabu im Pfad: ${tabuImPfad.length} (außerhalb Pfad: ${tabu.treffer.length - tabuImPfad.length}), ausgeliefert: ${tabuAus.treffer.length} in ${tabuAus.dateien} Dateien  Pfadziele ≠200: ${Object.values(endpunkte).flat().length}  Lücken: ${luecken.join(',') || '-'} | nicht im Pfad: ${luckenImPfad.join(',') || '-'}`)
 console.log(`Stopp-Kriterium: ${pruef.length ? 'NICHT erfüllt (' + pruef.length + ' Punkte)' : 'ERFÜLLT'}`)
