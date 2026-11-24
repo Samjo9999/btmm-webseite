@@ -29,7 +29,7 @@ node scripts/personas/tabu.mjs --seiten $L/seiten.json --repo-weit --json $L/tab
 - **Überzeugt:** Die gewichtete Abdeckung der Persona-Bedürfnisse durch die gelesenen Seitenteile muss mindestens die persönliche Schwelle erreichen. Die Schwelle ist je Archetyp gesetzt und streut normalverteilt. Ein eigener Pfad gibt +0,05.
   - Themen werden per Schlagworte im gerenderten Text erkannt (`themen.mjs`).
 - **Pfad-Treffer:** Einer der ersten zwei Motiv-Schritte gehört zum Archetyp (`eigen`). Bei Lebenslagen muss zusätzlich Lage-Inhalt im Pfad stehen. Gezählt wird unter allen, die einen Pfad bekommen haben. Abbruch im Dialog und „ohne Fragen“ werden getrennt ausgewiesen (`abbruch`, `pfadTrefferAlle`).
-- **Tabu:** `tabu.mjs` umfasst Bürgergeld, Jobcenter, Krankheit, Erkrankung, Elternzeit, Schwangerschaft und Eltern/Elternhof in allen 11 Sprachen. Gescannt werden:
+- **Tabu:** `tabu.mjs` enthält die Tabuliste des Nutzers (7 Begriffe, alle 11 Sprachen); die Wörter stehen bewusst nur dort. Gescannt werden:
   - Tür-HTML/JS/CSS, PfadLeiste und TuerWeiche
   - das vollständige HTML aller Pfadziele, inklusive Meta, data-Attributen und Next-Payload
   - zusätzlich „ausgeliefert“: messages/**, public/**, app/**, components/**, lib/**, content/** (Sprachdateien, Quelltext, alt, Meta, data-Attribute)
@@ -41,7 +41,18 @@ node scripts/personas/tabu.mjs --seiten $L/seiten.json --repo-weit --json $L/tab
 - Die Spanne über 3 Seeds liegt je Archetyp bei höchstens 3 Prozentpunkten. Der Volllauf weicht vom Schnelltest um höchstens 2 Prozentpunkte ab.
 - Tabu-Treffer im Pfad: 0. Alle Pfadziele liefern in allen 11 Locales HTTP 200.
 
-Hinweis: Mit 1.000 Personas sind kleine Gruppen (5 % ≈ 50 Personen) zu klein für eine Spanne von höchstens 3 Prozentpunkten. Der Schnelltest läuft deshalb mit 10.000.
+Hinweis: Mit 1.000 Personas sind kleine Gruppen (5 % ≈ 50 Personen) zu klein für eine Spanne von höchstens 3 Prozentpunkten. Auch bei 10.000 haben 5-%-Gruppen nur ~500 Personen je Seed (Standardfehler ≈ 1,7 pp, erwartete Spanne über 3 Seeds ≈ 3 pp). Die Seed-Spanne wird deshalb zusätzlich mit 25.000 × 3 und 3 × 100.000 (Blöcke) protokolliert; maßgeblich für die Stabilität sind die 100k-Blöcke.
+
+## Antwort-Banken (Runde 3)
+
+- `--bank a` (Standard): ursprüngliche Bank, an der die Schlagworte abgestimmt wurden.
+- `--bank b`: Kontroll-Bank, vor dem Tuning von Runde 3 geschrieben. Die Schlagworte wurden danach in Kenntnis dieser Bank verallgemeinert, sie ist also **nicht** mehr unabhängig.
+- `--bank c`: nachträglicher Holdout, nach dem Tuning geschrieben und nicht mehr fürs Tuning genutzt. Zeigt, wie gut die Schlagwort-Erkennung auf fremde Formulierungen übertragbar ist.
+- Ergebnisse der Banken b/c sind Gegenproben, kein Ersatz für echte Nutzertests.
+
+## Lebenslage-Kennzahlen
+
+Je Lebenslage wird zusätzlich ausgegeben: `Lage erkannt` (Anteil mit Pfad, deren Lebensphase aus den Antworten erkannt wurde) und `davon Lage-Schritt` (davon mit passendem Schritt im Pfad). Rund 21 % der simulierten Personen nennen ihre Lebensphase nicht (Modellannahme); für sie kann die Tür keinen Lage-Schritt wählen. Seit Runde 3 gibt es dafür Antwort-Vorschläge zum Antippen; die Simulation rechnet sie bewusst **nicht** ein.
 
 ## Grenzen
 

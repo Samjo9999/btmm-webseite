@@ -45,6 +45,9 @@ a{color:var(--lila)}
 .blase{max-width:86%;padding:10px 14px;border-radius:18px;animation:rein .3s ease}
 .blase.frage{align-self:flex-start;background:#fff;border:1px solid var(--linie);border-bottom-left-radius:6px;font-weight:600}
 .blase.echo{align-self:flex-start;background:transparent;color:var(--grau);font-style:italic;padding:2px 14px}
+.blase.wahl{align-self:flex-end;max-width:100%;padding:0;background:transparent;display:flex;flex-wrap:wrap;gap:8px;justify-content:flex-end}
+.wahl-knopf{font:inherit;font-size:.95em;padding:8px 14px;border-radius:18px;border:1px solid var(--lila);background:#fff;color:var(--lila);cursor:pointer}
+.wahl-knopf:hover,.wahl-knopf:focus-visible{background:var(--lila);color:#fff}
 .blase.antwort{align-self:flex-end;background:var(--lila);color:#fff;border-bottom-right-radius:6px}
 @keyframes rein{from{opacity:0;transform:translateY(6px)}}
 .eingabe{position:sticky;bottom:0;display:flex;gap:8px;align-items:flex-end;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--creme);border-top:1px solid var(--linie)}

@@ -23,7 +23,7 @@ export const ARCHETYPEN = {
     needs: { belege: 3, idee: 1, lohn: 1, gruendung: 1 } },
   gruender_sparer: { w: 5, label: 'Gründer/Sparer', schwelle: 0.55, eigen: ['gruenden', 'freiburg', 'sparen'],
     needs: { gruendung: 2, einkauf: 2, mitmachen: 1, idee: 1 } },
-  unterstuetzer: { w: 5, label: 'Unterstützer/Förderer', schwelle: 0.52, eigen: ['anpacken', 'grundlagen', 'sinn'],
+  unterstuetzer: { w: 5, label: 'Unterstützer/Förderer', schwelle: 0.52, eigen: ['unterstuetzen', 'anpacken', 'grundlagen', 'sinn'],
     needs: { foerdern: 3, idee: 2, mitmachen: 1 } },
 }
 
@@ -115,7 +115,80 @@ const LAGE = {
   ruhestand: ['Ich bin im Ruhestand.', 'Ich bin Rentner und habe Zeit.', 'Ich gehe bald in Rente.'],
 }
 
+// ---------- Kontroll-Bank B (Holdout) ----------
+// Andere, unabhängig formulierte Alltagsantworten. Geschrieben VOR dem Schlagwort-Tuning von r3 und danach nicht an die
+// Schlagworte angepasst. Dient als Gegenprobe gegen Überanpassung (Nutzung: sim.mjs --bank b).
+const ALLG_B = {
+  herkunft: ['Hat mir jemand aus dem Verein gezeigt.', 'Stand in einer Newsletter-Mail.', 'Über Bekannte.', 'Suchmaschine.', 'Irgendwo verlinkt.', 'Hab einen Aufkleber gesehen.', 'Durch meine Nachbarin.', 'LinkedIn.'],
+  ort: ['Wohne im Raum Freiburg.', 'Emmendingen.', 'Weit weg, in Leipzig.', 'Im Elsass, kurz hinter der Grenze.', 'Karlsruhe.', 'Bayern.', 'Direkt in der Stadt.'],
+  zeit: ['Erst einmal reinschnuppern.', 'Ein paar Stunden im Monat wären drin.', 'Ich schau mir das in Ruhe an.', 'Kommt auf den Termin an.', 'Gerne aktiv werden.', 'Lieber nur informiert bleiben.'],
+  leer: ['Keine Angabe.', 'Egal.', 'Hmm, schwer zu sagen.', 'Nichts weiter.', '...'],
+}
+const A_B = {
+  meister: { motiv: ['Mein Handwerksbetrieb hat sechs Mitarbeiter und ich ersticke im Papierkram.', 'Ich bin Bäckermeister und überlege, wie es mit dem Laden weitergeht.', 'Wir sind ein Familienbetrieb im Heizungsbau und suchen neue Wege.', 'Kfz-Meister, eigene Werkstatt, mich interessiert die Kooperation.'],
+    arbeit: ['Heizung und Lüftung, Meisterbetrieb.', 'Bäckerei mit Filiale.', 'Kfz-Werkstatt.'], zweifel: ['Was passiert mit meinem Betrieb, wenn ich beitrete?', 'Wie ist die Haftung geregelt?'], sparen: ['Die Kosten für den Steuerberater.', 'Versicherungen.'] },
+  geselle_werkstatt: { motiv: ['Ich bin Zimmermann und habe mir eine kleine Halle gemietet.', 'Gesellin im Metallbau, ich habe eine Werkstatt zuhause.', 'Ich bin gelernter Elektroniker und mache nebenbei Reparaturen.', 'Ich will mit meiner Werkstatt eigene Aufträge annehmen.'],
+    arbeit: ['Zimmerei, angestellt, nebenbei eigene Projekte.', 'Metallbau.', 'Reparaturen in der eigenen Werkstatt.'], zweifel: ['Darf ich ohne Meister Aufträge machen?', 'Versicherung.'], sparen: ['Hallenmiete.', 'Werkzeug ist teuer.'] },
+  tischler: { motiv: ['Ich baue Möbel und suche Leute, die ähnlich denken.', 'Schreinerei mit drei Leuten, wir wollen fairer arbeiten.', 'Ich bin Tischlerin und mir fehlt ein Netzwerk.'],
+    arbeit: ['Möbelbau nach Maß.', 'Schreinerei.'], zweifel: ['Wie läuft das mit der Meisterpflicht?'], sparen: ['Holz und Plattenware.'] },
+  gewerke: { motiv: ['Ich bin Steinmetz, kleiner Betrieb.', 'Raumausstatterin, selbstständig.', 'Schornsteinfeger, interessiert mich einfach.', 'Gärtnerei, wir suchen Partner.'],
+    arbeit: ['Steinmetz.', 'Polsterei.', 'Gärtnerei.'], zweifel: ['Wie mit Zulassungen umgegangen wird.'], sparen: ['Fahrzeugkosten.'] },
+  unternehmer: { motiv: ['Ich betreibe ein kleines Restaurant und bin auf der Suche nach einem faireren Modell.', 'Mir gehört eine Buchhandlung, wäre das was für uns?', 'Wir sind ein Start-up mit acht Leuten.', 'Ich habe eine Praxis für Ergotherapie mit Angestellten.', 'Ich leite ein Familienunternehmen im Großhandel.'],
+    arbeit: ['Restaurant.', 'Buchhandlung.', 'Software-Start-up.', 'Therapiepraxis mit Team.'], zweifel: ['Wer entscheidet am Ende?', 'Was ist mit meinen Angestellten?'], sparen: ['Personalkosten und Pacht.'] },
+  solo: { motiv: ['Ich bin selbstständige Lektorin und arbeite allein von zuhause.', 'Ich mache Yoga-Kurse auf eigene Rechnung.', 'Ich bin Musiker und lebe von Auftritten.', 'Ich arbeite als Hebamme auf eigene Rechnung.'],
+    arbeit: ['Lektorat.', 'Kurse auf eigene Rechnung.', 'Musik.'], zweifel: ['Bleibe ich unabhängig?'], sparen: ['Absicherung als Selbstständige.', 'Altersvorsorge.'] },
+  kunde: { motiv: ['Wo kann ich bei euch etwas kaufen?', 'Ich brauche jemanden, der mir das Bad macht.', 'Ich kaufe gern regional und fair ein.', 'Gibt es einen Hofladen oder so?', 'Kann ich bei euch einen Kurs buchen?'],
+    sparen: ['Essen wird immer teurer.', 'Reparaturen.'], zweifel: ['Ob das Preis-Leistungs-Verhältnis stimmt.'], wohnen: ['Ich renoviere gerade.'] },
+  interessiert: { motiv: ['Hab davon gehört und will mehr wissen.', 'Mich interessiert das Konzept dahinter.', 'Bin einfach neugierig, was ihr macht.', 'Ich finde alternative Wirtschaft spannend.'],
+    sinn: ['Dass Menschen sich gegenseitig helfen.', 'Ein anderes Miteinander.'], wohnen: ['Gemeinschaftliches Wohnprojekt.'] },
+  skeptiker: { motiv: ['Ich glaube erst, wenn ich es sehe.', 'Wie verdient ihr eigentlich Geld?', 'Das klingt nach Sekte.', 'Wer garantiert, dass das klappt?'],
+    zweifel: ['Ich will die Zahlen sehen.', 'Wer sind die Verantwortlichen?', 'Gibt es unabhängige Prüfungen?'] },
+  gruender_sparer: { motiv: ['Ich möchte zu den Ersten gehören.', 'Ich will meine Ausgaben senken.', 'Ich will beim Start dabei sein.', 'Ich suche Wege, günstiger zu leben.'],
+    sparen: ['Wohnen und Essen.', 'Fahrtkosten.'] },
+  unterstuetzer: { motiv: ['Ich möchte so etwas gern voranbringen.', 'Ich habe etwas Geld übrig und will es sinnvoll einsetzen.', 'Kann ich euch irgendwie helfen, ohne selbst Mitglied zu werden?', 'Ich würde gern mit meinem Wissen beitragen.', 'Ich finde, so etwas verdient Rückenwind.'],
+    sinn: ['Dass es mehr solcher Projekte gibt.', 'Faire Arbeit.'] },
+}
+const LAGE_B = {
+  berufseinstieg: ['Ich mache gerade meine Lehre.', 'Ich habe letztes Jahr mein Studium abgeschlossen.', 'Ich bin noch ganz neu im Arbeitsleben.', 'Ich suche meinen ersten Job.'],
+  familie: ['Ich habe eine kleine Tochter.', 'Wir sind zu viert zuhause.', 'Ich bin alleinerziehend.', 'Unser Sohn kommt bald in die Schule.'],
+  umbruch: ['Ich stehe gerade vor einem Jobwechsel.', 'Mein Arbeitsvertrag läuft aus.', 'Ich will mich komplett umorientieren.', 'Gerade ist vieles im Wandel.'],
+  ruhestand: ['Ich bin seit zwei Jahren pensioniert.', 'Ich arbeite nicht mehr und habe viel Zeit.', 'Meine Enkel sind schon groß.', 'Ich höre nächstes Jahr auf zu arbeiten.'],
+}
+
+// ---------- Kontroll-Bank C (nachträglicher Holdout) ----------
+// Geschrieben NACH dem Schlagwort-Tuning von r3 (24.11. ca. 01:45) und danach nicht mehr für Schlagworte genutzt.
+// Bewusst andere Satzbauten, Umgangssprache und Tippfehler. Nutzung: sim.mjs --bank c
+const ALLG_C = {
+  herkunft: ['Weiß ich gar nicht mehr.', 'Hat jemand im Chat geteilt.', 'Radio.', 'Aus dem Stadtteilblatt.', 'Mein Mann hat es gefunden.', 'Durch Zufall.'],
+  ort: ['Südlich von Freiburg.', 'Ganz woanders.', 'Ortenau.', 'Nähe Basel.', 'Mannheim.'],
+  zeit: ['Weiß noch nicht.', 'Erstmal gucken.', 'Ich hätte Lust mitzumachen.', 'Nur am Wochenende.', 'Viel Zeit habe ich nicht.'],
+  leer: ['Kein Kommentar.', 'Später.', 'Hmm.', 'Ka.'],
+}
+const A_C = {
+  meister: { motiv: ['Hab nen Malerbetrieb, Meister seit 15 Jahren, suche Entlastung.', 'Meisterin im Friseurhandwerk mit eigenem Salon.', 'Unser Betrieb sucht einen Nachfolger, vielleicht ist das eine Lösung.'], arbeit: ['Friseursalon.', 'Malerbetrieb.'], zweifel: ['Wer bestimmt dann über meinen Betrieb?'], sparen: ['Die ganzen Abgaben.'] },
+  geselle_werkstatt: { motiv: ['Bin Geselle, schraube in meiner eigenen Garage an Fahrrädern.', 'Hab ne kleine Holzwerkstatt und darf nicht offiziell anbieten.', 'Gelernter Installateur mit Werkzeug im Keller.'], arbeit: ['Fahrradreparatur.', 'Holzarbeiten.'], zweifel: ['Ob das legal ist.'], sparen: ['Werkstattkosten.'] },
+  tischler: { motiv: ['Ich mach Möbel aus Altholz.', 'Wir sind eine Schreinerei im Dorf.', 'Ich bin Tischlergesellin und suche Kollegen.'], arbeit: ['Altholzmöbel.'], zweifel: ['Meisterpflicht?'], sparen: ['Maschinen.'] },
+  gewerke: { motiv: ['Ich bin Fliesenleger und arbeite allein.', 'Wir sind ein kleiner Elektrobetrieb.', 'Ich mache Dachrinnen und Spenglerarbeiten.'], arbeit: ['Spengler.'], zweifel: ['Zulassung?'], sparen: ['Diesel.'] },
+  unternehmer: { motiv: ['Mir gehört eine kleine Pension am See.', 'Ich habe einen Onlineshop mit vier Leuten.', 'Wir betreiben eine Physiopraxis.', 'Ich bin Chefin einer Reinigungsfirma.'], arbeit: ['Onlinehandel.', 'Reinigungsfirma.'], zweifel: ['Was wird aus meinem Unternehmen?'], sparen: ['Lohnnebenkosten.'] },
+  solo: { motiv: ['Ich bin Illustratorin und mache alles alleine.', 'Ich bin selbständiger Programmierer.', 'Ich arbeite als freie Journalistin.'], arbeit: ['Illustration.', 'Programmieren auf Rechnung.'], zweifel: ['Bleibe ich frei?'], sparen: ['Versicherungen.'] },
+  kunde: { motiv: ['Ich möchte Gemüse direkt vom Erzeuger.', 'Mein Dach ist undicht, wer kann das machen?', 'Wo gibts eure Sachen?', 'Ich hätte gern einen Saunagutschein.'], sparen: ['Lebensmittelpreise.'], zweifel: ['Ist das teurer als normal?'], wohnen: ['Altbau sanieren.'] },
+  interessiert: { motiv: ['Was ist BtMM eigentlich?', 'Ich hab mal reingeschaut.', 'Erzählt mal.'], sinn: ['Dass nicht jeder für sich kämpft.'], wohnen: ['Wohnprojekt.'] },
+  skeptiker: { motiv: ['Wo ist der Pferdefuß?', 'Ich trau dem Braten nicht.', 'Wer kassiert hier?'], zweifel: ['Einen Wirtschaftsprüfer.', 'Unterlagen bitte.'] },
+  gruender_sparer: { motiv: ['Ich will Gründungsmitglied werden.', 'Ich will weniger Geld ausgeben.', 'Wann geht es los?'], sparen: ['Wohnkosten.'] },
+  unterstuetzer: { motiv: ['Ich finde das toll und will was dazugeben.', 'Kann ich euch mit meiner Erfahrung als Steuerfachwirtin helfen?', 'Ich würde mich ehrenamtlich einbringen.', 'Wie kann ich euch unter die Arme greifen?'], sinn: ['Gemeinsinn.'] },
+}
+const LAGE_C = {
+  berufseinstieg: ['Bin noch Azubi.', 'Frisch von der Uni.', 'Hab gerade angefangen zu arbeiten.'],
+  familie: ['Zwei Kleine zuhause.', 'Ich kümmere mich um meine Kids.', 'Familienvater.'],
+  umbruch: ['Gerade alles neu.', 'Ich steige aus meinem alten Job aus.', 'Zeit für was anderes.'],
+  ruhestand: ['Bin in Pension.', 'Seit letztem Jahr Rentnerin.', 'Ich bin 68 und arbeite nicht mehr.'],
+}
+const BANKEN = { a: { A, LAGE, ALLG }, b: { A: A_B, LAGE: LAGE_B, ALLG: ALLG_B }, c: { A: A_C, LAGE: LAGE_C, ALLG: ALLG_C } }
+let BANK = BANKEN.a
+export function bankWaehlen(name) { BANK = BANKEN[name] || BANKEN.a }
+
 export function antwortFuer(rand, persona, frageId) {
+  const { A, LAGE, ALLG } = BANK
   const a = A[persona.typ]
   if (rand() < persona.leerRate) return ALLG.leer[(rand() * ALLG.leer.length) | 0]
   if (frageId === 'lage') { // Lebensphase: meist ehrlich beantwortet, manchmal ausweichend

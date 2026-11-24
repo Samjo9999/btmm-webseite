@@ -6,7 +6,7 @@
   'use strict';
   // Deutsche Wörter, die in anderen Sprachen oft etwas anderes bedeuten, nicht als Rückfall nutzen.
   var RUECKFALL_AUS = ['region', 'firma', 'social', 'auto', 'chor', 'stelle', 'haus', 'abend', 'lesen'];
-  var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase'];
+  var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'];
 
   /* Schritte: Pfad ohne Locale, Standardbild */
   var SCHRITTE = {
@@ -25,7 +25,10 @@
     /* PR #38: Gruppen ohne eigenen Pfad, Inhalte unter /fuer-dich/* */
     kunde:      { href: '/fuer-dich/kunden', bild: 'kreis' },
     einstieg:   { href: '/fuer-dich/berufseinstieg', bild: 'baumHell' },
-    lebensphase:{ href: '/fuer-dich/lebensphasen', bild: 'unendlichGold' }
+    lebensphase:{ href: '/fuer-dich/lebensphasen', bild: 'unendlichGold' },
+    /* PR #38 Runde 3 */
+    ruhestand:  { href: '/fuer-dich/ruhestand', bild: 'baumHell' },
+    unterstuetzen: { href: '/fuer-dich/unterstuetzen', bild: 'kreis' }
   };
   /* Nur Bilder, die schon im Repo (public/) liegen */
   var BILDER = {
@@ -38,7 +41,7 @@
     start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'baumHell', online: 'logo', skeptisch: 'unendlichDunkel',
     sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'baumHell', gruenden: 'baumHell',
     freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel',
-    kunde: 'kreis', einstieg: 'baumHell', lebensphase: 'unendlichGold'
+    kunde: 'kreis', einstieg: 'baumHell', lebensphase: 'unendlichGold', ruhestand: 'baumHell', unterstuetzen: 'kreis'
   };
 
   function grund(t) {
@@ -68,14 +71,20 @@
 
   /* Profil → Schrittfolge. Jeder Kandidat bekommt eine Gewichtung aus dem Profil; sortiert wird absteigend.
    * Bindung (anpacken / vorbei / folgen) steht immer am Ende. */
-  var REIHE = ['skeptisch', 'grundlagen', 'kunde', 'sparen', 'arbeiten', 'einstieg', 'wohnen', 'sinn', 'lebensphase', 'dokumente', 'freiburg', 'gruenden'];
+  var REIHE = ['skeptisch', 'unterstuetzen', 'kunde', 'arbeiten', 'sparen', 'grundlagen', 'gruenden', 'freiburg', 'einstieg', 'wohnen', 'sinn', 'ruhestand', 'lebensphase', 'dokumente'];
   function pfadBauen(p) {
     p = p || {};
     var w = {};
     var nurGruenden = p.gruenden && !p.neugierig && !p.skeptisch;
     if (!nurGruenden) w.grundlagen = 2 + 2 * (p.neugierig || 0) + (p.freund ? 1 : 0);
-    ['sparen', 'arbeiten', 'wohnen', 'sinn', 'kunde', 'einstieg'].forEach(function (m) { if (p[m]) w[m] = 3 * p[m]; });
-    if (p.lebensphase) w.lebensphase = 2 * p.lebensphase;
+    ['sparen', 'arbeiten', 'wohnen', 'sinn', 'kunde', 'unterstuetzen'].forEach(function (m) { if (p[m]) w[m] = 3 * p[m]; });
+    /* Wer ausdrücklich als Kundin/Kunde oder Unterstützer:in kommt, sieht das zuerst (Runde 3) */
+    if (w.kunde) w.kunde += 1;
+    if (w.unterstuetzen) w.unterstuetzen += 1;
+    /* Lebenslagen (Runde 3): nach dem Hauptmotiv, aber im Weg; mehrere Treffer heben sie an */
+    if (p.einstieg) w.einstieg = 2 + p.einstieg;
+    if (p.ruhestand) w.ruhestand = 2 + p.ruhestand;
+    if (p.lebensphase) w.lebensphase = 1.5 + 0.5 * p.lebensphase;
     if (p.skeptisch) { w.skeptisch = 3 * p.skeptisch + 1; w.dokumente = 2 * p.skeptisch + (p.online ? 1 : 0); }
     if (p.freiburg && !p.weit) w.freiburg = 1 + (p.vorbei || 0) + (p.vorort || 0) + (p.gruenden || 0);
     else if (p.gruenden) w.gruenden = 2 * p.gruenden;

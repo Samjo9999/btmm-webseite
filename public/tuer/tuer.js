@@ -68,14 +68,31 @@
     if (!f) return pfadZeigen();
     st.gestellt.push(f.id); st.offen = f.id; speichern();
     blase(f.text, 'frage');
+    if (f.id === 'lage') wahlZeigen(T.lageWahl || DE.lageWahl);
     eingabeFrei(true);
     feld.focus({ preventScroll: true });
   }
+  /* PR #38 Runde 3: Antwort-Vorschläge zum Antippen für die Lebensphase (freie Antwort bleibt möglich) */
+  function wahlZeigen(liste) {
+    if (!liste || !liste.length) return;
+    var li = document.createElement('li');
+    li.className = 'blase wahl';
+    liste.forEach(function (txt) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'wahl-knopf'; b.textContent = txt;
+      b.addEventListener('click', function () { antworten(txt); });
+      li.appendChild(b);
+    });
+    verlauf.appendChild(li);
+    li.scrollIntoView({ block: 'end', behavior: 'smooth' });
+  }
+  function wahlWeg() { [].forEach.call(verlauf.querySelectorAll('.wahl'), function (x) { x.parentNode.removeChild(x); }); }
   function antworten(text) {
     text = (text || '').trim();
     if (!st.offen) return;            // ohne offene Frage wird nichts gespeichert
     if (!text) { feld.focus(); return; }
     stopMik();
+    wahlWeg();
     blase(text, 'antwort');
     var t = auswerten(text);
     Object.keys(t).forEach(function (k) { st.profil[k] = (st.profil[k] || 0) + t[k]; });

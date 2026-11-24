@@ -11,6 +11,7 @@ const PF = require('../public/tuer/pfad.js')
 const sandbox = { window: {} }
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte.js', import.meta.url), 'utf8'), sandbox)
 vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-luecken.js', import.meta.url), 'utf8'), sandbox)
+vm.runInNewContext(readFileSync(new URL('../public/tuer/texte-r3.js', import.meta.url), 'utf8'), sandbox)
 const TEXTE = sandbox.window.BTMM_TUER_TEXTE
 
 function profilAus(lang, antworten) {
@@ -73,4 +74,20 @@ test('Lücken-Gruppen bekommen eigene Schritte (PR #38)', () => {
   const e = PF.pfadBauen(profilAus('de', ['Ich bin gerade mit der Ausbildung fertig.']))
   assert.ok(e.includes('einstieg'), e.join(','))
   for (const key of ['kunde', 'einstieg', 'lebensphase']) assert.ok(PF.SCHRITTE[key].href.startsWith('/fuer-dich/'))
+})
+
+test('Runde 3: Ruhestand und Unterstützen haben eigene Schritte und Texte in allen Sprachen', () => {
+  for (const k of ['ruhestand', 'unterstuetzen']) {
+    assert.ok(PF.SCHRITTE[k] && PF.SCHRITTE[k].href.startsWith('/fuer-dich/'), k)
+    for (const [l, T] of Object.entries(TEXTE)) {
+      assert.ok(T.schritte[k] && T.schritte[k][0] && T.bezug[k] && T.echo[k] && T.profil.motive[k], l + ' ' + k)
+      assert.ok(Array.isArray(T.merkmale[k]) && T.merkmale[k].length, l + ' merkmale ' + k)
+      assert.equal((T.lageWahl || []).length, 5, l + ' lageWahl')
+    }
+  }
+  const M = PF.merkmaleFuer(TEXTE.de, TEXTE.de, 'de')
+  const p = PF.auswerten(M, 'Ich bin seit zwei Jahren im Ruhestand.')
+  assert.ok(PF.pfadBauen(p).includes('ruhestand'))
+  const q = PF.auswerten(M, 'Ich möchte euch unterstützen, ohne selbst Mitglied zu werden.')
+  assert.equal(PF.pfadBauen(q)[0], 'unterstuetzen')
 })
