@@ -33,6 +33,8 @@
   </header>
   <p class="hinweis-kasten" id="ds-hinweis"><span data-t="ds">Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen.</span> <a href="/de/impressum#datenschutz" data-t="dsLink" data-ort="/impressum#datenschutz">Datenschutz</a></p>
   <ol class="verlauf" id="verlauf"></ol>
+  <div class="unten">
+  <div class="wahl-leiste" id="wahl" hidden></div>
   <form class="eingabe" id="eingabe" autocomplete="off">
     <label for="antwort" class="nur-sr" data-t="antwortLabel">Deine Antwort</label>
     <textarea id="antwort" rows="2" placeholder="Schreib oder sprich deine Antwort …" data-t-ph="placeholder" disabled></textarea>
@@ -43,6 +45,7 @@
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
     </button>
   </form>
+  </div>
   <div class="blatt" id="mik-hinweis" hidden role="dialog" aria-labelledby="mik-titel">
     <h2 id="mik-titel" data-t="mikTitel">Mikrofon</h2>
     <p data-t="mikText">Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.</p>
@@ -64,6 +67,9 @@
   </p>
 </main>
 <script src="/tuer/texte.js"></script>
+<script src="/tuer/texte-luecken.js"></script>
+<script src="/tuer/texte-r3.js"></script>
+<script src="/tuer/texte-r4.js"></script>
 <script src="/tuer/pfad.js"></script>
 <script src="/tuer/tuer.js"></script>
 </body>
