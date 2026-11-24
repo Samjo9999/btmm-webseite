@@ -50,7 +50,8 @@ a{color:var(--lila)}
 .wahl-leiste{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px 0}
 .wahl-hinweis{width:100%;margin:0;font-size:.72em;color:var(--grau)}
 .wahl-knopf{font:inherit;font-size:.86em;line-height:1.2;padding:6px 12px;border-radius:16px;border:1px solid var(--lila);background:#fff;color:var(--lila);cursor:pointer}
-.wahl-knopf:hover,.wahl-knopf:focus-visible{background:var(--lila);color:#fff}
+.wahl-knopf:focus-visible,.wahl-knopf:active{background:var(--lila);color:#fff}
+@media (hover:hover) and (pointer:fine){.wahl-knopf:hover{background:var(--lila);color:#fff}}
 .blase.antwort{align-self:flex-end;background:var(--lila);color:#fff;border-bottom-right-radius:6px}
 @keyframes rein{from{opacity:0;transform:translateY(6px)}}
 .eingabe{display:flex;gap:8px;align-items:flex-end;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--creme)}

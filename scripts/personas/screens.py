@@ -23,12 +23,18 @@ P = {
  '09-skeptiker': {'motiv': 'Ehrlich gesagt bin ich skeptisch, wo ist der Haken?', 'lage': 'Weiß nicht.', 'zweifel': 'Belege, Zahlen und eine echte Satzung.'},
  '10-gruender-sparer': {'motiv': 'Ich will mitgründen und im Alltag Geld sparen.', 'lage': 'Gerade erst eingestiegen, Ausbildung fertig.', 'sparen': 'Miete und Lebensmittel.', 'zeit': 'Ich will mitmachen.'},
  '11-unterstuetzer': {'motiv': 'Ich würde das gern unterstützen, auch mit einer Spende.', 'lage': 'Ich bin Rentner und habe Zeit.', 'sinn': 'Gerechtere Wirtschaft.'},
+ '13-ruhestand': {'motiv': 'Ich habe 40 Jahre im Handwerk gearbeitet und will meine Erfahrung weitergeben.', 'lage': 'Ich bin im Ruhestand.', 'arbeit': 'Früher Schreinermeister.'},
+ '14-unterstuetzer-geld': {'motiv': 'Ich möchte euch unterstützen, ohne selbst Mitglied zu werden.', 'lage': 'Wir haben zwei Kinder.', 'sinn': 'Gerechtere Wirtschaft.'},
  '12-berufseinstieg': {'motiv': 'Ich will wissen, worum es geht.', 'lage': 'Ich bin gerade mit der Ausbildung fertig.', 'arbeit': 'Ich suche meine erste Stelle.'},
 }
 NEU = [('n1-berufseinstieg', '/de/fuer-dich/berufseinstieg', None), ('n2-kunden', '/de/fuer-dich/kunden', None),
        ('n3-lebensphasen', '/de/fuer-dich/lebensphasen', None), ('n4-faq-lohn', '/de/faq', '#arbeit-bezahlt'),
-       ('n5-konzept-stundensatz', '/de/konzept', 'text=Das erste Ziel sind 20 € brutto')]
+       ('n5-konzept-stundensatz', '/de/konzept', 'text=Das erste Ziel sind 20 € brutto'),
+       ('n6-ruhestand', '/de/fuer-dich/ruhestand', None), ('n7-unterstuetzen', '/de/fuer-dich/unterstuetzen', None),
+       ('n8-ruhestand-notgroschen', '/de/fuer-dich/ruhestand', '.btmm-hinweis'), ('n9-ruhestand-en', '/en/fuer-dich/ruhestand', None)]
 ergebnis = dict(alt)
+NUR = [x for x in os.environ.get('NUR', '').split(',') if x]
+if NUR: P = {k: v for k, v in P.items() if k in NUR}; NEU = [n for n in NEU if n[0] in NUR]
 def geh(pg, url):
     for i in range(8):
         try:
@@ -40,7 +46,7 @@ with sync_playwright() as pw:
     b = pw.chromium.launch(executable_path='/usr/bin/google-chrome', headless=True)
     for gname, (w, h) in G.items():
         for name, ans in P.items():
-            if os.path.exists(f'{AUS}/{name}-{gname}-3-erste-zielseite.png') and f'{name}-{gname}' in alt: ergebnis[f'{name}-{gname}'] = alt[f'{name}-{gname}']; continue
+            if not NUR and os.path.exists(f'{AUS}/{name}-{gname}-3-erste-zielseite.png') and f'{name}-{gname}' in alt: ergebnis[f'{name}-{gname}'] = alt[f'{name}-{gname}']; continue
             ctx = b.new_context(viewport={'width': w, 'height': h}, device_scale_factor=2, locale='de-DE')
             pg = ctx.new_page()
             geh(pg, f'{BASIS}/tuer/index.html?lang=de&neu=1'); pg.wait_for_selector('#eintreten')
@@ -57,6 +63,9 @@ with sync_playwright() as pw:
                 if len(gestellt) == 3 or fid == 'lage':
                     pass
                 txt = ans.get(fid) or STD.get(fid) or ans.get('motiv')
+                if fid == 'lage' and name in ('07-kunde', '13-ruhestand'):
+                    pg.wait_for_selector('.blase.wahl', timeout=5000); time.sleep(0.6)
+                    pg.screenshot(path=f'{AUS}/{name}-{gname}-0-lage-wahl.png')
                 if len([g for g in gestellt if g]) >= 6 or fid == 'zeit':
                     pg.fill('#antwort', txt); pg.screenshot(path=f'{AUS}/{name}-{gname}-1-tuer-frage.png'); pg.keyboard.press('Enter')
                 else:
