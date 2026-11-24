@@ -4,6 +4,18 @@ const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: '/vorschau/wissen-chat/index-public.json',
+        destination: '/wissen/index-public.json',
+      },
+      {
+        source: '/vorschau/bewertung-chat-feedback/index-public.json',
+        destination: '/wissen/index-public.json',
+      },
+    ]
+  },
   images: {
     remotePatterns: [
       {

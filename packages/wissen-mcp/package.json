@@ -1,0 +1,25 @@
+{
+  "name": "btmm-wissen-mcp",
+  "version": "0.2.0",
+  "private": true,
+  "type": "module",
+  "description": "BtMM Wissens-Retrieval (extractive). Eine Lib für Index-Build, Web und optional MCP. Kein LLM.",
+  "bin": {
+    "btmm-wissen-mcp": "./bin/mcp.js"
+  },
+  "scripts": {
+    "build-index": "node scripts/build-index.mjs",
+    "search": "node scripts/cli-search.mjs",
+    "test": "vitest run",
+    "eval:e3": "node scripts/e3-eval.mjs"
+  },
+  "engines": {
+    "node": ">=18"
+  },
+  "optionalDependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.1"
+  },
+  "devDependencies": {
+    "vitest": "^3.2.4"
+  }
+}

@@ -90,7 +90,7 @@
     }
   }
 
-  fetch('index-public.json')
+  fetch('/wissen/index-public.json')
     .then(function (r) { return r.json() })
     .then(function (data) {
       chunks = data.chunks || []

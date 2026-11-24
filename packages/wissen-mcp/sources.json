@@ -1,0 +1,255 @@
+{
+  "btmmRootHint": "/workspace/projekte/btmm",
+  "internalOnlyFamilies": [
+    "15-geschaeftsmodell-3j",
+    "15-geschaeftsmodell",
+    "foerderung",
+    "foerderung-eigenkapital-2028",
+    "foerderung-eigenkapital",
+    "annahmen-und-quellen",
+    "3-jahres-plan",
+    "finanzteil-businessplan",
+    "block-datei15",
+    "steuer-briefing"
+  ],
+  "preferRels": [
+    "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
+    "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
+    "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
+    "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
+    "DOKUMENTE/07_BtMM_Konzept_v22_69_0.md",
+    "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md",
+    "DOKUMENTE/08_BtMM_Satzung_eG_v9_0_5_schlank_ENTWURF.md",
+    "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_3_schlank_ENTWURF.md",
+    "3-JAHRES-PLAN-v3.9-2026-11-19.md",
+    "ANNAHMEN-UND-QUELLEN-v1.9-2026-11-19.md",
+    "FINANZTEIL-BUSINESSPLAN-BTMM-v2.10-2026-11-19.md",
+    "DOKUMENTE/11_BWGV-Mustersatzung-Abgleich.md"
+  ],
+  "internalExtras": [
+    {
+      "id": "btmm-app",
+      "env": "BTMM_APP_ROOT",
+      "isFile": false,
+      "relPrefix": "BtMM-App",
+      "maxDepth": 1,
+      "files": [
+        "README.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/btmm/repos/BtMM-App",
+        "/workspace/btmm-app-sofortfixes"
+      ]
+    },
+    {
+      "id": "werkzeugkasten",
+      "env": "WERKZEUGKASTEN_ROOT",
+      "isFile": false,
+      "relPrefix": "werkzeugkasten",
+      "files": [
+        "STAND.md",
+        "WISSEN.md",
+        "CODE-STAND.md",
+        "README.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/werkzeugkasten",
+        "/workspace/repos/holzbau-werkzeugkasten"
+      ]
+    },
+    {
+      "id": "branchen-software",
+      "env": "BRANCHEN_SOFTWARE_ROOT",
+      "isFile": false,
+      "relPrefix": "branchen-software",
+      "maxDepth": 1,
+      "candidates": [
+        "/workspace/projekte/branchen-software"
+      ]
+    },
+    {
+      "id": "normen-kurz",
+      "env": "NORMEN_KURZ_FILE",
+      "isFile": true,
+      "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md",
+      "candidates": [
+        "/workspace/projekte/btmm/pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md"
+      ]
+    },
+    {
+      "id": "btmm-pos",
+      "env": "BTMM_POS_ROOT",
+      "isFile": false,
+      "relPrefix": "btmm-pos",
+      "maxDepth": 1,
+      "files": [
+        "README.md",
+        "LIESMICH.md"
+      ],
+      "candidates": [
+        "/workspace/projekte/btmm/repos/btmm-pos",
+        "/workspace/projekte/btmm-pos",
+        "/workspace/repos/btmm-pos"
+      ]
+    }
+  ],
+  "allowlistNote": "Strikte Allowlist laut E1-WISSENSINVENTAR (Zugriffsstufe). public: nur ausdrücklich öffentlich. mitmacher: public plus Gremien-Ja (07 v22.69.0, Satzung außen v9.1.3, 08a v2.0.3, Normen-Kurz). Satzung schlank v9.0.5, 11_BWGV, Steuer-Briefing, Dok 15, Förderung, Annahmen, INTERN_*, ROTH-*, BUSINESSPLAN intern. Vorrang bei gleicher Version: DOKUMENTE/ und Root-Finanzen vor DRIVE/MDs. Alte Satzung v7.51–7.54, v8.3 und unversionierte 08a werden nicht indexiert.",
+  "publicAllowlist": [
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_03-einladung-gruendung_v2.17.1_2026-11-09.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_06-gute-gruende_v1.10.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_24-partner-werden_v1.5.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_05-gemeinschaftskultur_v1.7.2_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_11-handwerk-ergaenzung_v3.2.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_12-handwerk-zulassungen-detail_v3.0.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_13-ideen-horizonte_v3.4.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_16-schnelle-einnahmen_v2.1.2_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_17-grosser-fahrplan_v1.2.0_2026-10-26.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_18-demokratie-schluessel_v1.3.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_20-berufe-ohne-abschluss_v1.0.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_22-heilen-schuetzen-vorbeugen_v1.10.0_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_23-ausfall-versorgung_v1.5.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_26-fairer-handel_v1.5.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_27-kreislauf_v1.2.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_30-gewerbe-katalog_v0.1.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "content/dokumente/einfuehrung.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/gemeinschaftskultur.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/handwerk.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/ideen-horizont.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/wirtschaften.md",
+      "entwurf": false,
+      "root": "web"
+    }
+  ],
+  "mitmacherExtra": [
+    {
+      "rel": "DOKUMENTE/07_BtMM_Konzept_v22_69_0.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md",
+      "entwurf": true
+    },
+    {
+      "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_3_schlank_ENTWURF.md",
+      "entwurf": true
+    },
+    {
+      "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md",
+      "entwurf": false,
+      "id": "normen-kurz"
+    }
+  ]
+}
