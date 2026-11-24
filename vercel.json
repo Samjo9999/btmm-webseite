@@ -77,6 +77,14 @@
     {
       "source": "/vorschau/bewertung-chat-feedback",
       "destination": "/vorschau/bewertung-chat-feedback/index.html"
+    },
+    {
+      "source": "/tuer",
+      "destination": "/tuer/index.html"
+    },
+    {
+      "source": "/tuer/",
+      "destination": "/tuer/index.html"
     }
   ]
 }
