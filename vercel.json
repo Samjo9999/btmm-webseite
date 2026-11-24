@@ -48,6 +48,14 @@
   ],
   "rewrites": [
     {
+      "source": "/admin",
+      "destination": "/admin/index.html"
+    },
+    {
+      "source": "/admin/",
+      "destination": "/admin/index.html"
+    },
+    {
       "source": "/vorschau/bewertung-chat-feedback/",
       "destination": "/vorschau/bewertung-chat-feedback/index.html"
     },
