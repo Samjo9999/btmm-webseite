@@ -14,6 +14,14 @@ const nextConfig = {
         source: '/vorschau/bewertung-chat-feedback/index-public.json',
         destination: '/wissen/index-public.json',
       },
+      {
+        source: '/tuer',
+        destination: '/tuer/index.html',
+      },
+      {
+        source: '/tuer/',
+        destination: '/tuer/index.html',
+      },
     ]
   },
   images: {

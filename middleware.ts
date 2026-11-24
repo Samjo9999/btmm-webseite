@@ -21,7 +21,7 @@ export default function middleware(req: NextRequest) {
 
 export const config = {
   matcher: [
-    // vorschau/* = static HTML clickdummy (Sp. 134 u. a.), kein Locale-Prefix
-    '/((?!api|_next|_vercel|vorschau|.*\\..*).*)',
+    // vorschau/* und tuer/* = statisches HTML, kein Locale-Prefix
+    '/((?!api|_next|_vercel|vorschau|tuer|.*\\..*).*)',
   ],
 }
