@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "Más información",
+    "mehr_erfahren_aria": "Más información, bajar en la página",
     "jetzt_mitmachen": "Participar ahora",
     "termin_buchen": "Reservar cita",
     "kontakt_aufnehmen": "Contactar",

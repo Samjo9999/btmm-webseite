@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "Learn more",
+    "mehr_erfahren_aria": "Learn more, scroll down",
     "jetzt_mitmachen": "Join now",
     "termin_buchen": "Book appointment",
     "kontakt_aufnehmen": "Get in touch",

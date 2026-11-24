@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "اعرف المزيد",
+    "mehr_erfahren_aria": "اعرف المزيد، مرّر إلى الأسفل",
     "jetzt_mitmachen": "شارك الآن",
     "termin_buchen": "احجز موعدًا",
     "kontakt_aufnehmen": "تواصل معنا",

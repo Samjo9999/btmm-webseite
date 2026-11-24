@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "Узнать больше",
+    "mehr_erfahren_aria": "Узнать больше, прокрутить вниз",
     "jetzt_mitmachen": "Участвовать сейчас",
     "termin_buchen": "Записаться на приём",
     "kontakt_aufnehmen": "Связаться с нами",

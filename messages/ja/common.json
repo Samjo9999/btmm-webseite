@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "詳しく見る",
+    "mehr_erfahren_aria": "詳しく見る、下にスクロール",
     "jetzt_mitmachen": "今すぐ参加する",
     "termin_buchen": "予約する",
     "kontakt_aufnehmen": "お問い合わせ",

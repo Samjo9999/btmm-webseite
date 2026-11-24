@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "En savoir plus",
+    "mehr_erfahren_aria": "En savoir plus, défiler vers le bas",
     "jetzt_mitmachen": "Participer maintenant",
     "termin_buchen": "Prendre rendez-vous",
     "kontakt_aufnehmen": "Nous contacter",
