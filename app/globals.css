@@ -383,3 +383,26 @@ h1, h2, h3, h4, h5, h6 { color: var(--btmm-dunkel); }
 
 /* Pfad-Leiste (Kennenlern-Weg aus der Tür): Scroll-Hinweis ausblenden, solange die Leiste unten steht */
 body.pfad-leiste-an [data-scroll-hint] { display: none !important; }
+
+/* Für Handwerksbetriebe (Außensicht-Fix 24.11.2026): Rahmen oben/unten, kein Farbrand links. */
+.btmm-handwerk { max-width: 1100px; margin: 0 auto; padding: 2.5rem 1.5rem 1rem; }
+.btmm-handwerk h2 { color: var(--btmm-dunkel); font-size: clamp(1.6rem, 3vw, 2.2rem); margin-bottom: .5rem; }
+.btmm-handwerk-kern { font-size: 1.12rem; line-height: 1.65; margin-bottom: 1rem; max-width: 820px; }
+.btmm-handwerk-kern strong { color: var(--btmm-dunkel); }
+.btmm-handwerk-intro { font-size: 1.1rem; line-height: 1.6; margin-bottom: 1.25rem; max-width: 760px; }
+.btmm-handwerk .btmm-karte p { font-size: 1.02rem; line-height: 1.6; }
+.btmm-handwerk-hinweis { font-size: .98rem; line-height: 1.6; margin-top: 1rem; color: var(--btb-dunkel); opacity: .85; }
+.btmm-handwerk-mehr { margin-top: .75rem; font-weight: 600; }
+.btmm-handwerk-mehr a { color: var(--btmm-dunkel); }
+.btmm-handwerk-meister { background: rgba(var(--btmm-glow-rgb), 0.08); border-top: 4px solid var(--btmm-primary); border-bottom: 4px solid var(--btmm-primary); }
+.btmm-handwerk-meister h3 { color: var(--btmm-dunkel); font-size: 1.25rem; margin-bottom: .4rem; }
+
+/* Start-Hero: dunkles Glas hinter weißer Schrift (WCAG AA, Außensicht-Fix 24.11.2026). Glow und Logo unverändert. */
+.hero-text.btmm-start-hero {
+  background: rgba(43, 22, 48, 0.68);
+  border-color: rgba(var(--btmm-glow-rgb), .35);
+}
+.hero-text.btmm-start-hero p,
+.hero-text.btmm-start-hero span { color: #ffffff !important; text-shadow: 0 1px 4px rgba(0,0,0,0.55) !important; }
+.hero-text.btmm-start-hero .btn-secondary { background: #ffffff; color: var(--btmm-dunkel); border-color: #ffffff; }
+.hero-text.btmm-start-hero .btn-secondary:hover { background: var(--btmm-hell); color: var(--btmm-dunkel); }

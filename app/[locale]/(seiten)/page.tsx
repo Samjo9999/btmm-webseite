@@ -16,6 +16,7 @@ import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
 import { TuerWeiche } from '@/components/btmm/TuerWeiche'
+import { HandwerkNutzen } from '@/components/btmm/HandwerkNutzen'
 
 export const dynamic = 'force-dynamic'
 
@@ -109,6 +110,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
 
         </div>
       </section>
+
+      {/* ── Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) ── */}
+      <HandwerkNutzen locale={locale} kompakt />
 
       {/* ── Kernseiten (Seitenstruktur SEO, modular aus lib/seiten.ts) ── */}
       <JsonLd daten={[ORGANISATION_LD, { '@type': 'WebSite', name: BRAND_FULL, url: SITE_URL, inLanguage: 'de-DE', publisher: { '@id': ORGANISATION_LD['@id'] } }]} />

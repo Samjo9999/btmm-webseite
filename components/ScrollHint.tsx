@@ -8,11 +8,30 @@ export function ScrollHint() {
   const [visible, setVisible] = useState(true)
   const [dunkel, setDunkel] = useState(true)
   const ref = useRef<HTMLDivElement>(null)
+  // Nach dem ersten echten Scrollen dauerhaft aus (Außensicht-Fix 24.11.2026)
+  const gescrollt = useRef(false)
 
   const check = useCallback(() => {
     const scrollable = document.documentElement.scrollHeight > window.innerHeight
     const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)
-    setVisible(scrollable && !atBottom)
+    if (window.scrollY > 80) gescrollt.current = true
+    // Nie über Text, Links oder Knöpfen: Fläche der Pille vorher abtasten (Pille selbst ausgeblendet)
+    if (ref.current) ref.current.style.visibility = 'hidden'
+    const cx = window.innerWidth / 2
+    const unten = window.innerHeight - 24
+    let ueberInhalt = false
+    for (const dx of [-75, -35, 0, 35, 75]) {
+      for (const dy of [4, 20, 40]) {
+        const el = document.elementFromPoint(cx + dx, unten - dy)
+        if (el && el.closest('p, h1, h2, h3, h4, h5, h6, li, a, button, blockquote, label, figcaption, td, th, input, textarea, select, .btmm-karte, .btmm-hinweis')) {
+          ueberInhalt = true
+        }
+      }
+    }
+    if (ref.current) ref.current.style.visibility = 'visible'
+    const an = scrollable && !atBottom && !gescrollt.current && !ueberInhalt
+    setVisible(an)
+    if (!an) return
 
     // Hint kurz unsichtbar machen um den echten Hintergrund zu messen
     if (ref.current) {

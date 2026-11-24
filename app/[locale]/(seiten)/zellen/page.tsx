@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import Image from 'next/image'
 import Link from 'next/link'
-import { MapPin, Users, ExternalLink, Plus } from 'lucide-react'
+import { MapPin, Users, Plus } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 
@@ -216,26 +216,6 @@ export default async function ZellenPage() {
                       ))}
                     </div>
                   </div>
-
-                  {/* Action Button */}
-                  <a href={`/zellen/${cell.id}`} style={{
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    gap: '0.5rem',
-                    padding: '0.75rem 1rem',
-                    background: `rgba(${cell.color === 'var(--btb-rot)' ? '182,24,24' : cell.color === 'var(--btb-blau)' ? '42,124,171' : '143,169,66'},0.08)`,
-                    color: cell.color,
-                    border: `1.5px solid ${cell.color}`,
-                    borderRadius: 8,
-                    fontWeight: 600,
-                    fontSize: '0.9rem',
-                    cursor: 'pointer',
-                    textDecoration: 'none',
-                    transition: 'all 0.2s ease',
-                  }}>
-                    Details <ExternalLink size={14} />
-                  </a>
                 </div>
               </SectionReveal>
             ))}

@@ -110,7 +110,7 @@ export default async function InternationalPage() {
               {t('international.sinnmaximierung_titel')}
             </h2>
             <blockquote style={{
-              borderLeft: '4px solid var(--btb-oliv)',
+              borderTop: '3px solid var(--btb-oliv)',
               paddingLeft: '1.5rem',
               fontStyle: 'italic',
               color: 'var(--btb-dunkel)',

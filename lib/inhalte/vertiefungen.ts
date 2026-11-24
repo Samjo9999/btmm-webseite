@@ -131,7 +131,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       },
       {
         "titel": "Solidarität ergänzt die gesetzliche Absicherung",
-        "text": "Ein Solidarfonds ist für besondere Lebenslagen vorgesehen, etwa Krankheit, Elternzeit oder Pflege. Er ersetzt weder Sozialversicherung noch gesetzliche Arbeitgeberpflichten. Nach dem Satzungsentwurf wird er angespart, zahlt aber erst nach sechs aufeinanderfolgenden Perioden mit mindestens zehn wirtschaftlich aktiven Vollmitgliedern und ausreichend tragfähigem Lohn. Ausgezahlt werden kann nur, was vorhanden ist."
+        "text": "Ein Solidarfonds ist für besondere Lebenslagen vorgesehen, etwa Übergänge, besondere Lebensphasen oder die Pflege von Angehörigen. Er ersetzt weder Sozialversicherung noch gesetzliche Arbeitgeberpflichten. Nach dem Satzungsentwurf wird er angespart, zahlt aber erst nach sechs aufeinanderfolgenden Perioden mit mindestens zehn wirtschaftlich aktiven Vollmitgliedern und ausreichend tragfähigem Lohn. Ausgezahlt werden kann nur, was vorhanden ist."
       },
       {
         "titel": "Privates bleibt geschützt",

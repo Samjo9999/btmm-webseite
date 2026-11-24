@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: `%s | ${BRAND_FULL}`,
   },
   description:
-    'Back to Meaning Maximization verbindet wirtschaftliche Stärke mit menschlicher Würde. Somatische Körperarbeit, Gemeinschaft und ein alternatives Wirtschaftsmodell in Freiburg.',
+    'BtMM – Back to Meaning Maximization: Menschen in Freiburg teilen Einkauf, Auto, Raum und Werkzeug und gründen später eine Genossenschaft. Klein anfangen ab 3 Leuten, kein Investment.',
   metadataBase: new URL('https://b-t-m-m.com'),
   openGraph: {
     type: 'website',
