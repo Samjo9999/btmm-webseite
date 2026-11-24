@@ -16,6 +16,16 @@ import {
   FORBIDDEN_PATH_RE,
   findIndexHits,
 } from './index-public-guard.mjs'
+import { RX as AUSSENSICHT_RX } from '../test/tabu-woerter.mjs'
+
+/** Gleiche Ausnahme wie test/aussensicht-tabu.test.mjs */
+const ERLAUBT = [/werdende (und junge )?Eltern/i]
+
+function failsAussensichtTabu(blob) {
+  let s = String(blob || '')
+  for (const e of ERLAUBT) s = s.replace(new RegExp(e.source, e.flags + 'g'), '')
+  return new RegExp(AUSSENSICHT_RX.source, 'gi').test(s)
+}
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const sourceRel = 'content/wissen/index-public.json'
@@ -30,7 +40,7 @@ for (const c of payload.chunks || []) {
     continue
   }
   const blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
-  if (findTabooHits(blob).length || FORBIDDEN_PATH_RE.test(blob)) {
+  if (findTabooHits(blob).length || FORBIDDEN_PATH_RE.test(blob) || failsAussensichtTabu(blob)) {
     dropped.taboo += 1
     continue
   }

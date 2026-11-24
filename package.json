@@ -10,7 +10,7 @@
     "lint": "eslint .",
     "test": "node --test test/*.test.mjs && npm run test:wissen",
     "docs-sync": "node scripts/docs-sync/sync.mjs",
-    "wissen:reindex": "node packages/wissen-mcp/scripts/build-index.mjs",
+    "wissen:reindex": "node packages/wissen-mcp/scripts/build-index.mjs && node scripts/filter-index-public.mjs",
     "wissen:reindex:edge": "node scripts/build-wissen-mitglieder.mjs --sync-edge",
     "test:wissen": "npm test --prefix packages/wissen-mcp",
     "wissen:eval": "node packages/wissen-mcp/scripts/e3-eval.mjs"
