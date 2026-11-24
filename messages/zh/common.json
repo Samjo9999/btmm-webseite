@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "了解更多",
+    "mehr_erfahren_aria": "了解更多，向下滚动",
     "jetzt_mitmachen": "立即参与",
     "termin_buchen": "预约",
     "kontakt_aufnehmen": "联系我们",

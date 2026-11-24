@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "Saiba mais",
+    "mehr_erfahren_aria": "Saiba mais, rolar para baixo",
     "jetzt_mitmachen": "Participe agora",
     "termin_buchen": "Agendar consulta",
     "kontakt_aufnehmen": "Entre em contacto",

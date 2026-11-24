@@ -1,0 +1,75 @@
+/* Schwebender „Mehr erfahren“-Knopf (ScrollHint, beb1d8e / #39, erweitert). */
+[data-scroll-hint] {
+  position: fixed;
+  left: 50%;
+  right: auto;
+  transform: translateX(-50%);
+  bottom: max(1rem, env(safe-area-inset-bottom, 0px), var(--mehr-erfahren-lift, 0px));
+  z-index: 45;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 0.35rem;
+  margin: 0;
+  padding: 0.55rem 0.95rem 0.55rem 0.9rem;
+  min-height: 44px;
+  /* Beidseitig Abstand, damit der Knopf mittig bleibt und den rechten FAB nicht schneidet. */
+  max-width: calc(100vw - 7.5rem - env(safe-area-inset-left, 0px) - env(safe-area-inset-right, 0px));
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 999px;
+  background: #2b1630;
+  color: #ffffff;
+  font-family: inherit;
+  font-size: 0.95rem;
+  font-weight: 600;
+  line-height: 1.2;
+  letter-spacing: 0.01em;
+  box-shadow: 0 4px 16px rgba(43, 22, 48, 0.35);
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+}
+[data-scroll-hint][hidden] {
+  display: none !important;
+}
+[data-scroll-hint]:focus {
+  outline: none;
+}
+[data-scroll-hint]:focus-visible {
+  outline: 3px solid #ffffff;
+  outline-offset: 3px;
+  box-shadow: 0 0 0 6px #2b1630, 0 4px 16px rgba(43, 22, 48, 0.35);
+}
+[data-scroll-hint]:hover {
+  background: #3a2042;
+}
+[data-scroll-hint] .mehr-erfahren-pfeil {
+  display: block;
+  flex: 0 0 auto;
+  animation: mehr-erfahren-wippen 1.8s ease-in-out infinite;
+}
+@keyframes mehr-erfahren-wippen {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(5px); }
+}
+
+@media (max-width: 430px) {
+  [data-scroll-hint] {
+    gap: 0.2rem;
+    padding: 0.45rem 0.75rem 0.45rem 0.7rem;
+    font-size: 0.85rem;
+  }
+  [data-scroll-hint] .mehr-erfahren-pfeil {
+    width: 18px;
+    height: 18px;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-scroll-hint] .mehr-erfahren-pfeil {
+    animation: none;
+  }
+}
+/* Pfad-Leiste der Überzeugungstür: Knopf ausblenden, solange die Leiste unten steht */
+body.pfad-leiste-an [data-scroll-hint] {
+  display: none !important;
+}

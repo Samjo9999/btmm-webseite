@@ -21,6 +21,7 @@
   },
   "actions": {
     "mehr_erfahren": "আরও জানুন",
+    "mehr_erfahren_aria": "আরও জানুন, নিচে স্ক্রোল করুন",
     "jetzt_mitmachen": "এখনই অংশ নিন",
     "termin_buchen": "অ্যাপয়েন্টমেন্ট বুক করুন",
     "kontakt_aufnehmen": "যোগাযোগ করুন",
