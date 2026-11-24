@@ -9,6 +9,7 @@ import {
   labelFuer,
   ariaFuer,
   reduzierteBewegung,
+  liftUeberElement,
   ENDE_SCHWELLE_PX,
 } from '../lib/mehr-erfahren.mjs'
 
@@ -92,4 +93,9 @@ test('Beschriftung folgt der Sprache, Deutsch als Fallback', () => {
 test('prefers-reduced-motion wird erkannt', () => {
   assert.equal(reduzierteBewegung(() => ({ matches: true })), true)
   assert.equal(reduzierteBewegung(() => ({ matches: false })), false)
+})
+
+test('Knopf wird über einem sichtbaren footer angehoben, nicht versteckt', () => {
+  assert.equal(liftUeberElement(700, 844, 8), 152)
+  assert.equal(liftUeberElement(900, 844, 8), 0)
 })

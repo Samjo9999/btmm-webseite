@@ -96,7 +96,16 @@
       knopf.tabIndex = an ? 0 : -1
       if (an) {
         var lift = liftFuer(knopf)
-        knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? (lift + 8) + 'px' : '0px')
+        knopf.style.visibility = 'hidden'
+        var br = knopf.getBoundingClientRect()
+        var treffer = document.elementFromPoint(br.left + br.width / 2, window.innerHeight - 8)
+        var fuss = treffer && treffer.closest ? treffer.closest('footer') : null
+        if (fuss) {
+          var top = fuss.getBoundingClientRect().top
+          if (top < window.innerHeight) lift = Math.max(lift, window.innerHeight - top + 8)
+        }
+        knopf.style.visibility = 'visible'
+        knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? lift + 'px' : '0px')
       }
     }
     knopf.addEventListener('click', function () {

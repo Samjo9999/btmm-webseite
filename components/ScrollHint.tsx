@@ -8,6 +8,7 @@ import {
   sammleAbschnittTops,
   sammleUntereLeisten,
   sollSichtbar,
+  liftUeberElement,
 } from '@/lib/mehr-erfahren.mjs'
 import '../public/mehr-erfahren.css'
 
@@ -27,8 +28,14 @@ export function ScrollHint() {
     setSichtbar(an)
     const knopf = ref.current
     if (knopf && an) {
-      const lift = sammleUntereLeisten(document, window.innerWidth, window.innerHeight, knopf)
-      knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? `${lift + 8}px` : '0px')
+      let lift = sammleUntereLeisten(document, window.innerWidth, window.innerHeight, knopf)
+      knopf.style.visibility = 'hidden'
+      const r = knopf.getBoundingClientRect()
+      const treffer = document.elementFromPoint(r.left + r.width / 2, window.innerHeight - 8)
+      const fuss = treffer?.closest('footer')
+      if (fuss) lift = Math.max(lift, liftUeberElement(fuss.getBoundingClientRect().top, window.innerHeight))
+      knopf.style.visibility = 'visible'
+      knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? `${lift}px` : '0px')
     }
   }, [])
 
