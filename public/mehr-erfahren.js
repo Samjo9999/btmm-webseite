@@ -46,9 +46,9 @@
     var max = Math.max(0, s.scrollHeight - s.innerHeight)
     var list = (s.abschnittTops || []).slice().sort(function (a, b) { return a - b })
     for (var i = 0; i < list.length; i++) {
-      if (list[i] > s.scrollY + 48) return Math.min(max, Math.max(0, list[i] - KOPF))
+      if (list[i] - KOPF > s.scrollY + 48) return Math.min(max, Math.max(0, list[i] - KOPF))
     }
-    return Math.min(max, s.scrollY + Math.round(s.innerHeight * 0.9))
+    return Math.min(max, s.scrollY + Math.round(s.innerHeight * 0.8))
   }
   function liftFuer(knopf) {
     var iw = window.innerWidth, ih = window.innerHeight

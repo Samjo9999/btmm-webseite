@@ -57,14 +57,14 @@ test('Klick springt zum nächsten Abschnitt', () => {
   assert.equal(y, 900 - 96)
 })
 
-test('ohne weiteren Abschnitt: etwa eine Bildschirmhöhe, nicht über das Ende', () => {
+test('ohne weiteren Abschnitt: etwa 0,8 Viewport-Höhen, nicht über das Ende', () => {
   const y = naechsterScrollY({
     scrollY: 100,
     innerHeight: 800,
     scrollHeight: 4000,
     abschnittTops: [],
   })
-  assert.equal(y, 100 + Math.round(800 * 0.9))
+  assert.equal(y, 100 + Math.round(800 * 0.8))
   const amEnde = naechsterScrollY({
     scrollY: 3300,
     innerHeight: 800,
@@ -98,4 +98,33 @@ test('prefers-reduced-motion wird erkannt', () => {
 test('Knopf wird über einem sichtbaren footer angehoben, nicht versteckt', () => {
   assert.equal(liftUeberElement(700, 844, 8), 152)
   assert.equal(liftUeberElement(900, 844, 8), 0)
+})
+
+test('Abschnitt unter dem Kopf-Offset wird übersprungen, sonst 0,8 Viewport', () => {
+  // typischer Start: erster Block bei 66 px, Kopf 96 → Ziel wäre 0 und der Knopf hängt
+  const y = naechsterScrollY({
+    scrollY: 0,
+    innerHeight: 800,
+    scrollHeight: 4000,
+    abschnittTops: [66],
+    kopfOffset: 96,
+  })
+  assert.equal(y, Math.round(800 * 0.8))
+  const mitSpaeterem = naechsterScrollY({
+    scrollY: 0,
+    innerHeight: 800,
+    scrollHeight: 4000,
+    abschnittTops: [66, 900],
+    kopfOffset: 96,
+  })
+  assert.equal(mitSpaeterem, 900 - 96)
+  const schonDa = naechsterScrollY({
+    scrollY: 800,
+    innerHeight: 800,
+    scrollHeight: 4000,
+    abschnittTops: [850],
+    kopfOffset: 96,
+  })
+  // 850 − 96 = 754 <= 800 + 48 → überspringen
+  assert.equal(schonDa, 800 + Math.round(800 * 0.8))
 })
