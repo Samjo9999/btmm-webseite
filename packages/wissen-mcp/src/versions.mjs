@@ -3,7 +3,8 @@
  */
 
 export function parseVersion(name) {
-  const m = String(name).match(/v(\d+(?:[._]\d+)*)([a-z])?/i)
+  const cleaned = String(name).replace(/_?\d{4}-\d{2}-\d{2}/g, '')
+  const m = cleaned.match(/v(\d+(?:[._]\d+)*)([a-z])?/i)
   if (!m) return null
   const parts = m[1].split(/[._]/).map((n) => Number(n))
   const letter = m[2] ? m[2].toLowerCase().charCodeAt(0) - 96 : 0
@@ -20,6 +21,31 @@ export function compareVersions(a, b) {
     if (d) return d
   }
   return a.letter - b.letter
+}
+
+/**
+ * Vorrang bei gleicher Version: Root-Finanzen und DOKUMENTE/ vor DRIVE/MDs/.
+ * Höhere semantische Version gewinnt weiterhin (z. B. 00 v1.17.0 Drive vor v1.14.0 DOKUMENTE).
+ */
+export function sourceRank(rel) {
+  const s = String(rel || '').replace(/\\/g, '/')
+  const base = s.split('/').pop() || s
+  if (!s.includes('/') && /^(3-JAHRES-PLAN|ANNAHMEN-UND-QUELLEN|FINANZTEIL-BUSINESSPLAN)/i.test(base)) {
+    return 100
+  }
+  if (s.startsWith('DOKUMENTE/') || s.includes('/DOKUMENTE/')) return 80
+  if (s.includes('DRIVE/offizielles/')) return 50
+  if (s.includes('DRIVE/MDs/')) return 20
+  return 40
+}
+
+/** Alte Satzungs- und 08a-Fassungen, die nicht mehr indexiert werden. */
+export function isRetiredRel(rel) {
+  const base = String(rel || '').replace(/\\/g, '/').split('/').pop() || ''
+  if (/satzung/i.test(base) && /v7[._](51|52|53|54)/i.test(base)) return true
+  if (/satzung/i.test(base) && /v8[._]3([._]|$)/i.test(base)) return true
+  if (/^08a[_-]/i.test(base) && !/v2[._]0[._]3/i.test(base)) return true
+  return false
 }
 
 const GENERIC_BASENAMES = new Set([
@@ -93,8 +119,11 @@ export function selectLatestByFamily(docs, preferRels = []) {
     if (prefer.has(prevRel) && !prefer.has(docRel)) continue
     const cv = compareVersions(parseVersion(doc.rel || ''), parseVersion(prev.rel || ''))
     if (cv > 0) byFamily.set(key, doc)
-    else if (cv === 0 && docRel.length > prevRel.length) {
-      byFamily.set(key, doc)
+    else if (cv === 0) {
+      const sr = sourceRank(docRel) - sourceRank(prevRel)
+      if (sr > 0 || (sr === 0 && docRel.length > prevRel.length)) {
+        byFamily.set(key, doc)
+      }
     }
   }
   return [...byFamily.values()]

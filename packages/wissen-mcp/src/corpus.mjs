@@ -1,8 +1,8 @@
 import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
-import { familyKey, isInternalOnlyFamily, selectLatestByFamily } from './versions.mjs'
-import { hasTaboo } from './taboo.mjs'
+import { familyKey, isInternalOnlyFamily, selectLatestByFamily, isRetiredRel } from './versions.mjs'
+import { hasTaboo, findForbiddenContentHits, forbiddenPublicPath } from './taboo.mjs'
 import { chunkDoc } from './search.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
@@ -117,6 +117,53 @@ export function discoverExtraRoots(cfg) {
   return { found, missing }
 }
 
+
+function loadAllowlistEntries(tier, cfg) {
+  const pub = cfg.publicAllowlist || []
+  const extra = cfg.mitmacherExtra || []
+  if (tier === 'public') return pub
+  if (tier === 'mitmacher') return [...pub, ...extra]
+  return []
+}
+
+/**
+ * public und Mitmacher ausschließlich über die Allowlist (kein Verzeichnis-Walk).
+ */
+export function loadAllowlistDocs(tier, { cfg, btmm, web }) {
+  const missing = []
+  const docs = []
+  const seen = new Set()
+  for (const src of loadAllowlistEntries(tier, cfg)) {
+    const rel = src.rel
+    if (!rel) continue
+    if (isRetiredRel(rel)) {
+      throw new Error(`Allowlist enthält zurückgezogene Fassung: ${rel}`)
+    }
+    if (forbiddenPublicPath(rel)) {
+      throw new Error(`Allowlist-Pfad ist für ${tier} verboten: ${rel}`)
+    }
+    const rootKind = src.root || (String(rel).startsWith('content/') ? 'web' : 'btmm')
+    const root = rootKind === 'web' ? web : btmm
+    const file = path.isAbsolute(rel) ? rel : path.join(root, rel)
+    if (!exists(file)) {
+      missing.push({ id: src.id || rel, rel, path: file })
+      continue
+    }
+    const real = fs.realpathSync(file)
+    if (seen.has(real)) continue
+    seen.add(real)
+    const doc = makeDoc({
+      file,
+      root,
+      tier: tier === 'mitmacher' ? 'mitmacher' : 'public',
+      source: 'allowlist',
+      rel,
+    })
+    if (doc) docs.push(applyEntwurf(doc, !!src.entwurf))
+  }
+  return { docs, missing }
+}
+
 /**
  * @param {'public'|'mitmacher'|'internal'} tier
  * @returns {{ docs: object[], missing: object[], droppedTabooChunks?: number }}
@@ -131,20 +178,27 @@ export function loadDocs(tier = 'internal', opts = {}) {
 
   const pushFile = (file, root, docTier, source, rel) => {
     if (!exists(file)) return
+    const useRel = rel || relTo(root, file)
+    if (isRetiredRel(useRel)) return
     const real = fs.realpathSync(file)
     const key = `${real}::${docTier}`
     if (seenFiles.has(key)) return
     seenFiles.add(key)
-    const doc = makeDoc({ file, root, tier: docTier, source, rel })
+    const doc = makeDoc({ file, root, tier: docTier, source, rel: useRel })
     if (doc) collected.push(doc)
   }
 
-  // Drive MDs 01–04
+  // public / Mitmacher: nur strikte Allowlist, kein Walk über DRIVE/DOKUMENTE
+  if (tier === 'public' || tier === 'mitmacher') {
+    return loadAllowlistDocs(tier, { cfg, btmm, web })
+  }
+
+  // Drive MDs 01–04 (nur für den internen Index)
   const mdBase = path.join(btmm, 'DRIVE', 'MDs')
   for (const d of ['01-aussenkontakt', '02-recht', '03-konzept', '04-finanzen']) {
     const dir = path.join(mdBase, d)
     for (const file of walkMd(dir)) {
-      pushFile(file, btmm, 'public', `DRIVE/MDs/${d}`)
+      pushFile(file, btmm, 'internal', `DRIVE/MDs/${d}`)
     }
   }
 
@@ -152,7 +206,7 @@ export function loadDocs(tier = 'internal', opts = {}) {
   const dok = path.join(btmm, 'DOKUMENTE')
   if (exists(dok)) {
     for (const file of walkMd(dok)) {
-      pushFile(file, btmm, 'public', 'DOKUMENTE')
+      pushFile(file, btmm, 'internal', 'DOKUMENTE')
     }
   }
 
@@ -163,7 +217,7 @@ export function loadDocs(tier = 'internal', opts = {}) {
       const rel = relTo(btmm, file)
       const fam = familyKey(rel)
       const internalOnly = isInternalOnlyFamily(fam, cfg.internalOnlyFamilies)
-      pushFile(file, btmm, internalOnly ? 'internal' : 'public', 'DRIVE/offizielles', rel)
+      pushFile(file, btmm, 'internal', 'DRIVE/offizielles', rel)
     }
   }
 
@@ -172,7 +226,7 @@ export function loadDocs(tier = 'internal', opts = {}) {
   if (exists(webDocs)) {
     for (const file of walkMd(webDocs)) {
       const rel = `content/dokumente/${path.basename(file)}`
-      pushFile(file, web, 'public', 'content/dokumente', rel)
+      pushFile(file, web, 'internal', 'content/dokumente', rel)
     }
   }
 
@@ -185,7 +239,7 @@ export function loadDocs(tier = 'internal', opts = {}) {
     }
     const fam = familyKey(rel)
     const internalOnly = isInternalOnlyFamily(fam, cfg.internalOnlyFamilies)
-    pushFile(file, btmm, internalOnly ? 'internal' : 'public', 'pin', rel)
+    pushFile(file, btmm, 'internal', 'pin', rel)
   }
 
   // Interne Stand-Dateien
@@ -235,41 +289,11 @@ export function loadDocs(tier = 'internal', opts = {}) {
     }
   }
 
+  if (tier === 'public' || tier === 'mitmacher') {
+    return loadAllowlistDocs(tier, { cfg, btmm, web })
+  }
+
   const latest = selectLatestByFamily(collected, cfg.preferRels || [])
-
-  if (tier === 'public') {
-    return { docs: latest.filter((d) => d.tier === 'public'), missing }
-  }
-
-  if (tier === 'mitmacher') {
-    const allowPath = path.join(web, 'content', 'wissen-mitglieder', 'ALLOWLIST.json')
-    if (!exists(allowPath)) {
-      throw new Error(`ALLOWLIST fehlt: ${allowPath}`)
-    }
-    const allow = JSON.parse(fs.readFileSync(allowPath, 'utf8'))
-    const docs = []
-    for (const src of allow.sources || []) {
-      const rel = src.rel
-      if ((allow.blacklistPathPatterns || []).some((p) => rel.includes(p))) {
-        continue
-      }
-      const file = path.isAbsolute(rel) ? rel : path.join(btmm, rel)
-      if (!exists(file)) {
-        missing.push({ id: src.id || rel, rel, path: file })
-        continue
-      }
-      const doc = makeDoc({
-        file,
-        root: btmm,
-        tier: 'mitmacher',
-        source: 'allowlist',
-        rel,
-      })
-      if (doc) docs.push(applyEntwurf(doc, !!src.entwurf))
-    }
-    return { docs, missing }
-  }
-
   // internal: alle neuesten plus intern gestufte
   return { docs: latest, missing }
 }
@@ -298,9 +322,12 @@ export function chunksFromDocs(docs, { dropTaboo = false, textLimit = 1200 } = {
         tier: d.tier,
         entwurf: !!d.entwurf,
       }
-      if (dropTaboo && hasTaboo([row.title, row.abschnitt, row.text, row.rel].join('\n'))) {
-        droppedTaboo += 1
-        continue
+      if (dropTaboo) {
+        const blob = [row.title, row.abschnitt, row.text, row.rel].join('\n')
+        if (hasTaboo(blob) || findForbiddenContentHits(blob).length || forbiddenPublicPath(row.rel)) {
+          droppedTaboo += 1
+          continue
+        }
       }
       chunks.push(row)
     }

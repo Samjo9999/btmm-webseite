@@ -14,7 +14,7 @@ import fs from 'node:fs'
 import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocs, chunksFromDocs, defaultWebRoot, defaultBtmmRoot, PKG_ROOT } from '../src/corpus.mjs'
-import { findTabooInIndex } from '../src/taboo.mjs'
+import { findTabooInIndex, forbiddenPublicPath, findForbiddenContentHits } from '../src/taboo.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const webRoot = process.env.WEB_ROOT || defaultWebRoot()
@@ -91,8 +91,42 @@ const pub = buildTier('public', { dropTaboo: true, textLimit: 900 })
 const mit = buildTier('mitmacher', { dropTaboo: true, textLimit: 1200 })
 const intern = buildTier('internal', { dropTaboo: false, textLimit: 1200 })
 
+function assertPublicGuards(label, payload) {
+  const pathHits = []
+  for (const d of payload.docs || []) {
+    if (forbiddenPublicPath(d.rel)) pathHits.push(d.rel)
+  }
+  for (const c of payload.chunks || []) {
+    if (forbiddenPublicPath(c.rel)) pathHits.push(`${c.rel} :: ${c.abschnitt || ''}`)
+  }
+  if (pathHits.length) {
+    console.error(`VERBOTENER PFAD in ${label}:`)
+    for (const h of pathHits.slice(0, 30)) console.error(' ', h)
+    throw new Error(`Pfad-Guardrail: ${pathHits.length} Treffer in ${label}`)
+  }
+  const contentHits = []
+  for (const c of payload.chunks || []) {
+    const blob = [c.title, c.abschnitt, c.text, c.rel].join('\n')
+    const words = findForbiddenContentHits(blob)
+    if (words.length) contentHits.push({ rel: c.rel, words })
+  }
+  if (contentHits.length) {
+    console.error(`INHALTSLECK in ${label}:`, contentHits.slice(0, 10))
+    throw new Error(`Inhalts-Guardrail: ${contentHits.length} Treffer in ${label}`)
+  }
+}
+
 assertNoTaboo('public', pub, 'public')
 assertNoTaboo('mitmacher', mit, 'mitmacher')
+assertPublicGuards('public', pub)
+assertPublicGuards('mitmacher', mit)
+
+if (pub.chunkCount > mit.chunkCount) {
+  throw new Error(
+    `Allowlist-Guardrail: public.chunks (${pub.chunkCount}) darf nicht größer sein als mitmacher.chunks (${mit.chunkCount})`
+  )
+}
+console.log(`größen-check: public ${pub.chunkCount} <= mitmacher ${mit.chunkCount}`)
 
 const pubCompact = compactPublic(pub)
 

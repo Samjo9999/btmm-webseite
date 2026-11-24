@@ -37,4 +37,14 @@ describe('Index-Build Ausschluss', () => {
     const pubIntern = path.join(repo, 'public', 'wissen-internal')
     expect(fs.existsSync(pubIntern)).toBe(false)
   })
+
+  it('meldet verbotene Pfade und Inhaltslecks im Index', async () => {
+    const { findTabooInIndex, forbiddenPublicPath } = await import('../src/taboo.mjs')
+    expect(forbiddenPublicPath('DOKUMENTE/BUSINESSPLAN/x.md')).toBe(true)
+    const hits = findTabooInIndex({
+      docs: [],
+      chunks: [{ title: 'X', abschnitt: '', text: 'Mail an j.s.gartzke@gmail.com', rel: 'demo.md' }],
+    })
+    expect(hits.length).toBeGreaterThan(0)
+  })
 })
