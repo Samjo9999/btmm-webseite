@@ -38,13 +38,9 @@ Gutes Leben heißt hier nicht: mehr besitzen. Es heißt: mehr Zeit, mehr Gesundh
 
 # Der Grundsatz: Nutzen, was gut ist. Bauen, wo etwas fehlt.
 
-![140](../explain/fig/grundsatz.png)
-
 Gibt es schon ein faires, ökologisches Angebot? Dann nutzen wir es und kaufen dort gemeinsam ein. Zum Beispiel Carsharing, Bio-Höfe oder Ökostrom. Selbst gebaut wird nur, was fehlt. Wer lieber allein kocht, kocht allein. Immer so, wie es Sinn macht.
 
 # Ein Haus mit drei Säulen
-
-![140](../explain/fig/haus.png)
 
 **1 · Teilen.** Alle Mitglieder teilen Einkauf, Carsharing, Räume, Werkzeug und Buchhaltung. Jede und jeder behält das eigene Einkommen.
 
@@ -69,8 +65,6 @@ Am Anfang gibt es noch keine Genossenschaft und damit keine festen Kosten. Dann 
 
 # Der Brunnen mit den Schalen
 
-![140](../explain/fig/brunnen.png)
-
 Die Betriebe der Gemeinschaft verdienen Geld. Zuerst füllt sich eine kleine Schale für schlechte Zeiten und für Menschen, die Hilfe brauchen. Dann bekommt jede Stunde Arbeit denselben Lohn: mindestens den Mindestlohn, als Ziel 20 Euro. Was dann noch überläuft, verteilt sich auf drei Schalen. Ein Bonus für alle, die gearbeitet haben. Geld für gemeinsame Häuser und Werkstätten. Und Geld für Menschen, die Hilfe brauchen, und für die Natur.
 
 > **Wenn ein Monat schlecht läuft,** sinkt zuerst der Bonus. Der Lohn fällt nie unter den Mindestlohn. Wenn es nötig ist, werden weniger Stunden bezahlt, nicht billigere.
@@ -88,8 +82,6 @@ Jeder tut, was er kann und möchte. Bezahlt wird eine Stunde, wenn jemand diese 
 
 # Die ersten drei
 
-![140](../explain/fig/drei.png)
-
 Ein Betrieb braucht drei Menschen, die zusammen arbeiten. Deshalb müssen die ersten drei am selben Ort leben, in Freiburg oder in der Nähe. Das ist der Haken. Und das bekommen sie dafür:
 
 - **Sofort:** rund 240 Euro mehr im Monat durch gemeinsamen Einkauf, Carsharing, Raum und Werkzeug. Wer zusammenzieht, spart noch rund 250 Euro Miete.
@@ -102,8 +94,6 @@ Ein Betrieb braucht drei Menschen, die zusammen arbeiten. Deshalb müssen die er
 > **Ehrlich gerechnet:** Wer heute für 17 Euro angestellt ist, liegt im Modell im ersten Jahr rund 510 Euro im Monat vorn, im zweiten rund 620 und im dritten rund 790 Euro; über drei Jahre rund 23.100 Euro. Das gilt, wenn die Gemeinschaft wie geplant wächst und der Betrieb den Lohn des Modells erreicht. Mit dem Lohn des ersten Betriebs (rund 15 Euro) läge das erste Jahr eher 80 bis 160 Euro im Monat darunter. Im schlechten Fall fehlen nach drei Jahren rund 18.800 Euro; dann stellt der Betrieb gar nicht erst an, und die Gruppe bleibt beim gemeinsamen Einkauf. Wer aus der Grundsicherung kommt, hat mit einer vollen Stelle rund 430 Euro mehr zum Leben. Am Anfang, mit einer kleinen Stelle, bleibt man meist in der Grundsicherung, und der Lohn wird zum Teil angerechnet. Ein Vorrecht gibt es nicht: Wer später kommt, bekommt denselben Lohn und dieselbe Stimme.
 
 # Von weitem dabei
-
-![140](../explain/fig/weit.png)
 
 Die ersten drei müssen in Freiburg leben, alle anderen nicht. Wer uns auf TikTok oder anderswo folgt, soll selbst etwas davon haben:
 
@@ -119,13 +109,9 @@ Ehrlich bleibt es so: Wir zeigen echte Zahlen statt Hype. Wer für einen Beitrag
 
 # Ein Netz mit allen, die ähnlich denken
 
-![140](../explain/fig/netz.png)
-
 Höfe, Läden, Werkstätten, Vereine und andere Genossenschaften können Partner werden, ohne sich aufzulösen. Sie bekommen die Kundschaft unserer Mitglieder und können unsere gemeinsamen Dienste nutzen. Partner tragen das Zeichen „Partner der Back to Meaning Maximization eG“. Wer gegen unsere Werte handelt, verliert es wieder. Unternehmen, die unsere Grundsätze erst Schritt für Schritt übernehmen wollen, gehen einen Weg in Stufen: erst ihre Zahlen offenlegen, dann die Lohnspanne begrenzen und den Gewinn teilen, dann das Unternehmen gegen einen Verkauf mit Gewinn binden, am Ende gleicher Lohn für jede Stunde. Dabei wachsen die niedrigsten Löhne Schritt für Schritt bis zu unserem Grundlohn: Wir verlangen nie mehr, als wir uns selbst zahlen. Gezeigt wird, wie weit sie sind, mit Zahlen, nicht mit einem Siegel. Ein echtes grünes Siegel kommt später, geprüft von einer unabhängigen Stelle.
 
 # Vom Haus zur Stadt
-
-![140](../explain/fig/weg.png)
 
 > **Wie es anfängt:** Erst leben, dann gründen. Am Anfang kaufen wir gemeinsam ein und tauschen Stunden, ganz ohne Genossenschaft. Gegründet wird, sobald der erste Betrieb Menschen anstellen will und auch die festen Kosten der Genossenschaft trägt. Das Gesetz verlangt drei Menschen; angestrebt sind drei, und wenn mehr dabei sind, sinken die Kosten je Kopf, gegründet wird auch dann. Wir gründen so früh wie möglich, sobald wir mindestens drei sind. Bis dahin arbeiten wir als Selbstständige zusammen; niemand wird angestellt (rechtlich offen, Fachleute fragen). Beim gemeinsamen Einkauf kauft jede:r auf eigene Rechnung; es gibt keine gemeinsame Kasse, sie ruht, bis Fachleute geklärt haben, dass sie ohne GbR-Haftung möglich ist (rechtlich offen, Fachleute fragen).
 

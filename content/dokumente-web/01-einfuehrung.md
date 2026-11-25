@@ -114,7 +114,7 @@ Diese Einführung zeigt nur den Kern. Das Vollkonzept geht in 22 Kapiteln weiter
 | 5 Modellrechnungen | Drei Säulen in Zahlen: Nutzen-Bilanz von 2 bis 1 Mio. Mitgliedern, Erwerbsfelder, Jahreskreis, Lohnmodell, Eigentum, Zeitplan und „Die Brücke“. |
 | 6 Zeit und Kaufkraft | Reicht der gleiche Stundenlohn im Alltag? Arbeitszeit und Kaufkraft im Vergleich zum Markt, mit Quellen. |
 | 7 Verteilungs-Kaskade | Wie das Geld wirklich fließt: Wertschöpfung, Grundlohn, Überschuss, Zellstärkungs-Topf, Sockel-Plus, Knospung, Abteilungen — die Verwaltung bleibt in den Zellen. |
-| 8–9 Rhythmus und Kapazität | Ein System, das sich dem Menschen anpasst: Zyklus, Familienphase, chronische Erkrankung. |
+| 8–9 Rhythmus und Kapazität | Ein System, das sich dem Menschen anpasst: Zyklus, Familienphase, chronische gesundheitliche Einschränkung. |
 | 10 Unterstützer, Anwärter, Mitglied | Stufen der Zugehörigkeit — Nutzungs- und Betriebsmitglied —, ehrlich beschrieben, nicht als Hierarchie. |
 | 11 Wohnraumvergabe | Wohnraum ist keine Ware: Vergabe nach Dringlichkeit, die Miete deckt nur die Kosten. |
 | 12–13 Kompetenz, Innen und außen | Intern gilt: Wer es kann, darf es tun — mit offenen Grenzen (Heilkunde, Elektroinstallation) und dem Weg zur staatlichen Anerkennung. Nach außen gelten alle gesetzlichen Anforderungen. |

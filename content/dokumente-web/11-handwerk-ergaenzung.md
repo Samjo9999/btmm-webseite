@@ -117,14 +117,14 @@ Stufe 1 bis 3 kannst du ohne Abschluss angehen. Bei Stufe 4 klärst du den Teil,
 
 | Tätigkeit | Intern (Eigenleistung / § 26 Selbsthilfe) | Extern (Gemeinschaftsbetrieb) |
 |---|---|---|
-| Natursteinmauern, Terrassen | ✓ Selbst möglich | Garten-Gewerbe; Stützmauern und große Pflasterflächen: Anlage A [H4] |
-| Innenausbau, Trockenbau | ✓ Selbst möglich | ✓ Reiner Trockenbau ohne Meister; Putz: Anlage A [H9] |
-| Böden, Fliesen, Parkett | ✓ Selbst möglich | Bodenleger B2; Fliesen, Parkett, Estrich: Anlage A [H5] |
-| Holzbau, Zimmerei, Tischlerei | ✓ Am eigenen Gebäude und intern; tragende Teile mit Gästen: Abnahme (Kapitel 7) | Anlage A — Betriebsleiter nötig; einfache Tätigkeiten frei [H6] |
-| Elektroleitungen | Leitungen verlegen, Dosen setzen, Kabelkanäle selbst, nach Plan des Elektrobetriebs und erst nach anwaltlicher Klärung (Kapitel 7.1); ❌ Verdrahten, Anschließen und Verteiler nur eingetragene Fachbetriebe [H1] | Anlage A — eingetragener Fachbetrieb |
-| Wasser- und Gasinstallation | ❌ Auch intern nur eingetragene Fachbetriebe [H2, H13] | Anlage A — eingetragener Fachbetrieb |
-| Gartengestaltung, Baggerarbeit | ✓ Selbst möglich | Kein Handwerk; Tiefbau-Erdarbeiten: Anlage A [H4] |
-| Körperarbeit als Wellness | ✓ Sitzungen unter Mitgliedern | ✓ Gewerbe der eG, ohne Heilpraktiker-Erlaubnis, solange keine Heilkunde (Kapitel 5) |
+| Natursteinmauern, Terrassen | ja, Selbst möglich | Garten-Gewerbe; Stützmauern und große Pflasterflächen: Anlage A [H4] |
+| Innenausbau, Trockenbau | ja, Selbst möglich | ja, Reiner Trockenbau ohne Meister; Putz: Anlage A [H9] |
+| Böden, Fliesen, Parkett | ja, Selbst möglich | Bodenleger B2; Fliesen, Parkett, Estrich: Anlage A [H5] |
+| Holzbau, Zimmerei, Tischlerei | ja, Am eigenen Gebäude und intern; tragende Teile mit Gästen: Abnahme (Kapitel 7) | Anlage A — Betriebsleiter nötig; einfache Tätigkeiten frei [H6] |
+| Elektroleitungen | Leitungen verlegen, Dosen setzen, Kabelkanäle selbst, nach Plan des Elektrobetriebs und erst nach anwaltlicher Klärung (Kapitel 7.1); nein, Verdrahten, Anschließen und Verteiler nur eingetragene Fachbetriebe [H1] | Anlage A — eingetragener Fachbetrieb |
+| Wasser- und Gasinstallation | nein, Auch intern nur eingetragene Fachbetriebe [H2, H13] | Anlage A — eingetragener Fachbetrieb |
+| Gartengestaltung, Baggerarbeit | ja, Selbst möglich | Kein Handwerk; Tiefbau-Erdarbeiten: Anlage A [H4] |
+| Körperarbeit als Wellness | ja, Sitzungen unter Mitgliedern | ja, Gewerbe der eG, ohne Heilpraktiker-Erlaubnis, solange keine Heilkunde (Kapitel 5) |
 
 > *Die Spalte „Intern“ gilt für Bau und Betrieb ohne fremde Nutzer. Sobald Gäste übernachten oder Besucher kommen, kommt die fachliche Abnahme aus Kapitel 7 dazu: Eigenleistung bleibt möglich, aber Elektro, Feuerstätten und tragende Bauteile werden von einer fachkundigen Person geprüft und dokumentiert.*
 
@@ -311,136 +311,136 @@ Version 1.0.2, Oktober 2026. Für jeden Punkt genau ein Haken: Erledigt, Irrelev
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Übernachtung genehmigt?** — Bauamt fragen, ob Bauwagen und Gästehaus als Übernachtungsnutzung genehmigt sind. Im Außenbereich oft nötig. | Klären | ☐ | ☐ | ☐ |
-| **Haftpflicht deckt Gäste** — Schriftlich bestätigen lassen, dass die gewerbliche Vermietung über Airbnb versichert ist. | Klären | ☐ | ☐ | ☐ |
-| **Gebäude- und Inhaltsversicherung** — Nutzung als Ferienunterkunft melden. Sonst kann die Versicherung Leistungen verweigern. | Klären | ☐ | ☐ | ☐ |
-| **Gewerbe und Steuern** — Vermietung beim Gewerbeamt und Finanzamt angemeldet, Einnahmen erfasst. | Pflicht | ☐ | ☐ | ☐ |
-| **Meldeschein für Gäste** — Bei gewerblicher Beherbergung gilt die Meldepflicht nach Bundesmeldegesetz. Die Airbnb-Buchung ersetzt sie nicht. | Klären | ☐ | ☐ | ☐ |
-| **Kurtaxe und Übernachtungssteuer** — Gemeinde fragen, ob Gästebeitrag oder Beherbergungssteuer anfällt. | Klären | ☐ | ☐ | ☐ |
-| **Gästebetten gezählt** — Mehr als 12 Betten (ab 13) gilt eine Unterkunft als Sonderbau mit besonderen Brandschutzanforderungen (§ 38 LBO BW). Beim Bauamt bestätigen lassen. | Klären | ☐ | ☐ | ☐ |
+| **Übernachtung genehmigt?** — Bauamt fragen, ob Bauwagen und Gästehaus als Übernachtungsnutzung genehmigt sind. Im Außenbereich oft nötig. | Klären | offen | offen | offen |
+| **Haftpflicht deckt Gäste** — Schriftlich bestätigen lassen, dass die gewerbliche Vermietung über Airbnb versichert ist. | Klären | offen | offen | offen |
+| **Gebäude- und Inhaltsversicherung** — Nutzung als Ferienunterkunft melden. Sonst kann die Versicherung Leistungen verweigern. | Klären | offen | offen | offen |
+| **Gewerbe und Steuern** — Vermietung beim Gewerbeamt und Finanzamt angemeldet, Einnahmen erfasst. | Pflicht | offen | offen | offen |
+| **Meldeschein für Gäste** — Bei gewerblicher Beherbergung gilt die Meldepflicht nach Bundesmeldegesetz. Die Airbnb-Buchung ersetzt sie nicht. | Klären | offen | offen | offen |
+| **Kurtaxe und Übernachtungssteuer** — Gemeinde fragen, ob Gästebeitrag oder Beherbergungssteuer anfällt. | Klären | offen | offen | offen |
+| **Gästebetten gezählt** — Mehr als 12 Betten (ab 13) gilt eine Unterkunft als Sonderbau mit besonderen Brandschutzanforderungen (§ 38 LBO BW). Beim Bauamt bestätigen lassen. | Klären | offen | offen | offen |
 
 ## Brandschutz
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Rauchmelder in jedem Schlafraum und Flur** — Auch im Bauwagen. Funktion testen, Prüfdatum notieren. | Pflicht | ☐ | ☐ | ☐ |
-| **Zweiter Rettungsweg** — Aus jedem Schlafraum ein zweiter Weg ins Freie, zum Beispiel ein Rettungsfenster. Maße beim Bauamt prüfen. | Pflicht | ☐ | ☐ | ☐ |
-| **Holzofen abgenommen** — Schornsteinfeger hat die Anlage abgenommen. Funkenschutz, Abstand zu Holz, Ascheeimer aus Metall. | Pflicht | ☐ | ☐ | ☐ |
-| **CO-Melder** — Überall, wo Ofen, Gas oder Durchlauferhitzer laufen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Flüssiggas** — Regler und Schlauch mit Datum, Dichtheit geprüft, Flasche belüftet, Anlage von einer Fachkraft geprüft. | Klären | ☐ | ☐ | ☐ |
-| **Feuerlöscher und Löschdecke** — Pro Gebäude sichtbar montiert, alle 2 Jahre prüfen lassen. Löschdecke in der Küche. | Empfohlen | ☐ | ☐ | ☐ |
-| **Notfallinfo ausgehängt** — 112, genaue Adresse, Sammelplatz, Standort von Löscher und Erste-Hilfe-Kasten. | Empfohlen | ☐ | ☐ | ☐ |
-| **Feuerstelle im Freien** — Abstand zu Gebäuden und Bäumen, Wasser oder Sand bereit, Regeln in der Hausordnung. | Empfohlen | ☐ | ☐ | ☐ |
-| **Zufahrt für die Feuerwehr** — Mindestens 3 m breit, tragfähig, nicht zugeparkt. | Klären | ☐ | ☐ | ☐ |
+| **Rauchmelder in jedem Schlafraum und Flur** — Auch im Bauwagen. Funktion testen, Prüfdatum notieren. | Pflicht | offen | offen | offen |
+| **Zweiter Rettungsweg** — Aus jedem Schlafraum ein zweiter Weg ins Freie, zum Beispiel ein Rettungsfenster. Maße beim Bauamt prüfen. | Pflicht | offen | offen | offen |
+| **Holzofen abgenommen** — Schornsteinfeger hat die Anlage abgenommen. Funkenschutz, Abstand zu Holz, Ascheeimer aus Metall. | Pflicht | offen | offen | offen |
+| **CO-Melder** — Überall, wo Ofen, Gas oder Durchlauferhitzer laufen. | Empfohlen | offen | offen | offen |
+| **Flüssiggas** — Regler und Schlauch mit Datum, Dichtheit geprüft, Flasche belüftet, Anlage von einer Fachkraft geprüft. | Klären | offen | offen | offen |
+| **Feuerlöscher und Löschdecke** — Pro Gebäude sichtbar montiert, alle 2 Jahre prüfen lassen. Löschdecke in der Küche. | Empfohlen | offen | offen | offen |
+| **Notfallinfo ausgehängt** — 112, genaue Adresse, Sammelplatz, Standort von Löscher und Erste-Hilfe-Kasten. | Empfohlen | offen | offen | offen |
+| **Feuerstelle im Freien** — Abstand zu Gebäuden und Bäumen, Wasser oder Sand bereit, Regeln in der Hausordnung. | Empfohlen | offen | offen | offen |
+| **Zufahrt für die Feuerwehr** — Mindestens 3 m breit, tragfähig, nicht zugeparkt. | Klären | offen | offen | offen |
 
 ## Elektro
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Installation vom Meister abgenommen** — Verteiler, Zuleitungen und alle Unterkünfte. Er prüft und haftet. Haben Mitglieder Vorarbeiten gemacht: vorher anwaltlich geklärt, schriftlich mit dem Elektrobetrieb abgesprochen, von ihm geprüft und mitgemessen (Kapitel 7.1). | Pflicht | ☐ | ☐ | ☐ |
-| **Messprotokoll abgelegt** — Isolationswiderstand, Schleifenimpedanz, FI-Auslösung, mit Datum und Namen. | Pflicht | ☐ | ☐ | ☐ |
-| **FI-Schutzschalter 30 mA** — Für Steckdosen und Außenbereich. Testtaste monatlich drücken. | Pflicht | ☐ | ☐ | ☐ |
-| **Feuchte Bereiche und Außen** — Passende Schutzart, keine Kabel im Wasser, keine lose Mehrfachsteckdose im Bad. | Pflicht | ☐ | ☐ | ☐ |
-| **Geräte in den Unterkünften** — Wasserkocher, Heizlüfter und Verlängerungen regelmäßig prüfen lassen (DGUV V3). | Klären | ☐ | ☐ | ☐ |
-| **Solar, Speicher, Wechselrichter** — Von einem Elektrobetrieb installiert und beim Netzbetreiber angemeldet. | Klären | ☐ | ☐ | ☐ |
-| **Weidezaungerät und Warnschilder** — Gerät nach Norm, Schilder an Wegen, die Gäste nutzen. | Empfohlen | ☐ | ☐ | ☐ |
+| **Installation vom Meister abgenommen** — Verteiler, Zuleitungen und alle Unterkünfte. Er prüft und haftet. Haben Mitglieder Vorarbeiten gemacht: vorher anwaltlich geklärt, schriftlich mit dem Elektrobetrieb abgesprochen, von ihm geprüft und mitgemessen (Kapitel 7.1). | Pflicht | offen | offen | offen |
+| **Messprotokoll abgelegt** — Isolationswiderstand, Schleifenimpedanz, FI-Auslösung, mit Datum und Namen. | Pflicht | offen | offen | offen |
+| **FI-Schutzschalter 30 mA** — Für Steckdosen und Außenbereich. Testtaste monatlich drücken. | Pflicht | offen | offen | offen |
+| **Feuchte Bereiche und Außen** — Passende Schutzart, keine Kabel im Wasser, keine lose Mehrfachsteckdose im Bad. | Pflicht | offen | offen | offen |
+| **Geräte in den Unterkünften** — Wasserkocher, Heizlüfter und Verlängerungen regelmäßig prüfen lassen (DGUV V3). | Klären | offen | offen | offen |
+| **Solar, Speicher, Wechselrichter** — Von einem Elektrobetrieb installiert und beim Netzbetreiber angemeldet. | Klären | offen | offen | offen |
+| **Weidezaungerät und Warnschilder** — Gerät nach Norm, Schilder an Wegen, die Gäste nutzen. | Empfohlen | offen | offen | offen |
 
 ## Absturz, Tragendes, Treppen
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Umwehrung ab 1 m Absturzhöhe** — Terrassen, Treppen, Galerien, Balkone, Mauern, Böschungskanten. | Pflicht | ☐ | ☐ | ☐ |
-| **Geländer kindersicher** — Mindestens 90 cm hoch, Lücken höchstens 12 cm, nichts zum Hochklettern. | Pflicht | ☐ | ☐ | ☐ |
-| **Treppen** — Fester Handlauf, gleichmäßige Stufen, rutschfest, nachts beleuchtet. | Pflicht | ☐ | ☐ | ☐ |
-| **Tragende Bauteile berechnet** — Balkone, Terrassen, Galerien, Stege, Dachträger: vom Tragwerksplaner berechnet und abgenommen, Unterlagen abgelegt. | Pflicht | ☐ | ☐ | ☐ |
-| **Nutzlasten für Menschen** — Terrassen und Balkone tragen mit Personen deutlich mehr als Dachflächen. In der Berechnung angesetzt? | Empfohlen | ☐ | ☐ | ☐ |
-| **Fenster und Luken** — Brüstungen unter 80 cm sichern. Dachfenster, Heuboden-Luken und Lichtschächte abdecken. | Klären | ☐ | ☐ | ☐ |
-| **Hochbetten** — Seitlicher Fallschutz, sichere Leiter, Hinweis: nicht für kleine Kinder. | Empfohlen | ☐ | ☐ | ☐ |
-| **Sicherheitsglas** — Bei Türen, bodentiefen Fenstern und Duschen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Sichtkontrolle am Holz** — Einmal im Jahr tragende Hölzer auf Fäulnis, Risse und Lockerung prüfen. | Empfohlen | ☐ | ☐ | ☐ |
+| **Umwehrung ab 1 m Absturzhöhe** — Terrassen, Treppen, Galerien, Balkone, Mauern, Böschungskanten. | Pflicht | offen | offen | offen |
+| **Geländer kindersicher** — Mindestens 90 cm hoch, Lücken höchstens 12 cm, nichts zum Hochklettern. | Pflicht | offen | offen | offen |
+| **Treppen** — Fester Handlauf, gleichmäßige Stufen, rutschfest, nachts beleuchtet. | Pflicht | offen | offen | offen |
+| **Tragende Bauteile berechnet** — Balkone, Terrassen, Galerien, Stege, Dachträger: vom Tragwerksplaner berechnet und abgenommen, Unterlagen abgelegt. | Pflicht | offen | offen | offen |
+| **Nutzlasten für Menschen** — Terrassen und Balkone tragen mit Personen deutlich mehr als Dachflächen. In der Berechnung angesetzt? | Empfohlen | offen | offen | offen |
+| **Fenster und Luken** — Brüstungen unter 80 cm sichern. Dachfenster, Heuboden-Luken und Lichtschächte abdecken. | Klären | offen | offen | offen |
+| **Hochbetten** — Seitlicher Fallschutz, sichere Leiter, Hinweis: nicht für kleine Kinder. | Empfohlen | offen | offen | offen |
+| **Sicherheitsglas** — Bei Türen, bodentiefen Fenstern und Duschen. | Empfohlen | offen | offen | offen |
+| **Sichtkontrolle am Holz** — Einmal im Jahr tragende Hölzer auf Fäulnis, Risse und Lockerung prüfen. | Empfohlen | offen | offen | offen |
 
 ## Wasser, Hygiene, Lebensmittel
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Eigenes Trinkwasser untersucht** — Bei Abgabe an Gäste gilt die Trinkwasserverordnung: Anzeige beim Gesundheitsamt, regelmäßige Untersuchung. | Klären | ☐ | ☐ | ☐ |
-| **Kein Trinkwasser gekennzeichnet** — Regenwasser und Brauchwasserhähne klar beschriften. | Pflicht | ☐ | ☐ | ☐ |
-| **Abwasser genehmigt** — Kläranlage oder Grube ist für die Gästezahl ausgelegt und genehmigt. | Klären | ☐ | ☐ | ☐ |
-| **Warmwasser und Verbrühschutz** — Speicher am Ausgang mindestens 60 °C (Legionellen), Thermostatmischer am Zapfhahn gegen Verbrühen, wo Kinder duschen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Hofprodukte an Gäste** — Milch, Käse, Eier: Betrieb beim Lebensmittelüberwachungsamt registriert, Hygiene und Kennzeichnung beachtet. | Pflicht | ☐ | ☐ | ☐ |
-| **Rohmilch** — Nur ab Hof, mit Hinweis „Rohmilch, vor dem Verzehr abkochen“. | Pflicht | ☐ | ☐ | ☐ |
-| **Reinigung zwischen Gästen** — Bettwäsche, Bad und Küche, mit Checkliste und Datum. | Empfohlen | ☐ | ☐ | ☐ |
-| **Schimmel und Lüftung** — Entfeuchter, Lüftungshinweis, Kontrolle in Bauwagen und Gästehaus. | Empfohlen | ☐ | ☐ | ☐ |
+| **Eigenes Trinkwasser untersucht** — Bei Abgabe an Gäste gilt die Trinkwasserverordnung: Anzeige beim Gesundheitsamt, regelmäßige Untersuchung. | Klären | offen | offen | offen |
+| **Kein Trinkwasser gekennzeichnet** — Regenwasser und Brauchwasserhähne klar beschriften. | Pflicht | offen | offen | offen |
+| **Abwasser genehmigt** — Kläranlage oder Grube ist für die Gästezahl ausgelegt und genehmigt. | Klären | offen | offen | offen |
+| **Warmwasser und Verbrühschutz** — Speicher am Ausgang mindestens 60 °C (Legionellen), Thermostatmischer am Zapfhahn gegen Verbrühen, wo Kinder duschen. | Empfohlen | offen | offen | offen |
+| **Hofprodukte an Gäste** — Milch, Käse, Eier: Betrieb beim Lebensmittelüberwachungsamt registriert, Hygiene und Kennzeichnung beachtet. | Pflicht | offen | offen | offen |
+| **Rohmilch** — Nur ab Hof, mit Hinweis „Rohmilch, vor dem Verzehr abkochen“. | Pflicht | offen | offen | offen |
+| **Reinigung zwischen Gästen** — Bettwäsche, Bad und Küche, mit Checkliste und Datum. | Empfohlen | offen | offen | offen |
+| **Schimmel und Lüftung** — Entfeuchter, Lüftungshinweis, Kontrolle in Bauwagen und Gästehaus. | Empfohlen | offen | offen | offen |
 
 ## Lebensmittelproduktion
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Als Lebensmittelunternehmer registriert** — Käserei, Molkerei, Hofladen und Verarbeitung beim Lebensmittelüberwachungsamt melden, bevor ihr verkauft. | Pflicht | ☐ | ☐ | ☐ |
-| **Eigenkontrolle nach HACCP** — Gefahren benennen, kritische Punkte festlegen und schriftlich festhalten, zum Beispiel Pasteurisieren, Kühlen, Reifen. | Pflicht | ☐ | ☐ | ☐ |
-| **Temperaturprotokoll** — Pasteurisierung, Kühlung und Lagerung mit Datum, Wert und Kürzel dokumentieren. | Empfohlen | ☐ | ☐ | ☐ |
-| **Produktionsraum geeignet** — Glatte, abwaschbare Flächen, Handwaschbecken, getrennte Bereiche für rohe und fertige Ware, Fliegenschutz. | Pflicht | ☐ | ☐ | ☐ |
-| **Reinigungs- und Desinfektionsplan** — Was wird womit, wie oft und von wem gereinigt. Mit Abhakliste. | Empfohlen | ☐ | ☐ | ☐ |
-| **Rückverfolgbarkeit** — Chargennummer, Milchtag, Zutaten und Abnehmer festhalten, damit ihr bei einem Fund zurückverfolgen könnt. | Pflicht | ☐ | ☐ | ☐ |
-| **Etiketten vollständig** — Produktname, Zutaten, Allergene, Menge, Haltbarkeit, Name und Anschrift. Bei loser Ware gelten Sonderregeln. | Pflicht | ☐ | ☐ | ☐ |
-| **Bio-Kontrolle und Kennzeichnung** — Kontrollstelle, Kontrollnummer und EU-Bio-Regeln einhalten. Nicht-Bio-Zukauf getrennt lagern und dokumentieren. | Pflicht | ☐ | ☐ | ☐ |
-| **Milchuntersuchung** — Rohmilch und Milchprodukte regelmäßig auf Keime und Hemmstoffe untersuchen lassen. Umfang vom Amt bestätigen lassen. | Klären | ☐ | ☐ | ☐ |
-| **Kühlkette** — Kühlschrank, Kühlraum und Transport mit Thermometer. Grenzwerte pro Produkt festlegen. | Klären | ☐ | ☐ | ☐ |
-| **Belehrung für alle, die Lebensmittel anfassen** — Erstbelehrung nach Infektionsschutzgesetz, auch für Helfer. Bescheinigung ablegen. | Pflicht | ☐ | ☐ | ☐ |
-| **Schädlingskontrolle** — Fliegen, Mäuse und Insekten im Produktionsbereich kontrollieren und Funde notieren. | Empfohlen | ☐ | ☐ | ☐ |
-| **Produkthaftpflicht** — Versicherung für Schäden durch eigene Lebensmittel abschließen oder bestehende Police prüfen. | Klären | ☐ | ☐ | ☐ |
+| **Als Lebensmittelunternehmer registriert** — Käserei, Molkerei, Hofladen und Verarbeitung beim Lebensmittelüberwachungsamt melden, bevor ihr verkauft. | Pflicht | offen | offen | offen |
+| **Eigenkontrolle nach HACCP** — Gefahren benennen, kritische Punkte festlegen und schriftlich festhalten, zum Beispiel Pasteurisieren, Kühlen, Reifen. | Pflicht | offen | offen | offen |
+| **Temperaturprotokoll** — Pasteurisierung, Kühlung und Lagerung mit Datum, Wert und Kürzel dokumentieren. | Empfohlen | offen | offen | offen |
+| **Produktionsraum geeignet** — Glatte, abwaschbare Flächen, Handwaschbecken, getrennte Bereiche für rohe und fertige Ware, Fliegenschutz. | Pflicht | offen | offen | offen |
+| **Reinigungs- und Desinfektionsplan** — Was wird womit, wie oft und von wem gereinigt. Mit Abhakliste. | Empfohlen | offen | offen | offen |
+| **Rückverfolgbarkeit** — Chargennummer, Milchtag, Zutaten und Abnehmer festhalten, damit ihr bei einem Fund zurückverfolgen könnt. | Pflicht | offen | offen | offen |
+| **Etiketten vollständig** — Produktname, Zutaten, Allergene, Menge, Haltbarkeit, Name und Anschrift. Bei loser Ware gelten Sonderregeln. | Pflicht | offen | offen | offen |
+| **Bio-Kontrolle und Kennzeichnung** — Kontrollstelle, Kontrollnummer und EU-Bio-Regeln einhalten. Nicht-Bio-Zukauf getrennt lagern und dokumentieren. | Pflicht | offen | offen | offen |
+| **Milchuntersuchung** — Rohmilch und Milchprodukte regelmäßig auf Keime und Hemmstoffe untersuchen lassen. Umfang vom Amt bestätigen lassen. | Klären | offen | offen | offen |
+| **Kühlkette** — Kühlschrank, Kühlraum und Transport mit Thermometer. Grenzwerte pro Produkt festlegen. | Klären | offen | offen | offen |
+| **Belehrung für alle, die Lebensmittel anfassen** — Erstbelehrung nach Infektionsschutzgesetz, auch für Helfer. Bescheinigung ablegen. | Pflicht | offen | offen | offen |
+| **Schädlingskontrolle** — Fliegen, Mäuse und Insekten im Produktionsbereich kontrollieren und Funde notieren. | Empfohlen | offen | offen | offen |
+| **Produkthaftpflicht** — Versicherung für Schäden durch eigene Lebensmittel abschließen oder bestehende Police prüfen. | Klären | offen | offen | offen |
 
 ## Tiere und Hof
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Brunnen, Teich, Regentonne, Grube** — Abgedeckt oder umzäunt. Kinder sind schnell weg. | Pflicht | ☐ | ☐ | ☐ |
-| **Werkstatt, Maschinen, Traktor** — Abgeschlossen, Schlüssel nicht erreichbar, Zutritt für Gäste untersagt. | Empfohlen | ☐ | ☐ | ☐ |
-| **Chemie und Kraftstoff** — Reinigungsmittel, Dünger, Benzin und Farben verschlossen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Weidezäune und Tiere** — Gäste kennen weder Strom noch Bock. Hinweisschilder und getrennte Zugänge. | Empfohlen | ☐ | ☐ | ☐ |
-| **Hygiene nach Tierkontakt** — Händewaschen-Hinweis an Stall und Hofladen, Waschbecken in der Nähe. | Empfohlen | ☐ | ☐ | ☐ |
+| **Brunnen, Teich, Regentonne, Grube** — Abgedeckt oder umzäunt. Kinder sind schnell weg. | Pflicht | offen | offen | offen |
+| **Werkstatt, Maschinen, Traktor** — Abgeschlossen, Schlüssel nicht erreichbar, Zutritt für Gäste untersagt. | Empfohlen | offen | offen | offen |
+| **Chemie und Kraftstoff** — Reinigungsmittel, Dünger, Benzin und Farben verschlossen. | Empfohlen | offen | offen | offen |
+| **Weidezäune und Tiere** — Gäste kennen weder Strom noch Bock. Hinweisschilder und getrennte Zugänge. | Empfohlen | offen | offen | offen |
+| **Hygiene nach Tierkontakt** — Händewaschen-Hinweis an Stall und Hofladen, Waschbecken in der Nähe. | Empfohlen | offen | offen | offen |
 
 ## Wege, Licht, Verkehrssicherung
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Wege und Zufahrt kontrolliert** — Löcher, Wurzeln, Stolperkanten, lose Steine. Auch nach Starkregen. | Pflicht | ☐ | ☐ | ☐ |
-| **Beleuchtung** — Vom Parkplatz bis zur Unterkunft, Treppen, Eingänge. Bewegungsmelder reichen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Winterdienst** — Räum- und Streupflicht nach Gemeindesatzung. Wer übernimmt sie, wenn ihr weg seid? | Pflicht | ☐ | ☐ | ☐ |
-| **Bäume geprüft** — Nach Stürmen und einmal im Jahr Sichtkontrolle über Wegen, Unterkünften und Parkplatz. Notieren. | Pflicht | ☐ | ☐ | ☐ |
-| **Hang, Mauern, Böschungen** — Kanten sichern, Stufen markieren, lose Steine entfernen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Warnschilder** — Ergänzen die Sicherung, ersetzen sie nicht. Eine Gefahr bleibt eine Gefahr. | Empfohlen | ☐ | ☐ | ☐ |
-| **Rundgang bei Dunkelheit** — Einmal pro Saison mit Taschenlampe, mit dem Blick eines Fremden. | Empfohlen | ☐ | ☐ | ☐ |
+| **Wege und Zufahrt kontrolliert** — Löcher, Wurzeln, Stolperkanten, lose Steine. Auch nach Starkregen. | Pflicht | offen | offen | offen |
+| **Beleuchtung** — Vom Parkplatz bis zur Unterkunft, Treppen, Eingänge. Bewegungsmelder reichen. | Empfohlen | offen | offen | offen |
+| **Winterdienst** — Räum- und Streupflicht nach Gemeindesatzung. Wer übernimmt sie, wenn ihr weg seid? | Pflicht | offen | offen | offen |
+| **Bäume geprüft** — Nach Stürmen und einmal im Jahr Sichtkontrolle über Wegen, Unterkünften und Parkplatz. Notieren. | Pflicht | offen | offen | offen |
+| **Hang, Mauern, Böschungen** — Kanten sichern, Stufen markieren, lose Steine entfernen. | Empfohlen | offen | offen | offen |
+| **Warnschilder** — Ergänzen die Sicherung, ersetzen sie nicht. Eine Gefahr bleibt eine Gefahr. | Empfohlen | offen | offen | offen |
+| **Rundgang bei Dunkelheit** — Einmal pro Saison mit Taschenlampe, mit dem Blick eines Fremden. | Empfohlen | offen | offen | offen |
 
 ## Helfer und Arbeitssicherheit
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Unfallversicherung für Helfer** — Hofhüter, WWOOFer, Praktikanten: Absicherung bei der SVLFG oder Berufsgenossenschaft klären. | Klären | ☐ | ☐ | ☐ |
-| **Arbeit gegen Kost und Logis** — Mindestlohn und Scheinselbständigkeit prüfen, wenn Helfer regelmäßig mitarbeiten. | Klären | ☐ | ☐ | ☐ |
-| **Einweisung dokumentiert** — Gefahrenstellen, Tiere, Maschinen, Notfall. Kurz schriftlich, mit Datum. | Empfohlen | ☐ | ☐ | ☐ |
-| **Schutzausrüstung** — Gehörschutz, Schnittschutz, Handschuhe, Helm. Motorsäge nur mit Schulung. | Empfohlen | ☐ | ☐ | ☐ |
-| **Leitern und Maschinen** — Leitern geprüft, Schutzhauben an Kreissäge und Winkelschleifer. | Empfohlen | ☐ | ☐ | ☐ |
-| **Altlasten vor Umbauten** — Eternit, alte Dämmung, Bleifarbe: nicht selbst abbrechen, Fachfirma beauftragen. | Pflicht | ☐ | ☐ | ☐ |
+| **Unfallversicherung für Helfer** — Hofhüter, WWOOFer, Praktikanten: Absicherung bei der SVLFG oder Berufsgenossenschaft klären. | Klären | offen | offen | offen |
+| **Arbeit gegen Kost und Logis** — Mindestlohn und Scheinselbständigkeit prüfen, wenn Helfer regelmäßig mitarbeiten. | Klären | offen | offen | offen |
+| **Einweisung dokumentiert** — Gefahrenstellen, Tiere, Maschinen, Notfall. Kurz schriftlich, mit Datum. | Empfohlen | offen | offen | offen |
+| **Schutzausrüstung** — Gehörschutz, Schnittschutz, Handschuhe, Helm. Motorsäge nur mit Schulung. | Empfohlen | offen | offen | offen |
+| **Leitern und Maschinen** — Leitern geprüft, Schutzhauben an Kreissäge und Winkelschleifer. | Empfohlen | offen | offen | offen |
+| **Altlasten vor Umbauten** — Eternit, alte Dämmung, Bleifarbe: nicht selbst abbrechen, Fachfirma beauftragen. | Pflicht | offen | offen | offen |
 
 ## Gäste informieren
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Hausordnung und Gästemappe** — Notruf, Adresse, Heizen, Wasser, Strom, Tiere, Feuerstelle, Ruhezeiten. | Empfohlen | ☐ | ☐ | ☐ |
-| **Erste-Hilfe-Kasten pro Unterkunft** — Inhalt und Haltbarkeit prüfen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Erreichbarkeit im Notfall** — Wer ist ansprechbar, wenn ihr weg seid? Nummer in die Gästemappe. | Empfohlen | ☐ | ☐ | ☐ |
-| **Buchungsbedingungen** — Haftungs- und Stornoklauseln, Hinweise zu Tieren, Weidezäunen und Hanglage. | Empfohlen | ☐ | ☐ | ☐ |
-| **Gästedaten geschützt** — Meldescheine und Buchungsdaten sicher aufbewahren, nach Fristablauf löschen. | Pflicht | ☐ | ☐ | ☐ |
+| **Hausordnung und Gästemappe** — Notruf, Adresse, Heizen, Wasser, Strom, Tiere, Feuerstelle, Ruhezeiten. | Empfohlen | offen | offen | offen |
+| **Erste-Hilfe-Kasten pro Unterkunft** — Inhalt und Haltbarkeit prüfen. | Empfohlen | offen | offen | offen |
+| **Erreichbarkeit im Notfall** — Wer ist ansprechbar, wenn ihr weg seid? Nummer in die Gästemappe. | Empfohlen | offen | offen | offen |
+| **Buchungsbedingungen** — Haftungs- und Stornoklauseln, Hinweise zu Tieren, Weidezäunen und Hanglage. | Empfohlen | offen | offen | offen |
+| **Gästedaten geschützt** — Meldescheine und Buchungsdaten sicher aufbewahren, nach Fristablauf löschen. | Pflicht | offen | offen | offen |
 
 ## Dokumentation
 
 | Punkt | Art | Erledigt | Irrelevant | Bewusst |
 |----------------------------------------------|----------|---------|-----------|---------|
-| **Fotos vor dem Verkleiden** — Tragende Konstruktion, Leitungen und Dämmung mit Datum fotografieren. | Empfohlen | ☐ | ☐ | ☐ |
-| **Ordner für Abnahmen** — Meister, Messprotokoll, Schornsteinfeger, Tragwerksplaner, Rechnungen. | Empfohlen | ☐ | ☐ | ☐ |
-| **Prüfkalender** — Rauchmelder jährlich, Feuerlöscher alle 2 Jahre, FI monatlich, Bäume jährlich, Trinkwasser nach Befund. | Empfohlen | ☐ | ☐ | ☐ |
-| **Änderungen melden** — Umbau oder neue Nutzung dem Bauamt und der Versicherung mitteilen. | Klären | ☐ | ☐ | ☐ |
+| **Fotos vor dem Verkleiden** — Tragende Konstruktion, Leitungen und Dämmung mit Datum fotografieren. | Empfohlen | offen | offen | offen |
+| **Ordner für Abnahmen** — Meister, Messprotokoll, Schornsteinfeger, Tragwerksplaner, Rechnungen. | Empfohlen | offen | offen | offen |
+| **Prüfkalender** — Rauchmelder jährlich, Feuerlöscher alle 2 Jahre, FI monatlich, Bäume jährlich, Trinkwasser nach Befund. | Empfohlen | offen | offen | offen |
+| **Änderungen melden** — Umbau oder neue Nutzung dem Bauamt und der Versicherung mitteilen. | Klären | offen | offen | offen |
 
 # Anhang B: Vorlage für Richtangebote zu Abnahmen
 
