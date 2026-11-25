@@ -8,6 +8,12 @@ const KLEINUNTERNEHMER_SATZ =
 
 export const dynamic = 'force-dynamic'
 
+/** Tür-KI live: beide Schalter an (Default aus). Laufzeit-Env, da die Seite dynamisch ist. */
+function tuerKiLive(): boolean {
+  const an = (v: string | undefined) => ['1', 'true', 'on', 'yes'].includes(String(v || '').trim().toLowerCase())
+  return an(process.env.TUER_KI_ENABLED) && an(process.env.WISSEN_LLM_ENABLED)
+}
+
 export const metadata: Metadata = {
   title: 'Impressum & Datenschutz – Back to Meaning Maximization',
   description: 'Impressum und Datenschutzerklärung von Back to Meaning Maximization, Freiburg im Breisgau.',
@@ -333,6 +339,23 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   </a>
                   .
                 </p>
+
+                {/* Tür-KI (Plan 25.11.2026 §6, DS-Leitplanken 25.11.2026): Absatz erst mit Go-Live sichtbar, gekoppelt an den Schalter. */}
+                {tuerKiLive() && (
+                  <>
+                    <h4>Gesprächs-KI auf der Eingangsseite (Tür)</h4>
+                    <p>
+                      Sie sprechen mit einer KI. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Es handelt sich um einen automatischen Assistenten, keinen Menschen, und um keine Beratung. Auf unserer Eingangsseite können Sie sich nach einem Klick auf „Mit KI sprechen“ mit dieser KI über BtMM unterhalten. Wenn Sie eine Nachricht senden, übermitteln wir Ihre Nachricht, den bisherigen Gesprächsverlauf dieser Sitzung und passende Textauszüge aus unseren öffentlichen Dokumenten an Scaleway SAS, 8 rue de la Ville l&apos;Évêque, 75008 Paris, Frankreich, um eine Antwort zu erzeugen. Scaleway ist Auftragsverarbeiter gemäß Art. 28 DSGVO; die Verarbeitung erfolgt in der EU (Paris). Rechtsgrundlage ist Art. 6 Abs. 1 lit. f DSGVO. Unser berechtigtes Interesse besteht darin, Besucherinnen und Besucher auf deren Anfrage über BtMM zu informieren und unseren Dienst vor Missbrauch zu schützen. Sie können dieser Verarbeitung nach Art. 21 DSGVO jederzeit widersprechen, indem Sie die Gesprächs-KI nicht nutzen oder uns kontaktieren.
+                    </p>
+                    <p>
+                      Wir speichern Ihre Nachrichten nicht auf unseren Servern. Der Gesprächsverlauf liegt nur im Speicher Ihres Browsers (sessionStorage) und endet mit dem Schließen des Tabs oder mit „Gespräch löschen“; diese Speicherung ist für den von Ihnen gewünschten Dienst unbedingt erforderlich (§ 25 Abs. 2 Nr. 2 TDDDG) und gilt nur für die Sitzung. Scaleway speichert Inhalte grundsätzlich nicht und nutzt sie nicht zum Training; nur bei technischen Fehlern oder Missbrauch kann Scaleway eine Anfrage bis zu zwei Wochen zur Fehleranalyse speichern. Zur Missbrauchsvermeidung verarbeiten wir Ihre IP-Adresse kurzzeitig in gehashter Form, um die Anzahl der Anfragen zu begrenzen; der Hash wird höchstens 24 Stunden im Arbeitsspeicher gehalten und nicht dauerhaft gespeichert. Nachrichten mit Gesundheitsangaben, Kontakt- oder Kontodaten werden vor der Weitergabe erkannt und nicht an Scaleway übermittelt. Bitte geben Sie keine persönlichen Daten oder Gesundheitsangaben ein. Wenn Sie die Spracheingabe nutzen, wandelt der Spracherkennungsdienst Ihres Browsers (z. B. Google oder Apple) die Sprache in Text um; wir speichern keine Aufnahme. Details:{' '}
+                      <a href="https://www.scaleway.com/en/docs/generative-apis/reference-content/data-privacy/" target="_blank" rel="noopener noreferrer">
+                        Datenschutzhinweise von Scaleway
+                      </a>
+                      .
+                    </p>
+                  </>
+                )}
 
                 <h4>Brevo (E-Mail-Versand)</h4>
                 <p>
