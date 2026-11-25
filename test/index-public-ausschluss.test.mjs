@@ -48,7 +48,7 @@ test('rg: 0 Treffer in allen index-public.json-Kopien', () => {
     [
       '-i',
       '--',
-      'bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
+      'bürgergeld|buergergeld|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
       ...INDEX_COPIES,
     ],
     { cwd: root, encoding: 'utf8' }
@@ -81,9 +81,10 @@ test('Vorschau-Chats laden /wissen/index-public.json, Rewrites greifen', () => {
   }
 })
 
-test('Tabu-Stämme enthalten oberkirch und happyfarm', () => {
+test('Tabu-Stämme enthalten oberkirch und happyfarm, nicht Jobcenter', () => {
   assert.ok(TABOO_STEMS.includes('oberkirch'))
   assert.ok(TABOO_STEMS.includes('happyfarm'))
+  assert.equal(TABOO_STEMS.includes('jobcenter'), false)
   assert.ok(findTabooHits('Werkstatt in Oberkirch').includes('oberkirch'))
   assert.ok(findTabooHits('Hinweis auf HappyFarm').includes('happyfarm'))
   assert.equal(findTabooHits('Krankenkasse bleibt erlaubt').length, 0)

@@ -29,16 +29,16 @@ test('keine Tabuwörter in öffentlichen Texten', () => {
       if (NUR_FILTERLISTE.has(path.relative(root, f).split(path.sep).join('/'))) continue
       let s = fs.readFileSync(f, 'utf8')
       const rel = path.relative(root, f).split(path.sep).join('/')
-      // Der Index spiegelt die veröffentlichten Webdokumente (content/dokumente-web). Wie in
-      // test/dokumente-web.test.mjs gilt: „Grundsicherung“ ist erlaubt (Nutzer 25.11.), ebenso „Eltern“
-      // außer Elternzeit/Elternhof. Alle übrigen Außensicht-Tabus (Jobcenter, Bürgergeld, erkrank,
-      // schwanger, Hildastraße, Karner ...) müssen im Index auf 0 stehen; die Schwärz-Regeln
-      // (scripts/index-public-schwaerzen.mjs) entfernen sie dort, die Quelldokumente bleiben unverändert.
+      // Der Index spiegelt die veröffentlichten Webdokumente (content/dokumente-web).
+      // BtMMKI 25.11.: „Jobcenter“ und „Grundsicherung“ bleiben im Index erlaubt (außer der
+      // Kombi-Regel). „Eltern“ außer Elternzeit/Elternhof ebenfalls. Alle übrigen Außensicht-Tabus
+      // müssen im Index auf 0 stehen; die Schwärz-Regeln entfernen sie dort, die Quellen bleiben.
       if (rel.endsWith('index-public.json')) {
         const payload = JSON.parse(s)
         for (const c of payload.chunks || []) {
           let blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
           blob = blob.replace(/Grundsicherung/gi, '')
+          blob = blob.replace(/Jobcenter/gi, '')
           for (const e of [...ERLAUBT, ...ERLAUBT_INDEX]) blob = blob.replace(new RegExp(e.source, e.flags + 'g'), '')
           const m = blob.match(new RegExp(RX.source, 'gi'))
           if (m) treffer.push(`${rel} [${c.abschnitt || ''}]: ${[...new Set(m)].join(', ')}`)
