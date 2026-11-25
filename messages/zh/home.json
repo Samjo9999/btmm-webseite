@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "社区",
     "gemeinschaft_text": "本地细胞组是 BtMM 的核心。人们聚在一起，互相支持，共同塑造自己的经济未来。",
     "nachhaltigkeit_titel": "可持续发展",
-    "nachhaltigkeit_text": "筹建中的合作社（eG i.Gr.）。长远思考而非短期利益。BtMM 致力于建设能够跨越世代持续增长的结构。",
+    "nachhaltigkeit_text": "计划中的 BtMM eG。BtMM 尚未成立。长远思考而非短期利益。BtMM 致力于建设能够跨越世代持续增长的结构。",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -34,7 +34,7 @@
     "pool_titel": "Pool",
     "pool_text": "惠及每位成员的共享资源。",
     "coins_titel": "BtMM-Coins",
-    "coins_text": "社区内服务交换的内部货币。",
+    "coins_text": "服务的内部结算。Coins 不是货币，也不能兑付为欧元。",
     "workspace_titel": "工作空间",
     "workspace_text": "用于项目和协作的共享数字工作空间。",
     "cta": "探索应用",
@@ -54,19 +54,19 @@
   "zellen_alle": "查看所有细胞",
   "mitgliedschaft": {
     "titel": "会员资格",
-    "untertitel": "成为 BtMM 一部分的两种方式",
+    "untertitel": "BtMM 尚未成立。目前无法成为会员。",
     "stufen": [
       {
-        "stufe": "学徒",
-        "preis": "可变参与",
-        "beschreibung": "向活跃会员身份的过渡",
-        "benefits": "精选服务享受成本价"
+        "stufe": "了解我们",
+        "preis": "无需加入",
+        "beschreibung": "在合作社成立之前，你可以先了解我们。",
+        "benefits": "无股份、无会员资格、无投票权"
       },
       {
-        "stufe": "正式会员",
-        "preis": "活跃会员身份",
-        "beschreibung": "完全参与",
-        "benefits": "报酬、投票权、团结基金"
+        "stufe": "成立后加入",
+        "preis": "股份 100 欧元",
+        "beschreibung": "计划中的章程只设一种会员资格，没有候选人或正式成员层级。",
+        "benefits": "一人一票；须提前一年通知，至财政年度末生效"
       }
     ]
   }
