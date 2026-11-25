@@ -107,6 +107,7 @@
   function antworten(text, wahlIndex) {
     text = (text || '').trim().slice(0, 600);
     if (!st.offen) return;            // ohne offene Frage wird nichts gespeichert
+    if (document.body.classList.contains('modus-ki')) return; // Tür-KI aktiv: Eingaben verarbeitet tuer-ki.js
     if (!text) { feld.focus(); return; }
     stopMik();
     wahlWeg();
@@ -127,7 +128,7 @@
   $('eingabe').addEventListener('submit', function (e) { e.preventDefault(); antworten(feld.value); });
   feld.addEventListener('focus', function () { setTimeout(nachUnten, 250); });
   feld.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); antworten(feld.value); } });
-  $('loeschen').addEventListener('click', function () { try { sessionStorage.removeItem(KEY); sessionStorage.removeItem(PFAD_KEY); } catch (e) {} location.replace(location.pathname + '?lang=' + LANG); });
+  $('loeschen').addEventListener('click', function () { try { sessionStorage.removeItem(KEY); sessionStorage.removeItem(PFAD_KEY); sessionStorage.removeItem('btmm-tuer-ki-v1'); } catch (e) {} location.replace(location.pathname + '?lang=' + LANG); });
 
   /* ---------- Spracheingabe (Web Speech, nur nach Tippen, mit Hinweis) ---------- */
   var SR = window.SpeechRecognition || window.webkitSpeechRecognition, rec = null, hinweisGesehen = false;
@@ -177,10 +178,12 @@
     var pf = laden(PFAD_KEY); if (!pf) return;
     pf.index = i; try { sessionStorage.setItem(PFAD_KEY, JSON.stringify(pf)); } catch (e) {}
   }
-  function pfadZeigen() {
+  function pfadZeigen(kiKeys) {
     st.fertig = true; st.offen = null; speichern();
     eingabeFrei(false);
-    var keys = pfadBauen(st.profil);
+    // Tür-KI: Schritte kommen aus der Gesprächsantwort (serverseitig gegen die Schlüsselliste geprüft)
+    var keys = Array.isArray(kiKeys) && kiKeys.length ? kiKeys.filter(function (k) { return SCHRITTE[k]; }) : pfadBauen(st.profil);
+    if (Array.isArray(kiKeys)) keys.forEach(function (k) { if (PF.MOTIVE.indexOf(k) !== -1) st.profil[k] = Math.max(st.profil[k] || 0, 1); });
     var pf = pfadSpeichern(keys);
     $('profil-satz').textContent = profilSatz(st.profil);
     var ol = $('schritte'); ol.innerHTML = '';
@@ -242,8 +245,11 @@
   }
   $('eintreten').addEventListener('click', function () {
     document.body.classList.add('oeffnet');
-    setTimeout(dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 400 : 1100);
+    // Tür-KI (tuer-ki.js) nur, wenn der Schalter an ist; sonst der bisherige Dialog
+    var ki = window.BTMM_TUER_KI;
+    setTimeout(ki && ki.aktiv() ? ki.start : dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 400 : 1100);
   });
+  window.BTMM_TUER_ALT = { start: dialogStarten, pfad: pfadZeigen, mikStop: stopMik, lang: LANG, basis: BASIS };
   // „Zurück zum Weg“ aus der Pfad-Leiste: direkt die Pfad-Übersicht zeigen
   if (params.has('pfad') && st.fertig) pfadZeigen();
 })();

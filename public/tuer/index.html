@@ -51,9 +51,13 @@
   <p class="fehler-kasten" id="fehler" role="alert" hidden></p>
   <ol class="verlauf" id="verlauf" role="log" aria-live="polite" aria-relevant="additions"></ol>
   <div class="unten">
+  <div class="ki-weg" id="ki-weg" hidden></div>
+  <p class="ki-hinweis" id="ki-hinweis" hidden></p>
+  <div class="ki-start" id="ki-start" hidden><button type="button" class="knopf" id="ki-starten">Mit KI sprechen</button></div>
   <div class="wahl-leiste" id="wahl" hidden></div>
   <form class="eingabe" id="eingabe" autocomplete="off">
     <label for="antwort" class="nur-sr" data-t="antwortLabel">Deine Antwort</label>
+    <input type="text" name="website" id="tuer-website" class="nur-sr" tabindex="-1" autocomplete="off" aria-hidden="true">
     <textarea id="antwort" rows="2" maxlength="600" enterkeyhint="send" placeholder="Schreib oder sprich deine Antwort …" data-t-ph="placeholder" disabled></textarea>
     <button type="button" class="rund mik" id="mik" aria-label="Per Sprache antworten" data-t-aria="mikAria" aria-pressed="false" disabled>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
@@ -90,6 +94,9 @@
 <script src="/tuer/texte-r4.js"></script>
 <script src="/tuer/pfad.js"></script>
 <script src="/tuer/tuer.js"></script>
+<script src="/tuer/ki-schalter.js"></script>
+<script src="/tuer/texte-ki.js"></script>
+<script src="/tuer/tuer-ki.js"></script>
 <script src="/mehr-erfahren.js" defer></script>
 </body>
 </html>

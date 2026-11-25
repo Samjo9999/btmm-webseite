@@ -183,3 +183,13 @@ a{color:var(--lila)}
 [dir=rtl] .blase.antwort{border-bottom-right-radius:18px;border-bottom-left-radius:6px}
 [dir=rtl] .senden svg{transform:scaleX(-1)}
 [dir=rtl] .tuer-rahmen{direction:ltr}
+
+/* Tür-KI (Gesprächsmodus, nur bei Schalter an): KI-Hinweis über dem Eingabefeld, Start-Knopf, Weg/Links */
+.ki-hinweis{margin:0 0 8px;font-size:15px;line-height:1.35;color:var(--grau);border-left:3px solid var(--lila2);padding:4px 0 4px 10px}
+.ki-start{display:flex;justify-content:center;margin:4px 0 10px}
+.ki-start .knopf{min-height:44px}
+.ki-weg{display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:center;margin:0 0 10px}
+.ki-weg .knopf{min-height:44px}
+.ki-links{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;width:100%;font-size:16px}
+.ki-links a{min-height:44px;display:inline-flex;align-items:center}
+.blase.warte{opacity:.7;font-style:italic}
