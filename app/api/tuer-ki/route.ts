@@ -3,7 +3,7 @@ import { loadPublicCorpus } from '@/lib/wissen/loadCorpus'
 import { searchChunks } from '@/lib/wissen/search'
 import { scalewayChat } from '@/lib/wissen/scaleway'
 import { beantworteTuerKi } from '@/lib/tuerKi/handler'
-import { appOrigins, pruefeHerkunft } from '@/lib/tuerKi/herkunft'
+import { appOrigins, clientIpAusHeadern, pruefeHerkunft } from '@/lib/tuerKi/herkunft'
 import { neuerRateZustand, zaehleTuerRateRpc, type TuerRateZustand } from '@/lib/tuerKi/rateLimit'
 import { neuerKostenZustand, type TuerKostenZustand } from '@/lib/tuerKi/kosten'
 
@@ -40,8 +40,7 @@ function herkunft(request: NextRequest) {
 }
 
 function clientIp(request: NextRequest): string {
-  const xff = request.headers.get('x-forwarded-for') || ''
-  return xff.split(',')[0].trim() || request.headers.get('x-real-ip') || ''
+  return clientIpAusHeadern((name) => request.headers.get(name))
 }
 
 export async function OPTIONS(request: NextRequest) {

@@ -44,3 +44,21 @@ export function pruefeHerkunft(origin: string | null, host: string | null, apps:
   }
   return { erlaubt: false, cors: {} }
 }
+
+/**
+ * Client-IP für das Rate-Limit (DS-Bot). Reihenfolge: x-vercel-forwarded-for,
+ * dann x-real-ip, dann der letzte Eintrag von x-forwarded-for, nie der erste.
+ * Klartext-IP nur zum Hashen im Speicher, nie in die DB und nie ins Log.
+ */
+export function clientIpAusHeadern(get: (name: string) => string | null): string {
+  const vercel = (get('x-vercel-forwarded-for') || '').trim()
+  if (vercel) return vercel.split(',')[0].trim()
+  const real = (get('x-real-ip') || '').trim()
+  if (real) return real
+  return letzterWeiterleitungseintrag(get('x-forwarded-for') || '')
+}
+
+function letzterWeiterleitungseintrag(raw: string): string {
+  const teile = String(raw).split(',').map((s) => s.trim()).filter(Boolean)
+  return teile.length ? teile[teile.length - 1] : ''
+}
