@@ -12,7 +12,7 @@
     "titel": "نبذة",
     "beschreibung": "Back to Meaning Maximization هو بديل اقتصادي منظم تعاونياً يجمع بين العمل المتساوي القيمة والبنية التحتية المشتركة والتعاون الدولي في نظام مشترك.",
     "rechtsform_label": "الشكل القانوني",
-    "rechtsform": "تعاونية قيد التأسيس (eG i.Gr.)",
+    "rechtsform": "تعاونية مخطَّط لها (BtMM لم تُؤسَّس بعد)",
     "gruendungsort_label": "مكان التأسيس",
     "gruendungsort": "فرايبورغ، ألمانيا",
     "gruendungsjahr_label": "التأسيس",
@@ -44,7 +44,7 @@
   "kontakt": {
     "titel": "اتصال صحفي",
     "name_label": "جهة الاتصال",
-    "name": "Back to Meaning Maximization eG i.Gr.",
+    "name": "Back to Meaning Maximization eG المخطَّط لها",
     "email_label": "البريد الإلكتروني",
     "email": "office@b-t-m-m.com",
     "hinweis": "نرد عادةً خلال يومي عمل."
