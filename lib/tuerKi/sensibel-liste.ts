@@ -5,7 +5,10 @@
  * diese Datei im Tabu-Wächter (test/aussensicht-tabu.test.mjs) ausdrücklich ausgenommen.
  * Treffer werden nie geloggt, auch nicht das Stichwort.
  * Begriffe mit Wortgrenze gelten nach Umlaut-Normalisierung (ä→ae, ö→oe, ü→ue, Akzente weg).
+ * Wortgrenzen sind Unicode-Lookarounds (?<![\p{L}\p{N}]) / (?![\p{L}\p{N}]) mit Flag u, nicht \b.
  */
+
+import { unicodeWortRegex } from './wortgrenzen.mjs'
 
 /** Besondere Kategorien (Art. 9 DSGVO) und Sozialleistungen, Teilstring-Treffer nach Normalisierung. */
 export const SENSIBEL_STAEMME: readonly string[] = [
@@ -34,69 +37,81 @@ export const SENSIBEL_STAEMME: readonly string[] = [
   'অসুখ', 'গর্ভবতী', 'ক্যান্সার', 'ধর্ম',
   '病気', '診断', '妊娠', '癌', '宗教',
   '疾病', '生病', '诊断', '診斷', '怀孕', '懷孕', '癌症',
+  // Belegte weitere Formen (DS-Bot, optional): Sozialleistung / Identität
+  'пособи', // пособие, пособия (Sozialleistung)
+  'إعانة', // allowance / benefit
+  '低保', // dibao, Mindestsicherung in der VR China
+  '同性恋', // 同性戀, Homosexualität
 ]
 
-/** Ganze Wörter bzw. Wortanfang mit Wortgrenze, um Fehltreffer wie Christoph, besucht, Suchtipp, Vertragspartei zu vermeiden. */
+/** Ganze Wörter bzw. Wortanfang mit Unicode-Wortgrenze, um Fehltreffer wie Christoph, besucht, Suchtipp, Vertragspartei zu vermeiden. */
 export const SENSIBEL_WOERTER: readonly RegExp[] = [
-  /\bpartei(mitglied\w*|zugehoerig\w*|buch)?\b/,
-  /\bgdb\b/,
-  /\biban\b/,
-  /\bhiv\b/,
+  unicodeWortRegex('partei(mitglied\\w*|zugehoerig\\w*|buch)?'),
+  unicodeWortRegex('gdb'),
+  unicodeWortRegex('iban'),
+  unicodeWortRegex('hiv'),
   // Deutsch, Gesundheit und Soziales (Wortgrenze, umlaut-normalisiert)
-  /\baerzt/,
-  /\barzt/,
-  /\bklinik/,
-  /\bkrankenhaus/,
-  /\bdiabetes\b/,
-  /\bburn\s*-?\s*out\b/,
-  /\badhs\b/,
-  /\bautis/,
-  /\ballerg/,
-  /\bsucht\b/,
-  /\boperiert/,
-  /\bpflegebeduerft/,
-  /\balg\s*(ii|2)\b/,
-  /\barbeitslos/,
-  /\bwohngeld\b/,
-  /\bsozialamt\b/,
-  /\bschulden\b/,
+  unicodeWortRegex('aerzt\\p{L}*'),
+  unicodeWortRegex('arzt\\p{L}*'),
+  unicodeWortRegex('klinik\\p{L}*'),
+  unicodeWortRegex('krankenhaus\\p{L}*'),
+  unicodeWortRegex('diabetes'),
+  unicodeWortRegex('burn\\s*-?\\s*out'),
+  unicodeWortRegex('adhs'),
+  unicodeWortRegex('autis\\p{L}*'),
+  unicodeWortRegex('allerg\\p{L}*'),
+  unicodeWortRegex('sucht'),
+  unicodeWortRegex('operiert\\p{L}*'),
+  unicodeWortRegex('pflegebeduerft\\p{L}*'),
+  unicodeWortRegex('alg\\s*(ii|2)'),
+  unicodeWortRegex('arbeitslos\\p{L}*'),
+  unicodeWortRegex('wohngeld'),
+  unicodeWortRegex('sozialamt'),
+  unicodeWortRegex('schulden'),
   // Religion, Weltanschauung, Sexualität
-  /\bmuslim/,
-  /\bislam(?:isch|ismus)?\b/,
-  /\bjude(?:n|ntum)?\b/,
-  /\bjuedisch/,
-  /\bchrist(?:lich|entum|in|en|us)?\b/,
-  /\bbuddhis/,
-  /\bhindu/,
-  /\batheis/,
-  /\bschwul/,
-  /\blesb/,
-  /\bqueer/,
-  /\blgbt/,
+  unicodeWortRegex('muslim\\p{L}*'),
+  unicodeWortRegex('islam(?:isch|ismus)?'),
+  unicodeWortRegex('jude(?:n|ntum)?'),
+  unicodeWortRegex('juedisch\\p{L}*'),
+  unicodeWortRegex('christ(?:lich|entum|in|en|us)?'),
+  unicodeWortRegex('buddhis\\p{L}*'),
+  unicodeWortRegex('hindu\\p{L}*'),
+  unicodeWortRegex('atheis\\p{L}*'),
+  unicodeWortRegex('schwul\\p{L}*'),
+  unicodeWortRegex('lesb\\p{L}*'),
+  unicodeWortRegex('queer\\p{L}*'),
+  unicodeWortRegex('lgbt\\p{L}*'),
   // Parteien nur als ganze Wörter
-  /\b(?:spd|cdu|csu|afd|fdp)\b/,
+  unicodeWortRegex('(?:spd|cdu|csu|afd|fdp)'),
   // Englisch
-  /\bcancer\b/,
-  /\bdoctor\b/,
-  /\bhospital\b/,
-  /\bgay\b/,
-  /\blesbian\b/,
-  /\bjewish\b/,
-  /\bchristian\b/,
-  /\bunemployment\b/,
-  /\bjob\s*-?\s*seekers?\b/,
+  unicodeWortRegex('cancer'),
+  unicodeWortRegex('doctor'),
+  unicodeWortRegex('hospital'),
+  unicodeWortRegex('gay'),
+  unicodeWortRegex('lesbian'),
+  unicodeWortRegex('jewish'),
+  unicodeWortRegex('christian'),
+  unicodeWortRegex('unemployment'),
+  unicodeWortRegex('job\\s*-?\\s*seekers?'),
   // Französisch, Spanisch, Portugiesisch (Akzente sind vor dem Test bereits entfernt)
-  /\bcancro\b/,
-  /\bdiabetes?\b/,
-  /\bmusulman/,
-  /\bhomosexuel/,
-  /\bchomage\b/,
-  /\bdesempleo\b/,
-  /\bdesemprego\b/,
-  /\bmedecin/,
-  /\bmedicos?\b/,
-  // Russisch: рак nur als ganzes Wort
-  /\bрак\b/,
+  unicodeWortRegex('cancro'),
+  unicodeWortRegex('diabetes?'),
+  unicodeWortRegex('musulman\\p{L}*'),
+  unicodeWortRegex('homosexuel\\p{L}*'),
+  unicodeWortRegex('chomage'),
+  unicodeWortRegex('desempleo'),
+  unicodeWortRegex('desemprego'),
+  unicodeWortRegex('medecin\\p{L}*'),
+  unicodeWortRegex('medicos?'),
+  // Russisch: рак und гей nur als ganze Wörter (рак sonst auch „Krebs“ als Tier)
+  unicodeWortRegex('рак'),
+  // й verliert in normalisiere den Breve (NFD) und wird zu и
+  unicodeWortRegex('геи'),
+  // Arabisch, Hindi, Bengalisch (belegte Wörter; Unicode-Wortgrenze, nicht \\b)
+  unicodeWortRegex('مريض'),
+  unicodeWortRegex('बीमार'),
+  unicodeWortRegex('समलैंगिक'),
+  unicodeWortRegex('সমকামী'),
 ]
 
 /** Muster für Kontaktdaten und Kontodaten (auf dem Originaltext, nicht normalisiert). */
@@ -104,7 +119,7 @@ export const SENSIBEL_MUSTER: readonly RegExp[] = [
   // E-Mail
   /[^\s@]+@[^\s@]+\.[a-z]{2,}/i,
   // IBAN (Ländercode + Prüfziffer + mindestens 10 weitere Zeichen, Leerzeichen erlaubt)
-  /\b[A-Z]{2}\d{2}(?:\s?[A-Z0-9]){10,30}\b/,
+  /(?<![\p{L}\p{N}])[A-Z]{2}\d{2}(?:\s?[A-Z0-9]){10,30}(?![\p{L}\p{N}])/u,
   // Telefon: beginnt mit + / 00 / 0 und hat mindestens 8 Ziffern
   /(?:^|[^\d])(?:\+|00|0)\d(?:[\s\/().-]?\d){7,}/,
 ]
@@ -112,5 +127,5 @@ export const SENSIBEL_MUSTER: readonly RegExp[] = [
 /** Tabu-Stämme für die Ausgabe (Nutzerregel): treffen sie, wird die Antwort ersetzt. */
 export const TABU_AUSGABE: readonly RegExp[] = [
   /b(ü|ue)rgergeld/i, /jobcenter/i, /hartz/i, /krankheit/i, /erkrank/i, /elternzeit/i, /schwanger/i,
-  /hildastr/i, /\bkarner/i, /happy\s?farm/i, /elternhof/i, /j\.\s?s\.\s?gartzke/i,
+  /hildastr/i, unicodeWortRegex('karner', 'i'), /happy\s?farm/i, /elternhof/i, /j\.\s?s\.\s?gartzke/i,
 ]
