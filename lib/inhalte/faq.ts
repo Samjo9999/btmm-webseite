@@ -46,6 +46,6 @@ export const FAQ: FaqEintrag[] = [
   {
     frage: 'Wie kann ich mitmachen?',
     antwort:
-      'Komm zu einem offenen Abend oder schreib uns, dass du mitmachen willst: office.btmm@gmail.com.',
+      'Komm zu einem offenen Abend oder schreib uns, dass du mitmachen willst: office@b-t-m-m.com.',
   },
 ]

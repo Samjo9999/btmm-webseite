@@ -16,7 +16,6 @@ import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
 import { TuerWeiche } from '@/components/btmm/TuerWeiche'
-import { HandwerkNutzen } from '@/components/btmm/HandwerkNutzen'
 
 export const dynamic = 'force-dynamic'
 
@@ -194,9 +193,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </div>
         </div>
       </section>
-
-      {/* ── Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) ── */}
-      <HandwerkNutzen locale={locale} kompakt />
 
       {/* ── 3. APP TEASER (Nutzer 20.11.: nur Link + kurze Beschreibung) ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
