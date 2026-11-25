@@ -9,7 +9,7 @@ import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
 import { neuerRateZustand, pruefeTuerRate, pruefePersistenteRate, ipHash, ipHashMitSalt, rateSalt, NACHRICHTEN_PRO_STUNDE, NACHRICHTEN_PRO_TAG, tagesSalz, RATE_SALT_ENV, RATE_RPC_NAME } from '../lib/tuerKi/rateLimit.ts'
 import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../lib/tuerKi/filter.ts'
-import { pruefeHerkunft, appOrigins } from '../lib/tuerKi/herkunft.ts'
+import { pruefeHerkunft, appOrigins, clientIpAusHeadern } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
 import { SCHRITTE_KEYS, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
 import { FESTE_TEXTE, NICHT_VERFUEGBAR } from '../lib/tuerKi/texte.ts'
@@ -528,6 +528,21 @@ test('CORS nur für freigegebene App-Origins, nie "*", fremde Origins abgewiesen
   assert.doesNotMatch(lese('app/api/tuer-ki/route.ts') + quelle, /Allow-Origin['"]?:\s*['"]\*/)
 })
 
+
+test('Client-IP: x-vercel-forwarded-for, sonst x-real-ip, sonst letzter XFF, nie der erste', () => {
+  const kopf = (h) => (name) => (name in h ? h[name] : null)
+  assert.equal(clientIpAusHeadern(kopf({ 'x-vercel-forwarded-for': '203.0.113.9', 'x-real-ip': '198.51.100.1', 'x-forwarded-for': '192.0.2.1, 198.51.100.2' })), '203.0.113.9')
+  assert.equal(clientIpAusHeadern(kopf({ 'x-real-ip': '198.51.100.1', 'x-forwarded-for': '192.0.2.1, 198.51.100.2' })), '198.51.100.1')
+  assert.equal(clientIpAusHeadern(kopf({ 'x-forwarded-for': '192.0.2.1, 203.0.113.8' })), '203.0.113.8')
+  assert.notEqual(clientIpAusHeadern(kopf({ 'x-forwarded-for': '192.0.2.1, 203.0.113.8' })), '192.0.2.1')
+  assert.equal(clientIpAusHeadern(kopf({ 'x-forwarded-for': '  203.0.113.4  ' })), '203.0.113.4')
+  assert.equal(clientIpAusHeadern(kopf({ 'x-vercel-forwarded-for': '  ', 'x-forwarded-for': '192.0.2.1, 203.0.113.7' })), '203.0.113.7')
+  assert.equal(clientIpAusHeadern(kopf({})), '')
+  const route = lese('app/api/tuer-ki/route.ts')
+  assert.match(route, /clientIpAusHeadern/)
+  assert.doesNotMatch(route, /x-forwarded-for.*split\(','\)\[0\]/)
+})
+
 test('Honeypot füllt -> abgewiesen ohne Scaleway', async () => {
   const { d, aufrufe } = deps()
   const r = await beantworteTuerKi({ ...frage('Hallo'), website: 'http://spam' }, d)
@@ -571,6 +586,67 @@ test('Feste Texte: 11 Sprachen, alle Schlüssel, keine Tabu-Wörter, keine Emoji
   assert.match(NICHT_VERFUEGBAR.de, /Sie/)
 })
 
+test('KI-Texte: Sie-Form in allen 11 Sprachen mit Anrede; DSE-Satz unverändert und siezt', () => {
+  const gespräch = ['sensibel', 'ende', 'zuLang', 'ersetzt', 'direktkredit']
+  const duDe = /\b([Dd]u|[Dd]ich|[Dd]ir|[Dd]ein|[Dd]eine|[Dd]einen|[Dd]einem|[Dd]einer|[Dd]eines)\b/
+  const tuFr = /\b([Tt]u|[Tt]on|[Tt]a|[Tt]es|[Tt]oi)\b/
+  const tuEs = /\b(tú|tu|tus|te|ti|contigo)\b/i
+  const tuPt = /\b(tu|teu|tua|teus|tuas|contigo)\b/i
+  const tyRu = /\b(ты|тебя|тебе|тобой|твой|твоя|твоё|твои|твою|твоим|твоих|Ты|Тебя|Тебе|Твой|Твоя|Твоё|Твои)\b/
+  for (const k of gespräch) {
+    assert.doesNotMatch(FESTE_TEXTE.de[k], duDe, 'de.' + k)
+    assert.doesNotMatch(FESTE_TEXTE.fr[k], tuFr, 'fr.' + k)
+    assert.doesNotMatch(FESTE_TEXTE.es[k], tuEs, 'es.' + k)
+    assert.doesNotMatch(FESTE_TEXTE.pt[k], tuPt, 'pt.' + k)
+    assert.doesNotMatch(FESTE_TEXTE.ru[k], tyRu, 'ru.' + k)
+    assert.equal(FESTE_TEXTE.hi[k].includes('तुम'), false, 'hi.' + k)
+    assert.equal(FESTE_TEXTE.bn[k].includes('তোম'), false, 'bn.' + k)
+    assert.equal(FESTE_TEXTE.zh[k].replaceAll('您', '').includes('你'), false, 'zh.' + k)
+  }
+  assert.match(FESTE_TEXTE.de.sensibel, /Ihre Nachricht/)
+  assert.match(FESTE_TEXTE.de.ende, /Ihr Weg/)
+  assert.match(FESTE_TEXTE.fr.sensibel, /votre message/)
+  assert.match(FESTE_TEXTE.es.sensibel, /su mensaje/)
+  assert.match(FESTE_TEXTE.pt.sensibel, /a sua mensagem/)
+  assert.match(FESTE_TEXTE.ru.sensibel, /Ваше сообщение/)
+
+  const ctx = { window: {} }
+  vm.runInNewContext(lese('public/tuer/texte-ki.js'), ctx)
+  const T = ctx.window.BTMM_TUER_KI_TEXTE
+  const flatten = (obj) => JSON.stringify(obj)
+  assert.doesNotMatch(flatten(T.de), duDe)
+  assert.doesNotMatch(flatten(T.fr), tuFr)
+  assert.doesNotMatch(flatten(T.es), tuEs)
+  assert.doesNotMatch(flatten(T.pt), tuPt)
+  assert.doesNotMatch(flatten(T.ru), tyRu)
+  assert.equal(flatten(T.hi).includes('तुम'), false)
+  assert.equal(flatten(T.bn).includes('তোম'), false)
+  assert.equal(flatten(T.zh).replaceAll('您', '').includes('你'), false)
+  assert.match(T.de.kiHinweis, /^Sie sprechen mit einer KI\./)
+  assert.match(T.de.begruessung, /dass Sie da sind/)
+  assert.match(T.fr.kiHinweis, /^Vous parlez/)
+  assert.match(T.es.kiHinweis, /^Está hablando/)
+  assert.match(T.pt.kiHinweis, /^Está a falar/)
+  assert.match(T.ru.kiHinweis, /^Вы общаетесь/)
+  assert.match(T.zh.kiHinweis, /^您正在/)
+
+  const p = baueSystemprompt('de')
+  assert.match(p, /Du siezt \(in anderen Sprachen die höfliche Anrede\)/)
+  assert.doesNotMatch(p, /Du duzt/)
+  assert.match(p, /behalten Sie Ihr Einkommen/)
+  assert.match(p, /Sie zahlen den normalen Preis/)
+  assert.match(p, /Sie behalten Ihre Rente/)
+
+  // DSE-Satz nicht umformuliert; siezt bereits (Ihre), duzt nicht.
+  assert.equal(DSE_IP_SATZ.de, DSE_IP_SATZ_DE)
+  assert.match(DSE_IP_SATZ_DE, /Ihre IP-Adresse/)
+  assert.doesNotMatch(DSE_IP_SATZ_DE, duDe)
+  assert.doesNotMatch(DSE_IP_SATZ.fr, tuFr)
+  assert.doesNotMatch(DSE_IP_SATZ.es, tuEs)
+  assert.doesNotMatch(DSE_IP_SATZ.ru, tyRu)
+  assert.equal(DSE_IP_SATZ.zh.replaceAll('您', '').includes('你'), false)
+})
+
 test('Schritt-Schlüssel der Route = SCHRITTE in public/tuer/pfad.js', () => {
   const ctx = { window: {} }
   vm.runInNewContext(lese('public/tuer/pfad.js'), ctx)
@@ -612,7 +688,7 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
     for (const k of Object.keys(T.de)) assert.ok(T[s][k], `${s}.${k}`)
     assert.doesNotMatch(JSON.stringify(T[s]), new RegExp(TABU.source, 'i'), s)
   }
-  assert.equal(T.de.kiHinweis, 'Du sprichst mit einer KI. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Automatischer Assistent, kein Mensch, keine Beratung.')
+  assert.equal(T.de.kiHinweis, 'Sie sprechen mit einer KI. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Automatischer Assistent, kein Mensch, keine Beratung.')
   assert.equal(T.de.starten, 'Mit KI sprechen')
   assert.equal(T.de.loeschen, 'Gespräch löschen')
   assert.doesNotMatch(JSON.stringify(T.de), /frei/i)
