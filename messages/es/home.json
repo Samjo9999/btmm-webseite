@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Comunidad",
     "gemeinschaft_text": "Las células locales son el corazón de BtMM. Las personas se reúnen, se apoyan mutuamente y construyen juntas su futuro económico.",
     "nachhaltigkeit_titel": "Sostenibilidad",
-    "nachhaltigkeit_text": "Cooperativa en fundación (eG i.Gr.). Pensamiento a largo plazo en lugar de beneficio a corto plazo. BtMM apuesta por estructuras que perduren y crezcan a lo largo de generaciones.",
+    "nachhaltigkeit_text": "BtMM eG planificada. BtMM aún no está fundada. Pensamiento a largo plazo en lugar de beneficio a corto plazo. BtMM apuesta por estructuras que perduren y crezcan a lo largo de generaciones.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -34,7 +34,7 @@
     "pool_titel": "Pool",
     "pool_text": "Recursos compartidos que benefician a cada miembro.",
     "coins_titel": "BtMM-Coins",
-    "coins_text": "Moneda interna para el intercambio de servicios dentro de la comunidad.",
+    "coins_text": "Contabilización interna de servicios. Los coins no son dinero y no se pueden pagar en euros.",
     "workspace_titel": "Workspace",
     "workspace_text": "Espacio de trabajo digital compartido para proyectos y colaboración.",
     "cta": "Descubrir la app",
@@ -54,19 +54,19 @@
   "zellen_alle": "Ver todas las células",
   "mitgliedschaft": {
     "titel": "Membresía",
-    "untertitel": "Dos formas de ser parte de BtMM",
+    "untertitel": "BtMM aún no está fundada. Actualmente no es posible ser miembro.",
     "stufen": [
       {
-        "stufe": "Aprendiz",
-        "preis": "Participación variable",
-        "beschreibung": "Transición a membresía activa",
-        "benefits": "Precios de costo en servicios seleccionados"
+        "stufe": "Conocernos",
+        "preis": "sin adhesión",
+        "beschreibung": "Puedes conocernos antes de que exista una cooperativa.",
+        "benefits": "Sin participación social, sin membresía, sin voto"
       },
       {
-        "stufe": "Miembro Pleno",
-        "preis": "Membresía activa",
-        "beschreibung": "Participación completa",
-        "benefits": "Compensación, derecho a voto, fondo de solidaridad"
+        "stufe": "Adhesión tras la fundación",
+        "preis": "Participación de 100 €",
+        "beschreibung": "Los estatutos previstos solo conocen una membresía, sin nivel de aspirante ni de miembro pleno.",
+        "benefits": "Una persona, un voto; plazo de baja de un año al cierre del ejercicio"
       }
     ]
   }
