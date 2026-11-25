@@ -1,5 +1,5 @@
 {
-  "labelNote": "Strikte Public-Allowlist für index-public.json (Hotfix 24.11.2026, gleicher Satz wie #40 publicSources). Nur diese rels dürfen im öffentlichen Wissens-Index stehen. Satzung, 07-Konzept, 02-recht und 04-finanzen sind bewusst nicht public.",
+  "labelNote": "Strikte Public-Allowlist für index-public.json (Hotfix 24.11.2026, gleicher Satz wie #40 publicSources). Nur diese rels dürfen im öffentlichen Wissens-Index stehen. Satzung, 07-Konzept, 02-recht und 04-finanzen sind bewusst nicht public. Neues Dokument nur nach DS-OK und nur mit exaktem Pfad (keine Globs). Dokument 07 steht bewusst nicht als Ganzes auf dieser Liste; eine gezielte Abschnitt-Ausnahme (Z. 84–113, Präfix „Beispielrechnung:“) setzt der Index-Guard durch.",
   "blacklistPathPatterns": [
     "06-intern",
     "md-intern",
