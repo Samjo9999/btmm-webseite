@@ -16,7 +16,7 @@ Zweck dieser Unterlage: Vorbereitung der Aufnahme in einen Prüfungsverband und 
 
 Gründung: so bald wie möglich, sobald drei Mitglieder da sind (§ 4 GenG). Ein festes Datum gibt es nicht. Die Planzahlen rechnen mit einem Betriebsstart 04/2028 als Rechengröße.
 
-**Grundlagen** (fehlende Angaben sind als [OFFEN] markiert; Finanzplan und Variante sind interne Rechenunterlagen und nicht veröffentlicht):
+**Grundlagen** (Finanzplan und Variante sind interne Rechenunterlagen und nicht veröffentlicht):
 - [S] Satzung (Dokument 08) (v9.1.4, Entwurf)
 - [O] Ordnungen (Dokument 08a) (v2.0.3, Entwurf)
 - [P] Finanzplan v3.10 vom 24.11.2026 (Entwurf, Szenarien REAL / REAL-TURNUS / ZIEL / PESS, 2027–2032), gerechnet mit der Gebührenordnung des Prüfungsverbands: Beitrag 100 €/Jahr, Gründungsprüfung 750 € pauschal, Pflichtprüfung vorsichtig 1.000 € netto je Jahr (Variante REAL-TURNUS: Prüfung im 2-Jahres-Turnus).
@@ -32,7 +32,7 @@ Gründung: so bald wie möglich, sobald drei Mitglieder da sind (§ 4 GenG). Ein
 - **Erstes Geschäftsfeld:** Körperarbeit unter der Marke Back to Balance, zwei Sitzungstage je Woche [P].
 - **Mitglieder:** mindestens 3 zur Gründung; Plan REAL/ZIEL 3 / 4 / 5 / 6 / 6 Mitglieder zum 31.12. 2028–2032, PESS 3 / 3 / 4 / 4 (2029–2032) [P].
 - **Ergebnis REAL 2028–2032:** −4.094 / −1.084 / −82 / +471 / +383 € [P]. Bei Prüfung im 2-Jahres-Turnus: −4.094 / −1.084 / +413 / +1.066 / +978 €. ZIEL −3.520 / +106 / +1.278 / +1.984 / +1.355 €. PESS (Start 04/2029) −13.799 / −9.146 / −9.083 / −9.120 €.
-- **Kapital zur Gründungsversammlung:** Geschäftsanteile der Gründungsmitglieder rund 1.200 € [P]. Zusätzlich ist ein Nachrangdarlehen eingeplant (Planannahme, keine Zusage). Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich. [OFFEN]
+- **Kapital zur Gründungsversammlung:** Geschäftsanteile der Gründungsmitglieder rund 1.200 € [P]. Zusätzlich ist ein Nachrangdarlehen eingeplant (Planannahme, keine Zusage). Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich.
 - **Organe:** Vorstand (bei bis zu 20 Mitgliedern auch eine Person, § 24 Abs. 2 S. 3 GenG), kein Aufsichtsrat (§ 9 Abs. 1 S. 2 GenG), Generalversammlung mit Bevollmächtigtem (§ 39 Abs. 1 S. 2 GenG) (§§ 3–5 [S]).
 
 ## 2 Förderzweck und Mitgliedergeschäft
@@ -66,7 +66,7 @@ Quelle: [V], Variante MG-0. Die Menge von einer Sitzung je Mitglied und Quartal 
 - Das Nichtmitgliedergeschäft überwiegt mit etwa drei Vierteln des Umsatzes; es ist durch die Satzung zugelassen (§ 8 Abs. 1 Nr. 5 GenG, § 1 Abs. 6 [S]).
 - Die Förderung läuft daneben über Arbeit und Einkommen der Mitglieder (die ganze Lohnsumme geht an Mitglieder) und über die gemeinsam getragene Infrastruktur (Kap. 2.2).
 - Ein Mitgliederpreis ist nicht eingeplant. Zur Einordnung: Ein Rabatt von 10 % für Mitglieder (Variante MG-10) senkt das Ergebnis um etwa 80–220 € je Jahr (REAL 2030 / 2031: −267 / +251 €) [V]. Er kommt erst in Frage, wenn das Ergebnis ab dem dritten Jahr mit Puffer positiv ist.
-- Für die Prüfung offen: ob der Verband für das Startfeld einen Mindestanteil an Mitgliedergeschäft erwartet [OFFEN Verband].
+- Für die Prüfung offen: ob der Verband für das Startfeld einen Mindestanteil an Mitgliedergeschäft erwartet.
 
 ### 2.4 Förderung messbar machen (Vorschlag)
 Der Vorstand weist im Lagebericht jährlich aus: Zahl der Mitglieder, bezahlte Stunden und Lohnsumme an Mitglieder, Sitzungen an Mitglieder und Nichtmitglieder, Kosten der gemeinsamen Einrichtungen je Mitglied. Grundlage: monatlicher Bericht nach § 3 Abs. 5 [S]. [Vorschlag, noch nicht in Satzung oder Ordnung]
@@ -81,10 +81,10 @@ Der Vorstand weist im Lagebericht jährlich aus: Zahl der Mitglieder, bezahlte S
 - **Plan:** Gründer 3 × 400 € = 1.200 €, voll bis zur Gründungsversammlung; neue Mitglieder je ein Anteil in zehn Raten à 10 €. Geschäftsguthaben 31.12. REAL/ZIEL 1.200 / 1.300 / 1.400 / 1.500 / 1.500 € (2028–2032), PESS 1.200 / 1.200 / 1.300 / 1.300 € (2029–2032) [P].
 - **Kündigung:** in Textform mit einer Frist von einem Jahr zum Schluss des Geschäftsjahres (§ 6 Abs. 1 [S], § 65 Abs. 2 S. 1 GenG); Auseinandersetzung nach § 73 GenG (§ 6 Abs. 4 [S]).
 - **Wachstumsgrenze:** Aufnahme des 21. Mitglieds nur mit Zustimmung der Generalversammlung, mit vorsorglichen Wahlen und Satzungsänderungen (§ 3 Abs. 4 [S]).
-- **Stand:** 1 von mindestens 3 Gründungsmitgliedern; Mitgliederliste (§ 30 GenG) [OFFEN].
+- **Stand:** 1 von mindestens 3 Gründungsmitgliedern; Mitgliederliste (§ 30 GenG).
 
 ## 5 Organisation und Kontrolle
-- **Vorstand:** von der Generalversammlung gewählt; bei bis zu 20 Mitgliedern auch eine Person (§ 3 Abs. 1 [S], § 24 Abs. 2 S. 3 GenG). Vorstand unbezahlt, nur Organaufgaben [P]. Besetzung [OFFEN].
+- **Vorstand:** von der Generalversammlung gewählt; bei bis zu 20 Mitgliedern auch eine Person (§ 3 Abs. 1 [S], § 24 Abs. 2 S. 3 GenG). Vorstand unbezahlt, nur Organaufgaben [P]. Die Besetzung steht noch nicht fest.
 - **Kein Aufsichtsrat:** Rechte bei der Generalversammlung, Bevollmächtigter für drei Jahre (§ 4 [S], § 9 Abs. 1 S. 2, § 39 Abs. 1 S. 2 GenG).
 - **Zustimmungsvorbehalte:** Kredite und Nachrang über den jährlichen Kreditrahmen, Investitionen und Dauerschuldverhältnisse über festgesetzte Beträge (§ 5 Abs. 7 [S], § 27 Abs. 1 S. 2 GenG). Nachrang nur mit qualifiziertem Rangrücktritt.
 - **Frühwarnung:** monatlicher Bericht gegen den beschlossenen Mindestpfad; sechs Monate darunter führen zur Einberufung der Generalversammlung und zu einem Ausgabenstopp (§ 3 Abs. 5 [S], § 12 [O]).
