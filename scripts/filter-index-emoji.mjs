@@ -31,7 +31,9 @@ for (const rel of EMOJI_INDEX_DATEIEN) {
     console.error(`${rel}: ${nachher} Treffer uebrig`)
     process.exit(1)
   }
-  if (vorher) writeFileSync(file, JSON.stringify(sauber))
-  console.log(`${rel}: ${vorher} Treffer vorher, ${nachher} nachher`)
+  const vorherJson = JSON.stringify(payload)
+  const nachherJson = JSON.stringify(sauber)
+  if (vorherJson !== nachherJson) writeFileSync(file, nachherJson)
+  console.log(`${rel}: ${vorher} Treffer vorher, ${nachher} nachher${vorherJson !== nachherJson ? ', geschrieben' : ''}`)
 }
 if (offen) process.exit(1)

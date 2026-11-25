@@ -32,7 +32,7 @@ test('U+FE0F wird gestrichen, Warnzeichen mit Variantenselektor wird gemappt', (
 
 test('uebrige Emojis werden entfernt, doppelte Leerzeichen geglaettet', () => {
   assert.equal(entferneEmojis('Hallo \u{1F389} Welt'), 'Hallo Welt')
-  assert.equal(entferneEmojis('\u{1F7E1} gelb'), 'gelb')
+  assert.equal(entferneEmojis('\u{1F7E1} gelb'), '[prüfen] gelb')
   assert.equal(entferneEmojis('\u2605 Stern'), 'Stern')
   assert.equal(entferneEmojis('Flagge \u{1F1E9}\u{1F1EA} Text'), 'Flagge Text')
   assert.equal(entferneEmojis('Familie \u{1F468}\u200D\u{1F469}\u200D\u{1F467} ok'), 'Familie ok')
@@ -49,7 +49,7 @@ test('Pfeile, Einzug und Tabellen bleiben', () => {
 })
 
 test('Mapping setzt ein Leerzeichen, wenn Text direkt folgt', () => {
-  assert.equal(entferneEmojis('\u274CNein'), '[nein] Nein')
+  assert.equal(entferneEmojis('\u274CFehler'), '[nein] Fehler')
   assert.equal(entferneEmojis('\u274C.'), '[nein].')
 })
 
@@ -60,6 +60,45 @@ test('Tiefenfilter und Zaehler arbeiten auf Werten, nicht auf Schluesseln', () =
   assert.deepEqual(sauber, { a: ['[erledigt] x', { b: '[offen] y' }], n: 3, k: null })
   assert.equal(zaehleEmojisTief(sauber), 0)
   assert.equal(zaehleEmojis('ohne'), 0)
+})
+
+
+test('Ampel-Mapping: gelb/gruen/rot', () => {
+  assert.equal(entferneEmojis('\u{1F7E1} unsicher'), '[prüfen] unsicher')
+  assert.equal(entferneEmojis('\u{1F7E2} gut'), '[ok] gut')
+  assert.equal(entferneEmojis('\u{1F534} schlecht'), '[kritisch] schlecht')
+})
+
+test('Glaettung: Klammer, Komma, doppelte Leerzeichen', () => {
+  assert.equal(
+    entferneEmojis('( \u{1F7E1} Steuerberatung und Fachprüfung'),
+    '([prüfen] Steuerberatung und Fachprüfung',
+  )
+  assert.equal(
+    entferneEmojis('9. November 2026, \u{1F7E1}, nicht rechtssicher'),
+    '9. November 2026, [prüfen], nicht rechtssicher',
+  )
+  assert.equal(
+    entferneEmojis('Marktpreisen \u{1F7E1}, getrennte Kassen'),
+    'Marktpreisen [prüfen], getrennte Kassen',
+  )
+  assert.equal(entferneEmojis('( \u{1F389} Steuerberatung'), '(Steuerberatung')
+  assert.equal(entferneEmojis('2026, \u{1F389}, nicht rechtssicher'), '2026, nicht rechtssicher')
+  assert.equal(entferneEmojis('Marktpreisen \u{1F389}, getrennte'), 'Marktpreisen, getrennte')
+})
+
+test('Doppelung nach Abbildung: nur das Wort bleibt', () => {
+  assert.equal(entferneEmojis('\u26A0 Achtung'), 'Achtung')
+  assert.equal(entferneEmojis('\u26A0 achtung'), 'achtung')
+  assert.equal(entferneEmojis('\u26A0 Achtung:'), 'Achtung:')
+  assert.equal(entferneEmojis('\u26A0: Achtung'), 'Achtung')
+  assert.equal(entferneEmojis('\u{1F7E1} prüfen'), 'prüfen')
+  assert.equal(entferneEmojis('\u{1F7E1} Prüfen'), 'Prüfen')
+  assert.equal(entferneEmojis('\u{1F7E2} ok'), 'ok')
+  assert.equal(entferneEmojis('\u{1F534} kritisch'), 'kritisch')
+  assert.equal(entferneEmojis('\u2610 offen'), 'offen')
+  assert.equal(entferneEmojis('\u274CNein'), 'Nein')
+  assert.equal(entferneEmojis('\u26A0 Hinweis'), '[Achtung] Hinweis')
 })
 
 test('gebaute Indizes: 0 Treffer in U+1F300-1FAFF, U+2600-27BF und U+FE0F', () => {
@@ -92,7 +131,7 @@ test('Post-Process-Skript: saeubert Dateien, --check schlaegt bei Treffern an', 
   const check2 = spawnSync(process.execPath, [skript, '--check'], { encoding: 'utf8' })
   assert.equal(check2.status, 0)
   const out = JSON.parse(readFileSync(join(tmp, EMOJI_INDEX_DATEIEN[0]), 'utf8'))
-  assert.equal(out.chunks[0].text, '[offen] offen fertig')
+  assert.equal(out.chunks[0].text, 'offen fertig')
 })
 
 test('Antwortfilter: extraktive Antwort enthaelt keine Emojis', () => {

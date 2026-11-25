@@ -10,7 +10,7 @@ describe('Emoji-Filter', () => {
   })
   it('entfernt uebrige Emojis und glaettet Leerzeichen', () => {
     expect(entferneEmojis('a \u{1F389}  b')).toBe('a b')
-    expect(entferneEmojis('\u{1F7E1} x')).toBe('x')
+    expect(entferneEmojis('\u{1F7E1} x')).toBe('[prüfen] x')
   })
   it('laesst Pfeile stehen', () => {
     expect(entferneEmojis('a \u2192 b')).toBe('a \u2192 b')
@@ -19,5 +19,30 @@ describe('Emoji-Filter', () => {
     const out = filterEmojisTief({ chunks: [{ text: '\u2610 \u{1F389}' }] })
     expect(zaehleEmojisTief(out)).toBe(0)
     expect(out.chunks[0].text).toBe('[offen]')
+  })
+  it('mappt Ampeln und glaettet Luecken', () => {
+    expect(entferneEmojis('\u{1F7E1} unsicher')).toBe('[prüfen] unsicher')
+    expect(entferneEmojis('\u{1F7E2} gut')).toBe('[ok] gut')
+    expect(entferneEmojis('\u{1F534} schlecht')).toBe('[kritisch] schlecht')
+    expect(entferneEmojis('( \u{1F7E1} Steuerberatung und Fachprüfung')).toBe(
+      '([prüfen] Steuerberatung und Fachprüfung',
+    )
+    expect(entferneEmojis('9. November 2026, \u{1F7E1}, nicht rechtssicher')).toBe(
+      '9. November 2026, [prüfen], nicht rechtssicher',
+    )
+    expect(entferneEmojis('Marktpreisen \u{1F7E1}, getrennte Kassen')).toBe(
+      'Marktpreisen [prüfen], getrennte Kassen',
+    )
+    expect(entferneEmojis('( \u{1F389} Steuerberatung')).toBe('(Steuerberatung')
+    expect(entferneEmojis('2026, \u{1F389}, nicht')).toBe('2026, nicht')
+    expect(entferneEmojis('Marktpreisen \u{1F389}, getrennte')).toBe('Marktpreisen, getrennte')
+  })
+  it('entfernt Doppelung, wenn nach der Abbildung dasselbe Wort folgt', () => {
+    expect(entferneEmojis('\u26A0 Achtung')).toBe('Achtung')
+    expect(entferneEmojis('\u26A0 achtung')).toBe('achtung')
+    expect(entferneEmojis('\u26A0 Achtung:')).toBe('Achtung:')
+    expect(entferneEmojis('\u{1F7E1} prüfen')).toBe('prüfen')
+    expect(entferneEmojis('\u274CNein')).toBe('Nein')
+    expect(entferneEmojis('\u26A0 Hinweis')).toBe('[Achtung] Hinweis')
   })
 })

@@ -8,11 +8,19 @@
  *   U+2713 U+2714 U+2705 -> [erledigt]
  *   U+274C            -> [nein]
  *   U+26A0            -> [Achtung]
+ *   U+1F7E1           -> [prüfen]
+ *   U+1F7E2           -> [ok]
+ *   U+1F534           -> [kritisch]
  *   U+FE0F            -> gestrichen
  *   alle uebrigen Emojis (U+1F300-1FAFF, U+2600-27BF und ein paar
  *   weitere reine Emoji-Bloecke) -> entfernt
  * Typografische Pfeile (U+2190 ff.) bleiben. Ausnahme im Bereich 2600-27BF:
  * die eingekreisten Ziffern U+2776-2793 sind keine Emojis und bleiben.
+ *
+ * Nach der Abbildung: folgt direkt dasselbe Wort (Gross/klein egal,
+ * optional mit Doppelpunkt), bleibt nur das Wort.
+ * Anschliessend Glaettung: "( " -> "(", " ," -> ",", ", ," -> ",",
+ * doppelte Leerzeichen.
  *
  * Der Code selbst enthaelt keine Emoji-Zeichen (nur \u-Escapes).
  */
@@ -24,7 +32,16 @@ export const EMOJI_MAPPING = Object.freeze({
   '\u2705': '[erledigt]',
   '\u274C': '[nein]',
   '\u26A0': '[Achtung]',
+  '\u{1F7E1}': '[prüfen]',
+  '\u{1F7E2}': '[ok]',
+  '\u{1F534}': '[kritisch]',
 })
+
+const LABEL_WORTE = [...new Set(Object.values(EMOJI_MAPPING).map((s) => s.slice(1, -1)))]
+const DOPPELUNG_RX = new RegExp(
+  `\\[(${LABEL_WORTE.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')})\\]:?[ \\t]+([\\p{L}]+)(:)?`,
+  'giu',
+)
 
 // Bereiche aus dem Auftrag plus reine Emoji-Bloecke (Flaggen, Karten, Uhr, Wiedergabe, Sterne).
 const RANGES =
@@ -53,6 +70,27 @@ export function hatEmojis(text) {
   return ANY_RX.test(String(text ?? ''))
 }
 
+function gleicheWortDoppelungEntfernen(s) {
+  return s.replace(DOPPELUNG_RX, (all, label, wort, colon = '') => {
+    if (label.toLocaleLowerCase('de') === wort.toLocaleLowerCase('de')) {
+      return wort + (colon || '')
+    }
+    return all
+  })
+}
+
+function glaette(s) {
+  let prev
+  do {
+    prev = s
+    s = s.replace(/,[ \t]*,/g, ',')
+    s = s.replace(/[ \t],/g, ',')
+    s = s.replace(/\([ \t]+/g, '(')
+    s = s.replace(/[ \t]{2,}/g, ' ')
+  } while (s !== prev)
+  return s
+}
+
 function ersetzeZeile(zeile) {
   if (!ANY_RX.test(zeile)) return zeile
   const einzug = /^[ \t]*/.exec(zeile)[0]
@@ -63,7 +101,8 @@ function ersetzeZeile(zeile) {
     const next = ganz.charAt(offset + m.length)
     return /[\p{L}\p{N}]/u.test(next) ? `${ersatz} ` : ersatz
   })
-  const koerper = s.trim().replace(/[ \t]{2,}/g, ' ')
+  s = gleicheWortDoppelungEntfernen(s)
+  const koerper = glaette(s.trim())
   return koerper ? einzug + koerper : ''
 }
 
