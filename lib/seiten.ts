@@ -5,7 +5,7 @@ import type { Metadata } from 'next'
 import { BRAND_FULL } from '@/lib/brand'
 
 export const SITE_URL = 'https://b-t-m-m.com'
-export const KONTAKT_MAIL = 'office.btmm@gmail.com'
+export const KONTAKT_MAIL = 'office@b-t-m-m.com'
 
 export type Seite = {
   pfad: string
