@@ -43,8 +43,8 @@ export default function Seite({ params: { locale } }: P) {
           </div>
         </Abschnitt>
         <Abschnitt titel="Was ist das Ziel?">
-          <p>Später wollen wir gemeinsame Betriebe und Häuser, die nie verkauft werden. Das Ergebnis eines Betriebs wird nach einer festen Reihenfolge verteilt, der Kaskade (Satzung § 11): zuerst Rücklage, dann gleicher Grundlohn, dann der Überschuss für Bonus, Eigentum und Soziales/Öko.</p>
-          <Offen>Wie wir am Anfang zusammenarbeiten, ohne aus Versehen gemeinsam für Schulden zu haften, klären wir mit Fachleuten, bevor wir mehr Leute aufnehmen. Die Satzung (v7.32.0) ist noch nicht rechtlich geprüft.</Offen>
+          <p>Später wollen wir gemeinsame Betriebe und Häuser in der geplanten Genossenschaft. Wie ein Betriebsüberschuss verteilt werden soll, beschreibt das Konzept; in der Außen-Satzung v9.1.4 steht das nicht. Entwurf, keine Zusage.</p>
+          <Offen>Wie wir vor der Gründung zusammenarbeiten, ohne aus Versehen gemeinsam für Schulden zu haften, klären wir mit Fachleuten. Die Satzung der geplanten BtMM eG (Entwurf v9.1.4) ist noch nicht beschlossen und kann sich ändern. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.</Offen>
         </Abschnitt>
         <p style={{ marginTop: '2rem' }}><Knopf link={href(locale, 'mitmachen')}>Mitmachen</Knopf></p>
         <WeiterLinks locale={locale} seiten={['wasDuSparst', 'kosten', 'offeneFragen', 'glossar']} />

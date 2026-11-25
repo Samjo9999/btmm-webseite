@@ -92,10 +92,10 @@ export default async function NachhaltigkeitPage() {
               color: 'var(--btb-rot)',
               marginBottom: '1rem',
             }}>
-              1. Rechtsform: Genossenschaft (in Gründung)
+              1. Rechtsform: geplante Genossenschaft
             </h3>
             <p style={{ lineHeight: 1.8, fontSize: '1rem', marginBottom: '1rem' }}>
-              <strong>Die Genossenschaft in Gründung (eG i.Gr.)</strong> hat eine einzige Prämisse: Sie soll niemals an Externe verkauft werden können. Wer raus geht, geht raus. Die Anteile folgen nicht. Das ist nicht ein Risikoschutz — das ist ein struktureller Schutz vor Übernahme, Privatisierung, Börsengang.
+              <strong>Die geplante BtMM eG</strong> ist noch nicht gegründet. Ziel ist eine eingetragene Genossenschaft, die nicht an Externe verkauft wird. Nach dem Satzungsentwurf kannst du die Mitgliedschaft in Textform mit einer Frist von einem Jahr zum Schluss eines Geschäftsjahres kündigen (Satzung § 6 Abs. 1). Das Geschäftsguthaben wird nach dem Ausscheiden nach § 73 GenG in Euro ausgezahlt (Satzung § 6 Abs. 4). Maßgeblich ist die Bilanz zum Ausscheiden; bei Verlusten kann das Guthaben unter dem eingezahlten Betrag liegen. Das ist ein Entwurf, noch nicht beschlossen, und kann sich ändern. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich. Der Ausschluss eines Verkaufs an Externe ist kein Risikoschutz, sondern ein struktureller Schutz vor Übernahme, Privatisierung und Börsengang.
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1rem' }}>
               Ergebnis: Ein System, das langfristig stabilität garantiert — nicht durch Verträge, sondern durch Rechtsform.
