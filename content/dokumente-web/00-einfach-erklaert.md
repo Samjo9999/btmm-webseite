@@ -135,7 +135,7 @@ Das klärt kein Papier. Das klären die ersten drei Menschen und die ersten zwö
 | mehr über die Idee wissen willst | 01 Einführung (rund zehn Minuten) | 07 Vollkonzept, Kapitel 1 und 2 |
 | in Freiburg lebst und zu den ersten drei gehören oder die Gründung mittragen willst | 03 Einladung zur Gründung | 04 Wirtschaften im System |
 | mit zwei oder drei anderen an deinem Ort anfangen willst, bevor es eine Genossenschaft gibt | 29 Der Keim | 03 Einladung zur Gründung |
-| wissen willst, wie man Mitglied wird und was es dir bringt | 28 So wirst du Mitglied | 25 Ehrliche Bilanz; 08 Satzung, § 4 und § 5 |
+| wissen willst, wie man Mitglied wird und was es dir bringt | 28 So wirst du Mitglied | 25 Ehrliche Bilanz; 08 Satzung (Entwurf v9.1.4); 28 ist Konzept, nicht Teil der Satzung v9.1.4 |
 | woanders wohnst und trotzdem dabei sein willst | 02 Aufruf zur Beteiligung | 06 Gute Gründe, Teil 2: so sparst du selbst |
 | wissen willst, wie es sich im Alltag anfühlt | 05 Leben im System | 04 Wirtschaften im System |
 | alles genau wissen und nachrechnen willst | 07 Vollkonzept | 09 BtMM-Rechner |
