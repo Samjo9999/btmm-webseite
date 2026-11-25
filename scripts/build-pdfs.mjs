@@ -200,7 +200,7 @@ async function main() {
 
             /* Footer */
             body::after {
-              content: 'Back to Meaning Maximization · backtobalance.online';
+              content: 'Back to Meaning Maximization · b-t-m-m.com';
               display: block;
               text-align: center;
               font-size: 0.75rem;
@@ -220,11 +220,11 @@ async function main() {
         if (pdf?.content) {
           await writeFile(outputPath, pdf.content);
           generated++;
-          console.log(`✓ Generated: ${slug}.pdf`);
+          console.log(`OK: Generated: ${slug}.pdf`);
           continue;
         }
       } catch (e) {
-        console.log(`  ⚠ Could not generate ${slug}.pdf: ${e.message}`);
+        console.log(`  Warnung: Could not generate ${slug}.pdf: ${e.message}`);
       }
     }
 

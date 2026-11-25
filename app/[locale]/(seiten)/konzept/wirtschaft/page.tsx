@@ -4,6 +4,7 @@ import { getTranslations } from 'next-intl/server'
 import Link from 'next/link'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
+import { HandwerkNutzen } from '@/components/btmm/HandwerkNutzen'
 
 export const dynamic = 'force-dynamic'
 
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description: 'Pool, Dreiteilung, BtMM-Coin, EK-Preis-Vorteil und Modellrechnungen: Das wirtschaftliche Fundament von Back to Meaning Maximization.',
 }
 
-export default async function WirtschaftPage() {
+export default async function WirtschaftPage({ params: { locale } }: { params: { locale: string } }) {
   const t = await getTranslations('konzept')
 
   return (
@@ -57,6 +58,11 @@ export default async function WirtschaftPage() {
         </div>
       </section>
 
+      {/* Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) */}
+      <div style={{ background: 'var(--btb-weiss)' }}>
+        <HandwerkNutzen locale={locale} />
+      </div>
+
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
         <div className="container-btb prose-btb" style={{ maxWidth: 800 }}>
 
@@ -90,7 +96,7 @@ export default async function WirtschaftPage() {
               marginBottom: '2rem',
             }}>
               {['verguetung', 'reinvest', 'sozial'].map((key) => (
-                <div key={key} className="card-btb" style={{ borderLeft: '4px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
+                <div key={key} className="card-btb" style={{ borderTop: '3px solid var(--btb-oliv)', paddingLeft: '1.5rem' }}>
                   <p style={{ fontWeight: 600, lineHeight: 1.6, fontSize: '0.95rem' }}>
                     {t(`wirtschaft.dreiteilung_${key}`)}
                   </p>
@@ -117,7 +123,7 @@ export default async function WirtschaftPage() {
             <p style={{ lineHeight: 1.8, marginBottom: '1rem' }}>{t('wirtschaft.coins_text')}</p>
             <p style={{ lineHeight: 1.8, marginBottom: '1.5rem' }}>{t('wirtschaft.coins_detail')}</p>
             <blockquote style={{
-              borderLeft: '4px solid var(--btb-oliv)',
+              borderTop: '3px solid var(--btb-oliv)',
               paddingLeft: '1.5rem',
               fontStyle: 'italic',
               color: 'var(--btb-dunkel)',

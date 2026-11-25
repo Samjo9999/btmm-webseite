@@ -1,0 +1,102 @@
+/* BtMM Tür, PR #38 Runde 3 (24.11.2026): Schritte „ruhestand“ und „unterstuetzen“ (Zielseiten /fuer-dich/ruhestand, /fuer-dich/unterstuetzen)
+ * und allgemeinere Schlagworte. Wird nach texte.js und texte-luecken.js geladen.
+ * Schlagworte = allgemeiner Alltagswortschatz (Berufe, Branchen, Lebenslagen), nicht aus den Test-Antworten abgeleitet;
+ * gegengeprüft mit einer getrennten Kontroll-Bank im Persona-Harness. de/en sorgfältig, übrige sinngemäß. Tabufrei. */
+(function (w) {
+  'use strict';
+  var T = w.BTMM_TUER_TEXTE; if (!T) return;
+  var S = {
+    de: { w: ['Ausbildung oder Berufseinstieg', 'Familie mit Kindern', 'Beruflicher Wechsel', 'Ruhestand', 'Lieber nicht sagen'], s: { ruhestand: ['Im Ruhestand: Erfahrung weitergeben (im Aufbau)', 'Wie Erfahrung im Zeit-Tausch zählt, wie Wissen weitergegeben wird und warum Notgroschen und Altersvorsorge nicht in Direktkredite gehören.'],
+               unterstuetzen: ['Unterstützen, ohne Mitglied zu sein', 'Mit Fähigkeiten, Zeit oder Geld: ein eigener, vollwertiger Weg, und was du dabei beachten solltest.'] },
+          b: { ruhestand: 'Weil du im Ruhestand bist oder bald gehst', unterstuetzen: 'Weil du BtMM unterstützen möchtest' },
+          e: { ruhestand: 'Für Erfahrung aus einem langen Berufsleben ist bei BtMM ein Platz geplant.', unterstuetzen: 'Unterstützen ist bei BtMM ein eigener, vollwertiger Weg.' },
+          m: { ruhestand: 'du bist im Ruhestand oder auf dem Weg dorthin', unterstuetzen: 'du möchtest unterstützen' },
+          k: { ruhestand: ['ruhestand', 'rente', 'rentner', 'pensioniert', 'pensionär', 'im alter', 'lebensabend', 'enkel', 'nicht mehr arbeite', 'aufhören zu arbeiten', 'höre auf zu arbeiten', 'höre bald auf', 'vorruhestand', 'senior'],
+               unterstuetzen: ['unterstütz', 'förder', 'voranbringen', 'rückenwind', 'geld übrig', 'sinnvoll einsetzen', 'ehrenamt', 'euch helfen', 'kann ich helfen', 'möchte helfen', 'will helfen', 'helfen ohne', 'mit meinem wissen', 'ohne mitglied', 'ohne selbst'] },
+          x: { arbeiten: ['bäcker', 'konditor', 'fleischer', 'metzger', 'friseur', 'kfz', 'mechani', 'mechatroni', 'elektroni', 'steinmetz', 'raumausstatt', 'polster', 'gärtner', 'schornstein', 'glaser', 'klempner', 'heizung', 'lüftung', 'maurer', 'stuckateur', 'schlosser', 'schweiß', 'sattler', 'schuhmacher', 'goldschmied', 'optiker', 'zahntechni', 'parkett', 'bodenleger', 'gerüst', 'karosserie', 'gelernt', 'handwerker', 'halle', 'reparaturen',
+                               'restaurant', 'gastro', 'café', 'cafe', 'bistro', 'hotel', 'buchhandlung', 'einzelhandel', 'großhandel', 'start-up', 'startup', 'gmbh', 'praxis', 'kanzlei', 'büro', 'mitarbeiter', 'angestellte', 'beschäftigte', 'personal', 'filiale', 'umsatz', 'rechtsform', 'betreibe', 'mir gehört', 'unternehmerin',
+                               'lektor', 'texter', 'journalist', 'übersetz', 'designer', 'grafik', 'fotograf', 'musiker', 'künstler', 'kurse', 'trainer', 'coach', 'berater', 'hebamme', 'therapeut', 'dozent', 'eigene rechnung', 'honorar', 'auftraggeber', 'kleinunternehm'],
+               kunde: ['kaufe ', 'zu kaufen', 'etwas kaufen', 'buchen', 'hofladen', 'brauche jemanden', 'renovier', 'sanier', 'regional', 'produkte', 'bestell', 'preis-leistung', 'bietet ihr', 'ihr anbietet', 'dienstleistung', 'in auftrag', 'reparieren lassen'],
+               skeptisch: ['glaube nicht', 'glaub ich nicht', 'glaube erst', 'garantie', 'garantiert', 'sekte', 'schneeball', 'abzocke', 'masche', 'seriös', 'nachweis', 'verantwortlich', 'unabhängig', 'risiko', 'zahlen sehen', 'die zahlen', 'klappt', 'hinterfrag', 'vorsichtig', 'wie verdient', 'wer verdient'],
+               gruenden: ['von anfang an', 'zu den ersten', 'beim start', 'mitgestalten', 'erste mitglieder'],
+               sparen: ['ausgaben', 'senken', 'sparsam', 'bezahlbar', 'inflation', 'leisten können'],
+               sinn: ['miteinander', 'gegenseitig', 'gemeinwohl', 'alternativ'],
+               neugierig: ['spannend', 'davon gehört', 'konzept', 'was ihr macht', 'mehr wissen'],
+               einstieg: ['lehre', 'studium', 'studiere', 'student', 'hochschule', 'berufsanfänger', 'ersten job', 'erster job', 'erste job', 'neu im beruf', 'arbeitsleben', 'trainee', 'volontari', 'duales', 'schulabschluss', 'nach der schule', 'abitur'],
+               lebensphase: ['familie', 'kind', 'tochter', 'sohn', 'baby', 'nachwuchs', 'alleinerziehend', 'zu dritt', 'zu viert', 'zu fünft', 'verheiratet', 'wechsel', 'umorientier', 'neuanfang', 'neustart', 'neu anfangen', 'umschul', 'wandel', 'veränderung', 'läuft aus', 'kündig', 'auszeit', 'sabbatical', 'etwas neues', 'zweite karriere'] } },
+    en: { w: ['Training or first job', 'Family with children', 'Career change', 'Retirement', 'Rather not say'], s: { ruhestand: ['In retirement: passing on experience (being set up)', 'How experience counts in the time exchange, how knowledge is passed on, and why emergency savings and retirement provision do not belong in direct loans.'],
+               unterstuetzen: ['Support without being a member', 'With skills, time or money: a path of its own, of full value, and what to keep in mind.'] },
+          b: { ruhestand: 'Because you are retired or about to retire', unterstuetzen: 'Because you would like to support BtMM' },
+          e: { ruhestand: 'BtMM plans a place for experience from a long working life.', unterstuetzen: 'Supporting is a path of its own at BtMM, of full value.' },
+          m: { ruhestand: 'you are retired or on your way there', unterstuetzen: 'you would like to support' },
+          k: { ruhestand: ['retire', 'pension', 'old age', 'grandchild', 'no longer work', 'stop working', 'senior'],
+               unterstuetzen: ['support', 'donat', 'sponsor', 'help you', 'can i help', 'want to help', 'contribute', 'volunteer', 'spare money', 'without being a member'] },
+          x: { arbeiten: ['baker', 'butcher', 'hairdresser', 'mechanic', 'electrician', 'plumber', 'carpenter', 'joiner', 'painter', 'roofer', 'gardener', 'stonemason', 'welder', 'tradesman', 'craftsman', 'workshop', 'restaurant', 'cafe', 'shop', 'store', 'startup', 'company', 'employees', 'staff', 'owner', 'practice', 'freelance', 'self-employed', 'consultant', 'designer', 'translator', 'photographer', 'musician', 'coach', 'therapist'],
+               kunde: ['buy', 'purchase', 'book a', 'place an order', 'to order', 'customer', 'products', 'renovat', 'repair', 'local produce'],
+               skeptisch: ['sceptic', 'skeptic', "don't believe", 'doubt', 'guarantee', 'scam', 'cult', 'pyramid', 'risk', 'proof', 'evidence', 'the numbers', 'who is behind'],
+               einstieg: ['apprentice', 'training', 'graduate', 'student', 'first job', 'just started', 'internship', 'trainee', 'career start'],
+               lebensphase: ['family', 'child', 'kids', 'daughter', 'son', 'baby', 'single parent', 'career change', 'new job', 'reorient', 'transition', 'contract ends', 'sabbatical'] } },
+    fr: { w: ['Apprenti ou premier emploi', 'Famille avec enfants', 'Reconversion professionnelle', 'Retraite', 'Je préfère ne pas le dire'], x: { lebensphase: ['famille', 'enfant'] }, s: { ruhestand: ['À la retraite : transmettre son expérience (en construction)', 'Comment l’expérience compte dans l’échange de temps, comment le savoir se transmet, et pourquoi l’épargne de secours et la retraite n’ont rien à faire dans les prêts directs.'],
+               unterstuetzen: ['Soutenir sans être membre', 'Avec des compétences, du temps ou de l’argent : une voie à part entière, et ce qu’il faut savoir.'] },
+          b: { ruhestand: 'Parce que tu es à la retraite ou bientôt', unterstuetzen: 'Parce que tu veux soutenir BtMM' },
+          e: { ruhestand: 'BtMM prévoit une place pour l’expérience d’une longue vie professionnelle.', unterstuetzen: 'Soutenir est une voie à part entière chez BtMM.' },
+          m: { ruhestand: 'tu es à la retraite ou en chemin', unterstuetzen: 'tu veux soutenir' },
+          k: { ruhestand: ['retraite', 'retraité', 'petits-enfants'], unterstuetzen: ['soutenir', 'soutien', 'aider', 'bénévol', 'contribuer'] } },
+    es: { w: ['Aprendiz o primer trabajo', 'Familia con hijos', 'Cambio de trabajo', 'Jubilación', 'Prefiero no decirlo'], x: { lebensphase: ['familia'] }, s: { ruhestand: ['En la jubilación: transmitir experiencia (en construcción)', 'Cómo cuenta la experiencia en el intercambio de tiempo, cómo se transmite el conocimiento y por qué el colchón de emergencia y la jubilación no van en préstamos directos.'],
+               unterstuetzen: ['Apoyar sin ser miembro', 'Con habilidades, tiempo o dinero: un camino propio y de pleno valor, y qué tener en cuenta.'] },
+          b: { ruhestand: 'Porque estás jubilado o lo estarás pronto', unterstuetzen: 'Porque quieres apoyar a BtMM' },
+          e: { ruhestand: 'BtMM prevé un lugar para la experiencia de una larga vida laboral.', unterstuetzen: 'Apoyar es un camino propio en BtMM.' },
+          m: { ruhestand: 'estás jubilado o en camino', unterstuetzen: 'quieres apoyar' },
+          k: { ruhestand: ['jubila', 'pensionista', 'nietos'], unterstuetzen: ['apoyar', 'ayudar', 'voluntari', 'contribuir'] } },
+    pt: { w: ['Aprendiz ou primeiro emprego', 'Família com filhos', 'Mudança de profissão', 'Reforma', 'Prefiro não dizer'], x: { lebensphase: ['família'] }, s: { ruhestand: ['Na reforma: passar a experiência (em construção)', 'Como a experiência conta na troca de tempo, como se passa conhecimento e porque a reserva de emergência e a reforma não pertencem a empréstimos diretos.'],
+               unterstuetzen: ['Apoiar sem ser membro', 'Com competências, tempo ou dinheiro: um caminho próprio e de pleno valor, e o que ter em conta.'] },
+          b: { ruhestand: 'Porque estás reformado ou quase', unterstuetzen: 'Porque queres apoiar a BtMM' },
+          e: { ruhestand: 'A BtMM prevê um lugar para a experiência de uma longa vida profissional.', unterstuetzen: 'Apoiar é um caminho próprio na BtMM.' },
+          m: { ruhestand: 'estás reformado ou a caminho', unterstuetzen: 'queres apoiar' },
+          k: { ruhestand: ['reforma', 'aposentad', 'netos'], unterstuetzen: ['apoiar', 'ajudar', 'voluntári', 'contribuir'] } },
+    ru: { w: ['Ученик или первая работа', 'Семья, дети', 'Переход на новую работу', 'Пенсия', 'Не хочу говорить'], x: { lebensphase: ['семья', 'семье'] }, s: { ruhestand: ['На пенсии: передавать опыт (в процессе создания)', 'Как опыт засчитывается в обмене временем, как передаются знания и почему резерв на чёрный день и пенсионные накопления не для прямых займов.'],
+               unterstuetzen: ['Поддерживать, не будучи членом', 'Навыками, временем или деньгами: самостоятельный путь, и что важно учесть.'] },
+          b: { ruhestand: 'Потому что ты на пенсии или скоро будешь', unterstuetzen: 'Потому что ты хочешь поддержать BtMM' },
+          e: { ruhestand: 'В BtMM планируется место для опыта долгой трудовой жизни.', unterstuetzen: 'Поддержка в BtMM — самостоятельный путь.' },
+          m: { ruhestand: 'ты на пенсии или скоро', unterstuetzen: 'ты хочешь поддержать' },
+          k: { ruhestand: ['пенси', 'внук'], unterstuetzen: ['поддерж', 'помочь', 'волонт'] } },
+    ar: { w: ['متدرب أو أول وظيفة', 'عائلة وأطفال', 'تغيير المهنة', 'التقاعد', 'أفضل ألا أقول'], x: { lebensphase: ['عائلة'] }, s: { ruhestand: ['في التقاعد: نقل الخبرة (قيد الإنشاء)', 'كيف تُحتسب الخبرة في تبادل الوقت، وكيف تُنقل المعرفة، ولماذا لا مكان لمدخرات الطوارئ والتقاعد في القروض المباشرة.'],
+               unterstuetzen: ['الدعم دون عضوية', 'بالمهارات أو الوقت أو المال: طريق قائم بذاته، وما يجب مراعاته.'] },
+          b: { ruhestand: 'لأنك متقاعد أو ستتقاعد قريبًا', unterstuetzen: 'لأنك تريد دعم BtMM' },
+          e: { ruhestand: 'تخطط BtMM لمكان لخبرة حياة عمل طويلة.', unterstuetzen: 'الدعم في BtMM طريق قائم بذاته.' },
+          m: { ruhestand: 'أنت متقاعد أو في الطريق إلى ذلك', unterstuetzen: 'تريد أن تدعم' },
+          k: { ruhestand: ['تقاعد', 'متقاعد', 'أحفاد'], unterstuetzen: ['دعم', 'أساعد', 'تطوع'] } },
+    hi: { w: ['प्रशिक्षु या पहली नौकरी', 'परिवार और बच्चे', 'करियर में बदलाव', 'सेवानिवृत्ति', 'कहना नहीं चाहते'], x: { lebensphase: ['परिवार'] }, s: { ruhestand: ['सेवानिवृत्ति में: अनुभव आगे बढ़ाना (निर्माणाधीन)', 'समय-विनिमय में अनुभव कैसे गिना जाता है, ज्ञान कैसे आगे बढ़ता है, और आपातकालीन व सेवानिवृत्ति की बचत प्रत्यक्ष ऋण में क्यों नहीं।'],
+               unterstuetzen: ['सदस्य बने बिना सहयोग', 'कौशल, समय या पैसे से: अपना पूरा रास्ता, और किन बातों का ध्यान रखें।'] },
+          b: { ruhestand: 'क्योंकि तुम सेवानिवृत्त हो या जल्द होगे', unterstuetzen: 'क्योंकि तुम BtMM का सहयोग करना चाहते हो' },
+          e: { ruhestand: 'BtMM में लंबे कामकाजी जीवन के अनुभव के लिए जगह की योजना है।', unterstuetzen: 'BtMM में सहयोग अपने आप में एक रास्ता है।' },
+          m: { ruhestand: 'तुम सेवानिवृत्त हो या होने वाले हो', unterstuetzen: 'तुम सहयोग करना चाहते हो' },
+          k: { ruhestand: ['सेवानिवृत्त', 'रिटायर', 'पेंशन', 'पोते'], unterstuetzen: ['सहयोग', 'मदद करना', 'स्वयंसेव'] } },
+    bn: { w: ['শিক্ষানবিশ বা প্রথম চাকরি', 'পরিবার ও সন্তান', 'পেশায় পরিবর্তন', 'অবসরপ্রাপ্ত', 'বলতে চাই না'], x: { lebensphase: ['পরিবার'] }, s: { ruhestand: ['অবসরে: অভিজ্ঞতা এগিয়ে দেওয়া (গড়ে উঠছে)', 'সময়-বিনিময়ে অভিজ্ঞতা কীভাবে গণ্য হয়, জ্ঞান কীভাবে এগোয়, আর জরুরি ও অবসরের সঞ্চয় কেন সরাসরি ঋণে নয়।'],
+               unterstuetzen: ['সদস্য না হয়ে সহায়তা', 'দক্ষতা, সময় বা টাকা দিয়ে: নিজস্ব পূর্ণ পথ, আর কী খেয়াল রাখবে।'] },
+          b: { ruhestand: 'কারণ তুমি অবসরে আছ বা শীঘ্রই যাবে', unterstuetzen: 'কারণ তুমি BtMM-কে সহায়তা করতে চাও' },
+          e: { ruhestand: 'দীর্ঘ কর্মজীবনের অভিজ্ঞতার জন্য BtMM-এ জায়গার পরিকল্পনা আছে।', unterstuetzen: 'BtMM-এ সহায়তা নিজস্ব একটি পথ।' },
+          m: { ruhestand: 'তুমি অবসরে আছ বা যাচ্ছ', unterstuetzen: 'তুমি সহায়তা করতে চাও' },
+          k: { ruhestand: ['অবসরপ্রাপ্ত', 'অবসর নিয়েছি', 'পেনশন', 'নাতি'], unterstuetzen: ['সহায়তা', 'সাহায্য করতে', 'স্বেচ্ছাসেব'] } },
+    ja: { w: ['見習い・初めての仕事', '家族・子ども', '転職', '退職・定年', '言いたくない'], x: { lebensphase: ['家族'] }, s: { ruhestand: ['退職後：経験を伝える（準備中）', '時間交換で経験がどう数えられるか、知識がどう伝わるか、そして生活防衛資金や老後の備えを直接融資に入れない理由。'],
+               unterstuetzen: ['組合員にならずに支援する', '技能・時間・お金で：それ自体が価値ある道、そして気をつけること。'] },
+          b: { ruhestand: '退職している、またはもうすぐ退職するから', unterstuetzen: 'BtMMを支援したいから' },
+          e: { ruhestand: 'BtMMには長い職業人生の経験のための場所が計画されています。', unterstuetzen: 'BtMMでは支援もそれ自体が一つの道です。' },
+          m: { ruhestand: '退職している、またはもうすぐ', unterstuetzen: '支援したい' },
+          k: { ruhestand: ['退職', '定年', '年金生活', '孫'], unterstuetzen: ['支援', '応援', '手伝', 'ボランティア'] } },
+    zh: { w: ['学徒或第一份工作', '家庭和孩子', '转行', '退休', '不想说'], x: { lebensphase: ['家庭'] }, s: { ruhestand: ['退休后：传承经验（筹建中）', '经验如何在时间交换中计算，知识如何传授，以及为什么应急储蓄和养老储备不该放进直接贷款。'],
+               unterstuetzen: ['不成为成员也能支持', '用技能、时间或金钱：一条独立而完整的道路，以及需要注意什么。'] },
+          b: { ruhestand: '因为你已退休或即将退休', unterstuetzen: '因为你想支持 BtMM' },
+          e: { ruhestand: 'BtMM 计划为漫长职业生涯的经验留出位置。', unterstuetzen: '在 BtMM，支持本身就是一条道路。' },
+          m: { ruhestand: '你已退休或即将退休', unterstuetzen: '你想提供支持' },
+          k: { ruhestand: ['退休', '养老', '孙'], unterstuetzen: ['支持', '帮忙', '志愿'] } }
+  };
+  Object.keys(S).forEach(function (l) {
+    var t = T[l], e = S[l]; if (!t) return;
+    Object.keys(e.s).forEach(function (k) { t.schritte[k] = e.s[k]; t.bezug[k] = e.b[k]; t.echo[k] = e.e[k]; t.profil.motive[k] = e.m[k]; t.merkmale[k] = e.k[k]; });
+    // Ruhestand ist jetzt ein eigener Schritt: diese Wörter aus „lebensphase“ nehmen
+    if (t.merkmale.lebensphase) t.merkmale.lebensphase = t.merkmale.lebensphase.filter(function (x) { return e.k.ruhestand.every(function (r) { return x.indexOf(r) === -1 && r.indexOf(x) === -1; }); });
+    if (e.w) t.lageWahl = e.w;
+    if (e.x) Object.keys(e.x).forEach(function (k) { t.merkmale[k] = (t.merkmale[k] || []).concat(e.x[k]); });
+  });
+})(typeof window !== 'undefined' ? window : globalThis);

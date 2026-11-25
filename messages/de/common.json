@@ -17,10 +17,11 @@
     "datenschutz": "Datenschutz",
     "kontakt": "Kontakt",
     "tagline": "Wirtschaft, die trägt.",
-    "copyright": "© 2024 Back to Meaning Maximization. Alle Rechte vorbehalten."
+    "copyright": "© {jahr} Back to Meaning Maximization. Alle Rechte vorbehalten."
   },
   "actions": {
     "mehr_erfahren": "Mehr erfahren",
+    "mehr_erfahren_aria": "Mehr erfahren, weiter nach unten scrollen",
     "jetzt_mitmachen": "Jetzt mitmachen",
     "termin_buchen": "Termin buchen",
     "kontakt_aufnehmen": "Kontakt aufnehmen",

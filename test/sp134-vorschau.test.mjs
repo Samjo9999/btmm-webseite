@@ -47,6 +47,6 @@ test('03c/03d KI-Prüfung Mock: läuft / ok / abgelehnt, keine echte API', () =>
 
 test('KI-Chat Preview: Mock, keine Live-API', () => {
   const html = readFileSync(join(root, 'ki-chat.html'), 'utf8')
-  assert.match(html, /keine Live-API|keine echte KI-API|keine API/i)
+  assert.match(html, /keine Live-API|keine echte KI-API|keine API|kein LLM-API/i)
   assert.match(html, /disabled/)
 })

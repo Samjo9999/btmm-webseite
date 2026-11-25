@@ -39,11 +39,6 @@ export const FAQ: FaqEintrag[] = [
       'Am Anfang nicht. Ab 3 Leuten bleibt jede:r selbstständig und schreibt eigene Rechnungen. Wir arbeiten zusammen, aber niemand ist angestellt. Eine gemeinsame Kasse gibt es in dieser Phase nicht.',
   },
   {
-    frage: 'Wie hoch ist der Lohn?',
-    antwort:
-      'In einem gemeinsamen Betrieb mit wenigen Leuten liegt er am Anfang erst knapp über dem Mindestlohn. Das sagen wir ehrlich dazu.',
-  },
-  {
     frage: 'Gibt es eine Rente?',
     antwort:
       'Mit dem geplanten Lohn reicht die gesetzliche Rente allein nicht. Wir arbeiten an einer Lösung, versprechen aber keine Rente. Das ist offen.',

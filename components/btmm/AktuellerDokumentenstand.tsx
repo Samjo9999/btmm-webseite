@@ -8,7 +8,7 @@ export function AktuellerDokumentenstand({ locale, thema = 'grundlagen' }: { loc
       ['Erst erproben, dann verpflichten', 'Bezahlte Aufträge, eine verlässliche Finanzierung und fachliche Klärung gehören vor eine Anstellung. Ein Keim ist noch keine eigene Rechtsform. Wer nur gemeinsam einkauft oder unterstützt, muss deshalb nicht selbstständig werden.'],
     ],
     kosten: [
-      ['Anteil beim Austritt – neuer Entwurfsstand', 'Satzung v7.35.0 sieht vor, dass die Einlage grundsätzlich in der eG bleibt. Auf Wunsch sollen interne Gutschein-Coins möglich sein. Die Zulässigkeit ist ungeklärt. Gesetzlich vorgeschriebene Auszahlungen gehen vor; für diesen Fall nennt der Entwurf die Feststellung des zweiten Geschäftsjahres nach dem Ausscheiden. Eine geprüfte Rückzahlungszusage gibt es nicht.'],
+      ['Anteil beim Austritt – Entwurfsstand', 'Satzung v7.35.0 sieht vor, dass die Einlage grundsätzlich in der eG bleibt. Auf Wunsch sollen interne Gutschein-Coins möglich sein. Die Zulässigkeit ist ungeklärt. Gesetzlich vorgeschriebene Auszahlungen gehen vor; für diesen Fall nennt der Entwurf die Feststellung des zweiten Geschäftsjahres nach dem Ausscheiden. Eine geprüfte Rückzahlungszusage gibt es nicht.'],
       ['Beitrag und Nutzen getrennt zeigen', 'Eigene Einkünfte bleiben bei Nutzungsmitgliedern. Pflichtkosten, Dienst-Umlage und ein möglicher Beitrag zum Lebensstandard-Wachstum sollen getrennt in der Nutzen-Bilanz stehen. Ermäßigungen und eine ruhende Mitgliedschaft sind vorgesehen.'],
     ],
     wirtschaft: [

@@ -206,7 +206,7 @@ export default async function ChronikPage() {
                           <div
                             className="card-btb"
                             style={{
-                              borderLeft: `4px solid ${cat.color}`,
+                              borderTop: `3px solid ${cat.color}`,
                               padding: '1.5rem',
                             }}
                           >

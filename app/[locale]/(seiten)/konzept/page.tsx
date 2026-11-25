@@ -81,7 +81,7 @@ export default async function KonzeptPage() {
               Im konventionellen Markt verteuert jede Lohnerhöhung das Produkt. Im Back to Meaning Maximization System kommt der Lohn aus dem gemeinsamen Pool — Produktpreise decken nur Materialkosten. Der EK-Preis-Vorteil gilt für alle internen Leistungen und Produkte: Lebensmittel, Handwerk, Körperarbeit, Unterricht, Reparaturen, Wohnen. Je größer das Sortiment, desto mehr Ersparnis.
             </p>
             <p style={{ lineHeight: 1.8, fontSize: '1.05rem', textAlign: 'center', maxWidth: 660, margin: '0 auto 2rem' }}>
-              Eine Stunde ist eine Stunde — ob kochen, bauen, heilen oder programmieren. Der Ziel-Stundensatz liegt bei 20 € netto – ein Wert, der ein gutes Leben ohne Luxus ermöglicht und auch bei externer Marktmiete die Lebenshaltung deckt. Auch für die Mittelschicht ein Gewinn: höheres Netto und EK-Preise auf alles Interne. Im voll ausgebauten System decken 47 Stunden im Monat die gesamte Lebenshaltung.
+              Eine Stunde ist eine Stunde — ob kochen, bauen, heilen oder programmieren. Jede Stunde wird gleich bezahlt, nie unter dem gesetzlichen Mindestlohn (2027: 14,60 €). Das erste Ziel sind 20 € brutto je Stunde, langfristig 20 € netto (rund 31 € brutto), dazu ein Bonus aus dem Überschuss, wenn es gut läuft. Am Anfang bleibt jede:r selbstständig. Für alle ein Gewinn: EK-Preise auf alles Interne. Im voll ausgebauten System decken 47 Stunden im Monat die gesamte Lebenshaltung.
             </p>
           </SectionReveal>
 
@@ -97,7 +97,7 @@ export default async function KonzeptPage() {
               { icon: TrendingUp, label: 'Pool-Dreiteilung', detail: '⅓ Vergütung · ⅓ Reinvestition · ⅓ Sozial', color: 'var(--btb-rot)' },
               { icon: Heart, label: 'BtMM-Coin', detail: '1 Coin = 1 Stunde — internes Tauschmittel', color: 'var(--btb-blau)' },
               { icon: Users, label: 'Selbstverwaltete Zellen', detail: 'Demokratisch, dezentral, eigenverantwortlich', color: 'var(--btb-blau)' },
-              { icon: Shield, label: 'Solidarfonds', detail: 'Schwangerschaft, Krankheit, Übergänge', color: 'var(--btb-oliv)' },
+              { icon: Shield, label: 'Solidarfonds für Lebensphasen und Übergänge', detail: 'Zahlt erst ab zehn aktiven Vollmitgliedern', color: 'var(--btb-oliv)' },
               { icon: Globe, label: 'Weltweit ein System', detail: 'Keine Kopie — Teil des Netzwerks', color: 'var(--btb-oliv)' },
             ].map((item, i) => {
               const Icon = item.icon
@@ -107,7 +107,7 @@ export default async function KonzeptPage() {
                     padding: '1.25rem',
                     background: 'var(--btb-creme)',
                     borderRadius: 10,
-                    borderLeft: `4px solid ${item.color}`,
+                    borderTop: `3px solid ${item.color}`,
                     height: '100%',
                   }}>
                     <Icon size={22} style={{ color: item.color, marginBottom: '0.5rem' }} />

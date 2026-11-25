@@ -1,125 +1,128 @@
 'use client'
 
-import { motion } from 'framer-motion'
-import { ChevronDown } from 'lucide-react'
-import { useEffect, useState, useCallback, useRef } from 'react'
+import { useTranslations } from 'next-intl'
+import { useCallback, useEffect, useRef, useState } from 'react'
+import {
+  naechsterScrollY,
+  reduzierteBewegung,
+  sammleAbschnittTops,
+  sammleUntereLeisten,
+  sollSichtbar,
+  liftUeberElement,
+} from '@/lib/mehr-erfahren.mjs'
+import '../public/mehr-erfahren.css'
 
 export function ScrollHint() {
-  const [visible, setVisible] = useState(true)
-  const [dunkel, setDunkel] = useState(true)
-  const ref = useRef<HTMLDivElement>(null)
+  const t = useTranslations('common')
+  const [sichtbar, setSichtbar] = useState(false)
+  const ref = useRef<HTMLButtonElement>(null)
 
-  const check = useCallback(() => {
-    const scrollable = document.documentElement.scrollHeight > window.innerHeight
-    const atBottom = (window.innerHeight + window.scrollY) >= (document.documentElement.scrollHeight - 80)
-    setVisible(scrollable && !atBottom)
-
-    // Hint kurz unsichtbar machen um den echten Hintergrund zu messen
-    if (ref.current) {
-      ref.current.style.visibility = 'hidden'
-    }
-
-    requestAnimationFrame(() => {
-      // Mehrere Punkte am unteren Rand prüfen für bessere Erkennung
-      const punkte = [
-        document.elementFromPoint(window.innerWidth / 2, window.innerHeight - 40),
-        document.elementFromPoint(window.innerWidth / 2, window.innerHeight - 80),
-        document.elementFromPoint(window.innerWidth / 3, window.innerHeight - 60),
-      ]
-
-      let helligkeitSum = 0
-      let count = 0
-
-      for (const el of punkte) {
-        if (!el) continue
-        // Durch die DOM-Hierarchie nach oben gehen bis eine echte Hintergrundfarbe gefunden wird
-        let current: Element | null = el
-        while (current) {
-          const bg = window.getComputedStyle(current).backgroundColor
-          const match = bg.match(/\d+/g)
-          if (match && match.length >= 3) {
-            const [r, g, b] = match.map(Number)
-            const a = match[3] ? parseFloat(match[3]) : 1
-            if (a > 0.1) { // Nicht transparent
-              helligkeitSum += (r * 299 + g * 587 + b * 114) / 1000
-              count++
-              break
-            }
-          }
-          current = current.parentElement
-        }
-      }
-
-      if (count > 0) {
-        setDunkel(helligkeitSum / count < 140)
-      }
-
-      if (ref.current) {
-        ref.current.style.visibility = 'visible'
-      }
+  const pruefen = useCallback(() => {
+    const gesperrt = typeof document !== 'undefined' && document.body.classList.contains('pfad-leiste-an')
+    // W1: nur im Hero zeigen; sobald gescrollt wird (> 120 px), nicht mehr über dem Inhalt stehen
+    const imHero = window.scrollY <= 120
+    let an = imHero && sollSichtbar({
+      scrollHeight: document.documentElement.scrollHeight,
+      innerHeight: window.innerHeight,
+      scrollY: window.scrollY,
+      gesperrt,
     })
+    const knopf = ref.current
+    if (knopf && an) {
+      let lift = sammleUntereLeisten(document, window.innerWidth, window.innerHeight, knopf)
+      knopf.style.visibility = 'hidden'
+      const r = knopf.getBoundingClientRect()
+      const treffer = document.elementFromPoint(r.left + r.width / 2, window.innerHeight - 8)
+      const fuss = treffer?.closest('footer')
+      if (fuss) lift = Math.max(lift, liftUeberElement(fuss.getBoundingClientRect().top, window.innerHeight))
+
+      // W1 r2: Nie über einem Knopf oder Link stehen (z. B. „Mitmachen“ im Hero auf 390×844).
+      // Geprüft wird die Fläche, die der Hinweis unten mittig einnimmt (ca. 170 × 60 px + Abstand).
+      const mitte = window.innerWidth / 2
+      const unten = window.innerHeight - 24
+      let ueberlappt = false
+      for (const dy of [4, 20, 36, 52, 68]) {
+        for (const dx of [-85, -42, 0, 42, 85]) {
+          const el = document.elementFromPoint(mitte + dx, unten - dy)
+          const ziel = el?.closest('a, button, input, select, textarea, [role="button"]')
+          // Flächige Klickzonen (z. B. „Bild vergrößern“ über dem ganzen Hero-Bild) zählen nicht
+          const flaechig = ziel ? ziel.getBoundingClientRect().height > 200 : false
+          if (ziel && !flaechig && !ziel.closest('[data-scroll-hint]')) { ueberlappt = true; break }
+        }
+        if (ueberlappt) break
+      }
+      if (ueberlappt) an = false
+
+      knopf.style.visibility = 'visible'
+      knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? `${lift}px` : '0px')
+    }
+    setSichtbar(an)
   }, [])
 
   useEffect(() => {
-    check()
-    window.addEventListener('scroll', check, { passive: true })
-    window.addEventListener('resize', check, { passive: true })
-    return () => {
-      window.removeEventListener('scroll', check)
-      window.removeEventListener('resize', check)
+    const start = window.requestAnimationFrame(() => pruefen())
+    // Hero-Animationen und Schriften verschieben Knöpfe nach dem ersten Rendern: nachprüfen
+    const t1 = window.setTimeout(() => pruefen(), 700)
+    const t2 = window.setTimeout(() => pruefen(), 1600)
+    const onScroll = () => pruefen()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    window.addEventListener('resize', onScroll, { passive: true })
+    window.addEventListener('load', onScroll)
+    const ro = typeof ResizeObserver !== 'undefined' ? new ResizeObserver(() => pruefen()) : null
+    if (ro) ro.observe(document.documentElement)
+    let to: ReturnType<typeof setTimeout> | undefined
+    const spaet = () => {
+      clearTimeout(to)
+      to = setTimeout(pruefen, 80)
     }
-  }, [check])
+    const mo = typeof MutationObserver !== 'undefined'
+      ? new MutationObserver((muts) => {
+          if (muts.every((m) => m.target instanceof Element && (m.target as Element).closest('[data-scroll-hint]'))) return
+          spaet()
+        })
+      : null
+    if (mo) mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] })
+    return () => {
+      window.cancelAnimationFrame(start)
+      window.clearTimeout(t1)
+      window.clearTimeout(t2)
+      window.removeEventListener('scroll', onScroll)
+      window.removeEventListener('resize', onScroll)
+      window.removeEventListener('load', onScroll)
+      clearTimeout(to)
+      ro?.disconnect()
+      mo?.disconnect()
+    }
+  }, [pruefen])
 
-  if (!visible) return null
+  const weiter = () => {
+    const y = naechsterScrollY({
+      scrollY: window.scrollY,
+      innerHeight: window.innerHeight,
+      scrollHeight: document.documentElement.scrollHeight,
+      abschnittTops: sammleAbschnittTops(document, window.scrollY),
+    })
+    window.scrollTo({ top: y, behavior: reduzierteBewegung() ? 'auto' : 'smooth' })
+  }
+
+  const label = t('actions.mehr_erfahren')
+  const aria = t('actions.mehr_erfahren_aria')
 
   return (
-    <motion.div
+    <button
       ref={ref}
+      type="button"
       data-scroll-hint
-      initial={{ opacity: 0 }}
-      animate={{ opacity: 1 }}
-      exit={{ opacity: 0 }}
-      transition={{ delay: 0.5, duration: 0.6 }}
-      style={{
-        position: 'fixed',
-        bottom: '1.5rem',
-        left: '50%',
-        transform: 'translateX(-50%)',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        gap: '0.2rem',
-        cursor: 'pointer',
-        zIndex: 50,
-        pointerEvents: 'auto',
-        background: dunkel ? 'rgba(0,0,0,0.35)' : 'rgba(255,255,255,0.55)',
-        backdropFilter: 'blur(8px)',
-        borderRadius: 20,
-        padding: '0.4rem 1rem 0.3rem',
-        transition: 'background 0.4s',
-      }}
-      onClick={() => {
-        window.scrollBy({ top: window.innerHeight * 0.75, behavior: 'smooth' })
-      }}
+      hidden={!sichtbar}
+      aria-hidden={!sichtbar}
+      tabIndex={sichtbar ? 0 : -1}
+      aria-label={aria}
+      onClick={weiter}
     >
-      <span style={{
-        fontSize: '0.7rem',
-        color: dunkel ? '#ffffff' : 'var(--btb-dunkel)',
-        letterSpacing: '0.1em',
-        textTransform: 'uppercase',
-        transition: 'color 0.4s',
-      }}>
-        Mehr entdecken
-      </span>
-      <motion.div
-        animate={{ y: [0, 6, 0] }}
-        transition={{ duration: 1.8, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <ChevronDown size={20} style={{
-          color: dunkel ? 'var(--btb-creme)' : 'var(--btb-rot)',
-          transition: 'color 0.4s',
-        }} />
-      </motion.div>
-    </motion.div>
+      <span>{label}</span>
+      <svg className="mehr-erfahren-pfeil" width="20" height="20" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+        <path fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" d="M6 9l6 6 6-6" />
+      </svg>
+    </button>
   )
 }

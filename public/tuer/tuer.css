@@ -13,29 +13,97 @@ a{color:var(--lila)}
 .leise{border:0;background:none;color:var(--grau);font:inherit;font-size:.8em;text-decoration:underline;cursor:pointer}
 :focus-visible{outline:3px solid #d58fd0;outline-offset:2px}
 
-/* Tür */
-.tuer{min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:radial-gradient(ellipse at 50% 40%,#904b97 0%,#4a0a42 55%,#22061f 100%);color:#fff;text-align:center;overflow:hidden;position:relative;padding:24px}
-.tuer-rahmen{position:absolute;inset:0;display:flex;justify-content:center;align-items:center;pointer-events:none}
-.fluegel{width:min(42vw,220px);height:min(78vh,520px);background:linear-gradient(180deg,#5a0d50,#3a0734);border:1px solid rgba(255,255,255,.15);transition:transform 1s ease}
-.fluegel.links{transform-origin:left center;border-radius:110px 0 0 0}
-.fluegel.rechts{transform-origin:right center;border-radius:0 110px 0 0}
-.tuer-licht{position:absolute;width:120px;opacity:0;filter:drop-shadow(0 0 30px #fff);transition:opacity .8s}
-.tuer-text{position:relative;z-index:2;max-width:26em;transition:opacity .5s}
-.tuer-logo{width:110px;filter:drop-shadow(0 0 24px rgba(255,230,250,.7))}
-.tuer h1{font-size:2.4em;margin:.3em 0 .2em;font-weight:600}
-.tuer p{margin:0 0 1.4em;opacity:.92}
-.tuer .tuer-ohne{margin:1.1em 0 0;font-size:.8em}
-.tuer-ohne a{color:#fff;opacity:.8}
-.oeffnet .fluegel.links{transform:perspective(900px) rotateY(80deg)}
-.oeffnet .fluegel.rechts{transform:perspective(900px) rotateY(-80deg)}
-.oeffnet .tuer-text{opacity:0}
-.oeffnet .tuer-licht{opacity:1}
-@media (prefers-reduced-motion:reduce){.fluegel,.tuer-text,.tuer-licht{transition:none}}
+/* Tür: bildschirmfüllend, Logo im Holz. --tuer-y ist die vertikale Lage des Medaillons
+ * (--tuer-y: mobil 50 %, Desktop 48,3 %). Desktop-Band 175 px wie 39f46dd (erste Tür),
+ * ohne translateY und ohne 145/160-px-Reduktion. */
+:root{
+  --tuer-band-grund:rgba(20,8,24,.80);
+  --tuer-band-linie:rgba(250,249,249,.22);
+  --tuer-link:#e9d3ec;
+  --btmm-logo-text-glow:#faf9f9;
+}
+.tuer{--tuer-y:50%;min-height:100vh;min-height:100dvh;display:grid;place-items:center;background:#140818;color:#fff;text-align:center;overflow:hidden;position:relative;perspective:1400px}
+@media (min-width:900px),(min-aspect-ratio:1/1){.tuer{--tuer-y:48.3%}}
+.tuer-rahmen{position:absolute;inset:0;pointer-events:none}
+.tuer-licht-flaeche{position:absolute;inset:0;background:radial-gradient(ellipse at 50% var(--tuer-y),#fff6e0 0%,#f3c98a 22%,#7a3a5a 55%,#140818 100%)}
+.fluegel{position:absolute;top:0;bottom:0;width:50%;overflow:hidden;border:0;border-radius:0;background:none;transition:transform 1.1s cubic-bezier(.6,.05,.3,1)}
+.fluegel img{width:100%;height:100%;object-fit:cover;display:block}
+.fluegel.links{left:0;transform-origin:left center}
+.fluegel.links img{object-position:right var(--tuer-y)}
+.fluegel.rechts{right:0;transform-origin:right center}
+.fluegel.rechts img{object-position:left var(--tuer-y)}
+.tuer-band{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;background:var(--tuer-band-grund);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--tuer-band-linie);border-bottom:1px solid var(--tuer-band-linie);border-left:0;border-right:0;padding:14px 22px calc(12px + env(safe-area-inset-bottom));max-height:34%}
+.tuer-band h1{font-size:40px;margin:0 0 6px;color:var(--btmm-logo-text-glow);font-weight:600;line-height:1.1}
+.tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:18px;color:#faf9f9;margin:0 auto 10px;max-width:30em;line-height:1.4;opacity:1}
+.tuer-band .ohne{color:var(--tuer-link)}
+.tuer-band .tuer-ohne{margin:8px 0 0;font-size:16px;line-height:1.4}
+.tuer-band .knopf.hell{box-shadow:none}
+.tuer-band .bild-credit{margin:6px auto 0;text-align:center;font-size:13px;line-height:1.3;color:var(--tuer-link);border:0;border-left:0;max-width:none}
+.oeffnet .fluegel.links{transform:rotateY(62deg)}
+.oeffnet .fluegel.rechts{transform:rotateY(-62deg)}
+.oeffnet .tuer-band{opacity:0;transition:opacity .4s}
+@media (min-width:900px){
+  .tuer-band{padding:10px 40px 10px;max-height:175px}
+  .tuer-band h1{font-size:42px;margin:0 0 4px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){margin-bottom:8px;max-width:46em;white-space:nowrap}
+  .tuer-band .reihe{display:flex;gap:28px;justify-content:center;align-items:center}
+  .tuer-band .tuer-ohne{margin:0;display:inline}
+  .tuer-band .bild-credit{margin:6px auto 0}
+}
+@media (max-height:699px){
+  .tuer-band h1{font-size:32px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:16px}
+}
+/* Handy quer / sehr niedrige Höhe: kompakter Fallback, Tippflächen ≥ 44 px.
+ * Bei Querformat überschreibt die Seitenleiste darunter diesen Block. */
+@media (max-height:500px){
+  .tuer-band{padding:4px 16px calc(4px + env(safe-area-inset-bottom));max-height:none}
+  .tuer-band h1{font-size:22px;margin:0}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){display:none}
+  .tuer-band .reihe{display:flex;gap:12px;justify-content:center;align-items:center;flex-wrap:wrap}
+  .tuer-band .tuer-ohne{margin:0;display:inline}
+  .tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box;padding:8px 16px}
+  .tuer-band .bild-credit{margin:2px auto 0;font-size:11px}
+}
+/* Handy quer: Band als Seitenleiste (rechts, bei rtl links). Kein linker Rahmen.
+ * Tür in den übrigen 62 %, Desktop-Assets, object-position an der Flügelnaht zentriert. */
+@media (orientation: landscape) and (max-height: 500px){
+  .tuer-rahmen{inset:0 38% 0 0}
+  .fluegel.links img{object-position:right center;transform:none}
+  .fluegel.rechts img{object-position:left center;transform:none}
+  .tuer-band{
+    top:0;bottom:0;left:auto;right:0;width:38%;max-height:none;
+    display:flex;flex-direction:column;justify-content:safe center;
+    overflow-x:hidden;overflow-y:auto;-webkit-overflow-scrolling:touch;
+    padding:12px 14px;padding-right:calc(14px + env(safe-area-inset-right));
+    border:0;border-left:0;border-right:0;border-top:0;border-bottom:0;
+    box-shadow:-12px 0 28px rgba(20,8,24,.4)
+  }
+  .tuer-band h1{font-size:24px;margin:0 0 6px}
+  .tuer-band p:not(.tuer-ohne):not(.bild-credit){
+    display:block;font-size:15px;line-height:1.35;margin:0 auto 10px;max-width:none;white-space:normal
+  }
+  .tuer-band .reihe{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;align-items:center}
+  .tuer-band .knopf,.tuer-band .tuer-ohne a{min-height:44px;min-width:44px;display:inline-flex;align-items:center;justify-content:center;box-sizing:border-box}
+  .tuer-band .bild-credit{margin:8px auto 0;font-size:11px}
+  html[dir=rtl] .tuer-rahmen{inset:0 0 0 38%}
+  html[dir=rtl] .tuer-band{
+    left:0;right:auto;
+    padding-right:14px;padding-left:calc(14px + env(safe-area-inset-left));
+    border-left:0;box-shadow:12px 0 28px rgba(20,8,24,.4)
+  }
+}
+@media (prefers-reduced-motion:reduce){
+  .fluegel{transition:opacity .4s}
+  .oeffnet .fluegel,
+  .oeffnet .fluegel.links,
+  .oeffnet .fluegel.rechts{transform:none;opacity:0}
+}
 
 /* Dialog */
 .dialog{max-width:640px;margin:0 auto;min-height:100vh;min-height:100dvh;display:flex;flex-direction:column}
 .kopf{display:flex;align-items:center;gap:12px;padding:14px 16px;border-bottom:1px solid var(--linie);background:var(--creme);position:sticky;top:0;z-index:3}
-.kopf-logo{width:40px;height:40px;object-fit:contain;filter:drop-shadow(0 0 8px rgba(144,75,151,.5))}
+.kopf-logo{width:40px;height:40px;object-fit:contain}
 .kopf div{flex:1;display:flex;flex-direction:column;line-height:1.15}
 .kopf span{font-size:.75em;color:var(--grau)}
 .kopf-aktionen{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:end}
@@ -45,9 +113,16 @@ a{color:var(--lila)}
 .blase{max-width:86%;padding:10px 14px;border-radius:18px;animation:rein .3s ease}
 .blase.frage{align-self:flex-start;background:#fff;border:1px solid var(--linie);border-bottom-left-radius:6px;font-weight:600}
 .blase.echo{align-self:flex-start;background:transparent;color:var(--grau);font-style:italic;padding:2px 14px}
+/* Runde 4: Chips in der unten angehefteten Leiste, direkt über dem Eingabefeld (Mobil ohne Scrollen) */
+.unten{position:sticky;bottom:0;z-index:2;background:var(--creme);border-top:1px solid var(--linie)}
+.wahl-leiste{display:flex;flex-wrap:wrap;gap:6px;padding:8px 12px 0}
+.wahl-hinweis{width:100%;margin:0;font-size:.72em;color:var(--grau)}
+.wahl-knopf{font:inherit;font-size:.86em;line-height:1.2;padding:6px 12px;border-radius:16px;border:1px solid var(--lila);background:#fff;color:var(--lila);cursor:pointer}
+.wahl-knopf:focus-visible,.wahl-knopf:active{background:var(--lila);color:#fff}
+@media (hover:hover) and (pointer:fine){.wahl-knopf:hover{background:var(--lila);color:#fff}}
 .blase.antwort{align-self:flex-end;background:var(--lila);color:#fff;border-bottom-right-radius:6px}
 @keyframes rein{from{opacity:0;transform:translateY(6px)}}
-.eingabe{position:sticky;bottom:0;display:flex;gap:8px;align-items:flex-end;padding:10px 12px calc(10px + env(safe-area-inset-bottom));background:var(--creme);border-top:1px solid var(--linie)}
+.eingabe{display:flex;gap:8px;align-items:flex-end;padding:8px 12px calc(8px + env(safe-area-inset-bottom));background:var(--creme)}
 .eingabe textarea{flex:1;resize:none;font:inherit;font-size:18px;padding:10px 14px;border:1px solid var(--lila2);border-radius:20px;background:#fff;color:var(--tinte);min-height:46px}
 .rund{width:46px;height:46px;flex:none;border-radius:50%;border:0;display:grid;place-items:center;cursor:pointer}
 .rund svg{width:22px;height:22px}
@@ -58,6 +133,18 @@ a{color:var(--lila)}
 @keyframes puls{50%{box-shadow:0 0 0 8px rgba(192,48,90,.2)}}
 .blatt{position:fixed;left:0;right:0;bottom:0;background:#fff;padding:20px 20px calc(20px + env(safe-area-inset-bottom));border-top:2px solid var(--lila2);box-shadow:0 -10px 40px rgba(40,0,40,.18);z-index:5;display:flex;flex-direction:column;gap:10px;max-width:640px;margin:0 auto}
 .blatt h2{margin:0;font-size:1.2em}.blatt p{margin:0 0 6px;font-size:.88em}
+
+/* Runde 4: kompakter auf kleinen Höhen (Handy quer 844×390): Kopf nicht angeheftet, Eingabe einzeilig */
+@media (max-height:520px){
+  body{font-size:17px}
+  .kopf{position:static;padding:6px 12px}.kopf-logo{width:28px;height:28px}
+  .hinweis-kasten{margin-top:6px;padding:6px 0}
+  .verlauf{padding:10px 16px;gap:6px}
+  .wahl-leiste{padding:6px 12px 0;gap:5px}.wahl-knopf{padding:4px 10px;font-size:.82em}
+  .eingabe{padding:6px 12px calc(6px + env(safe-area-inset-bottom))}
+  .eingabe textarea{min-height:38px;height:38px;padding:7px 12px;font-size:16px}
+  .rund{width:38px;height:38px}
+}
 
 /* Pfad */
 .pfad{max-width:640px;margin:0 auto;padding:24px 16px 40px}

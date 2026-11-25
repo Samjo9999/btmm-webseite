@@ -5,6 +5,13 @@
 import { readFileSync, readdirSync, existsSync } from 'fs'
 import { join } from 'path'
 import type { WissenChunk } from './search'
+import { nurErlaubteChunks } from './sichtbarkeit'
+import { filterEmojisTief } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
+
+/** Nutzerregel 25.11.: keine Emojis im Corpus, auch nicht aus dem Markdown-Fallback. */
+function ohneEmojis(chunks: WissenChunk[]): WissenChunk[] {
+  return filterEmojisTief(chunks)
+}
 
 export type LoadedCorpus = {
   chunks: WissenChunk[]
@@ -58,7 +65,7 @@ export function loadPublicCorpus(): LoadedCorpus {
         docCount?: number
         builtAt?: string
       }
-      const chunks = data.chunks || []
+      const chunks = ohneEmojis(data.chunks || [])
       if (chunks.length) {
         return {
           chunks,
@@ -72,7 +79,7 @@ export function loadPublicCorpus(): LoadedCorpus {
     }
   }
   const dir = join(process.cwd(), 'content', 'dokumente')
-  const chunks = chunksFromMarkdownFiles(dir)
+  const chunks = ohneEmojis(chunksFromMarkdownFiles(dir))
   const docs = new Set(chunks.map((c) => c.rel))
   return {
     chunks,
@@ -92,10 +99,11 @@ export function loadMitmacherCorpus(): LoadedCorpus {
     docCount?: number
     chunks: WissenChunk[]
   }
+  const chunks = ohneEmojis(nurErlaubteChunks(raw.chunks || []))
   return {
     source: 'wissen-mitglieder',
     builtAt: raw.builtAt,
     docCount: raw.docCount ?? 0,
-    chunks: raw.chunks || [],
+    chunks,
   }
 }

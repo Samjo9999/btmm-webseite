@@ -16,6 +16,7 @@ import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
 import { TuerWeiche } from '@/components/btmm/TuerWeiche'
+import { HandwerkNutzen } from '@/components/btmm/HandwerkNutzen'
 
 export const dynamic = 'force-dynamic'
 
@@ -53,7 +54,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <div className="hero-text btmm-start-hero" style={{ position: 'relative', maxWidth: 740, zIndex: 2 }}>
           <div className="btmm-logo-nebel" style={{ marginBottom: '1.5rem', isolation: 'isolate' }}>
             <LogoLightbox
-              src="/logo.png"
+              src="/logo-glow-schrift-weiss.png"
               alt={`${BRAND_FULL} Logo`}
               width={320}
               height={320}
@@ -67,7 +68,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
             fontFamily: 'var(--font-garamond)',
             fontSize: 'clamp(2.2rem, 6vw, 4rem)',
             fontWeight: 700,
-            color: 'var(--btmm-dunkel, #780268)',
+            color: 'var(--btmm-logo-text-glow, #faf9f9)',
             marginBottom: '0.75rem',
             lineHeight: 1.1,
             textShadow: '0 2px 16px rgba(0,0,0,0.7), 0 1px 4px rgba(0,0,0,0.5)',
@@ -193,6 +194,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </div>
         </div>
       </section>
+
+      {/* ── Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) ── */}
+      <HandwerkNutzen locale={locale} kompakt />
 
       {/* ── 3. APP TEASER (Nutzer 20.11.: nur Link + kurze Beschreibung) ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>

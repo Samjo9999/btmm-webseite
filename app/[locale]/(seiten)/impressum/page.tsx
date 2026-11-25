@@ -325,6 +325,15 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   </a>
                 </p>
 
+                <h4>Wissens-Assistent (KI) für Mitmachende</h4>
+                <p>
+                  Wenn Sie angemeldet eine Frage an den Wissens-Assistenten stellen, senden wir Ihre Frage zusammen mit passenden Textauszügen aus unseren Dokumenten an Scaleway SAS, 8 rue de la Ville l&apos;Évêque, 75008 Paris, Frankreich, um eine Antwort zu erzeugen. Scaleway ist Auftragsverarbeiter gemäß Art. 28 DSGVO; die Verarbeitung erfolgt in der EU (Paris). Rechtsgrundlage ist Art. 6 Abs. 1 lit. b DSGVO (Nutzung des angebotenen Dienstes). Wir speichern Ihre Fragen nicht. Scaleway speichert Inhalte von Fragen und Antworten grundsätzlich nicht und nutzt sie nicht zum Training; nur bei technischen Fehlern oder Missbrauch kann Scaleway eine Anfrage bis zu zwei Wochen zur Fehleranalyse speichern. Zur Missbrauchsvermeidung zählen wir die Anzahl Ihrer Anfragen pro Stunde. Bitte geben Sie keine persönlichen Daten oder Gesundheitsangaben ein. Die Antworten werden maschinell erzeugt und können Fehler enthalten. Details:{' '}
+                  <a href="https://www.scaleway.com/en/docs/generative-apis/reference-content/data-privacy/" target="_blank" rel="noopener noreferrer">
+                    Datenschutzhinweise von Scaleway
+                  </a>
+                  .
+                </p>
+
                 <h4>Brevo (E-Mail-Versand)</h4>
                 <p>
                   Für den Versand von Buchungsbestätigungen und Erinnerungs-E-Mails nutzen wir den

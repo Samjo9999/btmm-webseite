@@ -226,3 +226,21 @@ a { color: var(--btmm-dunkel); }
 .toggle-mock input { width: 18px; height: 18px; accent-color: var(--btmm-dunkel); }
 .toggle-mock .fein { color: var(--leise); font-size: .82rem; }
 .zustand-panel[hidden] { display: none !important; }
+
+/* Datenschutz-Hinweis unter dem Eingabefeld (AA: #1a1505 auf #faf9f9, Kontrast > 14:1).
+   scroll-margin, damit der Schwebeknopf „Mehr erfahren“ den Text nicht verdeckt. */
+.chat-fenster > .ds-hinweis,
+.ds-hinweis {
+  margin: 0;
+  padding: 0 0.9rem 0.8rem;
+  background: #faf9f9;
+  color: #1a1505;
+  font-family: var(--ui, system-ui, sans-serif);
+  font-size: 0.95rem;
+  line-height: 1.45;
+  max-width: 46em;
+  scroll-margin-bottom: 5.5rem;
+}
+body {
+  padding-bottom: 5.5rem;
+}

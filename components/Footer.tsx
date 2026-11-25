@@ -1,10 +1,14 @@
 import Link from 'next/link'
-import { useTranslations } from 'next-intl'
+import { useLocale, useTranslations } from 'next-intl'
 import { Mail, ExternalLink } from 'lucide-react'
 import { BRAND_LONG } from '@/lib/brand'
 
 export function Footer() {
   const t = useTranslations('common')
+  const locale = useLocale()
+  // Links mit Locale-Präfix (kein Umweg über Redirect), z. B. /de/impressum
+  const l = (pfad: string) => `/${locale}${pfad}`
+  const jahr = new Date().getFullYear()
 
   return (
     <footer style={{
@@ -65,7 +69,7 @@ export function Footer() {
               ].map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={l(item.href)}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -88,13 +92,13 @@ export function Footer() {
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
                 { href: '/angebote', label: 'Überblick' },
-                { href: '/koerperarbeit', label: 'Körperarbeit' },
-                { href: '/koerperarbeit/methode', label: 'Methode' },
-                { href: '/koerperarbeit/preise', label: 'Preise & Buchen' },
+                { href: '/so-funktionierts', label: "So funktioniert's" },
+                { href: '/was-du-sparst', label: 'Was du sparst' },
+                { href: '/kosten', label: 'Kosten' },
               ].map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={l(item.href)}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -126,7 +130,7 @@ export function Footer() {
               ].map((item) => (
                 <Link
                   key={item.href}
-                  href={item.href}
+                  href={l(item.href)}
                   style={{ color: 'var(--btb-creme)', fontSize: '0.875rem', opacity: 0.75, textDecoration: 'none' }}
                   className="hover:opacity-100"
                 >
@@ -174,18 +178,18 @@ export function Footer() {
           alignItems: 'center',
         }}>
           <p style={{ fontSize: '0.8rem', opacity: 0.5 }}>
-            {t('footer.copyright')}
+            {t('footer.copyright', { jahr })}
           </p>
           <div style={{ display: 'flex', gap: '1.25rem' }}>
-            <Link href="/impressum" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href={l('/impressum')} style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               {t('footer.impressum')}
             </Link>
-            <Link href="/impressum#datenschutz" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href={l('/impressum#datenschutz')} style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               {t('footer.datenschutz')}
             </Link>
-            <Link href="/buchungsbedingungen" style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
+            <Link href={l('/buchungsbedingungen')} style={{ color: 'var(--btb-creme)', fontSize: '0.8rem', opacity: 0.6, textDecoration: 'none' }}
               className="hover:opacity-100">
               Buchungsbedingungen
             </Link>

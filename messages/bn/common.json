@@ -17,10 +17,11 @@
     "datenschutz": "ডেটা সুরক্ষা",
     "kontakt": "যোগাযোগ",
     "tagline": "অর্থনীতি যা সবাইকে ধারণ করে।",
-    "copyright": "© 2024 Back to Meaning Maximization. সমস্ত অধিকার সংরক্ষিত।"
+    "copyright": "© {jahr} Back to Meaning Maximization. সমস্ত অধিকার সংরক্ষিত।"
   },
   "actions": {
     "mehr_erfahren": "আরও জানুন",
+    "mehr_erfahren_aria": "আরও জানুন, নিচে স্ক্রোল করুন",
     "jetzt_mitmachen": "এখনই অংশ নিন",
     "termin_buchen": "অ্যাপয়েন্টমেন্ট বুক করুন",
     "kontakt_aufnehmen": "যোগাযোগ করুন",

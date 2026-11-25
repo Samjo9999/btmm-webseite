@@ -30,14 +30,7 @@
   function auswerten(text) { return PF.auswerten(MERKMALE, text); }
 
   /* ---------- Fragen (offen, Auswahl nach Profil) ---------- */
-  var FRAGEN = [
-    { id: 'herkunft', immer: true }, { id: 'motiv', immer: true },
-    { id: 'sparen', wenn: 'sparen' }, { id: 'arbeit', wenn: 'arbeiten' }, { id: 'wohnen', wenn: 'wohnen' },
-    { id: 'zweifel', wenn: 'skeptisch' }, { id: 'sinn', wenn: 'sinn' },
-    { id: 'ort', immer: true }, { id: 'zeit', immer: true }
-  ];
-  FRAGEN.forEach(function (f) { f.text = T.fragen[f.id]; });
-  var MAX_FRAGEN = 6;
+  var FRAGEN = PF.FRAGEN.map(function (f) { return { id: f.id, immer: f.immer, wenn: f.wenn, text: T.fragen[f.id] || DE.fragen[f.id] }; });
 
   var SCHRITTE = PF.SCHRITTE, BILDER = PF.BILDER;
 
@@ -49,18 +42,7 @@
   if (st.lang && st.lang !== LANG && !st.fertig) st = { antworten: [], profil: {}, gestellt: [] };
   st.lang = LANG;
 
-  function naechsteFrage() {
-    if (st.gestellt.length >= MAX_FRAGEN) return null;
-    var p = st.profil;
-    var kandidaten = FRAGEN.filter(function (f) { return st.gestellt.indexOf(f.id) === -1; });
-    var vertiefung = kandidaten.filter(function (f) { return f.wenn && p[f.wenn]; })
-      .sort(function (a, b) { return (p[b.wenn] || 0) - (p[a.wenn] || 0); })[0];
-    var fest = kandidaten.filter(function (f) { return f.immer; });
-    if (st.gestellt.length < 2) return fest[0];
-    var rest = MAX_FRAGEN - st.gestellt.length;
-    if (vertiefung && rest > fest.length) return vertiefung;
-    return fest[0] || vertiefung || null;
-  }
+  function naechsteFrage() { return PF.naechsteFrage(st, FRAGEN); }
 
   function echo(treffer) {
     var keys = Object.keys(treffer).sort(function (a, b) { return treffer[b] - treffer[a]; });
@@ -77,26 +59,52 @@
     li.className = 'blase ' + wer;
     li.textContent = text;
     verlauf.appendChild(li);
-    li.scrollIntoView({ block: 'end', behavior: 'smooth' });
+    nachUnten();
     return li;
+  }
+  /* Runde 4 (Mobil-Fix): immer ans Ende scrollen. Die Eingabeleiste mit den Chips ist unten angeheftet;
+   * so stehen letzte Frage, Chips und Eingabefeld zusammen im sichtbaren Bereich (früher: scrollIntoView unter die Leiste). */
+  var ruhig = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  function nachUnten() {
+    requestAnimationFrame(function () { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: ruhig ? 'auto' : 'smooth' }); });
   }
   function frageStellen() {
     var f = naechsteFrage();
     if (!f) return pfadZeigen();
     st.gestellt.push(f.id); st.offen = f.id; speichern();
     blase(f.text, 'frage');
+    var schluessel = PF.WAHL_TEXT[f.id], liste = schluessel && (T[schluessel] || DE[schluessel]);
     eingabeFrei(true);
-    feld.focus({ preventScroll: true });
+    // Mit Chips kein Autofokus: sonst öffnet die Tastatur auf dem Handy und verdeckt die Chips
+    if (liste && liste.length) wahlZeigen(liste); else feld.focus({ preventScroll: true });
   }
-  function antworten(text) {
+  /* PR #38 Runde 3/4: Antwort-Chips zum Antippen (motiv, lage, zeit) in der unten angehefteten Leiste; freie Antwort bleibt möglich */
+  var wahl = $('wahl');
+  function wahlZeigen(liste) {
+    wahl.innerHTML = '';
+    var h = document.createElement('p'); h.className = 'wahl-hinweis'; h.textContent = T.wahlHinweis || DE.wahlHinweis || '';
+    wahl.appendChild(h);
+    liste.forEach(function (txt, i) {
+      var b = document.createElement('button');
+      b.type = 'button'; b.className = 'wahl-knopf'; b.textContent = txt;
+      b.addEventListener('click', function () { antworten(txt, i); });
+      wahl.appendChild(b);
+    });
+    wahl.hidden = false;
+    nachUnten();
+  }
+  function wahlWeg() { wahl.hidden = true; wahl.innerHTML = ''; }
+  function antworten(text, wahlIndex) {
     text = (text || '').trim();
     if (!st.offen) return;            // ohne offene Frage wird nichts gespeichert
     if (!text) { feld.focus(); return; }
     stopMik();
+    wahlWeg();
     blase(text, 'antwort');
-    var t = auswerten(text);
+    var chip = typeof wahlIndex === 'number';
+    var t = chip ? PF.wahlProfil(st.offen, wahlIndex) : auswerten(text);
     Object.keys(t).forEach(function (k) { st.profil[k] = (st.profil[k] || 0) + t[k]; });
-    st.antworten.push({ frage: st.offen, text: text });
+    st.antworten.push(chip ? { frage: st.offen, text: text, wahl: wahlIndex } : { frage: st.offen, text: text });
     st.offen = null;
     speichern();
     feld.value = '';
@@ -107,6 +115,7 @@
     }, 450);
   }
   $('eingabe').addEventListener('submit', function (e) { e.preventDefault(); antworten(feld.value); });
+  feld.addEventListener('focus', function () { setTimeout(nachUnten, 250); });
   feld.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); antworten(feld.value); } });
   $('loeschen').addEventListener('click', function () { try { sessionStorage.removeItem(KEY); sessionStorage.removeItem(PFAD_KEY); } catch (e) {} location.replace(location.pathname + '?lang=' + LANG); });
 
@@ -207,7 +216,7 @@
   }
   $('eintreten').addEventListener('click', function () {
     document.body.classList.add('oeffnet');
-    setTimeout(dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 0 : 1100);
+    setTimeout(dialogStarten, window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 400 : 1100);
   });
   // „Zurück zum Weg“ aus der Pfad-Leiste: direkt die Pfad-Übersicht zeigen
   if (params.has('pfad') && st.fertig) pfadZeigen();

@@ -17,10 +17,11 @@
     "datenschutz": "Proteção de Dados",
     "kontakt": "Contacto",
     "tagline": "Economia que sustenta.",
-    "copyright": "© 2024 Back to Meaning Maximization. Todos os direitos reservados."
+    "copyright": "© {jahr} Back to Meaning Maximization. Todos os direitos reservados."
   },
   "actions": {
     "mehr_erfahren": "Saiba mais",
+    "mehr_erfahren_aria": "Saiba mais, rolar para baixo",
     "jetzt_mitmachen": "Participe agora",
     "termin_buchen": "Agendar consulta",
     "kontakt_aufnehmen": "Entre em contacto",

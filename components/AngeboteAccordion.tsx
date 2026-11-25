@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
-import { ChevronDown, MapPin, Euro, ArrowRight, Star, Search } from 'lucide-react'
+import { ChevronDown, MapPin, Euro, ArrowRight, Star, Search, CircleCheck } from 'lucide-react'
 
 interface ServiceData {
   id: string
@@ -333,15 +333,17 @@ export function AngeboteAccordion({ domain = 'b-t-m-m.com' }: AngeboteAccordionP
                       fontSize: '0.9rem',
                       color: 'var(--btb-dunkel)',
                       opacity: 0.75,
-                      paddingLeft: '1.25rem',
+                      paddingLeft: '1.75rem',
                       position: 'relative',
                     }}>
                       <span style={{
                         position: 'absolute',
                         left: 0,
+                        top: '0.05rem',
                         color: 'var(--btb-oliv)',
+                        lineHeight: 0,
                       }}>
-                        ✓
+                        <CircleCheck size={20} strokeWidth={2} aria-hidden="true" />
                       </span>
                       {detail}
                     </li>

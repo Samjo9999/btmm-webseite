@@ -17,10 +17,11 @@
     "datenschutz": "Privacy",
     "kontakt": "Contact",
     "tagline": "An economy that sustains.",
-    "copyright": "© 2024 Back to Meaning Maximization. All rights reserved."
+    "copyright": "© {jahr} Back to Meaning Maximization. All rights reserved."
   },
   "actions": {
     "mehr_erfahren": "Learn more",
+    "mehr_erfahren_aria": "Learn more, scroll down",
     "jetzt_mitmachen": "Join now",
     "termin_buchen": "Book appointment",
     "kontakt_aufnehmen": "Get in touch",

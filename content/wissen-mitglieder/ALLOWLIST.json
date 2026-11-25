@@ -1,26 +1,295 @@
 {
-  "labelNote": "Vor eG: Mitmacher/Interessent. Satzung/08a: Entwurf, noch nicht beschlossen.",
+  "labelNote": "Strikte Allowlist. Mitmacher = ausdrücklich public + Gremien-Mitmacher (07 v22.69.0, Satzung außen v9.1.3, 08a v2.0.3, Normen-Kurz). Satzung/08a: Entwurf, noch nicht beschlossen. Satzung schlank v9.0.5 und 11_BWGV sind intern (nicht auf dieser Liste).",
   "btmmRootHint": "/workspace/projekte/btmm",
   "blacklistPathPatterns": [
     "06-intern",
     "md-intern",
     "INTERN_",
+    "/_intern/",
     "/_ersetzt/",
+    "ROTH-",
+    "BUSINESSPLAN",
+    "steuer-briefing",
+    "datei15",
+    "15-geschaeftsmodell",
+    "annahmen-und-quellen",
+    "foerderung",
     "ABNAHMEN_",
     "Autopilot_",
     "Befund_",
-    "Rechtspruefung_Aktumo"
+    "Rechtspruefung_Aktumo",
+    "08_BtMM_Satzung_eG_v7_",
+    "08_BtMM_Satzung_eG_v8_3",
+    "v9_0_5_schlank"
+  ],
+  "publicSources": [
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_03-einladung-gruendung_v2.17.1_2026-11-09.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_06-gute-gruende_v1.10.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_24-partner-werden_v1.5.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_05-gemeinschaftskultur_v1.7.2_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_11-handwerk-ergaenzung_v3.2.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_12-handwerk-zulassungen-detail_v3.0.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_13-ideen-horizonte_v3.4.2_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_16-schnelle-einnahmen_v2.1.2_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_17-grosser-fahrplan_v1.2.0_2026-10-26.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_18-demokratie-schluessel_v1.3.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_20-berufe-ohne-abschluss_v1.0.1_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_22-heilen-schuetzen-vorbeugen_v1.10.0_2026-11-08.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_23-ausfall-versorgung_v1.5.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_26-fairer-handel_v1.5.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_27-kreislauf_v1.2.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_30-gewerbe-katalog_v0.1.0_2026-11-01.md",
+      "entwurf": false,
+      "root": "btmm"
+    },
+    {
+      "rel": "content/dokumente/einfuehrung.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/gemeinschaftskultur.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/handwerk.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/ideen-horizont.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/wirtschaften.md",
+      "entwurf": false,
+      "root": "web"
+    }
   ],
   "sources": [
-    { "rel": "DOKUMENTE/00_BtMM_einfach_erklaert_Start_hier_v1_14_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/01_BtMM_Einfuehrung_v4_18_1.md", "entwurf": false },
-    { "rel": "DOKUMENTE/02_BtMM_Aufruf_Beteiligung_v2_11_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/04_BtMM_Wirtschaften_Anleitung_v3_14_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/07_BtMM_Konzept_v22_68_0.md", "entwurf": false },
-    { "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_2_aussen_ENTWURF.md", "entwurf": true },
-    { "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_2_schlank_ENTWURF.md", "entwurf": true },
-    { "rel": "DOKUMENTE/28_BtMM_Aufnahme_kurz_erklaert_v1_7_0.md", "entwurf": false },
-    { "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md", "entwurf": false, "id": "normen-kurz" }
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_03-einladung-gruendung_v2.17.1_2026-11-09.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_06-gute-gruende_v1.10.2_2026-11-08.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_24-partner-werden_v1.5.1_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_05-gemeinschaftskultur_v1.7.2_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_11-handwerk-ergaenzung_v3.2.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_12-handwerk-zulassungen-detail_v3.0.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_13-ideen-horizonte_v3.4.2_2026-11-08.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_16-schnelle-einnahmen_v2.1.2_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_17-grosser-fahrplan_v1.2.0_2026-10-26.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_18-demokratie-schluessel_v1.3.1_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_20-berufe-ohne-abschluss_v1.0.1_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_22-heilen-schuetzen-vorbeugen_v1.10.0_2026-11-08.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_23-ausfall-versorgung_v1.5.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_26-fairer-handel_v1.5.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_27-kreislauf_v1.2.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DRIVE/MDs/03-konzept/BtMM_30-gewerbe-katalog_v0.1.0_2026-11-01.md",
+      "entwurf": false
+    },
+    {
+      "rel": "content/dokumente/einfuehrung.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/gemeinschaftskultur.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/handwerk.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/ideen-horizont.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "content/dokumente/wirtschaften.md",
+      "entwurf": false,
+      "root": "web"
+    },
+    {
+      "rel": "DOKUMENTE/07_BtMM_Konzept_v22_69_0.md",
+      "entwurf": false
+    },
+    {
+      "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md",
+      "entwurf": true
+    },
+    {
+      "rel": "DOKUMENTE/08a_BtMM_Ordnungen_v2_0_3_schlank_ENTWURF.md",
+      "entwurf": true
+    },
+    {
+      "rel": "pruefung/NORMEN-MITGLIEDER-KI-KURZ-2026-11-19.md",
+      "entwurf": false,
+      "id": "normen-kurz"
+    }
   ],
-  "driveSyncNote": "Geltende MDs liegen unter projekte/btmm/DOKUMENTE (Spiegel Drive). Neu-Indizierung: node scripts/build-wissen-mitglieder.mjs — schreibt index.json; optional --sync-edge kopiert nach BtMM-App Edge corpus.json."
+  "driveSyncNote": "Nur Allowlist, keine Verzeichnis-Walks für public/Mitmacher. Vorrang: DOKUMENTE/ und Root-Finanzen vor DRIVE/MDs (Finanzen nur intern). Neu-Indizierung: npm run wissen:reindex."
 }

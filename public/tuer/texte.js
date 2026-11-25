@@ -9,6 +9,7 @@ window.BTMM_TUER_TEXTE = {
     tuerP: "Wir lernen dich mit ein paar Fragen kennen und zeigen dir dann deinen Weg durch BtMM.",
     eintreten: "Eintreten",
     ohne: "Ohne Fragen zur Webseite",
+    bildCredit: "Bilder erstellt mit Grok (KI)",
     kopfName: "BtMM-KI", kopfSub: "fragt, du antwortest", loeschen: "Antworten löschen",
     ds: "Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen.",
     dsLink: "Datenschutz",
@@ -48,7 +49,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["Worum es geht", "Die Idee in wenigen Minuten: teilen, gleich bezahlte Arbeit und Häuser, die nie verkauft werden."],
       sparen: ["Was du sparst", "Wie gemeinsames Einkaufen und Teilen die Kosten im Alltag senkt."],
-      arbeiten: ["Arbeiten in Zellen", "Wie Betriebe in BtMM arbeiten und warum jede Stunde gleich viel wert ist."],
+      arbeiten: ["Arbeiten und Betriebe", "Was das System Betrieben abnimmt (Steuerberater, Versicherung, Software) und warum jede Stunde gleich viel wert ist."],
       wohnen: ["Wohnen und Boden", "Warum Häuser bei BtMM gemeinsam gehalten und nicht verkauft werden."],
       skeptisch: ["Belege und offene Fragen", "Antworten auf kritische Fragen und die Dokumente zum Nachlesen."],
       dokumente: ["Dokumente", "Satzung, Konzept und Einführung zum Herunterladen."],
@@ -95,9 +96,9 @@ window.BTMM_TUER_TEXTE = {
       online: ["instagram", "internet", "google", "gesucht", "online", "social", "facebook", "tiktok", "youtube", "webseite", "website", "artikel", "zeitung", "podcast"],
       vorort: ["flyer", "plakat", "aushang", "veranstaltung", "abend", "markt", "vortrag", "getroffen", "treffen"],
       neugierig: ["informier", "wissen", "verstehen", "neugierig", "mehr erfahren", "mehr dazu", "worum", "genauer", "kennenlernen", "interessiert", "interesse", "lesen"],
-      skeptisch: ["skeptisch", "zweifel", "funktioniert", "haken", "trägt", "belege", "beweis", "unsicher", "realistisch", "utopie", "misstrau", "kritisch", "ehrlich"],
+      skeptisch: ["skeptisch", "zweifel", "funktioniert", "haken", "trägt", "belege", "beweis", "unsicher", "realistisch", "utopie", "misstrau", "kritisch", "ehrlich", "zu schön", "prüf", "scheiter", "dahinter", "haftet", "haftung", "satzung"],
       sparen: ["sparen", "geld", "teuer", "kosten", "miete", "einkauf", "preis", "günstig", "lebensmittel", "rechnung", "knapp", "finanz", "auto", "mobilität", "strom", "energie"],
-      arbeiten: ["arbeit", "job", "betrieb", "handwerk", "beruf", "lohn", "selbstständig", "selbständig", "firma", "werkstatt", "stelle", "verdienen", "ausbildung", "gewerbe"],
+      arbeiten: ["arbeit", "job", "betrieb", "handwerk", "beruf", "lohn", "selbstständig", "selbständig", "firma", "werkstatt", "stelle", "verdienen", "ausbildung", "gewerbe", "meister", "geselle", "gesellin", "tischler", "schreiner", "zimmerer", "zimmerei", "elektri", "maler", "installateur", "sanitär", "dachdeck", "fliesen", "metallbau", "galabau", "trockenbau", "gewerk", "unternehm", "inhaber", "freiberuf", "freelanc", "agentur", "geschäft", "holz", "möbel", "auftrag", "aufträge", "baustelle", "innenausbau", " laden", "gewinn", "geschäftsführ"],
       wohnen: ["wohnen", "wohnung", "haus", "häuser", "boden", "grundstück", "eigentum", " bauen"],
       sinn: ["sinn", "gemeinschaft", "zusammen", "werte", "gerecht", "fair", "augenhöhe", "menschen", "einsam", "verbunden", "solidar", "nachhaltig", "zukunft", "anders wirtschaften"],
       gruenden: ["gründ", "mitglied", "aufbauen", "anpacken", "mitmachen", "mithelfen", "engagier", "beitragen", "dabei sein", "einbringen"],
@@ -105,7 +106,7 @@ window.BTMM_TUER_TEXTE = {
       weit: ["weit weg", "andere stadt", "woanders", "nicht in freiburg", "berlin", "hamburg", "münchen", "köln", "ausland"],
       nurlesen: ["nur lesen", "erstmal lesen", "erst mal lesen", "informieren", "wenig zeit", "keine zeit", "anschauen", "reinschauen", "beobachten"],
       vorbei: ["vorbeikommen", "vorbei kommen", "besuchen", "kennenlernen", "treffen", "abend", "reden", "gespräch"],
-      anpacken: ["anpacken", "mitmachen", "mithelfen", "viel zeit", "aktiv", "einbringen", "mitarbeiten", "gründen", "mitglied"]
+      anpacken: ["anpacken", "mitmachen", "mithelfen", "viel zeit", "aktiv", "einbringen", "mitarbeiten", "gründen", "mitglied", "unterstütz", "förder", "spende", "helfen"]
     }
   },
   en: {
@@ -114,6 +115,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Step inside",
     tuerP: "We get to know you with a few questions and then show you your path through BtMM.",
     eintreten: "Enter", ohne: "To the website without questions",
+    bildCredit: "Images created with Grok (AI)",
     kopfName: "BtMM AI", kopfSub: "asks, you answer", loeschen: "Delete answers",
     ds: "The BtMM AI asks you a few questions so that we can introduce BtMM to you in a way that suits you. Your answers stay only on this device as long as you do not have an account. Please do not share any health information. You can stop at any time and delete your answers.",
     dsLink: "Privacy",
@@ -147,7 +149,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["What it is about", "The idea in a few minutes: sharing, equally paid work and houses that are never sold."],
       sparen: ["What you save", "How buying and sharing together lowers everyday costs."],
-      arbeiten: ["Working in cells", "How businesses work in BtMM and why every hour is worth the same."],
+      arbeiten: ["Work and businesses", "What the system takes off businesses' hands (tax adviser, insurance, software) and why every hour is worth the same."],
       wohnen: ["Housing and land", "Why houses at BtMM are held in common and not sold."],
       skeptisch: ["Evidence and open questions", "Answers to critical questions and the documents to read up on."],
       dokumente: ["Documents", "Statutes, concept and introduction to download."],
@@ -194,9 +196,9 @@ window.BTMM_TUER_TEXTE = {
       online: ["instagram", "internet", "google", "searched", "online", "social media", "facebook", "tiktok", "youtube", "website", " web", "article", "newspaper", "podcast", "reddit", "linkedin"],
       vorort: ["flyer", "poster", "leaflet", "notice board", "event", "evening", "market", "lecture", "i met", "we met", "meetup", "festival", "stand"],
       neugierig: ["inform", "know more", "learn more", "understand", "curious", "find out", "what it is about", "what it's about", "interested", "interest", "read", "more about"],
-      skeptisch: ["skeptic", "sceptic", "doubt", "does it work", "really work", "catch", "evidence", "proof", "unsure", "not sure", "realistic", "utopia", "utopian", "distrust", "critical", "honest"],
+      skeptisch: ["skeptic", "sceptic", "doubt", "does it work", "really work", "catch", "evidence", "proof", "unsure", "not sure", "realistic", "utopia", "utopian", "distrust", "critical", "honest", "too good", "check", "fail", "liab"],
       sparen: ["save", "saving", "money", "expensive", " cost", "rent", "groceries", "shopping", "price", "cheap", "afford", "bills", "tight", "financ", " car", "mobility", "electricity", "energy"],
-      arbeiten: [" work", " job", "business", "craft", "trade", "profession", "career", "wage", "salary", "self-employed", "freelanc", "company", "workshop", "employ", " earn", "apprentice", "training"],
+      arbeiten: [" work", " job", "business", "craft", "trade", "profession", "career", "wage", "salary", "self-employed", "freelanc", "company", "workshop", "employ", " earn", "apprentice", "training", "carpenter", "joiner", "electrician", "plumber", "painter", "master craftsman", "journeyman", "tradesm", "entrepreneur", "owner"],
       wohnen: ["housing", "apartment", " flat", " house", "home", " land", "property", "real estate", "build", "living space"],
       sinn: ["meaning", "purpose", "community", "together", "values", "justice", " fair", "equal", "people", "lonely", "connected", "solidarity", "sustainab", "future", "different economy"],
       gruenden: ["founding", "co-found", "to found", "member", "build up", "get involved", "take part", " join", "help out", "help build", "contribut", "be part", "co-op", "cooperative"],
@@ -204,7 +206,7 @@ window.BTMM_TUER_TEXTE = {
       weit: ["far away", "far from", "another city", "other city", "elsewhere", "somewhere else", "not in freiburg", "not near", "berlin", "hamburg", "munich", "cologne", "abroad", "another country", "london", "new york", " usa", " uk ", "england"],
       nurlesen: ["just read", "only read", "read first", "reading first", "for now", "inform", "little time", "no time", "not much time", "look around", "take a look", "observe", "browse"],
       vorbei: ["come by", "drop by", "stop by", "visit", "get to know", " meet", "evening", "talk", "conversation", "chat"],
-      anpacken: ["get involved", "take part", " join", "help", "pitch in", "lots of time", "plenty of time", "a lot of time", "active", "contribute", "work with", "founding", "member"]
+      anpacken: ["get involved", "take part", " join", "help", "pitch in", "lots of time", "plenty of time", "a lot of time", "active", "contribute", "work with", "founding", "member", "support", "donat", "fund"]
     }
   },
   fr: {
@@ -213,6 +215,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Entre",
     tuerP: "Nous apprenons à te connaître avec quelques questions, puis nous te montrons ton chemin à travers BtMM.",
     eintreten: "Entrer", ohne: "Vers le site sans questions",
+    bildCredit: "Images créées avec Grok (IA)",
     kopfName: "IA BtMM", kopfSub: "pose les questions, tu réponds", loeschen: "Supprimer les réponses",
     ds: "L'IA de BtMM te pose quelques questions afin que nous puissions te présenter BtMM de façon adaptée. Tes réponses restent uniquement sur cet appareil tant que tu n'as pas de compte. Merci de ne donner aucune information de santé. Tu peux arrêter à tout moment et supprimer les réponses.",
     dsLink: "Protection des données",
@@ -246,7 +249,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["De quoi il s'agit", "L'idée en quelques minutes : partager, un travail payé de façon égale et des maisons qui ne sont jamais vendues."],
       sparen: ["Ce que tu économises", "Comment acheter et partager ensemble réduit les coûts du quotidien."],
-      arbeiten: ["Travailler en cellules", "Comment les entreprises fonctionnent dans BtMM et pourquoi chaque heure vaut autant."],
+      arbeiten: ["Travail et entreprises", "Ce que le système prend en charge pour les entreprises (expert-comptable, assurance, logiciels) et pourquoi chaque heure vaut autant."],
       wohnen: ["Logement et terrain", "Pourquoi chez BtMM les maisons sont détenues en commun et ne sont pas vendues."],
       skeptisch: ["Preuves et questions ouvertes", "Des réponses aux questions critiques et les documents à consulter."],
       dokumente: ["Documents", "Statuts, concept et introduction à télécharger."],
@@ -312,6 +315,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Pasa",
     tuerP: "Te conocemos con unas pocas preguntas y luego te mostramos tu camino por BtMM.",
     eintreten: "Entrar", ohne: "Ir a la web sin preguntas",
+    bildCredit: "Imágenes creadas con Grok (IA)",
     kopfName: "IA de BtMM", kopfSub: "pregunta, tú respondes", loeschen: "Borrar respuestas",
     ds: "La IA de BtMM te hace unas preguntas para que podamos presentarte BtMM de forma adecuada para ti. Tus respuestas se quedan solo en este dispositivo mientras no tengas una cuenta. Por favor, no indiques datos de salud. Puedes interrumpir en cualquier momento y borrar las respuestas.",
     dsLink: "Protección de datos",
@@ -345,7 +349,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["De qué se trata", "La idea en pocos minutos: compartir, trabajo pagado por igual y casas que nunca se venden."],
       sparen: ["Lo que ahorras", "Cómo comprar y compartir en común reduce los gastos del día a día."],
-      arbeiten: ["Trabajar en células", "Cómo trabajan las empresas en BtMM y por qué cada hora vale lo mismo."],
+      arbeiten: ["Trabajo y empresas", "Lo que el sistema asume por las empresas (asesor fiscal, seguros, software) y por qué cada hora vale lo mismo."],
       wohnen: ["Vivienda y suelo", "Por qué en BtMM las casas se mantienen en común y no se venden."],
       skeptisch: ["Pruebas y preguntas abiertas", "Respuestas a preguntas críticas y los documentos para consultar."],
       dokumente: ["Documentos", "Estatutos, concepto e introducción para descargar."],
@@ -411,6 +415,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Entre",
     tuerP: "Conhecemos você com algumas perguntas e depois mostramos o seu caminho pelo BtMM.",
     eintreten: "Entrar", ohne: "Ir para o site sem perguntas",
+    bildCredit: "Imagens criadas com Grok (IA)",
     kopfName: "IA do BtMM", kopfSub: "pergunta, você responde", loeschen: "Apagar respostas",
     ds: "A IA do BtMM faz algumas perguntas a você para que possamos apresentar o BtMM de forma adequada a você. Suas respostas ficam apenas neste dispositivo enquanto você não tiver uma conta. Por favor, não informe dados de saúde. Você pode interromper a qualquer momento e apagar as respostas.",
     dsLink: "Proteção de dados",
@@ -444,7 +449,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["Do que se trata", "A ideia em poucos minutos: compartilhar, trabalho pago por igual e casas que nunca são vendidas."],
       sparen: ["O que você economiza", "Como comprar e compartilhar em conjunto reduz os custos do dia a dia."],
-      arbeiten: ["Trabalhar em células", "Como as empresas trabalham no BtMM e por que cada hora vale o mesmo."],
+      arbeiten: ["Trabalho e empresas", "O que o sistema assume pelas empresas (contador, seguro, software) e por que cada hora vale o mesmo."],
       wohnen: ["Moradia e terra", "Por que no BtMM as casas são mantidas em comum e não são vendidas."],
       skeptisch: ["Provas e questões em aberto", "Respostas a perguntas críticas e os documentos para consultar."],
       dokumente: ["Documentos", "Estatuto, conceito e introdução para baixar."],
@@ -510,6 +515,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Входи",
     tuerP: "Мы познакомимся с тобой с помощью нескольких вопросов, а потом покажем твой путь по BtMM.",
     eintreten: "Войти", ohne: "На сайт без вопросов",
+    bildCredit: "Изображения созданы с помощью Grok (ИИ)",
     kopfName: "ИИ BtMM", kopfSub: "спрашивает, ты отвечаешь", loeschen: "Удалить ответы",
     ds: "ИИ BtMM задаст тебе несколько вопросов, чтобы мы могли рассказать тебе о BtMM так, как подходит именно тебе. Твои ответы хранятся только на этом устройстве, пока у тебя нет аккаунта. Пожалуйста, не указывай сведения о здоровье. Ты можешь в любой момент прервать разговор и удалить ответы.",
     dsLink: "Защита данных",
@@ -543,7 +549,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["О чём это", "Идея за несколько минут: делиться, одинаково оплачиваемый труд и дома, которые никогда не продаются."],
       sparen: ["Что ты экономишь", "Как совместные покупки и обмен снижают повседневные расходы."],
-      arbeiten: ["Работа в ячейках", "Как работают предприятия в BtMM и почему каждый час стоит одинаково."],
+      arbeiten: ["Работа и предприятия", "Что система берёт на себя за предприятия (налоговый консультант, страховка, программы) и почему каждый час стоит одинаково."],
       wohnen: ["Жильё и земля", "Почему дома в BtMM находятся в общем владении и не продаются."],
       skeptisch: ["Доказательства и открытые вопросы", "Ответы на критические вопросы и документы для изучения."],
       dokumente: ["Документы", "Устав, концепция и введение для скачивания."],
@@ -609,6 +615,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "تفضّل بالدخول",
     tuerP: "نتعرّف عليك ببعض الأسئلة، ثم نريك طريقك عبر BtMM.",
     eintreten: "ادخل", ohne: "إلى الموقع بدون أسئلة",
+    bildCredit: "صور أُنشئت باستخدام Grok (ذكاء اصطناعي)",
     kopfName: "ذكاء BtMM الاصطناعي", kopfSub: "يسأل، وأنت تجيب", loeschen: "حذف الإجابات",
     ds: "يطرح عليك الذكاء الاصطناعي لـBtMM بعض الأسئلة حتى نتمكن من تعريفك بـBtMM بما يناسبك. تبقى إجاباتك على هذا الجهاز فقط ما دام ليس لديك حساب. يُرجى عدم ذكر أي معلومات صحية. يمكنك التوقف في أي وقت وحذف الإجابات.",
     dsLink: "حماية البيانات",
@@ -642,7 +649,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["عمّ يدور الأمر", "الفكرة في دقائق: المشاركة، وعمل بأجر متساوٍ، وبيوت لا تُباع أبدًا."],
       sparen: ["ما توفّره", "كيف يخفّض الشراء والمشاركة معًا تكاليف الحياة اليومية."],
-      arbeiten: ["العمل في الخلايا", "كيف تعمل المنشآت في BtMM ولماذا تتساوى قيمة كل ساعة."],
+      arbeiten: ["العمل والمنشآت", "ما يتحمّله النظام عن المنشآت (المستشار الضريبي، التأمين، البرمجيات) ولماذا تتساوى قيمة كل ساعة."],
       wohnen: ["السكن والأرض", "لماذا تُملك البيوت في BtMM بشكل مشترك ولا تُباع."],
       skeptisch: ["أدلة وأسئلة مفتوحة", "إجابات عن الأسئلة النقدية والوثائق للاطلاع عليها."],
       dokumente: ["الوثائق", "النظام الأساسي والمفهوم والمقدمة للتنزيل."],
@@ -708,6 +715,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "अंदर आइए",
     tuerP: "हम कुछ सवालों से आपको जानेंगे और फिर आपको BtMM में आपका रास्ता दिखाएँगे।",
     eintreten: "प्रवेश करें", ohne: "बिना सवालों के वेबसाइट पर जाएँ",
+    bildCredit: "चित्र Grok (एआई) से बनाए गए",
     kopfName: "BtMM-एआई", kopfSub: "पूछता है, आप जवाब देते हैं", loeschen: "जवाब मिटाएँ",
     ds: "BtMM-एआई आपसे कुछ सवाल पूछता है, ताकि हम आपको आपके अनुरूप BtMM से परिचित करा सकें। जब तक आपका कोई खाता नहीं है, आपके जवाब सिर्फ़ इसी डिवाइस पर रहते हैं। कृपया स्वास्थ्य से जुड़ी कोई जानकारी न दें। आप कभी भी रुक सकते हैं और जवाब मिटा सकते हैं।",
     dsLink: "डेटा सुरक्षा",
@@ -741,7 +749,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["यह किस बारे में है", "कुछ मिनटों में विचार: साझा करना, बराबर वेतन वाला काम और ऐसे घर जो कभी बेचे नहीं जाते।"],
       sparen: ["आप क्या बचाते हैं", "मिलकर ख़रीदारी और साझा करने से रोज़ का ख़र्च कैसे घटता है।"],
-      arbeiten: ["सेल में काम", "BtMM में व्यवसाय कैसे काम करते हैं और हर घंटे का मूल्य बराबर क्यों है।"],
+      arbeiten: ["काम और व्यवसाय", "सिस्टम व्यवसायों से क्या ज़िम्मेदारी लेता है (टैक्स सलाहकार, बीमा, सॉफ़्टवेयर) और हर घंटे का मूल्य बराबर क्यों है।"],
       wohnen: ["आवास और ज़मीन", "BtMM में घर साझा रूप से क्यों रखे जाते हैं और बेचे क्यों नहीं जाते।"],
       skeptisch: ["प्रमाण और खुले सवाल", "आलोचनात्मक सवालों के जवाब और पढ़ने के लिए दस्तावेज़।"],
       dokumente: ["दस्तावेज़", "उपनियम, अवधारणा और परिचय डाउनलोड के लिए।"],
@@ -807,6 +815,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "ভেতরে আসুন",
     tuerP: "কয়েকটি প্রশ্নের মাধ্যমে আমরা আপনাকে জানব, তারপর BtMM-এ আপনার পথ দেখাব।",
     eintreten: "প্রবেশ করুন", ohne: "প্রশ্ন ছাড়াই ওয়েবসাইটে যান",
+    bildCredit: "ছবিগুলো Grok (এআই) দিয়ে তৈরি",
     kopfName: "BtMM এআই", kopfSub: "প্রশ্ন করে, আপনি উত্তর দেন", loeschen: "উত্তর মুছুন",
     ds: "BtMM-এর এআই আপনাকে কয়েকটি প্রশ্ন করে, যাতে আমরা আপনার উপযোগী করে আপনাকে BtMM-এর পরিচয় দিতে পারি। যতক্ষণ আপনার কোনো অ্যাকাউন্ট নেই, আপনার উত্তরগুলো শুধু এই ডিভাইসেই থাকে। অনুগ্রহ করে স্বাস্থ্য-সংক্রান্ত কোনো তথ্য দেবেন না। আপনি যেকোনো সময় থামতে এবং উত্তরগুলো মুছে ফেলতে পারেন।",
     dsLink: "ডেটা সুরক্ষা",
@@ -840,7 +849,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["বিষয়টি কী", "কয়েক মিনিটে ধারণাটি: ভাগাভাগি, সমান পারিশ্রমিকের কাজ এবং এমন বাড়ি যা কখনো বিক্রি হয় না।"],
       sparen: ["আপনি কী সঞ্চয় করেন", "একসাথে কেনাকাটা ও ভাগাভাগি কীভাবে দৈনন্দিন খরচ কমায়।"],
-      arbeiten: ["সেলে কাজ", "BtMM-এ প্রতিষ্ঠানগুলো কীভাবে কাজ করে এবং কেন প্রতিটি ঘণ্টার মূল্য সমান।"],
+      arbeiten: ["কাজ ও প্রতিষ্ঠান", "সিস্টেম প্রতিষ্ঠানগুলোর কোন দায়িত্ব নেয় (কর উপদেষ্টা, বিমা, সফটওয়্যার) এবং কেন প্রতিটি ঘণ্টার মূল্য সমান।"],
       wohnen: ["বাসস্থান ও জমি", "কেন BtMM-এ বাড়ি যৌথভাবে রাখা হয় এবং বিক্রি করা হয় না।"],
       skeptisch: ["প্রমাণ ও খোলা প্রশ্ন", "সমালোচনামূলক প্রশ্নের উত্তর এবং পড়ার জন্য নথিপত্র।"],
       dokumente: ["নথিপত্র", "সংবিধি, ধারণা ও পরিচিতি ডাউনলোডের জন্য।"],
@@ -906,6 +915,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "お入りください",
     tuerP: "いくつかの質問であなたのことを知り、そのあとBtMMを巡るあなたの道をご案内します。",
     eintreten: "入る", ohne: "質問なしでウェブサイトへ",
+    bildCredit: "画像は Grok（AI）で作成",
     kopfName: "BtMM AI", kopfSub: "AIが質問し、あなたが答えます", loeschen: "回答を削除",
     ds: "BtMMのAIが、あなたに合った形でBtMMをご紹介できるよう、いくつか質問します。アカウントをお持ちでない間、回答はこの端末にのみ残ります。健康に関する情報は入力しないでください。いつでも中断し、回答を削除できます。",
     dsLink: "データ保護",
@@ -939,7 +949,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["どんなものか", "数分でわかるアイデア：分かち合い、等しく支払われる労働、そして決して売られない家。"],
       sparen: ["何が節約できるか", "共同購入と分かち合いが日々の費用をどう下げるか。"],
-      arbeiten: ["セルでの仕事", "BtMMで事業がどう営まれ、なぜどの1時間も同じ価値なのか。"],
+      arbeiten: ["仕事と事業", "システムが事業から引き受けること（税理士、保険、ソフトウェア）と、なぜどの1時間も同じ価値なのか。"],
       wohnen: ["住まいと土地", "BtMMで家が共同で保有され、売られない理由。"],
       skeptisch: ["根拠と未解決の問い", "批判的な質問への回答と、読んで確かめられる文書。"],
       dokumente: ["ドキュメント", "定款、コンセプト、入門資料のダウンロード。"],
@@ -1005,6 +1015,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "请进",
     tuerP: "我们通过几个问题认识你，然后为你展示一条穿越 BtMM 的路。",
     eintreten: "进入", ohne: "不回答问题，直接进入网站",
+    bildCredit: "图片由 Grok（AI）生成",
     kopfName: "BtMM 人工智能", kopfSub: "它来提问，你来回答", loeschen: "删除回答",
     ds: "BtMM 人工智能会问你几个问题，以便我们以适合你的方式向你介绍 BtMM。在你没有账户之前，你的回答只保存在这台设备上。请不要提供任何健康信息。你可以随时中止并删除回答。",
     dsLink: "数据保护",
@@ -1038,7 +1049,7 @@ window.BTMM_TUER_TEXTE = {
     schritte: {
       grundlagen: ["这是关于什么", "几分钟了解理念：分享、同等报酬的劳动，以及永不出售的房屋。"],
       sparen: ["你能省下什么", "共同采购和分享如何降低日常开支。"],
-      arbeiten: ["在细胞组中工作", "BtMM 中的企业如何运作，以及为什么每一小时的价值都相同。"],
+      arbeiten: ["工作与企业", "系统为企业承担哪些事务（税务顾问、保险、软件），以及为什么每一小时的价值都相同。"],
       wohnen: ["居住与土地", "为什么 BtMM 的房屋共同持有、不出售。"],
       skeptisch: ["依据与未决问题", "对批评性问题的回答，以及可供查阅的文件。"],
       dokumente: ["文件", "章程、理念和入门介绍，可供下载。"],

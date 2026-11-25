@@ -17,10 +17,11 @@
     "datenschutz": "गोपनीयता नीति",
     "kontakt": "संपर्क",
     "tagline": "अर्थव्यवस्था जो संभालती है।",
-    "copyright": "© 2024 Back to Meaning Maximization। सर्वाधिकार सुरक्षित।"
+    "copyright": "© {jahr} Back to Meaning Maximization। सर्वाधिकार सुरक्षित।"
   },
   "actions": {
     "mehr_erfahren": "और जानें",
+    "mehr_erfahren_aria": "और जानें, नीचे स्क्रॉल करें",
     "jetzt_mitmachen": "अभी भाग लें",
     "termin_buchen": "अपॉइंटमेंट बुक करें",
     "kontakt_aufnehmen": "संपर्क करें",
