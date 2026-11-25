@@ -2,45 +2,66 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { Download } from 'lucide-react'
-import { DokumentViewer } from '@/components/DokumentViewer'
-import { getDriveDokument, formatDatum, pdfUrl } from '@/lib/drive-dokumente'
+import { DokumentInhalt } from '@/components/DokumentInhalt'
+import { BRAND_FULL } from '@/lib/brand'
+import { lesen, slugs, gruppiert, beschreibung, pfad, downloadName, SITE } from '@/lib/dokumente-web.mjs'
 
-export const dynamic = 'force-dynamic'
+// Die Dokumente gibt es nur auf Deutsch. Andere Sprachen zeigen einen Hinweis und verweisen auf den deutschen Text.
+export const dynamic = 'force-static'
+export const dynamicParams = false
 
-export async function generateMetadata({ params }: { params: { slug: string } }): Promise<Metadata> {
-  const doc = getDriveDokument(params.slug)
-  return { title: doc ? `${doc.titel} – Back to Meaning Maximization` : 'Dokument' }
+export function generateStaticParams() {
+  return slugs().map((slug: string) => ({ slug }))
 }
 
+export function generateMetadata({ params }: { params: { slug: string } }): Metadata {
+  const d = lesen(params.slug)
+  if (!d) return { title: 'Dokument' }
+  const url = `${SITE}${pfad(d.slug, 'de')}`
+  return {
+    title: { absolute: `${d.titel ?? 'Dokument'} (Version ${d.version}) | ${BRAND_FULL}` },
+    description: beschreibung(d),
+    alternates: { canonical: url },
+    openGraph: { title: d.titel ?? undefined, description: beschreibung(d), url, locale: 'de_DE' },
+  }
+}
+
+const knopf = { display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' } as const
+
 export default function DokumentSeite({ params }: { params: { locale: string; slug: string } }) {
-  const doc = getDriveDokument(params.slug)
-  if (!doc) notFound()
-  const pdf = pdfUrl(doc)
+  const d = lesen(params.slug)
+  if (!d) notFound()
+  const deutsch = params.locale === 'de'
+  const gruppe = (gruppiert() as { titel: string; docs: { slug: string }[] }[]).find((g) => g.docs.some((x) => x.slug === d.slug))
   return (
     <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-      <div className="container-btb">
-        <Link href={`/${params.locale}/dokumente`} style={{ fontSize: '0.9rem', color: 'var(--btb-oliv)' }}>← Alle Dokumente</Link>
-        <div style={{ display: 'flex', justifyContent: 'space-between', flexWrap: 'wrap', gap: '1rem', margin: '1.5rem 0', paddingBottom: '1rem', borderBottom: '2px solid var(--btb-creme)' }}>
-          <div>
-            {doc.kategorie && <p style={{ fontSize: '0.8rem', textTransform: 'uppercase', letterSpacing: '0.05em', opacity: 0.6 }}>{doc.kategorie.label}</p>}
-            <h1 style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-oliv)', fontSize: '2rem' }}>{doc.titel}</h1>
-            <p style={{ fontSize: '0.9rem', opacity: 0.6 }}>Version {doc.version} · Stand {formatDatum(doc.datum)}</p>
-            {doc.aenderung && <p style={{ fontSize: '0.9rem', opacity: 0.8 }}>Änderung: {doc.aenderung}</p>}
-          </div>
-          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignSelf: 'flex-start' }}>
-          {pdf && (
-            <a href={pdf} download={`${doc.slug}_v${doc.pdf!.version}.pdf`} className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }}>
-              <Download size={16} /> PDF herunterladen
-            </a>
-          )}
-          {!doc.nurPdf && <a href={`/dokumente/${doc.slug}.md`} download={`${doc.slug}_v${doc.version}.md`} className="btn-secondary" style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem', alignSelf: 'flex-start' }}>
-            <Download size={16} /> Markdown herunterladen
-          </a>}
-          </div>
+      <div className="container-btb" style={{ maxWidth: 900 }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: '0.75rem', margin: '0 0 1.5rem', paddingBottom: '1rem', borderBottom: '2px solid var(--btb-creme)' }}>
+          <nav aria-label="Brotkrumen" style={{ fontSize: '0.9rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <Link href={`/${params.locale}/dokumente`} style={{ color: 'var(--btb-oliv)' }}>Alle Dokumente</Link>
+            {gruppe && <span style={{ opacity: 0.6 }}>/ {gruppe.titel}</span>}
+          </nav>
+          <a href={`/dokumente/${d.slug}.md`} download={downloadName(d)} className="btn-secondary" style={knopf}>
+            <Download size={16} aria-hidden="true" />
+            Markdown herunterladen
+          </a>
         </div>
-        {!doc.nurPdf && <div style={{ background: 'var(--btb-creme)', borderRadius: 12, padding: '2rem 2.5rem' }}>
-          <DokumentViewer content={doc.content} />
-        </div>}
+
+        {deutsch ? (
+          <div style={{ background: 'var(--btb-creme)', borderRadius: 12, padding: 'clamp(1rem, 4vw, 2.5rem)' }}>
+            <DokumentInhalt content={d.md} />
+          </div>
+        ) : (
+          <div style={{ background: 'var(--btb-creme)', borderRadius: 12, padding: '1.5rem' }}>
+            <h1 style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-rot)', fontSize: '1.7rem', marginBottom: '0.75rem' }}>{d.titel}</h1>
+            <p role="note" style={{ marginBottom: '1rem', fontWeight: 600 }}>Dieses Dokument ist nur auf Deutsch verfügbar.</p>
+            <Link href={pfad(d.slug, 'de')} className="btn-secondary" style={knopf}>Zum deutschen Text</Link>
+          </div>
+        )}
+
+        <p style={{ fontSize: '0.9rem', marginTop: '1.5rem', opacity: 0.8 }}>
+          <Link href={`/${params.locale}/impressum`} style={{ color: 'var(--btb-oliv)' }}>Impressum</Link>
+        </p>
       </div>
     </section>
   )
