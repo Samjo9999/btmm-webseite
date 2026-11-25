@@ -4,6 +4,7 @@ import { z } from 'zod'
 import { loadMitmacherCorpus } from '@/lib/wissen/loadCorpus'
 import { formatExtractiveAnswer, searchChunks, type WissenChunk } from '@/lib/wissen/search'
 import { resolveWissenLlmRuntime } from '@/lib/wissen/llmTiers'
+import { LIMIT_TEXT, pruefeUndZaehle } from '@/lib/wissen/rateLimit'
 
 /**
  * Mitmacher-Wissenssuche (Prompt 117).
@@ -71,7 +72,7 @@ async function generateScaleway(
       }),
     })
     if (!res.ok) {
-      console.error('scaleway', res.status, await res.text())
+      console.error('scaleway', res.status)
       return null
     }
     const data = (await res.json()) as {
@@ -85,7 +86,7 @@ async function generateScaleway(
     }
     return antwort
   } catch (e) {
-    console.error('scaleway', e)
+    console.error('scaleway')
     return null
   }
 }
@@ -126,7 +127,7 @@ async function generateOpenAiCompat(
       }),
     })
     if (!res.ok) {
-      console.error('selfhost-llm', res.status, await res.text())
+      console.error('selfhost-llm', res.status)
       return null
     }
     const data = (await res.json()) as {
@@ -140,7 +141,7 @@ async function generateOpenAiCompat(
     }
     return antwort
   } catch (e) {
-    console.error('selfhost-llm', e)
+    console.error('selfhost-llm')
     return null
   }
 }
@@ -170,6 +171,17 @@ export async function POST(request: NextRequest) {
     const body = await request.json()
     const parsed = schema.parse(body)
     const frage = parsed.frage
+
+    const limit = pruefeUndZaehle(userData.user.id)
+    if (!limit.erlaubt) {
+      return NextResponse.json(
+        { error: LIMIT_TEXT },
+        {
+          status: 429,
+          headers: { 'Retry-After': String(limit.retryAfterSec) },
+        }
+      )
+    }
     const wantGen =
       parsed.generative === true ||
       parsed.mode === 'generative' ||
@@ -265,7 +277,7 @@ export async function POST(request: NextRequest) {
     if (e instanceof z.ZodError) {
       return NextResponse.json({ error: 'Ungültige Eingabe', details: e.issues }, { status: 400 })
     }
-    console.error('wissen-mitmacher', e)
+    console.error('wissen-mitmacher')
     return NextResponse.json({ error: 'server' }, { status: 500 })
   }
 }
