@@ -361,8 +361,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                     <h4>Interessenliste</h4>
                     <p>
                       Wenn Sie sich in die Interessenliste eintragen, speichern wir Ihre E-Mail-Adresse, Ihre
-                      Interessenangaben, optional Ihren Namen und – nur wenn Sie eine gesonderte Einwilligung
-                      erteilen – eine unverbindliche Betragsspanne. Zweck ist, Sie über den Stand der geplanten
+                      Interessenangaben und optional Ihren Namen. Zweck ist, Sie über den Stand der geplanten
                       Genossenschaft BtMM zu informieren und Sie später, nach der Eintragung, auf eine mögliche
                       Unterstützungskampagne der Genossenschaft hinzuweisen. Rechtsgrundlage ist Ihre
                       Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); für diese E-Mails holen wir zudem Ihre
@@ -417,7 +416,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                     </p>
                     <p>
                       Unbestätigte Einträge löschen wir nach 7 Tagen. Bei Widerruf oder Abmeldung löschen wir
-                      Ihre E-Mail-Adresse, Ihren Namen, Ihre Interessen und Ihre Betragsspanne sofort. Zum
+                      Ihre E-Mail-Adresse, Ihren Namen und Ihre Interessen sofort. Zum
                       Nachweis Ihrer Einwilligung und Ihres Widerrufs (Art. 7 Abs. 1 DSGVO) und zur Abwehr von
                       Ansprüchen behalten wir bis zu 12 Monate einen Prüfwert (Hash) Ihrer E-Mail-Adresse sowie
                       die Zeitpunkte und die Textfassung der Einwilligung (Art. 6 Abs. 1 lit. f DSGVO). Der
@@ -425,8 +424,8 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                       Bestätigte Einträge löschen wir spätestens 12 Monate nach der Eintragung der
                       Genossenschaft und, wenn sich die Eintragung verzögert, spätestens 36 Monate nach Ihrer
                       Bestätigung. Nach 12 und nach 24 Monaten erinnern wir Sie einmal per E-Mail und bieten
-                      die Abmeldung an. Es gibt kein Tracking und keine Tracking-Pixel in diesen E-Mails; die
-                      Betragsspanne wird nicht veröffentlicht. Die E-Mails senden wir auf Deutsch oder Englisch.
+                      die Abmeldung an. Es gibt kein Tracking und keine Tracking-Pixel in diesen E-Mails.
+                      Die E-Mails senden wir auf Deutsch oder Englisch.
                     </p>
                   </div>
                 )}

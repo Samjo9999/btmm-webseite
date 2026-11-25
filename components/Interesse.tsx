@@ -8,12 +8,8 @@ import {
   EDGE_REGION,
   INTERESSEN,
   tokenAusHash,
-  SPANNEN,
   baueNutzlast,
   fehlerSchluessel,
-  spanneCheckboxSichtbar,
-  spanneGesperrtWegenBeitritt,
-  spanneSichtbar,
 } from '@/lib/interessenliste.mjs'
 
 // Unverbindliche Interessenliste. Sendet direkt an die Supabase-Edge-Function (eu-central-1).
@@ -28,9 +24,7 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [interessen, setInteressen] = useState<string[]>([])
-  const [spanne, setSpanne] = useState('keine')
   const [consentInfo, setConsentInfo] = useState(false)
-  const [consentSpanne, setConsentSpanne] = useState(false)
   const [website, setWebsite] = useState('')
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
   const [fehler, setFehler] = useState<string | null>(null)
@@ -43,19 +37,8 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
   const zeile: React.CSSProperties = { display: 'flex', gap: '0.6rem', alignItems: 'flex-start', marginBottom: '0.6rem' }
   const klein: React.CSSProperties = { fontSize: '0.85rem', opacity: 0.8, margin: '0.15rem 0 0' }
 
-  const zeigeSpanne = spanneSichtbar(interessen)
-  const zeigeSpanneCheck = spanneCheckboxSichtbar(interessen, spanne)
-  const zeigeSpanneHinweisBeitritt = spanneGesperrtWegenBeitritt(interessen)
-
   function toggle(wert: string) {
-    setInteressen((alt) => {
-      const neu = alt.includes(wert) ? alt.filter((x) => x !== wert) : [...alt, wert]
-      if (!spanneSichtbar(neu)) {
-        setSpanne('keine')
-        setConsentSpanne(false)
-      }
-      return neu
-    })
+    setInteressen((alt) => alt.includes(wert) ? alt.filter((x) => x !== wert) : [...alt, wert])
   }
 
   async function absenden(e: React.FormEvent) {
@@ -70,7 +53,7 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'x-region': EDGE_REGION },
         body: JSON.stringify(baueNutzlast({
-          name, email, interessen, spanne, consentInfo, consentSpanne, sprache: locale, website, startedAt: startedAt.current,
+          name, email, interessen, consentInfo, sprache: locale, website, startedAt: startedAt.current,
         })),
         credentials: 'omit',
         referrerPolicy: 'no-referrer',
@@ -78,7 +61,7 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
       const antwort = await res.json().catch(() => null)
       if (res.ok && antwort?.ok === true) {
         setStatus('success')
-        setName(''); setEmail(''); setInteressen([]); setSpanne('keine'); setConsentInfo(false); setConsentSpanne(false)
+        setName(''); setEmail(''); setInteressen([]); setConsentInfo(false)
       } else {
         fail(fehlerSchluessel(res.status, antwort?.fehler))
       }
@@ -129,33 +112,6 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
           </div>
         ))}
       </fieldset>
-
-      {zeigeSpanneHinweisBeitritt && (
-        <p style={{ margin: 0 }}>{t('spanne_nicht_mit_beitritt')}</p>
-      )}
-
-      {zeigeSpanne && (
-        <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
-          <legend style={labelStyle}>{t('spanne_legende')}</legend>
-          <div style={zeile}>
-            <input id="il-s-keine" type="radio" name="il-spanne" checked={spanne === 'keine'} onChange={() => { setSpanne('keine'); setConsentSpanne(false) }} style={{ marginTop: '0.3rem' }} />
-            <label htmlFor="il-s-keine">{t('spanne_keine')}</label>
-          </div>
-          {SPANNEN.map((s) => (
-            <div key={s} style={zeile}>
-              <input id={`il-s-${s}`} type="radio" name="il-spanne" checked={spanne === s} onChange={() => setSpanne(s)} style={{ marginTop: '0.3rem' }} />
-              <label htmlFor={`il-s-${s}`}>{t(`s_${s}`)}</label>
-            </div>
-          ))}
-          <p style={{ fontWeight: 700, margin: '0.5rem 0 0.75rem' }}>{t('spanne_hinweis')}</p>
-          {zeigeSpanneCheck && (
-            <div style={zeile}>
-              <input id="il-consent-spanne" type="checkbox" checked={consentSpanne} onChange={(e) => setConsentSpanne(e.target.checked)} style={{ marginTop: '0.3rem' }} />
-              <label htmlFor="il-consent-spanne" style={{ fontSize: '0.9rem' }}>{t('consent_spanne')}</label>
-            </div>
-          )}
-        </fieldset>
-      )}
 
       {/* Honeypot: fuer Menschen unsichtbar */}
       <div aria-hidden="true" style={{ position: 'absolute', left: '-10000px', width: 1, height: 1, overflow: 'hidden' }}>
