@@ -12,6 +12,7 @@ import {
   baueNutzlast,
   fehlerSchluessel,
   spanneCheckboxSichtbar,
+  spanneGesperrtWegenBeitritt,
   spanneSichtbar,
 } from '@/lib/interessenliste.mjs'
 
@@ -44,11 +45,12 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
 
   const zeigeSpanne = spanneSichtbar(interessen)
   const zeigeSpanneCheck = spanneCheckboxSichtbar(interessen, spanne)
+  const zeigeSpanneHinweisBeitritt = spanneGesperrtWegenBeitritt(interessen)
 
   function toggle(wert: string) {
     setInteressen((alt) => {
       const neu = alt.includes(wert) ? alt.filter((x) => x !== wert) : [...alt, wert]
-      if (!neu.includes('dankeschoen')) {
+      if (!spanneSichtbar(neu)) {
         setSpanne('keine')
         setConsentSpanne(false)
       }
@@ -128,6 +130,10 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
         ))}
       </fieldset>
 
+      {zeigeSpanneHinweisBeitritt && (
+        <p style={{ margin: 0 }}>{t('spanne_nicht_mit_beitritt')}</p>
+      )}
+
       {zeigeSpanne && (
         <fieldset style={{ border: 0, padding: 0, margin: 0 }}>
           <legend style={labelStyle}>{t('spanne_legende')}</legend>
@@ -166,6 +172,7 @@ export function InteresseForm({ edgeUrl }: { edgeUrl: string }) {
           <Link href={`/${locale}/impressum#interessenliste`} style={{ color: 'var(--btb-blau)' }}>{t('dse_link')}</Link>
         </p>
         <p style={klein}>{t('volljaehrig')}</p>
+        {locale !== 'de' && <p style={klein}>{t('uebersetzung_hinweis')}</p>}
       </div>
 
       {status === 'error' && fehler && (

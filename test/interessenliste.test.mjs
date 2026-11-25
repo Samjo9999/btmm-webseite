@@ -5,8 +5,8 @@ import fs from 'node:fs'
 import path from 'node:path'
 import {
   CONSENT_TEXT_VERSION, INTERESSEN, SPANNEN, ZAEHLER_MINDESTWERT, EDGE_URL_STANDARD,
-  interessenlisteAktiv, edgeUrl, spanneSichtbar, spanneCheckboxSichtbar, baueNutzlast, tokenAusHash,
-  fehlerSchluessel, zaehlerAnzeigen,
+  interessenlisteAktiv, edgeUrl, spanneSichtbar, spanneCheckboxSichtbar, spanneGesperrtWegenBeitritt,
+  baueNutzlast, tokenAusHash, fehlerSchluessel, zaehlerAnzeigen,
 } from '../lib/interessenliste.mjs'
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
@@ -42,9 +42,13 @@ test('Impressum-DSE-Block und Sitemap-Eintrag haengen am Schalter', () => {
   assert.ok(i > 0)
   assert.ok(imp.indexOf('<h4>Interessenliste</h4>') > i)
   assert.ok(imp.indexOf('<h4>Terminbuchung</h4>') > imp.indexOf('<h4>Interessenliste</h4>'))
-  for (const muss of ['Art. 6 Abs. 1 lit. a DSGVO', '§ 7 UWG', 'Resend (Plus Five Five, Inc., USA)', 'Art. 28 DSGVO', 'eu-central-1', 'nach 7 Tagen', '12 Monate nach der', '36', 'keine Tracking-Pixel', 'bis zur Eintragung der Genossenschaft Johannes-Samuel Gartzke', 'nicht über unseren Webserver bei Vercel']) {
+  for (const muss of ['Art. 6 Abs. 1 lit. a DSGVO', '§ 7 UWG', 'Resend (Plus Five Five, Inc., USA)', 'Art. 28 DSGVO', 'eu-central-1', 'nach 7 Tagen', '12 Monate nach der', '36', 'keine Tracking-Pixel', 'bis zur Eintragung der Genossenschaft Johannes-Samuel Gartzke', 'nicht über unseren Webserver bei Vercel', 'Pte. Ltd.', '12 Monate einen Prüfwert', 'höchstens', 'Frankfurt', 'innerhalb von 14 Tagen', 'höchstens 2 Stunden']) {
     assert.ok(imp.includes(muss), 'DSE-Block: ' + muss)
   }
+  const sb = imp.slice(imp.indexOf('<h4>Supabase</h4>'), imp.indexOf('<h4>Wissens-Assistent'))
+  assert.match(sb, /Supabase Pte\. Ltd\./)
+  assert.doesNotMatch(sb, /Supabase Inc/)
+  assert.doesNotMatch(sb, /Datentransfer in die USA/)
   assert.match(lies('app/sitemap.ts'), /interessenlisteAktiv\(\) \? \[\.\.\.PFADE, '\/gruendung\/interesse'\]/)
   assert.doesNotMatch(imp, /Supabase Inc/)
   assert.ok((imp.match(/Supabase Pte\. Ltd\./g) || []).length >= 2, 'Supabase Pte. Ltd. in DSE')
@@ -87,6 +91,11 @@ test('Spanne nur bei Dankeschoen, zweite Checkbox nur bei gewaehlter Spanne', ()
   assert.equal(spanneCheckboxSichtbar(['dankeschoen'], 'keine'), false)
   assert.equal(spanneCheckboxSichtbar(['dankeschoen'], '25_50'), true)
   assert.equal(spanneCheckboxSichtbar(['gruendung'], '25_50'), false)
+  assert.equal(spanneSichtbar(['dankeschoen', 'beitritt']), false)
+  assert.equal(spanneSichtbar(['dankeschoen', 'gruendung']), false)
+  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen', 'beitritt']), true)
+  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen', 'gruendung']), true)
+  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen']), false)
 })
 
 test('Nutzlast: Spanne nur mit Dankeschoen UND zweiter Einwilligung, sonst null', () => {
@@ -100,6 +109,12 @@ test('Nutzlast: Spanne nur mit Dankeschoen UND zweiter Einwilligung, sonst null'
   assert.equal(mit.spanne, '50_100')
   const ohneDank = baueNutzlast({ ...basis, interessen: ['gruendung'], spanne: '50_100', consentSpanne: true })
   assert.equal(ohneDank.spanne, null)
+  const mitBeitritt = baueNutzlast({ ...basis, interessen: ['dankeschoen', 'beitritt'], spanne: '100_250', consentSpanne: true })
+  assert.equal(mitBeitritt.spanne, null)
+  assert.equal(mitBeitritt.consentSpanne, false)
+  const mitGruendung = baueNutzlast({ ...basis, interessen: ['dankeschoen', 'gruendung'], spanne: '100_250', consentSpanne: true })
+  assert.equal(mitGruendung.spanne, null)
+  assert.equal(mitGruendung.consentSpanne, false)
   assert.equal(mit.consentTextVersion, CONSENT_TEXT_VERSION)
   assert.equal(mit.action, 'anmelden')
   // kein Kommentarfeld, keine IP, kein User-Agent
@@ -130,6 +145,9 @@ test('Formular: nichts vorangekreuzt, Pflicht-Checkbox, Honeypot, Link zur DSE, 
   assert.doesNotMatch(f, /defaultChecked|checked=\{true\}/)
   assert.match(f, /aria-hidden="true"/)
   assert.match(f, /impressum#interessenliste/)
+  assert.match(f, /spanne_nicht_mit_beitritt/)
+  assert.match(f, /locale !== 'de'/)
+  assert.match(f, /uebersetzung_hinweis/)
   assert.doesNotMatch(f, /iban|kreditkarte|lastschrift|textarea|kommentar/i)
   assert.match(f, /credentials: 'omit'/)
   assert.match(f, /x-region/)
@@ -156,7 +174,12 @@ test('Texte: Pflichtinhalte der Einwilligung, wortgleich aus der Datenschutz-Fre
   assert.ok(d.o_gruendung_klein.startsWith('Unverbindlich. Gründungsmitglieder zeichnen auf der Gründungsversammlung einen Geschäftsanteil'))
   assert.ok(d.spanne_hinweis.includes('keine Geschäftsanteile'))
   assert.ok(d.lead.includes('Es fließt kein Geld.'))
-  assert.ok(d.danke_text.startsWith('Bitte sieh in dein Postfach'))
+  assert.ok(d.passiert.includes('vorläufig') && d.passiert.includes('höchstens 7 Tage'))
+  assert.ok(d.danke_text.startsWith('Bitte sieh in dein Postfach') && d.danke_text.includes('7 Tagen'))
+  assert.ok(d.abmelden_text.includes('Prüfwert') && d.abmelden_text.includes('12 Monate'))
+  assert.ok(d.abmelden_ok.includes('Prüfwert') && d.abmelden_ok.includes('12 Monate'))
+  assert.ok(d.spanne_nicht_mit_beitritt.includes('Beitritt') && d.spanne_nicht_mit_beitritt.includes('Gründungsmitglied'))
+  assert.ok(msgs.en.uebersetzung_hinweis.startsWith('This translation was machine-generated.'))
 })
 
 test('Texte: Option Gruendung ohne Betraege und ohne Geld-Werbung, kein Beitritts-Label', () => {

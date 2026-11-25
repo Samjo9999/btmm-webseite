@@ -314,9 +314,10 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                       erteilen – eine unverbindliche Betragsspanne. Zweck ist, Sie über den Stand der geplanten
                       Genossenschaft BtMM zu informieren und Sie später, nach der Eintragung, auf eine mögliche
                       Unterstützungskampagne der Genossenschaft hinzuweisen. Rechtsgrundlage ist Ihre
-                      Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Für diese E-Mails holen wir zudem Ihre
-                      Einwilligung nach § 7 UWG ein. Die Eintragung wird erst wirksam, wenn Sie sie über den
-                      Link in der Bestätigungsmail bestätigen. Die Bestätigungsmail enthält keine Werbung.
+                      Einwilligung (Art. 6 Abs. 1 lit. a DSGVO); für diese E-Mails holen wir zudem Ihre
+                      Einwilligung nach § 7 UWG ein. Nach dem Absenden speichern wir Ihre Angaben vorläufig,
+                      längstens 7 Tage. Die Eintragung gilt erst, wenn Sie sie über den Link in der
+                      Bestätigungsmail bestätigen. Die Bestätigungsmail enthält keine Werbung.
                     </p>
                     <p>
                       Verantwortlicher ist bis zur Eintragung der Genossenschaft Johannes-Samuel Gartzke
@@ -324,33 +325,57 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                       E-Mail {contact.email}. In der Einwilligung ist vorgesehen, dass die Angaben nach der
                       Eintragung der Genossenschaft BtMM eG (oder unter dem dann geltenden Namen) auf die
                       eingetragene Genossenschaft übergehen, die denselben Zweck fortführt. Vor dem Übergang
-                      informieren wir Sie, und Sie können widersprechen.
+                      informieren wir Sie, und Sie können innerhalb von 14 Tagen widersprechen.
                     </p>
                     <p>
-                      Der E-Mail-Versand erfolgt über Resend (Plus Five Five, Inc., USA) als
-                      Auftragsverarbeiter gemäß Art. 28 DSGVO. Resend speichert Vorgangs- und Zustelldaten in
-                      den USA. Die Übermittlung stützt sich auf die EU-Standardvertragsklauseln (Modul 2) im
+                      Beim Absenden sendet Ihr Browser Ihre Eingaben direkt an eine Funktion von Supabase,
+                      nicht über unseren Webserver bei Vercel; dabei wird technisch bedingt Ihre IP-Adresse
+                      an Supabase übermittelt. Die Daten der Interessenliste speichern wir in einer Datenbank
+                      von Supabase im Rechenzentrum in Frankfurt am Main (AWS-Region eu-central-1); die
+                      Funktion wird ebenfalls in dieser Region ausgeführt. Vertragspartner und
+                      Auftragsverarbeiter gemäß Art. 28 DSGVO ist Supabase Pte. Ltd., 65 Chulia Street
+                      #38-02/03, OCBC Centre, Singapur 049513. Nach dem Auftragsverarbeitungsvertrag werden
+                      die Daten in der gewählten Region gespeichert und hauptsächlich verarbeitet; eine
+                      Verarbeitung an anderen Standorten von Supabase oder seiner Unterauftragsverarbeiter,
+                      etwa für Betrieb und Sicherheit, ist nicht ausgeschlossen. Für Übermittlungen in
+                      Drittländer gelten die EU-Standardvertragsklauseln (Modul 2) im
+                      Auftragsverarbeitungsvertrag.
+                    </p>
+                    <p>
+                      Den E-Mail-Versand übernimmt Resend (Plus Five Five, Inc., USA) als Auftragsverarbeiter
+                      gemäß Art. 28 DSGVO. Wir nutzen die Versandregion Irland; Resend speichert E-Mail-Inhalte,
+                      Zustellprotokolle und Kontodaten trotzdem in den USA, nach eigener Angabe 30 Tage lang.
+                      Die Übermittlung stützt sich auf die EU-Standardvertragsklauseln (Modul 2) im
                       Auftragsverarbeitungsvertrag; ergänzend beruft sich Resend auf das EU-US Data Privacy
-                      Framework. Die Daten der Interessenliste liegen in einer Datenbank von Supabase
-                      (Supabase Pte. Ltd.) in der Region Frankfurt (eu-central-1). Supabase ist
-                      Auftragsverarbeiter gemäß Art. 28 DSGVO; soweit Daten in die USA gelangen, gelten die
-                      EU-Standardvertragsklauseln im Supabase-DPA. Die Formulardaten werden direkt an eine
-                      Supabase-Funktion gesendet und nicht über unseren Webserver bei Vercel verarbeitet.
+                      Framework. Wir verwenden keine Öffnungs- und Klickverfolgung.
+                    </p>
+                    <p>
+                      Zum Schutz vor Missbrauch begrenzen wir die Zahl der Anmeldungen pro Netzwerkadresse
+                      (Art. 6 Abs. 1 lit. f DSGVO). Dafür speichern wir keine IP-Adresse im Klartext, sondern
+                      nur einen mit einem geheimen Schlüssel erzeugten Prüfwert (Hash), höchstens 2 Stunden.
+                      Einen User-Agent speichern wir nicht. Unsere Protokolle enthalten nur Statuscodes, keine
+                      E-Mail-Adressen, Namen oder Token.
                     </p>
                     <p>
                       Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, zum
                       Beispiel über den Abmelde-Link in jeder E-Mail oder per Nachricht an {contact.email}. Die
                       Rechtmäßigkeit der bisherigen Verarbeitung bleibt unberührt. Sie haben die Rechte auf
-                      Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Beschwerde bei
-                      dem Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg.
+                      Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit sowie Widerspruch
+                      (Art. 21 DSGVO, soweit wir uns auf Art. 6 Abs. 1 lit. f stützen) und Beschwerde beim
+                      Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg.
                     </p>
                     <p>
                       Unbestätigte Einträge löschen wir nach 7 Tagen. Bei Widerruf oder Abmeldung löschen wir
-                      Ihren Eintrag unverzüglich. Bestätigte Einträge löschen wir spätestens 12 Monate nach der
-                      Eintragung der Genossenschaft, und wenn sich die Eintragung verzögert, spätestens 36
-                      Monate nach Ihrer Eintragung in die Liste. Etwa einmal jährlich erinnern wir Sie und
-                      bieten die Abmeldung an. Es gibt kein Tracking und keine Tracking-Pixel in diesen
-                      E-Mails. Die Betragsspanne wird nicht öffentlich angezeigt.
+                      Ihre E-Mail-Adresse, Ihren Namen, Ihre Interessen und Ihre Betragsspanne sofort. Zum
+                      Nachweis Ihrer Einwilligung und Ihres Widerrufs (Art. 7 Abs. 1 DSGVO) und zur Abwehr von
+                      Ansprüchen behalten wir bis zu 12 Monate einen Prüfwert (Hash) Ihrer E-Mail-Adresse sowie
+                      die Zeitpunkte und die Textfassung der Einwilligung (Art. 6 Abs. 1 lit. f DSGVO). Der
+                      Prüfwert ist nicht ohne Weiteres rückrechenbar, bleibt aber ein personenbezogenes Datum.
+                      Bestätigte Einträge löschen wir spätestens 12 Monate nach der Eintragung der
+                      Genossenschaft und, wenn sich die Eintragung verzögert, spätestens 36 Monate nach Ihrer
+                      Bestätigung. Nach 12 und nach 24 Monaten erinnern wir Sie einmal per E-Mail und bieten
+                      die Abmeldung an. Es gibt kein Tracking und keine Tracking-Pixel in diesen E-Mails; die
+                      Betragsspanne wird nicht veröffentlicht. Die E-Mails senden wir auf Deutsch oder Englisch.
                     </p>
                   </div>
                 )}
@@ -367,10 +392,13 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
 
                 <h4>Supabase</h4>
                 <p>
-                  Für die Terminbuchung und Datenverwaltung nutzen wir Supabase (Supabase Pte. Ltd.)
-                  als Auftragsverarbeiter gemäß Art. 28 DSGVO. Personenbezogene Buchungsdaten (Name,
-                  E-Mail, Telefon) werden in der Supabase-Datenbank gespeichert. Der Datentransfer
-                  in die USA wird durch EU-Standardvertragsklauseln abgesichert. Weitere Informationen:{' '}
+                  Für die Terminbuchung und Datenverwaltung nutzen wir Supabase (Supabase Pte. Ltd.,
+                  65 Chulia Street #38-02/03, OCBC Centre, Singapur 049513) als Auftragsverarbeiter
+                  gemäß Art. 28 DSGVO. Personenbezogene Buchungsdaten (Name, E-Mail, Telefon) werden
+                  in der Supabase-Datenbank in Frankfurt am Main (AWS-Region eu-central-1) gespeichert.
+                  Eine Verarbeitung in Drittländern, etwa für Betrieb und Support, ist nicht
+                  ausgeschlossen und durch EU-Standardvertragsklauseln im Auftragsverarbeitungsvertrag
+                  abgesichert. Weitere Informationen:{' '}
                   <a href="https://supabase.com/privacy" target="_blank" rel="noopener noreferrer">
                     https://supabase.com/privacy
                   </a>
