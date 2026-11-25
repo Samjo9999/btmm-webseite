@@ -1,15 +1,20 @@
 -- Tür-KI Rate-Limit (persistenter Zähler). Noch nicht anwenden.
--- Anwenden erst nach Test-OK und DS-OK dieses PR (dann durch den Code-Bot).
+-- Reihenfolge: erst verdrahten, dann migrieren.
+-- Verdrahten: (1) TUER_KI_RATE_SALT nur in der Server-Env (HMAC-Tagessalz, nie in der DB),
+-- (2) Supabase-Projekt in der EU-Region Frankfurt, (3) Extension pg_cron aktivieren.
+-- Danach erst dieses Skript anwenden (Code-Bot, nach Test-OK und DS-OK fürs Anwenden).
 -- Nutzer-Ja zur Prod-Migration liegt vor (25.11.2026, 15:15–15:17). Einschalten der Tür-KI frühestens 01.12.2026.
--- Optionaler persistenter Zähler für das Rate-Limit der Tür-KI (DS-Leitplanken Tür-KI 25.11.2026).
--- Nur dieselben Felder wie im Server-Speicher: HMAC-Hash der IP (täglich wechselndes Salz, Salz nie in der DB),
--- Zähler und Zeitstempel. Löschung spätestens nach 24 Stunden (globaler Purge in der RPC und zusätzlich per Cron).
+--
+-- Felder wie im Server-Speicher: HMAC-Hash der IP, Zähler und Zeitstempel.
+-- Das täglich wechselnde Salz wird nur in der Server-Umgebung bzw. im Server-Speicher
+-- gehalten (HMAC aus Env-Secret plus Datum, siehe lib/tuerKi/rateLimit.ts). Dieses SQL
+-- speichert kein Salz und enthält keine Salz-Spalte.
+-- Löschung spätestens nach 24 Stunden (globaler Purge in der RPC und zusätzlich per pg_cron).
 -- Kein Klartext-IP, kein Inhalt, keine Sitzung, kein Bezug zu Konten.
 --
--- Offene Punkte (vor Anwendung klären):
--- - Salzquelle: Wo und wie das täglich wechselnde HMAC-Salz erzeugt und gehalten wird (nur Server-Speicher,
---   nie in dieser Tabelle); Abgleich mit der In-Memory-Umsetzung in lib/tuerKi/rateLimit.ts.
--- - EU-Region: In welcher EU-Region die Tabelle liegt (Projekt/Region festlegen, bevor migriert wird).
+-- Offene Punkte vor dem Anwenden nur noch die Verdrahtung prüfen:
+-- - Salzquelle: TUER_KI_RATE_SALT in der Server-Env gesetzt (nie in dieser Tabelle).
+-- - EU-Region: Projekt liegt in Frankfurt; pg_cron ist eingeschaltet.
 
 create table if not exists public.tuer_ki_rate (
   ip_hash   text        not null,
@@ -39,5 +44,13 @@ begin
 end $$;
 revoke all on function public.tuer_ki_rate_zaehle(text) from public, anon, authenticated;
 
--- Zusätzliche Löschung <= 24 h (pg_cron, stündlich)
--- select cron.schedule('tuer_ki_rate_purge', '7 * * * *', $$delete from public.tuer_ki_rate where erstellt < now() - interval '24 hours'$$);
+-- Zusätzlicher 24-h-Purge per pg_cron (stündlich zur Minute 7), zusätzlich zum Purge in der RPC.
+-- Erst verdrahten (pg_cron muss bereits aktiv sein), dann migrieren.
+select cron.unschedule(jobid)
+  from cron.job
+  where jobname = 'tuer_ki_rate_purge';
+select cron.schedule(
+  'tuer_ki_rate_purge',
+  '7 * * * *',
+  $$delete from public.tuer_ki_rate where erstellt < now() - interval '24 hours'$$
+);

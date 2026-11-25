@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
-import { neuerRateZustand, pruefeTuerRate, ipHash, NACHRICHTEN_PRO_STUNDE } from '../lib/tuerKi/rateLimit.ts'
+import { neuerRateZustand, pruefeTuerRate, ipHash, NACHRICHTEN_PRO_STUNDE, tagesSalz, RATE_SALT_ENV } from '../lib/tuerKi/rateLimit.ts'
 import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins } from '../lib/tuerKi/herkunft.ts'
@@ -17,6 +17,9 @@ import { tuerKiSchalter } from '../lib/tuerKi/schalter.ts'
 import { scalewayChat } from '../lib/wissen/scaleway.ts'
 import { BTMM_BENENNUNG } from '../lib/wissen/benennung.ts'
 import { RX as TABU } from './tabu-woerter.mjs'
+import { BEISPIELRECHNUNG_PREFIX, GRUNDSICHERUNG_BEISPIEL, istGrundsicherungBeispielChunk, istLaufzeitPublicChunk } from '../lib/wissen/beispielrechnung-ausnahme.mjs'
+import { DSE_IP_SATZ, DSE_IP_SATZ_DE } from '../lib/tuerKi/dse-ip-satz.ts'
+import { SENSIBEL_WOERTER, TABU_AUSGABE } from '../lib/tuerKi/sensibel-liste.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const lese = (rel) => readFileSync(join(root, rel), 'utf8')
@@ -134,6 +137,8 @@ test('Filter: sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assist
     'Diabetes', 'beim Arzt', 'Burnout', 'ADHS', 'operiert', 'pflegebedürftig', 'allergisch', 'ALG II', 'SPD', 'muslim', 'schwul', 'Jude',
     'I have diabetes', 'I am gay', 'unemployment benefits', 'cancer',
     "J'ai un cancer", 'Tengo diabetes', 'Soy musulmán', 'Tenho cancro',
+    'У меня рак', 'أنا مريض', 'मैं बीमार हूँ', '我有癌症',
+    'он гей', 'সমকামী মানুষ', '他是同性恋',
   ]
   for (const t of positiv) assert.equal(enthaeltSensibles(t), true, t)
   const negativ = [
@@ -160,6 +165,79 @@ test('Rate-Limit: 30 je Stunde je IP-Hash, HMAC mit Tagessalz, keine Klartext-IP
   const h2 = ipHash('198.51.100.1', z, morgen)
   assert.notEqual(h1, h2)
   assert.equal(z.zaehler.size, 0)
+})
+
+
+test('Tagessalz: HMAC aus Env-Secret plus Datum, gleicher Tag gleicher Hash, nie in der DB-Vorlage', () => {
+  const t0 = Date.parse('2026-11-25T10:00:00Z')
+  const prev = process.env[RATE_SALT_ENV]
+  process.env[RATE_SALT_ENV] = 'test-secret-nur-fuer-unit'
+  try {
+    const a = neuerRateZustand(t0)
+    const b = neuerRateZustand(t0)
+    assert.equal(ipHash('198.51.100.9', a, t0), ipHash('198.51.100.9', b, t0))
+    const morgen = Date.parse('2026-11-26T00:00:01Z')
+    assert.notEqual(ipHash('198.51.100.9', a, t0), ipHash('198.51.100.9', a, morgen))
+    const s1 = tagesSalz('2026-11-25', 'test-secret-nur-fuer-unit')
+    const s2 = tagesSalz('2026-11-25', 'test-secret-nur-fuer-unit')
+    assert.deepEqual(s1, s2)
+    assert.notEqual(tagesSalz('2026-11-25', 'test-secret-nur-fuer-unit').toString('hex'), tagesSalz('2026-11-26', 'test-secret-nur-fuer-unit').toString('hex'))
+  } finally {
+    if (prev === undefined) delete process.env[RATE_SALT_ENV]
+    else process.env[RATE_SALT_ENV] = prev
+  }
+  const sql = lese('docs/tuer-ki/tuer_ki_rate_limit.sql')
+  assert.match(sql, /speichert kein Salz/)
+  assert.doesNotMatch(sql, /ip_hash[^\n]*salz|salz[^\n]*text/i)
+})
+
+test('Unicode-Wortgrenzen: kyrillisch, Arabisch, Hindi und Chinesisch werden erkannt', () => {
+  assert.equal(enthaeltSensibles('У меня рак'), true)
+  assert.equal(enthaeltSensibles('أنا مريض'), true)
+  assert.equal(enthaeltSensibles('मैं बीमार हूँ'), true)
+  assert.equal(enthaeltSensibles('我有癌症'), true)
+  for (const r of SENSIBEL_WOERTER) {
+    assert.ok(r.unicode, String(r))
+    assert.equal(r.source.includes('\\b'), false, String(r))
+  }
+  const karner = TABU_AUSGABE.find((r) => r.source.includes('karner'))
+  assert.ok(karner && karner.unicode)
+  assert.equal(karner.source.includes('\\b'), false)
+  assert.equal(enthaeltSensibles('Christoph kommt mit'), false)
+  assert.equal(enthaeltSensibles('Suchtipp für die Werkstatt'), false)
+})
+
+test('Laufzeit-Allowlist: Beispielrechnung-Chunks bleiben, anderer 07-Text fällt', () => {
+  const guard = lese('scripts/index-public-guard.mjs')
+  const loader = lese('lib/wissen/loadCorpus.ts')
+  assert.match(guard, /beispielrechnung-ausnahme\.mjs/)
+  assert.match(loader, /beispielrechnung-ausnahme\.mjs/)
+  const ok = {
+    title: '07_BtMM_Konzept_v22_69_0',
+    abschnitt: 'Das ehrliche Worst-Case-Szenario',
+    rel: GRUNDSICHERUNG_BEISPIEL.rel,
+    text: `${BEISPIELRECHNUNG_PREFIX} Fünf Menschen. Alle mit Grundsicherung, je 563 Euro im Monat.`,
+  }
+  const ohnePrefix = { ...ok, text: 'Fünf Menschen. Alle mit Grundsicherung, je 563 Euro im Monat.' }
+  const andererAbschnitt = {
+    ...ok,
+    abschnitt: 'Die ersten drei — warum es sich lohnt, anzufangen',
+  }
+  const allowlisted = {
+    title: 't',
+    abschnitt: 'x',
+    rel: 'content/dokumente/einfuehrung.md',
+    text: 'Sauberer öffentlicher Satz ohne Ausnahme.',
+  }
+  assert.equal(istGrundsicherungBeispielChunk(ok), true)
+  assert.equal(istGrundsicherungBeispielChunk(ohnePrefix), false)
+  const allowed = new Set([allowlisted.rel])
+  const keep = (c) => istLaufzeitPublicChunk(c, allowed, [])
+  assert.equal(keep(ok), true)
+  assert.equal(keep(ohnePrefix), false)
+  assert.equal(keep(andererAbschnitt), false)
+  assert.equal(keep(allowlisted), true)
+  assert.match(loader, /istLaufzeitPublicChunk/)
 })
 
 test('Handler: Limit erreicht -> 429 mit Retry-After, kein Scaleway', async () => {
@@ -281,10 +359,17 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   assert.match(sql, /Noch nicht anwenden/)
   assert.match(sql, /Test-OK und DS-OK/)
   assert.doesNotMatch(sql, /NICHT-ANWENDEN/)
+  assert.match(sql, /erst verdrahten, dann migrieren/)
   assert.match(sql, /delete from public\.tuer_ki_rate where erstellt < now\(\) - interval '24 hours'/)
+  assert.match(sql, /cron\.schedule/)
+  assert.match(sql, /tuer_ki_rate_purge/)
+  assert.match(sql, /TUER_KI_RATE_SALT/)
   assert.match(sql, /Salzquelle/)
   assert.match(sql, /EU-Region/)
+  assert.match(sql, /Frankfurt/)
   assert.match(sql, /01\.12\.2026/)
+  assert.match(sql, /speichert kein Salz/)
+  assert.doesNotMatch(sql, /create table[\s\S]*salz/i)
   const kostenSrc = lese('lib/tuerKi/kosten.ts')
   assert.match(kostenSrc, /getrennt von S50/)
   assert.doesNotMatch(kostenSrc, /innerhalb S50/)
@@ -435,7 +520,25 @@ test('DSE-Absatz Tür-KI: nur bei Schalter an, lit. f, Art. 21, gehashte IP, TDD
   assert.ok(a > 0 && h > a && h < src.indexOf('<h4>Brevo (E-Mail-Versand)</h4>'))
   assert.ok(src.indexOf('<h4>Wissens-Assistent (KI) für Mitmachende</h4>') < a)
   const absatz = src.slice(h, src.indexOf('<h4>Brevo'))
-  for (const r of [/Sie sprechen mit einer KI\. Die Antworten werden automatisch erzeugt und können Fehler enthalten\./, /Art\. 6 Abs\. 1 lit\. f DSGVO/, /berechtigtes Interesse/, /Art\. 21 DSGVO/, /in gehashter Form/, /§ 25 Abs\. 2 Nr\. 2 TDDDG/, /Scaleway SAS/, /keinen Menschen/, /Hosting-Anbieter Vercel \(siehe Abschnitt Hosting\)/, /Wir versuchen, Nachrichten mit Gesundheitsangaben, Kontakt- oder Kontodaten automatisch zu erkennen/, /diese Erkennung ist nicht vollständig/]) assert.match(absatz, r)
+  for (const r of [/Sie sprechen mit einer KI\. Die Antworten werden automatisch erzeugt und können Fehler enthalten\./, /Art\. 6 Abs\. 1 lit\. f DSGVO/, /berechtigtes Interesse/, /Art\. 21 DSGVO/, /§ 25 Abs\. 2 Nr\. 2 TDDDG/, /Scaleway SAS/, /keinen Menschen/, /Hosting-Anbieter Vercel \(siehe Abschnitt Hosting\)/, /Wir versuchen, Nachrichten mit Gesundheitsangaben, Kontakt- oder Kontodaten automatisch zu erkennen/, /diese Erkennung ist nicht vollständig/]) assert.match(absatz, r)
   assert.doesNotMatch(absatz, /gekürzt/)
+  assert.doesNotMatch(absatz, /Arbeitsspeicher gehalten/)
+  assert.match(src, /dseIpSatz\(locale\)/)
+  assert.equal(DSE_IP_SATZ.de, DSE_IP_SATZ_DE)
+  assert.match(DSE_IP_SATZ_DE, /Zur Missbrauchsvermeidung verarbeiten wir Ihre IP-Adresse kurzzeitig in gehashter Form; Hash, Zeitfenster und Zähler werden höchstens 24 Stunden in unserer Datenbank in der EU \(Supabase, Region Frankfurt\) gespeichert und danach gelöscht\. Das täglich wechselnde Salz liegt nur in der Server-Umgebung, nicht in der Datenbank\./)
   assert.match(src, /an\(process\.env\.TUER_KI_ENABLED\) && an\(process\.env\.WISSEN_LLM_ENABLED\)/)
+})
+
+test('DSE-IP-Satz: andere Sprachen sinngemäß in Sie-Form, alle Schlüssel vorhanden', () => {
+  for (const s of TUER_SPRACHEN) {
+    assert.equal(typeof DSE_IP_SATZ[s], 'string', s)
+    assert.match(DSE_IP_SATZ[s], /Supabase/)
+    assert.match(DSE_IP_SATZ[s], /24/)
+  }
+  assert.doesNotMatch(DSE_IP_SATZ.fr, /\bton\b|\bta\b|\btes\b/)
+  assert.match(DSE_IP_SATZ.fr, /votre adresse IP/)
+  assert.match(DSE_IP_SATZ.es, /su dirección IP/)
+  assert.match(DSE_IP_SATZ.ru, /Ваш IP/)
+  assert.match(DSE_IP_SATZ.ja, /お客様/)
+  assert.match(DSE_IP_SATZ.zh, /您的IP/)
 })
