@@ -193,16 +193,16 @@ Die Betriebsleitung bekommt denselben Grundlohn wie alle anderen. Ihre Verantwor
 
 | Zulassung / Zertifikat | Zentral möglich? | Bedingung |
 |---|---|---|
-| Betriebshaftpflicht für alle Gemeinschaftsbetriebe | ✓ Ja, Sammelpolice der eG | Ersparnis gegenüber Einzelpolicen mit Angeboten belegen |
-| Handwerksrolle (Anlage A) | ✓ Ja — die eG als juristische Person wird eingetragen | Ein Kammerbeitrag; eine Betriebsleitung je Handwerk |
-| Zulassungsfreie und handwerksähnliche Gewerbe (B1, B2) | ✓ Ja | Eine Eintragung der eG je Gewerbe |
-| Bio-Zertifizierung | ✓ Ja — die eG ist ein Unternehmen | Jede Betriebsstätte wird kontrolliert; Angebote der Kontrollstellen einholen |
-| AZAV-Trägerzulassung (Bildung) | ✓ Ja | Alle Standorte unter einer Zulassung |
-| HACCP-Rahmenkonzept | ⚠ Teilweise | Rahmen zentral, Anpassung je Standort |
-| Lebensmittelregistrierung | ❌ Je Betriebsstätte | Koordination zentral möglich |
-| Heilpraktiker-Erlaubnis | ❌ Streng persönlich | Keine juristische Person möglich. Gilt intern wie extern: Heilkunde ist auch unentgeltlich erlaubnispflichtig, wenn sie wiederholt ausgeübt wird [Z10]. Körperarbeit als Wellness-Sitzung braucht keine Erlaubnis (Kapitel 6) |
-| Elektro-, Wasser- und Gasinstallation | ❌ Nur eingetragene Fachbetriebe [Z1] | Kooperation mit einem Fachbetrieb oder eigener Gemeinschaftsbetrieb mit eingetragener Betriebsleitung |
-| Datenschutzbeauftragte Person | ✓ Ja, eine für alle | Pflicht ab 20 Personen, die ständig mit automatisierter Datenverarbeitung befasst sind (§ 38 BDSG) |
+| Betriebshaftpflicht für alle Gemeinschaftsbetriebe | ja, Sammelpolice der eG | Ersparnis gegenüber Einzelpolicen mit Angeboten belegen |
+| Handwerksrolle (Anlage A) | ja — die eG als juristische Person wird eingetragen | Ein Kammerbeitrag; eine Betriebsleitung je Handwerk |
+| Zulassungsfreie und handwerksähnliche Gewerbe (B1, B2) | ja | Eine Eintragung der eG je Gewerbe |
+| Bio-Zertifizierung | ja — die eG ist ein Unternehmen | Jede Betriebsstätte wird kontrolliert; Angebote der Kontrollstellen einholen |
+| AZAV-Trägerzulassung (Bildung) | ja | Alle Standorte unter einer Zulassung |
+| HACCP-Rahmenkonzept | Achtung: Teilweise | Rahmen zentral, Anpassung je Standort |
+| Lebensmittelregistrierung | nein, Je Betriebsstätte | Koordination zentral möglich |
+| Heilpraktiker-Erlaubnis | nein, Streng persönlich | Keine juristische Person möglich. Gilt intern wie extern: Heilkunde ist auch unentgeltlich erlaubnispflichtig, wenn sie wiederholt ausgeübt wird [Z10]. Körperarbeit als Wellness-Sitzung braucht keine Erlaubnis (Kapitel 6) |
+| Elektro-, Wasser- und Gasinstallation | nein, Nur eingetragene Fachbetriebe [Z1] | Kooperation mit einem Fachbetrieb oder eigener Gemeinschaftsbetrieb mit eingetragener Betriebsleitung |
+| Datenschutzbeauftragte Person | ja, eine für alle | Pflicht ab 20 Personen, die ständig mit automatisierter Datenverarbeitung befasst sind (§ 38 BDSG) |
 
 # 5. Kosten und wer sie trägt
 
@@ -340,5 +340,5 @@ Ein Meisterbrief in der Gemeinschaft ist mehr als ein Abschluss: Mit einer Betri
 | Z37 | ZDH: Validierung von langjähriger Berufserfahrung · Handwerksblatt: Validierung der Berufserfahrung (Handwerkskammer des Saarlandes) · IHK Heilbronn-Franken: Berufsbildungsvalidierungs- und -digitalisierungsgesetz · IHK Darmstadt: Validierungsverfahren | https://www.zdh.de/ueber-uns/fachbereich-berufliche-bildung/fachkraeftesicherung/bildungspolitische-initiativen-zur-fachkraeftesicherung/validierung-von-langjaehriger-berufserfahrung/ · https://www.handwerksblatt.de/die-handwerkskammern-in-deutschland/hwk-saarland/validierung-der-berufserfahrung · https://www.ihk.de/heilbronn-franken/produktmarken/bildung/fachkraefte/berufsbildungsvalidierungs-und-digitalisierungsgesetz-6349164 · https://www.ihk.de/darmstadt/produktmarken/aus-und-weiterbildung-channel/ausbildung-von-a-bis-z/validierungsverfahren-von-beruflichen-kompetenzen-6376042 | Regelungen seit 1.1.2025, §§ 41b ff. HwO; mindestens 25 Jahre; Berufserfahrung mindestens das 1,5-fache der Regelausbildungszeit, bei drei Jahren 4,5 Jahre; Feststellungstandem aus dem Gesellenprüfungsausschuss, praktische und mündliche Aufgaben; kein Berufsabschluss; Zeugnis bei vollständiger, Bescheid bei überwiegender Vergleichbarkeit; das Zeugnis gibt Anspruch auf Zulassung zur Gesellenprüfung; Meisterprüfung erst nach einem weiteren Jahr Berufserfahrung |
 | Z38 | Lanz-Schule Mannheim: Einjährige Berufsfachschule Holztechnik (1BFZ) · OWS Ludwigsburg: Infoblatt 1BFZ | https://lanz.schule/wp-content/uploads/2026/05/Flyer-1BFZ_2019_20.pdf · https://www.ows-lb.de/fileadmin/user_upload/PDF/1BFZ_Infoblatt.pdf | Baden-Württemberg: Abschluss wird als erstes Ausbildungsjahr im Berufsfeld Holztechnik anerkannt; Fortsetzung der Ausbildung im zweiten Ausbildungsjahr |
 | Z39 | Arbeitshilfe „FbW – Externenprüfung“ eines Jobcenters (Stand 6.2.2015, über FragDenStaat) | https://media.frag-den-staat.de/files/foi/61163/Externenprfung.pdf | Beratung bei der Kammer verpflichtend; Vorbereitungslehrgang nicht vorgeschrieben, aber angeraten; Bildungsgutschein für den Vorbereitungslehrgang nach Zustimmung der Kammer (älterer Stand) |
-| Z40 | Bundesagentur für Arbeit: Bildungsgutschein · IBB: Weiterbildungsgeld | https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein · https://www.ibb.com/foerderung/buergergeld-weiterbildung | 150 € Weiterbildungsgeld im Monat bei abschlussorientierter Weiterbildung; Prämie 1.000 € für die Zwischenprüfung, 1.500 € für die Abschlussprüfung; anrechnungsfrei neben dem Grundsicherungsgeld, das seit 1.7.2026 gilt (IBB, Sekundärquelle) |
+| Z40 | Bundesagentur für Arbeit: Bildungsgutschein · IBB: Weiterbildungsgeld | https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein | 150 € Weiterbildungsgeld im Monat bei abschlussorientierter Weiterbildung; Prämie 1.000 € für die Zwischenprüfung, 1.500 € für die Abschlussprüfung; anrechnungsfrei neben dem Grundsicherungsgeld, das seit 1.7.2026 gilt (IBB, Sekundärquelle) |
 | Z41 | IHK-Weiterbildung: Elektrofachkraft für festgelegte Tätigkeiten (IHK), Kurs 2037625 · bfw Bremerhaven: Elektrofachkraft für festgelegte Tätigkeiten | https://ihk-weiterbildung.de/anmeldeformular/2037625/ · https://www.bfw.de/Media/bfw-Dateien/bfw_Nord/Flyer/Bremerhaven/bfw-Bremerhaven-Elektrofachkraft-f%C3%BCr-festgelegte-Taetigkeiten.pdf | Voraussetzung abgeschlossene Berufsausbildung oder gleichwertige berufliche Tätigkeit, Zielgruppe u. a. Küchenmontage; Zielgruppe mit abgebrochener oder abgeschlossener Ausbildung oder entsprechender Arbeitserfahrung |

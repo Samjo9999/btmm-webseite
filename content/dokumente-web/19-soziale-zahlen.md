@@ -399,7 +399,7 @@ Bis der Solidarfonds leistet, trägt die Genossenschaft eine gesundheitliche Ein
 2. **Die Umlage kostet laufend**, auch ohne Ausfall: 0,25 bis 0,26 € je Stunde. Der Arbeitgeber-Faktor 1,21 des Rechners enthält sie nicht. Das schmälert den Überschuss je Stunde um etwa ein Prozent und ist im Rechner noch nicht abgebildet (offener Punkt unten).
 3. **Die Lohnreserve kommt zu spät für den Anfang.** Sie wird erst innerhalb von 24 Monaten nach der ersten Beschäftigung auf einen halben Monat Lohnsumme gefüllt (Satzung § 13a Absatz 2a). Davor trägt ein solcher Fall die Gründungsreserve (Satzung § 13a Abs. 2), die eigentlich die Pflichtkosten deckt und dafür nur sechs Monate reicht. Reicht sie nicht, geht es nur durch weniger bezahlte Stunden (Satzung § 13 Absatz 5) oder Hilfe von außen, etwa durch das Tandem (Dokument 23).
 4. **Ab etwa 10 Mitgliedern ist der Fall tragbar** (10 % der Lohnreserve), bei drei Menschen ist er es nicht ohne Weiteres (28 % und kein Polster). Das ist ein weiterer Grund für den Start zu fünft.
-5. **Kurze Erkrankungen** sind in diesen Zahlen nicht enthalten. Sie laufen über die laufende Entgeltfortzahlung und werden ebenfalls anteilig erstattet; ihre Häufigkeit habe ich nicht belegt (N).
+5. **Kurze Ausfälle** sind in diesen Zahlen nicht enthalten. Sie laufen über die laufende Entgeltfortzahlung und werden ebenfalls anteilig erstattet; ihre Häufigkeit habe ich nicht belegt (N).
 6. **Die Umlage U2 (Mutterschaft)** gibt es zusätzlich. Sie erstattet dem Arbeitgeber Mutterschaftsleistungen; ihr Satz ist hier nicht geprüft (N). Sie gehört in die Rechnung, sobald ein Betrieb anstellt.
 
 ## 2.4f Was wird neu möglich? Der Lebensstandard als Möglichkeit statt als Zahl
@@ -750,7 +750,7 @@ Der Fonds ist mensch-bezogen: Er trägt einzelne Mitglieder in besonderen Lebens
 | Familienphase nach der Geburt, Monate 7 bis 12 | 40 % | Elterngeld |
 | Familienphase nach der Geburt, Monate 13 bis 24 | 20 % | nein, es gibt kein Elterngeld mehr |
 | Zweite Bezugsperson | 50 % des Satzes, höchstens 3 Monate | Elterngeld Partnermonate |
-| Kapazitätstage bei chronischer Erkrankung | bis zu 5 Tage im Monat ohne Nachweis | Entgeltfortzahlung, Krankengeld |
+| Kapazitätstage bei chronischer gesundheitlicher Einschränkung | bis zu 5 Tage im Monat ohne Nachweis | Entgeltfortzahlung, Krankengeld |
 | Pflege-Brücke | Überbrückung bei akutem Engpass | Pflegeunterstützungsgeld, Pflegegeld |
 | Notlage | Brücken-Warenkorb von 1.050 € für einen Monat | Grundsicherung |
 
@@ -769,7 +769,7 @@ Je 100 Betriebsmitglieder und Jahr, alles Setzungen (S):
 - **Rhythmustage:** Die Hälfte hat einen Zyklus, 30 Prozent davon nutzen Rhythmustage, im Schnitt 1,5 Tage im Monat.
 - **Geburten:** 4 je 100 Betriebsmitglieder und Jahr. Die gesetzliche Leistung deckt in den Familienphase-Monaten 1 bis 12 etwa die Hälfte des Brutto (Schätzung, Prozentsatz des Elterngeldes hier nicht belegt).
 - **Zweite Bezugsperson** bei der Hälfte der Geburten.
-- **Langzeit-Erkrankte:** 2 je 100, im Schnitt 3 Kapazitätstage im Monat.
+- **Menschen mit längerem Ausfall:** 2 je 100, im Schnitt 3 Kapazitätstage im Monat.
 - **Pflege-Brücken:** 2 je 100, je ein halber Monatslohn.
 - **Notlagen:** 3 je 100 Mitglieder (nicht nur Betriebsmitglieder), je 1.050 €.
 
