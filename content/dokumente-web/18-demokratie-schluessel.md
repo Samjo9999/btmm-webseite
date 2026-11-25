@@ -22,7 +22,7 @@ Wenn alle Zellen gleich groß wären, wäre alles einfach. Sie sind es nicht: Ei
 
 1. **Jede Person hat überall genau eine Stimme.** Kein Mehrstimmrecht, auch nicht für hohe Einlagen (so steht es schon in der Satzung).
 2. **In der Zelle entscheiden wir im Konsent**: Es wird beschlossen, wenn niemand einen schwerwiegenden, begründeten Einwand hat. Gelingt das nicht, entscheiden 70 Prozent.
-3. **Was nur eine Zelle betrifft, entscheidet die Zelle.** Die Generalversammlung mischt sich nicht ein (so steht es schon in § 18 der Satzung).
+3. **Was nur eine Zelle betrifft, entscheidet die Zelle.** Die Generalversammlung mischt sich nicht ein (so steht es schon in Konzept, nicht in der Außen-Satzung v9.1.4).
 4. **Was mehrere Zellen betrifft, braucht zwei Mehrheiten**: die der Köpfe und die der Zellen.
 5. **Wichtige Beschlüsse brauchen mehr als die Hälfte**: 70 Prozent (z. B. Ausschluss), 75 Prozent (Satzungsänderung, Verkauf von Gemeinschaftseigentum), 90 Prozent (die Grundwerte).
 
@@ -42,15 +42,15 @@ Wenn alle Zellen gleich groß wären, wäre alles einfach. Sie sind es nicht: Ei
 
 # 1. Grundregeln: was Gesetz und Satzung schon sagen
 
-**Eine Person, eine Stimme.** Das Genossenschaftsgesetz gibt jedem Mitglied eine Stimme (§ 43 Absatz 3 GenG); Mehrstimmrechte darf nur eine Satzung einführen, für Mitglieder, die die Genossenschaft besonders fördern, und höchstens drei Stimmen (Bs, Wiedergabe). Die Satzung von BtMM schließt Mehrstimmrechte aus (§ 6 Absatz 3, § 19 Absatz 2) (B).
+**Eine Person, eine Stimme.** Das Genossenschaftsgesetz gibt jedem Mitglied eine Stimme (§ 43 Absatz 3 GenG); Mehrstimmrechte darf nur eine Satzung einführen, für Mitglieder, die die Genossenschaft besonders fördern, und höchstens drei Stimmen (Bs, Wiedergabe). Die Satzung von BtMM schließt Mehrstimmrechte aus (§ 6 Absatz 3, Konzept, nicht in der Außen-Satzung v9.1.4) (B).
 
-**Drei Ebenen.** § 18 der Satzung unterscheidet die Zelle (Konsens angestrebt), den Zellenzusammenschluss (gemeinsame Projekte, Abteilungsbeschlüsse) und die Generalversammlung (einfache Mehrheit, soweit nichts anderes bestimmt) (B).
+**Drei Ebenen.** Konzept, nicht in der Außen-Satzung v9.1.4 unterscheidet die Zelle (Konsens angestrebt), den Zellenzusammenschluss (gemeinsame Projekte, Abteilungsbeschlüsse) und die Generalversammlung (einfache Mehrheit, soweit nichts anderes bestimmt) (B).
 
-**Mehrheiten.** Die Satzung verlangt 70 Prozent für Satzungsänderungen, den förmlichen Ausschluss, Beschlüsse zum Verbund, die Lizenzordnung, die Qualifizierungsordnung sowie die Anpassung des Höchstbetrags des Dach-Anteils und der Mindestzahl für den Betriebsstart (§ 19 Absatz 3), 75 Prozent für den Verkauf von Gemeinschaftseigentum (§ 25a) und die Auflösung (§ 27), 90 Prozent für Änderungen der Grundwerte-Regel (§ 3 Absatz 3) (B). Seit Satzung v7.13.0 braucht auch die Gründung einer Tochtergesellschaft oder eines Tochtervereins und die Errichtung einer Betriebskrankenkasse 70 Prozent (§ 15a Absatz 3d) (B). Das Gesetz verlangt für wichtige Änderungen mindestens drei Viertel und für neue Leistungspflichten neun Zehntel (§ 16 GenG, Bs); § 19 Absatz 3 der Satzung behält das ausdrücklich vor.
+**Mehrheiten.** Die Satzung verlangt 70 Prozent für Satzungsänderungen, den förmlichen Ausschluss, Beschlüsse zum Verbund, die Lizenzordnung, die Qualifizierungsordnung sowie die Anpassung des Höchstbetrags des Dach-Anteils und der Mindestzahl für den Betriebsstart (Konzept, nicht in der Außen-Satzung v9.1.4), 75 Prozent für den Verkauf von Gemeinschaftseigentum (Konzept, nicht in der Außen-Satzung v9.1.4) und die Auflösung (Konzept, nicht in der Außen-Satzung v9.1.4), 90 Prozent für Änderungen der Grundwerte-Regel (§ 3 Absatz 3) (B). Seit Satzung v7.13.0 braucht auch die Gründung einer Tochtergesellschaft oder eines Tochtervereins und die Errichtung einer Betriebskrankenkasse 70 Prozent (Konzept, nicht in der Außen-Satzung v9.1.4) (B). Das Gesetz verlangt für wichtige Änderungen mindestens drei Viertel und für neue Leistungspflichten neun Zehntel (§ 16 GenG, Bs); Konzept, nicht in der Außen-Satzung v9.1.4 behält das ausdrücklich vor.
 
 **Abstimmen ohne Präsenz.** Die Generalversammlung kann virtuell oder hybrid stattfinden (§ 43b GenG, Bs); eine reine Präsenzversammlung kann die Satzung nicht ausschließen, sie muss aber nicht die einzige Form sein.
 
-**Vertreterversammlung.** Ab 1.500 Mitgliedern darf die Satzung eine Vertreterversammlung vorsehen (§ 43a GenG): mindestens 50 Vertreter, gewählt allgemein, unmittelbar, gleich und geheim, ohne Vollmacht und ohne Mehrstimmrechte (Bs). § 12 Absatz 4 der Satzung nennt dieselbe Grenze (B).
+**Vertreterversammlung.** Ab 1.500 Mitgliedern darf die Satzung eine Vertreterversammlung vorsehen (§ 43a GenG): mindestens 50 Vertreter, gewählt allgemein, unmittelbar, gleich und geheim, ohne Vollmacht und ohne Mehrstimmrechte (Bs). Konzept, nicht in der Außen-Satzung v9.1.4 nennt dieselbe Grenze (B).
 
 # 2. Wer entscheidet was?
 
@@ -63,7 +63,7 @@ Wenn alle Zellen gleich groß wären, wäre alles einfach. Sie sind es nicht: Ei
 | Generalversammlung | alle Mitglieder (ab 1.500: Vertreter) | ab 3 Mitgliedern | was alle Zellen betrifft |
 | Verbundrat (Vorschlag) | je Land eine Genossenschaft | ab dem zweiten Land | Zusammenarbeit der nationalen Genossenschaften nach § 18a |
 
-Die Region ist neu und ein Vorschlag. Rechtlich ist sie zunächst **nur beratend**: Ein Regionalrat, dessen Beschlüsse die Mitglieder binden, ist im Genossenschaftsgesetz nicht vorgesehen (nicht gefunden). Verbindlich wird die Region erst durch die Zustimmung der beteiligten Zellen (§ 18 Satzung: Zellenzusammenschluss) oder durch die Generalversammlung.
+Die Region ist neu und ein Vorschlag. Rechtlich ist sie zunächst **nur beratend**: Ein Regionalrat, dessen Beschlüsse die Mitglieder binden, ist im Genossenschaftsgesetz nicht vorgesehen (nicht gefunden). Verbindlich wird die Region erst durch die Zustimmung der beteiligten Zellen (Konzept, nicht in der Außen-Satzung v9.1.4: Zellenzusammenschluss) oder durch die Generalversammlung.
 
 ## Zuständigkeiten
 
@@ -216,7 +216,7 @@ Die Satzung kennt zwei Formen der Vollmitgliedschaft: **Betriebsmitglieder** arb
 
 **Entsendung.** Zellen oder Regionen dürfen Mitglieder des Aufsichtsrats entsenden. Entsandte und investierende Mitglieder dürfen zusammen höchstens ein Drittel des Aufsichtsrats stellen (§ 36 GenG, Bs).
 
-**Der Vorstand** wird von der Generalversammlung gewählt (§ 20 Satzung), Amtszeit drei Jahre. Vorschlag: Bei zwei oder mehr Vorstandsplätzen soll kein Geschlecht und keine Gruppe (Betriebs- oder Nutzungsmitglieder) alle Plätze innehaben. (Setzung.)
+**Der Vorstand** wird von der Generalversammlung gewählt (Konzept, nicht in der Außen-Satzung v9.1.4), Amtszeit drei Jahre. Vorschlag: Bei zwei oder mehr Vorstandsplätzen soll kein Geschlecht und keine Gruppe (Betriebs- oder Nutzungsmitglieder) alle Plätze innehaben. (Setzung.)
 
 # 7. Wie die Gremien mit der Gemeinschaft wachsen
 
@@ -229,13 +229,13 @@ Die Satzung kennt zwei Formen der Vollmitgliedschaft: **Betriebsmitglieder** arb
 | über 1.500 | 50 und mehr | Vertreterversammlung mit mindestens 50 Vertretern (etwa einer je 30 Mitglieder), in Verhältniswahl von den Regionen gewählt. |
 | mehrere Länder | — | Je Land eine eigene Genossenschaft mit eigener Versammlung; der Verbundrat vertritt sie nach § 18a. |
 
-Seit Satzung v7.7.0 gelten zusätzlich: Ab mehr als 60 Mitgliedern gehört niemand länger als drei Amtszeiten in Folge demselben Organ an, und niemand hat mehr als zwei Ämter zugleich (§ 20 Absatz 3). Solange kein Aufsichtsrat besteht, wählt die Generalversammlung jährlich zwei Mitglieder zur Kassenprüfung (§ 21 Absatz 4). Beides gilt unabhängig von den Vorschlägen dieses Dokuments. Delegierte, Sprecher und Regionalrat sind in der Satzung keine Ämter im Sinne von § 20 Absatz 3 (die Liste der Ämter ist abschließend); der Vorschlag dazu steht in Abschnitt 8 (§ 20 Absatz 3, Ergänzung).
+Seit Satzung v7.7.0 gelten zusätzlich: Ab mehr als 60 Mitgliedern gehört niemand länger als drei Amtszeiten in Folge demselben Organ an, und niemand hat mehr als zwei Ämter zugleich (Konzept, nicht in der Außen-Satzung v9.1.4). Solange kein Aufsichtsrat besteht, wählt die Generalversammlung jährlich zwei Mitglieder zur Kassenprüfung (Konzept, nicht in der Außen-Satzung v9.1.4). Beides gilt unabhängig von den Vorschlägen dieses Dokuments. Delegierte, Sprecher und Regionalrat sind in der Satzung keine Ämter im Sinne von Konzept, nicht in der Außen-Satzung v9.1.4 (die Liste der Ämter ist abschließend); der Vorschlag dazu steht in Abschnitt 8 (Konzept, nicht in der Außen-Satzung v9.1.4, Ergänzung).
 
 Die Zahl der Zellen stammt aus dem Rechner 09 (realistisches Szenario), die Schwellen für Gremien aus Satzung und Gesetz. Bei einer Vertreterversammlung entfällt die Stimme jedes einzelnen Mitglieds; dann müssen die Minderheitenrechte (Einberufung, Gegenentwurf, zweite Lesung) auf Mitglieder, nicht auf Vertreter, zugeschnitten bleiben.
 
 ## Große Unternehmen in der Genossenschaft
 
-Seit Satzung v7.13.0 können aus Gemeinschaftsbetrieben große Unternehmen werden: Teams von höchstens zwölf, Betriebe aus mehreren Teams, Gemeinschaftsunternehmen aus mehreren Betrieben einer Abteilung (§ 15a Absatz 3 bis 3d). Für die Stimmkraft heißt das:
+Seit Satzung v7.13.0 können aus Gemeinschaftsbetrieben große Unternehmen werden: Teams von höchstens zwölf, Betriebe aus mehreren Teams, Gemeinschaftsunternehmen aus mehreren Betrieben einer Abteilung (Konzept, nicht in der Außen-Satzung v9.1.4). Für die Stimmkraft heißt das:
 
 - **Ein Unternehmen ist keine Zelle und hat keine Stimmen.** Seine Beschäftigten stimmen in ihren Zellen und in der Generalversammlung wie alle Mitglieder (§ 15a Absatz 3b) (B).
 - **Viele Köpfe aus einem Unternehmen gewinnen nicht allein.** Beispiel: fünf Zellen mit 20, 20, 6, 5 und 4 Mitgliedern; die beiden großen Zellen bestehen fast nur aus Beschäftigten desselben Unternehmens. Bei reinen Köpfen haben sie 40 von 55 Stimmen, 73 Prozent, und entscheiden allein. Mit doppelter Mehrheit (Abschnitt 3) brauchen sie zusätzlich eine dritte Zelle (E).
@@ -246,7 +246,7 @@ Seit Satzung v7.13.0 können aus Gemeinschaftsbetrieben große Unternehmen werde
 
 # 8. Satzungsvorschläge
 
-Die folgenden Texte sind **Entwürfe für eine mögliche Satzungsänderung**. Sie sind nicht in Kraft; die Satzung in der aktuellen Version 7.13.0 bleibt unverändert, bis eine Generalversammlung nach § 19 Absatz 3 darüber entschieden hat und Rechtsberatung und Prüfungsverband den Text geprüft haben.
+Die folgenden Texte sind **Entwürfe für eine mögliche Satzungsänderung**. Sie sind nicht in Kraft; die Satzung in der aktuellen Version 7.13.0 bleibt unverändert, bis eine Generalversammlung nach Konzept, nicht in der Außen-Satzung v9.1.4 darüber entschieden hat und Rechtsberatung und Prüfungsverband den Text geprüft haben.
 
 **§ 18 neu (Ebenen)**
 
@@ -272,7 +272,7 @@ Die folgenden Texte sind **Entwürfe für eine mögliche Satzungsänderung**. Si
 
 **§ 22a neu (Wahlverfahren)** Mitglieder des Aufsichtsrats werden in Verhältniswahl gewählt.
 
-**§ 19 Absatz 3 (Änderung)** „… 70 %“ wird bei Satzungsänderungen durch „75 %“ ersetzt.
+**Konzept, nicht in der Außen-Satzung v9.1.4 (Änderung)** „… 70 %“ wird bei Satzungsänderungen durch „75 %“ ersetzt.
 
 **§ 20 Absatz 3 (Ergänzung)** Ämter im Sinne dieses Absatzes sind auch Delegierte im Regionalrat und Sprecherinnen und Sprecher einer Zelle. (Vorschlag, damit die Begrenzung auf zwei Ämter und drei Amtszeiten nicht umgangen werden kann, wenn die Regionen verbindlich entscheiden; solange der Regionalrat nur berät, ist die Ergänzung nicht nötig.)
 

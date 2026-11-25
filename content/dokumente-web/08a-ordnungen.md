@@ -34,7 +34,7 @@ Zellen sind unselbstständige Teile der Genossenschaft. Sie haben keine eigene R
 
 ### § 3 Berichte und Einsicht
 
-Jede Zelle führt über ihre Versammlungen und über die Verwendung der ihr zugeordneten Mittel ein Protokoll oder einen kurzen schriftlichen Bericht. Der Vorstand und die Generalversammlung erhalten diese Unterlagen mindestens einmal im Geschäftsjahr, auf Verlangen früher. Mitglieder, der Vorstand und, sobald einer besteht, der Aufsichtsrat haben insoweit ein Einsichtsrecht, soweit gesetzliche Verschwiegenheits- und Datenschutzvorschriften nicht entgegenstehen. Bis zur Bildung eines Aufsichtsrats nimmt die Generalversammlung dessen Rechte wahr (Satzung § 4 Abs. 1, § 9 Abs. 1 Satz 2 GenG).
+Jede Zelle führt über ihre Versammlungen und über die Verwendung der ihr zugeordneten Mittel ein Protokoll oder einen kurzen schriftlichen Bericht. Der Vorstand und die Generalversammlung erhalten diese Unterlagen mindestens einmal im Geschäftsjahr, auf Verlangen früher. Mitglieder, der Vorstand und, sobald einer besteht, der Aufsichtsrat haben insoweit ein Einsichtsrecht, soweit gesetzliche Verschwiegenheits- und Datenschutzvorschriften nicht entgegenstehen. Bis zur Bildung eines Aufsichtsrats nimmt die Generalversammlung dessen Rechte wahr (Satzung § 4 Abs. 1; § 9 Abs. 1 Satz 2 GenG).
 
 ### § 4 Prüfung
 

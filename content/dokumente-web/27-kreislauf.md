@@ -128,7 +128,7 @@ Bisher geht es um Kleidung, Hausrat und Reparatur. Ein viertes Feld liegt danebe
 
 **Rechnung und Schalter.** Eine Zeile „Materialrettung“ im Kreislauf-Rechner (Schalter standardmäßig aus) ist noch nicht gebaut; es gibt noch keine belastbaren Zahlen zu Menge, Annahme und Absatz, und sie wären Setzungen. Bis dahin steht das Feld ohne Euro-Wert da.
 
-**Offen.** Steuer bei unentgeltlicher Abgabe an eine nicht gemeinnützige eG (Dokument 10); Haftung und Schadstoffe bei Gebrauchtmaterial (N). Gemeinnützige Partner dürfen Mitgliedern keine Vorteile geben (Satzung § 18a Abs. 9); die Zusammenarbeit läuft darum über gemeinsame Projekte, nicht über Rabatte.
+**Offen.** Steuer bei unentgeltlicher Abgabe an eine nicht gemeinnützige eG (Dokument 10); Haftung und Schadstoffe bei Gebrauchtmaterial (N). Gemeinnützige Partner dürfen Mitgliedern keine Vorteile geben (Konzept, nicht in der Außen-Satzung v9.1.4); die Zusammenarbeit läuft darum über gemeinsame Projekte, nicht über Rabatte.
 
 # 6. Der Ehrenamts-Topf und was Zeit wert ist
 
@@ -181,7 +181,7 @@ Die tragende Form ist die günstigste, die der Topf trägt: Tauschparty bis 10 M
 | **Zusammen** | **2,5** | **4,7** | **8,5** | **18,4** | **24,8** | **27,0** | **28,1** | **28,3** | **28,3** |
 | Anteil an der bisherigen Ersparnis | 1,5 % | 1,7 % | 2,4 % | 4,0 % | 4,8 % | 4,8 % | 4,6 % | 4,3 % | 4,1 % |
 
-Dazu der Lebensstandard-Beitrag von 5 % ab 10 Vollmitgliedern (Satzung § 8a Abs. 1c), rund 0,4 € bei 10, 0,9 € bei 20, 1,4 € bei 100. Die Nutzen-Bilanz steigt bei 20 Mitgliedern von 405 auf 422 € im Monat, bei 100 von 585 auf 612 €. Spanne: pessimistisch 0,3 bis 11 €, optimistisch 9 bis 48 €.
+Dazu der Lebensstandard-Beitrag von 5 % ab 10 Vollmitgliedern (Konzept, nicht in der Außen-Satzung v9.1.4), rund 0,4 € bei 10, 0,9 € bei 20, 1,4 € bei 100. Die Nutzen-Bilanz steigt bei 20 Mitgliedern von 405 auf 422 € im Monat, bei 100 von 585 auf 612 €. Spanne: pessimistisch 0,3 bis 11 €, optimistisch 9 bis 48 €.
 
 Die Kleidung ist durch die Ausgaben gedeckelt (50 € je Kopf und Monat angesetzt; Bundesdurchschnitt 121 € je Haushalt, Destatis EVS 2023, Bs).
 
@@ -261,7 +261,7 @@ Der Euro-Gewinn liegt bei allen tragenden Formen zwischen 6 und 10 €. Die Unte
 **Offene Fragen:**
 
 1. Laden als Dienst der Zelle (Selbstkosten) oder als Gemeinschaftsbetrieb (mit Aufschlag, § 11)?
-2. Coins im Laden: Zahlung mit Coins muss zur Vollreserve (Satzung § 14) passen.
+2. Coins im Laden: Zahlung mit Coins muss zur Vollreserve (Konzept, nicht in der Außen-Satzung v9.1.4) passen.
 3. Missbrauchsschutz im Tauschregal ohne Punktesystem.
 4. Rechtliches vor dem ersten Verkauf: Gewährleistung bei Gebrauchtware, gebrauchte Elektrogeräte, Haftung im Repair-Café, Textilkennzeichnung, Gewerbe (Dokument 10).
 5. Hygiene und Annahme: Was nehmen wir nicht?

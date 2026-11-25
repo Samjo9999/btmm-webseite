@@ -14,7 +14,7 @@ Kontakt: office.btmm@gmail.com
 
 BtMM ist eine Genossenschaft im Aufbau in Freiburg: Menschen teilen, was einzeln teuer ist, arbeiten in eigenen Betrieben zum gleichen Lohn für jede Stunde und besitzen gemeinsam, was nie verkauft wird. Der Grundsatz heißt: **Nutzen, was gut ist. Bauen, wo etwas fehlt.** Was es Gutes schon gibt, wollen wir nicht nachbauen, sondern verbinden. Darum suchen wir Partner, die bleiben, was sie sind, und trotzdem mehr davon haben, dass es uns gibt.
 
-Partner sein geht in fünf Stufen, jede freiwillig, jede kündbar (Satzung § 18a; Vollkonzept, Kapitel 15):
+Partner sein geht in fünf Stufen, jede freiwillig, jede kündbar (Konzept, nicht in der Außen-Satzung v9.1.4; Vollkonzept, Kapitel 15):
 
 | Stufe | Was du tust | Was es kostet |
 |---|---|---|
@@ -31,18 +31,18 @@ Führst du ein Unternehmen, das den Weg erst Schritt für Schritt gehen will, gi
 ## Was du schon heute davon hast
 
 1. **Hilfe auf Gegenseitigkeit, nicht als Bitte.** Im Tandem bekommst du genau das, was wir bekommen: jemanden, der eure Kasse mit durchsieht, eine Vertrauensperson von außen, einen Besuch im Jahr mit frischem Blick und Hilfe, wenn bei euch jemand ausfällt. Kleine Organisationen haben dieselben Lücken wie wir; der Unterschied ist, dass wir sie aufgeschrieben haben (Dokument 23, Kapitel 8; S).
-2. **Ein Blick von außen, einmal im Jahr, umsonst.** Bei der Visite sprechen zwei oder drei Menschen einen halben Tag lang mit euch, auch mit denen ohne Amt, und schreiben auf, was gut läuft und was sie stutzig macht. Sie empfehlen, sie entscheiden nichts (Satzung § 18b Abs. 2).
+2. **Ein Blick von außen, einmal im Jahr, umsonst.** Bei der Visite sprechen zwei oder drei Menschen einen halben Tag lang mit euch, auch mit denen ohne Amt, und schreiben auf, was gut läuft und was sie stutzig macht. Sie empfehlen, sie entscheiden nichts (Konzept, nicht in der Außen-Satzung v9.1.4).
 3. **Fertige Werkzeuge.** Notfallkarte, Ausfall-Check, Risikoregister, Muster für ein Schutzkonzept, die sechs Kern-Vitalzeichen für kleine Gruppen und der Rechner für gemeinsames Sparen. Sie liegen ausgearbeitet vor; Partner bekommen sie und die Erfahrungen damit (Dokumente 22 und 23).
-4. **Keine Haftung, kein Kleingedrucktes.** Das Tandem überträgt keine Organrechte, keine Kontovollmacht und keinen Zugang zu vertraulichen Akten; ihr haftet nicht für uns und wir nicht für euch. Kündbar mit drei Monaten (Satzung § 18a Abs. 4a).
+4. **Keine Haftung, kein Kleingedrucktes.** Das Tandem überträgt keine Organrechte, keine Kontovollmacht und keinen Zugang zu vertraulichen Akten; ihr haftet nicht für uns und wir nicht für euch. Kündbar mit drei Monaten (Konzept, nicht in der Außen-Satzung v9.1.4).
 5. **Stunden zählen in beide Richtungen.** Was eure Leute bei uns helfen, wird bezahlt oder als Zeitguthaben verrechnet, Stunde gegen Stunde; was wir bei euch helfen, ebenso (Dokument 23; S). Wie das steuerlich zu behandeln ist, klärt die Steuerberatung (Dokument 10, Frage 28 i).
 6. **Gesehen werden, ehrlich.** Wir erzählen im offenen Tagebuch und auf unserem Kanal, mit wem wir arbeiten und warum. Bekommt jemand dafür eine Gegenleistung, steht „Werbung“ dabei (Arbeitsdokument Social Media).
 
 ## Was mit dem Wachsen dazukommt
 
 7. **Kundschaft, die zu euch passt.** Mitglieder kaufen gemeinsam ein und suchen gezielt faire, regionale Anbieter. Am Anfang sind das wenige Menschen; der Rechner setzt rund 260 € Lebensmittel je Mitglied und Monat an, bei 100 Mitgliedern rund 312.000 € im Jahr, bei 1.000 gut drei Millionen (Vollkonzept, Kapitel 15; S, gerechnet 260 × 12 × Mitglieder).
-8. **Gemeinsame Dienste zum Selbstkostenpreis.** Wird eure Organisation Mitglied, nutzt sie, was die Genossenschaft aufbaut: Buchhaltung, Gruppenversicherungen, App, Räume, Werkzeug, ohne Gewinnaufschlag (Satzung § 15b). Was davon schon da ist, sagen wir offen; vieles entsteht erst.
-9. **Das Zeichen mitprägen und später mitbesitzen.** Partner der ersten Stunde sollen mitreden, was das Partnerzeichen verlangt, bevor die Generalversammlung die Lizenzordnung beschließt (S). Ein echtes Siegel mit unabhängiger Kontrolle kann die Genossenschaft später einem Verband der Partner übertragen (Satzung § 18a Abs. 5 und 8). Dann gehört das Zeichen denen, die es tragen.
-10. **Ein Weg für das Lebenswerk.** Wer einen Betrieb ohne Nachfolge hat, kann ihn als Gemeinschaftsbetrieb weiterführen lassen: Am Ende gehört er denen, die in ihm arbeiten, zum gleichen Stundenlohn, mit einer Übergangsfrist von höchstens drei Jahren ab dem Beschluss, sich einzubringen (Satzung § 15a Abs. 5; Vollkonzept, Kapitel 15). Wer dafür mehr Zeit braucht, geht den Weg in Stufen (unten). Das Problem ist verbreitet: Nach dem Magazin atmo 10/2026 erreichen nur rund 11 Prozent der deutschen Familienunternehmen die dritte Generation (Bs; die Primärquelle habe ich nicht gefunden).
+8. **Gemeinsame Dienste zum Selbstkostenpreis.** Wird eure Organisation Mitglied, nutzt sie, was die Genossenschaft aufbaut: Buchhaltung, Gruppenversicherungen, App, Räume, Werkzeug, ohne Gewinnaufschlag (Konzept, nicht in der Außen-Satzung v9.1.4). Was davon schon da ist, sagen wir offen; vieles entsteht erst.
+9. **Das Zeichen mitprägen und später mitbesitzen.** Partner der ersten Stunde sollen mitreden, was das Partnerzeichen verlangt, bevor die Generalversammlung die Lizenzordnung beschließt (S). Ein echtes Siegel mit unabhängiger Kontrolle kann die Genossenschaft später einem Verband der Partner übertragen (Konzept, nicht in der Außen-Satzung v9.1.4). Dann gehört das Zeichen denen, die es tragen.
+10. **Ein Weg für das Lebenswerk.** Wer einen Betrieb ohne Nachfolge hat, kann ihn als Gemeinschaftsbetrieb weiterführen lassen: Am Ende gehört er denen, die in ihm arbeiten, zum gleichen Stundenlohn, mit einer Übergangsfrist von höchstens drei Jahren ab dem Beschluss, sich einzubringen (Konzept, nicht in der Außen-Satzung v9.1.4; Vollkonzept, Kapitel 15). Wer dafür mehr Zeit braucht, geht den Weg in Stufen (unten). Das Problem ist verbreitet: Nach dem Magazin atmo 10/2026 erreichen nur rund 11 Prozent der deutschen Familienunternehmen die dritte Generation (Bs; die Primärquelle habe ich nicht gefunden).
 11. **Ein Netz, das trägt, wenn es brennt.** Aus Tandems kann ein Ring werden: Visiten wandern, eine gemeinsame Ombudsstelle trägt alle, und wer von Brand, Flut oder Ausfall getroffen wird, bekommt Hilfe von mehreren Seiten (Dokument 22, Kapitel 9; Idee).
 12. **Teil von etwas Größerem, ohne euch aufzulösen.** Ihr bleibt, was ihr seid, mit eurem Namen, eurer Rechtsform und eurem Weg. Ihr werdet nur nicht mehr allein gelassen.
 
@@ -57,11 +57,11 @@ Führst du ein Unternehmen, das den Weg erst Schritt für Schritt gehen will, gi
 | Genossenschaft, Gemeinschaft, Wohnprojekt | Tandem, Visite, gemeinsamer Notfallplan, später Partnerzelle | Tandem |
 | Gemeinde | Lebensorte, Quartiere, verkehrsarme Mobilität | Gespräch |
 
-Gemeinnützige Partner bekommen und geben keine Rabatte, die ihrem Zweck nicht dienen; mit ihnen geht es um Räume, Projekte und Bildung (Satzung § 18a Abs. 9).
+Gemeinnützige Partner bekommen und geben keine Rabatte, die ihrem Zweck nicht dienen; mit ihnen geht es um Räume, Projekte und Bildung (Konzept, nicht in der Außen-Satzung v9.1.4).
 
 # Für Unternehmen: der Weg zu BtMM
 
-Du führst ein Unternehmen mit Beschäftigten, teilst unsere Werte, kannst aber nicht morgen allen den gleichen Stundenlohn zahlen? Dafür gibt es die **Wegvereinbarung** (Satzung § 18a Abs. 4b; Vollkonzept, Kapitel 15). Du sagst Stufen und Fristen zu, und wir zeigen in der App, wie weit du bist. Die Stufen beschließt die Generalversammlung; das hier ist unser Vorschlag (S):
+Du führst ein Unternehmen mit Beschäftigten, teilst unsere Werte, kannst aber nicht morgen allen den gleichen Stundenlohn zahlen? Dafür gibt es die **Wegvereinbarung** (Konzept, nicht in der Außen-Satzung v9.1.4; Vollkonzept, Kapitel 15). Du sagst Stufen und Fristen zu, und wir zeigen in der App, wie weit du bist. Die Stufen beschließt die Generalversammlung; das hier ist unser Vorschlag (S):
 
 | Wegstufe | Was du zusagst | bis wann |
 |---|---|---|
@@ -108,12 +108,12 @@ Auf Weg II-A bleiben vom Jahresüberschuss (150.000 Euro, minus 57.000 für die 
 
 - **Keine Kundschaft über Nacht.** Am Anfang sind wir wenige Menschen. Die großen Zahlen oben sind Rechnungen für später, keine Prognose.
 - **Keine Arbeit ohne Gegenleistung, aber Arbeit.** Ein Tandem kostet Zeit: nach unserem Vorschlag etwa 6 Stunden für die Kassenprüfung, 8 für die Visite und bis zu 40 für Ausfallhilfe im Jahr, auf Gegenseitigkeit (S).
-- **Kein grünes und kein faires Siegel.** Das Partnerzeichen sagt nur, dass wir zusammenarbeiten; es sagt nichts über Umwelt oder Fairness. Auch die Wegstufe ist kein Siegel, sondern eine nachprüfbare Angabe mit Zahlen, ohne Symbol, Farbe oder Sterne. Mit der Wegvereinbarung sagst du zu, deine Stufe nicht wie ein Gütezeichen zu führen und nicht damit zu werben, solange es kein Zertifizierungssystem mit unabhängiger Kontrolle gibt (Satzung § 18a Abs. 4b und 8). Ob du einzelne belegte Zahlen nennen darfst, etwa deine Lohnspanne, wird vor der Gründung rechtlich geprüft (Dokument 10, Frage 30). Ein echtes Siegel kommt erst, wenn eine unabhängige Stelle es trägt.
+- **Kein grünes und kein faires Siegel.** Das Partnerzeichen sagt nur, dass wir zusammenarbeiten; es sagt nichts über Umwelt oder Fairness. Auch die Wegstufe ist kein Siegel, sondern eine nachprüfbare Angabe mit Zahlen, ohne Symbol, Farbe oder Sterne. Mit der Wegvereinbarung sagst du zu, deine Stufe nicht wie ein Gütezeichen zu führen und nicht damit zu werben, solange es kein Zertifizierungssystem mit unabhängiger Kontrolle gibt (Konzept, nicht in der Außen-Satzung v9.1.4). Ob du einzelne belegte Zahlen nennen darfst, etwa deine Lohnspanne, wird vor der Gründung rechtlich geprüft (Dokument 10, Frage 30). Ein echtes Siegel kommt erst, wenn eine unabhängige Stelle es trägt.
 - **Keine fertige Genossenschaft.** BtMM ist noch nicht eingetragen. Verträge schließt erst die eingetragene Genossenschaft; vorher sprechen wir und schreiben auf, was wir vorhaben.
 
 # Ehrlich gesagt
 
-BtMM gibt es bisher auf dem Papier und in der Rechnung. Wer jetzt Partner wird, ist früh dabei: Er trägt mehr Ungewissheit und hat mehr Einfluss darauf, wie das Netz wird. Die Regeln stehen im Satzungsentwurf (§ 18a) und werden vor der Gründung von Prüfungsverband und Rechtsberatung geprüft. Alle Zahlen sind Setzungen (S) oder einfache Rechnungen darauf.
+BtMM gibt es bisher auf dem Papier und in der Rechnung. Wer jetzt Partner wird, ist früh dabei: Er trägt mehr Ungewissheit und hat mehr Einfluss darauf, wie das Netz wird. Die Regeln stehen im Satzungsentwurf (Konzept, nicht in der Außen-Satzung v9.1.4) und werden vor der Gründung von Prüfungsverband und Rechtsberatung geprüft. Alle Zahlen sind Setzungen (S) oder einfache Rechnungen darauf.
 
 # Anhang: Muster der Selbstauskunft
 
@@ -181,4 +181,4 @@ Diese Selbstauskunft gibt ein Unternehmen, das eine Wegvereinbarung schließt, b
 
 **Datenschutz.** Die Selbstauskunft enthält keine Namen von Beschäftigten. Veröffentlicht werden nur die Angaben, die in der letzten Spalte mit „ja“ markiert sind; einzelne Löhne nie. Hat ein Unternehmen weniger als fünf Beschäftigte, zeigt die App statt der Spanne nur einen Bereich (unter 2 zu 1, unter 4 zu 1, darüber) und statt der Untergrenze nur, ob sie über Tarif oder Mindestlohn liegt, damit niemand aus den Zahlen erkennbar ist. Die prüfende Zelle gibt die Anlagen nach der Entscheidung zurück oder löscht sie; sie behält nur das Ergebnis. Wie das rechtlich zu fassen ist, wird vor der Gründung geprüft (Dokument 10, Frage 30 e).
 
-**So prüft die Zelle.** Zwei Mitglieder der Zelle, die mit dem Unternehmen nichts zu tun haben, lesen die Selbstauskunft, gleichen sie mit den Belegen ab und stellen Fragen. Die Zellversammlung entscheidet wie über eine Lizenz (Satzung § 18a Abs. 6). Wer einen begründeten Hinweis hat, dass eine Angabe nicht stimmt, auch eine Beschäftigte oder ein Beschäftigter des Unternehmens, kann ihn der Zelle geben; dann gilt das Verfahren wie beim Entzug der Lizenz (Satzung § 18a Abs. 7): anhören, Frist setzen, erst dann entscheiden.
+**So prüft die Zelle.** Zwei Mitglieder der Zelle, die mit dem Unternehmen nichts zu tun haben, lesen die Selbstauskunft, gleichen sie mit den Belegen ab und stellen Fragen. Die Zellversammlung entscheidet wie über eine Lizenz (Konzept, nicht in der Außen-Satzung v9.1.4). Wer einen begründeten Hinweis hat, dass eine Angabe nicht stimmt, auch eine Beschäftigte oder ein Beschäftigter des Unternehmens, kann ihn der Zelle geben; dann gilt das Verfahren wie beim Entzug der Lizenz (Konzept, nicht in der Außen-Satzung v9.1.4): anhören, Frist setzen, erst dann entscheiden.

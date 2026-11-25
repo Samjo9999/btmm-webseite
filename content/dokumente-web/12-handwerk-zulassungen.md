@@ -18,12 +18,12 @@ Wenn du neu bist, reicht das Dokument „11 Handwerk, Ergänzung“. Dieses hier
 
 # Drei rechtliche Ebenen — Vorbemerkung
 
-Die folgenden Ausführungen behandeln vor allem die externe Ebene: die Arbeit der Gemeinschaftsbetriebe für Kundinnen und Kunden außerhalb der Genossenschaft. Seit Konzept v22.0.0 ist das die Ebene, auf der der gleiche Grundlohn verdient wird. Für die interne Ebene gilt zusätzlich § 26 der Satzung — genossenschaftliche Selbsthilfe nach § 1 GenG, mit ausdrücklichen Grenzen.
+Die folgenden Ausführungen behandeln vor allem die externe Ebene: die Arbeit der Gemeinschaftsbetriebe für Kundinnen und Kunden außerhalb der Genossenschaft. Seit Konzept v22.0.0 ist das die Ebene, auf der der gleiche Grundlohn verdient wird. Für die interne Ebene gilt zusätzlich Konzept, nicht in der Außen-Satzung v9.1.4 — genossenschaftliche Selbsthilfe nach § 1 GenG, mit ausdrücklichen Grenzen.
 
 | Ebene | Geltung |
 |---|---|
 | Eigenleistung am eigenen Objekt | Ohne Nachweis erlaubt — außer Elektro-, Wasser- und Gasinstallation, die auch im eigenen Haus eingetragenen Fachbetrieben vorbehalten sind [Z1]. Sobald Gäste übernachten oder Besucher kommen, verlangen sicherheitsrelevante Teile zusätzlich eine fachliche Abnahme (Dokument 11, Kapitel 7) |
-| Innenleistung zwischen Mitgliedern | § 26 Abs. 2 Satzung: keine externen Zulassungsbeschränkungen, soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt. § 26 Abs. 2a: ausgenommen sind insbesondere Heilkunde und Arbeiten an elektrischen Anlagen. Geschützte Berufsbezeichnungen bleiben staatlich Zugelassenen vorbehalten (§ 26 Abs. 3) |
+| Innenleistung zwischen Mitgliedern | Konzept, nicht in der Außen-Satzung v9.1.4: keine externen Zulassungsbeschränkungen, soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt. Konzept, nicht in der Außen-Satzung v9.1.4: ausgenommen sind insbesondere Heilkunde und Arbeiten an elektrischen Anlagen. Geschützte Berufsbezeichnungen bleiben staatlich Zugelassenen vorbehalten (Konzept, nicht in der Außen-Satzung v9.1.4) |
 | Externe Tätigkeit der Gemeinschaftsbetriebe | Alle gesetzlichen Anforderungen unverändert (Handwerksordnung, Berufsrecht, Heilpraktikergesetz, Lebensmittelrecht) |
 
 # 1. Handwerk ohne Meisterbrief — die einfache Wahrheit
@@ -129,7 +129,7 @@ Weitere B2-Gewerbe sind Handwerke mit Sonderfertigung, Theater- und Textilberufe
 | Einfache Tätigkeiten, die in bis zu drei Monaten erlernbar sind | § 1 Abs. 2 HwO [Z4]; zum Beispiel Hochbeete, einfache Möbel, Hilfsarbeiten, Montage. Einstufung vorab mit der Kammer klären |
 | Nebenbetrieb oder unerhebliche Tätigkeiten | § 3 HwO (Bs, nicht neu geprüft); Grenzen eng |
 | Eigenleistung am eigenen Gebäude | Dokument 11, Kapitel 2 |
-| Innenleistung zwischen Mitgliedern | Satzung § 26, mit Ausnahmen für Elektro, Wasser, Gas |
+| Innenleistung zwischen Mitgliedern | Konzept, nicht in der Außen-Satzung v9.1.4, mit Ausnahmen für Elektro, Wasser, Gas |
 | Zusammenarbeit mit einem Meisterbetrieb | Partnerbetrieb übernimmt Anmeldung, Haftung und Abnahme |
 
 Alle 53 Handwerke der Anlage A [Z13]: Maurer und Betonbauer; Ofen- und Luftheizungsbauer; Zimmerer; Dachdecker; Straßenbauer; Wärme-, Kälte- und Schallschutzisolierer; Brunnenbauer; Steinmetzen und Steinbildhauer; Stuckateure; Maler und Lackierer; Gerüstbauer; Schornsteinfeger; Metallbauer; Chirurgiemechaniker; Karosserie- und Fahrzeugbauer; Feinwerkmechaniker; Zweiradmechaniker; Kälteanlagenbauer; Informationstechniker; Kraftfahrzeugtechniker; Land- und Baumaschinenmechatroniker; Büchsenmacher; Klempner; Installateur und Heizungsbauer; Elektrotechniker; Elektromaschinenbauer; Tischler; Boots- und Schiffbauer; Seiler; Bäcker; Konditoren; Fleischer; Augenoptiker; Hörakustiker; Orthopädietechniker; Orthopädieschuhmacher; Zahntechniker; Friseure; Glaser; Glasbläser und Glasapparatebauer; Mechaniker für Reifen- und Vulkanisationstechnik; Fliesen-, Platten- und Mosaikleger; Werkstein- und Terrazzohersteller; Estrichleger; Behälter- und Apparatebauer; Parkettleger; Rollladen- und Sonnenschutztechniker; Drechsler und Holzspielzeugmacher; Böttcher; Glasveredler; Schilder- und Lichtreklamehersteller; Raumausstatter; Orgel- und Harmoniumbauer.
@@ -179,7 +179,7 @@ Die zentrale Frage: Kann eine Meisterin oder ein Meister als technische Betriebs
 
 ## Wie die Trennung rechtssicher funktioniert
 
-Seit Satzung v7.0.0 sind die Mitglieder, die in einem Gemeinschaftsbetrieb arbeiten, bei der eG angestellt. Die Betriebsversammlung plant die Arbeit gemeinsam (§ 15a Abs. 2); der Grundlohn ist für alle gleich (§ 13). Die technische Betriebsleitung hat nur die Aufgaben, die das Gesetz ihr gibt.
+Seit Satzung v7.0.0 sind die Mitglieder, die in einem Gemeinschaftsbetrieb arbeiten, bei der eG angestellt. Die Betriebsversammlung plant die Arbeit gemeinsam (Konzept, nicht in der Außen-Satzung v9.1.4); der Grundlohn ist für alle gleich (Konzept, nicht in der Außen-Satzung v9.1.4). Die technische Betriebsleitung hat nur die Aufgaben, die das Gesetz ihr gibt.
 
 | Technische Betriebsleitung (gesetzlich) | Betriebsversammlung | Generalversammlung |
 |---|---|---|
@@ -206,7 +206,7 @@ Die Betriebsleitung bekommt denselben Grundlohn wie alle anderen. Ihre Verantwor
 
 # 5. Kosten und wer sie trägt
 
-Seit Konzept v22.0.0 gibt es keinen Einkommens-Pool mehr. Was die ganze Genossenschaft braucht, sind Pflichtkosten (Satzung § 11 Abs. 7); sie werden zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt (§ 8a) und, soweit diese nicht reichen, aus dem Dach-Anteil des Reinvestitionsanteils (§ 11 Abs. 3 b). Was ein einzelner Gemeinschaftsbetrieb braucht, trägt er als Betriebs-Fixkosten, bevor die Kaskade beginnt (§ 11 Abs. 1). Gründungskosten trägt die Gründungsreserve; sie kann durch Direktkredite oder Crowdfunding vorfinanziert werden.
+Seit Konzept v22.0.0 gibt es keinen Einkommens-Pool mehr. Was die ganze Genossenschaft braucht, sind Pflichtkosten (Konzept, nicht in der Außen-Satzung v9.1.4); sie werden zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt (Konzept, nicht in der Außen-Satzung v9.1.4) und, soweit diese nicht reichen, aus dem Dach-Anteil des Reinvestitionsanteils (Konzept, nicht in der Außen-Satzung v9.1.4. Was ein einzelner Gemeinschaftsbetrieb braucht, trägt er als Betriebs-Fixkosten, bevor die Kaskade beginnt (Konzept, nicht in der Außen-Satzung v9.1.4). Gründungskosten trägt die Gründungsreserve; sie kann durch Direktkredite oder Crowdfunding vorfinanziert werden.
 
 | Position | Geschätzte Kosten | Wer trägt es |
 |---|---|---|

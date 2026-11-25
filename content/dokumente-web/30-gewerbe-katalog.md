@@ -46,9 +46,9 @@ Kundin ──Rechnung mit Umsatzsteuer──▶ Genossenschaft (Gemeinschaftsbet
                  3. Überschuss in Dritteln: Bonus, Reinvestition, Sozial und Öko
 ```
 
-Hier braucht **niemand ein Gewerbe**. Der gleiche Stundenlohn ist der Grundlohn im Arbeitsvertrag (Satzung § 13). Das ist der Weg, der das Problem „Geld zur Gemeinschaft zum vereinbarten gleichen Stundenlohn“ am einfachsten löst.
+Hier braucht **niemand ein Gewerbe**. Der gleiche Stundenlohn ist der Grundlohn im Arbeitsvertrag (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist der Weg, der das Problem „Geld zur Gemeinschaft zum vereinbarten gleichen Stundenlohn“ am einfachsten löst.
 
-## 2.3 Nach der Eintragung, Weg B: selbstständiges Mitglied (Satzung § 15c, Entwurf)
+## 2.3 Nach der Eintragung, Weg B: selbstständiges Mitglied (Konzept, nicht in der Außen-Satzung v9.1.4, Entwurf)
 
 ```
 Kundin ──Rechnung (Kleinunternehmer oder mit USt)──▶ Mitglied (eigenes Gewerbe)
