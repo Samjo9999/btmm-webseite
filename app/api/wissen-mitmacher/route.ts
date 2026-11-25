@@ -6,6 +6,8 @@ import { formatExtractiveAnswer, searchChunks, type WissenChunk } from '@/lib/wi
 import { resolveWissenLlmRuntime } from '@/lib/wissen/llmTiers'
 import { LIMIT_TEXT, pruefeUndZaehle } from '@/lib/wissen/rateLimit'
 import { entferneEmojis } from '../../../packages/wissen-mcp/src/emoji-filter.mjs'
+import { SCALEWAY_MODEL, scalewayChat } from '@/lib/wissen/scaleway'
+import { BTMM_BENENNUNG } from '@/lib/wissen/benennung'
 
 /**
  * Mitmacher-Wissenssuche (Prompt 117).
@@ -21,11 +23,20 @@ const schema = z.object({
 })
 
 const DISCLAIMER =
-  'Keine Rechtsberatung und ersetzt keine Prüfung durch Prüfungsverband, Steuerberatung oder Anwalt. Stand ungesichert. ZAG/KWG nie als freigegeben. Vor eG: Mitmacher/Interessent.'
+  'Keine Rechtsberatung und ersetzt keine Prüfung durch Prüfungsverband, Steuerberatung oder Anwalt. Stand ungesichert. ZAG/KWG nie als freigegeben. Vor der Gründung: Mitmacher/Interessent.'
 
 const LABEL_ENTWURF = 'Entwurf, noch nicht beschlossen'
-const SCALEWAY_URL = 'https://api.scaleway.ai/v1/chat/completions'
-const SCALEWAY_MODEL = 'mistral-small-3.2-24b-instruct-2506'
+
+/** Systemprompt Mitmacher-Assistent. Benennung zentral in lib/wissen/benennung.ts (Recht-Bot 25.11.2026). */
+function mitmacherSystemPrompt(abruf: string): string {
+  return (
+    `Du bist der BtMM-Mitmacher-Assistent. ${BTMM_BENENNUNG} Antworte auf Deutsch, knapp und klar.\n` +
+    `Nutze NUR den gelieferten Corpus-Kontext. Wenn der Kontext nicht reicht: sag es und rate nicht.\n` +
+    `Pflicht: ${DISCLAIMER}\n` +
+    `Entwürfe immer mit Label „${LABEL_ENTWURF}“ kennzeichnen. Behaupte nie, ZAG/KWG sei freigegeben.\n` +
+    `Am Ende: kurze Quellenliste (Dokument + Abschnitt). Abruf-Datum: ${abruf}.`
+  )
+}
 
 function buildContext(hits: WissenChunk[]): string {
   return hits
@@ -46,51 +57,28 @@ async function generateScaleway(
   secret: string
 ): Promise<string | null> {
   if (!hits.length) return null
-  const system =
-    `Du bist der BtMM-Mitmacher-Assistent (Genossenschaft Freiburg). Antworte auf Deutsch, knapp und klar.\n` +
-    `Nutze NUR den gelieferten Corpus-Kontext. Wenn der Kontext nicht reicht: sag es und rate nicht.\n` +
-    `Pflicht: ${DISCLAIMER}\n` +
-    `Entwürfe immer mit Label „${LABEL_ENTWURF}“ kennzeichnen. Behaupte nie, ZAG/KWG sei freigegeben.\n` +
-    `Am Ende: kurze Quellenliste (Dokument + Abschnitt). Abruf-Datum: ${abruf}.`
-  try {
-    const res = await fetch(SCALEWAY_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${secret}`,
+  const system = mitmacherSystemPrompt(abruf)
+  // Gemeinsamer Aufruf (lib/wissen/scaleway.ts), Parameter wie bisher: temperature 0.2, max_tokens 900.
+  const erg = await scalewayChat({
+    secret,
+    temperature: 0.2,
+    maxTokens: 900,
+    messages: [
+      { role: 'system', content: system },
+      {
+        role: 'user',
+        content: `Frage: ${frage}\n\nCorpus-Kontext:\n${buildContext(hits)}`,
       },
-      body: JSON.stringify({
-        model: SCALEWAY_MODEL,
-        temperature: 0.2,
-        max_tokens: 900,
-        messages: [
-          { role: 'system', content: system },
-          {
-            role: 'user',
-            content: `Frage: ${frage}\n\nCorpus-Kontext:\n${buildContext(hits)}`,
-          },
-        ],
-      }),
-    })
-    if (!res.ok) {
-      console.error('scaleway', res.status)
-      return null
-    }
-    const data = (await res.json()) as {
-      choices?: { message?: { content?: string } }[]
-    }
-    const text = data?.choices?.[0]?.message?.content
-    if (typeof text !== 'string' || !text.trim()) return null
-    // Nutzerregel 25.11.: LLM-Antwort serverseitig ohne Emojis.
-    let antwort = entferneEmojis(text.trim())
-    if (!antwort.includes('Keine Rechtsberatung')) {
-      antwort += `\n\n—\n${DISCLAIMER}\nAbruf: ${abruf} · Scaleway ${SCALEWAY_MODEL}`
-    }
-    return antwort
-  } catch (e) {
-    console.error('scaleway')
-    return null
+    ],
+  })
+  if (!erg) return null
+  // Nutzerregel 25.11.: LLM-Antwort serverseitig ohne Emojis.
+  const text = erg.text
+  let antwort = entferneEmojis(text.trim())
+  if (!antwort.includes('Keine Rechtsberatung')) {
+    antwort += `\n\n—\n${DISCLAIMER}\nAbruf: ${abruf} · Scaleway ${SCALEWAY_MODEL}`
   }
+  return antwort
 }
 
 
@@ -103,12 +91,7 @@ async function generateOpenAiCompat(
   model: string
 ): Promise<string | null> {
   if (!hits.length) return null
-  const system =
-    `Du bist der BtMM-Mitmacher-Assistent (Genossenschaft Freiburg). Antworte auf Deutsch, knapp und klar.\n` +
-    `Nutze NUR den gelieferten Corpus-Kontext. Wenn der Kontext nicht reicht: sag es und rate nicht.\n` +
-    `Pflicht: ${DISCLAIMER}\n` +
-    `Entwürfe immer mit Label „${LABEL_ENTWURF}“ kennzeichnen. Behaupte nie, ZAG/KWG sei freigegeben.\n` +
-    `Am Ende: kurze Quellenliste (Dokument + Abschnitt). Abruf-Datum: ${abruf}.`
+  const system = mitmacherSystemPrompt(abruf)
   const headers: Record<string, string> = { 'Content-Type': 'application/json' }
   if (apiKey) headers.Authorization = `Bearer ${apiKey}`
   try {
