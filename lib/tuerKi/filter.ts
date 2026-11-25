@@ -1,6 +1,6 @@
 /**
  * Eingabe- und Ausgabefilter der Tür-KI.
- * Eingabe: sensible Angaben in IRGENDEINER Nutzernachricht des Verlaufs -> kein Modellaufruf.
+ * Eingabe: sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assistant) -> kein Modellaufruf.
  * Ausgabe: Emojis, Links, Tabu-Wörter, Benennungsfehler, Direktkredit-Konditionen, Prompt-Echo.
  */
 import { entferneEmojis } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
@@ -27,11 +27,11 @@ export function enthaeltSensibles(text: string): boolean {
   return SENSIBEL_WOERTER.some((w) => w.test(n))
 }
 
-/** Indizes aller Nutzernachrichten mit sensiblen Angaben (ganzer Verlauf, nicht nur die letzte). */
+/** Indizes aller Verlaufsnachrichten mit sensiblen Angaben (user und assistant, ganzer Verlauf). */
 export function sensibleNutzerNachrichten(verlauf: { rolle: string; text: string }[]): number[] {
   const treffer: number[] = []
   verlauf.forEach((n, i) => {
-    if (n.rolle === 'user' && enthaeltSensibles(n.text)) treffer.push(i)
+    if (enthaeltSensibles(n.text)) treffer.push(i)
   })
   return treffer
 }

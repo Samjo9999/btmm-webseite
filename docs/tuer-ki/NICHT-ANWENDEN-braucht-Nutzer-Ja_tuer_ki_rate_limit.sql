@@ -1,8 +1,13 @@
 -- NICHT ANWENDEN. Braucht Nutzer-Ja (Prod-Migration) und DS-OK.
 -- Optionaler persistenter Zähler für das Rate-Limit der Tür-KI (DS-Leitplanken Tür-KI 25.11.2026).
 -- Nur dieselben Felder wie im Server-Speicher: HMAC-Hash der IP (täglich wechselndes Salz, Salz nie in der DB),
--- Zähler und Zeitstempel. EU-Region. Löschung spätestens nach 24 Stunden.
+-- Zähler und Zeitstempel. Löschung spätestens nach 24 Stunden (globaler Purge in der RPC und zusätzlich per Cron).
 -- Kein Klartext-IP, kein Inhalt, keine Sitzung, kein Bezug zu Konten.
+--
+-- Offene Punkte (vor Anwendung klären):
+-- - Salzquelle: Wo und wie das täglich wechselnde HMAC-Salz erzeugt und gehalten wird (nur Server-Speicher,
+--   nie in dieser Tabelle); Abgleich mit der In-Memory-Umsetzung in lib/tuerKi/rateLimit.ts.
+-- - EU-Region: In welcher EU-Region die Tabelle liegt (Projekt/Region festlegen, bevor migriert wird).
 
 create table if not exists public.tuer_ki_rate (
   ip_hash   text        not null,
@@ -16,11 +21,13 @@ alter table public.tuer_ki_rate enable row level security;
 -- Keine Policies: nur der Server (service role) schreibt und liest.
 
 -- Zählt eine Nachricht und gibt die Summe der letzten Stunde und des Tages zurück.
+-- Zu Beginn jeder RPC: globaler Purge aller Einträge älter als 24 Stunden.
 create or replace function public.tuer_ki_rate_zaehle(p_hash text)
 returns table (stunde integer, tag integer)
 language plpgsql security definer set search_path = public as $$
 declare v_fenster timestamptz := date_trunc('hour', now());
 begin
+  delete from public.tuer_ki_rate where erstellt < now() - interval '24 hours';
   insert into public.tuer_ki_rate (ip_hash, fenster, anzahl) values (p_hash, v_fenster, 1)
   on conflict (ip_hash, fenster) do update set anzahl = public.tuer_ki_rate.anzahl + 1;
   return query
@@ -30,5 +37,5 @@ begin
 end $$;
 revoke all on function public.tuer_ki_rate_zaehle(text) from public, anon, authenticated;
 
--- Löschung <= 24 h (pg_cron, stündlich)
+-- Zusätzliche Löschung <= 24 h (pg_cron, stündlich)
 -- select cron.schedule('tuer_ki_rate_purge', '7 * * * *', $$delete from public.tuer_ki_rate where erstellt < now() - interval '24 hours'$$);

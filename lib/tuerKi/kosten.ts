@@ -3,8 +3,9 @@
  * ohne Hash, Sitzung oder Inhalt. Vor jedem Aufruf wird der ungünstigste Fall
  * (geschätzte Eingabe + volle Ausgabe) gegen Tages- und Monatsdeckel geprüft.
  *
- * Werte sind Vorschlag (Tür-Anteil 60 % von S50 = 30 €/Monat, 1 €/Tag) und brauchen
- * Nutzer-Ja. Env darf die Werte senken und nur bis zur Obergrenze anheben.
+ * Werte sind Vorgabe Haggle (innerhalb S50): 0,50 €/Tag, 10 €/Monat, und brauchen
+ * Nutzer-Ja. Env darf die Werte senken, nicht über die Obergrenze (0,50 / 10) anheben.
+ * Bei erreichtem Deckel gilt der Notbetrieb: kein Scaleway-Aufruf.
  * Serverless-Grenze: Summen gelten je Instanz; zusätzlich Billing-Alert in der Scaleway-Konsole.
  */
 
@@ -21,15 +22,15 @@ export type TuerDeckel = {
 }
 
 export const DECKEL_STANDARD: TuerDeckel = {
-  tagEur: 1,
-  monatEur: 30,
+  tagEur: 0.5,
+  monatEur: 10,
   warnAnteil: 0.8,
   maxEingabeTokens: 6000,
   maxAusgabeTokens: 400,
   sparAusgabeTokens: 200,
 }
 
-export const DECKEL_OBERGRENZE = { tagEur: 2, monatEur: 50 } as const
+export const DECKEL_OBERGRENZE = { tagEur: 0.5, monatEur: 10 } as const
 
 function zahl(raw: string | undefined, standard: number, max: number): number {
   const n = Number(String(raw ?? '').replace(',', '.'))

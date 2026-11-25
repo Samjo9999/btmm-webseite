@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
 import { neuerRateZustand, pruefeTuerRate, ipHash, NACHRICHTEN_PRO_STUNDE } from '../lib/tuerKi/rateLimit.ts'
-import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, kostenEur } from '../lib/tuerKi/kosten.ts'
+import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
@@ -93,7 +93,7 @@ test('Verlauf serverseitig begrenzt: Länge, Runden, nur user/assistant, Kürzun
   assert.equal(aufrufe.chat[0].messages.length - 2, 12)
 })
 
-test('Filter: sensible Angaben in IRGENDEINER Nutzernachricht -> kein Scaleway, Indizes zum Entfernen, nichts geloggt', async () => {
+test('Filter: sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assistant) -> kein Scaleway, Indizes zum Entfernen, nichts geloggt', async () => {
   const fehler = console.error, log = console.log, warn = console.warn
   const geloggt = []
   console.error = console.log = console.warn = (...a) => geloggt.push(a.join(' '))
@@ -111,18 +111,36 @@ test('Filter: sensible Angaben in IRGENDEINER Nutzernachricht -> kein Scaleway, 
     assert.equal(aufrufe.chat.length, 0)
     assert.equal(aufrufe.corpus, 0)
     assert.equal(d.rate.zaehler.size, 0)
+    const { d: d2, aufrufe: a2 } = deps()
+    const r2 = await beantworteTuerKi({
+      nachrichten: [
+        { rolle: 'user', text: 'Was ist BtMM?' },
+        { rolle: 'assistant', text: 'Dazu gehört auch ein Hinweis zu Diabetes.' },
+        { rolle: 'user', text: 'Erzähl mehr über die Idee.' },
+      ],
+      sprache: 'de',
+    }, d2)
+    assert.equal(r2.json.status, 'sensibel')
+    assert.deepEqual(r2.json.entfernen, [1])
+    assert.equal(a2.chat.length, 0)
   } finally {
     console.error = fehler; console.log = log; console.warn = warn
   }
   assert.deepEqual(geloggt, [])
-  for (const t of ['meine mail ist anna@example.org', 'Ruf an: +49 761 1234567', 'Tel 0761/12345678', 'IBAN DE89 3704 0044 0532 0130 00',
+  const positiv = [
+    'meine mail ist anna@example.org', 'Ruf an: +49 761 1234567', 'Tel 0761/12345678', 'IBAN DE89 3704 0044 0532 0130 00',
     'Ich bin schwanger', 'Ich bekomme Buergergeld', 'Termin beim Jobcenter', 'meine Therapie', 'Medikamente nehme ich', 'Ich bin in der Gewerkschaft',
-    'Mitglied einer Partei', 'meine Religion', 'I have an illness', 'my health']) {
-    assert.equal(enthaeltSensibles(t), true, t)
-  }
-  for (const t of ['Was kostet das Jahreskreis-Abo mit 25 € im Monat?', 'Klingt interessant', 'eine interessante Idee', 'Die Vertragspartei ist wer?', 'Ab 2027 geplant?', 'Ich will fair einkaufen', 'Wie funktioniert die Gründung ab drei Mitgliedern?']) {
-    assert.equal(enthaeltSensibles(t), false, t)
-  }
+    'Mitglied einer Partei', 'meine Religion', 'I have an illness', 'my health',
+    'Diabetes', 'beim Arzt', 'Burnout', 'ADHS', 'operiert', 'pflegebedürftig', 'allergisch', 'ALG II', 'SPD', 'muslim', 'schwul', 'Jude',
+    'I have diabetes', 'I am gay', 'unemployment benefits', 'cancer',
+    "J'ai un cancer", 'Tengo diabetes', 'Soy musulmán', 'Tenho cancro',
+  ]
+  for (const t of positiv) assert.equal(enthaeltSensibles(t), true, t)
+  const negativ = [
+    'Was kostet das Jahreskreis-Abo mit 25 € im Monat?', 'Klingt interessant', 'eine interessante Idee', 'Die Vertragspartei ist wer?', 'Ab 2027 geplant?', 'Ich will fair einkaufen', 'Wie funktioniert die Gründung ab drei Mitgliedern?',
+    'Christoph kommt mit', 'Ich habe ihn besucht', 'Suchtipp für die Werkstatt', 'Allgemeine Fragen zum Einstieg',
+  ]
+  for (const t of negativ) assert.equal(enthaeltSensibles(t), false, t)
 })
 
 test('Rate-Limit: 30 je Stunde je IP-Hash, HMAC mit Tagessalz, keine Klartext-IP, Tageswechsel leert alles', () => {
@@ -155,30 +173,33 @@ test('Handler: Limit erreicht -> 429 mit Retry-After, kein Scaleway', async () =
 })
 
 test('Kostendeckel: harter Tages-/Monatsdeckel mit Worst-Case-Prüfung, Sparstufe ab 80 %, Env nur bis Obergrenze', async () => {
-  assert.deepEqual([DECKEL_STANDARD.tagEur, DECKEL_STANDARD.monatEur, DECKEL_STANDARD.maxAusgabeTokens, DECKEL_STANDARD.maxEingabeTokens], [1, 30, 400, 6000])
-  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '100', TUER_KI_MONAT_EUR: '999' }).tagEur, 2)
-  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '100', TUER_KI_MONAT_EUR: '999' }).monatEur, 50)
+  assert.deepEqual([DECKEL_STANDARD.tagEur, DECKEL_STANDARD.monatEur, DECKEL_STANDARD.maxAusgabeTokens, DECKEL_STANDARD.maxEingabeTokens], [0.5, 10, 400, 6000])
+  assert.deepEqual([DECKEL_OBERGRENZE.tagEur, DECKEL_OBERGRENZE.monatEur], [0.5, 10])
+  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '100', TUER_KI_MONAT_EUR: '999' }).tagEur, 0.5)
+  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '100', TUER_KI_MONAT_EUR: '999' }).monatEur, 10)
   assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '0,5' }).tagEur, 0.5)
-  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: 'abc' }).tagEur, 1)
+  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: 'abc' }).tagEur, 0.5)
+  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '0,2', TUER_KI_MONAT_EUR: '5' }).tagEur, 0.2)
+  assert.equal(deckelAusEnv({ TUER_KI_TAG_EUR: '0,2', TUER_KI_MONAT_EUR: '5' }).monatEur, 5)
   const now = Date.parse('2026-11-25T12:00:00Z')
   const z = neuerKostenZustand(now)
   assert.equal(pruefeDeckel(z, DECKEL_STANDARD, 3000, now).maxTokens, 400)
-  z.tagEur = 0.85
+  z.tagEur = 0.42
   const spar = pruefeDeckel(z, DECKEL_STANDARD, 3000, now)
   assert.equal(spar.erlaubt && spar.spar && spar.maxTokens, 200)
-  z.tagEur = 1 - kostenEur(3000, 200) / 2
+  z.tagEur = 0.5 - kostenEur(3000, 200) / 2
   assert.equal(pruefeDeckel(z, DECKEL_STANDARD, 3000, now).erlaubt, false)
   assert.equal(pruefeDeckel(neuerKostenZustand(now), DECKEL_STANDARD, 7000, now).erlaubt, false)
-  const m = neuerKostenZustand(now); m.monatEur = 30
+  const m = neuerKostenZustand(now); m.monatEur = 10
   assert.equal(pruefeDeckel(m, DECKEL_STANDARD, 100, now).grund, 'monat')
   // Tageswechsel setzt den Tag zurück, nicht den Monat
   const t = neuerKostenZustand(now); bucheVerbrauch(t, 1_000_000, 1_000_000, now)
   assert.ok(Math.abs(t.tagEur - 0.5) < 1e-9)
   pruefeDeckel(t, DECKEL_STANDARD, 10, Date.parse('2026-11-26T08:00:00Z'))
   assert.equal(t.tagEur, 0); assert.ok(t.monatEur > 0.49)
-  // Handler: Deckel erreicht -> freundliche Abschaltung, kein Scaleway
+  // Handler: Deckel erreicht -> Notbetrieb, kein Scaleway
   const { d, aufrufe } = deps()
-  d.kosten.tagEur = 1
+  d.kosten.tagEur = 0.5
   const r = await beantworteTuerKi(frage('Was ist BtMM?'), d)
   assert.equal(r.http, 200)
   assert.equal(r.json.status, 'deckel')
@@ -252,6 +273,15 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
     const src = lese(`lib/tuerKi/${f}.ts`)
     assert.doesNotMatch(src, /loadMitmacherCorpus|wissen-mitglieder|loadCorpus/, f)
   }
+  const loader = lese('lib/wissen/loadCorpus.ts')
+  assert.match(loader, /Chunks ohne Sichtbarkeits-„Level“ sind hier nicht gesperrt/)
+  assert.match(loader, /nurAllowlistChunks/)
+  assert.match(loader, /PUBLIC-ALLOWLIST\.json/)
+  const sql = lese('docs/tuer-ki/NICHT-ANWENDEN-braucht-Nutzer-Ja_tuer_ki_rate_limit.sql')
+  assert.match(sql, /NICHT ANWENDEN/)
+  assert.match(sql, /delete from public\.tuer_ki_rate where erstellt < now\(\) - interval '24 hours'/)
+  assert.match(sql, /Salzquelle/)
+  assert.match(sql, /EU-Region/)
 })
 
 test('Keine Inhalte im Log: nur feste Kürzel und Statuscodes', () => {
@@ -276,7 +306,19 @@ test('CORS nur für freigegebene App-Origins, nie "*", fremde Origins abgewiesen
   assert.deepEqual(selbst.cors, {})
   assert.equal(pruefeHerkunft('https://boese.example', 'b-t-m-m.com', apps).erlaubt, false)
   assert.equal(pruefeHerkunft('https://boese.example', 'b-t-m-m.com', appOrigins('*')).erlaubt, false)
-  assert.doesNotMatch(lese('app/api/tuer-ki/route.ts') + lese('lib/tuerKi/herkunft.ts'), /Allow-Origin['"]?:\s*['"]\*/)
+
+  const leer = appOrigins(undefined)
+  assert.deepEqual(leer, [])
+  for (const o of ['https://app.b-t-m-m.com', 'https://btmm-app.vercel.app', 'capacitor://localhost', 'http://localhost', 'https://boese.example']) {
+    const r = pruefeHerkunft(o, 'b-t-m-m.com', leer)
+    assert.equal(r.erlaubt, false, o)
+    assert.deepEqual(r.cors, {}, o)
+  }
+  const quelle = lese('lib/tuerKi/herkunft.ts')
+  assert.match(quelle, /BtMM-App #68/)
+  assert.match(quelle, /https:\/\/app\.b-t-m-m\.com/)
+  assert.ok(quelle.includes('^https:\\/\\/btmm-[a-z0-9-]+-backtobalancegartzke-2433s-projects\\.vercel\\.app$'))
+  assert.doesNotMatch(lese('app/api/tuer-ki/route.ts') + quelle, /Allow-Origin['"]?:\s*['"]\*/)
 })
 
 test('Honeypot füllt -> abgewiesen ohne Scaleway', async () => {
@@ -370,7 +412,7 @@ test('DSE-Absatz Tür-KI: nur bei Schalter an, lit. f, Art. 21, gehashte IP, TDD
   assert.ok(a > 0 && h > a && h < src.indexOf('<h4>Brevo (E-Mail-Versand)</h4>'))
   assert.ok(src.indexOf('<h4>Wissens-Assistent (KI) für Mitmachende</h4>') < a)
   const absatz = src.slice(h, src.indexOf('<h4>Brevo'))
-  for (const r of [/Sie sprechen mit einer KI\. Die Antworten werden automatisch erzeugt und können Fehler enthalten\./, /Art\. 6 Abs\. 1 lit\. f DSGVO/, /berechtigtes Interesse/, /Art\. 21 DSGVO/, /in gehashter Form/, /§ 25 Abs\. 2 Nr\. 2 TDDDG/, /Scaleway SAS/, /keinen Menschen/]) assert.match(absatz, r)
+  for (const r of [/Sie sprechen mit einer KI\. Die Antworten werden automatisch erzeugt und können Fehler enthalten\./, /Art\. 6 Abs\. 1 lit\. f DSGVO/, /berechtigtes Interesse/, /Art\. 21 DSGVO/, /in gehashter Form/, /§ 25 Abs\. 2 Nr\. 2 TDDDG/, /Scaleway SAS/, /keinen Menschen/, /Hosting-Anbieter Vercel \(siehe Abschnitt Hosting\)/, /Wir versuchen, Nachrichten mit Gesundheitsangaben, Kontakt- oder Kontodaten automatisch zu erkennen/, /diese Erkennung ist nicht vollständig/]) assert.match(absatz, r)
   assert.doesNotMatch(absatz, /gekürzt/)
   assert.match(src, /an\(process\.env\.TUER_KI_ENABLED\) && an\(process\.env\.WISSEN_LLM_ENABLED\)/)
 })
