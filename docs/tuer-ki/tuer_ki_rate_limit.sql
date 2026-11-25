@@ -1,5 +1,7 @@
 -- Tür-KI Rate-Limit (persistenter Zähler). Noch nicht anwenden.
 -- Reihenfolge: erst verdrahten, dann migrieren.
+-- Vorbedingung: pg_cron muss vorher im Zielprojekt aktiv sein, sonst bricht
+-- dieses Skript bei cron.schedule ab. Nicht anwenden, bevor pg_cron aktiv ist.
 -- Verdrahten: (1) TUER_KI_RATE_SALT nur in der Server-Env (HMAC-Tagessalz, nie in der DB),
 -- (2) Supabase-Projekt in der EU-Region Frankfurt, (3) Extension pg_cron aktivieren.
 -- Danach erst dieses Skript anwenden (Code-Bot, nach Test-OK und DS-OK fürs Anwenden).
@@ -12,7 +14,7 @@
 -- Löschung spätestens nach 24 Stunden (globaler Purge in der RPC und zusätzlich per pg_cron).
 -- Kein Klartext-IP, kein Inhalt, keine Sitzung, kein Bezug zu Konten.
 --
--- Offene Punkte vor dem Anwenden nur noch die Verdrahtung prüfen:
+-- Offene Punkte vor dem Anwenden prüfen:
 -- - Salzquelle: TUER_KI_RATE_SALT in der Server-Env gesetzt (nie in dieser Tabelle).
 -- - EU-Region: Projekt liegt in Frankfurt; pg_cron ist eingeschaltet.
 
@@ -26,6 +28,8 @@ create table if not exists public.tuer_ki_rate (
 
 alter table public.tuer_ki_rate enable row level security;
 -- Keine Policies: nur der Server (service role) schreibt und liest.
+revoke all on table public.tuer_ki_rate from public, anon, authenticated;
+grant all on table public.tuer_ki_rate to service_role;
 
 -- Zählt eine Nachricht und gibt die Summe der letzten Stunde und des Tages zurück.
 -- Zu Beginn jeder RPC: globaler Purge aller Einträge älter als 24 Stunden.
@@ -43,6 +47,7 @@ begin
     from public.tuer_ki_rate where ip_hash = p_hash;
 end $$;
 revoke all on function public.tuer_ki_rate_zaehle(text) from public, anon, authenticated;
+grant execute on function public.tuer_ki_rate_zaehle(text) to service_role;
 
 -- Zusätzlicher 24-h-Purge per pg_cron (stündlich zur Minute 7), zusätzlich zum Purge in der RPC.
 -- Erst verdrahten (pg_cron muss bereits aktiv sein), dann migrieren.

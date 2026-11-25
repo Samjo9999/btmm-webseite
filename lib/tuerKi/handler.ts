@@ -10,7 +10,7 @@ import { SCALEWAY_MODEL } from '../wissen/scaleway.ts'
 import { TUER_KI, spracheOder, type TuerSprache } from './konfig.ts'
 import { tuerKiSchalter, type TuerKiEnv } from './schalter.ts'
 import { sensibleNutzerNachrichten, bereinigeAntwort } from './filter.ts'
-import { pruefeTuerRate, type TuerRateZustand } from './rateLimit.ts'
+import { pruefePersistenteRate, rateSalt, type TuerRateRpc, type TuerRateZustand } from './rateLimit.ts'
 import { pruefeDeckel, bucheVerbrauch, deckelAusEnv, schaetzeTokens, type TuerKostenZustand } from './kosten.ts'
 import { baueSystemprompt, ECHO_SAETZE } from './systemPrompt.ts'
 import { FESTE_TEXTE } from './texte.ts'
@@ -33,7 +33,7 @@ export type TuerKiAntwort = {
 }
 
 export type TuerKiDeps = {
-  env: TuerKiEnv & { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string }
+  env: TuerKiEnv & { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string; TUER_KI_RATE_SALT?: string }
   ip: string
   now: number
   /** Nur loadPublicCorpus (siehe app/api/tuer-ki/route.ts). */
@@ -42,6 +42,8 @@ export type TuerKiDeps = {
   chat: (opt: ScalewayOptionen) => Promise<ChatErgebnis | null>
   rate: TuerRateZustand
   kosten: TuerKostenZustand
+  /** Persistenter Zähler (tuer_ki_rate_zaehle); in Tests gemockt. */
+  zaehleRate: TuerRateRpc
 }
 
 export type TuerKiErgebnis = { http: number; json: TuerKiAntwort; retryAfterSec?: number }
@@ -103,9 +105,19 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
 
   if (geprueft.nutzerRunden > TUER_KI.maxNutzerRunden) return fest('ende', sprache, 'ende')
 
-  // 5. Rate-Limit je IP-Hash
-  const rate = pruefeTuerRate(d.ip, d.rate, d.now)
-  if (!rate.erlaubt) return { ...fest('limit', sprache, 'limit', {}, 429), retryAfterSec: rate.retryAfterSec }
+  // 5. Persistentes Rate-Limit je IP-Hash (RPC); In-Memory nur als zusätzliche Bremse.
+  // Ohne Salz oder bei DB-Fehler: fail-closed, Hinweis mit Links, kein LLM.
+  const rate = await pruefePersistenteRate({
+    ip: d.ip,
+    salt: rateSalt(d.env),
+    now: d.now,
+    rpc: d.zaehleRate,
+    memory: d.rate,
+  })
+  if (!rate.erlaubt) {
+    if (rate.art === 'fail_closed') return fest('fehler', sprache, 'fehler')
+    return { ...fest('limit', sprache, 'limit', {}, 429), retryAfterSec: rate.retryAfterSec }
+  }
 
   // 6. Kontext nur aus dem öffentlichen Index
   const verlauf = geprueft.verlauf.slice(-TUER_KI.maxNachrichtenVerlauf)

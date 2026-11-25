@@ -4,13 +4,14 @@ import { searchChunks } from '@/lib/wissen/search'
 import { scalewayChat } from '@/lib/wissen/scaleway'
 import { beantworteTuerKi } from '@/lib/tuerKi/handler'
 import { appOrigins, pruefeHerkunft } from '@/lib/tuerKi/herkunft'
-import { neuerRateZustand, type TuerRateZustand } from '@/lib/tuerKi/rateLimit'
+import { neuerRateZustand, zaehleTuerRateRpc, type TuerRateZustand } from '@/lib/tuerKi/rateLimit'
 import { neuerKostenZustand, type TuerKostenZustand } from '@/lib/tuerKi/kosten'
 
 /**
  * Tür-KI (Plan Tür-KI 25.11.2026): freies Gespräch auf b-t-m-m.com/tuer, ohne Login.
  * Nur öffentlicher Index (loadPublicCorpus), nie der Mitmacher-Index.
  * Schalter TUER_KI_ENABLED + WISSEN_LLM_ENABLED (Default aus) -> Antwort status "aus", kein Fehler.
+ * Rate-Limit über tuer_ki_rate_zaehle (service_role); In-Memory nur als zusätzliche Bremse.
  * Loggt nie Inhalte, IP oder Hash; nur ein festes Kürzel bei Serverfehlern.
  */
 
@@ -19,7 +20,10 @@ export const dynamic = 'force-dynamic'
 
 const g = globalThis as typeof globalThis & { __tuerKiRate?: TuerRateZustand; __tuerKiKosten?: TuerKostenZustand }
 function rate(): TuerRateZustand {
-  if (!g.__tuerKiRate) g.__tuerKiRate = neuerRateZustand()
+  if (!g.__tuerKiRate) {
+    const salt = (process.env.TUER_KI_RATE_SALT || '').trim()
+    g.__tuerKiRate = neuerRateZustand(Date.now(), salt || undefined)
+  }
   return g.__tuerKiRate
 }
 function kosten(): TuerKostenZustand {
@@ -65,6 +69,7 @@ export async function POST(request: NextRequest) {
         SCALEWAY_SECRET_KEY: process.env.SCALEWAY_SECRET_KEY,
         TUER_KI_TAG_EUR: process.env.TUER_KI_TAG_EUR,
         TUER_KI_MONAT_EUR: process.env.TUER_KI_MONAT_EUR,
+        TUER_KI_RATE_SALT: process.env.TUER_KI_RATE_SALT,
       },
       ip: clientIp(request),
       now: Date.now(),
@@ -73,6 +78,7 @@ export async function POST(request: NextRequest) {
       chat: scalewayChat,
       rate: rate(),
       kosten: kosten(),
+      zaehleRate: zaehleTuerRateRpc,
     })
     if (erg.retryAfterSec) kopf['Retry-After'] = String(erg.retryAfterSec)
     return NextResponse.json(erg.json, { status: erg.http, headers: kopf })
