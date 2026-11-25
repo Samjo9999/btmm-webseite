@@ -2,13 +2,13 @@ import { NextRequest, NextResponse } from 'next/server'
 import { z } from 'zod'
 
 const contactSchema = z.object({
-  name: z.string().min(2, 'Name zu kurz'),
-  email: z.string().email('Ungültige E-Mail-Adresse'),
-  nachricht: z.string().min(10, 'Nachricht zu kurz'),
-  telefon: z.string().optional(),
-  betreff: z.string().optional(),
+  name: z.string().trim().min(2, 'Name zu kurz').max(120, 'Name zu lang'),
+  email: z.string().trim().email('Ungültige E-Mail-Adresse').max(200, 'E-Mail-Adresse zu lang'),
+  nachricht: z.string().trim().min(10, 'Nachricht zu kurz').max(5000, 'Nachricht zu lang'),
+  telefon: z.string().max(40, 'Telefonnummer zu lang').optional(),
+  betreff: z.string().max(200, 'Betreff zu lang').optional(),
   typ: z.enum(['kontakt', 'mitmachen', 'gruendung', 'koerperarbeit']).optional(),
-  website: z.string().optional(), // Honeypot
+  website: z.string().max(500).optional(), // Honeypot
   startedAt: z.number().optional(), // Zeitpunkt, zu dem das Formular geladen wurde
 })
 

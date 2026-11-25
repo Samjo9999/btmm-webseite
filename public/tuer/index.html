@@ -34,25 +34,27 @@
       <p class="tuer-ohne"><a href="/de" class="ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a></p>
     </div>
     <p class="bild-credit" data-t="bildCredit">Bilder erstellt mit Grok (KI)</p>
+    <noscript><p class="tuer-ohne">JavaScript ist aus. <a href="/de?ohne-tuer=1">Zur Webseite</a> · <a href="/en?ohne-tuer=1">Continue to the website</a></p></noscript>
   </div>
 </main>
 
-<main id="dialog" class="dialog" hidden aria-live="polite">
+<main id="dialog" class="dialog" hidden aria-labelledby="dialog-name">
   <header class="kopf">
     <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
-    <div><b data-t="kopfName">BtMM-KI</b><span data-t="kopfSub">fragt, du antwortest</span></div>
+    <div><b id="dialog-name" data-t="kopfName">BtMM-KI</b><span data-t="kopfSub">fragt, du antwortest</span></div>
     <nav class="kopf-aktionen">
       <a href="/de" class="leise ohne" data-t="ohne" data-ort="start">Ohne Fragen zur Webseite</a>
       <button type="button" class="leise" id="loeschen" data-t="loeschen">Antworten löschen</button>
     </nav>
   </header>
   <p class="hinweis-kasten" id="ds-hinweis"><span data-t="ds">Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen.</span> <a href="/de/impressum#datenschutz" data-t="dsLink" data-ort="/impressum#datenschutz">Datenschutz</a></p>
-  <ol class="verlauf" id="verlauf"></ol>
+  <p class="fehler-kasten" id="fehler" role="alert" hidden></p>
+  <ol class="verlauf" id="verlauf" role="log" aria-live="polite" aria-relevant="additions"></ol>
   <div class="unten">
   <div class="wahl-leiste" id="wahl" hidden></div>
   <form class="eingabe" id="eingabe" autocomplete="off">
     <label for="antwort" class="nur-sr" data-t="antwortLabel">Deine Antwort</label>
-    <textarea id="antwort" rows="2" placeholder="Schreib oder sprich deine Antwort …" data-t-ph="placeholder" disabled></textarea>
+    <textarea id="antwort" rows="2" maxlength="600" enterkeyhint="send" placeholder="Schreib oder sprich deine Antwort …" data-t-ph="placeholder" disabled></textarea>
     <button type="button" class="rund mik" id="mik" aria-label="Per Sprache antworten" data-t-aria="mikAria" aria-pressed="false" disabled>
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg>
     </button>
@@ -61,18 +63,18 @@
     </button>
   </form>
   </div>
-  <div class="blatt" id="mik-hinweis" hidden role="dialog" aria-labelledby="mik-titel">
+  <div class="blatt" id="mik-hinweis" hidden role="dialog" aria-modal="true" aria-labelledby="mik-titel" aria-describedby="mik-text">
     <h2 id="mik-titel" data-t="mikTitel">Mikrofon</h2>
-    <p data-t="mikText">Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.</p>
+    <p id="mik-text" data-t="mikText">Deine Sprache wird nur genutzt, um die Antwort zu tippen. Die Umwandlung macht der Spracherkennungsdienst deines Browsers (z. B. Google oder Apple), nicht unsere Server. Wir speichern keine Aufnahme. Du kannst jederzeit stoppen.</p>
     <button type="button" class="knopf" id="mik-start" data-t="mikStart">Mikrofon starten</button>
     <button type="button" class="knopf zweit" id="mik-tippen" data-t="mikTippen">Lieber tippen</button>
   </div>
 </main>
 
-<main id="pfad" class="pfad" hidden>
+<main id="pfad" class="pfad" hidden aria-labelledby="pfad-titel">
   <header class="pfad-kopf">
     <img src="/tuer/bilder/logo.png" alt="" class="kopf-logo">
-    <h1 data-t="pfadH1">Dein Weg durch BtMM</h1>
+    <h1 id="pfad-titel" tabindex="-1" data-t="pfadH1">Dein Weg durch BtMM</h1>
     <p id="profil-satz"></p>
   </header>
   <ol class="schritte" id="schritte"></ol>
