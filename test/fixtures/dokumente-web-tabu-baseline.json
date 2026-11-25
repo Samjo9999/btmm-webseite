@@ -1,0 +1,86 @@
+{
+  "00-einfach-erklaert.md": {
+    "grundsicherung": 3,
+    "jobcenter": 1
+  },
+  "01-einfuehrung.md": {
+    "grundsicherung": 2,
+    "erkrank": 1
+  },
+  "03-einladung-gruendung.md": {
+    "grundsicherung": 3,
+    "jobcenter": 1
+  },
+  "04-wirtschaften-anleitung.md": {
+    "grundsicherung": 5,
+    "jobcenter": 3
+  },
+  "06-gute-gruende.md": {
+    "grundsicherung": 4,
+    "jobcenter": 5,
+    "eltern": 1
+  },
+  "07-konzept.md": {
+    "grundsicherung": 17,
+    "eltern": 5,
+    "erkrank": 1
+  },
+  "11-handwerk-ergaenzung.md": {
+    "jobcenter": 1
+  },
+  "12-handwerk-zulassungen.md": {
+    "grundsicherung": 7,
+    "jobcenter": 10,
+    "buergergeld": 1
+  },
+  "13-ideen-horizonte.md": {
+    "grundsicherung": 1
+  },
+  "16-schnelle-einnahmen.md": {
+    "grundsicherung": 6,
+    "jobcenter": 4
+  },
+  "17-grosser-fahrplan.md": {
+    "eltern": 3
+  },
+  "19-soziale-zahlen.md": {
+    "eltern": 22,
+    "erkrank": 3,
+    "grundsicherung": 9
+  },
+  "20-berufe-ohne-abschluss.md": {
+    "jobcenter": 1
+  },
+  "21-bildung-finanzieren.md": {
+    "jobcenter": 2,
+    "grundsicherung": 3,
+    "hartz": 2
+  },
+  "22-heilen-schuetzen-vorbeugen.md": {
+    "grundsicherung": 1
+  },
+  "23-ausfall-versorgung.md": {
+    "eltern": 7
+  },
+  "25-ehrliche-bilanz.md": {
+    "eltern": 1,
+    "grundsicherung": 2,
+    "jobcenter": 1
+  },
+  "27-kreislauf.md": {
+    "grundsicherung": 1,
+    "hartz": 2
+  },
+  "28-aufnahme-kurz-erklaert.md": {
+    "grundsicherung": 2,
+    "jobcenter": 3
+  },
+  "29-der-keim.md": {
+    "grundsicherung": 6,
+    "jobcenter": 4
+  },
+  "30-gewerbe-katalog.md": {
+    "grundsicherung": 1,
+    "jobcenter": 1
+  }
+}
