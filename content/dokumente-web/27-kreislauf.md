@@ -128,7 +128,7 @@ Bisher geht es um Kleidung, Hausrat und Reparatur. Ein viertes Feld liegt danebe
 
 **Rechnung und Schalter.** Eine Zeile „Materialrettung“ im Kreislauf-Rechner (Schalter standardmäßig aus) ist noch nicht gebaut; es gibt noch keine belastbaren Zahlen zu Menge, Annahme und Absatz, und sie wären Setzungen. Bis dahin steht das Feld ohne Euro-Wert da.
 
-**Offen.** Steuer bei unentgeltlicher Abgabe an eine nicht gemeinnützige eG (Dokument 10); Haftung und Schadstoffe bei Gebrauchtmaterial (N). Gemeinnützige Partner dürfen Mitgliedern keine Vorteile geben (Konzept, nicht in der Außen-Satzung v9.1.4); die Zusammenarbeit läuft darum über gemeinsame Projekte, nicht über Rabatte.
+**Offen.** Steuer bei unentgeltlicher Abgabe an eine nicht gemeinnützige eG (Dokument 10); Haftung und Schadstoffe bei Gebrauchtmaterial (N). Gemeinnützige Partner dürfen Mitgliedern keine Vorteile geben (Konzept, noch nicht in der Satzung); die Zusammenarbeit läuft darum über gemeinsame Projekte, nicht über Rabatte.
 
 # 6. Der Ehrenamts-Topf und was Zeit wert ist
 
@@ -165,7 +165,7 @@ Wo das eigene Ehrenamt je Mitglied hoch wird, ist eine Form überlastet, auch we
 3. **Zwei Stellschrauben bewegen am meisten:** Arbeitszeit je Teil (Einheitspreis statt Einzelauszeichnung, Kundschaft hilft beim Sortieren) und der bezahlte Anteil.
 4. **Die Menge ist die unsichere Zahl.** Außenkunden je Mitglied (8) sind eine Setzung und müssen als Erstes gemessen werden.
 
-**Grenzen:** Das Modell ist Selbstkosten ohne Aufschlag. Läuft der Laden als Gemeinschaftsbetrieb unter § 11 der Satzung, kommen etwa 15 % (10 % Rücklage, 5 % Sozialanteil) dazu. Läuft er als Dienst der Zelle (wie die Küche), entfällt der Aufschlag. Offene Frage 1.
+**Grenzen:** Das Modell ist Selbstkosten ohne Aufschlag. Läuft der Laden als Gemeinschaftsbetrieb nach dem Konzept (noch nicht in der Satzung), kommen etwa 15 % (10 % Rücklage, 5 % Sozialanteil) dazu. Läuft er als Dienst der Zelle (wie die Küche), entfällt der Aufschlag. Offene Frage 1.
 
 # 8. Ersparnis und „ab wann“
 
@@ -181,7 +181,7 @@ Die tragende Form ist die günstigste, die der Topf trägt: Tauschparty bis 10 M
 | **Zusammen** | **2,5** | **4,7** | **8,5** | **18,4** | **24,8** | **27,0** | **28,1** | **28,3** | **28,3** |
 | Anteil an der bisherigen Ersparnis | 1,5 % | 1,7 % | 2,4 % | 4,0 % | 4,8 % | 4,8 % | 4,6 % | 4,3 % | 4,1 % |
 
-Dazu der Lebensstandard-Beitrag von 5 % ab 10 Vollmitgliedern (Konzept, nicht in der Außen-Satzung v9.1.4), rund 0,4 € bei 10, 0,9 € bei 20, 1,4 € bei 100. Die Nutzen-Bilanz steigt bei 20 Mitgliedern von 405 auf 422 € im Monat, bei 100 von 585 auf 612 €. Spanne: pessimistisch 0,3 bis 11 €, optimistisch 9 bis 48 €.
+Dazu der Lebensstandard-Beitrag von 5 % ab 10 Mitgliedern (Konzept, noch nicht in der Satzung), rund 0,4 € bei 10, 0,9 € bei 20, 1,4 € bei 100. Die Nutzen-Bilanz steigt bei 20 Mitgliedern von 405 auf 422 € im Monat, bei 100 von 585 auf 612 €. Spanne: pessimistisch 0,3 bis 11 €, optimistisch 9 bis 48 €.
 
 Die Kleidung ist durch die Ausgaben gedeckelt (50 € je Kopf und Monat angesetzt; Bundesdurchschnitt 121 € je Haushalt, Destatis EVS 2023, Bs).
 
@@ -246,7 +246,7 @@ Der Euro-Gewinn liegt bei allen tragenden Formen zwischen 6 und 10 €. Die Unte
 - **Dokument 26 (eingebaut in v1.3.2):** im Feld „Kreislauf“ die Wertetreppe und die Reihenfolge aus 8.4 ergänzen, als Option.
 - **Dokument 19 (eingebaut in v1.13.1):** in Abschnitt 1 und 2.2 optionale Zeilen „mit Kreislauf“.
 - **Dokument 04, Kapitel 14 (eingebaut in v3.7.1):** optionale zweite Tabelle „mit Kreislauf“.
-- **Satzung:** nichts, solange der Laden als Dienst der Zelle läuft. Läuft er als Gemeinschaftsbetrieb, greift § 11.
+- **Satzung:** nichts, solange der Laden als Dienst der Zelle läuft. Läuft er als Gemeinschaftsbetrieb, greift das Konzept (noch nicht in der Satzung).
 - **App:** Kreislauf-Bilanz je Mitglied aus echten Belegen (gesparte Euro, Teile, Stunden); später Preisschild mit Preisaufbau.
 
 # 10. Spannungen und offene Fragen
@@ -260,8 +260,8 @@ Der Euro-Gewinn liegt bei allen tragenden Formen zwischen 6 und 10 €. Die Unte
 
 **Offene Fragen:**
 
-1. Laden als Dienst der Zelle (Selbstkosten) oder als Gemeinschaftsbetrieb (mit Aufschlag, § 11)?
-2. Coins im Laden: Zahlung mit Coins muss zur Vollreserve (Konzept, nicht in der Außen-Satzung v9.1.4) passen.
+1. Laden als Dienst der Zelle (Selbstkosten) oder als Gemeinschaftsbetrieb (mit Aufschlag; Konzept, noch nicht in der Satzung)?
+2. Coins im Laden: Zahlung mit Coins muss zur Vollreserve (Konzept, noch nicht in der Satzung) passen.
 3. Missbrauchsschutz im Tauschregal ohne Punktesystem.
 4. Rechtliches vor dem ersten Verkauf: Gewährleistung bei Gebrauchtware, gebrauchte Elektrogeräte, Haftung im Repair-Café, Textilkennzeichnung, Gewerbe (Dokument 10).
 5. Hygiene und Annahme: Was nehmen wir nicht?

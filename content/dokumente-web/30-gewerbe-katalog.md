@@ -16,7 +16,7 @@ Kontakt: office.btmm@gmail.com
 2. **Die meisten Aufgaben brauchen nur die Anmeldung.** Garten, Hausmeister und Montage, Entrümpelung, Kurse, Wellness-Sitzung, Vermietung (Sauna) und Websites sind frei (Dokument 12, Stufe 1). Dazu kommt eine Eintragung ins Verzeichnis der Handwerkskammer (175 €) nur bei zulassungsfreiem Handwerk oder handwerksähnlichem Gewerbe, etwa Holzbildhauer, Bodenleger oder Einbau genormter Baufertigteile.
 3. **Nie ohne Haftpflicht.** Sie kostet für den Anfang rund 110 bis 250 € im Jahr, bei Sauna-Vermietung und Veranstaltungen ist ein Zuschlag zu erwarten (Angebot holen).
 4. **Vor der Gründung der Genossenschaft fließt kein Geld an die Gemeinschaft.** Das Geld bleibt bei der Person, die mit der Kundschaft abrechnet; sie zahlt Mitarbeitende zum gleichen Stundensatz (Abschnitt 2).
-5. **Nach der Eintragung gibt es zwei Wege, die zum gleichen Stundenlohn führen:** angestellt in einem Gemeinschaftsbetrieb (dann braucht niemand ein Gewerbe) oder selbstständig mit Vereinbarung nach § 15c (dann geht der Gewinn über dem Maßstab der gleichen Stunde als Zuwendung in den Lebensstandard-Fonds).
+5. **Nach der Eintragung gibt es zwei Wege, die zum gleichen Stundenlohn führen:** angestellt in einem Gemeinschaftsbetrieb (dann braucht niemand ein Gewerbe) oder selbstständig mit Vereinbarung nach dem Konzept (noch nicht in der Satzung) (dann geht der Gewinn über dem Maßstab der gleichen Stunde als Zuwendung in den Lebensstandard-Fonds).
 
 # 2. Der Geldfluss
 
@@ -46,9 +46,9 @@ Kundin ──Rechnung mit Umsatzsteuer──▶ Genossenschaft (Gemeinschaftsbet
                  3. Überschuss in Dritteln: Bonus, Reinvestition, Sozial und Öko
 ```
 
-Hier braucht **niemand ein Gewerbe**. Der gleiche Stundenlohn ist der Grundlohn im Arbeitsvertrag (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist der Weg, der das Problem „Geld zur Gemeinschaft zum vereinbarten gleichen Stundenlohn“ am einfachsten löst.
+Hier braucht **niemand ein Gewerbe**. Der gleiche Stundenlohn ist der Grundlohn im Arbeitsvertrag (Konzept, noch nicht in der Satzung). Das ist der Weg, der das Problem „Geld zur Gemeinschaft zum vereinbarten gleichen Stundenlohn“ am einfachsten löst.
 
-## 2.3 Nach der Eintragung, Weg B: selbstständiges Mitglied (Konzept, nicht in der Außen-Satzung v9.1.4, Entwurf)
+## 2.3 Nach der Eintragung, Weg B: selbstständiges Mitglied (Entwurf; Konzept, noch nicht in der Satzung)
 
 ```
 Kundin ──Rechnung (Kleinunternehmer oder mit USt)──▶ Mitglied (eigenes Gewerbe)
