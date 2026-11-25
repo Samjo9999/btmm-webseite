@@ -125,7 +125,7 @@ Der Vorstand weist im Lagebericht jährlich aus: Zahl der Mitglieder, bezahlte S
 > Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich.
 - Ohne Nachrang ist REAL ab 03/2028 zahlungsunfähig; der Nachrang muss vor Betriebsstart fließen [P].
 - Planbilanz REAL 31.12.2032: Aktiva 3.689 €, Geschäftsguthaben 1.500 €, Eigenkapital −2.906 €, Nachrang mit qualifiziertem Rangrücktritt (Planannahme, keine Zusage), Rückstellung Pflichtprüfung 595 € [P].
-- Eigenkapital REAL ist im ganzen Planzeitraum negativ. Daraus folgt die Verlustanzeige nach § 33 Abs. 3 GenG (Einberufung der Generalversammlung) ab Eintragung in allen Szenarien [P]. EK + Nachrang ist in jedem Monat ≥ 0; die Überschuldung wird nur durch den Rangrücktritt vermieden [P; rechtliche Prüfung OFFEN].
+- Eigenkapital REAL ist im ganzen Planzeitraum negativ. Daraus folgt die Verlustanzeige nach § 33 Abs. 3 GenG (Einberufung der Generalversammlung) ab Eintragung in allen Szenarien [P]. EK + Nachrang ist in jedem Monat ≥ 0; die Überschuldung wird nur durch den Rangrücktritt vermieden [P; in rechtlicher Prüfung].
 
 ### 6.4 Personal
 Vorstand unbezahlt. Mitarbeit von Mitgliedern als Minijob mit Mindestlohn: höchstes Monatsentgelt brutto REAL 99 / 152 / 199 / 231 € (2028–2031); Minijob-Grenze wird eingehalten [P]. Andere Beschäftigte als Mitglieder: keine.
