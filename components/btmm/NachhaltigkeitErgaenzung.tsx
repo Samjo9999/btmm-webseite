@@ -6,7 +6,7 @@ export async function NachhaltigkeitErgaenzung() {
   const locale = await getLocale()
   return <div className="btmm-ergaenzung"><NeueInhalteStil /><div className="btmm-inhalt">
     <Abschnitt titel="Nachhaltigkeit im Alltag – aktueller Entwurf">
-      <p>Stand November 2026: Weniger neu kaufen, Dinge länger nutzen und Entscheidungen nachvollziehbar machen. Die folgenden Punkte ergänzen die Darstellung darunter.</p>
+      <p>Stand November 2026: Weniger neu kaufen, Dinge länger nutzen und Entscheidungen nachvollziehbar machen. Die Punkte unten zeigen, wie das konkret aussieht.</p>
       <div className="btmm-raster">
         <Karte titel="Teilen statt mehrfach kaufen"><p>Werkzeug, Räume und Fahrzeuge gemeinsam nutzen. Erst prüfen, was vor Ort vorhanden ist; eine gemeinsame Anschaffung braucht Nachfrage, Zuständigkeit und eine tragfähige Rechnung.</p></Karte>
         <Karte titel="Reparieren und weitergeben"><p>Weitergeben, tauschen, leihen, reparieren, gebraucht verkaufen und erst danach verwerten. Vorhandene Repair-Cafés und Tauschpartys zuerst nutzen. Eigene Läden und Regale sind spätere Optionen.</p></Karte>
