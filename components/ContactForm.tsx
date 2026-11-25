@@ -9,11 +9,11 @@ import { useTranslations } from 'next-intl'
 import { Send, CheckCircle, AlertCircle } from 'lucide-react'
 
 const schema = z.object({
-  name: z.string().min(2, 'Name muss mindestens 2 Zeichen haben'),
-  email: z.string().email('Bitte gültige E-Mail-Adresse eingeben'),
-  nachricht: z.string().min(10, 'Nachricht muss mindestens 10 Zeichen haben'),
-  telefon: z.string().optional(),
-  betreff: z.string().optional(),
+  name: z.string().trim().min(2, 'Name muss mindestens 2 Zeichen haben').max(120, 'Name ist zu lang'),
+  email: z.string().trim().email('Bitte gültige E-Mail-Adresse eingeben').max(200, 'E-Mail-Adresse ist zu lang'),
+  nachricht: z.string().trim().min(10, 'Nachricht muss mindestens 10 Zeichen haben').max(5000, 'Nachricht ist zu lang (höchstens 5000 Zeichen)'),
+  telefon: z.string().max(40, 'Telefonnummer ist zu lang').optional(),
+  betreff: z.string().max(200, 'Betreff ist zu lang').optional(),
   website: z.string().optional(),
 })
 
@@ -62,13 +62,13 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
   const inputStyle: React.CSSProperties = {
     width: '100%',
     padding: '0.75rem 1rem',
-    border: '1.5px solid var(--btb-creme)',
+    // sichtbarer Rahmen (Kontrast ≥ 3:1 auf Weiß); Fokusring kommt aus globals.css (:focus-visible)
+    border: '1.5px solid rgba(43, 22, 48, 0.5)',
     borderRadius: 8,
     fontFamily: 'var(--font-garamond)',
     fontSize: '1rem',
     color: 'var(--btb-dunkel)',
     background: 'var(--btb-weiss)',
-    outline: 'none',
     transition: 'border-color 0.2s ease',
   }
 
@@ -88,7 +88,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
 
   if (status === 'success') {
     return (
-      <div style={{
+      <div role="status" style={{
         padding: '2rem',
         background: 'rgba(143, 169, 66, 0.1)',
         borderRadius: 12,
@@ -109,7 +109,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
   }
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
+    <form onSubmit={handleSubmit(onSubmit)} noValidate style={{ display: 'flex', flexDirection: 'column', gap: '1.25rem' }}>
       <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))', gap: '1.25rem' }}>
         <div>
           <label htmlFor="name" style={labelStyle}>{t('form.name')} *</label>
@@ -118,9 +118,13 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
             type="text"
             {...register('name')}
             style={inputStyle}
+            maxLength={120}
+            required
+            aria-invalid={errors.name ? true : undefined}
+            aria-describedby={errors.name ? 'name-fehler' : undefined}
             autoComplete="name"
           />
-          {errors.name && <p style={errorStyle}>{errors.name.message}</p>}
+          {errors.name && <p id="name-fehler" style={errorStyle}>{errors.name.message}</p>}
         </div>
 
         <div>
@@ -130,9 +134,14 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
             type="email"
             {...register('email')}
             style={inputStyle}
+            maxLength={200}
+            required
+            inputMode="email"
+            aria-invalid={errors.email ? true : undefined}
+            aria-describedby={errors.email ? 'email-fehler' : undefined}
             autoComplete="email"
           />
-          {errors.email && <p style={errorStyle}>{errors.email.message}</p>}
+          {errors.email && <p id="email-fehler" style={errorStyle}>{errors.email.message}</p>}
         </div>
       </div>
 
@@ -143,6 +152,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
           type="tel"
           {...register('telefon')}
           style={inputStyle}
+          maxLength={40}
           autoComplete="tel"
         />
       </div>
@@ -155,6 +165,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
             type="text"
             {...register('betreff')}
             style={inputStyle}
+            maxLength={200}
           />
         </div>
       )}
@@ -166,9 +177,13 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
           rows={5}
           {...register('nachricht')}
           placeholder={placeholder}
+          maxLength={5000}
+          required
+          aria-invalid={errors.nachricht ? true : undefined}
+          aria-describedby={errors.nachricht ? 'nachricht-fehler' : undefined}
           style={{ ...inputStyle, resize: 'vertical', minHeight: 120 }}
         />
-        {errors.nachricht && <p style={errorStyle}>{errors.nachricht.message}</p>}
+        {errors.nachricht && <p id="nachricht-fehler" style={errorStyle}>{errors.nachricht.message}</p>}
       </div>
 
       {/* Honeypot: für Menschen unsichtbar, Bots füllen es aus */}
@@ -183,7 +198,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
       </p>
 
       {status === 'error' && (
-        <div style={{
+        <div role="alert" style={{
           display: 'flex', alignItems: 'center', gap: '0.5rem',
           color: 'var(--btb-rot)', fontSize: '0.9rem',
         }}>
@@ -195,6 +210,7 @@ export function ContactForm({ typ = 'kontakt', betreff, placeholder }: Props) {
       <button
         type="submit"
         disabled={status === 'loading'}
+        aria-busy={status === 'loading'}
         className="btn-primary"
         style={{ alignSelf: 'flex-start', opacity: status === 'loading' ? 0.7 : 1 }}
       >
