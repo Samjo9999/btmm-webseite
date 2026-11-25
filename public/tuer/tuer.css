@@ -158,11 +158,11 @@ a{color:var(--lila)}
 .schritt .nr{flex:none;width:34px;height:34px;border-radius:50%;display:grid;place-items:center;border:1px solid var(--lila2);color:var(--lila);font-weight:700}
 .schritt.jetzt .nr{background:var(--lila);color:#fff}
 .schritt>div{flex:1;min-width:0}
-.bild-rahmen{display:inline-grid;place-items:center;height:72px;min-width:72px;padding:6px;margin:0 0 8px;border-radius:12px;background:#fff;border:1px solid var(--linie);overflow:hidden}
-.bild-rahmen.dunkel{background:var(--lila);border-color:var(--lila)}
-.bild-rahmen.foto{padding:0;width:112px}
-.schritt-bild{max-height:60px;max-width:100px;object-fit:contain;display:block}
-.bild-rahmen.foto .schritt-bild{width:112px;height:72px;max-height:none;max-width:none;object-fit:cover}
+.schritt-figur{margin:0 0 10px}
+.bild-rahmen{display:block;position:relative;border-radius:12px;overflow:hidden;background:var(--linie);aspect-ratio:16/9}
+.bild-rahmen picture,.schritt-bild{display:block;width:100%;height:100%}
+.schritt-bild{object-fit:cover}
+.ki-label{position:absolute;inset-inline-start:8px;bottom:8px;margin:0;padding:.2em .55em;border-radius:4px;background:#2a1828;color:#fff;font-size:.7em;line-height:1.3;font-style:normal;letter-spacing:.01em;max-width:calc(100% - 16px)}
 .schritt .bezug{margin:0 0 2px;font-size:.85em;font-style:italic;color:var(--lila2)}
 .schritt h2{margin:2px 0 4px;font-size:1.15em}
 .schritt p{margin:0 0 10px;font-size:.92em;color:var(--grau)}
@@ -170,6 +170,7 @@ a{color:var(--lila)}
 .schritt:not(.jetzt) .knopf{background:transparent;color:var(--lila);border:1px solid var(--lila2)}
 .pfad-fuss{text-align:center;margin-top:24px;display:flex;flex-direction:column;align-items:center;gap:14px}
 .pfad-fuss .leise{font-size:.85em}
+.bild-credit{margin:18px 0 0;text-align:center;font-size:.75em;color:var(--grau)}
 
 /* Rechts-nach-links (ar): Blasen und Pfeil spiegeln */
 [dir=rtl] .blase.frage{border-bottom-left-radius:18px;border-bottom-right-radius:6px}

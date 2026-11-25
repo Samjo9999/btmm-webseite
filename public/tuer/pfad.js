@@ -8,41 +8,42 @@
   var RUECKFALL_AUS = ['region', 'firma', 'social', 'auto', 'chor', 'stelle', 'haus', 'abend', 'lesen'];
   var MOTIVE = ['neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'];
 
-  /* Schritte: Pfad ohne Locale, Standardbild */
+  /* Schritte: Pfad ohne Locale. Jeder Schritt hat sein eigenes Bild im Fotostil (Nutzer 21.11.2026 10:07:
+   * realistischer Fotostil statt comichaft; Herkunft: Design-Bot, docs/tuer-weg-bilder-HERKUNFT.md). */
   var SCHRITTE = {
-    grundlagen: { href: '/so-funktionierts', bild: 'unendlichGold' },
-    sparen:     { href: '/was-du-sparst', bild: 'kreis' },
-    arbeiten:   { href: '/konzept/wirtschaft', bild: 'baumDunkel' },
-    wohnen:     { href: '/konzept', bild: 'baumHell' },
-    skeptisch:  { href: '/faq', bild: 'unendlichDunkel' },
-    dokumente:  { href: '/dokumente', bild: 'logo' },
-    sinn:       { href: '/wissen', bild: 'baumHell' },
-    gruenden:   { href: '/gruendung', bild: 'baumHell' },
-    freiburg:   { href: '/gruendung', bild: 'baumDunkel' },
-    vorbei:     { href: '/mitmachen', bild: 'kreis' },
-    anpacken:   { href: '/mitmachen', bild: 'kreis' },
-    folgen:     { href: '/chronik', bild: 'logo' },
+    grundlagen: { href: '/so-funktionierts', bild: 'grundlagen' },
+    sparen:     { href: '/was-du-sparst', bild: 'sparen' },
+    arbeiten:   { href: '/konzept/wirtschaft', bild: 'arbeiten' },
+    wohnen:     { href: '/konzept', bild: 'wohnen' },
+    skeptisch:  { href: '/faq', bild: 'skeptisch' },
+    dokumente:  { href: '/dokumente', bild: 'dokumente' },
+    sinn:       { href: '/wissen', bild: 'sinn' },
+    gruenden:   { href: '/gruendung', bild: 'gruenden' },
+    freiburg:   { href: '/gruendung', bild: 'freiburg' },
+    vorbei:     { href: '/mitmachen', bild: 'vorbei' },
+    anpacken:   { href: '/mitmachen', bild: 'anpacken' },
+    folgen:     { href: '/chronik', bild: 'folgen' },
     /* PR #38: Gruppen ohne eigenen Pfad, Inhalte unter /fuer-dich/* */
-    kunde:      { href: '/fuer-dich/kunden', bild: 'kreis' },
-    einstieg:   { href: '/fuer-dich/berufseinstieg', bild: 'baumHell' },
-    lebensphase:{ href: '/fuer-dich/lebensphasen', bild: 'unendlichGold' },
+    kunde:      { href: '/fuer-dich/kunden', bild: 'kunde' },
+    einstieg:   { href: '/fuer-dich/berufseinstieg', bild: 'einstieg' },
+    lebensphase:{ href: '/fuer-dich/lebensphasen', bild: 'lebensphase' },
     /* PR #38 Runde 3 */
-    ruhestand:  { href: '/fuer-dich/ruhestand', bild: 'baumHell' },
-    unterstuetzen: { href: '/fuer-dich/unterstuetzen', bild: 'kreis' }
+    ruhestand:  { href: '/fuer-dich/ruhestand', bild: 'ruhestand' },
+    unterstuetzen: { href: '/fuer-dich/unterstuetzen', bild: 'unterstuetzen' }
   };
-  /* Nur Bilder, die schon im Repo (public/) liegen */
-  var BILDER = {
-    unendlichGold: { src: '/infinity-gold.png' }, unendlichDunkel: { src: '/infinity-dark.png' },
-    kreis: { src: '/logo-hero-white.png', dunkel: true }, baumDunkel: { src: '/logo-tree-dark.png' },
-    baumHell: { src: '/logo-tree-light.png', dunkel: true }, logo: { src: '/logo.png' }
+  /* Bilder 16:9: eigene Grafik je ursprünglichem Schritt. Neue Schritte (#38)
+   * teilen die Datei eines thematisch nahen Schritts und behalten eine eigene Bild-ID (Alt-Text).
+   * Kommen beide im selben Weg vor, weicht der #38-Schritt aus (bilderWaehlen, AUSWEICH). */
+  var BILD_DATEI = {
+    kunde: 'arbeiten', einstieg: 'grundlagen', lebensphase: 'wohnen',
+    ruhestand: 'sinn', unterstuetzen: 'anpacken'
   };
-  /* Bild nach dem Merkmal, das den Schritt begründet */
-  var BILD_NACH_MERKMAL = {
-    start: 'unendlichGold', neugierig: 'unendlichGold', freund: 'baumHell', online: 'logo', skeptisch: 'unendlichDunkel',
-    sparen: 'kreis', arbeiten: 'baumDunkel', wohnen: 'baumHell', sinn: 'baumHell', gruenden: 'baumHell',
-    freiburg: 'baumDunkel', weit: 'logo', vorbei: 'kreis', anpacken: 'kreis', nurlesen: 'logo', dranbleiben: 'unendlichDunkel',
-    kunde: 'kreis', einstieg: 'baumHell', lebensphase: 'unendlichGold', ruhestand: 'baumHell', unterstuetzen: 'kreis'
-  };
+  var BILDER = {};
+  Object.keys(SCHRITTE).forEach(function (k) {
+    var id = SCHRITTE[k].bild;
+    var datei = BILD_DATEI[id] || id;
+    if (!BILDER[id]) BILDER[id] = { src: '/tuer/bilder/weg/' + datei + '.jpg', webp: '/tuer/bilder/weg/' + datei + '.webp' };
+  });
 
   function grund(t) {
     return (t || '').toLowerCase().replace(/[’`´]/g, "'").normalize('NFD')
@@ -128,14 +129,38 @@
       default: return k;
     }
   }
-  /* Bild je Schritt nach Merkmal; doppelte Bilder im selben Weg vermeiden */
-  function bilderWaehlen(keys, p) {
-    var benutzt = {};
-    return keys.map(function (k) {
-      var wahl = [BILD_NACH_MERKMAL[bezugKey(k, p)], SCHRITTE[k].bild].concat(Object.keys(BILDER));
-      for (var i = 0; i < wahl.length; i++) if (wahl[i] && !benutzt[wahl[i]]) { benutzt[wahl[i]] = 1; return wahl[i]; }
-      return SCHRITTE[k].bild;
+  /* Ausweichfotos für die #38-Schritte, deren eigene Datei mit einem anderen Schritt geteilt wird (BILD_DATEI).
+   * Reihenfolge = thematische Nähe; es zählen nur Bild-IDs mit eigener Datei. */
+  var AUSWEICH = {
+    kunde:         ['grundlagen', 'sparen', 'wohnen', 'sinn', 'folgen', 'freiburg'],
+    einstieg:      ['arbeiten', 'anpacken', 'gruenden', 'freiburg', 'folgen', 'vorbei'],
+    lebensphase:   ['sinn', 'sparen', 'folgen', 'freiburg', 'vorbei', 'gruenden'],
+    ruhestand:     ['folgen', 'wohnen', 'vorbei', 'sparen', 'freiburg', 'grundlagen'],
+    unterstuetzen: ['gruenden', 'folgen', 'vorbei', 'freiburg', 'grundlagen', 'sinn']
+  };
+  function dateiVon(id) { return BILDER[id] && BILDER[id].src; }
+  /* Bild je Schritt: eindeutig nach Datei. Schritte mit eigener Datei behalten ihr Motiv; ein #38-Schritt, dessen Datei
+   * im Weg schon vorkommt, nimmt das nächste freie Ausweichfoto (Alt-Text folgt der Bild-ID). Ist keins frei, ist die
+   * Stelle null und der Schritt erscheint ohne Bild, statt dasselbe Foto zweimal zu zeigen. */
+  function bilderWaehlen(keys) {
+    var benutzt = {}, out = new Array(keys.length);
+    keys.forEach(function (k, i) {
+      var id = SCHRITTE[k].bild;
+      if (BILD_DATEI[id]) return;
+      var f = dateiVon(id);
+      if (!benutzt[f]) { benutzt[f] = 1; out[i] = id; } else out[i] = null;
     });
+    keys.forEach(function (k, i) {
+      var id = SCHRITTE[k].bild;
+      if (!BILD_DATEI[id]) return;
+      var kandidaten = [id].concat(AUSWEICH[id] || []), gewaehlt = null;
+      for (var j = 0; j < kandidaten.length && gewaehlt === null; j++) {
+        var f = dateiVon(kandidaten[j]);
+        if (f && !benutzt[f]) { benutzt[f] = 1; gewaehlt = kandidaten[j]; }
+      }
+      out[i] = gewaehlt;
+    });
+    return out;
   }
   function profilSatz(P, p) {
     var teile = [];

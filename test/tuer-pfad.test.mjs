@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 // Tür: der Kennenlern-Pfad passt sich individuell an (Nutzer 21.11.2026 00:35).
 // Nachweis: unterschiedliche Profile ergeben unterschiedliche Schritt-Auswahl und -Reihenfolge, nicht nur andere Sätze.
 import { test } from 'node:test'
@@ -50,23 +51,141 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
 })
 
-test('Bilder je Schritt nach Merkmal, ohne Doppelung, nur vorhandene', () => {
-  for (const pers of ['macher', 'pruefer']) {
-    const p = profilAus('de', PERSONA[pers]); const k = PF.pfadBauen(p); const b = PF.bilderWaehlen(k, p)
-    assert.equal(new Set(b).size, b.length)
-    for (const id of b) assert.ok(PF.BILDER[id])
+test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+  for (const [k, d] of Object.entries(PF.SCHRITTE)) {
+    const b = PF.BILDER[d.bild]; assert.ok(b, k)
+    assert.match(b.src, /^\/tuer\/bilder\/weg\/[a-z]+\.jpg$/, b.src)
+    assert.match(b.webp, /^\/tuer\/bilder\/weg\/[a-z]+\.webp$/, b.webp)
+    const jpgUrl = new URL('../public' + b.src, import.meta.url)
+    const webpUrl = new URL('../public' + b.webp, import.meta.url)
+    assert.ok(existsSync(jpgUrl), b.src)
+    assert.ok(existsSync(webpUrl), b.webp)
+    for (const [label, buf] of [['jpg', readFileSync(jpgUrl)], ['webp', readFileSync(webpUrl)]]) {
+      const s = buf.toString('latin1')
+      assert.ok(s.includes('trainedAlgorithmicMedia'), `DigitalSourceType fehlt in ${label} ${b.src}`)
+      assert.ok(s.includes('Bilder erstellt mit Grok (KI)'), `Credit fehlt in ${label} ${b.src}`)
+    }
   }
+})
+
+const dateiVon = (id) => PF.BILDER[id].src.split('/').pop()
+function bilderPruefen(keys, p, label) {
+  const b = PF.bilderWaehlen(keys, p)
+  assert.equal(b.length, keys.length, label)
+  const dateien = b.filter((id) => id !== null).map((id) => { assert.ok(PF.BILDER[id], `${label}: unbekannte Bild-ID ${id}`); return dateiVon(id) })
+  assert.equal(new Set(dateien).size, dateien.length, `${label}: dieselbe Datei zweimal: ${keys.join(',')} -> ${b.join(',')}`)
+  return b
+}
+
+test('Bilder je Schritt nach Merkmal, eindeutig nach Datei, nur vorhandene', () => {
+  for (const pers of ['macher', 'pruefer']) {
+    const p = profilAus('de', PERSONA[pers]); const k = PF.pfadBauen(p); const b = bilderPruefen(k, p, pers)
+    assert.equal(new Set(b).size, b.length)
+  }
+})
+
+// Test-Bot r6: Ruhestand/Gemeinschaft (sinn), Berufseinstieg/Worum es geht (grundlagen), Unterstützen, Lebensphase
+const PERSONA_38 = {
+  einsteiger: ['Über eine Freundin.', 'Ich bin gerade mit der Ausbildung fertig und suche meinen Berufseinstieg.', 'Eine Arbeit mit Sinn.', 'Ich wohne in Freiburg.', 'Erst mal nur lesen.'],
+  kunde: ['Über Google.', 'Ich bin Kunde und will eure Angebote nutzen.', 'Gute Produkte.', 'Ich wohne in Hamburg.', 'Erst mal nur lesen.'],
+  rente: ['Über die Zeitung.', 'Ich bin im Ruhestand und habe Zeit.', 'Gemeinschaft im Alter.', 'Ich wohne in Freiburg.', 'Ich will mit anpacken.'],
+  unterst: ['Über Instagram.', 'Ich will euch unterstützen, vielleicht spenden.', 'Dass es klappt.', 'Ich wohne in Berlin.', 'Erst mal nur lesen.'],
+  lebens: ['Über eine Freundin.', 'Ich bin in einer neuen Lebensphase, die Kinder sind aus dem Haus.', 'Neue Gemeinschaft.', 'Ich wohne in Freiburg.', 'Ich will mitmachen.']
+}
+
+test('#38-Personas: im Weg nie dieselbe Bilddatei zweimal', () => {
+  for (const [n, a] of Object.entries(PERSONA_38)) {
+    const p = profilAus('de', a); bilderPruefen(PF.pfadBauen(p), p, n)
+  }
+  // Konkrete Fälle aus dem Test-Bot-Fund
+  const rente = PF.bilderWaehlen(['ruhestand', 'sinn', 'freiburg', 'anpacken'])
+  assert.equal(rente[1], 'sinn', 'Gemeinschaft behält sein Foto')
+  assert.notEqual(dateiVon(rente[0]), 'sinn.jpg')
+  const einstieg = PF.bilderWaehlen(['arbeiten', 'grundlagen', 'einstieg', 'sinn', 'freiburg', 'folgen'])
+  assert.equal(einstieg[1], 'grundlagen', 'Worum es geht behält sein Foto')
+  assert.notEqual(dateiVon(einstieg[2]), 'grundlagen.jpg')
+})
+
+test('Ausweichfoto: alleine im Weg behält ein #38-Schritt sein Foto, sonst passt der Alt-Text zum gezeigten Foto', () => {
+  assert.deepEqual(PF.bilderWaehlen(['ruhestand', 'folgen']), ['ruhestand', 'folgen'])
+  const b = PF.bilderWaehlen(['ruhestand', 'sinn', 'folgen'])
+  for (const id of b) for (const [l, T] of Object.entries(TEXTE)) assert.ok(T.alt[id], `${l} alt ${id}`)
+  // Ersatz stammt aus den Weg-Fotos und kommt im Weg nicht zweimal vor
+  assert.equal(new Set(b.map(dateiVon)).size, 3)
+})
+
+test('kein freies Foto: Bild entfällt (null) statt Doppelung', () => {
+  const alle = Object.keys(PF.SCHRITTE)
+  const b = bilderPruefen(alle, {}, 'alle Schritte')
+  const dateien = new Set(Object.values(PF.BILDER).map((x) => x.src))
+  assert.equal(b.filter((id) => id !== null).length, dateien.size)
+  assert.ok(b.includes(null), 'mehr Schritte als Fotos: Rest ohne Bild')
+  // Schritte mit eigener Datei verlieren ihr Foto nie
+  for (const [i, k] of alle.entries()) if (!['kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'].includes(k)) assert.equal(b[i], PF.SCHRITTE[k].bild, k)
+})
+
+test('200.000 Zufallsprofile (Seed): Bilddateien im Weg eindeutig, jeder Schritt mit eigenem Foto behält es', () => {
+  let z = 20261125
+  const rnd = () => { z = (z + 0x6D2B79F5) | 0; let t = Math.imul(z ^ (z >>> 15), 1 | z); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296 }
+  const MERKMALE = ['freund', 'online', 'vorort', 'neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen', 'vorbei', 'anpacken', 'weit', 'freiburg', 'nurlesen']
+  const GETEILT = new Set(['kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'])
+  let ohneBild = 0, mitAusweich = 0
+  for (let n = 0; n < 200000; n++) {
+    const p = {}
+    for (const m of MERKMALE) if (rnd() < 0.25) p[m] = 1 + Math.floor(rnd() * 3)
+    const keys = PF.pfadBauen(p)
+    const b = PF.bilderWaehlen(keys, p)
+    const d = b.filter((id) => id !== null).map(dateiVon)
+    if (new Set(d).size !== d.length) assert.fail(`Doppelte Datei: ${JSON.stringify(p)} -> ${keys.join(',')} -> ${b.join(',')}`)
+    keys.forEach((k, i) => {
+      if (!GETEILT.has(k)) assert.equal(b[i], PF.SCHRITTE[k].bild, `${k} verliert sein Foto: ${keys.join(',')}`)
+      else if (b[i] === null) ohneBild++
+      else if (b[i] !== PF.SCHRITTE[k].bild) mitAusweich++
+    })
+  }
+  assert.equal(ohneBild, 0, 'Wege haben höchstens 6 Schritte, es muss immer ein freies Foto geben')
+  assert.ok(mitAusweich > 0, 'Ausweichfotos kommen vor')
 })
 
 test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel', () => {
   const keys = Object.keys(PF.SCHRITTE)
   for (const [l, T] of Object.entries(TEXTE)) {
     for (const k of keys) assert.ok(T.schritte[k]?.[0] && T.schritte[k]?.[1], `${l} schritt ${k}`)
-    for (const id of Object.keys(PF.BILDER)) assert.ok(T.alt[id], `${l} alt ${id}`)
+    assert.ok(T.kiLabel, `${l} kiLabel`)
+    assert.match(T.bildCredit, /Grok/, `${l} bildCredit`)
+    assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
+    for (const id of Object.keys(PF.BILDER)) {
+      assert.ok(T.alt[id], `${l} alt ${id}`)
+      const prefix = {de: 'KI-generiertes Bild: ', en: 'AI-generated image: ', fr: 'Image générée par IA: ', es: 'Imagen generada por IA: ', pt: 'Imagem gerada por IA: ', ru: 'Изображение, созданное ИИ: ', ar: 'صورة مُنشأة بالذكاء الاصطناعي: ', hi: 'एआई-जनरेटेड चित्र: ', bn: 'এআই-সৃষ্ট ছবি: ', ja: 'AI生成画像: ', zh: 'AI生成的图片: '}[l]
+      assert.ok(prefix && T.alt[id].startsWith(prefix), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
+    }
     for (const k of keys) { const bz = PF.bezugKey(k, { neugierig: 1, vorbei: 1, anpacken: 1, weit: 1 }); assert.ok(T.bezug[bz], `${l} bezug ${bz}`) }
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
+  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild – Personen fiktiv')
+  assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
+  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Vier Menschen stehen in einer alten Werkstatt an der Hobelbank, teilen Brot und unterhalten sich')
+  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Bauernküche Karotten, Kartoffeln und Äpfel in Beutel und Gläser auf')
+  assert.equal(TEXTE.de.alt.sinn, 'KI-generiertes Bild: Fünf Menschen sitzen in der Dämmerung im Garten um eine Laterne und unterhalten sich bei Tee und Brot')
+  assert.equal(TEXTE.de.alt.vorbei, 'KI-generiertes Bild: Eine Frau steht in der offenen Tür eines Steinhauses und begrüßt zwei Gäste, drinnen ein gedeckter Tisch')
+  assert.equal(TEXTE.de.schritte.sinn[0], 'Gemeinschaft')
+  assert.equal(TEXTE.de.schritte.sinn[1], 'Wie Entscheidungen in BtMM fallen und woran sich das Miteinander ausrichtet.')
+  assert.equal(TEXTE.de.schritte.vorbei[0], 'Kennenlernen vor Ort')
+  assert.equal(TEXTE.de.schritte.vorbei[1], 'Wie du uns vor Ort kennenlernen kannst.')
+  for (const [l, T] of Object.entries(TEXTE)) {
+    const beside = [T.schritte.sinn[0], T.schritte.sinn[1], T.schritte.vorbei[0], T.schritte.vorbei[1], T.bezug.sinn, T.bezug.vorbei].join(' ')
+    assert.doesNotMatch(beside, /unserem Treffen|letzten Abend|our meeting|last evening|notre rencontre|dernier soir/i, `${l} 07/10-Text klingt nach Treffen/Abend: ${beside}`)
+  }
+})
+
+
+test('Tür-Seite verlinkt ein lokales Icon, kein externes Favicon', () => {
+  const html = readFileSync(new URL('../public/tuer/index.html', import.meta.url), 'utf8')
+  const m = html.match(/<link\s+rel="icon"[^>]*>/)
+  assert.ok(m, 'link rel=icon fehlt')
+  assert.match(m[0], /href="\/tuer\/bilder\/logo\.png"/)
+  assert.doesNotMatch(m[0], /https?:/)
 })
 
 test('Lücken-Gruppen bekommen eigene Schritte (PR #38)', () => {

@@ -33,7 +33,6 @@
   var FRAGEN = PF.FRAGEN.map(function (f) { return { id: f.id, immer: f.immer, wenn: f.wenn, text: T.fragen[f.id] || DE.fragen[f.id] }; });
 
   var SCHRITTE = PF.SCHRITTE, BILDER = PF.BILDER;
-  function bildUrl(src) { return '/_next/image?url=' + encodeURIComponent(src) + '&w=256&q=70'; }
 
   /* ---------- Zustand ---------- */
   var st = laden(KEY) || { antworten: [], profil: {}, gestellt: [] };
@@ -168,16 +167,21 @@
     $('profil-satz').textContent = profilSatz(st.profil);
     var ol = $('schritte'); ol.innerHTML = '';
     pf.schritte.forEach(function (d, i) {
-      var k = d.key, bildId = d.bild || SCHRITTE[k].bild, bild = BILDER[bildId], li = document.createElement('li');
+      var k = d.key, bildId = d.bild, bild = BILDER[bildId], li = document.createElement('li');
       li.className = 'schritt' + (i === 0 ? ' jetzt' : '');
-      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><span class="bild-rahmen"><img class="schritt-bild" loading="lazy" decoding="async"></span><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
-      var rahmen = li.querySelector('.bild-rahmen');
-      if (bild.dunkel) rahmen.classList.add('dunkel');
-      if (bild.foto) rahmen.classList.add('foto');
-      var img = li.querySelector('img');
-      img.alt = T.alt[bildId];
-      img.onerror = function () { img.onerror = null; img.src = bild.src; };
-      img.src = bildUrl(bild.src);
+      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><figure class="schritt-figur"><div class="bild-rahmen"><picture><source type="image/webp"><img class="schritt-bild" width="1280" height="720" decoding="async"></picture><figcaption class="ki-label"></figcaption></div></figure><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
+      var rahmen = li.querySelector('.schritt-figur');
+      if (!bild) { rahmen.parentNode.removeChild(rahmen); }
+      else {
+        var img = li.querySelector('img');
+        var source = li.querySelector('source');
+        if (i > 1) img.loading = 'lazy';
+        img.alt = T.alt[bildId] || '';
+        source.srcset = bild.webp;
+        img.src = bild.src;
+        li.querySelector('.ki-label').textContent = T.kiLabel || '';
+        img.onerror = function () { img.onerror = null; li.querySelector('.bild-rahmen').hidden = true; };
+      }
       li.querySelector('.bezug').textContent = d.bezug + T.dp;
       li.querySelector('h2').textContent = d.titel;
       li.querySelector('.text').textContent = T.schritte[k][1];

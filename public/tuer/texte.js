@@ -53,10 +53,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Wohnen und Boden", "Warum Häuser bei BtMM gemeinsam gehalten und nicht verkauft werden."],
       skeptisch: ["Belege und offene Fragen", "Antworten auf kritische Fragen und die Dokumente zum Nachlesen."],
       dokumente: ["Dokumente", "Satzung, Konzept und Einführung zum Herunterladen."],
-      sinn: ["Gemeinschaft", "Wie Entscheidungen fallen und wie Menschen in BtMM zusammenkommen."],
+      sinn: ["Gemeinschaft", "Wie Entscheidungen in BtMM fallen und woran sich das Miteinander ausrichtet."],
       gruenden: ["Die Gründung", "Wo BtMM gerade steht und was bis zur Genossenschaft fehlt."],
       freiburg: ["Der Keim in Freiburg", "Wie der erste Ort entsteht und wie du dazukommst."],
-      vorbei: ["Offener Abend", "Komm vorbei und lern die Menschen hinter BtMM kennen."],
+      vorbei: ["Kennenlernen vor Ort", "Wie du uns vor Ort kennenlernen kannst."],
       anpacken: ["Mitmachen", "Werde eins der ersten Mitglieder oder hilf beim Aufbau."],
       folgen: ["Dranbleiben", "Lies in Ruhe weiter und schau, was als Nächstes entschieden wird."]
     },
@@ -76,11 +76,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Damit du in Ruhe dranbleiben kannst"
     },
     alt: {
-      unendlichGold: "Goldene Unendlichkeitsschleife, die zum Kreis wird", unendlichDunkel: "Weiße Unendlichkeitsschleife auf dunklem Grund",
-      kreis: "BtMM-Zeichen: ein Kreis aus verschlungenen Linien", baumDunkel: "Gezeichneter Baum, der aus einer stehenden Figur wächst",
-      baumHell: "Heller Baum, der aus einer stehenden Figur wächst", logo: "BtMM-Logo",
-      wiese: "Johannes mit seinem Hund auf einer Wiese", portraet: "Porträt von Johannes"
+      grundlagen: "KI-generiertes Bild: Vier Menschen stehen in einer alten Werkstatt an der Hobelbank, teilen Brot und unterhalten sich",
+      sparen: "KI-generiertes Bild: Vier Menschen teilen in einer Bauernküche Karotten, Kartoffeln und Äpfel in Beutel und Gläser auf",
+      arbeiten: "KI-generiertes Bild: Vier Menschen hobeln, schleifen und messen nebeneinander an einer langen Werkbank",
+      wohnen: "KI-generiertes Bild: Drei Menschen arbeiten in einem Gemüsegarten zwischen alten Holzhäusern am bewaldeten Hang",
+      skeptisch: "KI-generiertes Bild: Eine ältere Frau prüft am Küchentisch ein Heft mit der Lupe, daneben Mappen und Tee",
+      dokumente: "KI-generiertes Bild: Eine Hand mit Füller über einem leeren Blatt auf einem alten Holztisch mit Mappen und Lampe",
+      sinn: "KI-generiertes Bild: Fünf Menschen sitzen in der Dämmerung im Garten um eine Laterne und unterhalten sich bei Tee und Brot",
+      gruenden: "KI-generiertes Bild: Mehrere Hände drücken die Erde um einen frisch gepflanzten jungen Baum an",
+      freiburg: "KI-generiertes Bild: Drei Menschen gehen im Gespräch durch eine Altstadtgasse mit Kopfsteinpflaster und Fachwerk",
+      vorbei: "KI-generiertes Bild: Eine Frau steht in der offenen Tür eines Steinhauses und begrüßt zwei Gäste, drinnen ein gedeckter Tisch",
+      anpacken: "KI-generiertes Bild: Vier Menschen bauen auf einer Wiese am Waldrand ein Holzgerüst und tragen einen Balken",
+      folgen: "KI-generiertes Bild: Drei Menschen wandern im Gespräch einen Waldweg hinauf"
     },
+    kiLabel: "KI-generiertes Bild – Personen fiktiv",
+    bildCredit: "Bilder erstellt mit Grok (KI)",
     merkmale: {
       freund: ["freund", "freundin", "bekannt", "kollege", "kollegin", "familie", "mutter", "vater", "bruder", "schwester", "erzählt", "empfohlen", "empfehlung", "mitbewohn", "wg", "chor"],
       online: ["instagram", "internet", "google", "gesucht", "online", "social", "facebook", "tiktok", "youtube", "webseite", "website", "artikel", "zeitung", "podcast"],
@@ -143,10 +153,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Housing and land", "Why houses at BtMM are held in common and not sold."],
       skeptisch: ["Evidence and open questions", "Answers to critical questions and the documents to read up on."],
       dokumente: ["Documents", "Statutes, concept and introduction to download."],
-      sinn: ["Community", "How decisions are made and how people come together in BtMM."],
+      sinn: ["Community", "How decisions are made in BtMM and what guides living and working together."],
       gruenden: ["The founding", "Where BtMM stands right now and what is still missing before the cooperative."],
       freiburg: ["The seed in Freiburg", "How the first place is taking shape and how you can join."],
-      vorbei: ["Open evening", "Come by and get to know the people behind BtMM."],
+      vorbei: ["Getting to know us in person", "How you can get to know us in person."],
       anpacken: ["Get involved", "Become one of the first members or help build it up."],
       folgen: ["Stay tuned", "Keep reading at your own pace and see what will be decided next."]
     },
@@ -166,11 +176,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "So you can stay tuned at your own pace"
     },
     alt: {
-      unendlichGold: "Golden infinity loop turning into a circle", unendlichDunkel: "White infinity loop on a dark background",
-      kreis: "BtMM sign: a circle of intertwined lines", baumDunkel: "Drawn tree growing out of a standing figure",
-      baumHell: "Light tree growing out of a standing figure", logo: "BtMM logo",
-      wiese: "Johannes with his dog in a meadow", portraet: "Portrait of Johannes"
+      grundlagen: "AI-generated image: Four people stand at a workbench in an old workshop, sharing bread and talking",
+      sparen: "AI-generated image: Four people in a farmhouse kitchen sort carrots, potatoes and apples into bags and jars",
+      arbeiten: "AI-generated image: Four people plane, sand and measure side by side at a long workbench",
+      wohnen: "AI-generated image: Three people work in a vegetable garden among old wooden houses on a wooded slope",
+      skeptisch: "AI-generated image: An older woman examines a notebook with a magnifying glass at a kitchen table, with folders and tea beside her",
+      dokumente: "AI-generated image: A hand with a fountain pen over a blank sheet on an old wooden table with folders and a lamp",
+      sinn: "AI-generated image: Five people sit at dusk in a garden around a lantern, talking over tea and bread",
+      gruenden: "AI-generated image: Several hands press the soil around a freshly planted young tree",
+      freiburg: "AI-generated image: Three people walk and talk through an old-town alley with cobblestones and timber-framed houses",
+      vorbei: "AI-generated image: A woman stands in the open doorway of a stone house and greets two guests, with a set table inside",
+      anpacken: "AI-generated image: Four people build a wooden frame in a meadow at the edge of a forest and carry a beam",
+      folgen: "AI-generated image: Three people hike up a forest path while talking"
     },
+    kiLabel: "AI-generated image – people are fictional",
+    bildCredit: "Images created with Grok (AI)",
     merkmale: {
       freund: ["friend", "buddy", "colleague", "coworker", "co-worker", "family", "mother", " mom", " mum", "father", " dad", "brother", "sister", "partner", "told me", "recommend", "word of mouth", "roommate", "flatmate", "neighbo"],
       online: ["instagram", "internet", "google", "searched", "online", "social media", "facebook", "tiktok", "youtube", "website", " web", "article", "newspaper", "podcast", "reddit", "linkedin"],
@@ -233,10 +253,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Logement et terrain", "Pourquoi chez BtMM les maisons sont détenues en commun et ne sont pas vendues."],
       skeptisch: ["Preuves et questions ouvertes", "Des réponses aux questions critiques et les documents à consulter."],
       dokumente: ["Documents", "Statuts, concept et introduction à télécharger."],
-      sinn: ["Communauté", "Comment les décisions sont prises et comment les gens se retrouvent dans BtMM."],
+      sinn: ["Communauté", "Comment les décisions sont prises dans BtMM et ce qui oriente le vivre-ensemble."],
       gruenden: ["La fondation", "Où en est BtMM et ce qui manque encore avant la coopérative."],
       freiburg: ["Le germe à Freiburg", "Comment naît le premier lieu et comment tu peux nous rejoindre."],
-      vorbei: ["Soirée ouverte", "Passe nous voir et fais connaissance avec les personnes derrière BtMM."],
+      vorbei: ["Faire connaissance sur place", "Comment tu peux faire connaissance avec nous sur place."],
       anpacken: ["Participer", "Deviens l'un des premiers membres ou aide à la construction."],
       folgen: ["Rester informé", "Continue à lire tranquillement et vois ce qui sera décidé ensuite."]
     },
@@ -256,11 +276,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Pour que tu puisses suivre tranquillement"
     },
     alt: {
-      unendlichGold: "Boucle de l'infini dorée qui devient un cercle", unendlichDunkel: "Boucle de l'infini blanche sur fond sombre",
-      kreis: "Signe de BtMM : un cercle de lignes entrelacées", baumDunkel: "Arbre dessiné qui pousse à partir d'une silhouette debout",
-      baumHell: "Arbre clair qui pousse à partir d'une silhouette debout", logo: "Logo de BtMM",
-      wiese: "Johannes avec son chien dans un pré", portraet: "Portrait de Johannes"
+      grundlagen: "Image générée par IA: Quatre personnes se tiennent à l'établi dans un vieil atelier, partagent du pain et discutent",
+      sparen: "Image générée par IA: Quatre personnes répartissent dans une cuisine de ferme des carottes, des pommes de terre et des pommes dans des sacs et des bocaux",
+      arbeiten: "Image générée par IA: Quatre personnes rabotent, poncent et mesurent côte à côte à un long établi",
+      wohnen: "Image générée par IA: Trois personnes travaillent dans un potager entre de vieilles maisons en bois sur un versant boisé",
+      skeptisch: "Image générée par IA: Une femme âgée examine un cahier à la loupe à une table de cuisine, à côté des dossiers et du thé",
+      dokumente: "Image générée par IA: Une main tenant un stylo plume au-dessus d'une feuille vide sur une vieille table en bois avec des dossiers et une lampe",
+      sinn: "Image générée par IA: Cinq personnes sont assises au crépuscule dans le jardin autour d'une lanterne et discutent autour du thé et du pain",
+      gruenden: "Image générée par IA: Plusieurs mains tassent la terre autour d'un jeune arbre fraîchement planté",
+      freiburg: "Image générée par IA: Trois personnes marchent en parlant dans une ruelle de vieille ville aux pavés et aux maisons à colombages",
+      vorbei: "Image générée par IA: Une femme se tient dans la porte ouverte d'une maison en pierre et accueille deux visiteurs, à l'intérieur une table dressée",
+      anpacken: "Image générée par IA: Quatre personnes montent une ossature en bois dans une prairie en lisière de forêt et portent une poutre",
+      folgen: "Image générée par IA: Trois personnes montent un chemin forestier en discutant"
     },
+    kiLabel: "Image générée par IA – personnes fictives",
+    bildCredit: "Images créées avec Grok (IA)",
     merkmale: {
       freund: [" ami", " amie", "copain", "copine", "collegue", "famille", " mere", " pere", " maman", " papa", "frere", "soeur", "m'a parle", "m'en a parle", "raconte", "recommand", "conseille", "bouche a oreille", "colocataire", "coloc", "voisin"],
       online: ["instagram", "internet", "google", "cherche", "en ligne", "reseaux sociaux", "facebook", "tiktok", "youtube", "site web", "site internet", "le site", "votre site", "ton site", "article", "journal", "podcast"],
@@ -323,10 +353,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Vivienda y suelo", "Por qué en BtMM las casas se mantienen en común y no se venden."],
       skeptisch: ["Pruebas y preguntas abiertas", "Respuestas a preguntas críticas y los documentos para consultar."],
       dokumente: ["Documentos", "Estatutos, concepto e introducción para descargar."],
-      sinn: ["Comunidad", "Cómo se toman las decisiones y cómo se reúnen las personas en BtMM."],
+      sinn: ["Comunidad", "Cómo se toman las decisiones en BtMM y en qué se basa la convivencia."],
       gruenden: ["La fundación", "En qué punto está BtMM y qué falta todavía para la cooperativa."],
       freiburg: ["El germen en Friburgo", "Cómo nace el primer lugar y cómo puedes sumarte."],
-      vorbei: ["Tarde abierta", "Pásate y conoce a las personas que hay detrás de BtMM."],
+      vorbei: ["Conocernos en persona", "Cómo puedes conocernos en persona."],
       anpacken: ["Participar", "Hazte uno de los primeros miembros o ayuda a construirlo."],
       folgen: ["Seguir al tanto", "Sigue leyendo con calma y mira qué se decide a continuación."]
     },
@@ -346,11 +376,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Para que puedas seguir al tanto con calma"
     },
     alt: {
-      unendlichGold: "Bucle de infinito dorado que se convierte en círculo", unendlichDunkel: "Bucle de infinito blanco sobre fondo oscuro",
-      kreis: "Signo de BtMM: un círculo de líneas entrelazadas", baumDunkel: "Árbol dibujado que crece de una figura de pie",
-      baumHell: "Árbol claro que crece de una figura de pie", logo: "Logotipo de BtMM",
-      wiese: "Johannes con su perro en un prado", portraet: "Retrato de Johannes"
+      grundlagen: "Imagen generada por IA: Cuatro personas están en un taller antiguo junto al banco de cepillar, comparten pan y conversan",
+      sparen: "Imagen generada por IA: Cuatro personas reparten en una cocina de granja zanahorias, patatas y manzanas en bolsas y tarros",
+      arbeiten: "Imagen generada por IA: Cuatro personas cepillan, lijan y miden una al lado de otra en un banco de trabajo largo",
+      wohnen: "Imagen generada por IA: Tres personas trabajan en un huerto entre casas de madera antiguas en una ladera boscosa",
+      skeptisch: "Imagen generada por IA: Una mujer mayor examina un cuaderno con una lupa en la mesa de la cocina, junto a carpetas y té",
+      dokumente: "Imagen generada por IA: Una mano con pluma sobre una hoja en blanco en una mesa de madera antigua con carpetas y lámpara",
+      sinn: "Imagen generada por IA: Cinco personas se sientan al anochecer en el jardín alrededor de un farol y conversan con té y pan",
+      gruenden: "Imagen generada por IA: Varias manos aprietan la tierra alrededor de un árbol joven recién plantado",
+      freiburg: "Imagen generada por IA: Tres personas caminan conversando por un callejón del casco antiguo con adoquines y casas entramadas",
+      vorbei: "Imagen generada por IA: Una mujer está en la puerta abierta de una casa de piedra y saluda a dos visitantes; dentro, una mesa puesta",
+      anpacken: "Imagen generada por IA: Cuatro personas levantan un armazón de madera en un prado al borde del bosque y llevan una viga",
+      folgen: "Imagen generada por IA: Tres personas suben conversando por un camino forestal"
     },
+    kiLabel: "Imagen generada por IA – personas ficticias",
+    bildCredit: "Imágenes creadas con Grok (IA)",
     merkmale: {
       freund: ["amig", "colega", "companer", "familia", "madre", " mama", "padre", " papa", "herman", "me conto", "me hablo", "recomend", "boca a boca", "vecin", "conocid"],
       online: ["instagram", "internet", "google", "busque", "buscando", "en linea", "online", "redes sociales", "facebook", "tiktok", "youtube", "pagina web", "sitio web", " web", "articulo", "periodico", "podcast"],
@@ -413,10 +453,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Moradia e terra", "Por que no BtMM as casas são mantidas em comum e não são vendidas."],
       skeptisch: ["Provas e questões em aberto", "Respostas a perguntas críticas e os documentos para consultar."],
       dokumente: ["Documentos", "Estatuto, conceito e introdução para baixar."],
-      sinn: ["Comunidade", "Como as decisões são tomadas e como as pessoas se reúnem no BtMM."],
+      sinn: ["Comunidade", "Como as decisões são tomadas no BtMM e o que orienta o convívio."],
       gruenden: ["A fundação", "Onde o BtMM está agora e o que ainda falta para a cooperativa."],
       freiburg: ["A semente em Friburgo", "Como nasce o primeiro lugar e como você pode participar."],
-      vorbei: ["Noite aberta", "Passe por lá e conheça as pessoas por trás do BtMM."],
+      vorbei: ["Conhecer-nos pessoalmente", "Como podes conhecer-nos pessoalmente."],
       anpacken: ["Participar", "Seja um dos primeiros membros ou ajude na construção."],
       folgen: ["Acompanhar", "Continue lendo com calma e veja o que será decidido a seguir."]
     },
@@ -436,11 +476,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Para você acompanhar com calma"
     },
     alt: {
-      unendlichGold: "Laço do infinito dourado que se torna um círculo", unendlichDunkel: "Laço do infinito branco sobre fundo escuro",
-      kreis: "Símbolo do BtMM: um círculo de linhas entrelaçadas", baumDunkel: "Árvore desenhada que cresce de uma figura em pé",
-      baumHell: "Árvore clara que cresce de uma figura em pé", logo: "Logotipo do BtMM",
-      wiese: "Johannes com seu cachorro num prado", portraet: "Retrato de Johannes"
+      grundlagen: "Imagem gerada por IA: Quatro pessoas estão numa oficina antiga junto à bancada de aplainar, partilham pão e conversam",
+      sparen: "Imagem gerada por IA: Quatro pessoas repartem numa cozinha de quinta cenouras, batatas e maçãs por sacos e frascos",
+      arbeiten: "Imagem gerada por IA: Quatro pessoas aplainam, lixam e medem lado a lado numa bancada longa",
+      wohnen: "Imagem gerada por IA: Três pessoas trabalham numa horta entre casas de madeira antigas numa encosta arborizada",
+      skeptisch: "Imagem gerada por IA: Uma mulher mais velha examina um caderno com uma lupa à mesa da cozinha, ao lado pastas e chá",
+      dokumente: "Imagem gerada por IA: Uma mão com caneta de tinta permanente sobre uma folha em branco numa mesa de madeira antiga com pastas e candeeiro",
+      sinn: "Imagem gerada por IA: Cinco pessoas sentam-se ao anoitecer no jardim à volta de uma lanterna e conversam com chá e pão",
+      gruenden: "Imagem gerada por IA: Várias mãos compactam a terra à volta de uma árvore jovem recém-plantada",
+      freiburg: "Imagem gerada por IA: Três pessoas caminham a conversar por um beco da cidade antiga com calçada e casas de enxaimel",
+      vorbei: "Imagem gerada por IA: Uma mulher está na porta aberta de uma casa de pedra e cumprimenta dois visitantes; lá dentro, uma mesa posta",
+      anpacken: "Imagem gerada por IA: Quatro pessoas constroem uma estrutura de madeira num prado à beira da floresta e transportam uma viga",
+      folgen: "Imagem gerada por IA: Três pessoas sobem a conversar um caminho florestal"
     },
+    kiLabel: "Imagem gerada por IA – pessoas fictícias",
+    bildCredit: "Imagens criadas com Grok (IA)",
     merkmale: {
       freund: ["amig", "colega", "familia", " mae", " pai ", "irma", "me contou", "me falou", "recomend", "indicou", "indicacao", "boca a boca", "vizinh", "conhecid"],
       online: ["instagram", "internet", "google", "pesquis", "procurei", "online", "redes sociais", "facebook", "tiktok", "youtube", " site", "artigo", "jornal", "podcast"],
@@ -503,10 +553,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["Жильё и земля", "Почему дома в BtMM находятся в общем владении и не продаются."],
       skeptisch: ["Доказательства и открытые вопросы", "Ответы на критические вопросы и документы для изучения."],
       dokumente: ["Документы", "Устав, концепция и введение для скачивания."],
-      sinn: ["Сообщество", "Как принимаются решения и как люди объединяются в BtMM."],
+      sinn: ["Сообщество", "Как в BtMM принимаются решения и на чём строится совместная жизнь."],
       gruenden: ["Основание", "На каком этапе сейчас BtMM и чего не хватает до кооператива."],
       freiburg: ["Росток во Фрайбурге", "Как появляется первое место и как ты можешь присоединиться."],
-      vorbei: ["Открытый вечер", "Приходи и познакомься с людьми, которые стоят за BtMM."],
+      vorbei: ["Знакомство на месте", "Как ты можешь познакомиться с нами на месте."],
       anpacken: ["Участвовать", "Стань одним из первых участников или помоги в создании."],
       folgen: ["Следить дальше", "Читай дальше в своём темпе и смотри, что будет решено дальше."]
     },
@@ -526,11 +576,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "Чтобы ты мог(ла) спокойно следить дальше"
     },
     alt: {
-      unendlichGold: "Золотая петля бесконечности, которая становится кругом", unendlichDunkel: "Белая петля бесконечности на тёмном фоне",
-      kreis: "Знак BtMM: круг из переплетённых линий", baumDunkel: "Нарисованное дерево, вырастающее из стоящей фигуры",
-      baumHell: "Светлое дерево, вырастающее из стоящей фигуры", logo: "Логотип BtMM",
-      wiese: "Йоханнес со своей собакой на лугу", portraet: "Портрет Йоханнеса"
+      grundlagen: "Изображение, созданное ИИ: Четыре человека стоят в старой мастерской у верстака, делят хлеб и разговаривают",
+      sparen: "Изображение, созданное ИИ: Четыре человека в деревенской кухне раскладывают морковь, картофель и яблоки по мешкам и банкам",
+      arbeiten: "Изображение, созданное ИИ: Четыре человека рядом за длинным верстаком строгают, шлифуют и измеряют",
+      wohnen: "Изображение, созданное ИИ: Трое людей работают в огороде между старыми деревянными домами на лесистом склоне",
+      skeptisch: "Изображение, созданное ИИ: Пожилая женщина рассматривает тетрадь через лупу за кухонным столом, рядом папки и чай",
+      dokumente: "Изображение, созданное ИИ: Рука с перьевой ручкой над чистым листом на старом деревянном столе с папками и лампой",
+      sinn: "Изображение, созданное ИИ: Пятеро людей сидят в сумерках в саду вокруг фонаря и беседуют за чаем и хлебом",
+      gruenden: "Изображение, созданное ИИ: Несколько рук уплотняют землю вокруг только что посаженного молодого дерева",
+      freiburg: "Изображение, созданное ИИ: Трое людей идут, беседуя, по переулку старого города с булыжной мостовой и фахверковыми домами",
+      vorbei: "Изображение, созданное ИИ: Женщина стоит в открытой двери каменного дома и встречает двух гостей, внутри накрытый стол",
+      anpacken: "Изображение, созданное ИИ: Четверо людей собирают деревянный каркас на лугу у опушки леса и несут балку",
+      folgen: "Изображение, созданное ИИ: Трое людей поднимаются по лесной тропе, разговаривая"
     },
+    kiLabel: "Изображение, созданное ИИ – персонажи вымышленные",
+    bildCredit: "Изображения созданы с помощью Grok (ИИ)",
     merkmale: {
       freund: ["друг", "друз", "подруг", "знаком", "коллег", "семья", "семьи", "мама", "мать", "папа", "отец", "брат", "сестр", "рассказал", "рассказыв", "посовет", "рекоменд", "сосед"],
       online: ["инстаграм", "instagram", "интернет", "гугл", "google", "яндекс", "нашел", "нашла", "искал", "онлайн", "соцсет", "фейсбук", "телеграм", "тикток", "ютуб", "youtube", "сайт", "статья", "статью", "статье", "газет", "подкаст"],
@@ -593,10 +653,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["السكن والأرض", "لماذا تُملك البيوت في BtMM بشكل مشترك ولا تُباع."],
       skeptisch: ["أدلة وأسئلة مفتوحة", "إجابات عن الأسئلة النقدية والوثائق للاطلاع عليها."],
       dokumente: ["الوثائق", "النظام الأساسي والمفهوم والمقدمة للتنزيل."],
-      sinn: ["المجتمع", "كيف تُتخذ القرارات وكيف يلتقي الناس في BtMM."],
+      sinn: ["المجتمع", "كيف تُتخذ القرارات في BtMM وعلى أي أساس يقوم العيش المشترك."],
       gruenden: ["التأسيس", "أين يقف BtMM الآن وما الذي ينقص حتى قيام التعاونية."],
       freiburg: ["البذرة في فرايبورغ", "كيف ينشأ المكان الأول وكيف يمكنك الانضمام."],
-      vorbei: ["أمسية مفتوحة", "تعال وتعرّف على الناس الذين يقفون وراء BtMM."],
+      vorbei: ["التعارف على المكان", "كيف يمكنك التعرف إلينا على المكان."],
       anpacken: ["شارك", "كن من أوائل الأعضاء أو ساعد في البناء."],
       folgen: ["ابقَ على اطلاع", "واصل القراءة على مهل وشاهد ما سيتقرر لاحقًا."]
     },
@@ -616,11 +676,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "حتى تتابع على مهل"
     },
     alt: {
-      unendlichGold: "حلقة لا نهاية ذهبية تتحول إلى دائرة", unendlichDunkel: "حلقة لا نهاية بيضاء على خلفية داكنة",
-      kreis: "رمز BtMM: دائرة من خطوط متشابكة", baumDunkel: "شجرة مرسومة تنمو من شخص واقف",
-      baumHell: "شجرة فاتحة تنمو من شخص واقف", logo: "شعار BtMM",
-      wiese: "يوهانس مع كلبه في مرج", portraet: "صورة شخصية ليوهانس"
+      grundlagen: "صورة مُنشأة بالذكاء الاصطناعي: أربعة أشخاص يقفون في ورشة قديمة عند منضدة النجارة، يقتسمون الخبز ويتحدثون",
+      sparen: "صورة مُنشأة بالذكاء الاصطناعي: أربعة أشخاص يوزّعون في مطبخ ريفي جزراً وبطاطاً وتفاحاً في أكياس وبرطمانات",
+      arbeiten: "صورة مُنشأة بالذكاء الاصطناعي: أربعة أشخاص يسحجون ويصقلون ويقيسون جنباً إلى جنب عند منضدة عمل طويلة",
+      wohnen: "صورة مُنشأة بالذكاء الاصطناعي: ثلاثة أشخاص يعملون في حديقة خضار بين منازل خشبية قديمة على سفح مشجّر",
+      skeptisch: "صورة مُنشأة بالذكاء الاصطناعي: امرأة أكبر سناً تفحص كراساً بعدسة مكبرة على طاولة المطبخ، وإلى جانبها ملفات وشاي",
+      dokumente: "صورة مُنشأة بالذكاء الاصطناعي: يد بقلم حبر فوق ورقة فارغة على طاولة خشبية قديمة مع ملفات ومصباح",
+      sinn: "صورة مُنشأة بالذكاء الاصطناعي: خمسة أشخاص يجلسون عند الغسق في الحديقة حول فانوس ويتحدثون مع الشاي والخبز",
+      gruenden: "صورة مُنشأة بالذكاء الاصطناعي: عدة أيدٍ تضغط التراب حول شجرة صغيرة مزروعة حديثاً",
+      freiburg: "صورة مُنشأة بالذكاء الاصطناعي: ثلاثة أشخاص يسيرون وهم يتحدثون في زقاق مدينة قديمة بحصى وأبنية ذات هيكل خشبي",
+      vorbei: "صورة مُنشأة بالذكاء الاصطناعي: امرأة تقف في الباب المفتوح لبيت حجري وترحّب بضيفين، وفي الداخل طاولة معدّة",
+      anpacken: "صورة مُنشأة بالذكاء الاصطناعي: أربعة أشخاص يشيّدون هيكلاً خشبياً في مرج على حافة الغابة ويحملون عارضة",
+      folgen: "صورة مُنشأة بالذكاء الاصطناعي: ثلاثة أشخاص يصعدون درباً في الغابة وهم يتحدثون"
     },
+    kiLabel: "صورة مُنشأة بالذكاء الاصطناعي – الأشخاص خياليون",
+    bildCredit: "صور أُنشئت باستخدام Grok (ذكاء اصطناعي)",
     merkmale: {
       freund: ["صديق", "اصدقاء", "زميل", "عائلة", "عائلتي", "اسرتي", "والدتي", "والدي", "امي ", "ابي ", "اخي ", "اختي", "اخبرني", "اخبرتني", "حكى لي", "نصحني", "اوصى", "توصية", "جاري", "جارتي"],
       online: ["انستغرام", "انستجرام", "instagram", "الانترنت", "انترنت", "جوجل", "غوغل", "google", "بحثت", "اونلاين", "وسائل التواصل", "فيسبوك", "تيك توك", "يوتيوب", "موقع", "مقال", "جريدة", "صحيفة", "بودكاست"],
@@ -683,10 +753,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["आवास और ज़मीन", "BtMM में घर साझा रूप से क्यों रखे जाते हैं और बेचे क्यों नहीं जाते।"],
       skeptisch: ["प्रमाण और खुले सवाल", "आलोचनात्मक सवालों के जवाब और पढ़ने के लिए दस्तावेज़।"],
       dokumente: ["दस्तावेज़", "उपनियम, अवधारणा और परिचय डाउनलोड के लिए।"],
-      sinn: ["समुदाय", "फ़ैसले कैसे होते हैं और BtMM में लोग कैसे एक साथ आते हैं।"],
+      sinn: ["समुदाय", "BtMM में फ़ैसले कैसे होते हैं और साथ रहना-काम करना किस पर टिका है।"],
       gruenden: ["स्थापना", "BtMM अभी कहाँ है और सहकारी समिति बनने तक क्या बाक़ी है।"],
       freiburg: ["फ्राइबुर्ग में अंकुर", "पहली जगह कैसे बन रही है और आप उसमें कैसे जुड़ सकते हैं।"],
-      vorbei: ["खुली शाम", "आइए और BtMM के पीछे के लोगों से मिलिए।"],
+      vorbei: ["आमने-सामने जानना", "आप हमसे आमने-सामने कैसे मिल सकते हैं।"],
       anpacken: ["भाग लें", "पहले सदस्यों में से एक बनें या निर्माण में मदद करें।"],
       folgen: ["जुड़े रहें", "आराम से पढ़ते रहें और देखें कि आगे क्या तय होता है।"]
     },
@@ -706,11 +776,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "ताकि आप आराम से जुड़े रह सकें"
     },
     alt: {
-      unendlichGold: "सुनहरा अनंत-लूप जो एक वृत्त बन जाता है", unendlichDunkel: "गहरी पृष्ठभूमि पर सफ़ेद अनंत-लूप",
-      kreis: "BtMM का चिह्न: आपस में गुँथी रेखाओं का एक वृत्त", baumDunkel: "खड़ी आकृति से उगता हुआ चित्रित पेड़",
-      baumHell: "खड़ी आकृति से उगता हुआ हल्के रंग का पेड़", logo: "BtMM लोगो",
-      wiese: "घास के मैदान में अपने कुत्ते के साथ योहानेस", portraet: "योहानेस का चित्र"
+      grundlagen: "एआई-जनरेटेड चित्र: चार लोग एक पुरानी कार्यशाला में होबल-बेंच के पास खड़े हैं, रोटी बाँटते और बात करते हुए",
+      sparen: "एआई-जनरेटेड चित्र: चार लोग एक किसान रसोई में गाजर, आलू और सेब थैलों और जारों में बाँट रहे हैं",
+      arbeiten: "एआई-जनरेटेड चित्र: चार लोग एक लंबी कार्य-मेज़ पर साथ-साथ होबल करते, रगड़ते और नापते हैं",
+      wohnen: "एआई-जनरेटेड चित्र: तीन लोग जंगली ढलान पर पुराने लकड़ी के घरों के बीच सब्ज़ी-बगीचे में काम कर रहे हैं",
+      skeptisch: "एआई-जनरेटेड चित्र: एक उम्रदराज महिला रसोई की मेज़ पर आवर्धक काँच से एक पुस्तिका जाँच रही है, पास में फ़ोल्डर और चाय",
+      dokumente: "एआई-जनरेटेड चित्र: पुरानी लकड़ी की मेज़ पर फ़ोल्डर और दीये के साथ खाली पन्ने पर फ़ाउंटेन पेन थामे एक हाथ",
+      sinn: "एआई-जनरेटेड चित्र: पाँच लोग गोधूलि में बगीचे में लालटेन के चारों ओर बैठे चाय और रोटी के साथ बात कर रहे हैं",
+      gruenden: "एआई-जनरेटेड चित्र: कई हाथ एक नए लगाए गए छोटे पेड़ के चारों ओर मिट्टी दबा रहे हैं",
+      freiburg: "एआई-जनरेटेड चित्र: तीन लोग बात करते हुए पत्थर की सड़क और लकड़ी के ढाँचे वाले घरों वाली पुरानी गली से जा रहे हैं",
+      vorbei: "एआई-जनरेटेड चित्र: एक महिला पत्थर के घर के खुले दरवाज़े में खड़ी दो मेहमानों का स्वागत कर रही है, भीतर एक सजी हुई मेज़",
+      anpacken: "एआई-जनरेटेड चित्र: चार लोग जंगल के किनारे के मैदान पर लकड़ी का ढाँचा बना रहे हैं और एक शहतीर उठा रहे हैं",
+      folgen: "एआई-जनरेटेड चित्र: तीन लोग बात करते हुए एक वन-पथ पर चढ़ रहे हैं"
     },
+    kiLabel: "एआई-जनरेटेड चित्र – व्यक्ति काल्पनिक हैं",
+    bildCredit: "चित्र Grok (एआई) से बनाए गए",
     merkmale: {
       freund: ["दोस्त", "मित्र", "सहकर्मी", "परिवार", "माँ", "मां", "पिता", "पापा", "भाई", "बहन", "बताया", "सलाह", "सिफारिश", "सिफ़ारिश", "पड़ोसी", "friend"],
       online: ["इंस्टाग्राम", "instagram", "इंटरनेट", "internet", "गूगल", "google", "खोजा", "ऑनलाइन", "online", "सोशल मीडिया", "फेसबुक", "यूट्यूब", "youtube", "वेबसाइट", "लेख", "अख़बार", "अखबार", "पॉडकास्ट"],
@@ -773,10 +853,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["বাসস্থান ও জমি", "কেন BtMM-এ বাড়ি যৌথভাবে রাখা হয় এবং বিক্রি করা হয় না।"],
       skeptisch: ["প্রমাণ ও খোলা প্রশ্ন", "সমালোচনামূলক প্রশ্নের উত্তর এবং পড়ার জন্য নথিপত্র।"],
       dokumente: ["নথিপত্র", "সংবিধি, ধারণা ও পরিচিতি ডাউনলোডের জন্য।"],
-      sinn: ["সম্প্রদায়", "কীভাবে সিদ্ধান্ত নেওয়া হয় এবং BtMM-এ মানুষ কীভাবে একত্র হয়।"],
+      sinn: ["সম্প্রদায়", "BtMM-এ সিদ্ধান্ত কীভাবে হয় এবং সহঅবস্থান কীসের উপর দাঁড়ায়।"],
       gruenden: ["প্রতিষ্ঠা", "BtMM এখন কোথায় আছে এবং সমবায় হতে আর কী বাকি।"],
       freiburg: ["ফ্রাইবুর্গে অঙ্কুর", "প্রথম জায়গাটি কীভাবে গড়ে উঠছে এবং আপনি কীভাবে যুক্ত হতে পারেন।"],
-      vorbei: ["খোলা সন্ধ্যা", "চলে আসুন এবং BtMM-এর পেছনের মানুষদের সঙ্গে পরিচিত হন।"],
+      vorbei: ["সামনাসামনি পরিচিতি", "আপনি আমাদের সঙ্গে সামনাসামনি কীভাবে পরিচিত হতে পারেন।"],
       anpacken: ["অংশ নিন", "প্রথম সদস্যদের একজন হোন অথবা গড়ে তুলতে সাহায্য করুন।"],
       folgen: ["সঙ্গে থাকুন", "ধীরে-সুস্থে পড়তে থাকুন এবং দেখুন এরপর কী সিদ্ধান্ত হয়।"]
     },
@@ -796,11 +876,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "যাতে আপনি ধীরে-সুস্থে সঙ্গে থাকতে পারেন"
     },
     alt: {
-      unendlichGold: "সোনালি অসীম-লুপ যা একটি বৃত্তে পরিণত হয়", unendlichDunkel: "গাঢ় পটভূমিতে সাদা অসীম-লুপ",
-      kreis: "BtMM-এর চিহ্ন: জড়ানো রেখার একটি বৃত্ত", baumDunkel: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা আঁকা গাছ",
-      baumHell: "দাঁড়িয়ে থাকা অবয়ব থেকে বেড়ে ওঠা হালকা রঙের গাছ", logo: "BtMM লোগো",
-      wiese: "মাঠে নিজের কুকুরের সঙ্গে ইয়োহানেস", portraet: "ইয়োহানেসের প্রতিকৃতি"
+      grundlagen: "এআই-সৃষ্ট ছবি: চারজন মানুষ একটি পুরোনো কর্মশালায় হোবেল-বেঞ্চের পাশে দাঁড়িয়ে রুটি ভাগ করে কথা বলছে",
+      sparen: "এআই-সৃষ্ট ছবি: চারজন মানুষ একটি কৃষকের রান্নাঘরে গাজর, আলু ও আপেল থলে ও বয়ামে ভাগ করছে",
+      arbeiten: "এআই-সৃষ্ট ছবি: চারজন মানুষ একটি লম্বা কাজের টেবিলে পাশাপাশি হোবেল করছে, ঘষছে ও মাপছে",
+      wohnen: "এআই-সৃষ্ট ছবি: তিনজন মানুষ বনাঞ্চলের ঢালে পুরোনো কাঠের বাড়ির মাঝে সবজির বাগানে কাজ করছে",
+      skeptisch: "এআই-সৃষ্ট ছবি: একজন বয়স্কা নারী রান্নাঘরের টেবিলে ম্যাগনিফাইং গ্লাস দিয়ে একটি খাতা পরীক্ষা করছেন, পাশে ফোল্ডার ও চা",
+      dokumente: "এআই-সৃষ্ট ছবি: পুরোনো কাঠের টেবিলে ফোল্ডার ও বাতির পাশে খালি কাগজের উপর ফাউন্টেন পেন ধরা একটি হাত",
+      sinn: "এআই-সৃষ্ট ছবি: পাঁচজন মানুষ গোধূলিতে বাগানে লণ্ঠন ঘিরে বসে চা ও রুটি নিয়ে কথা বলছে",
+      gruenden: "এআই-সৃষ্ট ছবি: কয়েকটি হাত সদ্য রোপণ করা একটি ছোট গাছের চারপাশে মাটি চেপে ধরছে",
+      freiburg: "এআই-সৃষ্ট ছবি: তিনজন মানুষ কথা বলতে বলতে পাথরের রাস্তা ও কাঠের কাঠামোর বাড়িওয়ালা পুরোনো শহরের গলি দিয়ে যাচ্ছে",
+      vorbei: "এআই-সৃষ্ট ছবি: একজন নারী একটি পাথরের বাড়ির খোলা দরজায় দাঁড়িয়ে দুই অতিথিকে স্বাগত জানাচ্ছেন, ভিতরে সাজানো টেবিল",
+      anpacken: "এআই-সৃষ্ট ছবি: চারজন মানুষ বনের ধারের মাঠে কাঠের কাঠামো বানাচ্ছে এবং একটি কড়ি বহন করছে",
+      folgen: "এআই-সৃষ্ট ছবি: তিনজন মানুষ কথা বলতে বলতে একটি বনপথে উঠে যাচ্ছে"
     },
+    kiLabel: "এআই-সৃষ্ট ছবি – ব্যক্তিরা কাল্পনিক",
+    bildCredit: "ছবিগুলো Grok (এআই) দিয়ে তৈরি",
     merkmale: {
       freund: ["বন্ধু", "বান্ধবী", "সহকর্মী", "পরিবার", "আমার মা", "মায়ের", "বাবা", "ভাই", "বোন", "বলেছে", "বলেছিল", "বলেছেন", "পরামর্শ", "সুপারিশ", "প্রতিবেশী"],
       online: ["ইনস্টাগ্রাম", "instagram", "ইন্টারনেট", "গুগল", "google", "খুঁজ", "অনলাইন", "online", "সোশ্যাল মিডিয়া", "ফেসবুক", "ইউটিউব", "youtube", "ওয়েবসাইট", "প্রবন্ধ", "নিবন্ধ", "খবরের কাগজ", "পত্রিকা", "পডকাস্ট"],
@@ -863,10 +953,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["住まいと土地", "BtMMで家が共同で保有され、売られない理由。"],
       skeptisch: ["根拠と未解決の問い", "批判的な質問への回答と、読んで確かめられる文書。"],
       dokumente: ["ドキュメント", "定款、コンセプト、入門資料のダウンロード。"],
-      sinn: ["コミュニティ", "どのように決定がなされ、BtMMで人々がどう集うのか。"],
+      sinn: ["コミュニティ", "BtMMで決定がどのようになされ、共生が何に沿っているのか。"],
       gruenden: ["設立", "BtMMの現在地と、協同組合になるまでに足りないもの。"],
       freiburg: ["フライブルクの芽", "最初の場所がどう生まれ、どうすれば加われるか。"],
-      vorbei: ["オープンな夕べ", "立ち寄って、BtMMを支える人たちと知り合いましょう。"],
+      vorbei: ["現地で知り合う", "現地で私たちと知り合う方法。"],
       anpacken: ["参加する", "最初のメンバーの一人になるか、立ち上げを手伝ってください。"],
       folgen: ["見守る", "ゆっくり読み進め、次に何が決まるかを見守りましょう。"]
     },
@@ -886,11 +976,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "ゆっくり見守れるように"
     },
     alt: {
-      unendlichGold: "円へと変わっていく金色の無限ループ", unendlichDunkel: "暗い背景に白い無限ループ",
-      kreis: "BtMMのシンボル：絡み合う線でできた円", baumDunkel: "立っている人の姿から伸びる木のイラスト",
-      baumHell: "立っている人の姿から伸びる明るい色の木", logo: "BtMMのロゴ",
-      wiese: "草地で愛犬と過ごすヨハネス", portraet: "ヨハネスの肖像"
+      grundlagen: "AI生成画像: 古い作業場の鉋台のそばに四人の人が立ち、パンを分け合いながら話している",
+      sparen: "AI生成画像: 農家の台所で、四人の人が人参・じゃがいも・りんごを袋や瓶に分けている",
+      arbeiten: "AI生成画像: 長い作業台で、四人の人が並んで鉋をかけ、磨き、寸法を取っている",
+      wohnen: "AI生成画像: 森のある斜面の古い木の家のあいだで、三人の人が野菜畑で働いている",
+      skeptisch: "AI生成画像: 年配の女性が台所のテーブルで虫眼鏡を使って手帳を調べており、そばにファイルとお茶がある",
+      dokumente: "AI生成画像: 古い木のテーブルの上の白紙に万年筆を構えた手、そばにファイルとランプ",
+      sinn: "AI生成画像: 夕暮れの庭で、五人の人がランタンを囲んで座り、お茶とパンを前に話し合っている",
+      gruenden: "AI生成画像: 複数の手が、植えられたばかりの若い木のまわりの土を押さえている",
+      freiburg: "AI生成画像: 石畳と木組みの家が並ぶ旧市街の路地を、三人の人が話しながら歩いている",
+      vorbei: "AI生成画像: 石造りの家の開いた扉に女性が立ち、二人の客を迎えている。中には用意されたテーブル",
+      anpacken: "AI生成画像: 森の端の草地で、四人の人が木組みを組み立て、梁を運んでいる",
+      folgen: "AI生成画像: 三人の人が話しながら森の道を上っている"
     },
+    kiLabel: "AI生成画像 – 人物は架空です",
+    bildCredit: "画像は Grok（AI）で作成",
     merkmale: {
       freund: ["友達", "友だち", "友人", "知人", "知り合い", "同僚", "家族", "母", "父", "兄", "姉", "弟", "妹", "聞いた", "教えてもら", "勧め", "すすめ", "紹介", "口コミ", "ルームメイト"],
       online: ["インスタ", "instagram", "インターネット", "ネット", "グーグル", "google", "検索", "オンライン", "sns", "フェイスブック", "ティックトック", "ユーチューブ", "youtube", "ウェブ", "サイト", "ホームページ", "記事", "新聞", "ポッドキャスト"],
@@ -953,10 +1053,10 @@ window.BTMM_TUER_TEXTE = {
       wohnen: ["居住与土地", "为什么 BtMM 的房屋共同持有、不出售。"],
       skeptisch: ["依据与未决问题", "对批评性问题的回答，以及可供查阅的文件。"],
       dokumente: ["文件", "章程、理念和入门介绍，可供下载。"],
-      sinn: ["共同体", "决定如何做出，以及人们如何在 BtMM 中走到一起。"],
+      sinn: ["共同体", "BtMM 中如何做决定，以及共同生活以什么为准。"],
       gruenden: ["创立", "BtMM 目前进展如何，距离成立合作社还缺什么。"],
       freiburg: ["弗莱堡的种子", "第一个地点如何形成，以及你如何加入。"],
-      vorbei: ["开放之夜", "过来认识 BtMM 背后的人。"],
+      vorbei: ["当面认识我们", "你可以如何当面认识我们。"],
       anpacken: ["参与", "成为第一批成员之一，或帮助一起建设。"],
       folgen: ["持续关注", "慢慢继续阅读，看看接下来会决定什么。"]
     },
@@ -976,11 +1076,21 @@ window.BTMM_TUER_TEXTE = {
       dranbleiben: "让你可以慢慢持续关注"
     },
     alt: {
-      unendlichGold: "逐渐变成圆圈的金色无限环", unendlichDunkel: "深色背景上的白色无限环",
-      kreis: "BtMM 标志：由交织线条组成的圆", baumDunkel: "从站立人形中长出的手绘树",
-      baumHell: "从站立人形中长出的浅色树", logo: "BtMM 标志",
-      wiese: "约翰内斯和他的狗在草地上", portraet: "约翰内斯的肖像"
+      grundlagen: "AI生成的图片: 四个人站在一间旧作坊的刨木台旁，分享面包并交谈",
+      sparen: "AI生成的图片: 四个人在农家厨房里把胡萝卜、土豆和苹果分装进袋子和罐子",
+      arbeiten: "AI生成的图片: 四个人并排在一张长工作台边刨木、打磨并测量",
+      wohnen: "AI生成的图片: 三个人在林木覆盖的坡地上、旧木屋之间的菜园里劳作",
+      skeptisch: "AI生成的图片: 一位年长女子在厨房桌前用放大镜查看一本册子，旁边有文件夹和茶",
+      dokumente: "AI生成的图片: 一只手握着钢笔悬在空白纸上，旧木桌上放着文件夹和台灯",
+      sinn: "AI生成的图片: 黄昏时，五个人围坐在花园里的一盏提灯旁，边喝茶吃面包边交谈",
+      gruenden: "AI生成的图片: 几双手把土按紧在一棵刚种下的小树周围",
+      freiburg: "AI生成的图片: 三个人边走边聊，穿过铺着石板、有木构房屋的老城巷子",
+      vorbei: "AI生成的图片: 一名女子站在石屋开着的门口迎接两位客人，屋里摆好了桌子",
+      anpacken: "AI生成的图片: 四个人在林边草地上搭起木质骨架并抬着一根木梁",
+      folgen: "AI生成的图片: 三个人边走边聊，沿着林间小路向上走"
     },
+    kiLabel: "AI生成的图片 – 人物为虚构",
+    bildCredit: "图片由 Grok（AI）生成",
     merkmale: {
       freund: ["朋友", "熟人", "同事", "家人", "妈妈", "母亲", "爸爸", "父亲", "哥哥", "姐姐", "弟弟", "妹妹", "告诉我", "跟我说", "推荐", "介绍", "口碑", "室友", "邻居"],
       online: ["instagram", "网上", "互联网", "网络", "谷歌", "google", "百度", "搜索", "在线", "社交媒体", "微信", "微博", "小红书", "抖音", "脸书", "youtube", "网站", "文章", "报纸", "播客"],
