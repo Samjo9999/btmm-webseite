@@ -77,7 +77,7 @@ Fast alle Stundenwerte sind E oder S. Sie zeigen die Rangfolge und die Größeno
 | 2 Betriebe | 3 bis 12 Personen, ein Team in einem Gemeinschaftsbetrieb mit Anstellung | Tischlerei, Elektro, Café, Studio | Team, oft Meister, 5.000 bis 120.000 € Start |
 | 3 Unternehmen und Einrichtungen | mehrere Teams oder Betriebe, 6 bis 60 Personen und mehr | Hofladen, Bioladen, Solawi, Bäckerei, Pflege | Kapital, Kundschaft, Genehmigungen |
 
-Nach der Satzung arbeiten die Beschäftigten in Teams von höchstens zwölf Menschen; wächst ein Team darüber hinaus, teilt es sich (Konzept, nicht in der Außen-Satzung v9.1.4) (B). Ein Betrieb kann aus mehreren Teams bestehen, und mehrere Betriebe einer Abteilung können als Gemeinschaftsunternehmen auftreten, ohne Vorgesetzte und mit gleichem Lohn (Konzept, nicht in der Außen-Satzung v9.1.4 und 3b, seit Satzung v7.13.0) (B). Die Zwölf begrenzt das Team, nicht den Betrieb.
+Nach dem Konzept arbeiten die Beschäftigten in Teams von höchstens zwölf Menschen; wächst ein Team darüber hinaus, teilt es sich (Konzept, noch nicht in der Satzung) (B). Ein Betrieb kann aus mehreren Teams bestehen, und mehrere Betriebe einer Abteilung können als Gemeinschaftsunternehmen auftreten, ohne Vorgesetzte und mit gleichem Lohn (B). Die Zwölf begrenzt das Team, nicht den Betrieb.
 
 ## „Von“, „bis“ und „ab wann“
 
@@ -205,7 +205,7 @@ Die Solawi ist das einzige Unternehmen, das seine Kundschaft selbst mitbringt: 1
 | 1 | Taschen aus Altmaterial | 1–2 | 300 € | 8 € | 2 (1) | — |
 | 1 | Marmelade und Eingemachtes | 1–2 | 300 € | 8 € | 3 (1) | — |
 | 1 | Eigene Kleidung | 1–2 | 600 € | 6 € | 2 (1) | — |
-| 2 | Software- und Web-Studio | 3–8 | 5.000 € | 43 € | 3 (1) | 12 je Team (§ 15a); mehrere Teams möglich |
+| 2 | Software- und Web-Studio | 3–8 | 5.000 € | 43 € | 3 (1) | 12 je Team (Konzept, noch nicht in der Satzung); mehrere Teams möglich |
 | 2 | Gebäudereinigung | 3–12 | 8.000 € | — | 4 (1,5) | 12 |
 | 2 | Bildungs- und Seminarbetrieb | 3–8 | 10.000 € | — | 5 (2) | 12 |
 | 2 | Fahrradwerkstatt | 2–6 | 25.000 € | — | 10 (3) | 12 |
@@ -227,7 +227,7 @@ Das sind 35 Möglichkeiten. „Obergrenze nach Rechner 09“ ist die Kapazität,
 
 ## Wann gibt es welche Schwelle im Arbeitsrecht?
 
-Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Seit Satzung v7.13.0 begrenzt die Zwölf nur das Team (Konzept, nicht in der Außen-Satzung v9.1.4); Betriebe und Gemeinschaftsunternehmen können größer werden. Die Schwellen sind deshalb wichtig, auch weil einzelne schon unter zwölf greifen:
+Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Im Konzept begrenzt die Zwölf nur das Team (noch nicht in der Satzung); Betriebe und Gemeinschaftsunternehmen können größer werden. Die Schwellen sind deshalb wichtig, auch weil einzelne schon unter zwölf greifen:
 
 | Schwelle | Folge |
 |---|---|
@@ -238,7 +238,7 @@ Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Seit Satzung v7.13.0
 | ab 500 | Drittelbeteiligung im Aufsichtsrat (Bs) |
 | EU: unter 10 / unter 50 / unter 250 | Kleinstunternehmen / Kleinunternehmen / mittleres Unternehmen (Bs) |
 
-Wie ein Betriebsrat zu einem Betrieb ohne persönliche Vorgesetzte passt, ist offen (Konzept, nicht in der Außen-Satzung v9.1.4: arbeitsrechtliche Ausgestaltung vor der Einreichung klären). Die Genossenschaft will ihn ausdrücklich zulassen, als zweite Stimme der Beschäftigten neben der Betriebsversammlung (Vollkonzept, Kapitel 14; Dokument 10, Frage 30).
+Wie ein Betriebsrat zu einem Betrieb ohne persönliche Vorgesetzte passt, ist offen (Konzept, noch nicht in der Satzung: arbeitsrechtliche Ausgestaltung vor der Einreichung klären). Die Genossenschaft will ihn ausdrücklich zulassen, als zweite Stimme der Beschäftigten neben der Betriebsversammlung (Vollkonzept, Kapitel 14; Dokument 10, Frage 30).
 
 # 5. Was nicht schnell geht
 
