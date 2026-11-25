@@ -11,7 +11,7 @@ import {
 import { chunksFromDocs } from '../src/corpus.mjs'
 
 describe('taboo filter (Wortstämme als Teilwort)', () => {
-  it('kennt die Auftrag-Stämme inklusive hartz, hildastr, happyfarm', () => {
+  it('kennt die Auftrag-Stämme inklusive hartz, hildastr, happyfarm, oberkirch', () => {
     expect(TABOO_WORDS).toEqual(TABOO_STEMS)
     expect(TABOO_STEMS).toEqual(
       expect.arrayContaining([
@@ -27,6 +27,7 @@ describe('taboo filter (Wortstämme als Teilwort)', () => {
         'karner',
         'happyfarm',
         'elternhof',
+        'oberkirch',
       ])
     )
   })
@@ -42,6 +43,7 @@ describe('taboo filter (Wortstämme als Teilwort)', () => {
     expect(hasTaboo('Hildastraße 12')).toBe(true)
     expect(hasTaboo('Hildastrasse 12')).toBe(true)
     expect(hasTaboo('happyfarm')).toBe(true)
+    expect(hasTaboo('Oberkirch')).toBe(true)
     expect(hasTaboo('Elternhof-Konzept')).toBe(true)
     expect(hasTaboo('Chronische Erkrankung')).toBe(true)
     expect(hasTaboo('bei Krankheit oder Ausfall')).toBe(true)

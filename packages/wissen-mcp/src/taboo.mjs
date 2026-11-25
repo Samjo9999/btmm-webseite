@@ -28,6 +28,7 @@ export const TABOO_STEMS = [
   'karner',
   'happyfarm',
   'elternhof',
+  'oberkirch',
 ]
 
 /** Zusätzliche Inhaltslecks, die den public/Mitmacher-Build abbrechen. */
