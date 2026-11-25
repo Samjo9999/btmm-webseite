@@ -5,7 +5,8 @@
  * - Verlauf nur in sessionStorage (endet mit dem Tab), „Gespräch löschen“ leert ihn.
  * - KI-Kennzeichnung (Art. 50 KI-VO) sichtbar über dem Eingabefeld, aria-describedby am Feld.
  * - KI-Antworten im HTML mit data-ai-generated="true".
- * - Schalter serverseitig aus, Limit, Deckel oder Fehler: Hinweis + Links + bisherige kurze Fragen (Fallback). */
+ * - Schalter serverseitig aus, Limit, Deckel oder Fehler: nur Hinweis „gerade nicht verfügbar“ und Links, kein Übergang zum alten Dialog.
+ * - Solange TUER_KI_ENABLED im Build aus ist, bleibt die heutige Tür unverändert; der alte Dialog wird nach Go-Live in einem eigenen PR gelöscht. */
 (function () {
   'use strict';
   var KI_KEY = 'btmm-tuer-ki-v1';
@@ -24,9 +25,7 @@
   if (st.lang && st.lang !== LANG) st = { gestartet: false, nachrichten: [], schritte: [] };
   st.lang = LANG;
 
-  /* Bisherige Texte merken, damit der Fallback (kurze Fragen) wieder die alten zeigt */
-  var ORIGINAL = {};
-  function setzeText(sel, text) { var el = document.querySelector(sel); if (!el) return; if (!(sel in ORIGINAL)) ORIGINAL[sel] = el.textContent; el.textContent = text; }
+  function setzeText(sel, text) { var el = document.querySelector(sel); if (el) el.textContent = text; }
   function kiTexte() {
     setzeText('[data-t="tuerP"]', K.tuerP);
     setzeText('[data-t="kopfSub"]', K.kopfSub);
@@ -37,12 +36,6 @@
     $('senden').setAttribute('aria-label', K.sendenAria);
     $('ki-hinweis').textContent = K.kiHinweis;
     $('ki-starten').textContent = K.starten;
-  }
-  function alteTexte() {
-    Object.keys(ORIGINAL).forEach(function (sel) { var el = document.querySelector(sel); if (el) el.textContent = ORIGINAL[sel]; });
-    var T = (window.BTMM_TUER_TEXTE || {})[LANG] || window.BTMM_TUER_TEXTE.de;
-    feld.setAttribute('placeholder', T.placeholder);
-    $('senden').setAttribute('aria-label', T.sendenAria);
   }
   kiTexte();
 
@@ -58,7 +51,7 @@
     return li;
   }
 
-  function wegLeiste(mitFallback) {
+  function wegLeiste(mitLinks) {
     var box = $('ki-weg');
     box.innerHTML = '';
     if (st.schritte && st.schritte.length) {
@@ -67,27 +60,15 @@
       w.addEventListener('click', function () { ALT.pfad(st.schritte); });
       box.appendChild(w);
     }
-    if (mitFallback) {
+    if (mitLinks) {
       var nav = document.createElement('nav'); nav.className = 'ki-links';
       [['start', ''], ['faq', '/faq'], ['dokumente', '/dokumente'], ['mitmachen', '/mitmachen']].forEach(function (l) {
         var a = document.createElement('a'); a.href = BASIS + l[1]; a.textContent = K.links[l[0]]; nav.appendChild(a);
       });
       box.appendChild(nav);
-      var kurz = document.createElement('button');
-      kurz.type = 'button'; kurz.className = 'knopf zweit'; kurz.textContent = K.kurz;
-      kurz.addEventListener('click', zuKurzenFragen);
-      box.appendChild(kurz);
     }
     box.hidden = !box.children.length;
     nachUnten();
-  }
-
-  function zuKurzenFragen() {
-    document.body.classList.remove('modus-ki');
-    $('ki-hinweis').hidden = true; $('ki-start').hidden = true; $('ki-weg').hidden = true;
-    feld.removeAttribute('aria-describedby');
-    alteTexte();
-    ALT.start();
   }
 
   function gespraechAn() {
@@ -160,7 +141,7 @@
         }
         if (s === 'zu_lang') { eigene.remove(); feld.value = text; blase(d.text, 'echo'); eingabeFrei(true); return; }
         if (s === 'ende') { blase(d.text, 'echo'); if (!st.schritte.length) st.schritte = ['grundlagen', 'dokumente', 'vorbei']; speichern(); ALT.pfad(st.schritte); return; }
-        // aus, limit, deckel, fehler, netz, ungueltig: Hinweis, Links und kurze Fragen anbieten
+        // aus, limit, deckel, fehler, netz, ungueltig: nur Hinweis und Links, kein alter Dialog
         eigene.remove();
         blase((d && d.text) || K.netz, 'echo');
         if (s === 'limit' || s === 'fehler' || s === 'netz') eingabeFrei(true);

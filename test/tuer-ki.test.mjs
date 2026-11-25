@@ -12,7 +12,7 @@ import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../
 import { pruefeHerkunft, appOrigins } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
 import { SCHRITTE_KEYS, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
-import { FESTE_TEXTE } from '../lib/tuerKi/texte.ts'
+import { FESTE_TEXTE, NICHT_VERFUEGBAR } from '../lib/tuerKi/texte.ts'
 import { tuerKiSchalter } from '../lib/tuerKi/schalter.ts'
 import { scalewayChat } from '../lib/wissen/scaleway.ts'
 import { BTMM_BENENNUNG } from '../lib/wissen/benennung.ts'
@@ -277,11 +277,20 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   assert.match(loader, /Chunks ohne Sichtbarkeits-„Level“ sind hier nicht gesperrt/)
   assert.match(loader, /nurAllowlistChunks/)
   assert.match(loader, /PUBLIC-ALLOWLIST\.json/)
-  const sql = lese('docs/tuer-ki/NICHT-ANWENDEN-braucht-Nutzer-Ja_tuer_ki_rate_limit.sql')
-  assert.match(sql, /NICHT ANWENDEN/)
+  const sql = lese('docs/tuer-ki/tuer_ki_rate_limit.sql')
+  assert.match(sql, /Noch nicht anwenden/)
+  assert.match(sql, /Test-OK und DS-OK/)
+  assert.doesNotMatch(sql, /NICHT-ANWENDEN/)
   assert.match(sql, /delete from public\.tuer_ki_rate where erstellt < now\(\) - interval '24 hours'/)
   assert.match(sql, /Salzquelle/)
   assert.match(sql, /EU-Region/)
+  assert.match(sql, /01\.12\.2026/)
+  const kostenSrc = lese('lib/tuerKi/kosten.ts')
+  assert.match(kostenSrc, /getrennt von S50/)
+  assert.doesNotMatch(kostenSrc, /innerhalb S50/)
+  assert.match(kostenSrc, /kein Anteil an S50/)
+  assert.match(kostenSrc, /Gesamtdeckel 50/)
+  assert.match(kostenSrc, /01\.12\.2026/)
 })
 
 test('Keine Inhalte im Log: nur feste Kürzel und Statuscodes', () => {
@@ -355,7 +364,13 @@ test('Feste Texte: 11 Sprachen, alle Schlüssel, keine Tabu-Wörter, keine Emoji
       assert.ok(FESTE_TEXTE[s][k], `${s}.${k}`)
       assert.doesNotMatch(FESTE_TEXTE[s][k], new RegExp(TABU.source, 'i'), `${s}.${k}`)
     }
+    for (const k of ['aus', 'limit', 'deckel', 'fehler']) {
+      assert.equal(FESTE_TEXTE[s][k], NICHT_VERFUEGBAR[s], `${s}.${k}`)
+      assert.doesNotMatch(FESTE_TEXTE[s][k], /kurze Fragen|short questions|questions courtes|preguntas cortas|perguntas curtas/i, `${s}.${k}`)
+    }
   }
+  assert.match(NICHT_VERFUEGBAR.de, /gerade nicht verfügbar/)
+  assert.match(NICHT_VERFUEGBAR.de, /Sie/)
 })
 
 test('Schritt-Schlüssel der Route = SCHRITTE in public/tuer/pfad.js', () => {
@@ -403,6 +418,14 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.equal(T.de.starten, 'Mit KI sprechen')
   assert.equal(T.de.loeschen, 'Gespräch löschen')
   assert.doesNotMatch(JSON.stringify(T.de), /frei/i)
+  // KI-Modus: bei aus/Limit/Deckel/Fehler nur Hinweis + Links, kein alter Dialog
+  assert.doesNotMatch(ki, /zuKurzenFragen|Lieber kurze Fragen|K\.kurz/)
+  for (const s of TUER_SPRACHEN) {
+    assert.equal('kurz' in T[s], false, s)
+    assert.equal(T[s].netz, NICHT_VERFUEGBAR[s], s)
+  }
+  assert.match(ki, /nur Hinweis und Links, kein alter Dialog/)
+  assert.match(ki, /TUER_KI_ENABLED im Build aus ist, bleibt die heutige Tür unverändert/)
 })
 
 test('DSE-Absatz Tür-KI: nur bei Schalter an, lit. f, Art. 21, gehashte IP, TDDDG, Art.-50-Satz in Sie-Form', () => {

@@ -10,8 +10,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Mit KI sprechen",
     begruessung: "Hallo, schön, dass du da bist. Erzähl mir, was dich zu BtMM führt oder was du wissen möchtest.",
     antwortLabel: "Deine Nachricht", placeholder: "Schreib oder sprich deine Nachricht …", sendenAria: "Nachricht senden",
-    schreibt: "Die BtMM-KI schreibt …", weg: "Deinen Weg ansehen", kurz: "Lieber kurze Fragen",
-    netz: "Keine Verbindung. Bitte versuch es gleich noch einmal.",
+    schreibt: "Die BtMM-KI schreibt …", weg: "Deinen Weg ansehen",
+    netz: "Die BtMM-KI ist gerade nicht verfügbar. Über die Links unten können Sie sich weiter informieren.",
     links: { start: "Startseite", faq: "Häufige Fragen", dokumente: "Dokumente", mitmachen: "Mitmachen" }
   },
   en: {
@@ -22,8 +22,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Talk to the AI",
     begruessung: "Hello, nice to have you here. Tell me what brings you to BtMM or what you would like to know.",
     antwortLabel: "Your message", placeholder: "Type or say your message …", sendenAria: "Send message",
-    schreibt: "The BtMM AI is writing …", weg: "See your path", kurz: "Short questions instead",
-    netz: "No connection. Please try again in a moment.",
+    schreibt: "The BtMM AI is writing …", weg: "See your path",
+    netz: "The BtMM AI is not available right now. You can find out more via the links below.",
     links: { start: "Home page", faq: "FAQ", dokumente: "Documents", mitmachen: "Get involved" }
   },
   fr: {
@@ -34,8 +34,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Parler avec l'IA",
     begruessung: "Bonjour, ravi de te voir. Dis-moi ce qui t'amène chez BtMM ou ce que tu aimerais savoir.",
     antwortLabel: "Ton message", placeholder: "Écris ou dis ton message …", sendenAria: "Envoyer le message",
-    schreibt: "L'IA BtMM écrit …", weg: "Voir ton chemin", kurz: "Plutôt des questions courtes",
-    netz: "Pas de connexion. Réessaie dans un instant.",
+    schreibt: "L'IA BtMM écrit …", weg: "Voir ton chemin",
+    netz: "L'IA BtMM n'est pas disponible pour le moment. Vous pouvez vous informer via les liens ci-dessous.",
     links: { start: "Accueil", faq: "Questions fréquentes", dokumente: "Documents", mitmachen: "Participer" }
   },
   es: {
@@ -46,8 +46,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Hablar con la IA",
     begruessung: "Hola, qué bien que estés aquí. Cuéntame qué te trae a BtMM o qué te gustaría saber.",
     antwortLabel: "Tu mensaje", placeholder: "Escribe o di tu mensaje …", sendenAria: "Enviar mensaje",
-    schreibt: "La IA de BtMM está escribiendo …", weg: "Ver tu camino", kurz: "Mejor preguntas cortas",
-    netz: "Sin conexión. Vuelve a intentarlo en un momento.",
+    schreibt: "La IA de BtMM está escribiendo …", weg: "Ver tu camino",
+    netz: "La IA de BtMM no está disponible en este momento. Puede informarse a través de los enlaces de abajo.",
     links: { start: "Inicio", faq: "Preguntas frecuentes", dokumente: "Documentos", mitmachen: "Participar" }
   },
   pt: {
@@ -58,8 +58,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Falar com a IA",
     begruessung: "Olá, que bom que estás aqui. Conta-me o que te traz ao BtMM ou o que gostarias de saber.",
     antwortLabel: "A tua mensagem", placeholder: "Escreve ou diz a tua mensagem …", sendenAria: "Enviar mensagem",
-    schreibt: "A IA do BtMM está a escrever …", weg: "Ver o teu caminho", kurz: "Prefiro perguntas curtas",
-    netz: "Sem ligação. Tenta de novo daqui a pouco.",
+    schreibt: "A IA do BtMM está a escrever …", weg: "Ver o teu caminho",
+    netz: "A IA da BtMM não está disponível de momento. Pode informar-se através das ligações abaixo.",
     links: { start: "Início", faq: "Perguntas frequentes", dokumente: "Documentos", mitmachen: "Participar" }
   },
   ru: {
@@ -70,8 +70,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "Поговорить с ИИ",
     begruessung: "Привет, хорошо, что ты здесь. Расскажи, что привело тебя в BtMM или что ты хочешь узнать.",
     antwortLabel: "Твоё сообщение", placeholder: "Напиши или скажи сообщение …", sendenAria: "Отправить сообщение",
-    schreibt: "ИИ BtMM пишет …", weg: "Посмотреть свой путь", kurz: "Лучше короткие вопросы",
-    netz: "Нет соединения. Попробуй ещё раз чуть позже.",
+    schreibt: "ИИ BtMM пишет …", weg: "Посмотреть свой путь",
+    netz: "ИИ BtMM сейчас недоступен. Вы можете узнать больше по ссылкам ниже.",
     links: { start: "Главная", faq: "Частые вопросы", dokumente: "Документы", mitmachen: "Участвовать" }
   },
   ar: {
@@ -82,8 +82,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "تحدث مع الذكاء الاصطناعي",
     begruessung: "مرحبًا، يسعدني وجودك هنا. أخبرني بما أتى بك إلى BtMM أو بما تود معرفته.",
     antwortLabel: "رسالتك", placeholder: "اكتب رسالتك أو قلها …", sendenAria: "إرسال الرسالة",
-    schreibt: "ذكاء BtMM يكتب …", weg: "اعرض طريقك", kurz: "أفضل أسئلة قصيرة",
-    netz: "لا يوجد اتصال. حاول مرة أخرى بعد لحظة.",
+    schreibt: "ذكاء BtMM يكتب …", weg: "اعرض طريقك",
+    netz: "ذكاء BtMM غير متاح الآن. يمكنكم الاطلاع عبر الروابط أدناه.",
     links: { start: "الصفحة الرئيسية", faq: "الأسئلة الشائعة", dokumente: "الوثائق", mitmachen: "شارك" }
   },
   hi: {
@@ -94,8 +94,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "एआई से बात करें",
     begruessung: "नमस्ते, अच्छा लगा कि आप यहाँ हैं। बताइए कि आप BtMM तक कैसे पहुँचे या क्या जानना चाहते हैं।",
     antwortLabel: "आपका संदेश", placeholder: "अपना संदेश लिखें या बोलें …", sendenAria: "संदेश भेजें",
-    schreibt: "BtMM-एआई लिख रही है …", weg: "अपना रास्ता देखें", kurz: "छोटे सवाल बेहतर",
-    netz: "कनेक्शन नहीं है। थोड़ी देर में फिर कोशिश करें।",
+    schreibt: "BtMM-एआई लिख रही है …", weg: "अपना रास्ता देखें",
+    netz: "BtMM-KI अभी उपलब्ध नहीं है। नीचे दिए लिंक से आप और जानकारी ले सकते हैं।",
     links: { start: "होम पेज", faq: "अक्सर पूछे जाने वाले सवाल", dokumente: "दस्तावेज़", mitmachen: "शामिल हों" }
   },
   bn: {
@@ -106,8 +106,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "এআই-এর সাথে কথা বলুন",
     begruessung: "নমস্কার, আপনি এখানে আছেন দেখে ভালো লাগছে। বলুন কী আপনাকে BtMM-এ নিয়ে এসেছে বা আপনি কী জানতে চান।",
     antwortLabel: "আপনার বার্তা", placeholder: "আপনার বার্তা লিখুন বা বলুন …", sendenAria: "বার্তা পাঠান",
-    schreibt: "BtMM এআই লিখছে …", weg: "আপনার পথ দেখুন", kurz: "বরং ছোট প্রশ্ন",
-    netz: "সংযোগ নেই। একটু পরে আবার চেষ্টা করুন।",
+    schreibt: "BtMM এআই লিখছে …", weg: "আপনার পথ দেখুন",
+    netz: "BtMM-KI এখন পাওয়া যাচ্ছে না। নিচের লিঙ্ক থেকে আপনি আরও জানতে পারেন।",
     links: { start: "হোম পেজ", faq: "সাধারণ প্রশ্ন", dokumente: "নথি", mitmachen: "যুক্ত হোন" }
   },
   ja: {
@@ -118,8 +118,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "AIと話す",
     begruessung: "こんにちは、来てくれてうれしいです。BtMMに来たきっかけや、知りたいことを教えてください。",
     antwortLabel: "あなたのメッセージ", placeholder: "メッセージを入力するか話してください …", sendenAria: "メッセージを送信",
-    schreibt: "BtMM AIが入力中 …", weg: "あなたの道を見る", kurz: "短い質問にする",
-    netz: "接続できません。少ししてからもう一度お試しください。",
+    schreibt: "BtMM AIが入力中 …", weg: "あなたの道を見る",
+    netz: "BtMM-KIは現在ご利用いただけません。下のリンクから詳しい情報をご覧いただけます。",
     links: { start: "ホーム", faq: "よくある質問", dokumente: "資料", mitmachen: "参加する" }
   },
   zh: {
@@ -130,8 +130,8 @@ window.BTMM_TUER_KI_TEXTE = {
     starten: "与人工智能交谈",
     begruessung: "你好，很高兴你来了。告诉我是什么让你来到 BtMM，或者你想了解什么。",
     antwortLabel: "你的消息", placeholder: "输入或说出你的消息 …", sendenAria: "发送消息",
-    schreibt: "BtMM 人工智能正在输入 …", weg: "查看你的路径", kurz: "改用简短问题",
-    netz: "没有连接。请稍后再试。",
+    schreibt: "BtMM 人工智能正在输入 …", weg: "查看你的路径",
+    netz: "BtMM-KI 目前不可用。您可以通过下方链接了解更多。",
     links: { start: "首页", faq: "常见问题", dokumente: "文件", mitmachen: "参与" }
   }
 };
