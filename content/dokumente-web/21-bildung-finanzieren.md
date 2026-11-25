@@ -31,7 +31,7 @@ Kontakt: office.btmm@gmail.com
 
 ## Was wir dir nicht versprechen
 
-- **Wir versprechen kein Geld.** Der Fonds steht im Satzungsentwurf (Konzept, nicht in der Außen-Satzung v9.1.4), aber die Genossenschaft ist nicht gegründet, und auf dem Konto ist nichts.
+- **Wir versprechen kein Geld.** Der Fonds steht im Konzept (Konzept, noch nicht in der Satzung), aber die Genossenschaft ist nicht gegründet, und auf dem Konto ist nichts.
 - **Wir versprechen keine Förderung ohne Gegenleistung.** Wer sich fördern lässt und die Bindung wählt, zahlt bei früherem Weggang eine Entschädigung für den Rest (Kapitel 5).
 - **Wir versprechen keinen Abschluss auf Wunsch.** Gefördert wird, was der Gemeinschaft nützt; ein persönlicher Wunsch ohne Nutzen für andere gehört nicht in den Fonds.
 - **Wir versprechen keine Rechtssicherheit.** Ob eine Genossenschaft ihren Mitgliedern Darlehen geben darf, ohne dass sie eine Bankerlaubnis braucht, ist offen (Kapitel 7).
@@ -89,13 +89,13 @@ Fünf Fragen, jede mit 0, 1 oder 2 Punkten (S). Die Zellversammlung beantwortet 
 - **5 bis 7 Punkte:** Bahn B mit Option 1 (Rückzahlung nach Einkommen).
 - **8 bis 10 Punkte:** Bahn B mit Option 2 (der Betrieb tilgt, solange die Person bleibt) oder Bahn C.
 
-Die Entscheidung bis 10.000 € trifft die Zellversammlung, darüber die Generalversammlung (wie beim Ideen-Topf, Konzept, nicht in der Außen-Satzung v9.1.4 (S). Wer Antrag stellt und seine nächsten Angehörigen stimmen nicht mit.
+Die Entscheidung bis 10.000 € trifft die Zellversammlung, darüber die Generalversammlung (wie beim Ideen-Topf; Konzept, noch nicht in der Satzung) (S). Wer Antrag stellt und seine nächsten Angehörigen stimmen nicht mit.
 
 # 4. Die Reihenfolge der Geldquellen
 
 1. **Staat und Förderer** (Kapitel 2).
 2. **Der Betrieb mit dem Nutzen.** Er trägt die Kosten, wenn er läuft, als Betriebsausgabe, oder die Rückzahlung an den Fonds, wenn er den Nachweis erst möglich macht (Option 2).
-3. **Der Qualifizierungsfonds.** Er bekommt einen Teil des Lebensstandard-Fonds der Zelle (Vorschlag: 20 %), dazu alle Rückzahlungen. Der Lebensstandard-Fonds nennt Bildung schon als Verwendungszweck (Konzept, Konzept, nicht in der Außen-Satzung v9.1.4). Der Ideen-Topf bleibt für neue Betriebe.
+3. **Der Qualifizierungsfonds.** Er bekommt einen Teil des Lebensstandard-Fonds der Zelle (Vorschlag: 20 %), dazu alle Rückzahlungen. Der Lebensstandard-Fonds nennt Bildung schon als Verwendungszweck (Konzept; Konzept, noch nicht in der Satzung). Der Ideen-Topf bleibt für neue Betriebe.
 4. **Direktkredit-Paten.** Mitglieder können einen Direktkredit (1 bis 2 %, nachrangig, kündbar) ausdrücklich für Bildung geben (Konzept, Dokument 4).
 5. **Eigenanteil in Zeit.** Wer nichts zahlt, gibt Stunden: Mentoring, Lerngruppen, Hilfe bei der Prüfungsvorbereitung.
 6. **Gruppentarife.** Ab etwa zehn Lernenden lässt sich bei Bildungsträgern ein Gruppenpreis verhandeln (E).
@@ -132,7 +132,7 @@ Studium, Lehramt, Erzieherausbildung oder ein Meister in Vollzeit mit Verdiensta
 
 ## Entschädigung bei Abwanderung
 
-Wer sich fördern lässt und die Bindung (Tabelle oben) wählt, verpflichtet sich, für eine bestimmte Zeit in der Gemeinschaft zu arbeiten. Geht die Person früher, zahlt sie den Rest der Förderung zurück. Das ist ein Ausgleich der tatsächlichen Kosten, kein Preis für das Gehen und keine Strafe (S; Konzept, nicht in der Außen-Satzung v9.1.4).
+Wer sich fördern lässt und die Bindung (Tabelle oben) wählt, verpflichtet sich, für eine bestimmte Zeit in der Gemeinschaft zu arbeiten. Geht die Person früher, zahlt sie den Rest der Förderung zurück. Das ist ein Ausgleich der tatsächlichen Kosten, kein Preis für das Gehen und keine Strafe (S; Konzept, noch nicht in der Satzung).
 
 **Die Rechnung:** Entschädigung = Förderbetrag × (Bindung − Monate gearbeitet) ÷ Bindung, abzüglich angerechneter Weitergabe-Stunden zum Grundlohn. Höchstens der Förderbetrag.
 
@@ -160,7 +160,7 @@ Wer sich fördern lässt und die Bindung (Tabelle oben) wählt, verpflichtet sic
 - Kein Zins, kein Aufschlag, keine Vertragsstrafe; nie mehr als die tatsächlichen Kosten.
 - Ist die Förderung getilgt oder die Bindung abgelaufen, schuldet die Person nichts, auch wenn sie danach geht. Ersatz-, Einarbeitungs- und Auftragskosten werden nie verlangt; das Bundesarbeitsgericht lässt bei Fortbildungsklauseln nur die Fortbildungskosten zu (Bs).
 - Zahlung in zinslosen Raten, die Pfändungsfreigrenzen bleiben gewahrt. Mit dem Bonus-Guthaben wird nur mit schriftlicher Zustimmung nach Entstehen der Forderung aufgerechnet.
-- Der Lohn bleibt unberührt (Satzung § 10 Absatz 1). Die Entschädigung ist keine Konsequenz im Sinne des Konsequenzsystems; Gehen ist kein Verstoß und kein Ausschlussgrund.
+- Der Lohn bleibt unberührt (Konzept, noch nicht in der Satzung). Die Entschädigung ist keine Konsequenz im Sinne des Konsequenzsystems; Gehen ist kein Verstoß und kein Ausschlussgrund.
 - Vor der Förderung bekommt die Person in Textform: Kosten, Dauer der Bindung, Berechnung, Fälle des Wegfalls.
 - Das Geld fließt in den Qualifizierungsfonds der Zelle.
 
@@ -168,9 +168,9 @@ Wer sich fördern lässt und die Bindung (Tabelle oben) wählt, verpflichtet sic
 
 ## Die Bindung gilt in beide Richtungen
 
-**Gegenbindung (Konzept, nicht in der Außen-Satzung v9.1.4):** Wer sich bindet, dem bindet sich die Gemeinschaft. Während der Bindung ermöglicht sie eine Tätigkeit, in der die Person die geförderte Fähigkeit einsetzen kann, und kündigt nicht betriebsbedingt, solange es eine solche Tätigkeit in einem Betrieb, einem Gemeinschaftsdienst oder einer Einrichtung gibt. Gibt es sie nicht mehr, bietet die Zelle eine andere zumutbare Tätigkeit an, und eine Entschädigung entfällt. Das ist fair, und es stärkt die Klausel rechtlich: Fortbildungsklauseln halten eher, wenn die Person die Fähigkeit auch wirklich einsetzen konnte (E, Fachanwalt).
+**Gegenbindung (Konzept, noch nicht in der Satzung):** Wer sich bindet, dem bindet sich die Gemeinschaft. Während der Bindung ermöglicht sie eine Tätigkeit, in der die Person die geförderte Fähigkeit einsetzen kann, und kündigt nicht betriebsbedingt, solange es eine solche Tätigkeit in einem Betrieb, einem Gemeinschaftsdienst oder einer Einrichtung gibt. Gibt es sie nicht mehr, bietet die Zelle eine andere zumutbare Tätigkeit an, und eine Entschädigung entfällt. Das ist fair, und es stärkt die Klausel rechtlich: Fortbildungsklauseln halten eher, wenn die Person die Fähigkeit auch wirklich einsetzen konnte (E, Fachanwalt).
 
-**Wechsel ist keine Abwanderung (Absatz 6a):** Wer in eine andere Zelle, einen anderen Betrieb oder eine Einrichtung der Genossenschaft wechselt, bleibt im Universum. Die Bindung läuft dort weiter; die aufnehmende Zelle übernimmt die Tilgung oder erstattet der fördernden Zelle den Rest aus ihrem Qualifizierungsfonds. Das folgt dem Grundsatz „Coins folgen Personen“ (Konzept, nicht in der Außen-Satzung v9.1.4). Für Partnerzellen, die eigene Genossenschaften sind, gilt es nur, wenn der Verbundvertrag es regelt.
+**Wechsel ist keine Abwanderung (Absatz 6a):** Wer in eine andere Zelle, einen anderen Betrieb oder eine Einrichtung der Genossenschaft wechselt, bleibt im Universum. Die Bindung läuft dort weiter; die aufnehmende Zelle übernimmt die Tilgung oder erstattet der fördernden Zelle den Rest aus ihrem Qualifizierungsfonds. Das folgt dem Grundsatz „Coins folgen Personen“ (Konzept, noch nicht in der Satzung). Für Partnerzellen, die eigene Genossenschaften sind, gilt es nur, wenn der Verbundvertrag es regelt.
 
 **Nachfolge statt Geld (Absatz 6b):** Was der Gemeinschaft bei einer Abwanderung wirklich fehlt, ist nicht der Brief, sondern der Mensch mit der Fähigkeit. Deshalb entfällt die Entschädigung, soweit die Person vor ihrem Weggang eine Nachfolgerin oder einen Nachfolger so weit befähigt hat, dass die Tätigkeit weiterläuft; das stellt die Zellversammlung fest. Wissensstunden, die die Person nach dem Weggang weitergibt, zählen weiter. Gründet sie einen eigenen Betrieb, kann sie Partnerorganisation werden und eine offene Entschädigung mit Leistungen verrechnen, die sie der Gemeinschaft gegen Rechnung zu Marktpreisen erbringt. So wird Abwanderung ein neuer Ast, kein Bruch. Arbeit als Tilgung ist arbeitsrechtlich heikel (Mindestlohn, Aufrechnungsgrenzen); deshalb nur gegen Rechnung einer Selbständigen. Ein Betriebsleiter nach der Handwerksordnung muss wirklich leiten, sonst ist die Nachfolge nur Schein (E).
 
@@ -247,10 +247,10 @@ Alle Punkte sind Fragen an Prüfungsverband, Steuerberatung und Rechtsberatung (
 4. **Rückzahlungsklauseln (Bs/E).** Bindungsdauer nach Tabelle; Klauseln unterliegen dem Recht der Allgemeinen Geschäftsbedingungen; sie müssen zwischen den Gründen der Beendigung unterscheiden und Raten- oder Anteilsregeln enthalten.
 5. **Grundsicherung (E).** Ob ein Zuschuss, ein Darlehen oder ein Erlass als Einkommen zählt, ist beim Jobcenter vorab zu fragen.
 6. **Gleichbehandlung und Befangenheit.** Entscheidungen über Förderungen müssen offen, begründet und nach gleichen Maßstäben ergehen.
-7. **Satzung.** Der Fonds steht als Konzept, nicht in der Außen-Satzung v9.1.4 im Satzungsentwurf (Kapitel 8); offen bleibt die Entscheidung zur Quote, die der Lebensstandard-Fonds hergibt. Eine Satzungsänderung braucht die in der Satzung genannte Mehrheit (siehe Dokument 18).
+7. **Satzung.** Der Fonds ist im Konzept vorgesehen (Kapitel 8) und noch nicht in der Satzung; offen bleibt die Entscheidung zur Quote, die der Lebensstandard-Fonds hergibt. Eine Satzungsänderung braucht die in der Satzung genannte Mehrheit (siehe Dokument 18).
 
 # 8. Satzungsbaustein
-Der Baustein steht seit Satzung v7.6.0 als Konzept, nicht in der Außen-Satzung v9.1.4 „Qualifizierungsfonds und Entschädigung bei Abwanderung“ in der Satzung (Entwurf), seit v7.7.0 mit der Bindung in beide Richtungen. Er regelt: den Fonds (Absatz 1), die Förderung nach dem Nutzen-Test (2), die Entscheidung (3), die Rückerstattung (4), die Bindung (5), die Gegenbindung (5a), die Entschädigung bei Abwanderung (6), den Wechsel innerhalb der Gemeinschaft (6a), die Nachfolge statt Geld (6b), Wegfall und Ruhen (7), die Zahlung ohne Eingriff in den Lohn (8), die Qualifizierungsordnung mit 70 % (9) und den Vorbehalt des zwingenden Rechts (10). Dazu kommen Absatz 4a in Konzept, nicht in der Außen-Satzung v9.1.4, ein Satz in Konzept, nicht in der Außen-Satzung v9.1.4 und die Mehrheit in Konzept, nicht in der Außen-Satzung v9.1.4. Im Vollkonzept (v22.37.1) steht die Regel in Kapitel 12.
+Der Baustein „Qualifizierungsfonds und Entschädigung bei Abwanderung“ ist im Konzept vorgesehen und noch nicht in der Satzung; die Bindung gilt in beide Richtungen. Er soll regeln: den Fonds (1), die Förderung nach dem Nutzen-Test (2), die Entscheidung (3), die Rückerstattung (4), die Bindung (5), die Gegenbindung (5a), die Entschädigung bei Abwanderung (6), den Wechsel innerhalb der Gemeinschaft (6a), die Nachfolge statt Geld (6b), Wegfall und Ruhen (7), die Zahlung ohne Eingriff in den Lohn (8), die Qualifizierungsordnung mit 70 % (9) und den Vorbehalt des zwingenden Rechts (10). Im Vollkonzept steht die Regel in Kapitel 12.
 
 # 9. Groß gedacht: was daraus werden kann
 
@@ -265,7 +265,7 @@ Der Baustein steht seit Satzung v7.6.0 als Konzept, nicht in der Außen-Satzung 
 
 - **Zahlen:** Kosten für Sachkunde, AEVO, Externenprüfung und Gruppentarife sind Schätzungen (E). Zinsvorteil-Freigrenze und Prüfungsprämien müssen im Original geprüft werden. Die Lernstunden für Elektro sind wie bei der Tischlerei angesetzt (S).
 - **Quote:** Ob 20 % des Lebensstandard-Fonds für Bildung passen, zeigt erst der Betrieb.
-- **Wer die Lernzeit trägt:** Entschieden am 26. Oktober 2026: Lernstunden in einer vereinbarten Ausbildung zählen voll wie Arbeitsstunden; die Ausbildungskosten trägt der Qualifizierungsfonds (Konzept, nicht in der Außen-Satzung v9.1.4). Ob das arbeits-, steuer- und förderrechtlich trägt, prüfen Fachleute. Die Rechnung zeigt den Lohn für die Lernzeit (Kapitel 6), aber nicht, wer ihn zahlt. Drei Wege: berufsbegleitend lernen, damit kein Lohn ausfällt; in Vollzeit den Unterhaltsbeitrag des Aufstiegs-BAföG nutzen, bis 1.019 € im Monat als Zuschuss, einkommens- und vermögensabhängig (Q9, Bs); oder, wo der Meister einen neuen Betrieb erst möglich macht, die Lernstunden als Pilotstunden aus dem Ideen-Topf bezahlen, wie bei jedem Pilotfeld (Konzept, Ideen-Weg). Der Lebensstandard-Fonds darf keinen Lohn zahlen (Konzept, nicht in der Außen-Satzung v9.1.4); der Ideen-Topf ist auf 10.000 € je Vorhaben durch die Zelle begrenzt, ein Meister in Vollzeit braucht deshalb die Generalversammlung. Lohn und Unterhaltsbeitrag schließen sich weitgehend aus, weil der Beitrag einkommensabhängig ist (E).
+- **Wer die Lernzeit trägt:** Entschieden am 26. Oktober 2026: Lernstunden in einer vereinbarten Ausbildung zählen voll wie Arbeitsstunden; die Ausbildungskosten trägt der Qualifizierungsfonds (Konzept, noch nicht in der Satzung). Ob das arbeits-, steuer- und förderrechtlich trägt, prüfen Fachleute. Die Rechnung zeigt den Lohn für die Lernzeit (Kapitel 6), aber nicht, wer ihn zahlt. Drei Wege: berufsbegleitend lernen, damit kein Lohn ausfällt; in Vollzeit den Unterhaltsbeitrag des Aufstiegs-BAföG nutzen, bis 1.019 € im Monat als Zuschuss, einkommens- und vermögensabhängig (Q9, Bs); oder, wo der Meister einen neuen Betrieb erst möglich macht, die Lernstunden als Pilotstunden aus dem Ideen-Topf bezahlen, wie bei jedem Pilotfeld (Konzept, Ideen-Weg). Der Lebensstandard-Fonds darf keinen Lohn zahlen; der Ideen-Topf ist auf 10.000 € je Vorhaben durch die Zelle begrenzt, ein Meister in Vollzeit braucht deshalb die Generalversammlung. Lohn und Unterhaltsbeitrag schließen sich weitgehend aus, weil der Beitrag einkommensabhängig ist (E).
 - **Der Lehrling:** Was bekommt ein Auszubildender im Gemeinschaftsbetrieb? Draußen gilt eine Mindestausbildungsvergütung von 724 € im ersten bis 1.014 € im vierten Jahr (Beginn 2026, Q10), das ist rund ein Drittel bis die Hälfte eines Monats zum Grundlohn. Gleiche Stunde streng genommen hieße: Lehre kostet in BtMM ein Vielfaches. Gleiche Stunde nicht genommen hieße: die erste Ausnahme vom Kernsatz. Die Frage wird offen gestellt und nicht schnell entschieden; sie gehört ins Konzept, sobald die Gemeinschaft selbst ausbilden will.
 - **Kompetenz-Inventar:** Vor zehn Mitgliedern gibt es keinen Fonds, aber ein Inventar geht sofort (Excel, Blatt „Inventar“). Dazu die Bildungszeit in Baden-Württemberg: bis zu fünf Tage bezahlte Freistellung im Jahr nach zwölf Monaten Beschäftigung; Betriebe mit weniger als zehn Beschäftigten dürfen ablehnen (Q11).
 - **Abwanderung:** Die Entschädigung ist geregelt, aber nicht erprobt. Offen ist, ob sie für Mitglieder, die nicht angestellt sind, durchsetzbar ist, wie sie sich zum Kündigungsrecht der Mitgliedschaft verhält (§ 65 GenG) und ob die Klausel der Kontrolle nach dem Recht der Allgemeinen Geschäftsbedingungen standhält.

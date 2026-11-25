@@ -30,7 +30,7 @@ Das System muss Einsamkeit nicht heilen. Es muss nur einen Rahmen schaffen, in d
 
 # 2. Übergänge und Lebensabschnitte
 
-Das konventionelle System lässt Menschen in Übergängen fallen. Scheidung, Burnout, Trauer, Jobverlust — Momente, in denen die Fixkosten weiterlaufen, aber das Einkommen bricht. Das Universum trägt in diesen Momenten anders. Drei Dinge sind dafür schon angelegt: Der Solidarfonds erhält je Periode sieben Prozent der Lohnsumme, nie unter fünf, und ergänzt die gesetzlichen Leistungen (Konzept, nicht in der Außen-Satzung v9.1.4). Wer gerade wenig zahlen kann, bekommt nach der Beitragsordnung eine Ermäßigung, und den Beitrag zum Lebensstandard-Wachstum kann die Zelle erlassen (Konzept, nicht in der Außen-Satzung v9.1.4); wer die Einrichtungen eine Zeit lang gar nicht nutzt, kann seine Mitgliedschaft ruhen lassen und zahlt dann keinen Beitrag (Konzept, nicht in der Außen-Satzung v9.1.4). Und wer in einem Gemeinschaftsbetrieb arbeitet, ist angestellt und damit sozialversichert.
+Das konventionelle System lässt Menschen in Übergängen fallen. Scheidung, Burnout, Trauer, Jobverlust — Momente, in denen die Fixkosten weiterlaufen, aber das Einkommen bricht. Das Universum trägt in diesen Momenten anders. Drei Dinge sind dafür schon angelegt: Der Solidarfonds erhält je Periode sieben Prozent der Lohnsumme, nie unter fünf, und ergänzt die gesetzlichen Leistungen (Konzept, noch nicht in der Satzung). Wer gerade wenig zahlen kann, bekommt nach der Beitragsordnung eine Ermäßigung, und den Beitrag zum Lebensstandard-Wachstum kann die Zelle erlassen; wer die Einrichtungen eine Zeit lang gar nicht nutzt, kann seine Mitgliedschaft ruhen lassen und zahlt dann keinen Beitrag. Und wer in einem Gemeinschaftsbetrieb arbeitet, ist angestellt und damit sozialversichert.
 
 Was noch fehlt, ist das Unvorhersehbare. Übergänge sind individuell; der Solidarfonds ist für bekannte Situationen gebaut. Eine Idee für später: ein Übergangsrat in jeder Zelle — drei Menschen, die in solchen Momenten nicht Anträge prüfen, sondern fragen, was jetzt gebraucht wird.
 
@@ -40,7 +40,7 @@ Was noch fehlt, ist das Unvorhersehbare. Übergänge sind individuell; der Solid
 
 Kinder, die im System aufwachsen, wachsen nicht neben ihm auf. Sie sind von Anfang an Teil davon. Teenager sind eine eigene Herausforderung. Ein System, das Jugendliche wirklich einlädt, ihnen echte Projekte anvertraut und ihre Kritik ernst nimmt, gewinnt ihre Loyalität nicht durch Überzeugung, sondern durch Erleben.
 
-Mit Konzept, nicht in der Außen-Satzung v9.1.4 (Kompetenz und genossenschaftliche Selbsthilfe) können junge Erwachsene im System lernen, praktizieren und weitergeben — ohne durch Numerus clausus oder Studiengebühren gefiltert zu werden. Dabei gilt ehrlich: Wo es um Sicherheit geht — Heilkunde, Strom, Gas, Wasser —, bleibt auch intern die geprüfte Fachkraft (Konzept, nicht in der Außen-Satzung v9.1.4). Und das Lernen in der Gemeinschaft muss nicht neben den staatlichen Abschlüssen stehen. Wer in einem Gemeinschaftsbetrieb arbeitet, sammelt Berufsjahre, die zur Externenprüfung oder zur Ausübungsberechtigung im Handwerk führen können (Konzept Kapitel 12). Lernen wird bezahlt statt auf eigene Kosten.
+Mit der im Konzept vorgesehenen Regel zur Selbsthilfe (Kompetenz und genossenschaftliche Selbsthilfe; noch nicht in der Satzung) können junge Erwachsene im System lernen, praktizieren und weitergeben — ohne durch Numerus clausus oder Studiengebühren gefiltert zu werden. Dabei gilt ehrlich: Wo es um Sicherheit geht — Heilkunde, Strom, Gas, Wasser —, bleibt auch intern die geprüfte Fachkraft (Konzept, noch nicht in der Satzung). Und das Lernen in der Gemeinschaft muss nicht neben den staatlichen Abschlüssen stehen. Wer in einem Gemeinschaftsbetrieb arbeitet, sammelt Berufsjahre, die zur Externenprüfung oder zur Ausübungsberechtigung im Handwerk führen können (Konzept Kapitel 12). Lernen wird bezahlt statt auf eigene Kosten.
 
 > *Kinder, die im System aufwachsen, kennen einen anderen Begriff von Arbeit, von Eigentum, von Gemeinschaft. Das ist die tiefste Form politischer Wirkung.*
 
@@ -50,7 +50,7 @@ Mit Konzept, nicht in der Außen-Satzung v9.1.4 (Kompetenz und genossenschaftlic
 
 Was tun Menschen, wenn sie nicht mehr jede Stunde verkaufen müssen? Das Back to Meaning Maximization Universum gibt Zeit zurück: Wer durch geteilte Kosten jeden Monat einige hundert Euro spart, muss diese Summe nicht mehr erarbeiten (Konzept Kapitel 5). Diese Zeit gehört nicht dem System. Sie gehört dem Menschen.
 
-Was die Gemeinschaft dafür aufbaut, steht allen zum Selbstkostenpreis offen (Konzept, nicht in der Außen-Satzung v9.1.4): Instrumentenverleih, Atelierraum, Druckwerkstatt, Probebühne, Tonstudio. Eine Gemeinschaft ohne Schönheit ist nur ein Betrieb.
+Was die Gemeinschaft dafür aufbaut, steht allen zum Selbstkostenpreis offen (Konzept, noch nicht in der Satzung): Instrumentenverleih, Atelierraum, Druckwerkstatt, Probebühne, Tonstudio. Eine Gemeinschaft ohne Schönheit ist nur ein Betrieb.
 
 # 5. Scheitern als Konzept
 
@@ -70,7 +70,7 @@ Einmal im Quartal erzählen Mitglieder, was nicht funktioniert hat. Nicht um sic
 
 Mitglieder, die bewusst drei bis sechs Monate in einer anderen Zelle verbringen, tragen mehr als ihre Fähigkeiten. Sie tragen Kultur, Fehlergeschichten, Lösungen, die woanders schon erprobt wurden. Jede Wanderschaft endet mit einem Rückblick: Was ich gelernt habe. Was gescheitert ist. Was ich mitnehme. Was ich dalasse.
 
-Mit der Knospung von Zellen (Konzept, nicht in der Außen-Satzung v9.1.4), den Abteilungen (Konzept, nicht in der Außen-Satzung v9.1.4) und dem Verbund über Ländergrenzen (Konzept, nicht in der Außen-Satzung v9.1.4) hat der Gedanke eine strukturelle Heimat. Weil der Grundlohn in allen Betrieben eines Landes gleich ist, kostet eine Wanderschaft innerhalb des Landes nichts. Über Ländergrenzen hinweg gilt die gleiche Kaufkraft-Stunde (Konzept Kapitel 20).
+Mit der Knospung von Zellen (Konzept, noch nicht in der Satzung), den Abteilungen und dem Verbund über Ländergrenzen hat der Gedanke eine strukturelle Heimat. Weil der Grundlohn in allen Betrieben eines Landes gleich ist, kostet eine Wanderschaft innerhalb des Landes nichts. Über Ländergrenzen hinweg gilt die gleiche Kaufkraft-Stunde (Konzept Kapitel 20).
 
 # 6. Politische Resilienz
 
@@ -78,7 +78,7 @@ Das System nutzt staatliche Strukturen: Grundsicherung als Brücke in der Aufbau
 
 Die Genossenschaft als Form ist tief verankert: Die UNESCO hat die Genossenschaftsidee 2016 als immaterielles Kulturerbe der Menschheit anerkannt [I1].
 
-Resilient ist das System auch dadurch, dass es klein bleibt, wo es klein sein soll. Verwaltung bleibt in den Zellen; das Dach trägt nur, was nur gemeinsam erfüllt werden kann (Konzept, nicht in der Außen-Satzung v9.1.4). Fällt eine Zelle aus, tragen die anderen weiter.
+Resilient ist das System auch dadurch, dass es klein bleibt, wo es klein sein soll. Verwaltung bleibt in den Zellen; das Dach trägt nur, was nur gemeinsam erfüllt werden kann (Konzept, noch nicht in der Satzung). Fällt eine Zelle aus, tragen die anderen weiter.
 
 # 7. Buddhismus als Wissenschaft des Geistes
 
@@ -104,7 +104,7 @@ Eine naheliegende Idee wäre: Satzung, App-Code und Konzept frei verfügbar für
 
 Der Grund: Die Ersparnis entsteht durch Zusammenschluss. Fünf parallele „BtMM-ähnliche“ Genossenschaften kaufen getrennt ein, versichern getrennt und verwalten getrennt; eine Genossenschaft mit fünf Zellen teilt all das. Die Wirkung entsteht aus der Einheit, nicht aus der Verbreitung.
 
-> *Weil Arbeitsrecht, Steuern und Sozialversicherung national sind, wächst das Universum über Ländergrenzen als Verbund nationaler Genossenschaften — mit gleicher Satzung, gleicher App und gleicher Kaskade, in der EU mit einer Europäischen Genossenschaft (SCE) als Dach (Konzept, nicht in der Außen-Satzung v9.1.4, Konzept Kapitel 20). Neue Zellen sind Teil des Systems, nicht eine Kopie davon. Das ist der Unterschied zwischen Stärke und Streuung.*
+> *Weil Arbeitsrecht, Steuern und Sozialversicherung national sind, wächst das Universum über Ländergrenzen als Verbund nationaler Genossenschaften — mit gleicher Satzung, gleicher App und gleicher Kaskade, in der EU mit einer Europäischen Genossenschaft (SCE) als Dach (Konzept Kapitel 20; Konzept, noch nicht in der Satzung). Neue Zellen sind Teil des Systems, nicht eine Kopie davon. Das ist der Unterschied zwischen Stärke und Streuung.*
 
 ## Gemeinschaftsküche als Herzstück
 
@@ -122,11 +122,11 @@ Eine der einsamsten Erfahrungen unserer Gesellschaft — gemeinsam tragen statt 
 
 Eine durchsuchbare Karte aller Fähigkeiten im Netzwerk. Kein Curriculum — einfach: Ich kann, ich will teilen, wer will lernen?
 
-Der Kompetenzbaum ist die natürliche Erweiterung von Konzept, nicht in der Außen-Satzung v9.1.4: Mitglieder geben einander Kompetenz weiter, mit interner Bestätigung durch Praxis und Mentoring. Er zeigt auch, wo die Grenze liegt — welche Tätigkeit eine staatliche Erlaubnis braucht — und wo der Weg zum anerkannten Abschluss beginnt. So wird der Baum zur Brücke: von der Kompetenz zur Anerkennung, von der Anerkennung zur Betriebsleitung eines neuen Gemeinschaftsbetriebs.
+Der Kompetenzbaum ist die natürliche Erweiterung vom Konzept (noch nicht in der Satzung): Mitglieder geben einander Kompetenz weiter, mit interner Bestätigung durch Praxis und Mentoring. Er zeigt auch, wo die Grenze liegt — welche Tätigkeit eine staatliche Erlaubnis braucht — und wo der Weg zum anerkannten Abschluss beginnt. So wird der Baum zur Brücke: von der Kompetenz zur Anerkennung, von der Anerkennung zur Betriebsleitung eines neuen Gemeinschaftsbetriebs.
 
 ## Waren als Sicherheit für Direktkredite
 
-Die italienische Bank Credito Emiliano nimmt Parmesan-Laibe, die jahrelang reifen, als Pfand: Nach dem Magazin atmo 10/2026 sind es rund 500.000 Laibe mit einem Wert von 300 Millionen Euro (Bs). Übertragen: Ein Direktkredit könnte durch ein reifendes Warenlager einer Zelle gesichert sein, etwa getrocknetes Holz (E). **Die Coin-Rücklage bleibt davon unberührt:** Sie ist Euro und bleibt Vollreserve (Konzept, nicht in der Außen-Satzung v9.1.4). Sicherungsübereignung, Bewertung und Verwahrung sind Fragen für Rechtsberatung und Prüfungsverband; hier steht nur die Idee.
+Die italienische Bank Credito Emiliano nimmt Parmesan-Laibe, die jahrelang reifen, als Pfand: Nach dem Magazin atmo 10/2026 sind es rund 500.000 Laibe mit einem Wert von 300 Millionen Euro (Bs). Übertragen: Ein Direktkredit könnte durch ein reifendes Warenlager einer Zelle gesichert sein, etwa getrocknetes Holz (E). **Die Coin-Rücklage bleibt davon unberührt:** Sie ist Euro und bleibt Vollreserve (Konzept, noch nicht in der Satzung). Sicherungsübereignung, Bewertung und Verwahrung sind Fragen für Rechtsberatung und Prüfungsverband; hier steht nur die Idee.
 
 ## Dächer, Energie und Mahdregel
 
@@ -154,7 +154,7 @@ Ehrlich gesagt gilt dabei: Auch intern bleibt Recht Recht. Leistungen der Gemein
 
 # 12. Der Preis eines Dings ist die Zeit zu seiner Entstehung
 
-Im Zeit-Tausch hat eine Leistung keinen Marktpreis — sie hat einen Zeitpreis. Ein Beutel Saatgut kostet die Stunden, die für Anzucht, Pflege, Ernte und Aufbereitung aufgewendet wurden, plus das Material zum Einkaufspreis. Der Tausch-Coin hat keinen Euro-Wert; er misst nur Zeit (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist die konsequente Weiterentwicklung der Coin-Logik, die von Anfang an im System steckt — und über Ländergrenzen hinweg wird sie zur Kaufkraft-Stunde (Konzept Kapitel 20).
+Im Zeit-Tausch hat eine Leistung keinen Marktpreis — sie hat einen Zeitpreis. Ein Beutel Saatgut kostet die Stunden, die für Anzucht, Pflege, Ernte und Aufbereitung aufgewendet wurden, plus das Material zum Einkaufspreis. Der Tausch-Coin hat keinen Euro-Wert; er misst nur Zeit (Konzept, noch nicht in der Satzung). Das ist die konsequente Weiterentwicklung der Coin-Logik, die von Anfang an im System steckt — und über Ländergrenzen hinweg wird sie zur Kaufkraft-Stunde (Konzept Kapitel 20).
 
 > *Itadakimasu — Ich empfange demütig. Ein Dank an alle, die je beigetragen haben. Das Wirtschaften mit dem Coin als Zeitverrechnung ist gelebtes Itadakimasu. Nicht als Geste — sondern als tägliche, strukturelle Wirklichkeit.*
 
@@ -162,11 +162,11 @@ Im Zeit-Tausch hat eine Leistung keinen Marktpreis — sie hat einen Zeitpreis. 
 
 Das ist die ehrlichste und unbequemste Frage, die man einem System stellen kann, das Gewaltfreiheit als unverhandelbar definiert: Was passiert, wenn es angegriffen wird?
 
-Schutz durch Vernetzung: Ein System, das in vielen Ländern verwurzelt ist, ist schwer angreifbar. Schutz durch Transparenz: Ein System, das offen, dokumentiert und öffentlich ist, hat nichts zu verbergen. Schutz durch Struktur: Die Veräußerungssperre für Gemeinschaftseigentum (Konzept, nicht in der Außen-Satzung v9.1.4) und das Prinzip „ein Mitglied, eine Stimme“ schützen vor Übernahme von außen. Das Wirkungsvollste, was das System tun kann: die Bedingungen schaffen, unter denen Gewalt immer weniger nötig wird.
+Schutz durch Vernetzung: Ein System, das in vielen Ländern verwurzelt ist, ist schwer angreifbar. Schutz durch Transparenz: Ein System, das offen, dokumentiert und öffentlich ist, hat nichts zu verbergen. Schutz durch Struktur: Die Veräußerungssperre für Gemeinschaftseigentum (Konzept, noch nicht in der Satzung) und das Prinzip „ein Mitglied, eine Stimme“ schützen vor Übernahme von außen. Das Wirkungsvollste, was das System tun kann: die Bedingungen schaffen, unter denen Gewalt immer weniger nötig wird.
 
 # 14. Der erste Stein — verschoben ins Vollkonzept
 
-> *Dieses Kapitel lebt seit Konzept v15.0.0 im Vollkonzept als Kapitel 2 „Der erste Stein — auch wenn fast nichts da ist“. Im Ideen-Horizont bleibt es nur als Verweis stehen, weil es kein Horizont mehr ist — es ist das gelebte Tag eins. Kurz für die Kontinuität: Drei Menschen, kein Startkapital. Eine Gewerbeanmeldung und eine Registrierung beim Bio-Großhandel öffnen gemeinsamen Einkauf mit bis zu 82–116 Euro Ersparnis pro Person und Monat im besten Fall; der Rechner rechnet vorsichtiger. Sobald drei Menschen gemeinsam arbeiten wollen, startet der erste Gemeinschaftsbetrieb, der Jahreskreis: Garten im Sommer, mobile Saunen und Werkstatt im Winter, Retreats und Körperarbeit das ganze Jahr — mit Anstellung und gleichem Lohn für jede Stunde. Um ihn herum wächst die Nutzengemeinschaft; ab etwa fünf Mitgliedern spart jedes Mitglied mehr, als es an Beitrag zahlt. → Vollständige Beschreibung im Konzept (jeweils aktuelle Fassung), Kapitel 2 und 5.*
+> *Dieses Kapitel lebt im Vollkonzept als Kapitel 2 „Der erste Stein — auch wenn fast nichts da ist“. Im Ideen-Horizont bleibt es nur als Verweis stehen, weil es kein Horizont mehr ist — es ist das gelebte Tag eins. Kurz für die Kontinuität: Drei Menschen, kein Startkapital. Eine Gewerbeanmeldung und eine Registrierung beim Bio-Großhandel öffnen gemeinsamen Einkauf mit bis zu 82–116 Euro Ersparnis pro Person und Monat im besten Fall; der Rechner rechnet vorsichtiger. Sobald drei Menschen gemeinsam arbeiten wollen, startet der erste Gemeinschaftsbetrieb, der Jahreskreis: Garten im Sommer, mobile Saunen und Werkstatt im Winter, Retreats und Körperarbeit das ganze Jahr — mit Anstellung und gleichem Lohn für jede Stunde. Um ihn herum wächst die Nutzengemeinschaft; ab etwa fünf Mitgliedern spart jedes Mitglied mehr, als es an Beitrag zahlt. → Vollständige Beschreibung im Konzept (jeweils aktuelle Fassung), Kapitel 2 und 5.*
 
 > *Das Worst-Case-Szenario ist kein Argument gegen das System. Es ist sein stärkstes Argument. Genau wenn es am schwersten ist, zeigt sich, wer wirklich trägt.*
 
@@ -178,7 +178,7 @@ Ideen für diesen Horizont, offen zur Diskussion:
 
 **Gemeinden als Mitglieder.** Eine Gemeinde, die beitritt, bringt Flächen, Gebäude und Aufgaben mit — Nahwärme, Bürgerbus, Dorfladen. Die Genossenschaft bringt Menschen, die diese Aufgaben zum gleichen Lohn erfüllen.
 
-**Unternehmen, die eintreten.** Wer ein Unternehmen hat und keine Nachfolge findet, kann es einbringen; es wird als Gemeinschaftsbetrieb fortgeführt (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist der Weg, auf dem Johnny's Selected Seeds in die Hände seiner Belegschaft kam — und es ist ein Weg für viele der Betriebe, die in den nächsten Jahren ohne Nachfolger dastehen. Wer noch nicht so weit ist, geht den Weg in Stufen: offenlegen, die Lohnspanne begrenzen, das Unternehmen binden, am Ende die gleiche Stunde (Konzept, nicht in der Außen-Satzung v9.1.4; Konzept Kapitel 15). Und aus vielen Teams können eigene große Unternehmen entstehen, ohne Chefs und mit gleichem Lohn (Konzept Kapitel 14).
+**Unternehmen, die eintreten.** Wer ein Unternehmen hat und keine Nachfolge findet, kann es einbringen; es wird als Gemeinschaftsbetrieb fortgeführt (Konzept, noch nicht in der Satzung). Das ist der Weg, auf dem Johnny's Selected Seeds in die Hände seiner Belegschaft kam — und es ist ein Weg für viele der Betriebe, die in den nächsten Jahren ohne Nachfolger dastehen. Wer noch nicht so weit ist, geht den Weg in Stufen: offenlegen, die Lohnspanne begrenzen, das Unternehmen binden, am Ende die gleiche Stunde (Konzept, noch nicht in der Satzung; Konzept Kapitel 15). Und aus vielen Teams können eigene große Unternehmen entstehen, ohne Chefs und mit gleichem Lohn (Konzept Kapitel 14).
 
 **Eine gemeinsame Krankenkasse.** Ab 5.000 Versicherungspflichtigen kann ein Arbeitgeber eine eigene Betriebskrankenkasse errichten (Konzept Kapitel 5). Für eine Gemeinschaft, die Gesundheit als gemeinsames Gut versteht, wäre das ein großer Schritt.
 

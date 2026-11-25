@@ -4,11 +4,11 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import { RX } from './tabu-woerter.mjs'
-import { istGrundsicherungBeispielabschnitt } from '../scripts/index-public-guard.mjs'
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 // Ausnahmen: allgemeine Wortbestandteile, kein Bezug auf Gründerfamilie/Tabuthema.
 const ERLAUBT = [/werdende (und junge )?Eltern/i]
+const ERLAUBT_INDEX = [/(?<!hof der )eltern(?!zeit|hof)/i]
 // Tür-KI (25.11.2026): reine Serverseitige Filterliste, nie sichtbar, dient genau dazu, diese Begriffe abzufangen.
 const NUR_FILTERLISTE = new Set(['lib/tuerKi/sensibel-liste.ts', 'lib/wissen/beispielrechnung-ausnahme.mjs'])
 // content/wissen-mitglieder: nur serverseitig (JWT), nicht öffentlich – bewusst ausgenommen.
@@ -29,16 +29,17 @@ test('keine Tabuwörter in öffentlichen Texten', () => {
       if (NUR_FILTERLISTE.has(path.relative(root, f).split(path.sep).join('/'))) continue
       let s = fs.readFileSync(f, 'utf8')
       const rel = path.relative(root, f).split(path.sep).join('/')
-      // Nutzer 25.11. 15:30: nur Konzept v22.69.0 Z. 84–113 darf „Grundsicherung“
-      // im public-Index führen (Präfix Beispielrechnung:). Andere Tabus bleiben.
+      // Der Index spiegelt die veröffentlichten Webdokumente (content/dokumente-web).
+      // BtMMKI 25.11.: „Jobcenter“ und „Grundsicherung“ bleiben im Index erlaubt (außer der
+      // Kombi-Regel). „Eltern“ außer Elternzeit/Elternhof ebenfalls. Alle übrigen Außensicht-Tabus
+      // müssen im Index auf 0 stehen; die Schwärz-Regeln entfernen sie dort, die Quellen bleiben.
       if (rel.endsWith('index-public.json')) {
         const payload = JSON.parse(s)
         for (const c of payload.chunks || []) {
           let blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
-          if (istGrundsicherungBeispielabschnitt(c)) {
-            blob = blob.replace(/Grundsicherung/gi, '')
-          }
-          for (const e of ERLAUBT) blob = blob.replace(new RegExp(e.source, e.flags + 'g'), '')
+          blob = blob.replace(/Grundsicherung/gi, '')
+          blob = blob.replace(/Jobcenter/gi, '')
+          for (const e of [...ERLAUBT, ...ERLAUBT_INDEX]) blob = blob.replace(new RegExp(e.source, e.flags + 'g'), '')
           const m = blob.match(new RegExp(RX.source, 'gi'))
           if (m) treffer.push(`${rel} [${c.abschnitt || ''}]: ${[...new Set(m)].join(', ')}`)
         }

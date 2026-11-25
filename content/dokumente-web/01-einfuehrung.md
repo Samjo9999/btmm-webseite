@@ -62,15 +62,15 @@ Die ersten drei müssen am selben Ort leben — alle anderen nicht · Wer folgt,
 
 ## Partner · Betriebe, Vereine, Genossenschaften, Initiativen
 
-Wer ähnliche Werte lebt, kann mitmachen, ohne sich aufzulösen · Partnervereinbarung mit der BtMM-Partnerlizenz — ein echtes Zeichen, das bei Verstößen entzogen wird · gebündelte Nachfrage der Mitglieder, gemeinsame Dienste zum Selbstkostenpreis · auf Wunsch Tandem für gegenseitige Hilfe, Mitgliedschaft, Partnerzelle oder Einbringung als Gemeinschaftsbetrieb · Unternehmen, die die Grundsätze erst Schritt für Schritt übernehmen, schließen eine Wegvereinbarung mit Stufen und Fristen (Konzept, nicht in der Außen-Satzung v9.1.4)
+Wer ähnliche Werte lebt, kann mitmachen, ohne sich aufzulösen · Partnervereinbarung mit der BtMM-Partnerlizenz — ein echtes Zeichen, das bei Verstößen entzogen wird · gebündelte Nachfrage der Mitglieder, gemeinsame Dienste zum Selbstkostenpreis · auf Wunsch Tandem für gegenseitige Hilfe, Mitgliedschaft, Partnerzelle oder Einbringung als Gemeinschaftsbetrieb · Unternehmen, die die Grundsätze erst Schritt für Schritt übernehmen, schließen eine Wegvereinbarung mit Stufen und Fristen (Konzept, noch nicht in der Satzung)
 
-Die Einlage von 100 € ist ein Bekenntnis, kein Investment: Sie bringt keine Zinsen und keinen Anteil an Wertsteigerungen. Bei Austritt wird sie nach § 73 GenG in Euro ausgezahlt; die Kündigungsfrist beträgt ein Jahr zum Ende des Geschäftsjahres. Nur wer es ausdrücklich schriftlich wünscht, bekommt sie ganz oder teilweise als Gutschein-Coins, einlösbar nur in BtMM (Satzung § 6 Abs. 4; Konzept, nicht in der Außen-Satzung v9.1.4). Ob das so geht, prüft der Prüfungsverband vor der Gründung. Wer wenig Geld hat, zahlt sie in Raten ab 10 € im Monat, voll spätestens zehn Monate nach der Zulassung; Mitglied ist man ab der ersten Rate. Beschäftigte können die Raten freiwillig per SEPA-Mandat einziehen lassen, der Lohn bleibt ungekürzt (Konzept, nicht in der Außen-Satzung v9.1.4).
+Die Einlage von 100 € ist ein Bekenntnis, kein Investment: Sie bringt keine Zinsen und keinen Anteil an Wertsteigerungen. Nach dem Satzungsentwurf kannst du die Mitgliedschaft in Textform mit einer Frist von einem Jahr zum Schluss eines Geschäftsjahres kündigen (Satzung § 6 Abs. 1). Das Geschäftsguthaben wird nach dem Ausscheiden nach § 73 GenG in Euro ausgezahlt (Satzung § 6 Abs. 4). Maßgeblich ist die Bilanz zum Ausscheiden; bei Verlusten kann das Guthaben unter dem eingezahlten Betrag liegen. Coins sind kein Geld und nicht in Euro auszahlbar. Wer wenig Geld hat, zahlt sie in Raten ab 10 € im Monat, voll spätestens zehn Monate nach der Zulassung; Mitglied ist man ab der ersten Rate. Beschäftigte können die Raten freiwillig per SEPA-Mandat einziehen lassen, der Lohn bleibt ungekürzt (Ordnung, Entwurf; in der Satzung nicht geregelt).
 
 # 3. Der BtMM-Coin — das Maß der Stunde
 
 Ein Coin entspricht immer einer Stunde Arbeit. Er hat drei Aufgaben: Er zählt jede bezahlte Stunde in den Gemeinschaftsbetrieben. Er trägt den Bonus, wenn die Betriebe mehr erwirtschaften, als der Lohn braucht. Mit ihm tauschen Mitglieder Stunde gegen Stunde, ohne Euro.
 
-Coins sind personenbezogen — sie folgen dir, auch wenn du in eine andere Zelle wechselst. Bonus-Coins sind innerhalb des Systems durch eine gebundene Coin-Rücklage auf den Konten der Genossenschaft vollständig gedeckt; der größte Teil liegt bei einer Bank mit Einlagensicherung („Haus und Fluss“, Konzept, nicht in der Außen-Satzung v9.1.4). Gegenüber externen Gläubigern, etwa in einer Insolvenz, hat diese Rücklage keinen eigenen gesetzlichen Schutz; das wird rechtlich geprüft.
+Coins sind personenbezogen — sie folgen dir, auch wenn du in eine andere Zelle wechselst. Bonus-Coins sind innerhalb des Systems durch eine gebundene Coin-Rücklage auf den Konten der Genossenschaft vollständig gedeckt; der größte Teil liegt bei einer Bank mit Einlagensicherung („Haus und Fluss“; Konzept, noch nicht in der Satzung). Gegenüber externen Gläubigern, etwa in einer Insolvenz, hat diese Rücklage keinen eigenen gesetzlichen Schutz; das wird rechtlich geprüft.
 
 Was bringt das im Alltag? Das Konzept rechnet es mit dem BtMM-Rechner nach (realistisches Szenario):
 
@@ -80,7 +80,7 @@ Was bringt das im Alltag? Das Konzept rechnet es mit dem BtMM-Rechner nach (real
 | Gleicher Stundenlohn in den Betrieben (mit Bonus) | 19,13 € | 20,47 € | 21,11 € | 21,11 € |
 | Weniger Arbeitsstunden für denselben Monat Leben (nach Dienst-Umlage und Lebensstandard-Beitrag, geschätzt wie in 00) | 24 h | 29 h | 37 h | 42 h |
 
-Bei 3 und 5 Mitgliedern ist der Solidarbeitrag von 20 Euro nicht enthalten; er gilt erst, wenn der Solidarfonds leistet (Konzept, nicht in der Außen-Satzung v9.1.4).
+Bei 3 und 5 Mitgliedern ist der Solidarbeitrag von 20 Euro nicht enthalten; er gilt erst, wenn der Solidarfonds leistet (Konzept, noch nicht in der Satzung).
 
 **Zu den Zahlen:** Alle Werte sind Modellrechnung auf Setzungen, keine Prognose. Pessimistisch liegt der Lohn bei 20 Mitgliedern bei rund 14 €, optimistisch mit Bonus bei rund 23 € (Rechner v2.13.0, Vollkonzept Kapitel 5). Die Preise der Betriebe sind Endpreise: Von ihnen geht die Umsatzsteuer ab, und die Löhne sind aus dem Rest gerechnet. Realistisch ist die Nutzen-Bilanz schon zu zweit im Plus (+81 €) und zu dritt bei rund +198 €, pessimistisch erst ab drei. Fallen die Angebote höher aus, etwa bei 550 statt 350 Euro Pflichtkosten im Monat, sind es zu dritt rund 67 Euro je Kopf weniger. Wird es knapp, wird der Beitrag gedeckelt (Nutzen-Regel). Kapitel 5 und 6 des Vollkonzepts rechnen alles Posten für Posten nach; Quellen und Status jeder Aussage stehen im Quellenverzeichnis.
 
@@ -95,7 +95,7 @@ Bei 3 und 5 Mitgliedern ist der Solidarbeitrag von 20 Euro nicht enthalten; er g
 | Volle Zelle | 20 | 20 € | Eigenkapital für das erste Haus. Knospung. |
 | Verbund bis Länderverbund | 40 bis 1 Mio. | 20 € plus Bonus, Anhebung möglich | Ziel erreicht; dann Reife-Teilung des Überschusses. Eigene Häuser, Energie, Höfe, später eine eigene Betriebskrankenkasse. Nationale Genossenschaften unter einem europäischen Dach. |
 
-Der Überschuss der Betriebe wird im Aufbau zugunsten der Reinvestition geteilt (Bonus 20–30 %, Reinvestition 40–60 %, Sozial 20–30 %), im reifen System je etwa ein Drittel. Sobald der Grundlohn sechs Halbjahre in Folge 20 € erreicht hat (ein Halbjahr sind sechs aufeinanderfolgende Monate seit Betriebsstart) und die eG mindestens 20 Vollmitglieder hat, greift eine Ratsche: Er sinkt nicht mehr darunter. Den Punkt im Korridor beschließt die GV mit einfacher Mehrheit, die Grenzen ändern sich nur mit 70 %. Der Solidarfonds bekommt 7 % der Lohnsumme, höchstens den Sozial- und Öko-Anteil, und ergänzt die gesetzlichen Leistungen. Er spart ab dem ersten Betrieb an und leistet, sobald sechs Monate in Folge zehn Mitglieder wirtschaftlich aktiv sind und der Lohn im Rahmen des beschlossenen Lohnpfads liegt (Konzept, nicht in der Außen-Satzung v9.1.4).
+Der Überschuss der Betriebe wird im Aufbau zugunsten der Reinvestition geteilt (Bonus 20–30 %, Reinvestition 40–60 %, Sozial 20–30 %), im reifen System je etwa ein Drittel. Sobald der Grundlohn sechs Halbjahre in Folge 20 € erreicht hat (ein Halbjahr sind sechs aufeinanderfolgende Monate seit Betriebsstart) und die eG mindestens 20 Mitglieder hat, greift eine Ratsche: Er sinkt nicht mehr darunter. Den Punkt im Korridor beschließt die GV mit einfacher Mehrheit, die Grenzen ändern sich nur mit 70 %. Der Solidarfonds bekommt 7 % der Lohnsumme, höchstens den Sozial- und Öko-Anteil, und ergänzt die gesetzlichen Leistungen. Er spart ab dem ersten Betrieb an und leistet, sobald sechs Monate in Folge zehn Mitglieder wirtschaftlich aktiv sind und der Lohn im Rahmen des beschlossenen Lohnpfads liegt (Konzept, noch nicht in der Satzung).
 
 **Die Brücke:** Sieben soziale Regeln machen den Aufbau tragfähig — ein Betrieb startet erst ab drei Menschen und wenn er den Mindestlohn trägt, Preise auf Marktniveau, Brückenplan und Einstiegsstelle für Menschen mit Grundsicherung, ehrenamtliche Aufbaustunden mit Vorrang beim Wohnen, ein Tragfähigkeits-Check vor jeder Einstellung, bezahlte Stunden, die den Aufträgen folgen, sowie Gemeinschaftsküche und Wohn-Brücke (Vollkonzept, Kapitel 5).
 
@@ -115,7 +115,7 @@ Diese Einführung zeigt nur den Kern. Das Vollkonzept geht in 22 Kapiteln weiter
 | 6 Zeit und Kaufkraft | Reicht der gleiche Stundenlohn im Alltag? Arbeitszeit und Kaufkraft im Vergleich zum Markt, mit Quellen. |
 | 7 Verteilungs-Kaskade | Wie das Geld wirklich fließt: Wertschöpfung, Grundlohn, Überschuss, Zellstärkungs-Topf, Sockel-Plus, Knospung, Abteilungen — die Verwaltung bleibt in den Zellen. |
 | 8–9 Rhythmus und Kapazität | Ein System, das sich dem Menschen anpasst: Zyklus, Familienphase, chronische gesundheitliche Einschränkung. |
-| 10 Unterstützer, Anwärter, Mitglied | Stufen der Zugehörigkeit — Nutzungs- und Betriebsmitglied —, ehrlich beschrieben, nicht als Hierarchie. |
+| 10 Unterstützer, Kennenlernen, Mitglied | Wege der Zugehörigkeit im Konzept (Unterstützer, Kennenlernzeit (im Konzept vorgesehen, die Satzung regelt die Aufnahme nicht), Mitglied), ehrlich beschrieben, nicht als Hierarchie; die Satzung kennt nur eine Mitgliedschaft. |
 | 11 Wohnraumvergabe | Wohnraum ist keine Ware: Vergabe nach Dringlichkeit, die Miete deckt nur die Kosten. |
 | 12–13 Kompetenz, Innen und außen | Intern gilt: Wer es kann, darf es tun — mit offenen Grenzen (Heilkunde, Elektroinstallation) und dem Weg zur staatlichen Anerkennung. Nach außen gelten alle gesetzlichen Anforderungen. |
 | 14–15 Megafirma, Partner-Netz | Was Zusammenschluss im großen Stil spart — mit belegten Beispielen aus aller Welt —, wie aus vielen Teams große Unternehmen ohne Chefs werden, das Partner-Netz mit der BtMM-Partnerlizenz und der Weg in Stufen für Unternehmen und Selbstständige bis zur gleichen Stunde. |
@@ -155,13 +155,13 @@ Die Dokumente für Leserinnen und Leser tragen im geteilten Ordner eine Nummer �
 | 25 | Ehrliche Bilanz | Was belegt ist, was gesetzt ist und welcher Versuch Wirklichkeit bringt. |
 | 26 | Fairer Handel | Wie BtMM regional, ökologisch und fair handeln kann: von Kleidung mit eigenen Motiven über Bio-Lebensmittel, Unverpacktes, Verleih und Reparatur bis zu Workshops und Software; mit Bewertung, Kombinationen und Rechenbeispiel. |
 | 27 | Kreislauf | Reparieren, Tauschen, Weitergeben: was ein Kreislauf aus Kleidung, Hausrat und Reparatur spart, mit und ohne Ehrenamt; überall optional, nichts ändert sich, bevor er zugeschaltet wird. Dazu ein Excel-Rechner. |
-| 28 | So wirst du Mitglied | Wie die Aufnahme abläuft: ankommen, kennenlernen, Anwärterzeit, Entscheidung der Zelle, Nachgespräch — und was passiert, wenn es nicht passt. |
+| 28 | So wirst du Mitglied | Wie die Aufnahme abläuft: ankommen, kennenlernen, Kennenlernzeit, Entscheidung der Zelle, Nachgespräch — und was passiert, wenn es nicht passt. |
 
 Vieles davon ist Entwurf und Möglichkeit, kein Versprechen. Im Konzept ist gekennzeichnet, was belegt ist und was eine Setzung ist.
 
 # 6. Was unverhandelbar ist
 
-Elf Werte tragen alles andere. Sie stehen in der Satzung (§ 3) und können genauer gefasst, aber nicht gestrichen werden.
+Elf Werte tragen alles andere. Sie stehen im Konzept (noch nicht in der Satzung) und können genauer gefasst, aber nicht gestrichen werden.
 
 | Gleichwürdigkeit | Gleiche Stunde | Nachhaltigkeit |
 |---|---|---|

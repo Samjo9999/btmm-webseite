@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Baut public-, Mitmacher- und internal-Index.
+ * Baut Mitmacher- und internal-Index (DRIVE/BTMM_ROOT). Der public-Index entsteht seit
+ * Fertig-PR 4 nicht mehr hier, sondern nur aus content/dokumente-web: npm run wissen:reindex.
  * WISSEN_LLM_ENABLED bleibt unberührt (kein LLM).
  *
  * public/mitmacher: Tabu-Chunks werden verworfen; verbleibende Treffer
@@ -45,21 +46,6 @@ function assertNoTaboo(label, payload, file) {
   throw new Error(`Ausschlussfilter: ${hits.length} Tabu-Treffer in ${label}`)
 }
 
-function compactPublic(payload) {
-  return {
-    builtAt: payload.builtAt,
-    docCount: payload.docCount,
-    chunkCount: payload.chunkCount,
-    tier: 'public',
-    chunks: payload.chunks.map((c) => ({
-      title: c.title,
-      abschnitt: c.abschnitt,
-      text: String(c.text).slice(0, 900),
-      rel: c.rel,
-    })),
-  }
-}
-
 const missingAll = []
 
 function buildTier(tier, { dropTaboo, textLimit }) {
@@ -98,7 +84,6 @@ function emojiFrei(label, payload) {
   return sauber
 }
 
-const pub = buildTier('public', { dropTaboo: true, textLimit: 900 })
 const mit = buildTier('mitmacher', { dropTaboo: true, textLimit: 1200 })
 const intern = buildTier('internal', { dropTaboo: false, textLimit: 1200 })
 
@@ -127,25 +112,11 @@ function assertPublicGuards(label, payload) {
   }
 }
 
-assertNoTaboo('public', pub, 'public')
 assertNoTaboo('mitmacher', mit, 'mitmacher')
-assertPublicGuards('public', pub)
 assertPublicGuards('mitmacher', mit)
 
-if (pub.chunkCount > mit.chunkCount) {
-  throw new Error(
-    `Allowlist-Guardrail: public.chunks (${pub.chunkCount}) darf nicht größer sein als mitmacher.chunks (${mit.chunkCount})`
-  )
-}
-console.log(`größen-check: public ${pub.chunkCount} <= mitmacher ${mit.chunkCount}`)
 
-const pubCompact = compactPublic(pub)
-
-const publicTargets = [
-  path.join(webRoot, 'content', 'wissen', 'index-public.json'),
-  path.join(webRoot, 'public', 'wissen', 'index-public.json'),
-]
-for (const f of publicTargets) writeJson(f, pubCompact)
+// index-public.json wird hier nicht geschrieben (nur noch aus content/dokumente-web).
 
 // Keine zweiten Auslieferungs-Kopien unter den Vorschau-Pfaden.
 const leftoverPublicCopies = [

@@ -143,9 +143,9 @@ Die Rechnung zur Mobilität: Ein eigenes Auto kostet 280 Euro im Monat an Fixkos
 
 **So kommt die Zahl zustande.** Der erste Betrieb ist ein Jahreskreis in Freiburg: im Sommer Garten- und Landschaftspflege, im Winter selbst gebaute mobile Saunen, das ganze Jahr Retreats und Körperarbeit. Drei Menschen mit je 150 bezahlten Stunden im Monat sind 450 Stunden. Der Betrieb trägt im realistischen Fall einen Stundenlohn von rund 15 Euro — etwas über dem Mindestlohn von 14,60 Euro — und bezahlt alle 450 Stunden zum Mindestlohn. Der Lohn wird nie gekürzt; was schwankt, ist im schlechten Fall die Zahl der bezahlten Stunden.
 
-**Der Haken.** Der Betrieb stellt erst an, wenn drei Bedingungen erfüllt sind: mindestens drei Menschen arbeiten mit, der Plan für die ersten zwölf Monate trägt den Mindestlohn, und die Gründungsreserve von mindestens 2.100 Euro (sechs Monate Pflichtkosten bei 350 Euro im Monat) liegt bereit. Dazu kommt das Betriebsstart-Tor (Konzept, nicht in der Außen-Satzung v9.1.4): Belegte Aufträge, Vorverträge und Abos müssen die nötige Auslastung zeigen, und die Preisliste muss im Mix die Preisuntergrenze erreichen. Im schlechten Fall trägt der Betrieb nur rund 297 von 450 Stunden, also etwa zwei Drittel, und das Tor bleibt zu; früher beginnen geht nicht. Ein Anschub-Topf aus Förderbeiträgen und Zuschüssen kann den Betrieb nach dem Start stärken, aber nicht das Tor ersetzen; niemand bekommt daraus etwas zum Lohn dazu. Und die Anstellung beginnt erst mit der eingetragenen Genossenschaft; die davor liegenden Monate sind Aufbau.
+**Der Haken.** Der Betrieb stellt erst an, wenn drei Bedingungen erfüllt sind: mindestens drei Menschen arbeiten mit, der Plan für die ersten zwölf Monate trägt den Mindestlohn, und die Gründungsreserve von mindestens 2.100 Euro (sechs Monate Pflichtkosten bei 350 Euro im Monat) liegt bereit. Dazu kommt das Betriebsstart-Tor (Konzept, noch nicht in der Satzung): Belegte Aufträge, Vorverträge und Abos müssen die nötige Auslastung zeigen, und die Preisliste muss im Mix die Preisuntergrenze erreichen. Im schlechten Fall trägt der Betrieb nur rund 297 von 450 Stunden, also etwa zwei Drittel, und das Tor bleibt zu; früher beginnen geht nicht. Ein Anschub-Topf aus Förderbeiträgen und Zuschüssen kann den Betrieb nach dem Start stärken, aber nicht das Tor ersetzen; niemand bekommt daraus etwas zum Lohn dazu. Und die Anstellung beginnt erst mit der eingetragenen Genossenschaft; die davor liegenden Monate sind Aufbau.
 
-**Wo es steht:** Vollkonzept Kapitel 5 (Jahreskreis, Lohnmodell, Regel 1 und 6); Konzept, nicht in der Außen-Satzung v9.1.4.
+**Wo es steht:** Vollkonzept Kapitel 5 (Jahreskreis, Lohnmodell, Regel 1 und 6); Konzept (noch nicht in der Satzung).
 
 ## 4. „Aus dem Regelsatz werden rund 430 Euro mehr zum Leben“
 
@@ -188,11 +188,11 @@ Die Werte gelten mit Umsatzsteuer (Rechner). Der Bonus ist, was über 20 Euro hi
 
 **Zum Weitersagen:** Wer von Anfang an mit anpackt, dessen Aufbaustunden zählen — bei der Vergabe des ersten Wohnraums bis zu zehn Monate Mitgliedschaft.
 
-**So kommt die Zahl zustande.** Stunden, die vor dem Betriebsstart freiwillig für den Aufbau geleistet werden, werden als ehrenamtliche Aufbaustunden erfasst. 100 Aufbaustunden zählen bei der Wohnraumvergabe wie ein Monat Mitgliedschaft; erfasst werden höchstens 1.000 Aufbaustunden, also zehn Monate. Wer darüber hinaus freiwillig mitarbeitet, sammelt Engagement-Stunden, die bei der Vergabe genauso zählen, je Monat höchstens 35, immer nur innerhalb derselben Stufe (Konzept, nicht in der Außen-Satzung v9.1.4). Im realistischen Fall sind das rund 480 Stunden je Person bis zum ersten Betrieb, gleich 4,8 Monate: 80 Stunden im Monat über sechs Monate, wer keine volle Stelle hat, oder rund 35 Stunden im Monat über rund 14 Monate, wer eine hat (Aufbau-Budget, Vollkonzept Kapitel 2).
+**So kommt die Zahl zustande.** Stunden, die vor dem Betriebsstart freiwillig für den Aufbau geleistet werden, werden als ehrenamtliche Aufbaustunden erfasst. 100 Aufbaustunden zählen bei der Wohnraumvergabe wie ein Monat Mitgliedschaft; erfasst werden höchstens 1.000 Aufbaustunden, also zehn Monate. Wer darüber hinaus freiwillig mitarbeitet, sammelt Engagement-Stunden, die bei der Vergabe genauso zählen, je Monat höchstens 35, immer nur innerhalb derselben Stufe (Konzept, noch nicht in der Satzung). Im realistischen Fall sind das rund 480 Stunden je Person bis zum ersten Betrieb, gleich 4,8 Monate: 80 Stunden im Monat über sechs Monate, wer keine volle Stelle hat, oder rund 35 Stunden im Monat über rund 14 Monate, wer eine hat (Aufbau-Budget, Vollkonzept Kapitel 2).
 
-**Der Haken.** Es ist ein Vorrang bei der Vergabe, keine Zusage auf eine Wohnung — und ein Haus ist realistisch erst ab etwa 20 Mitgliedern in Sicht. Aufbaustunden sind nicht übertragbar, nicht auszahlbar und verfallen bei Austritt. Sie entstehen nur aus freiwilliger Mitarbeit ohne Weisung, nie aus Stunden, die jemand in seinem Arbeitsverhältnis leistet — die werden immer bezahlt. Sie sind reines Ehrenamt: Sie werden nie in Coins umgewandelt, und es gibt keinen Anspruch darauf. Bei der Aufnahme als Vollmitglied kann die Zelle nach freiem Ermessen einen Eintrittsbonus beschließen; er wird vorher nicht zugesagt und hängt nicht an den Stunden.
+**Der Haken.** Es ist ein Vorrang bei der Vergabe, keine Zusage auf eine Wohnung — und ein Haus ist realistisch erst ab etwa 20 Mitgliedern in Sicht. Aufbaustunden sind nicht übertragbar, nicht auszahlbar und verfallen bei Austritt. Sie entstehen nur aus freiwilliger Mitarbeit ohne Weisung, nie aus Stunden, die jemand in seinem Arbeitsverhältnis leistet — die werden immer bezahlt. Sie sind reines Ehrenamt: Sie werden nie in Coins umgewandelt, und es gibt keinen Anspruch darauf. Bei der Aufnahme als Mitglied kann die Zelle nach freiem Ermessen einen Eintrittsbonus beschließen; er wird vorher nicht zugesagt und hängt nicht an den Stunden.
 
-**Wo es steht:** Vollkonzept Kapitel 5, Regel 4 der Brücke; Konzept, nicht in der Außen-Satzung v9.1.4.
+**Wo es steht:** Vollkonzept Kapitel 5, Regel 4 der Brücke; Konzept (noch nicht in der Satzung).
 
 ## 7. „Du schreibst die Regeln mit“
 
@@ -202,7 +202,7 @@ Die Werte gelten mit Umsatzsteuer (Rechner). Der Bonus ist, was über 20 Euro hi
 
 **Der Haken.** Wer später kommt, hat dieselbe Stimme — es gibt keinen Gründerbonus. Satzungsänderungen brauchen später 70 Prozent. Der Vorsprung der ersten drei ist, was sie aufgebaut und dabei gelernt haben, kein Vorrecht.
 
-**Wo es steht:** Konzept, nicht in der Außen-Satzung v9.1.4 (Generalversammlung); Einladung zur Gründung.
+**Wo es steht:** Konzept (Generalversammlung; noch nicht in der Satzung); Einladung zur Gründung.
 
 ## 8. „Stunde gegen Stunde — ab dem ersten Tag“
 
@@ -226,7 +226,7 @@ Zu den Argumenten gehört die Rechnung, was der Anfang kostet. Verglichen wird m
 | **Summe über drei Jahre** | **−18.814 €** | **+23.065 €** | **+39.329 €** |
 | Ausgleich erreicht | nach Jahr 3 | vom ersten Monat an | vom ersten Monat an |
 
-Der Rechner 09 (hier v2.12.0) rechnet den Solidarbeitrag von 20 Euro in Jahr 1 und 2 nicht mehr ein, weil er erst gilt, wenn der Solidarfonds leistet (Konzept, nicht in der Außen-Satzung v9.1.4; Dokument 19).
+Der Rechner 09 (hier v2.12.0) rechnet den Solidarbeitrag von 20 Euro in Jahr 1 und 2 nicht mehr ein, weil er erst gilt, wenn der Solidarfonds leistet (Konzept, noch nicht in der Satzung; Dokument 19).
 
 Das heißt in einem Satz: Für alle, die heute anderswo gut verdienen, ist der Anfang eine **Investition**, die sich im realistischen Fall vom ersten Monat an trägt — wenn die Gemeinschaft wie geplant wächst und der Betrieb den Lohn des Modells erreicht (mit dem Mix des ersten Jahreskreises, rund 15 Euro, läge das erste Jahr eher bei 80 bis 160 Euro im Monat unter einer Anstellung zu 17 Euro). Im pessimistischen Fall fehlen über drei Jahre rund 18.800 Euro je Gründer; dafür gibt es das Betriebsstart-Tor, damit der Betrieb gar nicht erst startet, bevor die Aufträge da sind. Wächst die Gemeinschaft nicht, ist es ein Verlust. Für alle, die heute in der Grundsicherung oder in Teilzeit stehen, studieren, gerade umsteigen oder von Gelegenheitsarbeit leben, ist der Anfang schon im ersten Jahr ein **Gewinn** (Grund 4).
 
@@ -247,19 +247,19 @@ Diese Gegenrechnung gehört in jedes Gespräch mit jemandem, der überlegt, daf�
 | Ab zehn Mitgliedern, realistisch | 20 € | 20 € | rund 13,80 € | 3.000 € | 2.070 € |
 | Ziel 20 Euro netto | rund 31 € | rund 31 € | 20 € | rund 4.700 € | 3.000 € (E) |
 
-Gerechnet ist wie in der Tabelle „Ehrlich verglichen“ unten: Tarif 2026, Steuerklasse I, ohne Kirchensteuer, grob. Die Netto-Werte mit (E) sind zwischen den Zeilen jener Tabelle geschätzt. Wer 40 Stunden in der Woche arbeitet, vergleicht am besten den Stundenlohn, nicht den Monatsbetrag. Nicht eingerechnet sind der Bonus (bei 20 Mitgliedern rund 45 Euro netto im Monat mehr, die Grenze liegt dann bei rund 2.115 Euro netto), die Rente, die Laufbahn draußen und die freie Zeit; was davon in welche Richtung zieht, steht in den Tabellen unten. Mit Kindern, in anderer Steuerklasse oder in Teilzeit sieht die Rechnung anders aus; der Paketvergleich (Konzept, nicht in der Außen-Satzung v9.1.4) rechnet sie für jeden Bewerber einzeln. In der Satzung sind Nutzungs- und Betriebsmitglieder beide Vollmitglieder mit gleicher Stimme; die Grenze sagt nur, welcher der beiden Wege sich in Geld mehr lohnt.
+Gerechnet ist wie in der Tabelle „Ehrlich verglichen“ unten: Tarif 2026, Steuerklasse I, ohne Kirchensteuer, grob. Die Netto-Werte mit (E) sind zwischen den Zeilen jener Tabelle geschätzt. Wer 40 Stunden in der Woche arbeitet, vergleicht am besten den Stundenlohn, nicht den Monatsbetrag. Nicht eingerechnet sind der Bonus (bei 20 Mitgliedern rund 45 Euro netto im Monat mehr, die Grenze liegt dann bei rund 2.115 Euro netto), die Rente, die Laufbahn draußen und die freie Zeit; was davon in welche Richtung zieht, steht in den Tabellen unten. Mit Kindern, in anderer Steuerklasse oder in Teilzeit sieht die Rechnung anders aus; der Paketvergleich (Konzept, noch nicht in der Satzung) rechnet sie für jeden Bewerber einzeln. Im Konzept sind Nutzungs- und Betriebsmitglieder beide Mitglieder mit gleicher Stimme; die Grenze sagt nur, welcher der beiden Wege sich in Geld mehr lohnt.
 
 **So kommt die Zahl zustande.** Als Nutzungsmitglied nutzt du die Bausteine der Gemeinschaft zum Selbstkostenpreis: gemeinsamer Einkauf, geteilte Mobilität, Räume, Werkzeug, Versicherungen, Körperarbeit. Vor Dienst-Umlage und Lebensstandard-Beitrag rechnet das Modell mit rund 400 Euro im Monat bei 20 und rund 550 Euro bei 100 Mitgliedern, nach allen Beiträgen mit rund 350 und 490 Euro (Rechner 09 v2.13.0, realistisch; Waage in „00 Start hier“). Bei rund 19 Euro netto je Stunde, etwa bei 4.500 Euro brutto im Monat, sind das 18 bis 25 Arbeitsstunden im Monat, die du für denselben Monat Leben nicht mehr brauchst.
 
 **Fünf Gründe, die den gleichen Stundenlohn nicht antasten.**
 
-1. **Einkommen behalten, Lebenskosten senken.** Dein Beitrag ist für alle gleich hoch; nach Einkommen gestaffelt wird er nicht (Konzept, nicht in der Außen-Satzung v9.1.4).
+1. **Einkommen behalten, Lebenskosten senken.** Dein Beitrag ist für alle gleich hoch; nach Einkommen gestaffelt wird er nicht (Konzept, noch nicht in der Satzung).
 2. **Zeit statt Geld.** Wer möchte, reduziert die Stelle auf 32 oder 30 Stunden und verbringt die gewonnene Zeit in der Gemeinschaft. Die Gemeinschaft hilft beim Antrag auf Teilzeit beim eigenen Arbeitgeber.
 3. **Können weitergeben.** Wissen aus Technik, Steuer, Medizin oder IT zählt im Zeit-Tausch: Eine Stunde bleibt eine Stunde.
 4. **Sicherheit, die man nicht kaufen kann.** Solidarfonds, Ausfall-Versorgung (Dokument 23), Kostenmiete in eigenen Häusern und Menschen, die einspringen, wenn du krank wirst.
 5. **Ein Probejahr mit Rückweg.** Wer doch in einem Gemeinschaftsbetrieb arbeiten will, kann ein Jahr lang jederzeit zurück zum Nutzungsmitglied, ohne Begründung. Wo dein Arbeitgeber zustimmt, als Sabbatjahr oder unbezahlter Urlaub mit Rückkehrrecht.
 
-Wer selbstständig gut verdient, bleibt selbstständig und wird selbstständiges Mitglied (Konzept, nicht in der Außen-Satzung v9.1.4): eigene Kundschaft, eigene Preise, Dienste der Genossenschaft, und je Stunde dasselbe Netto wie ein Betriebsmitglied; was darüber liegt, geht als Zuwendung in den Lebensstandard-Fonds.
+Wer selbstständig gut verdient, bleibt selbstständig und wird selbstständiges Mitglied (Konzept, noch nicht in der Satzung): eigene Kundschaft, eigene Preise, Dienste der Genossenschaft, und je Stunde dasselbe Netto wie ein Betriebsmitglied; was darüber liegt, geht als Zuwendung in den Lebensstandard-Fonds.
 
 **Der Weg in Etappen: das Nutzungsmitglied als Vorstufe.** Für Menschen mit gutem Einkommen ist das Nutzungsmitglied die Vorstufe zum Betriebsmitglied. So haben sie schon im Aufbau einen Vorteil: rund 390 Euro mehr übrig und rund 23 Stunden mehr freie Zeit im Monat bei 20 Mitgliedern. Und sie tragen den Aufbau mit: mit ihrem Beitrag, als Kundschaft der Gemeinschaftsbetriebe, mit ihrem Können im Zeit-Tausch und, wer will, mit Förderbeitrag oder Direktkredit. Ist die Gemeinschaft voll ausgebaut und der Grundlohn beim Ziel von 20 Euro netto, lohnt sich der Wechsel in den Betrieb auch für sie: rund 760 Euro mehr übrig und rund 36 Stunden mehr freie Zeit als allein. Dazu kommt in beiden Etappen, was in keiner Zahl steht: Gemeinschaftsräume, Gemeinschaftsküchen, Gemeinschaftswerkstätten, Sauna und Geräte, die man allein nie hätte; Menschen, mit denen man isst, arbeitet und feiert; Sicherheit durch Solidarfonds, Ausfall-Versorgung und Vertretung; Zeit-Tausch mit dem Können der anderen; ein Ort, an dem man gebraucht wird; Mitbestimmung mit gleicher Stimme; Arbeit mit Sinn und eine Gemeinschaft, die mit jedem Mitglied wächst. Der Wechsel ist ein Angebot, keine Pflicht. Wer Nutzungsmitglied bleibt, ist vollwertiges Mitglied mit gleicher Stimme.
 
@@ -268,7 +268,7 @@ Wer selbstständig gut verdient, bleibt selbstständig und wird selbstständiges
 - Als Betriebsmitglied hast du heute weniger Netto als in einer gut bezahlten Stelle. Ehrlich verglichen wird aber, was nach dem Leben übrig bleibt (Tabelle unten): Gegenüber 4.500 Euro brutto sind es bei 20 Mitgliedern rund 470 Euro weniger, voll ausgebaut rund 250 Euro, und der Monat Leben kostet dann 13 Stunden weniger. Mit dem Ziel 20 Euro netto je Stunde hast du rund 680 Euro mehr übrig.
 - Die Ersparnis wächst mit der Größe der Gemeinschaft; bei fünf Mitgliedern sind es nach allen Beiträgen rund 250 Euro. Es sind Modellrechnungen, keine Zusage.
 - Wer mehr geben kann, wird einmal im Jahr offen um eine freiwillige Gabe gebeten, wie alle anderen auch. Pflicht ist sie nicht, und niemand muss sich erklären.
-- Kein Anreiz kauft Stimmen, Vorrang oder Schutz: Jedes Mitglied hat genau einen Geschäftsanteil und eine Stimme (Satzung § 6).
+- Kein Anreiz kauft Stimmen, Vorrang oder Schutz: Jedes Mitglied hat mindestens einen Geschäftsanteil, mit Zustimmung des Vorstands höchstens zehn, und eine Stimme (Satzung § 2 Abs. 1 und 2, § 5 Abs. 4).
 - Teilzeit und Rückkehrrecht hängen vom eigenen Arbeitgeber und vom Arbeitsrecht ab.
 
 **Ehrlich verglichen: was nach dem Leben übrig bleibt.** Netto gegen Netto wäre unehrlich, denn in der Gemeinschaft kostet das Leben weniger.
@@ -303,7 +303,7 @@ Wer selbstständig gut verdient, bleibt selbstständig und wird selbstständiges
 | Gemeinschaftsküche: gemeinsam kochen statt jeden Tag allein | im Warenkorb schon enthalten | rund 10 Stunden weniger | wer mitisst | S; Grundlage Bs: klassische Hausarbeit (Kochen, Putzen, Wäsche) knapp 13 Stunden je Woche bei Frauen, etwa halb so viel bei Männern (Zeitverwendungserhebung 2022) |
 | Gemeinschaftsräume, Gemeinschaftswerkstätten, Sauna, Geräte zum Selbstkostenpreis | was davon Geld spart, steckt schon in der Ersparnis; dazu ein Nutzungswert von rund 50 bis 100 Euro für Dinge, die man allein nie hätte | – | wer sie nutzt | S |
 | Zeit-Tausch: Haareschneiden, Reparaturen, Nachhilfe, Körperarbeit gegen eigene Stunden | nicht geschätzt | – | alle | S |
-| Lebensstandard-Fonds | was man einzahlt (5 % der Ersparnis, bei 20 Mitgliedern rund 20 Euro), kommt als Räume, Bildung, Gesundheit und Natur zurück | – | alle | E, Konzept, nicht in der Außen-Satzung v9.1.4 |
+| Lebensstandard-Fonds | was man einzahlt (5 % der Ersparnis, bei 20 Mitgliedern rund 20 Euro), kommt als Räume, Bildung, Gesundheit und Natur zurück | – | alle | E, Konzept (noch nicht in der Satzung) |
 | Sicherheit: Solidarfonds, Ausfall-Versorgung, Vertretung, Menschen, die einspringen | nicht in Euro zu fassen | – | ab zehn Mitgliedern | Dokument 23 |
 | Wohnen im Alter | die Kostenmiete sinkt, sobald ein Haus getilgt ist | – | wer in eigenen Häusern wohnt | S |
 
@@ -312,7 +312,7 @@ Ehrlich auch die andere Seite:
 | Was weniger wird | Geld im Monat | Zeit im Monat | Für wen | Grundlage |
 |---|---|---|---|---|
 | Gesetzliche Rente | je Jahr als Betriebsmitglied rund 15 Euro weniger Monatsrente gegenüber 4.500 Euro brutto, nach zehn Jahren rund 150 Euro | – | Gutverdienende im Betrieb | Bs: 0,35 Entgeltpunkte je Jahr (18.000 Euro ÷ 51.944 Euro Durchschnittsentgelt 2026) × 42,52 Euro Rentenwert ab Juli 2026 |
-| Zeit für die Gemeinschaft: Versammlungen, Dienste, Patenschaft | – | rund 4 bis 6 Stunden mehr | alle Vollmitglieder | S |
+| Zeit für die Gemeinschaft: Versammlungen, Dienste, Patenschaft | – | rund 4 bis 6 Stunden mehr | alle Mitglieder | S |
 | Laufbahn draußen | kann weiter steigen, der Grundlohn steigt nur mit der Gemeinschaft | – | Gutverdienende | – |
 
 **Realistisch zusammengerechnet** (je Monat, mit Bonus, Kreislauf, Küche und Gemeinschaftszeit von rund 5 Stunden, ohne den Nutzungswert der Räume und ohne Sicherheit):
@@ -325,11 +325,11 @@ Ehrlich auch die andere Seite:
 | Guter Lohn → Betriebsmitglied, voll ausgebaut | rund −170 Euro | rund 18 Stunden mehr |
 | Guter Lohn → Betriebsmitglied, Ziel 20 Euro netto | rund +760 Euro | rund 36 Stunden mehr |
 
-In einem Satz: Für die meisten Menschen lohnt sich BtMM sofort, in Geld und in Zeit. Wer gut verdient, gewinnt sofort als Nutzungsmitglied; im Betrieb gewinnt er in Geld erst mit dem Ziel von 20 Euro netto, bis dahin vor allem an Zeit, Räumen, Werkstätten, Sicherheit und Gemeinschaft. Diese Gegenüberstellung ist der Paketvergleich, den die Satzung jedem Bewerber für einen Gemeinschaftsbetrieb zusagt (Konzept, nicht in der Außen-Satzung v9.1.4).
+In einem Satz: Für die meisten Menschen lohnt sich BtMM sofort, in Geld und in Zeit. Wer gut verdient, gewinnt sofort als Nutzungsmitglied; im Betrieb gewinnt er in Geld erst mit dem Ziel von 20 Euro netto, bis dahin vor allem an Zeit, Räumen, Werkstätten, Sicherheit und Gemeinschaft. Diese Gegenüberstellung ist der Paketvergleich, den das Konzept jedem Bewerber für einen Gemeinschaftsbetrieb zusagt (noch nicht in der Satzung).
 
 Quellen zu den belegten Werten: Statistisches Bundesamt, Zeitverwendungserhebung 2022 („Wo bleibt die Zeit?“); Statistisches Bundesamt, Konsumausgaben 2022 für Bekleidung und Schuhe, berichtet von der TextilWirtschaft; Rentenwert und Durchschnittsentgelt 2026 nach vermoegenszentrum.de (vor Weitergabe beim Bundesministerium für Arbeit und Soziales prüfen).
 
-**Wo es steht:** Vollkonzept Kapitel 10 („Für Menschen mit gutem Einkommen“, „Ehrlich verglichen“, „Das Probejahr mit Rückweg“); Konzept, nicht in der Außen-Satzung v9.1.4; Dokument 28.
+**Wo es steht:** Vollkonzept Kapitel 10 („Für Menschen mit gutem Einkommen“, „Ehrlich verglichen“, „Das Probejahr mit Rückweg“); Konzept (noch nicht in der Satzung); Dokument 28.
 
 # Teil 2 — Gute Gründe für alle, die weit weg wohnen
 
@@ -435,7 +435,7 @@ Die Argumente dieses Dokuments sind auch die Grundlage für den Kanal. Anfangss�
 | Die ersten drei, Keim, Gründungsweg | 07 Vollkonzept, Kapitel 2 |
 | Rechenwege der Bausteine | 07 Vollkonzept, Kapitel 5 (Säule 1), und 09 Rechner |
 | Lohnmodell, Jahreskreis, Brücke | 07 Vollkonzept, Kapitel 5 |
-| Wer gründet wann, Aufbaustunden | 03 Einladung zur Gründung, 08 Konzept, nicht in der Außen-Satzung v9.1.4 |
+| Wer gründet wann, Aufbaustunden | 03 Einladung zur Gründung, 07 Konzept (noch nicht in der Satzung) |
 | Steuerfragen, Zeit-Tausch, Social Media | 10 Steuer-Briefing |
 | Haltung zu Social Media | 05 Leben im System |
 | Kanal, Formate, Regeln, Vorlagen | Arbeitsdokument Social Media (ohne Nummer) |

@@ -18,12 +18,12 @@ Wenn du neu bist, reicht das Dokument „11 Handwerk, Ergänzung“. Dieses hier
 
 # Drei rechtliche Ebenen — Vorbemerkung
 
-Die folgenden Ausführungen behandeln vor allem die externe Ebene: die Arbeit der Gemeinschaftsbetriebe für Kundinnen und Kunden außerhalb der Genossenschaft. Seit Konzept v22.0.0 ist das die Ebene, auf der der gleiche Grundlohn verdient wird. Für die interne Ebene gilt zusätzlich Konzept, nicht in der Außen-Satzung v9.1.4 — genossenschaftliche Selbsthilfe nach § 1 GenG, mit ausdrücklichen Grenzen.
+Die folgenden Ausführungen behandeln vor allem die externe Ebene: die Arbeit der Gemeinschaftsbetriebe für Kundinnen und Kunden außerhalb der Genossenschaft. Im Konzept ist das die Ebene, auf der der gleiche Grundlohn verdient wird. Für die interne Ebene gilt zusätzlich die im Konzept vorgesehene Regel (noch nicht in der Satzung) — genossenschaftliche Selbsthilfe nach § 1 GenG, mit ausdrücklichen Grenzen.
 
 | Ebene | Geltung |
 |---|---|
 | Eigenleistung am eigenen Objekt | Ohne Nachweis erlaubt — außer Elektro-, Wasser- und Gasinstallation, die auch im eigenen Haus eingetragenen Fachbetrieben vorbehalten sind [Z1]. Sobald Gäste übernachten oder Besucher kommen, verlangen sicherheitsrelevante Teile zusätzlich eine fachliche Abnahme (Dokument 11, Kapitel 7) |
-| Innenleistung zwischen Mitgliedern | Konzept, nicht in der Außen-Satzung v9.1.4: keine externen Zulassungsbeschränkungen, soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt. Konzept, nicht in der Außen-Satzung v9.1.4: ausgenommen sind insbesondere Heilkunde und Arbeiten an elektrischen Anlagen. Geschützte Berufsbezeichnungen bleiben staatlich Zugelassenen vorbehalten (Konzept, nicht in der Außen-Satzung v9.1.4) |
+| Innenleistung zwischen Mitgliedern | Konzept (noch nicht in der Satzung): keine externen Zulassungsbeschränkungen, soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt. Konzept (noch nicht in der Satzung): ausgenommen sind insbesondere Heilkunde und Arbeiten an elektrischen Anlagen. Geschützte Berufsbezeichnungen bleiben staatlich Zugelassenen vorbehalten (Konzept, noch nicht in der Satzung) |
 | Externe Tätigkeit der Gemeinschaftsbetriebe | Alle gesetzlichen Anforderungen unverändert (Handwerksordnung, Berufsrecht, Heilpraktikergesetz, Lebensmittelrecht) |
 
 # 1. Handwerk ohne Meisterbrief — die einfache Wahrheit
@@ -129,7 +129,7 @@ Weitere B2-Gewerbe sind Handwerke mit Sonderfertigung, Theater- und Textilberufe
 | Einfache Tätigkeiten, die in bis zu drei Monaten erlernbar sind | § 1 Abs. 2 HwO [Z4]; zum Beispiel Hochbeete, einfache Möbel, Hilfsarbeiten, Montage. Einstufung vorab mit der Kammer klären |
 | Nebenbetrieb oder unerhebliche Tätigkeiten | § 3 HwO (Bs, nicht neu geprüft); Grenzen eng |
 | Eigenleistung am eigenen Gebäude | Dokument 11, Kapitel 2 |
-| Innenleistung zwischen Mitgliedern | Konzept, nicht in der Außen-Satzung v9.1.4, mit Ausnahmen für Elektro, Wasser, Gas |
+| Innenleistung zwischen Mitgliedern | Konzept (noch nicht in der Satzung), mit Ausnahmen für Elektro, Wasser, Gas |
 | Zusammenarbeit mit einem Meisterbetrieb | Partnerbetrieb übernimmt Anmeldung, Haftung und Abnahme |
 
 Alle 53 Handwerke der Anlage A [Z13]: Maurer und Betonbauer; Ofen- und Luftheizungsbauer; Zimmerer; Dachdecker; Straßenbauer; Wärme-, Kälte- und Schallschutzisolierer; Brunnenbauer; Steinmetzen und Steinbildhauer; Stuckateure; Maler und Lackierer; Gerüstbauer; Schornsteinfeger; Metallbauer; Chirurgiemechaniker; Karosserie- und Fahrzeugbauer; Feinwerkmechaniker; Zweiradmechaniker; Kälteanlagenbauer; Informationstechniker; Kraftfahrzeugtechniker; Land- und Baumaschinenmechatroniker; Büchsenmacher; Klempner; Installateur und Heizungsbauer; Elektrotechniker; Elektromaschinenbauer; Tischler; Boots- und Schiffbauer; Seiler; Bäcker; Konditoren; Fleischer; Augenoptiker; Hörakustiker; Orthopädietechniker; Orthopädieschuhmacher; Zahntechniker; Friseure; Glaser; Glasbläser und Glasapparatebauer; Mechaniker für Reifen- und Vulkanisationstechnik; Fliesen-, Platten- und Mosaikleger; Werkstein- und Terrazzohersteller; Estrichleger; Behälter- und Apparatebauer; Parkettleger; Rollladen- und Sonnenschutztechniker; Drechsler und Holzspielzeugmacher; Böttcher; Glasveredler; Schilder- und Lichtreklamehersteller; Raumausstatter; Orgel- und Harmoniumbauer.
@@ -179,13 +179,13 @@ Die zentrale Frage: Kann eine Meisterin oder ein Meister als technische Betriebs
 
 ## Wie die Trennung rechtssicher funktioniert
 
-Seit Satzung v7.0.0 sind die Mitglieder, die in einem Gemeinschaftsbetrieb arbeiten, bei der eG angestellt. Die Betriebsversammlung plant die Arbeit gemeinsam (Konzept, nicht in der Außen-Satzung v9.1.4); der Grundlohn ist für alle gleich (Konzept, nicht in der Außen-Satzung v9.1.4). Die technische Betriebsleitung hat nur die Aufgaben, die das Gesetz ihr gibt.
+Im Konzept sind die Mitglieder, die in einem Gemeinschaftsbetrieb arbeiten, bei der eG angestellt. Die Betriebsversammlung plant die Arbeit gemeinsam (Konzept, noch nicht in der Satzung); der Grundlohn ist für alle gleich. Die technische Betriebsleitung hat nur die Aufgaben, die das Gesetz ihr gibt.
 
 | Technische Betriebsleitung (gesetzlich) | Betriebsversammlung | Generalversammlung |
 |---|---|---|
-| Fachgerechte Ausführung, Qualitätssicherung | Arbeitsplanung, Auftragsannahme | Gleicher Grundlohn (§ 13) |
-| Arbeitsschutz auf der Baustelle | Preisliste im Rahmen von § 13a Abs. 3 | Korridore für den Überschuss (§ 11) |
-| Weisung in Sicherheitsfragen | Benennung der Auftragsrolle | Einbringung von Unternehmen (§ 15a Abs. 5) |
+| Fachgerechte Ausführung, Qualitätssicherung | Arbeitsplanung, Auftragsannahme | Gleicher Grundlohn (Konzept, noch nicht in der Satzung) |
+| Arbeitsschutz auf der Baustelle | Preisliste im Rahmen vom Konzept (noch nicht in der Satzung) | Korridore für den Überschuss (§ 11) |
+| Weisung in Sicherheitsfragen | Benennung der Auftragsrolle | Einbringung von Unternehmen (Konzept, noch nicht in der Satzung) |
 
 Die Betriebsleitung bekommt denselben Grundlohn wie alle anderen. Ihre Verantwortung ist eine Rolle, kein Rang.
 
@@ -206,14 +206,14 @@ Die Betriebsleitung bekommt denselben Grundlohn wie alle anderen. Ihre Verantwor
 
 # 5. Kosten und wer sie trägt
 
-Seit Konzept v22.0.0 gibt es keinen Einkommens-Pool mehr. Was die ganze Genossenschaft braucht, sind Pflichtkosten (Konzept, nicht in der Außen-Satzung v9.1.4); sie werden zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt (Konzept, nicht in der Außen-Satzung v9.1.4) und, soweit diese nicht reichen, aus dem Dach-Anteil des Reinvestitionsanteils (Konzept, nicht in der Außen-Satzung v9.1.4. Was ein einzelner Gemeinschaftsbetrieb braucht, trägt er als Betriebs-Fixkosten, bevor die Kaskade beginnt (Konzept, nicht in der Außen-Satzung v9.1.4). Gründungskosten trägt die Gründungsreserve; sie kann durch Direktkredite oder Crowdfunding vorfinanziert werden.
+Im Konzept gibt es keinen Einkommens-Pool mehr. Was die ganze Genossenschaft braucht, sind Pflichtkosten (Konzept, noch nicht in der Satzung); sie werden zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt und, soweit diese nicht reichen, aus dem Dach-Anteil des Reinvestitionsanteils. Was ein einzelner Gemeinschaftsbetrieb braucht, trägt er als Betriebs-Fixkosten, bevor die Kaskade beginnt. Gründungskosten trägt die Gründungsreserve; sie kann durch Direktkredite oder Crowdfunding vorfinanziert werden.
 
 | Position | Geschätzte Kosten | Wer trägt es |
 |---|---|---|
 | Prüfungsverband | rund 800–1.200 €/Jahr (kleine eG) | Pflichtkosten |
 | Betriebshaftpflicht | rund 1.200–3.000 €/Jahr | Pflichtkosten bzw. anteilig Betriebs-Fixkosten |
 | Eintragung in die Handwerksrolle | einmalig, Gebühr der Kammer | Gründungsreserve bzw. der Betrieb, der das Handwerk ausübt |
-| Ausübungsberechtigung § 7b | Gebühr der Kammer | Betrieb (Investition in die eigene Betriebsleitung) |
+| Ausübungsberechtigung Konzept (noch nicht in der Satzung) | Gebühr der Kammer | Betrieb (Investition in die eigene Betriebsleitung) |
 | Bio-Zertifizierung | nach Angebot der Kontrollstelle | Betrieb mit Bio-Produkten |
 | AZAV-Trägerzulassung | 2.000–15.000 € (Erstprüfung, Richtwert) | Gründungsreserve, Crowdfunding oder Bildungsbetrieb |
 | Gewerbeanmeldung | einmalig, Gebühr der Gemeinde | Gründungsreserve |
@@ -336,7 +336,7 @@ Ein Meisterbrief in der Gemeinschaft ist mehr als ein Abschluss: Mit einer Betri
 | Z33 | Heinrich-Hübsch-Schule Karlsruhe: Meisterschule für Tischler · Bildungsakademie der Handwerkskammer Konstanz: Meisterschulen Schreiner, Teile I bis IV | https://huebsch.karlsruhe.de/wp-content/uploads/2022/11/Info-Tischlermeister-1.pdf · https://bildungsakademie.hwk-konstanz.uniplus-software.de/wp-content/uploads/Termin-und-Preisblatt_Schreiner_stand_28_07_25.pdf | Meisterschule seit 1986; Kostenaufstellung mit Aufstiegs-BAföG |
 | Z34 | DGUV Grundsatz 303-001 (Medienportal BG ETEM) · TÜV NORD: Elektrofachkraft für festgelegte Tätigkeiten, Theorie | https://medien.bgetem.de/medienportal/artikel/MzAzLTAwMQ--/@@download/download · https://www.tuev-nord.de/de/weiterbildung/seminare/elektrofachkraft-fur-festgelegte-tatigkeiten-theorie-a | Voraussetzung: abgeschlossene Berufsausbildung oder gleichwertige berufliche Tätigkeit, ergänzbar durch eine elektrotechnische Ausbildung; Theorie und Praxis je 40 Unterrichtseinheiten; Bestellung durch den Arbeitgeber |
 | Z35 | TÜV SÜD Akademie: Elektrofachkraft für festgelegte Tätigkeiten · IHK-Weiterbildung: Elektrofachkraft für festgelegte Tätigkeiten | https://www.tuvsud.com/de-de/store/akademie/seminare-technik/elektrotechnik/elektrofachkraft-fuer-festgelegte-taetigkeiten · https://ihk-weiterbildung.de/anmeldeformular/2033215 | Volljährig und abgeschlossene Berufsausbildung verlangt; jährliche Unterweisung |
-| Z36 | Handwerksordnung § 37 (lexmea) | https://lexmea.de/de/gesetz/hwo/37 | Abs. 1 vorzeitige Zulassung bei guten Leistungen; Abs. 2 Eineinhalbfaches der Ausbildungsdauer, Ausbildungszeiten in einem anderen einschlägigen Beruf zählen, Verzicht auf die Mindestzeit ganz oder teilweise bei Glaubhaftmachung; Abs. 3 Zulassung mit Zeugnis über die vollständige Vergleichbarkeit |
+| Z36 | Handwerksordnung Konzept (noch nicht in der Satzung) (lexmea) | https://lexmea.de/de/gesetz/hwo/37 | Abs. 1 vorzeitige Zulassung bei guten Leistungen; Abs. 2 Eineinhalbfaches der Ausbildungsdauer, Ausbildungszeiten in einem anderen einschlägigen Beruf zählen, Verzicht auf die Mindestzeit ganz oder teilweise bei Glaubhaftmachung; Abs. 3 Zulassung mit Zeugnis über die vollständige Vergleichbarkeit |
 | Z37 | ZDH: Validierung von langjähriger Berufserfahrung · Handwerksblatt: Validierung der Berufserfahrung (Handwerkskammer des Saarlandes) · IHK Heilbronn-Franken: Berufsbildungsvalidierungs- und -digitalisierungsgesetz · IHK Darmstadt: Validierungsverfahren | https://www.zdh.de/ueber-uns/fachbereich-berufliche-bildung/fachkraeftesicherung/bildungspolitische-initiativen-zur-fachkraeftesicherung/validierung-von-langjaehriger-berufserfahrung/ · https://www.handwerksblatt.de/die-handwerkskammern-in-deutschland/hwk-saarland/validierung-der-berufserfahrung · https://www.ihk.de/heilbronn-franken/produktmarken/bildung/fachkraefte/berufsbildungsvalidierungs-und-digitalisierungsgesetz-6349164 · https://www.ihk.de/darmstadt/produktmarken/aus-und-weiterbildung-channel/ausbildung-von-a-bis-z/validierungsverfahren-von-beruflichen-kompetenzen-6376042 | Regelungen seit 1.1.2025, §§ 41b ff. HwO; mindestens 25 Jahre; Berufserfahrung mindestens das 1,5-fache der Regelausbildungszeit, bei drei Jahren 4,5 Jahre; Feststellungstandem aus dem Gesellenprüfungsausschuss, praktische und mündliche Aufgaben; kein Berufsabschluss; Zeugnis bei vollständiger, Bescheid bei überwiegender Vergleichbarkeit; das Zeugnis gibt Anspruch auf Zulassung zur Gesellenprüfung; Meisterprüfung erst nach einem weiteren Jahr Berufserfahrung |
 | Z38 | Lanz-Schule Mannheim: Einjährige Berufsfachschule Holztechnik (1BFZ) · OWS Ludwigsburg: Infoblatt 1BFZ | https://lanz.schule/wp-content/uploads/2026/05/Flyer-1BFZ_2019_20.pdf · https://www.ows-lb.de/fileadmin/user_upload/PDF/1BFZ_Infoblatt.pdf | Baden-Württemberg: Abschluss wird als erstes Ausbildungsjahr im Berufsfeld Holztechnik anerkannt; Fortsetzung der Ausbildung im zweiten Ausbildungsjahr |
 | Z39 | Arbeitshilfe „FbW – Externenprüfung“ eines Jobcenters (Stand 6.2.2015, über FragDenStaat) | https://media.frag-den-staat.de/files/foi/61163/Externenprfung.pdf | Beratung bei der Kammer verpflichtend; Vorbereitungslehrgang nicht vorgeschrieben, aber angeraten; Bildungsgutschein für den Vorbereitungslehrgang nach Zustimmung der Kammer (älterer Stand) |

@@ -48,7 +48,7 @@ test('rg: 0 Treffer in allen index-public.json-Kopien', () => {
     [
       '-i',
       '--',
-      'bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
+      'bürgergeld|buergergeld|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
       ...INDEX_COPIES,
     ],
     { cwd: root, encoding: 'utf8' }
@@ -81,9 +81,10 @@ test('Vorschau-Chats laden /wissen/index-public.json, Rewrites greifen', () => {
   }
 })
 
-test('Tabu-Stämme enthalten oberkirch und happyfarm', () => {
+test('Tabu-Stämme enthalten oberkirch und happyfarm, nicht Jobcenter', () => {
   assert.ok(TABOO_STEMS.includes('oberkirch'))
   assert.ok(TABOO_STEMS.includes('happyfarm'))
+  assert.equal(TABOO_STEMS.includes('jobcenter'), false)
   assert.ok(findTabooHits('Werkstatt in Oberkirch').includes('oberkirch'))
   assert.ok(findTabooHits('Hinweis auf HappyFarm').includes('happyfarm'))
   assert.equal(findTabooHits('Krankenkasse bleibt erlaubt').length, 0)
@@ -146,15 +147,10 @@ test('gleicher Grundsicherung-Text aus anderer Quelle oder anderem Abschnitt fä
   assert.ok(dropped.some((d) => d.reason === 'grundsicherung' && d.rel === GRUNDSICHERUNG_BEISPIEL.rel))
 })
 
-test('öffentlicher Index enthält die Beispielrechnung und sonst keine Grundsicherung-Kombi', () => {
+test('öffentlicher Index kommt nur aus content/dokumente-web (Beispielrechnung-Altquelle ist weg)', () => {
   const payload = JSON.parse(readFileSync(join(root, 'content/wissen/index-public.json'), 'utf8'))
-  const beispiel = (payload.chunks || []).filter(istGrundsicherungBeispielabschnitt)
-  assert.ok(beispiel.length >= 1, 'Ausnahme-Chunks müssen im Index stehen')
-  for (const c of beispiel) {
-    assert.ok(c.text.startsWith(BEISPIELRECHNUNG_PREFIX), `ohne Präfix: ${c.abschnitt}`)
-  }
-  const abschnitte = new Set(beispiel.map((c) => c.abschnitt))
-  for (const soll of GRUNDSICHERUNG_BEISPIEL.abschnitte) {
-    assert.ok(abschnitte.has(soll), `Abschnitt fehlt: ${soll}`)
-  }
+  assert.equal(payload.quelle, 'content/dokumente-web')
+  const fremd = (payload.chunks || []).filter((c) => !String(c.rel).startsWith('content/dokumente-web/'))
+  assert.deepEqual(fremd, [])
+  assert.equal((payload.chunks || []).filter(istGrundsicherungBeispielabschnitt).length, 0)
 })

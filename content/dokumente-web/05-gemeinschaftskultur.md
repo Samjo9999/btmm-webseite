@@ -58,7 +58,7 @@ Das erfordert Mut. Es erfordert die Bereitschaft, verletzlich zu sein — zu sag
 
 ## Wenn Gespräche nicht reichen
 
-Manchmal bleibt ein Konflikt, oder jemand verletzt die Werte der Gemeinschaft immer wieder. Dafür gibt es sieben Stufen der Konsequenz — keine Strafen, sondern Schritte zurück ins Gleichgewicht (Satzung § 10): ein Klärungsgespräch, begleitetes Innehalten mit einer Vertrauensperson, das Ruhen von Ämtern in der Zelle, der Ausgleich eines Schadens, eine Nutzungspause für Einrichtungen, die missbraucht wurden, freiwillige Wiedergutmachung und erst ganz am Ende der Ausschluss. Lohn, Wohnung, Essen und medizinische Versorgung berührt keine dieser Stufen. Die meisten Konflikte enden bei der ersten.
+Manchmal bleibt ein Konflikt, oder jemand verletzt die Werte der Gemeinschaft immer wieder. Dafür gibt es sieben Stufen der Konsequenz — keine Strafen, sondern Schritte zurück ins Gleichgewicht (Konzept, noch nicht in der Satzung): ein Klärungsgespräch, begleitetes Innehalten mit einer Vertrauensperson, das Ruhen von Ämtern in der Zelle, der Ausgleich eines Schadens, eine Nutzungspause für Einrichtungen, die missbraucht wurden, freiwillige Wiedergutmachung und erst ganz am Ende der Ausschluss. Lohn, Wohnung, Essen und medizinische Versorgung berührt keine dieser Stufen. Die meisten Konflikte enden bei der ersten.
 
 # 4. Digitale Gesundheit
 
@@ -139,7 +139,7 @@ Wer neu dazukommt, erkennt an, dass die anderen schon sehr viel für den Aufbau 
 
 ## Zwei Fragen, an denen der Satz hängt
 
-„Alles ist erarbeitet“ gilt nur, solange es stimmt. Es prüft sich an zwei Fragen: Kann jemand erklären, woraus dieser Vorteil entstanden ist? Und stand der Weg dorthin auch denen offen, die später gekommen sind? Wer freiwillig mitarbeitet, sammelt ehrenamtliche Aufbaustunden, und 100 davon zählen bei der Wohnraumvergabe wie ein Monat Mitgliedschaft, insgesamt höchstens zehn Monate; als Aufbaustunden werden höchstens 1.000 Stunden erfasst, alle weiteren freiwilligen Stunden zählen als Engagement-Stunden genauso, je Monat höchstens 35, und immer nur innerhalb derselben Stufe (Konzept, nicht in der Außen-Satzung v9.1.4). Wo ein Vorteil keine der beiden Fragen besteht, gilt dieses Kapitel nicht: Dann ist er ein Fall für die Zelle und die Satzung.
+„Alles ist erarbeitet“ gilt nur, solange es stimmt. Es prüft sich an zwei Fragen: Kann jemand erklären, woraus dieser Vorteil entstanden ist? Und stand der Weg dorthin auch denen offen, die später gekommen sind? Wer freiwillig mitarbeitet, sammelt ehrenamtliche Aufbaustunden, und 100 davon zählen bei der Wohnraumvergabe wie ein Monat Mitgliedschaft, insgesamt höchstens zehn Monate; als Aufbaustunden werden höchstens 1.000 Stunden erfasst, alle weiteren freiwilligen Stunden zählen als Engagement-Stunden genauso, je Monat höchstens 35, und immer nur innerhalb derselben Stufe (Konzept, noch nicht in der Satzung). Wo ein Vorteil keine der beiden Fragen besteht, gilt dieses Kapitel nicht: Dann ist er ein Fall für die Zelle und die Satzung.
 
 ## Warum diese Haltung unter den anderen liegt
 

@@ -4,7 +4,15 @@
  * Pfadregeln: INTERN_ / _intern/ / ROTH- / BUSINESSPLAN u. a.
  * „Krankenkasse“ bleibt erlaubt (enthält nicht den Stamm „krankheit“).
  * PII-Regex (E-Mail, Telefon, IBAN, Straße+Hausnummer) bricht den Build ab.
- * Grundsicherung-Beispielrechnung: nur Konzept v22.69.0 Z. 84–113, Präfix „Beispielrechnung:“.
+ * Seit Fertig-PR 4 wird index-public.json nur noch aus content/dokumente-web gebaut
+ * (scripts/filter-index-public.mjs). Pfad-Sonderregeln (Förderung, Annahmen) gelten für
+ * dokumente-web nicht (Dok 15 ist veröffentlicht). Die Grundsicherung-Kombi-Regel gilt
+ * auch dort (AUSSCHLUSSLISTE.md): „Grundsicherung“ zusammen mit „fünf Menschen“,
+ * „alle mit“ oder einem Euro-Betrag fällt als ganzer Chunk. „Jobcenter“ und
+ * „Grundsicherung“ allein bleiben im Index (BtMMKI 25.11.).
+ * Index-Tabu (TABOO_STEMS / INDEX_TABU_STEMS) ist unabhängig vom Tür-KI-Eingabefilter
+ * in lib/tuerKi/sensibel-liste.ts; die Listen dürfen nicht verkoppelt werden.
+ * Tabu, PII, Altwortlaut und Kombi prüft auch scripts/index-public-schwaerzen.mjs.
  * Kein tuer-public-Index.
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs'
@@ -29,10 +37,10 @@ export {
   mitBeispielrechnungPrefix,
 }
 
+/** Index-Tabu für index-public. Nicht die Tür-KI-Eingabeliste (lib/tuerKi/sensibel-liste.ts). */
 export const TABOO_STEMS = [
   'bürgergeld',
   'buergergeld',
-  'jobcenter',
   'hartz',
   'krankheit',
   'erkrankung',
@@ -45,6 +53,7 @@ export const TABOO_STEMS = [
   'oberkirch',
   'j.s.gartzke',
 ]
+export const INDEX_TABU_STEMS = TABOO_STEMS
 
 export const FORBIDDEN_PATH_RE =
   /INTERN_|\/_intern(?:\/|$)|(?:^|\/)ROTH[-_/]|BUSINESSPLAN/i
@@ -95,12 +104,19 @@ export function loadPublicAllowlist(root) {
   return { allowed, blacklist, raw }
 }
 
+export const DOKUMENTE_WEB_PREFIX = 'content/dokumente-web/'
+
+export function istDokumenteWebRel(rel) {
+  return normalizeRel(rel).startsWith(DOKUMENTE_WEB_PREFIX)
+}
+
 export function isAllowedRel(rel, allow) {
   const n = normalizeRel(rel)
   if (!allow.allowed.has(n)) return false
   const s = String(rel || '').replace(/\\/g, '/')
   if (allow.blacklist.some((p) => s.includes(p))) return false
   if (FORBIDDEN_PATH_RE.test(s)) return false
+  if (istDokumenteWebRel(s)) return true
   if (INDEX_PATH_EXTRA.some((re) => re.test(s))) return false
   return true
 }
@@ -111,11 +127,12 @@ export function findIndexHits(payload) {
     const rel = c.rel || ''
     const blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
     const words = findTabooHits(blob)
-    if (FORBIDDEN_PATH_RE.test(blob) || INDEX_PATH_EXTRA.some((re) => re.test(rel))) {
+    const web = istDokumenteWebRel(rel)
+    if (FORBIDDEN_PATH_RE.test(blob) || (!web && INDEX_PATH_EXTRA.some((re) => re.test(rel)))) {
       words.push('verbotener-pfad')
     }
     if (istGrundsicherungKombi(blob) && !istGrundsicherungBeispielabschnitt(c)) {
-      words.push('grundsicherung')
+      words.push('grundsicherung-kombi')
     }
     if (istGrundsicherungBeispielabschnitt(c) && !String(c.text || '').startsWith(BEISPIELRECHNUNG_PREFIX)) {
       words.push('beispielrechnung-prefix')
@@ -145,8 +162,9 @@ export function istGrundsicherungKombi(text) {
   return false
 }
 
+// Satzzeichen-Punkt direkt hinter der Adresse („…@gmail.com.“) darf den Treffer nicht verhindern.
 const EMAIL_RE =
-  /(?<![\w.+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,24}(?![\w.+-])/gi
+  /(?<![\w.+-])[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,24}(?![\w+-])(?!\.\w)/gi
 
 const IBAN_RE = /\b[A-Z]{2}\d{2}(?:[ ]?[A-Z0-9]){10,30}\b/g
 
@@ -389,11 +407,6 @@ export function checkPublicIndexes(root) {
       if (!isAllowedRel(c.rel, allow)) {
         errors.push(`${rel}: Chunk nicht auf Public-Allowlist: ${c.rel}`)
       }
-    }
-    if (beispielChunks.length === 0) {
-      errors.push(
-        `${rel}: Grundsicherung-Beispielrechnung fehlt (Konzept v22.69.0, Z. 84–113)`
-      )
     }
     const hits = findIndexHits(payload)
     for (const h of hits) {
