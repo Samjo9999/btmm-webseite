@@ -5,6 +5,7 @@
 import { readFileSync, readdirSync, existsSync } from 'fs'
 import { join } from 'path'
 import type { WissenChunk } from './search'
+import { nurErlaubteChunks } from './sichtbarkeit'
 
 export type LoadedCorpus = {
   chunks: WissenChunk[]
@@ -92,10 +93,11 @@ export function loadMitmacherCorpus(): LoadedCorpus {
     docCount?: number
     chunks: WissenChunk[]
   }
+  const chunks = nurErlaubteChunks(raw.chunks || [])
   return {
     source: 'wissen-mitglieder',
     builtAt: raw.builtAt,
     docCount: raw.docCount ?? 0,
-    chunks: raw.chunks || [],
+    chunks,
   }
 }
