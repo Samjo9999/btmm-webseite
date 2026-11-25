@@ -45,7 +45,7 @@ export const SEITEN = {
     pfad: '/kosten',
     titel: 'Kosten – kein Investment, Anteil 100 € erst ab Gründung',
     beschreibung:
-      'Was kostet ein Genossenschaftsanteil bei BtMM? Kein Investment, keine Vorkasse. Erst mit der eG 100 € Anteil, auf Wunsch in Raten ab 10 €.',
+      'Was kostet ein Genossenschaftsanteil bei BtMM? Kein Investment, keine Vorkasse. Erst nach der Gründung der geplanten eG 100 € Anteil, auf Wunsch in Raten ab 10 €. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.',
     kurz: 'Kosten',
     bereich: 'kern',
   },
@@ -77,7 +77,7 @@ export const SEITEN = {
     pfad: '/mitmachen',
     titel: 'Mitmachen – komm zu einem offenen Abend',
     beschreibung:
-      'Mitmachen bei BtMM in Freiburg: Komm zu einem offenen Abend oder schreib uns, dass du dabei sein willst. Kein Investment, keine Vorkasse.',
+      'Mitmachen bei BtMM in Freiburg: Komm zu einem offenen Abend oder schreib uns, dass du dabei sein willst. Kein Investment, keine Vorkasse. Eine Mitgliedschaft ist derzeit nicht möglich.',
     kurz: 'Mitmachen',
     bereich: 'kern',
   },
@@ -93,7 +93,7 @@ export const SEITEN = {
     pfad: '/wissen/glossar',
     titel: 'Glossar – Begriffe von BtMM einfach erklärt',
     beschreibung:
-      'Zelle, Anteil, eG, Kaskade, BtMM-Coin: die wichtigsten Begriffe von BtMM kurz erklärt, nach der Satzung v7.32.0.',
+      'Zelle, Geschäftsanteil, geplante eG und BtMM-Coin: die wichtigsten Begriffe von BtMM kurz erklärt, nach der Satzung der geplanten BtMM eG (Entwurf v9.1.4).',
     kurz: 'Glossar',
     bereich: 'wissen',
   },
@@ -147,11 +147,11 @@ export function breadcrumbLd(kette: SeitenSchluessel[], locale = 'de') {
 export const ORGANISATION_LD = {
   '@type': 'Organization',
   '@id': `${SITE_URL}/#organisation`,
-  name: BRAND_FULL,
+  name: 'BtMM',
   url: SITE_URL,
   logo: `${SITE_URL}/logo.png`,
   email: KONTAKT_MAIL,
   address: { '@type': 'PostalAddress', addressLocality: 'Freiburg im Breisgau', addressCountry: 'DE' },
-  description: 'Geplante Genossenschaft (eG in Gründung) in Freiburg: teilen, was allein teuer ist.',
+  description: 'Geplante Genossenschaft in Freiburg: teilen, was allein teuer ist. BtMM ist eine geplante Genossenschaft und noch nicht gegründet.',
   // foundingDate erst nach Eintragung setzen — öffentlich kein Gründungsdatum.
 }
