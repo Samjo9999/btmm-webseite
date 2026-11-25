@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process'
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 
 const STEM_RE =
-  /bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|j\.s\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN/gi
+  /bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\.s\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN/gi
 
 function assertClean(label, file) {
   const raw = readFileSync(file, 'utf8')
@@ -46,7 +46,7 @@ const rg = spawnSync(
   [
     '-i',
     '--',
-    'bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
+    'bürgergeld|buergergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|oberkirch|j\\.s\\.gartzke|INTERN_|_intern|ROTH-|BUSINESSPLAN',
     'content/wissen/index-public.json',
     'content/wissen-mitglieder/index.json',
     'public/wissen/index-public.json',
