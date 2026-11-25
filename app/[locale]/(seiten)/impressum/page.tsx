@@ -367,7 +367,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
 
                 <h4>Supabase</h4>
                 <p>
-                  Für die Terminbuchung und Datenverwaltung nutzen wir Supabase (Supabase Inc., USA)
+                  Für die Terminbuchung und Datenverwaltung nutzen wir Supabase (Supabase Pte. Ltd.)
                   als Auftragsverarbeiter gemäß Art. 28 DSGVO. Personenbezogene Buchungsdaten (Name,
                   E-Mail, Telefon) werden in der Supabase-Datenbank gespeichert. Der Datentransfer
                   in die USA wird durch EU-Standardvertragsklauseln abgesichert. Weitere Informationen:{' '}

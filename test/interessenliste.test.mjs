@@ -46,6 +46,20 @@ test('Impressum-DSE-Block und Sitemap-Eintrag haengen am Schalter', () => {
     assert.ok(imp.includes(muss), 'DSE-Block: ' + muss)
   }
   assert.match(lies('app/sitemap.ts'), /interessenlisteAktiv\(\) \? \[\.\.\.PFADE, '\/gruendung\/interesse'\]/)
+  assert.doesNotMatch(imp, /Supabase Inc/)
+  assert.ok((imp.match(/Supabase Pte\. Ltd\./g) || []).length >= 2, 'Supabase Pte. Ltd. in DSE')
+  const anbieter = imp.slice(0, imp.indexOf('id="datenschutz"'))
+  assert.ok(anbieter.includes('Angaben gemäß § 5 DDG'))
+  assert.doesNotMatch(anbieter, /Supabase/)
+})
+
+test('Link von /gruendung auf die Interessenliste nur bei Schalter an', () => {
+  const src = lies('app/[locale]/(seiten)/gruendung/page.tsx')
+  assert.match(src, /dynamic = 'force-dynamic'/)
+  const i = src.indexOf('interessenlisteAktiv() &&')
+  assert.ok(i > 0)
+  assert.match(src.slice(i, i + 800), /\/gruendung\/interesse/)
+  assert.equal([...src.matchAll(/gruendung\/interesse/g)].length, 1)
 })
 
 test('Keine Vercel-API-Route und kein Service-Role-Key fuer die Interessenliste', () => {

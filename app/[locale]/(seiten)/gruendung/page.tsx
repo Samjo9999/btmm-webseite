@@ -5,6 +5,7 @@ import { Users, ArrowRight } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
 import { ContactForm } from '@/components/ContactForm'
+import { interessenlisteAktiv } from '@/lib/interessenliste.mjs'
 
 export const dynamic = 'force-dynamic'
 
@@ -21,7 +22,7 @@ const schritte = [
   { schritt: '5', titel: 'Wachstum', text: 'App geht live, Pool füllt sich, Stundensatz steigt. Weitere Mitglieder und Zellen kommen dazu.' },
 ]
 
-export default async function GruendungPage() {
+export default async function GruendungPage({ params: { locale } }: { params: { locale: string } }) {
   return (
     <>
       <section style={{
@@ -204,6 +205,12 @@ export default async function GruendungPage() {
             <p style={{ opacity: 0.75, lineHeight: 1.7, marginBottom: '2rem' }}>
               Du interessierst dich dafür, Gründungsmitglied zu werden? Schreib uns – wir antworten persönlich.
             </p>
+            {interessenlisteAktiv() && (
+              <p style={{ lineHeight: 1.7, marginBottom: '1.5rem' }}>
+                Unverbindlich Interesse bekunden, ohne Zahlung und ohne Beitritt:{' '}
+                <Link href={`/${locale}/gruendung/interesse`}>Zur Interessenliste</Link>.
+              </p>
+            )}
             <ContactForm
               typ="gruendung"
               betreff="Gründungsmitglied – Interesse"
