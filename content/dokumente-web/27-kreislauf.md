@@ -291,7 +291,7 @@ B belegt, Bs belegt nur aus Wiedergaben, E Schätzung oder aus Rechner übernomm
 - Rund 23 Versuche je Termin: eigene Rechnung (331 Termine, 7.710 Gegenstände, Hessen 2023) — Bs.
 - Ausgaben je Haushalt und Monat 2023: Bekleidung und Schuhe 121 €, Innenausstattung und Haushaltsgeräte 91 € — Bs: [statistiken-aktuell.de](https://statistiken-aktuell.de/konsum-deutschland-statistik/). Haushaltsgröße von rund 2 Personen — S.
 - Rund 1.900 Repair-Cafés in Deutschland, Haftungserklärung, Ersatzteile — Bs: [Verbraucherzentrale](https://www.verbraucherzentrale.de/wissen/umwelt-haushalt/nachhaltigkeit/repaircafes-reparieren-statt-wegwerfen-8208).
-- Sozialkaufhäuser tragen sich nicht allein über Verkaufserlöse, nur qualitativ — Bs: Bericht über Sozialkaufhäuser.
+- Sozialkaufhäuser tragen sich nicht allein über Verkaufserlöse, nur qualitativ — Bs: [Diakonie Saar, Diakoniekaufhaus Saarlouis](https://www.diakonie-saar.de/ich-brauche-hilfe/diakoniekaufhaus-saarlouis).
 - Dienst-Kosten 25,20 €/h, unbezahlte Stunden, Miete, Unterstützer, bisherige Ersparnis: Rechner 09 v2.7.0 — E/S. Netto-Stundenlohn 15,60 €: Dokument 19 — E.
 - Alle weiteren Annahmen (Anteile, Neupreise, Arbeitszeit je Teil, Außenkunden, Flächen, Fixkosten, Premium, Sachkosten je Termin, Ehrenamts-Anteil, Höchstanteil des Topfes für Second-Hand) — S, Rechner 27, Blatt Annahmen.
 - Freiburger Sozialkaufhäuser und Second-Hand-Läden — N.
