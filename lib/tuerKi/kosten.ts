@@ -3,10 +3,12 @@
  * ohne Hash, Sitzung oder Inhalt. Vor jedem Aufruf wird der ungünstigste Fall
  * (geschätzte Eingabe + volle Ausgabe) gegen Tages- und Monatsdeckel geprüft.
  *
- * Werte sind Vorgabe Haggle (innerhalb S50): 0,50 €/Tag, 10 €/Monat, und brauchen
- * Nutzer-Ja. Env darf die Werte senken, nicht über die Obergrenze (0,50 / 10) anheben.
+ * Eigener Kostendeckel, getrennt von S50 der Wissens-KI (kein Anteil an S50):
+ * 0,50 €/Tag und 10 €/Monat, harter Stopp. Env darf die Werte senken, nicht über
+ * die Obergrenze (0,50 / 10) anheben. Den Gesamtdeckel 50 € setzt der Nutzer in Scaleway.
  * Bei erreichtem Deckel gilt der Notbetrieb: kein Scaleway-Aufruf.
  * Serverless-Grenze: Summen gelten je Instanz; zusätzlich Billing-Alert in der Scaleway-Konsole.
+ * Einschalten der Tür-KI frühestens 01.12.2026.
  */
 
 export const PREIS_EIN_EUR_PRO_MIO = 0.15

@@ -1,6 +1,7 @@
 /**
- * Tür-KI: feste Grenzen (Plan Tür-KI 25.11.2026 §3.3 und §5). Werte sind Vorschläge;
- * Geld/Deckel erst nach Nutzer-Ja über den Dirigenten. Schalter bleiben aus.
+ * Tür-KI: feste Grenzen (Plan Tür-KI 25.11.2026 §3.3 und §5).
+ * Eigener Kostendeckel getrennt von S50 der Wissens-KI. Schalter bleiben aus.
+ * Einschalten frühestens 01.12.2026.
  */
 export const TUER_KI = {
   temperature: 0.5,
