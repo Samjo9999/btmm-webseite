@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Community",
     "gemeinschaft_text": "Local cells form the heart of BtMM. People come together, support each other and shape their economic future collectively.",
     "nachhaltigkeit_titel": "Sustainability",
-    "nachhaltigkeit_text": "Cooperative in formation (eG i.Gr.). Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
+    "nachhaltigkeit_text": "Planned BtMM eG. BtMM is not yet founded. Long-term thinking instead of short-term profit. BtMM builds structures that sustain and grow across generations.",
     "nachhaltigkeit_mehr_erfahren": "Learn more about sustainability",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -34,7 +34,7 @@
     "pool_titel": "Pool",
     "pool_text": "Shared resources that benefit every member.",
     "coins_titel": "BtMM Coins",
-    "coins_text": "Internal currency for exchanging services within the community.",
+    "coins_text": "Internal accounting of services. Coins are not money and cannot be paid out in euros.",
     "workspace_titel": "Workspace",
     "workspace_text": "Shared digital workspace for projects and collaboration.",
     "cta": "Discover app",
@@ -54,19 +54,19 @@
   "zellen_alle": "View all cells",
   "mitgliedschaft": {
     "titel": "Membership",
-    "untertitel": "Two ways to be part of BtMM",
+    "untertitel": "BtMM is not yet founded. Membership is currently not possible.",
     "stufen": [
       {
-        "stufe": "Apprentice",
-        "preis": "Variable participation",
-        "beschreibung": "Transition to full membership",
-        "benefits": "Cost prices for selected services"
+        "stufe": "Getting to know us",
+        "preis": "without joining",
+        "beschreibung": "You can get to know us before there is a cooperative.",
+        "benefits": "No share, no membership, no vote"
       },
       {
-        "stufe": "Full Member",
-        "preis": "Active membership",
-        "beschreibung": "Complete participation",
-        "benefits": "Compensation, voting rights, solidarity fund"
+        "stufe": "Joining after the founding",
+        "preis": "Share of 100 €",
+        "beschreibung": "The planned statutes know only one membership, no candidate or full-member level.",
+        "benefits": "One person, one vote; notice period of one year to the end of the financial year"
       }
     ]
   }
