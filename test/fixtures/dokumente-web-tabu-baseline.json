@@ -4,8 +4,7 @@
     "jobcenter": 1
   },
   "01-einfuehrung.md": {
-    "grundsicherung": 2,
-    "erkrank": 1
+    "grundsicherung": 2
   },
   "03-einladung-gruendung.md": {
     "grundsicherung": 3,
@@ -22,16 +21,14 @@
   },
   "07-konzept.md": {
     "grundsicherung": 17,
-    "eltern": 5,
-    "erkrank": 1
+    "eltern": 5
   },
   "11-handwerk-ergaenzung.md": {
     "jobcenter": 1
   },
   "12-handwerk-zulassungen.md": {
     "grundsicherung": 7,
-    "jobcenter": 10,
-    "buergergeld": 1
+    "jobcenter": 10
   },
   "13-ideen-horizonte.md": {
     "grundsicherung": 1
@@ -45,7 +42,6 @@
   },
   "19-soziale-zahlen.md": {
     "eltern": 22,
-    "erkrank": 3,
     "grundsicherung": 9
   },
   "20-berufe-ohne-abschluss.md": {
@@ -53,8 +49,7 @@
   },
   "21-bildung-finanzieren.md": {
     "jobcenter": 2,
-    "grundsicherung": 3,
-    "hartz": 2
+    "grundsicherung": 2
   },
   "22-heilen-schuetzen-vorbeugen.md": {
     "grundsicherung": 1
@@ -68,8 +63,7 @@
     "jobcenter": 1
   },
   "27-kreislauf.md": {
-    "grundsicherung": 1,
-    "hartz": 2
+    "grundsicherung": 1
   },
   "28-aufnahme-kurz-erklaert.md": {
     "grundsicherung": 2,

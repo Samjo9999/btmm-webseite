@@ -139,7 +139,9 @@ test('Alte Dokumentseiten: Redirects auf vorhandene neue Seiten, alte PDFs und A
   assert.ok(!lese('app/[locale]/dokumente/[slug]/page.tsx').includes('drive-dokumente'))
 })
 
-test('Bilder in Dokument 00: relative Verweise (../explain/fig) werden nicht gerendert', () => {
+test('Bilder in Dokument 00: keine explain/fig-Verweise; relative Bilder bleiben ausgeblendet', () => {
+  const md = lese('content/dokumente-web/00-einfach-erklaert.md')
+  assert.ok(!/explain\/fig|\.\.\/explain/.test(md), '00 enthält noch explain/fig-Verweise')
   const q = lese('components/DokumentInhalt.tsx')
   assert.match(q, /\^\(https\?:\)\?/)
   assert.ok(!fs.existsSync(path.join(root, 'public', 'explain')))
@@ -157,8 +159,9 @@ test('Tabu streng: keine Treffer in den Dokumenten', () => {
   assert.deepEqual(treffer, [])
 })
 
-// Gemeldet (Stand 25.11.): Treffer der Außensicht-Liste (grundsicherung, jobcenter, erkrank, eltern, hartz, buergergeld).
-// Die Texte wurden nicht verändert. Dieser Test hält den Stand fest: mehr Treffer als in der Baseline schlagen an,
+// Gemeldet (Stand 25.11., nach der Quellenbereinigung): Treffer der Außensicht-Liste.
+// Grundsicherung und Jobcenter bleiben erlaubt und stehen in der Baseline.
+// erkrank, hartz und buergergeld stehen auf 0. Mehr Treffer als in der Baseline schlagen an,
 // weniger sind erlaubt (Baseline dann verkleinern). Entscheidung zu den Begriffen liegt bei Nutzer/DS-Bot.
 test('Tabu Außensicht: keine neuen Treffer über die gemeldete Baseline hinaus', async () => {
   const { RX } = await import('./tabu-woerter.mjs')
