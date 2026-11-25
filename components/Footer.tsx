@@ -120,7 +120,7 @@ export function Footer() {
             </h4>
             <nav style={{ display: 'flex', flexDirection: 'column', gap: '0.4rem' }}>
               {[
-                { href: '/mitmachen', label: 'Mitglied werden' },
+                { href: '/mitmachen', label: 'BtMM kennenlernen' },
                 { href: '/erfahrungen', label: 'Erfahrungen' },
                 { href: '/gruendung', label: 'Gründung' },
                 { href: '/offene-fragen', label: 'Offene Fragen' },

@@ -21,7 +21,7 @@ const EDGE_URL =
 
 const QUICK_ACTIONS = [
   'Was ist BtMM?',
-  'Mitglied werden',
+  'BtMM kennenlernen',
   'Kontakt',
 ]
 
