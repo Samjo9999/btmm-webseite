@@ -97,7 +97,7 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
     return geprueft.grund === 'zu_lang' ? fest('zu_lang', sprache, 'zuLang', {}, 400) : { http: 400, json: { status: 'ungueltig' } }
   }
 
-  // 4. Sensible Angaben in IRGENDEINER Nutzernachricht: kein Modellaufruf, nichts loggen
+  // 4. Sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assistant): kein Modellaufruf, nichts loggen
   const sensibel = sensibleNutzerNachrichten(geprueft.verlauf)
   if (sensibel.length) return fest('sensibel', sprache, 'sensibel', { entfernen: sensibel })
 

@@ -1,6 +1,16 @@
 /**
- * Herkunftsprüfung der Tür-KI: gleiche Origin (Webseite) oder ausdrücklich freigegebene
- * App-Origins (TUER_KI_APP_ORIGINS, kommagetrennt). CORS-Header nur für App-Origins, nie "*".
+ * Herkunftsprüfung der Tür-KI: gleiche Origin (Webseite) oder ausdrücklich
+ * freigegebene App-Origins über Env TUER_KI_APP_ORIGINS (kommagetrennt).
+ * Die Default-Liste ist leer: ohne Env kein CORS, fremde Origins werden
+ * abgewiesen (403). Nie "*". Env erst setzen, wenn echte App-Domains
+ * feststehen (DS-Bot). Die App nutzt /api/tuer-ki derzeit nicht.
+ *
+ * Vorlage für eine spätere Freigabe (BtMM-App #68, DS-geprüft), nicht als Default:
+ * https://app.b-t-m-m.com, https://btmm-app.vercel.app,
+ * capacitor://localhost, ionic://localhost, https://localhost, http://localhost,
+ * https://127.0.0.1, http://127.0.0.1
+ * sowie Team-Preview-Muster
+ * ^https:\/\/btmm-[a-z0-9-]+-backtobalancegartzke-2433s-projects\.vercel\.app$
  */
 export function appOrigins(raw: string | undefined): string[] {
   return String(raw || '')

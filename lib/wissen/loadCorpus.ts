@@ -52,6 +52,34 @@ function chunksFromMarkdownFiles(dir: string): WissenChunk[] {
   return chunks
 }
 
+/**
+ * Öffentlicher Index. Chunks ohne Sichtbarkeits-„Level“ sind hier nicht gesperrt
+ * (das Level-Filter gilt nur für den Mitmacher-Index über nurErlaubteChunks).
+ * Der Index wird beim Bau auf PUBLIC-ALLOWLIST.json begrenzt; zur Laufzeit
+ * zusätzlich gegen diese Allowlist prüfen, falls die Datei vorliegt.
+ */
+function nurAllowlistChunks(chunks: WissenChunk[]): WissenChunk[] {
+  const allowPath = join(process.cwd(), 'content', 'wissen', 'PUBLIC-ALLOWLIST.json')
+  if (!existsSync(allowPath)) return chunks
+  try {
+    const raw = JSON.parse(readFileSync(allowPath, 'utf8')) as {
+      publicSources?: { rel?: string }[]
+      blacklistPathPatterns?: string[]
+    }
+    const allowed = new Set((raw.publicSources || []).map((s) => String(s.rel || '').replace(/\\/g, '/')))
+    if (!allowed.size) return chunks
+    const blacklist = raw.blacklistPathPatterns || []
+    return chunks.filter((c) => {
+      const rel = String(c.rel || '').replace(/\\/g, '/')
+      if (!allowed.has(rel)) return false
+      if (blacklist.some((b) => rel.includes(b))) return false
+      return true
+    })
+  } catch {
+    return chunks
+  }
+}
+
 export function loadPublicCorpus(): LoadedCorpus {
   const candidates = [
     join(process.cwd(), 'content', 'wissen', 'index-public.json'),
@@ -65,7 +93,7 @@ export function loadPublicCorpus(): LoadedCorpus {
         docCount?: number
         builtAt?: string
       }
-      const chunks = ohneEmojis(data.chunks || [])
+      const chunks = ohneEmojis(nurAllowlistChunks(data.chunks || []))
       if (chunks.length) {
         return {
           chunks,
@@ -79,7 +107,7 @@ export function loadPublicCorpus(): LoadedCorpus {
     }
   }
   const dir = join(process.cwd(), 'content', 'dokumente')
-  const chunks = ohneEmojis(chunksFromMarkdownFiles(dir))
+  const chunks = ohneEmojis(nurAllowlistChunks(chunksFromMarkdownFiles(dir)))
   const docs = new Set(chunks.map((c) => c.rel))
   return {
     chunks,
