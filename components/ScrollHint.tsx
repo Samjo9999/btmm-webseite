@@ -19,13 +19,14 @@ export function ScrollHint() {
 
   const pruefen = useCallback(() => {
     const gesperrt = typeof document !== 'undefined' && document.body.classList.contains('pfad-leiste-an')
-    const an = sollSichtbar({
+    // W1: nur im Hero zeigen; sobald gescrollt wird (> 120 px), nicht mehr über dem Inhalt stehen
+    const imHero = window.scrollY <= 120
+    let an = imHero && sollSichtbar({
       scrollHeight: document.documentElement.scrollHeight,
       innerHeight: window.innerHeight,
       scrollY: window.scrollY,
       gesperrt,
     })
-    setSichtbar(an)
     const knopf = ref.current
     if (knopf && an) {
       let lift = sammleUntereLeisten(document, window.innerWidth, window.innerHeight, knopf)
@@ -34,13 +35,35 @@ export function ScrollHint() {
       const treffer = document.elementFromPoint(r.left + r.width / 2, window.innerHeight - 8)
       const fuss = treffer?.closest('footer')
       if (fuss) lift = Math.max(lift, liftUeberElement(fuss.getBoundingClientRect().top, window.innerHeight))
+
+      // W1 r2: Nie über einem Knopf oder Link stehen (z. B. „Mitmachen“ im Hero auf 390×844).
+      // Geprüft wird die Fläche, die der Hinweis unten mittig einnimmt (ca. 170 × 60 px + Abstand).
+      const mitte = window.innerWidth / 2
+      const unten = window.innerHeight - 24
+      let ueberlappt = false
+      for (const dy of [4, 20, 36, 52, 68]) {
+        for (const dx of [-85, -42, 0, 42, 85]) {
+          const el = document.elementFromPoint(mitte + dx, unten - dy)
+          const ziel = el?.closest('a, button, input, select, textarea, [role="button"]')
+          // Flächige Klickzonen (z. B. „Bild vergrößern“ über dem ganzen Hero-Bild) zählen nicht
+          const flaechig = ziel ? ziel.getBoundingClientRect().height > 200 : false
+          if (ziel && !flaechig && !ziel.closest('[data-scroll-hint]')) { ueberlappt = true; break }
+        }
+        if (ueberlappt) break
+      }
+      if (ueberlappt) an = false
+
       knopf.style.visibility = 'visible'
       knopf.style.setProperty('--mehr-erfahren-lift', lift > 0 ? `${lift}px` : '0px')
     }
+    setSichtbar(an)
   }, [])
 
   useEffect(() => {
     const start = window.requestAnimationFrame(() => pruefen())
+    // Hero-Animationen und Schriften verschieben Knöpfe nach dem ersten Rendern: nachprüfen
+    const t1 = window.setTimeout(() => pruefen(), 700)
+    const t2 = window.setTimeout(() => pruefen(), 1600)
     const onScroll = () => pruefen()
     window.addEventListener('scroll', onScroll, { passive: true })
     window.addEventListener('resize', onScroll, { passive: true })
@@ -61,6 +84,8 @@ export function ScrollHint() {
     if (mo) mo.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ['class', 'hidden'] })
     return () => {
       window.cancelAnimationFrame(start)
+      window.clearTimeout(t1)
+      window.clearTimeout(t2)
       window.removeEventListener('scroll', onScroll)
       window.removeEventListener('resize', onScroll)
       window.removeEventListener('load', onScroll)
@@ -101,4 +126,3 @@ export function ScrollHint() {
     </button>
   )
 }
-
