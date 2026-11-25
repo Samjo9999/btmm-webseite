@@ -1,5 +1,5 @@
 {
-  "labelNote": "Strikte Public-Allowlist für index-public.json (Hotfix 24.11.2026, gleicher Satz wie #40 publicSources). Nur diese rels dürfen im öffentlichen Wissens-Index stehen. Satzung, 07-Konzept, 02-recht und 04-finanzen sind bewusst nicht public. Neues Dokument nur nach DS-OK und nur mit exaktem Pfad (keine Globs). Dokument 07 steht bewusst nicht als Ganzes auf dieser Liste; eine gezielte Abschnitt-Ausnahme (Z. 84–113, Präfix „Beispielrechnung:“) setzt der Index-Guard durch.",
+  "labelNote": "Public-Allowlist für index-public.json ab Fertig-PR 4 (25.11.2026): ausschließlich die 30 veröffentlichten Webdokumente unter content/dokumente-web (exakte Pfade, keine Globs). Der Index entsteht nur aus diesen Dateien (scripts/filter-index-public.mjs); DRIVE-/BTMM_ROOT-Quellen laufen nur noch in den Mitmacher-/internen Index. Neues Dokument nur nach DS-OK und mit exaktem Pfad.",
   "blacklistPathPatterns": [
     "06-intern",
     "md-intern",
@@ -10,152 +10,162 @@
     "BUSINESSPLAN",
     "steuer-briefing",
     "datei15",
-    "15-geschaeftsmodell",
     "annahmen-und-quellen",
-    "foerderung",
     "ABNAHMEN_",
     "Autopilot_",
     "Befund_",
-    "Rechtspruefung_Aktumo",
-    "08_BtMM_Satzung_eG_v7_",
-    "08_BtMM_Satzung_eG_v8_3",
-    "v9_0_5_schlank"
+    "Rechtspruefung_Aktumo"
   ],
   "publicSources": [
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_00-einfach-erklaert-start-hier_v1.17.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/00-einfach-erklaert.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_01-einfuehrung_v4.18.1_2026-11-09.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/01-einfuehrung.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_02-aufruf-beteiligung_v2.11.0_2026-11-17.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/02-aufruf-beteiligung.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_03-einladung-gruendung_v2.17.1_2026-11-09.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/03-einladung-gruendung.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_06-gute-gruende_v1.10.2_2026-11-08.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/04-wirtschaften-anleitung.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_24-partner-werden_v1.5.1_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/05-gemeinschaftskultur.md"
     },
     {
-      "rel": "DRIVE/MDs/01-aussenkontakt/BtMM_28-aufnahme-kurz-erklaert_v1.9.1_2026-11-08.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/06-gute-gruende.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_04-wirtschaften-anleitung_v3.15.2_2026-11-08.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/07-konzept.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_05-gemeinschaftskultur_v1.7.2_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/08-satzung.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_11-handwerk-ergaenzung_v3.2.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/08a-ordnungen.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_12-handwerk-zulassungen-detail_v3.0.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/11-handwerk-ergaenzung.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_13-ideen-horizonte_v3.4.2_2026-11-08.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/12-handwerk-zulassungen.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_16-schnelle-einnahmen_v2.1.2_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/13-ideen-horizonte.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_17-grosser-fahrplan_v1.2.0_2026-10-26.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/15-geschaeftsmodell.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_18-demokratie-schluessel_v1.3.1_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/16-schnelle-einnahmen.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_20-berufe-ohne-abschluss_v1.0.1_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/17-grosser-fahrplan.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_22-heilen-schuetzen-vorbeugen_v1.10.0_2026-11-08.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/18-demokratie-schluessel.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_23-ausfall-versorgung_v1.5.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/19-soziale-zahlen.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_26-fairer-handel_v1.5.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/20-berufe-ohne-abschluss.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_27-kreislauf_v1.2.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/21-bildung-finanzieren.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_29-der-keim_v1.4.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/22-heilen-schuetzen-vorbeugen.md"
     },
     {
-      "rel": "DRIVE/MDs/03-konzept/BtMM_30-gewerbe-katalog_v0.1.0_2026-11-01.md",
       "entwurf": false,
-      "root": "btmm"
+      "root": "btmm",
+      "rel": "content/dokumente-web/23-ausfall-versorgung.md"
     },
     {
-      "rel": "content/dokumente/einfuehrung.md",
       "entwurf": false,
-      "root": "web"
+      "root": "btmm",
+      "rel": "content/dokumente-web/24-partner-werden.md"
     },
     {
-      "rel": "content/dokumente/gemeinschaftskultur.md",
       "entwurf": false,
-      "root": "web"
+      "root": "btmm",
+      "rel": "content/dokumente-web/25-ehrliche-bilanz.md"
     },
     {
-      "rel": "content/dokumente/handwerk.md",
       "entwurf": false,
-      "root": "web"
+      "root": "btmm",
+      "rel": "content/dokumente-web/26-fairer-handel.md"
     },
     {
-      "rel": "content/dokumente/ideen-horizont.md",
       "entwurf": false,
-      "root": "web"
+      "root": "btmm",
+      "rel": "content/dokumente-web/27-kreislauf.md"
     },
     {
-      "rel": "content/dokumente/wirtschaften.md",
       "entwurf": false,
-      "root": "web"
+      "root": "btmm",
+      "rel": "content/dokumente-web/28-aufnahme-kurz-erklaert.md"
+    },
+    {
+      "entwurf": false,
+      "root": "btmm",
+      "rel": "content/dokumente-web/29-der-keim.md"
+    },
+    {
+      "entwurf": false,
+      "root": "btmm",
+      "rel": "content/dokumente-web/30-gewerbe-katalog.md"
+    },
+    {
+      "entwurf": false,
+      "root": "btmm",
+      "rel": "content/dokumente-web/31-coin-ordnung.md"
     }
   ]
 }
