@@ -29,8 +29,17 @@ test('Schalter ist standardmaessig aus und nur bei exakt "true" an', () => {
 test('Alle neuen Seiten geben bei ausgeschaltetem Schalter 404 und werden nie ohne Schalter gerendert', () => {
   for (const s of SEITEN) {
     const src = lies(s)
-    assert.match(src, /if \(!interessenlisteAktiv\(\)\) notFound\(\)/, s)
     assert.match(src, /dynamic = 'force-dynamic'/, s)
+    const meta = src.indexOf('export async function generateMetadata')
+    const page = src.indexOf('export default async function')
+    assert.ok(meta >= 0 && page > meta, s)
+    const metaSrc = src.slice(meta, page)
+    const pageSrc = src.slice(page)
+    assert.match(metaSrc, /if \(!interessenlisteAktiv\(\)\) notFound\(\)/, s + ' generateMetadata')
+    assert.match(pageSrc, /if \(!interessenlisteAktiv\(\)\) notFound\(\)/, s + ' page')
+    const guard = metaSrc.indexOf('if (!interessenlisteAktiv()) notFound()')
+    const titelOderRobots = metaSrc.search(/title:|robots:/)
+    assert.ok(guard >= 0 && titelOderRobots > guard, s + ': kein Titel/robots vor 404')
   }
   assert.match(lies(SEITEN[1]), /index: false/)
   assert.match(lies(SEITEN[2]), /index: false/)

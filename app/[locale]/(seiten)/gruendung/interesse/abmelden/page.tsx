@@ -11,6 +11,7 @@ export const dynamic = 'force-dynamic'
 type P = { params: { locale: string } }
 
 export async function generateMetadata({ params }: P): Promise<Metadata> {
+  if (!interessenlisteAktiv()) notFound()
   const t = await getTranslations({ locale: params.locale, namespace: 'interesse' })
   return { title: t('abmelden_titel'), robots: { index: false, follow: false } }
 }
