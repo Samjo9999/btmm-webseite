@@ -4,6 +4,8 @@
  * gemeinsam ändern. Kein LLM; WISSEN_LLM_ENABLED bleibt unberührt.
  */
 
+import { entferneEmojis } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
+
 export type WissenChunk = {
   title: string
   abschnitt: string
@@ -305,11 +307,12 @@ export function formatExtractiveAnswer(
   antwort +=
     '\n\n—\nEntwurf/Vorschau · kann lückenhaft sein · keine Rechtsberatung. Generative KI ist absichtlich aus.'
   return {
-    antwort,
+    // Nutzerregel 25.11.: keine Emojis in Antworten.
+    antwort: entferneEmojis(antwort),
     beantwortet: true,
     quellen: top.map((h) => ({
-      dokument: h.title,
-      abschnitt: h.abschnitt,
+      dokument: entferneEmojis(h.title),
+      abschnitt: entferneEmojis(h.abschnitt),
       pfad: h.rel,
       score: h.score,
     })),
