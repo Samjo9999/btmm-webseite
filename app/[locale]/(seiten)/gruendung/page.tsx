@@ -10,14 +10,14 @@ import { interessenlisteAktiv } from '@/lib/interessenliste.mjs'
 export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
-  title: 'Gründung – Back to Meaning Maximization eG i.Gr.',
-  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Ein offener Brief an die Gründungsmitglieder. Werde Teil der Bewegung.',
+  title: 'Gründung – geplante BtMM eG',
+  description: 'Die geplante Gründung der BtMM eG. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich. Du kannst uns trotzdem kennenlernen.',
 }
 
 const schritte = [
   { schritt: '1', titel: 'Gründungsmitglieder finden', text: 'Mindestens drei Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
-  { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Ein Termin, eine Unterschrift, 100 € Einlage. Die Back to Meaning Maximization eG wird beim Genossenschaftsregister Freiburg eingetragen.' },
-  { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Mitgliedschaft im BWGV, Gewerbeanmeldung, erste Großhandelseinkäufe. Die operative Arbeit übernehmen die, die Zeit haben.' },
+  { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Geplant sind Gründungsversammlung, notarielle Beglaubigung und ein Geschäftsanteil von 100 € (Satzung § 2 Abs. 1, Entwurf). Die geplante BtMM eG soll nach der Gründung beim Genossenschaftsregister angemeldet werden. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.' },
+  { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Geplant sind die Mitgliedschaft in einem Prüfungsverband, die nötigen Anmeldungen und der Aufbau des ersten Betriebs. Die operative Arbeit übernehmen die, die Zeit haben.' },
   { schritt: '4', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
   { schritt: '5', titel: 'Wachstum', text: 'App geht live, Pool füllt sich, Stundensatz steigt. Weitere Mitglieder und Zellen kommen dazu.' },
 ]
@@ -176,7 +176,7 @@ export default async function GruendungPage({ params: { locale } }: { params: { 
             <div className="prose-btb" style={{ marginBottom: '2rem' }}>
               <p>Ein Gründungsmitglied bringt vor allem eins mit: die ehrliche Überzeugung, dass dieses System entstehen soll.</p>
               <ul>
-                <li><strong>Einlage:</strong> 100 € — auch in Raten ab 10 € im Monat, voll eingezahlt spätestens zehn Monate nach der Zulassung</li>
+                <li><strong>Geschäftsanteil (nach der Gründung):</strong> 100 € — auch in monatlichen Raten von mindestens 10 €, voll eingezahlt spätestens zehn Monate nach der Zulassung (Satzung § 2 Abs. 1, Entwurf). Eine Mitgliedschaft ist derzeit nicht möglich.</li>
                 <li><strong>Zeitaufwand Gründung:</strong> Gründungsversammlung + Notartermin (wenige Stunden)</li>
                 <li><strong>Danach:</strong> So viel oder wenig aktive Beteiligung, wie du geben kannst</li>
                 <li><strong>Was zählt:</strong> Dein Name, dein Bekenntnis, deine Stimme bei Entscheidungen</li>

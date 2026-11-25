@@ -12,10 +12,10 @@ export function generateMetadata({ params }: P): Metadata { return seitenMeta('o
 
 const OFFEN = [
   { titel: 'Haftung am Anfang', text: 'Wie wir am Anfang zusammenarbeiten können, ohne aus Versehen gemeinsam für Schulden zu haften. Das klären wir mit Fachleuten, bevor wir mehr Leute aufnehmen.' },
-  { titel: 'Rückzahlung des Anteils', text: 'Ob die Rückzahlung des Anteils nach fünf Jahren Kündigungsfrist so zulässig ist.' },
+  { titel: 'Kündigung und Auszahlung', text: 'Nach dem Satzungsentwurf kannst du die Mitgliedschaft in Textform mit einer Frist von einem Jahr zum Schluss eines Geschäftsjahres kündigen (Satzung § 6 Abs. 1). Das Geschäftsguthaben wird nach dem Ausscheiden nach § 73 GenG in Euro ausgezahlt (Satzung § 6 Abs. 4). Maßgeblich ist die Bilanz zum Ausscheiden; bei Verlusten kann das Guthaben unter dem eingezahlten Betrag liegen. Das ist ein Entwurf, noch nicht beschlossen, und kann sich ändern. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.' },
   { titel: 'Rente', text: 'Mit dem geplanten Lohn reicht die gesetzliche Rente allein nicht. Wir arbeiten an einer Lösung, versprechen aber keine Rente.' },
   { titel: 'Lohn am Anfang', text: 'In einem gemeinsamen Betrieb mit wenigen Leuten liegt der Lohn erst knapp über dem Mindestlohn.' },
-  { titel: 'Satzung', text: 'Die Satzung (v7.32.0) ist ein Entwurf und noch nicht rechtlich geprüft.' },
+  { titel: 'Satzung', text: 'Die Satzung der geplanten BtMM eG (Entwurf v9.1.4, Stand 24. November 2026) ist noch nicht beschlossen und kann sich ändern. Verbindlich wird nur die beschlossene Satzung. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.' },
   { titel: 'Zahlen', text: 'Alle Zahlen sind Rechnungen. Echte Erfahrungen haben wir noch nicht.' },
 ]
 

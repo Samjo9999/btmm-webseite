@@ -3,7 +3,7 @@
 export type Ratgeber = { slug: string; titel: string; kurz: string; status: 'online' | 'geplant' }
 
 export const RATGEBER: Ratgeber[] = [
-  { slug: 'glossar', titel: 'Glossar', kurz: 'Zelle, Anteil, eG, Kaskade, BtMM-Coin – kurz erklärt.', status: 'online' },
+  { slug: 'glossar', titel: 'Glossar', kurz: 'Zelle, Geschäftsanteil, geplante eG, BtMM-Coin – kurz erklärt.', status: 'online' },
   { slug: 'genossenschaft-gruenden', titel: 'Genossenschaft gründen', kurz: 'Schritte, Kosten, Prüfungsverband. Rechtliches bleibt als offen markiert.', status: 'geplant' },
   { slug: 'gemeinsam-einkaufen', titel: 'Gemeinsam einkaufen', kurz: 'Wie Foodcoops funktionieren, mit Rechenbeispiel.', status: 'geplant' },
   { slug: 'auto-und-werkzeug-teilen', titel: 'Auto und Werkzeug teilen', kurz: 'Privates Carsharing und Werkzeug teilen, mit Rechenbeispiel.', status: 'geplant' },

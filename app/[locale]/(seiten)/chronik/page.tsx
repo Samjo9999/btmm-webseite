@@ -10,7 +10,7 @@ export const revalidate = 0
 export const metadata: Metadata = {
   title: 'Chronik – Back to Meaning Maximization',
   description:
-    'Die öffentliche Chronik von Back to Meaning Maximization: Meilensteine, Beschlüsse und Geschichten unserer Genossenschaft.',
+    'Die öffentliche Chronik von Back to Meaning Maximization: Schritte auf dem Weg zur geplanten BtMM eG. BtMM ist noch nicht gegründet.',
 }
 
 const CATEGORY_META: Record<string, { label: string; color: string }> = {

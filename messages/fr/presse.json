@@ -12,7 +12,7 @@
     "titel": "Profil",
     "beschreibung": "Back to Meaning Maximization est une alternative économique organisée en coopérative qui combine travail à valeur égale, infrastructure partagée et collaboration internationale au sein d'un système commun.",
     "rechtsform_label": "Forme juridique",
-    "rechtsform": "Coopérative en cours de fondation (eG i.Gr.)",
+    "rechtsform": "coopérative prévue (BtMM n'est pas encore fondée)",
     "gruendungsort_label": "Lieu de fondation",
     "gruendungsort": "Fribourg-en-Brisgau, Allemagne",
     "gruendungsjahr_label": "Fondation",
@@ -44,7 +44,7 @@
   "kontakt": {
     "titel": "Contact presse",
     "name_label": "Personne de contact",
-    "name": "Back to Meaning Maximization eG i.Gr.",
+    "name": "Back to Meaning Maximization eG prévue",
     "email_label": "E-mail",
     "email": "office@b-t-m-m.com",
     "hinweis": "Nous répondons généralement sous 2 jours ouvrables."

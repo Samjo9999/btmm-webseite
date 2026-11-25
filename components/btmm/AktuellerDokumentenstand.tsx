@@ -8,7 +8,7 @@ export function AktuellerDokumentenstand({ locale, thema = 'grundlagen' }: { loc
       ['Erst erproben, dann verpflichten', 'Bezahlte Aufträge, eine verlässliche Finanzierung und fachliche Klärung gehören vor eine Anstellung. Ein Keim ist noch keine eigene Rechtsform. Wer nur gemeinsam einkauft oder unterstützt, muss deshalb nicht selbstständig werden.'],
     ],
     kosten: [
-      ['Anteil beim Austritt – Entwurfsstand', 'Satzung v7.35.0 sieht vor, dass die Einlage grundsätzlich in der eG bleibt. Auf Wunsch sollen interne Gutschein-Coins möglich sein. Die Zulässigkeit ist ungeklärt. Gesetzlich vorgeschriebene Auszahlungen gehen vor; für diesen Fall nennt der Entwurf die Feststellung des zweiten Geschäftsjahres nach dem Ausscheiden. Eine geprüfte Rückzahlungszusage gibt es nicht.'],
+      ['Anteil beim Austritt – Entwurfsstand', 'Der Satzungsentwurf v9.1.4 sieht nicht vor, dass die Einlage in der eG bleibt. Nach dem Satzungsentwurf kannst du die Mitgliedschaft in Textform mit einer Frist von einem Jahr zum Schluss eines Geschäftsjahres kündigen (Satzung § 6 Abs. 1). Das Geschäftsguthaben wird nach dem Ausscheiden nach § 73 GenG in Euro ausgezahlt (Satzung § 6 Abs. 4). Maßgeblich ist die Bilanz zum Ausscheiden; bei Verlusten kann das Guthaben unter dem eingezahlten Betrag liegen. Das ist ein Entwurf, noch nicht beschlossen, und kann sich ändern. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich. Coins sind kein Geld und nicht in Euro auszahlbar.'],
       ['Beitrag und Nutzen getrennt zeigen', 'Eigene Einkünfte bleiben bei Nutzungsmitgliedern. Pflichtkosten, Dienst-Umlage und ein möglicher Beitrag zum Lebensstandard-Wachstum sollen getrennt in der Nutzen-Bilanz stehen. Ermäßigungen und eine ruhende Mitgliedschaft sind vorgesehen.'],
     ],
     wirtschaft: [
@@ -17,11 +17,11 @@ export function AktuellerDokumentenstand({ locale, thema = 'grundlagen' }: { loc
     ],
     gemeinschaft: [
       ['Stimme und Schutz', 'Eine Person, eine Stimme ist die Grundlage des Entwurfs. Das Demokratie-Papier schlägt zusätzlich Konsent und eine doppelte Mehrheit für zellenübergreifende Entscheidungen vor. Die rechtliche Umsetzung ist noch offen. Bei Gewalt hat der Schutz Betroffener Vorrang.'],
-      ['Der Solidarfonds braucht erst eine Grundlage', 'Der Entwurf setzt vor Leistungen sechs aufeinanderfolgende Perioden mit mindestens zehn wirtschaftlich aktiven Vollmitgliedern und ausreichend tragfähigem Lohn voraus. Er zahlt nur aus vorhandenem Bestand und ersetzt keine gesetzliche Absicherung.'],
+      ['Der Solidarfonds braucht erst eine Grundlage', 'Ein Solidarfonds ist im Konzept geplant, in der Außen-Satzung v9.1.4 aber nicht geregelt. Geplante Schwellen und Leistungen sind Absicht, keine Zusage, und ersetzen keine gesetzliche Absicherung.'],
     ],
   }[thema]
   return <div className="btmm-ergaenzung"><NeueInhalteStil /><Abschnitt titel="Ergänzung aus den aktuellen Dokumenten">
-    <p style={{ fontSize: '0.9rem', opacity: 0.75 }}>Stand: 1. November 2026 · Konzept v22.49.3 und Satzungsentwurf v7.35.0</p>
+    <p style={{ fontSize: '0.9rem', opacity: 0.75 }}>Stand: 24. November 2026 · Satzung der geplanten BtMM eG (Entwurf) v9.1.4 · Konzept v22.69.0</p>
     <div className="btmm-raster">{hinweise.map(([titel, text]) => <Karte key={titel} titel={titel}><p>{text}</p></Karte>)}</div>
     <Offen>Die neuen Angaben sind Arbeits- und Satzungsentwürfe. Rechtliche Prüfung, tragfähige Finanzierung und praktische Erprobung stehen vor verbindlichen Zusagen.</Offen>
     <p><a href={`/${locale}/wissen`}>Die neuen Themen verständlich nachlesen →</a> · <a href={`/${locale}/geldfluss`}>Zum Geldfluss-Diagramm →</a></p>

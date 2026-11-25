@@ -1,7 +1,7 @@
 // Nutzen für Handwerksbetriebe (Außensicht-Fix 24.11.2026).
 // Quellen: konzept.wirtschaft.megafirma_text (Betriebshaftpflicht für alle),
 // konzept.wirtschaft.dreiteilung_reinvest (Steuerberater, Versicherung, Software),
-// Satzungsentwurf v7.52.0 § 15 Abs. 2 (Verwaltung/Buchhaltung mit gemeinsamen Werkzeugen),
+// Konzept; nicht in der Außen-Satzung v9.1.4 (Verwaltung/Buchhaltung mit gemeinsamen Werkzeugen),
 // 19_BtMM_Soziale_Zahlen (Keim-Phase ohne gemeinsame Verwaltung).
 // Meisterpflicht-Text: Recht-&-Fristen-Bot, 24.11.2026.
 import Link from 'next/link'

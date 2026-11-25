@@ -97,7 +97,7 @@ export default async function KonzeptPage() {
               { icon: TrendingUp, label: 'Pool-Dreiteilung', detail: '⅓ Vergütung · ⅓ Reinvestition · ⅓ Sozial', color: 'var(--btb-rot)' },
               { icon: Heart, label: 'BtMM-Coin', detail: '1 Coin = 1 Stunde — internes Tauschmittel', color: 'var(--btb-blau)' },
               { icon: Users, label: 'Selbstverwaltete Zellen', detail: 'Demokratisch, dezentral, eigenverantwortlich', color: 'var(--btb-blau)' },
-              { icon: Shield, label: 'Solidarfonds für Lebensphasen und Übergänge', detail: 'Zahlt erst ab zehn aktiven Vollmitgliedern', color: 'var(--btb-oliv)' },
+              { icon: Shield, label: 'Solidarfonds für Lebensphasen und Übergänge', detail: 'Im Konzept geplant, keine Zusage', color: 'var(--btb-oliv)' },
               { icon: Globe, label: 'Weltweit ein System', detail: 'Keine Kopie — Teil des Netzwerks', color: 'var(--btb-oliv)' },
             ].map((item, i) => {
               const Icon = item.icon

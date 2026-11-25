@@ -9,7 +9,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Gemeinschaft – BtMM Konzept',
-  description: 'Zellen, Solidarfonds, Gleichwürdigkeit, Konsequenzsystem und Mitgliedsstufen: Die gemeinschaftlichen Grundlagen von Back to Meaning Maximization.',
+  description: 'Zellen, Solidarfonds, Gleichwürdigkeit, Konsequenzsystem und Mitgliedschaft: Die gemeinschaftlichen Grundlagen von Back to Meaning Maximization.',
 }
 
 export default async function GemeinschaftPage() {

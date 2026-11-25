@@ -18,7 +18,7 @@ export default function Seite({ params: { locale } }: P) {
       <JsonLd daten={[ORGANISATION_LD, breadcrumbLd(['start', 'wissen', 'glossar'], locale),
         { '@type': 'DefinedTermSet', name: 'BtMM-Glossar', url: absUrl('glossar', locale),
           hasDefinedTerm: GLOSSAR.map((b) => ({ '@type': 'DefinedTerm', name: b.begriff, description: b.erklaerung })) }]} />
-      <SeitenKopf titel="Glossar" unterzeile="Die wichtigsten Begriffe von BtMM, nach der Satzung v7.32.0 (Entwurf, rechtlich noch nicht geprüft)." />
+      <SeitenKopf titel="Glossar" unterzeile="Die wichtigsten Begriffe von BtMM, nach der Satzung der geplanten BtMM eG (Entwurf v9.1.4, Stand 24. November 2026). Noch nicht beschlossen, kann sich ändern. BtMM ist noch nicht gegründet." />
       <div className="btmm-inhalt">
 {/* BTMM-ADD-GLOSSAR-STAND-START */}
 <AktuellerDokumentenstand locale={locale} thema="wirtschaft" />

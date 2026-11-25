@@ -20,6 +20,6 @@ export async function NachhaltigkeitErgaenzung() {
       <Knopf link={`/${locale}/geldfluss`}>Geldfluss mit Prozenten ansehen</Knopf>
     </Abschnitt>
     <Offen>Gemeinsame Betriebe, Wohnraum, eigene Energieversorgung und Kreislaufangebote sind Vorhaben im Aufbau. Finanzierung, Genehmigungen, Nachfrage und messbare Wirkung müssen für jedes Projekt geklärt werden.</Offen>
-    <Abschnitt titel="Klein anfangen"><p>Bring einen reparierbaren Gegenstand mit, nutze ein vorhandenes Angebot vor Ort oder verabrede eine gemeinsame Nutzung. Erst ausprobieren und Erfahrungen dokumentieren, bevor neue Infrastruktur entsteht.</p><p style={{ fontSize: '.9rem', opacity: .75 }}>Grundlage: Konzept v22.49.3, Satzungsentwurf v7.35.0, Wirtschaften v3.15.1, Fairer Handel v1.5.0 und Kreislauf v1.2.0. Zusammenfassung von Entwürfen, keine geprüften Leistungszusagen.</p></Abschnitt>
+    <Abschnitt titel="Klein anfangen"><p>Bring einen reparierbaren Gegenstand mit, nutze ein vorhandenes Angebot vor Ort oder verabrede eine gemeinsame Nutzung. Erst ausprobieren und Erfahrungen dokumentieren, bevor neue Infrastruktur entsteht.</p><p style={{ fontSize: '.9rem', opacity: .75 }}>Grundlage: Konzept v22.69.0, Satzung der geplanten BtMM eG (Entwurf v9.1.4, Stand 24. November 2026), Wirtschaften v3.15.2 und die veröffentlichten Webdokumente zu Fairem Handel und Kreislauf. Zusammenfassung von Entwürfen, keine geprüften Leistungszusagen. BtMM ist noch nicht gegründet.</p></Abschnitt>
   </div></div>
 }

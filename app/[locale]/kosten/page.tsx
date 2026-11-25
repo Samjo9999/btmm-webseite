@@ -30,11 +30,11 @@ export default function Seite({ params: { locale } }: P) {
         </Abschnitt>
         <Abschnitt titel="Was kostet ein Genossenschaftsanteil?">
           <div className="btmm-raster">
-            <Karte titel="Anteil"><div className="btmm-zahl">100 €</div><p>erst ab Gründung der eG, auf Wunsch in Raten ab 10 € im Monat (Satzung § 6)</p></Karte>
+            <Karte titel="Anteil"><div className="btmm-zahl">100 €</div><p>erst nach Gründung der geplanten eG, auf Wunsch in monatlichen Raten von mindestens 10 € (Satzung § 2 Abs. 1, Entwurf)</p></Karte>
             <Karte titel="Beitrag"><p>Ein kleiner Beitrag, nur wenn du die gemeinsamen Dinge nutzt. Er darf nie höher sein als das, was du sparst.</p></Karte>
             <Karte titel="Gründungskosten"><p>Nach heutigem Plan privat vorfinanziert.</p></Karte>
           </div>
-          <Offen>Der Anteil soll nach fünf Jahren Kündigungsfrist zurückgezahlt werden. Ob das so zulässig ist, klären wir noch mit Fachleuten.</Offen>
+          <Offen>Nach dem Satzungsentwurf kannst du die Mitgliedschaft in Textform mit einer Frist von einem Jahr zum Schluss eines Geschäftsjahres kündigen (Satzung § 6 Abs. 1). Das Geschäftsguthaben wird nach dem Ausscheiden nach § 73 GenG in Euro ausgezahlt (Satzung § 6 Abs. 4). Maßgeblich ist die Bilanz zum Ausscheiden; bei Verlusten kann das Guthaben unter dem eingezahlten Betrag liegen. Das ist ein Entwurf, noch nicht beschlossen, und kann sich ändern. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.</Offen>
         </Abschnitt>
         <WeiterLinks locale={locale} seiten={['wasDuSparst', 'offeneFragen', 'faq', 'mitmachen']} />
       </div>

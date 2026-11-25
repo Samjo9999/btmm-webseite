@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Communauté",
     "gemeinschaft_text": "Les cellules locales sont le cœur de BtMM. Les gens se rassemblent, se soutiennent et façonnent ensemble leur avenir économique.",
     "nachhaltigkeit_titel": "Durabilité",
-    "nachhaltigkeit_text": "Coopérative en cours de création (eG i.Gr.). Penser à long terme plutôt que profit à court terme. BtMM construit des structures qui portent et grandissent à travers les générations.",
+    "nachhaltigkeit_text": "BtMM eG prévue. BtMM n'est pas encore fondée. Penser à long terme plutôt que profit à court terme. BtMM construit des structures qui portent et grandissent à travers les générations.",
     "nachhaltigkeit_mehr_erfahren": "Mehr erfahren",
     "nachhaltigkeit_mehr_erfahren_url": "/concept/sustainability"
   },
@@ -34,7 +34,7 @@
     "pool_titel": "Pool",
     "pool_text": "Ressources partagées au bénéfice de chaque membre.",
     "coins_titel": "BtMM-Coins",
-    "coins_text": "Monnaie interne pour l'échange de services au sein de la communauté.",
+    "coins_text": "Décompte interne de prestations. Les coins ne sont pas de l'argent et ne peuvent pas être versés en euros.",
     "workspace_titel": "Workspace",
     "workspace_text": "Espace de travail numérique partagé pour les projets et la collaboration.",
     "cta": "Découvrir l'appli",
@@ -54,19 +54,19 @@
   "zellen_alle": "Voir toutes les cellules",
   "mitgliedschaft": {
     "titel": "Adhésion",
-    "untertitel": "Deux façons de faire partie de BtMM",
+    "untertitel": "BtMM n'est pas encore fondée. Une adhésion n'est pas possible actuellement.",
     "stufen": [
       {
-        "stufe": "Candidat",
-        "preis": "Participation variable",
-        "beschreibung": "Transition vers l'adhésion active",
-        "benefits": "Prix coûtant sur les services sélectionnés"
+        "stufe": "Faire connaissance",
+        "preis": "sans adhésion",
+        "beschreibung": "Tu peux faire connaissance avec nous avant qu'il y ait une coopérative.",
+        "benefits": "Pas de part sociale, pas d'adhésion, pas de droit de vote"
       },
       {
-        "stufe": "Membre titulaire",
-        "preis": "Adhésion active",
-        "beschreibung": "Participation complète",
-        "benefits": "Rémunération, droit de vote, fonds de solidarité"
+        "stufe": "Adhésion après la fondation",
+        "preis": "Part sociale de 100 €",
+        "beschreibung": "Les statuts prévus ne connaissent qu'une seule adhésion, ni niveau candidat ni niveau membre à part entière.",
+        "benefits": "Une personne, une voix ; préavis d'un an pour la fin de l'exercice"
       }
     ]
   }

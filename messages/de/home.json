@@ -12,7 +12,7 @@
     "gemeinschaft_titel": "Gemeinschaft",
     "gemeinschaft_text": "Lokale Zellen bilden das Herzstück von BtMM. Menschen kommen zusammen, unterstützen sich und gestalten gemeinsam ihre wirtschaftliche Zukunft.",
     "nachhaltigkeit_titel": "Nachhaltigkeit",
-    "nachhaltigkeit_text": "Genossenschaft in Gründung (eG i.Gr.). Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
+    "nachhaltigkeit_text": "Geplante BtMM eG. BtMM ist noch nicht gegründet. Kein Greenwashing, keine Kompromisse. Kein Amazon, kein Nestlé, kein Apple. BtMM wirtschaftet regional, reparierbar und transparent — mit Konzernen, deren Geschäftsmodell auf Ausbeutung beruht, wird kategorisch nicht gehandelt.",
     "nachhaltigkeit_mehr_erfahren": "Mehr über Nachhaltigkeit",
     "nachhaltigkeit_mehr_erfahren_url": "/konzept/nachhaltigkeit"
   },
@@ -34,7 +34,7 @@
     "pool_titel": "Pool",
     "pool_text": "Gemeinsame Ressourcen, die jedem Mitglied zugutekommen.",
     "coins_titel": "BtMM-Coins",
-    "coins_text": "Interne Währung für den Tausch von Leistungen innerhalb der Gemeinschaft.",
+    "coins_text": "Interne Verrechnung von Leistungen. Coins sind kein Geld und nicht in Euro auszahlbar.",
     "workspace_titel": "Workspace",
     "workspace_text": "Gemeinsamer digitaler Arbeitsraum für Projekte und Zusammenarbeit.",
     "cta": "App entdecken",
@@ -54,19 +54,19 @@
   "zellen_alle": "Alle Zellen ansehen",
   "mitgliedschaft": {
     "titel": "Mitgliedschaft",
-    "untertitel": "Zwei Wege, Teil von BtMM zu sein",
+    "untertitel": "BtMM ist noch nicht gegründet. Eine Mitgliedschaft ist derzeit nicht möglich.",
     "stufen": [
       {
-        "stufe": "Anwärter",
-        "preis": "Variable Beteiligung",
-        "beschreibung": "Übergang zur Aktivmitgliedschaft",
-        "benefits": "Kostenpreise auf ausgewählte Leistungen"
+        "stufe": "Kennenlernen",
+        "preis": "ohne Beitritt",
+        "beschreibung": "Du kannst uns kennenlernen, bevor es eine Genossenschaft gibt.",
+        "benefits": "Kein Geschäftsanteil, keine Mitgliedschaft, kein Stimmrecht"
       },
       {
-        "stufe": "Vollmitglied",
-        "preis": "Aktivmitgliedschaft",
-        "beschreibung": "Vollständige Partizipation",
-        "benefits": "Vergütung, Stimmrecht, Solidarfonds"
+        "stufe": "Beitritt nach der Gründung",
+        "preis": "Geschäftsanteil 100 €",
+        "beschreibung": "Die geplante Satzung kennt nur eine Mitgliedschaft, keine Anwärter- oder Vollmitgliedsstufe.",
+        "benefits": "Eine Person, eine Stimme; Kündigung mit Frist von einem Jahr zum Schluss des Geschäftsjahres"
       }
     ]
   }
