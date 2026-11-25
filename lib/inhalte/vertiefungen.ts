@@ -38,7 +38,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       "03 Einladung zur Gründung v2.15.1",
       "28 Aufnahme kurz erklärt v1.8.1",
       "29 Der Keim v1.3.1",
-      "Satzung v7.35.0, § 13a und § 15",
+      "Konzept (Dokument 07); Satzung der geplanten BtMM eG (Entwurf v9.1.4), § 8 zu Zellen",
       "25 Ehrliche Bilanz v1.2.0"
     ]
   },
@@ -58,7 +58,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       },
       {
         "titel": "Kennenlernen statt vorschnell dazugehören müssen",
-        "text": "Unterstützen ist ein eigener, vollwertiger Weg. Wer später Mitglied werden möchte, lernt die Gruppe im gemeinsamen Tun und mit Begleitung kennen. Die Anwärterzeit ist im Entwurf vorläufig für Erwachsene vorgesehen. Einwände sollen benennen, was noch gebraucht wird; niemand muss sich in eine höhere Stufe drängen lassen."
+        "text": "Unterstützen ist ein eigener, vollwertiger Weg und keine Mitgliedschaft. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich. Die geplante Satzung kennt nur eine Mitgliedschaft, keine Anwärterstufe. Wer später beitreten möchte, kann uns zuerst im gemeinsamen Tun kennenlernen."
       },
       {
         "titel": "Gemeinschaft braucht auch Grenzen",
@@ -76,7 +76,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       "22 Heilen, Schützen, Vorbeugen v1.9.1",
       "18 Demokratie-Schlüssel v1.3.1",
       "28 Aufnahme kurz erklärt v1.8.1",
-      "Satzung v7.35.0, §§ 4–10 und §§ 18–23"
+      "Konzept (Dokument 07); Satzung der geplanten BtMM eG (Entwurf v9.1.4)"
     ]
   },
   {
@@ -111,7 +111,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       "16 Schnelle Einnahmen v2.1.2",
       "20 Berufe ohne Abschluss v1.0.1",
       "21 Bildung finanzieren v1.4.0",
-      "Satzung v7.35.0, § 8b und §§ 13–15",
+      "Konzept (Dokument 07); Satzung der geplanten BtMM eG (Entwurf v9.1.4)",
       "25 Ehrliche Bilanz v1.2.0"
     ]
   },
@@ -131,7 +131,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       },
       {
         "titel": "Solidarität ergänzt die gesetzliche Absicherung",
-        "text": "Ein Solidarfonds ist für besondere Lebenslagen vorgesehen, etwa Übergänge, besondere Lebensphasen oder die Pflege von Angehörigen. Er ersetzt weder Sozialversicherung noch gesetzliche Arbeitgeberpflichten. Nach dem Satzungsentwurf wird er angespart, zahlt aber erst nach sechs aufeinanderfolgenden Perioden mit mindestens zehn wirtschaftlich aktiven Vollmitgliedern und ausreichend tragfähigem Lohn. Ausgezahlt werden kann nur, was vorhanden ist."
+        "text": "Ein Solidarfonds ist für besondere Lebenslagen vorgesehen, etwa Übergänge, besondere Lebensphasen oder die Pflege von Angehörigen. Er ersetzt weder Sozialversicherung noch gesetzliche Arbeitgeberpflichten. Ein Solidarfonds ist im Konzept geplant, in der Außen-Satzung v9.1.4 nicht geregelt. Geplante Schwellen und Leistungen sind Absicht, keine Zusage. Ausgezahlt werden kann nur, was vorhanden ist."
       },
       {
         "titel": "Privates bleibt geschützt",
@@ -144,7 +144,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       "19 Soziale Zahlen v1.20.0",
       "22 Heilen, Schützen, Vorbeugen v1.9.1",
       "23 Ausfall und Versorgung v1.5.0",
-      "Satzung v7.35.0, § 18b, § 18c und § 24"
+      "Konzept, Dokumente 19, 22 und 23; nicht in der Außen-Satzung v9.1.4"
     ]
   },
   {
@@ -175,7 +175,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
     "quellen": [
       "07 Konzept v22.49.3, Säule 3",
       "17 Großer Fahrplan v1.2.0",
-      "Satzung v7.35.0, § 25 und § 25a"
+      "Konzept (Dokument 07); nicht in der Außen-Satzung v9.1.4"
     ]
   },
   {
@@ -220,7 +220,7 @@ export const VERTIEFUNGEN: Vertiefung[] = [
       "04 Wirtschaften v3.15.1, Kapitel 17",
       "07 Konzept v22.49.3, Partner-Netz",
       "13 Ideen und Horizonte v3.4.1",
-      "Satzung v7.35.0, § 18a und § 25a",
+      "Konzept (Dokument 07); nicht in der Außen-Satzung v9.1.4",
       "24 Partner werden v1.5.1",
       "26 Fairer Handel v1.5.0",
       "27 Kreislauf v1.2.0"
