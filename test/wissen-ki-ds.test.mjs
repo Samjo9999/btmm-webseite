@@ -140,7 +140,7 @@ test('Fehler-Logs enthalten weder Frage noch Body noch res.text()', () => {
 
 test('UI-Hinweis steht unter dem Eingabefeld in Mitmacher- und Vorschau-Chat', () => {
   const text =
-    'Bitte keine persönlichen Daten oder Gesundheitsangaben eingeben. Fragen werden nicht gespeichert.'
+    'Wir speichern deine Fragen nicht dauerhaft. Bitte keine persönlichen oder Gesundheitsdaten eingeben. Antworten sind maschinell erzeugt und können Fehler enthalten.'
   for (const rel of [
     'public/vorschau/wissen-mitmacher/index.html',
     'public/vorschau/wissen-chat/index.html',
