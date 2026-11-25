@@ -33,8 +33,12 @@ export default getRequestConfig(async ({ requestLocale }) => {
     loadMessages('angebote'),
   ])
 
+  // Interessenliste: alle Sprachen in einer Datei (messages/interesse.json), Fallback Englisch
+  const interesseAlle = (await import('./messages/interesse.json')).default as Record<string, Record<string, string>>
+  const interesse = interesseAlle[locale] ?? interesseAlle.en
+
   return {
     locale,
-    messages: { common, home, konzept, koerperarbeit, faq, presse, angebote },
+    messages: { common, home, konzept, koerperarbeit, faq, presse, angebote, interesse },
   }
 })

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import contact from '@/data/contact.json'
+import { interessenlisteAktiv } from '@/lib/interessenliste.mjs'
 
 // §19 UStG-Satz: nur sichtbar, wenn impressum_kleinunternehmer in data/contact.json true ist.
 const KLEINUNTERNEHMER_SATZ =
@@ -303,6 +304,56 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Die E-Mail-Zustellung
                   erfolgt über den Dienst Resend (Resend Inc., USA).
                 </p>
+
+                {interessenlisteAktiv() && (
+                  <div id="interessenliste">
+                    <h4>Interessenliste</h4>
+                    <p>
+                      Wenn Sie sich in die Interessenliste eintragen, speichern wir Ihre E-Mail-Adresse, Ihre
+                      Interessenangaben, optional Ihren Namen und – nur wenn Sie eine gesonderte Einwilligung
+                      erteilen – eine unverbindliche Betragsspanne. Zweck ist, Sie über den Stand der geplanten
+                      Genossenschaft BtMM zu informieren und Sie später, nach der Eintragung, auf eine mögliche
+                      Unterstützungskampagne der Genossenschaft hinzuweisen. Rechtsgrundlage ist Ihre
+                      Einwilligung (Art. 6 Abs. 1 lit. a DSGVO). Für diese E-Mails holen wir zudem Ihre
+                      Einwilligung nach § 7 UWG ein. Die Eintragung wird erst wirksam, wenn Sie sie über den
+                      Link in der Bestätigungsmail bestätigen. Die Bestätigungsmail enthält keine Werbung.
+                    </p>
+                    <p>
+                      Verantwortlicher ist bis zur Eintragung der Genossenschaft Johannes-Samuel Gartzke
+                      (Kleingewerbe), {contact.adresse.strasse}, {contact.adresse.plz} {contact.adresse.ort},
+                      E-Mail {contact.email}. In der Einwilligung ist vorgesehen, dass die Angaben nach der
+                      Eintragung der Genossenschaft BtMM eG (oder unter dem dann geltenden Namen) auf die
+                      eingetragene Genossenschaft übergehen, die denselben Zweck fortführt. Vor dem Übergang
+                      informieren wir Sie, und Sie können widersprechen.
+                    </p>
+                    <p>
+                      Der E-Mail-Versand erfolgt über Resend (Plus Five Five, Inc., USA) als
+                      Auftragsverarbeiter gemäß Art. 28 DSGVO. Resend speichert Vorgangs- und Zustelldaten in
+                      den USA. Die Übermittlung stützt sich auf die EU-Standardvertragsklauseln (Modul 2) im
+                      Auftragsverarbeitungsvertrag; ergänzend beruft sich Resend auf das EU-US Data Privacy
+                      Framework. Die Daten der Interessenliste liegen in einer Datenbank von Supabase
+                      (Supabase Pte. Ltd.) in der Region Frankfurt (eu-central-1). Supabase ist
+                      Auftragsverarbeiter gemäß Art. 28 DSGVO; soweit Daten in die USA gelangen, gelten die
+                      EU-Standardvertragsklauseln im Supabase-DPA. Die Formulardaten werden direkt an eine
+                      Supabase-Funktion gesendet und nicht über unseren Webserver bei Vercel verarbeitet.
+                    </p>
+                    <p>
+                      Sie können die Einwilligung jederzeit mit Wirkung für die Zukunft widerrufen, zum
+                      Beispiel über den Abmelde-Link in jeder E-Mail oder per Nachricht an {contact.email}. Die
+                      Rechtmäßigkeit der bisherigen Verarbeitung bleibt unberührt. Sie haben die Rechte auf
+                      Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Beschwerde bei
+                      dem Landesbeauftragten für den Datenschutz und die Informationsfreiheit Baden-Württemberg.
+                    </p>
+                    <p>
+                      Unbestätigte Einträge löschen wir nach 7 Tagen. Bei Widerruf oder Abmeldung löschen wir
+                      Ihren Eintrag unverzüglich. Bestätigte Einträge löschen wir spätestens 12 Monate nach der
+                      Eintragung der Genossenschaft, und wenn sich die Eintragung verzögert, spätestens 36
+                      Monate nach Ihrer Eintragung in die Liste. Etwa einmal jährlich erinnern wir Sie und
+                      bieten die Abmeldung an. Es gibt kein Tracking und keine Tracking-Pixel in diesen
+                      E-Mails. Die Betragsspanne wird nicht öffentlich angezeigt.
+                    </p>
+                  </div>
+                )}
 
                 <h4>Terminbuchung</h4>
                 <p>
