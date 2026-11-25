@@ -38,7 +38,7 @@ Kontakt: office.btmm@gmail.com
 
 ## Ehrlich gesagt
 
-BtMM gibt es bisher auf dem Papier und in der Rechnung, noch nicht im Alltag. Die Stufen, Fristen und Zahlen in diesem Dokument sind Setzungen (S): Vorschläge, wie es gehen könnte. Belegt sind einzelne Gesetze (Quellen am Ende). Die Regeln stehen seit Satzung v7.8.0 im Satzungsentwurf (§ 18c) und seit Vollkonzept v22.8.0 in Kapitel 18; vor der Einreichung prüfen Prüfungsverband und Rechtsberatung sie. Besonders offen sind die Haltereigenschaft bei gemeinsamen Tieren, die Aufsichtspflicht bei Kindern und der Datenschutz der Fallakten.
+BtMM gibt es bisher auf dem Papier und in der Rechnung, noch nicht im Alltag. Die Stufen, Fristen und Zahlen in diesem Dokument sind Setzungen (S): Vorschläge, wie es gehen könnte. Belegt sind einzelne Gesetze (Quellen am Ende). Die Regeln stehen seit Satzung v7.8.0 im Satzungsentwurf (Konzept, nicht in der Außen-Satzung v9.1.4) und seit Vollkonzept v22.8.0 in Kapitel 18; vor der Einreichung prüfen Prüfungsverband und Rechtsberatung sie. Besonders offen sind die Haltereigenschaft bei gemeinsamen Tieren, die Aufsichtspflicht bei Kindern und der Datenschutz der Fallakten.
 
 # 1. Der Grundgedanke: vorher verteilen, nicht nachher
 
@@ -47,10 +47,10 @@ Im Ernstfall hat niemand Zeit zum Verhandeln. Wer in der Notaufnahme liegt, kann
 Drei Dinge gehören zusammen:
 
 - **Der Ausfall-Plan:** eine Notfallkarte mit den Dingen, die eine Vertretung wissen muss, und den Menschen, die einspringen.
-- **Der Hilfekreis:** zwei bis drei Menschen, die zugesagt haben, in den ersten Tagen da zu sein. Er knüpft an die Zeit-Vorsorge an (Satzung § 14 Abs. 4a) und ist freiwillig auf Gegenseitigkeit.
+- **Der Hilfekreis:** zwei bis drei Menschen, die zugesagt haben, in den ersten Tagen da zu sein. Er knüpft an die Zeit-Vorsorge an (Konzept, nicht in der Außen-Satzung v9.1.4) und ist freiwillig auf Gegenseitigkeit.
 - **Der Ausfall-Dienst der Zelle:** ein Bereitschaftsplan, in dem jeder Zeitraum mit mindestens zwei Menschen besetzt ist, einer zuerst und einer als Vertretung. Wer eingetragen ist, übernimmt die Einsätze; zwei Mitglieder sind gemeinsam dafür verantwortlich, dass der Plan keine Lücke hat.
 
-Der Ausfall-Plan ist freiwillig, außer für gemeinsame Tiere, gemeinsame Betreuung und gemeinsame Einrichtungen: Dafür muss die Zelle einen haben (Satzung § 18c Abs. 2). Wer ein Tier auf Gemeinschaftsgelände hält, benennt eine Vertretung; das ist Bedingung der Haltung dort, nicht der Mitgliedschaft.
+Der Ausfall-Plan ist freiwillig, außer für gemeinsame Tiere, gemeinsame Betreuung und gemeinsame Einrichtungen: Dafür muss die Zelle einen haben (Konzept, nicht in der Außen-Satzung v9.1.4). Wer ein Tier auf Gemeinschaftsgelände hält, benennt eine Vertretung; das ist Bedingung der Haltung dort, nicht der Mitgliedschaft.
 
 # 2. Wer rechtlich verantwortlich bleibt
 
@@ -68,7 +68,7 @@ Ein Satz dazu, der oft überrascht: Unter Ehegatten gibt es ein gesetzliches Not
 
 # 3. Die Stufen der Hilfe
 
-Hilfe soll da sein, wenn sie gebraucht wird, und mit der Zeit von Nachbarschaft zu Fachleuten wandern. So sieht die Treppe aus (S; Satzung § 18c Abs. 3):
+Hilfe soll da sein, wenn sie gebraucht wird, und mit der Zeit von Nachbarschaft zu Fachleuten wandern. So sieht die Treppe aus (S; Konzept, nicht in der Außen-Satzung v9.1.4):
 
 | Stufe | Zeit | Wer hilft | Was geschieht |
 |---|---|---|---|
@@ -77,7 +77,7 @@ Hilfe soll da sein, wenn sie gebraucht wird, und mit der Zeit von Nachbarschaft 
 | 2 | bis sechs Wochen | Ausfall-Dienst der Zelle | Bereitschaftsplan mit zwei Menschen je Zeitraum; bezahlt werden nur Einsätze, als Gemeinschaftsdienst oder im Zeit-Tausch; gesetzliche Hilfen beantragen; was der Plan nicht trägt, decken Fachleute oder Partnerzellen ohne Lücke |
 | 3 | länger als sechs Wochen | Zellversammlung mit Fachleuten | Aufgabe neu zuordnen; Pflegedienst, Haushaltshilfe, Betriebshilfe, Tierpension; bei Tieren Abgabe, wenn nichts Tragfähiges da ist |
 
-Zu Stufe 2 und 3 gehören die gesetzlichen Hilfen, auf die die Zelle hinweist (Satzung § 18c Abs. 5):
+Zu Stufe 2 und 3 gehören die gesetzlichen Hilfen, auf die die Zelle hinweist (Konzept, nicht in der Außen-Satzung v9.1.4):
 
 - **Kurzzeitige Freistellung:** Wer plötzlich einen nahen Angehörigen pflegen muss, darf bis zu zehn Arbeitstage der Arbeit fernbleiben (Q4). Das Pflegeunterstützungsgeld dazu: Höhe vor Nutzung prüfen (E).
 - **Haushaltshilfe der Krankenkasse:** Wenn jemand wegen Krankenhaus oder Ausfall den Haushalt nicht führen kann und ein Kind unter zwölf im Haushalt lebt, kann die Kasse eine Haushaltshilfe zahlen, längstens 26 Wochen, mit Zuzahlung; manche Kassen leisten freiwillig mehr (Q5; Einzelheiten E).
@@ -90,10 +90,10 @@ Tiere sind Mitgeschöpfe, kein Besitz, den man im Ernstfall liegen lässt. Zugle
 
 ## 4.1 Wem gehören die Tiere?
 
-Zwei Fälle, die man auseinanderhalten muss (Satzung § 18c Abs. 2):
+Zwei Fälle, die man auseinanderhalten muss (Konzept, nicht in der Außen-Satzung v9.1.4):
 
 - **Eigene Tiere von Mitgliedern** (Hund, Katze, Pferd, Hühner): Das Mitglied ist Halter und trägt die Verantwortung. Wer sie auf Gemeinschaftsgelände hält, benennt eine Vertretung und schreibt eine Notfallkarte. Für Hunde und andere Tiere, die Schaden anrichten können, ist eine Tierhalter-Haftpflichtversicherung ratsam (E).
-- **Gemeinsame Tiere der Zelle oder des Betriebs** (Hofziegen, Hühner für den Verkauf): Hier wird die Haltereigenschaft zur Rechtsfrage. Entschieden: In der Keim-Phase gibt es keine gemeinsamen Tiere. Die Genossenschaft hält sie erst, wenn Haltereigenschaft, Haftung und Versicherung geklärt sind (Satzung § 18c Abs. 2). Dann gilt der Vorschlag (S): Die Tiere gehören der Genossenschaft, ein benanntes Mitglied ist Tierverantwortliche mit zwei Vertretungen, eine Versicherung deckt die Haftung. Bis dahin halten Mitglieder nur eigene Tiere, mit Vertretung und Notfallkarte.
+- **Gemeinsame Tiere der Zelle oder des Betriebs** (Hofziegen, Hühner für den Verkauf): Hier wird die Haltereigenschaft zur Rechtsfrage. Entschieden: In der Keim-Phase gibt es keine gemeinsamen Tiere. Die Genossenschaft hält sie erst, wenn Haltereigenschaft, Haftung und Versicherung geklärt sind (Konzept, nicht in der Außen-Satzung v9.1.4). Dann gilt der Vorschlag (S): Die Tiere gehören der Genossenschaft, ein benanntes Mitglied ist Tierverantwortliche mit zwei Vertretungen, eine Versicherung deckt die Haftung. Bis dahin halten Mitglieder nur eigene Tiere, mit Vertretung und Notfallkarte.
 
 ## 4.2 Die Notfallkarte für Tiere
 
@@ -109,15 +109,15 @@ Im Excel (Blatt „Tiere“) trägt die Zelle ein, wie viel Arbeit die Tiere mac
 
 ## 4.3 Das Wohl des Tieres geht dem Besitz vor
 
-Dauert der Ausfall länger als sechs Wochen und ist keine tragfähige Versorgung gefunden, wird das Tier im Einvernehmen mit der Halterin oder dem Halter an einen geeigneten Ort gegeben, bei Unerreichbarkeit nach dem Rat einer Tierärztin (Satzung § 18c Abs. 3). Das ist hart, aber ehrlicher als ein Tier, das schlecht versorgt wird, weil sich keiner traut zu entscheiden. Tiere zu halten, die man nicht versorgen kann, ist nach dem Tierschutzgesetz selbst ein Problem (Q1). Der Abgabeplan steht deshalb vorher auf der Karte.
+Dauert der Ausfall länger als sechs Wochen und ist keine tragfähige Versorgung gefunden, wird das Tier im Einvernehmen mit der Halterin oder dem Halter an einen geeigneten Ort gegeben, bei Unerreichbarkeit nach dem Rat einer Tierärztin (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist hart, aber ehrlicher als ein Tier, das schlecht versorgt wird, weil sich keiner traut zu entscheiden. Tiere zu halten, die man nicht versorgen kann, ist nach dem Tierschutzgesetz selbst ein Problem (Q1). Der Abgabeplan steht deshalb vorher auf der Karte.
 
 ## 4.4 Höfe
 
-Ein Gemeinschaftsbetrieb mit Tieren oder Landwirtschaft hat einen Notfallplan für den Hof (Satzung § 18c Abs. 6): Wer melkt, wer füttert, wer kennt die Maschinen, wo sind Schlüssel und Verträge, wer ist Ansprechpartner bei Tierarzt und Behörde. Und er prüft, ob die Betriebshilfe für ihn in Frage kommt (Q6, E). Der Stopp nach § 18b Abs. 4 hält nie die Versorgung der Tiere an.
+Ein Gemeinschaftsbetrieb mit Tieren oder Landwirtschaft hat einen Notfallplan für den Hof (Konzept, nicht in der Außen-Satzung v9.1.4): Wer melkt, wer füttert, wer kennt die Maschinen, wo sind Schlüssel und Verträge, wer ist Ansprechpartner bei Tierarzt und Behörde. Und er prüft, ob die Betriebshilfe für ihn in Frage kommt (Q6, E). Der Stopp nach Konzept, nicht in der Außen-Satzung v9.1.4 hält nie die Versorgung der Tiere an.
 
 # 5. Kinder
 
-Eltern bleiben sorgeberechtigt, auch wenn die Zelle Kinder betreut. Deshalb gilt (Satzung § 18c Abs. 5):
+Eltern bleiben sorgeberechtigt, auch wenn die Zelle Kinder betreut. Deshalb gilt (Konzept, nicht in der Außen-Satzung v9.1.4):
 
 - Betreuung von Minderjährigen nur mit schriftlicher Einwilligung der Sorgeberechtigten, jederzeit widerrufbar;
 - Schutzkonzept, zwei Vertrauenspersonen, erweitertes Führungszeugnis für alle, die regelmäßig betreuen (Dokument 22, Kapitel 4.3);
@@ -142,20 +142,20 @@ Nicht nur Tiere und Menschen fallen aus, auch Aufgaben. Der Ausfall-Check (Excel
 
 Besonders betroffen sind drei Rollen:
 
-- **Der Vorstand.** Solange der Vorstand aus einer Person besteht (Satzung § 20 Abs. 1), steht und fällt die Handlungsfähigkeit der Genossenschaft mit ihr. Darum wählt die Generalversammlung zugleich einen Stellvertreter, der sofort handeln kann (Satzung § 18c Abs. 7; Q8). Er gibt im Alltag die größeren Zahlungen mit frei (Satzung § 21 Abs. 3) und kennt die Kasse deshalb schon, wenn er einspringen muss. Als Vorstand handelt er nur, solange der Vorstand verhindert ist; sonst gilt er im Innenverhältnis nicht als Vorstandsmitglied (Satzung § 18c Abs. 7). Nach außen kann das anders sein: Nach dem Gesetz gelten die Vorschriften für Vorstandsmitglieder auch für Stellvertreter (§ 35 GenG) (Q8). Ob er deshalb ins Register eingetragen wird, wie ein Vorstand haftet und nach außen schon vorher vertreten kann, klärt der Prüfungsverband (E).
-- **Kasse und Technik.** Das Geld für die Löhne kommt per festem Monatsauftrag vom Haus in den Fluss. Fällt der Kassenwart aus, löst sein Stellvertreter mit eigener Vollmacht die Übertragungen und Löhne aus, und ist das Zahlungskonto gesperrt oder gestört, wird direkt aus dem Haus gezahlt (Satzung § 14a Abs. 3a, § 21 Abs. 3). Das ist kein Komfort: Die Beiträge zur Sozialversicherung sind am drittletzten Bankarbeitstag des Monats fällig, und wer als Arbeitgeber die Beiträge der Beschäftigten nicht abführt, macht sich strafbar (Q11). Zwei Menschen kennen die Zugänge, ein verschlossener oder verschlüsselter Notfallordner liegt bei zwei Personen (Dokument 22, Kapitel 3.5). Der Technik-Pate sorgt dafür, dass die App auch ohne eine einzelne Person läuft.
+- **Der Vorstand.** Solange der Vorstand aus einer Person besteht (Konzept, nicht in der Außen-Satzung v9.1.4), steht und fällt die Handlungsfähigkeit der Genossenschaft mit ihr. Darum wählt die Generalversammlung zugleich einen Stellvertreter, der sofort handeln kann (Konzept, nicht in der Außen-Satzung v9.1.4; Q8). Er gibt im Alltag die größeren Zahlungen mit frei (Konzept, nicht in der Außen-Satzung v9.1.4) und kennt die Kasse deshalb schon, wenn er einspringen muss. Als Vorstand handelt er nur, solange der Vorstand verhindert ist; sonst gilt er im Innenverhältnis nicht als Vorstandsmitglied (Konzept, nicht in der Außen-Satzung v9.1.4). Nach außen kann das anders sein: Nach dem Gesetz gelten die Vorschriften für Vorstandsmitglieder auch für Stellvertreter (§ 35 GenG) (Q8). Ob er deshalb ins Register eingetragen wird, wie ein Vorstand haftet und nach außen schon vorher vertreten kann, klärt der Prüfungsverband (E).
+- **Kasse und Technik.** Das Geld für die Löhne kommt per festem Monatsauftrag vom Haus in den Fluss. Fällt der Kassenwart aus, löst sein Stellvertreter mit eigener Vollmacht die Übertragungen und Löhne aus, und ist das Zahlungskonto gesperrt oder gestört, wird direkt aus dem Haus gezahlt (Konzept, nicht in der Außen-Satzung v9.1.4). Das ist kein Komfort: Die Beiträge zur Sozialversicherung sind am drittletzten Bankarbeitstag des Monats fällig, und wer als Arbeitgeber die Beiträge der Beschäftigten nicht abführt, macht sich strafbar (Q11). Zwei Menschen kennen die Zugänge, ein verschlossener oder verschlüsselter Notfallordner liegt bei zwei Personen (Dokument 22, Kapitel 3.5). Der Technik-Pate sorgt dafür, dass die App auch ohne eine einzelne Person läuft.
 - **Die Leitung eines Betriebs.** Doppelbesetzung und Nachfolge sind in Dokument 21 beschrieben; im Ausfall zählt, wer die Auftragsrolle und die Kasse des Betriebs übernimmt.
 
 # 8. Der Ausfall-Dienst: wer, wie viel, was kostet es?
 
-Der Ausfall-Dienst ist der Bereitschaftsplan der Zelle (Satzung § 18c Abs. 4). Sein Grundsatz: **Anstehende Versorgung ist immer abgedeckt, und sie hängt nie an einer einzelnen Person, genauso wenig wie die Verantwortung dafür.** Daraus folgen vier Regeln (S):
+Der Ausfall-Dienst ist der Bereitschaftsplan der Zelle (Konzept, nicht in der Außen-Satzung v9.1.4). Sein Grundsatz: **Anstehende Versorgung ist immer abgedeckt, und sie hängt nie an einer einzelnen Person, genauso wenig wie die Verantwortung dafür.** Daraus folgen vier Regeln (S):
 
 - **Zwei Namen je Zeitraum.** Mitglieder tragen sich freiwillig für Zeiträume ein, etwa eine Woche. Für jeden Zeitraum stehen mindestens zwei Menschen im Plan, einer zuerst und einer als Vertretung.
 - **Eingetragen heißt zugesagt.** Wer eingetragen ist, bleibt erreichbar, muss sich aber nicht an einem bestimmten Ort aufhalten, und übernimmt die Einsätze, die anfallen. Wer verhindert ist, sorgt selbst für Ersatz und meldet ihn in der App.
 - **Zwei tragen den Plan.** Zwei von der Zellversammlung benannte Mitglieder sind gemeinsam dafür verantwortlich, dass kein Zeitraum leer bleibt. Die App zeigt Lücken früh an.
-- **Keine Lücke, auch wenn Menschen fehlen.** Bleibt ein Zeitraum unbesetzt oder reichen die Stunden nicht, beauftragt die Zelle rechtzeitig Fachleute oder eine Partnerzelle (Tierpension, Haushaltshilfe, Pflegedienst, Betriebshilfe). Die Kosten trägt zunächst die Zelle; Zuschüsse sind aus dem Hilfetopf möglich und aus dem Solidarfonds, sobald er leistet (wenn sechs Monate in Folge zehn Mitglieder wirtschaftlich aktiv waren und der Lohn im Rahmen des beschlossenen Lohnpfads lag, und nur aus seinem Bestand; Satzung § 24 Abs. 5).
+- **Keine Lücke, auch wenn Menschen fehlen.** Bleibt ein Zeitraum unbesetzt oder reichen die Stunden nicht, beauftragt die Zelle rechtzeitig Fachleute oder eine Partnerzelle (Tierpension, Haushaltshilfe, Pflegedienst, Betriebshilfe). Die Kosten trägt zunächst die Zelle; Zuschüsse sind aus dem Hilfetopf möglich und aus dem Solidarfonds, sobald er leistet (wenn sechs Monate in Folge zehn Mitglieder wirtschaftlich aktiv waren und der Lohn im Rahmen des beschlossenen Lohnpfads lag, und nur aus seinem Bestand; Konzept, nicht in der Außen-Satzung v9.1.4).
 
-**Bezahlt wird der Einsatz, nicht die Bereitschaft,** wie bei einer freiwilligen Feuerwehr oder einem Sanitätsdienst. Einsatzstunden werden wie Gemeinschaftsdienste (Satzung § 15b Abs. 4) bezahlt, wenn die Dienst-Regel es zulässt, sonst im Zeit-Tausch gutgeschrieben. Ob eine solche Rufbereitschaft arbeitsrechtlich Arbeitszeit ist, hängt nach allgemeinem Verständnis davon ab, wie stark sie die freie Zeit einschränkt, etwa durch eine sehr kurze Frist bis zum Einsatz (E); das prüft eine Fachanwältin oder ein Fachanwalt für Arbeitsrecht, bevor Beschäftigte der Gemeinschaftsdienste Bereitschaft übernehmen.
+**Bezahlt wird der Einsatz, nicht die Bereitschaft,** wie bei einer freiwilligen Feuerwehr oder einem Sanitätsdienst. Einsatzstunden werden wie Gemeinschaftsdienste (Konzept, nicht in der Außen-Satzung v9.1.4) bezahlt, wenn die Dienst-Regel es zulässt, sonst im Zeit-Tausch gutgeschrieben. Ob eine solche Rufbereitschaft arbeitsrechtlich Arbeitszeit ist, hängt nach allgemeinem Verständnis davon ab, wie stark sie die freie Zeit einschränkt, etwa durch eine sehr kurze Frist bis zum Einsatz (E); das prüft eine Fachanwältin oder ein Fachanwalt für Arbeitsrecht, bevor Beschäftigte der Gemeinschaftsdienste Bereitschaft übernehmen.
 
 Das Excel (Blatt „Kapazität“) rechnet für eine Zelle mit 20 Mitgliedern: Tragen sich 30 % ein (sechs Menschen) und halten je fünf Stunden pro Woche frei, hat die Zelle 30 Stunden Bereitschaft pro Woche (S). Eine Stunde kostet bei 20 € Grundlohn und Arbeitgeberanteil 24,20 €.
 
@@ -169,7 +169,7 @@ Das Excel (Blatt „Kapazität“) rechnet für eine Zelle mit 20 Mitgliedern: T
 
 Jedes Szenario für sich trägt die Bereitschaft. Alle fünf zugleich brauchen 58,2 Stunden pro Woche; das trägt sie nicht (nein). Die Zelle schafft gleichzeitig etwa 2,5 Fälle mittlerer Größe. Ehrlich heißt das: Zwei große Ausfälle gleichzeitig sind das Ende des Ehrenamts; dann kommen Haushaltshilfe, Pflegedienst, Betriebshilfe und Tierpension (Kapitel 3).
 
-Würden alle erwarteten Ausfall-Stunden bezahlt, kostet das im Beispiel rund 1.675 € im Jahr bei etwa 69 Stunden, also 6,98 € je Mitglied und Monat. Im Zeit-Tausch kostet es kein Geld. Damit liegt der Ausfall-Dienst deutlich unter der Grenze, die die Dienst-Regel zieht: Die Nutzen-Bilanz darf durch die Umlage nicht unter die Hälfte fallen (Satzung § 15b Abs. 6). Die Annahmen, vor allem Anteil und Stunden der Bereitschaft und wie oft Ausfälle vorkommen, sind Setzungen; die ersten Zellen zeigen, was stimmt.
+Würden alle erwarteten Ausfall-Stunden bezahlt, kostet das im Beispiel rund 1.675 € im Jahr bei etwa 69 Stunden, also 6,98 € je Mitglied und Monat. Im Zeit-Tausch kostet es kein Geld. Damit liegt der Ausfall-Dienst deutlich unter der Grenze, die die Dienst-Regel zieht: Die Nutzen-Bilanz darf durch die Umlage nicht unter die Hälfte fallen (Konzept, nicht in der Außen-Satzung v9.1.4). Die Annahmen, vor allem Anteil und Stunden der Bereitschaft und wie oft Ausfälle vorkommen, sind Setzungen; die ersten Zellen zeigen, was stimmt.
 
 ## Die kleine Zelle: drei Menschen
 
@@ -180,9 +180,9 @@ Am Anfang gibt es keine 20 Mitglieder, sondern drei. Fällt einer aus, sind die 
 | Eine erwachsene Person fällt aus | 5,0 Std. | ja, knapp |
 | Kassenwart fällt aus | 4,0 Std. | ja |
 | beides zugleich: Der Vorstand führt die Kasse und ist krank | 9,0 Std. | nein |
-| Ein Drittel der Betriebsstunden fehlt (rund 35 Std.) | – | keine Aufgabe des Ausfall-Dienstes: Aufträge verschieben, weniger Stunden verkaufen (Satzung § 13 Abs. 5) |
+| Ein Drittel der Betriebsstunden fehlt (rund 35 Std.) | – | keine Aufgabe des Ausfall-Dienstes: Aufträge verschieben, weniger Stunden verkaufen (Konzept, nicht in der Außen-Satzung v9.1.4) |
 
-Am wahrscheinlichsten fällt gerade der Vorstand aus, der zugleich die Kasse führt. Im Bereitschaftsplan stehen bei drei Menschen zwangsläufig beide Verbliebenen; was sie nicht schaffen, deckt die Zelle von außen. Deshalb plant eine Zelle mit weniger als sechs Mitgliedern Stufe 3 für Vorstand und Kasse vom ersten Tag an mit: den Stellvertreter, der die Kasse durch die Freigaben schon kennt, den Notfallordner, eine Partnerzelle oder Fachleute, die einspringen (Satzung § 18c Abs. 2). Dazu kommt Geld: Wer im Betrieb angestellt ist und krank wird, bekommt bis zu sechs Wochen den Lohn weiter (Q9), rund 3.700 € mit Arbeitgeberanteil; die Umlage U1 erstattet davon 80 %, je nach Satzung der Krankenkasse nicht unter 40 % (Q10). Den Rest trägt die Lohnreserve (Dokument 22, Kapitel 3.6).
+Am wahrscheinlichsten fällt gerade der Vorstand aus, der zugleich die Kasse führt. Im Bereitschaftsplan stehen bei drei Menschen zwangsläufig beide Verbliebenen; was sie nicht schaffen, deckt die Zelle von außen. Deshalb plant eine Zelle mit weniger als sechs Mitgliedern Stufe 3 für Vorstand und Kasse vom ersten Tag an mit: den Stellvertreter, der die Kasse durch die Freigaben schon kennt, den Notfallordner, eine Partnerzelle oder Fachleute, die einspringen (Konzept, nicht in der Außen-Satzung v9.1.4). Dazu kommt Geld: Wer im Betrieb angestellt ist und krank wird, bekommt bis zu sechs Wochen den Lohn weiter (Q9), rund 3.700 € mit Arbeitgeberanteil; die Umlage U1 erstattet davon 80 %, je nach Satzung der Krankenkasse nicht unter 40 % (Q10). Den Rest trägt die Lohnreserve (Dokument 22, Kapitel 3.6).
 
 ## Der kleine erste Betrieb: wenn die versicherte Stelle ausfällt
 
@@ -194,12 +194,12 @@ Der erste Betrieb ist am Anfang klein (Vollkonzept, Kapitel 5, „Der kleine ers
 | Beide teilen, Sommer mit Aufstockung | rund 12 + 30 = 42 | rund 615 € | ja, knapp |
 | Nur ein Minijob kann einspringen | rund 12 + 48 = 60, im Sommer rund 72 | rund 880 bis 1.050 € | nein; zulässig nur, wenn es nicht vorhersehbar war, in höchstens zwei Kalendermonaten im Zeitjahr und um höchstens eine Grenze, also bis rund 1.266 € |
 
-**Was es kostet (E).** Die Genossenschaft zahlt der kranken Person den Lohn sechs Wochen weiter, rund 1.250 € mit Arbeitgeberanteil (Q9), und bekommt aus der Umlage U1 bei 80 % rund 1.000 € zurück (Q10); die Vertretung kostet rund 1.270 €. Ungeplant bleiben rund 1.500 €. Sie trägt zuerst der Überschuss des Jahres, beim kleinen Betrieb rund 2.750 bis 3.700 € (Satzung § 11 Abs. 1c), danach die Lohnreserve, deren erste Stufe beim kleinen Betrieb nur rund 690 € beträgt (Satzung § 13a Abs. 2a).
+**Was es kostet (E).** Die Genossenschaft zahlt der kranken Person den Lohn sechs Wochen weiter, rund 1.250 € mit Arbeitgeberanteil (Q9), und bekommt aus der Umlage U1 bei 80 % rund 1.000 € zurück (Q10); die Vertretung kostet rund 1.270 €. Ungeplant bleiben rund 1.500 €. Sie trägt zuerst der Überschuss des Jahres, beim kleinen Betrieb rund 2.750 bis 3.700 € (Konzept, nicht in der Außen-Satzung v9.1.4), danach die Lohnreserve, deren erste Stufe beim kleinen Betrieb nur rund 690 € beträgt (Konzept, nicht in der Außen-Satzung v9.1.4).
 
 Deshalb gilt im kleinen ersten Betrieb (S):
 
 1. **Jede Aufgabe können zwei.** Sauna bringen, aufbauen und anheizen, Gartenpflege, Auftragsrolle und Kasse sind mindestens doppelt besetzt; den Anhänger dürfen mindestens zwei Menschen fahren (welche Fahrerlaubnis das Gespann braucht, hängt von seinem Gewicht ab, N).
-2. **Vertreten wird zu gleichen Teilen.** Die beiden Minijobs übernehmen die Stunden der versicherten Stelle zu gleichen Teilen, freiwillig wie offene Stunden nach Satzung § 13 Abs. 5; so bleibt jeder unter der Grenze.
+2. **Vertreten wird zu gleichen Teilen.** Die beiden Minijobs übernehmen die Stunden der versicherten Stelle zu gleichen Teilen, freiwillig wie offene Stunden nach Konzept, nicht in der Außen-Satzung v9.1.4; so bleibt jeder unter der Grenze.
 3. **Die Grenze zählt mit.** Kann nur einer einspringen, plant die Auftragsrolle so, dass er die Grenze in höchstens zwei Monaten im Zeitjahr überschreitet. Was darüber hinaus anfällt, übernehmen Menschen mit eigenem Gewerbe gegen Rechnung, das Tandem oder Fachleute, oder es wird verschoben.
 4. **Wer über die Familie versichert ist, fragt vorher.** Ob ein solches Überschreiten die Familienversicherung berührt, klärt jede Person mit ihrer Krankenkasse (N).
 5. **Dauert es länger als sechs Wochen,** zahlt die Krankenkasse Krankengeld statt des Lohns, und die Zellversammlung ordnet die Aufgabe neu zu (Kapitel 3, Stufe 3); eine befristete Vertretungsstelle ist möglich, kostet aber Arbeitgeberbeiträge wie die versicherte Stelle.
@@ -208,7 +208,7 @@ Ehrlich gesagt: Der kleine Betrieb übersteht eine gesundheitliche Einschränkun
 
 ## Das Tandem: gegenseitige Hilfe, bevor es eine zweite Zelle gibt
 
-Was eine Zelle mit drei Menschen nicht allein kann, kann sie mit einer Partnerin. Deshalb schließt die Genossenschaft vor der ersten Anstellung ein **Tandem** mit mindestens einer befreundeten Gemeinschaft oder Genossenschaft (Satzung § 18a Abs. 4a; S). Ein Tandem ersetzt kein Organ und bekommt keine Kontovollmacht. Es bündelt vier Hilfen, die sonst einzeln gesucht werden müssten:
+Was eine Zelle mit drei Menschen nicht allein kann, kann sie mit einer Partnerin. Deshalb schließt die Genossenschaft vor der ersten Anstellung ein **Tandem** mit mindestens einer befreundeten Gemeinschaft oder Genossenschaft (Konzept, nicht in der Außen-Satzung v9.1.4; S). Ein Tandem ersetzt kein Organ und bekommt keine Kontovollmacht. Es bündelt vier Hilfen, die sonst einzeln gesucht werden müssten:
 
 | Hilfe | Was die Partnerin tut | Was sie nicht tut | Satzung |
 |---|---|---|---|
@@ -223,7 +223,7 @@ Für die erste Zelle mit drei Menschen heißt das: Der wahrscheinlichste Ausfall
 
 # 9. Vertraulich: Fallakten in der App
 
-Ein Ausfall-Plan enthält Dinge, die nicht alle wissen sollen: Gesundheit, Medikamente, Kinder, Vollmachten, Ängste. Deshalb liegen Pläne und Fälle, die Einzelne betreffen, nicht im allgemeinen Teil der App, sondern in **Fallakten** (Satzung § 18b Abs. 7; Dokument 22, Kapitel 4.3):
+Ein Ausfall-Plan enthält Dinge, die nicht alle wissen sollen: Gesundheit, Medikamente, Kinder, Vollmachten, Ängste. Deshalb liegen Pläne und Fälle, die Einzelne betreffen, nicht im allgemeinen Teil der App, sondern in **Fallakten** (Konzept, nicht in der Außen-Satzung v9.1.4; Dokument 22, Kapitel 4.3):
 
 - ein eigener, verschlüsselter Bereich, getrennt von allen übrigen Daten;
 - Zugang nur für die Menschen, die den Fall bearbeiten: im Ausfall die im Plan benannten Hilfekreis-Menschen, im Schutzfall die Vertrauenspersonen und die Ombudsperson, jeweils nur zu den Teilen, die sie brauchen;
@@ -310,7 +310,7 @@ Was nicht in die Satzung gehört, sondern in die Gesundheitsordnung der Generalv
 | Q7 | § 1358 BGB, Vertretung unter Ehegatten (dejure.org) | https://dejure.org/gesetze/BGB/1358.html | Notvertretungsrecht in der Gesundheitssorge nur für Ehegatten, bis zu sechs Monate |
 | Q8 | § 35 Genossenschaftsgesetz, Stellvertreter von Vorstandsmitgliedern (dejure.org) | https://dejure.org/gesetze/GenG/35.html | Wortlaut: „Die für Mitglieder des Vorstands gegebenen Vorschriften gelten auch für Stellvertreter von Mitgliedern.“ (gesichtet 8. Oktober 2026); Anwendung beim Einzelvorstand klären (E) |
 | Q9 | § 3 Entgeltfortzahlungsgesetz (dejure.org), gesichtet 8. Oktober 2026 | https://dejure.org/gesetze/EntgFG/3.html | Entgeltfortzahlung bis sechs Wochen; Anspruch nach vier Wochen Arbeitsverhältnis |
-| Q10 | §§ 1 und 9 Aufwendungsausgleichsgesetz (dejure.org), gesichtet 8. Oktober 2026 | https://dejure.org/gesetze/AAG/1.html | Umlage U1 bei höchstens 30 Arbeitnehmern: 80 % Erstattung samt Arbeitgeberanteilen; Satzung der Kasse kann bis 40 % senken (§ 9 Abs. 2) |
+| Q10 | §§ 1 und 9 Aufwendungsausgleichsgesetz (dejure.org), gesichtet 8. Oktober 2026 | https://dejure.org/gesetze/AAG/1.html | Umlage U1 bei höchstens 30 Arbeitnehmern: 80 % Erstattung samt Arbeitgeberanteilen; Satzung der Kasse kann bis 40 % senken (Konzept, nicht in der Außen-Satzung v9.1.4) |
 | Q11 | §§ 23 und 24 SGB IV, § 266a StGB (dejure.org), gesichtet 11. Oktober 2026 | https://dejure.org/gesetze/SGB_IV/23.html | Beiträge spätestens am drittletzten Bankarbeitstag des Monats fällig (§ 23 Abs. 1); Säumniszuschlag 1 % je angefangenem Monat (§ 24 Abs. 1); Vorenthalten der Arbeitnehmerbeiträge strafbar (§ 266a Abs. 1 StGB) |
 | Q12 | § 8 SGB IV (dejure.org), gesichtet 1. November 2026 | https://dejure.org/gesetze/SGB_IV/8.html | Abs. 1a: Geringfügigkeitsgrenze = Mindestlohn × 130 ÷ 3, auf volle Euro aufgerundet; Abs. 1b: ein unvorhersehbares Überschreiten in nicht mehr als zwei Kalendermonaten im Zeitjahr um jeweils bis zur Höhe der Grenze steht der geringfügigen Beschäftigung nicht entgegen |
 
