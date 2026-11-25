@@ -4,8 +4,8 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import {
-  CONSENT_TEXT_VERSION, INTERESSEN, SPANNEN, ZAEHLER_MINDESTWERT, EDGE_URL_STANDARD,
-  interessenlisteAktiv, edgeUrl, spanneSichtbar, spanneCheckboxSichtbar, spanneGesperrtWegenBeitritt,
+  CONSENT_TEXT_VERSION, INTERESSEN, ZAEHLER_MINDESTWERT, EDGE_URL_STANDARD,
+  interessenlisteAktiv, edgeUrl,
   baueNutzlast, tokenAusHash, fehlerSchluessel, zaehlerAnzeigen,
 } from '../lib/interessenliste.mjs'
 
@@ -65,6 +65,7 @@ test('Impressum-DSE-Block und Sitemap-Eintrag haengen am Schalter', () => {
   const anbieter = imp.slice(0, imp.indexOf('id="datenschutz"'))
   assert.ok(anbieter.includes('Angaben gemäß § 5 DDG'))
   assert.doesNotMatch(anbieter, /Supabase/)
+  assert.doesNotMatch(imp, /spanne|Betragsspanne/i)
 })
 
 test('Link von /gruendung auf die Interessenliste nur bei Schalter an', () => {
@@ -95,40 +96,22 @@ test('Edge-URL: nur https aus der Umgebung, sonst Standard', () => {
   assert.equal(edgeUrl({ INTERESSENLISTE_EDGE_URL: 'https://example.invalid/f' }), 'https://example.invalid/f')
 })
 
-test('Spanne nur bei Dankeschoen, zweite Checkbox nur bei gewaehlter Spanne', () => {
-  assert.equal(spanneSichtbar(['informiert']), false)
-  assert.equal(spanneSichtbar(['informiert', 'dankeschoen']), true)
-  assert.equal(spanneCheckboxSichtbar(['dankeschoen'], 'keine'), false)
-  assert.equal(spanneCheckboxSichtbar(['dankeschoen'], '25_50'), true)
-  assert.equal(spanneCheckboxSichtbar(['gruendung'], '25_50'), false)
-  assert.equal(spanneSichtbar(['dankeschoen', 'beitritt']), false)
-  assert.equal(spanneSichtbar(['dankeschoen', 'gruendung']), false)
-  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen', 'beitritt']), true)
-  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen', 'gruendung']), true)
-  assert.equal(spanneGesperrtWegenBeitritt(['dankeschoen']), false)
-})
-
-test('Nutzlast: Spanne nur mit Dankeschoen UND zweiter Einwilligung, sonst null', () => {
-  const basis = { name: ' ', email: ' probe@example.invalid ', consentInfo: true, sprache: 'de', startedAt: 1 }
-  const ohneZweite = baueNutzlast({ ...basis, interessen: ['dankeschoen'], spanne: '50_100', consentSpanne: false })
-  assert.equal(ohneZweite.spanne, null)
-  assert.equal(ohneZweite.consentSpanne, false)
-  assert.equal(ohneZweite.name, null)
-  assert.equal(ohneZweite.email, 'probe@example.invalid')
-  const mit = baueNutzlast({ ...basis, interessen: ['dankeschoen'], spanne: '50_100', consentSpanne: true })
-  assert.equal(mit.spanne, '50_100')
-  const ohneDank = baueNutzlast({ ...basis, interessen: ['gruendung'], spanne: '50_100', consentSpanne: true })
-  assert.equal(ohneDank.spanne, null)
-  const mitBeitritt = baueNutzlast({ ...basis, interessen: ['dankeschoen', 'beitritt'], spanne: '100_250', consentSpanne: true })
-  assert.equal(mitBeitritt.spanne, null)
-  assert.equal(mitBeitritt.consentSpanne, false)
-  const mitGruendung = baueNutzlast({ ...basis, interessen: ['dankeschoen', 'gruendung'], spanne: '100_250', consentSpanne: true })
-  assert.equal(mitGruendung.spanne, null)
-  assert.equal(mitGruendung.consentSpanne, false)
+test('Nutzlast: festes Feldset, uebergebenes spanne-Feld wird ignoriert', () => {
+  const basis = { name: ' ', email: ' probe@example.invalid ', interessen: ['dankeschoen'], consentInfo: true, sprache: 'de', startedAt: 1 }
+  const mit = baueNutzlast({ ...basis, spanne: '50_100', consentSpanne: true })
+  assert.equal(mit.name, null)
+  assert.equal(mit.email, 'probe@example.invalid')
+  assert.deepEqual(mit.interessen, ['dankeschoen'])
+  assert.equal(mit.consentInfo, true)
   assert.equal(mit.consentTextVersion, CONSENT_TEXT_VERSION)
   assert.equal(mit.action, 'anmelden')
+  assert.equal(Object.hasOwn(mit, 'spanne'), false)
+  assert.equal(Object.hasOwn(mit, 'consentSpanne'), false)
   // kein Kommentarfeld, keine IP, kein User-Agent
-  assert.deepEqual(Object.keys(mit).sort(), ['action', 'consentInfo', 'consentSpanne', 'consentTextVersion', 'email', 'interessen', 'name', 'spanne', 'sprache', 'startedAt', 'website'])
+  assert.deepEqual(Object.keys(mit).sort(), ['action', 'consentInfo', 'consentTextVersion', 'email', 'interessen', 'name', 'sprache', 'startedAt', 'website'])
+  const ohne = baueNutzlast({ ...basis, interessen: ['informiert', 'gruendung'] })
+  assert.equal(Object.hasOwn(ohne, 'spanne'), false)
+  assert.deepEqual(ohne.interessen, ['informiert', 'gruendung'])
 })
 
 test('Token nur aus dem URL-Fragment', () => {
@@ -155,12 +138,12 @@ test('Formular: nichts vorangekreuzt, Pflicht-Checkbox, Honeypot, Link zur DSE, 
   assert.doesNotMatch(f, /defaultChecked|checked=\{true\}/)
   assert.match(f, /aria-hidden="true"/)
   assert.match(f, /impressum#interessenliste/)
-  assert.match(f, /spanne_nicht_mit_beitritt/)
   assert.match(f, /locale !== 'de'/)
   assert.match(f, /uebersetzung_hinweis/)
   assert.doesNotMatch(f, /iban|kreditkarte|lastschrift|textarea|kommentar/i)
   assert.match(f, /credentials: 'omit'/)
   assert.match(f, /x-region/)
+  assert.doesNotMatch(f, /spanne/i)
 })
 
 test('Texte: 11 Sprachen mit identischen Schluesseln, nichts leer', () => {
@@ -170,7 +153,9 @@ test('Texte: 11 Sprachen mit identischen Schluesseln, nichts leer', () => {
     for (const [k, v] of Object.entries(msgs[l])) assert.ok(typeof v === 'string' && v.trim().length >= 2, `${l}.${k}`)
   }
   for (const i of INTERESSEN) assert.ok(`o_${i}` in msgs.de, i)
-  for (const s of SPANNEN) assert.ok(`s_${s}` in msgs.de, s)
+  for (const k of ['spanne_legende', 'spanne_keine', 'spanne_hinweis', 'consent_spanne', 'spanne_nicht_mit_beitritt', 's_bis_25', 's_25_50', 's_50_100', 's_100_250', 's_ueber_250']) {
+    assert.ok(!(k in msgs.de), 'entfernt: ' + k)
+  }
 })
 
 test('Texte: Pflichtinhalte der Einwilligung, wortgleich aus der Datenschutz-Freigabe (DE)', () => {
@@ -178,17 +163,13 @@ test('Texte: Pflichtinhalte der Einwilligung, wortgleich aus der Datenschutz-Fre
   for (const muss of ['Ich willige ein, dass Johannes-Samuel Gartzke (Kleingewerbe', 'Plus Five Five, Inc., USA', 'Auftragsverarbeiter', 'die Daten liegen bei Supabase', 'es fließt kein Geld', 'ich trete damit nicht bei', 'mit Wirkung für die Zukunft widerrufen', 'office@b-t-m-m.com', 'BtMM eG', 'kann widersprechen']) {
     assert.ok(d.consent_info.includes(muss), muss)
   }
-  assert.ok(d.consent_spanne.startsWith('Ich willige gesondert ein, dass die von mir gewählte, unverbindliche Betragsspanne gespeichert wird.'))
-  assert.ok(d.consent_spanne.includes('nicht veröffentlicht'))
   assert.ok(d.o_gruendung === 'Ich kann mir vorstellen, BtMM als Gründungsmitglied mitzugründen.')
   assert.ok(d.o_gruendung_klein.startsWith('Unverbindlich. Gründungsmitglieder zeichnen auf der Gründungsversammlung einen Geschäftsanteil'))
-  assert.ok(d.spanne_hinweis.includes('keine Geschäftsanteile'))
   assert.ok(d.lead.includes('Es fließt kein Geld.'))
   assert.ok(d.passiert.includes('vorläufig') && d.passiert.includes('höchstens 7 Tage'))
   assert.ok(d.danke_text.startsWith('Bitte sieh in dein Postfach') && d.danke_text.includes('7 Tagen'))
   assert.ok(d.abmelden_text.includes('Prüfwert') && d.abmelden_text.includes('12 Monate'))
   assert.ok(d.abmelden_ok.includes('Prüfwert') && d.abmelden_ok.includes('12 Monate'))
-  assert.ok(d.spanne_nicht_mit_beitritt.includes('Beitritt') && d.spanne_nicht_mit_beitritt.includes('Gründungsmitglied'))
   assert.ok(msgs.en.uebersetzung_hinweis.startsWith('This translation was machine-generated.'))
 })
 
@@ -211,12 +192,11 @@ test('Texte: kein Spenden-, Rendite-, Zahlungs- oder Heilwording, keine Emojis',
   }
 })
 
-test('Texte: Unverbindlichkeit in jeder Sprache beim Lead und bei der Spanne ohne Euro-Summen oeffentlich', () => {
+test('Texte: Unverbindlichkeit in jeder Sprache beim Lead, ohne Euro-Summen oeffentlich', () => {
   for (const l of LOCALES) {
     assert.ok(msgs[l].lead.length > 60, l)
-    assert.ok(msgs[l].spanne_hinweis.length > 40, l)
   }
-  // keine Euro-Summen ausserhalb der Spannen-Labels (oeffentlich nur Zaehler)
+  // oeffentlich nur Zaehler, ohne Euro-Summen
   for (const l of LOCALES) assert.doesNotMatch(msgs[l].zaehler, /€|\beuros?\b/i)
   assert.ok(msgs.de.zaehler.includes('{anzahl}'))
 })
