@@ -5,6 +5,7 @@ import { loadMitmacherCorpus } from '@/lib/wissen/loadCorpus'
 import { formatExtractiveAnswer, searchChunks, type WissenChunk } from '@/lib/wissen/search'
 import { resolveWissenLlmRuntime } from '@/lib/wissen/llmTiers'
 import { LIMIT_TEXT, pruefeUndZaehle } from '@/lib/wissen/rateLimit'
+import { entferneEmojis } from '../../../packages/wissen-mcp/src/emoji-filter.mjs'
 
 /**
  * Mitmacher-Wissenssuche (Prompt 117).
@@ -80,7 +81,8 @@ async function generateScaleway(
     }
     const text = data?.choices?.[0]?.message?.content
     if (typeof text !== 'string' || !text.trim()) return null
-    let antwort = text.trim()
+    // Nutzerregel 25.11.: LLM-Antwort serverseitig ohne Emojis.
+    let antwort = entferneEmojis(text.trim())
     if (!antwort.includes('Keine Rechtsberatung')) {
       antwort += `\n\n—\n${DISCLAIMER}\nAbruf: ${abruf} · Scaleway ${SCALEWAY_MODEL}`
     }
@@ -135,7 +137,7 @@ async function generateOpenAiCompat(
     }
     const textOut = data?.choices?.[0]?.message?.content
     if (typeof textOut !== 'string' || !textOut.trim()) return null
-    let antwort = textOut.trim()
+    let antwort = entferneEmojis(textOut.trim())
     if (!antwort.includes('Keine Rechtsberatung')) {
       antwort += `\n\n—\n${DISCLAIMER}\nAbruf: ${abruf} · Self-Host ${model}`
     }

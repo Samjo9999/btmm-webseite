@@ -1,0 +1,97 @@
+/**
+ * Emoji-Filter fuer Wissens-Index und Antworten (Nutzerregel 25.11.:
+ * keine Emojis in App und Webseite). Quelldokumente bleiben unveraendert,
+ * ersetzt wird erst beim Build bzw. vor der Ausgabe.
+ *
+ * Mapping:
+ *   U+2610            -> [offen]
+ *   U+2713 U+2714 U+2705 -> [erledigt]
+ *   U+274C            -> [nein]
+ *   U+26A0            -> [Achtung]
+ *   U+FE0F            -> gestrichen
+ *   alle uebrigen Emojis (U+1F300-1FAFF, U+2600-27BF und ein paar
+ *   weitere reine Emoji-Bloecke) -> entfernt
+ * Typografische Pfeile (U+2190 ff.) bleiben. Ausnahme im Bereich 2600-27BF:
+ * die eingekreisten Ziffern U+2776-2793 sind keine Emojis und bleiben.
+ *
+ * Der Code selbst enthaelt keine Emoji-Zeichen (nur \u-Escapes).
+ */
+
+export const EMOJI_MAPPING = Object.freeze({
+  '\u2610': '[offen]',
+  '\u2713': '[erledigt]',
+  '\u2714': '[erledigt]',
+  '\u2705': '[erledigt]',
+  '\u274C': '[nein]',
+  '\u26A0': '[Achtung]',
+})
+
+// Bereiche aus dem Auftrag plus reine Emoji-Bloecke (Flaggen, Karten, Uhr, Wiedergabe, Sterne).
+const RANGES =
+  '\\u{1F000}-\\u{1F2FF}\\u{1F300}-\\u{1FAFF}\\u2600-\\u27BF' +
+  '\\u231A\\u231B\\u23E9-\\u23F3\\u23F8-\\u23FA\\u2B1B\\u2B1C\\u2B50\\u2B55'
+
+/** Ein einzelnes Emoji-Zeichen (ohne FE0F, ohne ZWJ). Ziffern-Ausnahme siehe oben. */
+const EMOJI_CHAR = `(?![\\u2776-\\u2793])[${RANGES}]`
+const EMOJI_RX_SRC = EMOJI_CHAR
+
+/** Treffer-Muster: alle Emojis, die entfernt oder ersetzt werden (global). */
+export const EMOJI_RX = new RegExp(EMOJI_RX_SRC, 'gu')
+/** Hilfszeichen, die nur mit Emojis vorkommen: Variation Selector-16, Keycap. */
+const HILFSZEICHEN_RX = /[\uFE0F\u20E3]/g
+/** ZWJ nur dort entfernen, wo es Emojis verbindet. */
+const ZWJ_RX = new RegExp(`\\u200D(?=${EMOJI_RX_SRC})|(?<=${EMOJI_RX_SRC})\\u200D`, 'gu')
+const ANY_RX = new RegExp(`${EMOJI_RX_SRC}|[\\uFE0F\\u20E3]`, 'u')
+
+/** Zaehlt Zeichen, die der Filter entfernen oder ersetzen wuerde (inkl. U+FE0F). */
+export function zaehleEmojis(text) {
+  const s = String(text ?? '')
+  return (s.match(EMOJI_RX) || []).length + (s.match(HILFSZEICHEN_RX) || []).length
+}
+
+export function hatEmojis(text) {
+  return ANY_RX.test(String(text ?? ''))
+}
+
+function ersetzeZeile(zeile) {
+  if (!ANY_RX.test(zeile)) return zeile
+  const einzug = /^[ \t]*/.exec(zeile)[0]
+  let s = zeile.replace(HILFSZEICHEN_RX, '').replace(ZWJ_RX, '')
+  s = s.replace(EMOJI_RX, (m, offset, ganz) => {
+    const ersatz = EMOJI_MAPPING[m]
+    if (ersatz === undefined) return ''
+    const next = ganz.charAt(offset + m.length)
+    return /[\p{L}\p{N}]/u.test(next) ? `${ersatz} ` : ersatz
+  })
+  const koerper = s.trim().replace(/[ \t]{2,}/g, ' ')
+  return koerper ? einzug + koerper : ''
+}
+
+/** Entfernt bzw. ersetzt Emojis in einem String. Nur geaenderte Zeilen werden geglaettet. */
+export function entferneEmojis(text) {
+  if (typeof text !== 'string' || !text) return text
+  if (!ANY_RX.test(text)) return text
+  return text.split('\n').map(ersetzeZeile).join('\n')
+}
+
+/** Wendet den Filter rekursiv auf alle Strings (Werte) in Objekten/Arrays an; liefert eine Kopie. */
+export function filterEmojisTief(wert) {
+  if (typeof wert === 'string') return entferneEmojis(wert)
+  if (Array.isArray(wert)) return wert.map(filterEmojisTief)
+  if (wert && typeof wert === 'object') {
+    const out = {}
+    for (const [k, v] of Object.entries(wert)) out[k] = filterEmojisTief(v)
+    return out
+  }
+  return wert
+}
+
+/** Zaehlt Emoji-Treffer ueber alle Strings eines Objekts (Werte, nicht Schluessel). */
+export function zaehleEmojisTief(wert) {
+  if (typeof wert === 'string') return zaehleEmojis(wert)
+  if (Array.isArray(wert)) return wert.reduce((n, v) => n + zaehleEmojisTief(v), 0)
+  if (wert && typeof wert === 'object') {
+    return Object.values(wert).reduce((n, v) => n + zaehleEmojisTief(v), 0)
+  }
+  return 0
+}

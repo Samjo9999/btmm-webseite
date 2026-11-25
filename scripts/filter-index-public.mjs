@@ -20,6 +20,7 @@ import {
   findIndexHits,
 } from './index-public-guard.mjs'
 import { RX as AUSSENSICHT_RX } from '../test/tabu-woerter.mjs'
+import { filterEmojisTief, zaehleEmojisTief } from '../packages/wissen-mcp/src/emoji-filter.mjs'
 
 /** Gleiche Ausnahme wie test/aussensicht-tabu.test.mjs */
 const ERLAUBT = [/werdende (und junge )?Eltern/i]
@@ -51,10 +52,15 @@ for (const c of payload.chunks || []) {
 }
 
 const docs = new Set(kept.map((c) => c.rel))
-const next = {
+// Nutzerregel 25.11.: keine Emojis im ausgelieferten Index.
+const next = filterEmojisTief({
   builtAt: new Date().toISOString(),
   docCount: docs.size,
   chunks: kept,
+})
+if (zaehleEmojisTief(next)) {
+  console.error('Emoji-Filter hinterließ Treffer')
+  process.exit(1)
 }
 
 const leftover = findIndexHits(next)

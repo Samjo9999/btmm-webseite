@@ -1,3 +1,4 @@
+import { entferneEmojis } from './emoji-filter.mjs'
 import { tokenize, distinctiveTokens, WEAK_TOKENS, foldDe } from './tokenize.mjs'
 
 /** Namensbestandteile, die allein keine Belegpflicht auslösen. */
@@ -177,10 +178,11 @@ export function formatExtractiveAnswer(query, hits) {
   antwort +=
     '\n\n—\nEntwurf/Vorschau · kann lückenhaft sein · keine Rechtsberatung. Generative KI ist absichtlich aus.'
   return {
-    antwort,
+    // Nutzerregel 25.11.: keine Emojis in Antworten.
+    antwort: entferneEmojis(antwort),
     quellen: top.map((h) => ({
-      dokument: h.title,
-      abschnitt: h.abschnitt,
+      dokument: entferneEmojis(h.title),
+      abschnitt: entferneEmojis(h.abschnitt),
       pfad: h.rel,
       score: h.score,
     })),

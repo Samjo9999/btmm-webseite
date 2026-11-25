@@ -15,6 +15,7 @@ import path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { loadDocs, chunksFromDocs, defaultWebRoot, defaultBtmmRoot, PKG_ROOT } from '../src/corpus.mjs'
 import { findTabooInIndex, forbiddenPublicPath, findForbiddenContentHits } from '../src/taboo.mjs'
+import { filterEmojisTief, zaehleEmojisTief } from '../src/emoji-filter.mjs'
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const webRoot = process.env.WEB_ROOT || defaultWebRoot()
@@ -84,7 +85,17 @@ function buildTier(tier, { dropTaboo, textLimit }) {
     chunks,
   }
   console.log(`${tier}: ${docs.length} docs, ${chunks.length} chunks (tabu-chunks verworfen: ${droppedTaboo})`)
-  return payload
+  return emojiFrei(tier, payload)
+}
+
+/** Nutzerregel 25.11.: keine Emojis im Index. Quelldokumente bleiben unveraendert. */
+function emojiFrei(label, payload) {
+  const vorher = zaehleEmojisTief(payload)
+  const sauber = filterEmojisTief(payload)
+  const nachher = zaehleEmojisTief(sauber)
+  console.log(`emoji-filter ${label}: ${vorher} Treffer vorher, ${nachher} nachher`)
+  if (nachher) throw new Error(`Emoji-Filter: ${nachher} Treffer in ${label} uebrig`)
+  return sauber
 }
 
 const pub = buildTier('public', { dropTaboo: true, textLimit: 900 })
