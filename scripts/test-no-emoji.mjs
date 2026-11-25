@@ -58,7 +58,10 @@ function walk(dir, acc = []) {
     if (st.isDirectory()) walk(full, acc)
     else if (st.isFile()) {
       if (SKIP_FILE.has(name)) continue
-      if (SKIP_EXT.has(extname(name).toLowerCase())) continue
+      const ext = extname(name).toLowerCase()
+      // Markdown sonst ausgenommen; content/dokumente-web/ wird mitgeprüft.
+      const dokMd = ext === '.md' && rel.startsWith('content/dokumente-web/')
+      if (SKIP_EXT.has(ext) && !dokMd) continue
       acc.push(full)
     }
   }
@@ -93,4 +96,4 @@ if (hits.length) {
   process.exit(1)
 }
 
-console.log('Keine Emojis im Quellcode (außer Tests und Docs).')
+console.log('Keine Emojis im Quellcode (außer Tests und Docs; inkl. content/dokumente-web).')

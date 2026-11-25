@@ -1,126 +1,78 @@
 import type { Metadata } from 'next'
-import Image from 'next/image'
-import { FileText, Download } from 'lucide-react'
-import { SectionReveal } from '@/components/AnimatedCounter'
-import { HeroImageLightbox } from '@/components/HeroImageLightbox'
-import { readFileSync } from 'fs'
-import { join } from 'path'
-import { getDriveManifest, formatDatum, pdfUrl } from '@/lib/drive-dokumente'
+import Link from 'next/link'
+import { Download, FileText } from 'lucide-react'
+import { BRAND_FULL } from '@/lib/brand'
+import { gruppiert, pfad, SITE } from '@/lib/dokumente-web.mjs'
 
-export const dynamic = 'force-dynamic'
+export const dynamic = 'force-static'
 
-export const metadata: Metadata = {
-  title: 'Dokumente – Back to Meaning Maximization',
-  description: 'Dokumente von Back to Meaning Maximization zum Herunterladen.',
-}
+type Doc = { slug: string; titel: string; nummer: string; version: string; stand: string }
+type Gruppe = { id: string; titel: string; text: string; docs: Doc[] }
 
-type Dok = { slug: string; titel: string; version: string; content: string; aenderung?: string | null; drive?: boolean; pdf?: string | null; nurPdf?: boolean; kategorie?: string | null }
-
-async function getDokumente(): Promise<Dok[]> {
-  // Sobald die Drive-Pipeline Dokumente geliefert hat, gelten nur diese.
-  const drive = getDriveManifest()
-  if (drive.length > 0) {
-    return drive.map((d) => {
-      let content = d.nurPdf ? '' : 'Dokument nicht gefunden.'
-      if (!d.nurPdf) try {
-        content = readFileSync(join(process.cwd(), 'content', 'drive-dokumente', `${d.slug}.md`), 'utf-8')
-      } catch {}
-      return { slug: d.slug, titel: d.titel, version: `Version ${d.version} · Stand ${formatDatum(d.datum)}`, aenderung: d.aenderung, content, drive: true, pdf: pdfUrl(d), nurPdf: d.nurPdf, kategorie: d.kategorie?.label ?? null }
-    })
+export function generateMetadata(): Metadata {
+  const titel = 'Dokumente – Konzept, Satzung und Leitfäden'
+  const text =
+    'Alle BtMM-Dokumente zum Lesen und Herunterladen: Konzept, Satzung (Entwurf), Ordnungen und Leitfäden. BtMM ist noch nicht gegründet, alles sind Entwürfe.'
+  return {
+    title: { absolute: `${titel} | ${BRAND_FULL}` },
+    description: text,
+    alternates: { canonical: `${SITE}/de/dokumente` },
+    openGraph: { title: titel, description: text, url: `${SITE}/de/dokumente`, locale: 'de_DE' },
   }
-  const dokumente = [
-    { slug: 'einfuehrung', titel: 'Einführung', version: 'Aktuell' },
-    { slug: 'wirtschaften', titel: 'Wirtschaften im System', version: 'v1.1.0' },
-    { slug: 'ideen-horizont', titel: 'Ideen & Horizonte', version: 'v2.0.0' },
-    { slug: 'gemeinschaftskultur', titel: 'Gemeinschaftskultur', version: 'Aktuell' },
-    { slug: 'handwerk', titel: 'Handwerk & Zulassungen', version: 'Aktuell' },
-  ]
-
-  return dokumente.map((doc) => {
-    try {
-      const content = readFileSync(
-        join(process.cwd(), 'content', 'dokumente', `${doc.slug}.md`),
-        'utf-8'
-      )
-      return { ...doc, content }
-    } catch {
-      return { ...doc, content: 'Dokument nicht gefunden.' }
-    }
-  })
 }
 
-// Nutzer 20.11.2026: kein Text, nur die Dokumente als Liste zum Herunterladen.
-export default async function DokumentePage() {
-  const dokumente = await getDokumente()
-  const knopf = { display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' } as const
-
+export default function DokumentePage({ params }: { params: { locale: string } }) {
+  const gruppen = gruppiert() as Gruppe[]
+  const anzahl = gruppen.reduce((n, g) => n + g.docs.length, 0)
   return (
     <>
-      <section style={{
-        position: 'relative',
-        overflow: 'hidden',
-        background: '#1a1505',
-        padding: '5rem 1.5rem 4rem', textAlign: 'center',
-      }}>
-        <Image
-          src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"
-          alt="Waldweg – Transparenz und Klarheit"
-          fill
-          style={{ objectFit: 'cover' }}
-          priority
-        />
-        <HeroImageLightbox
-          src="https://images.unsplash.com/photo-1418065460487-3e41a6c84dc5?w=1920&q=80"
-          alt="Waldweg – Transparenz und Klarheit"
-        />
-        <div className="hero-text" style={{ maxWidth: 680, position: 'relative', zIndex: 2 }}>
-          <h1 style={{
-            fontFamily: 'var(--font-garamond)',
-            fontSize: 'clamp(2.2rem, 4vw, 3.5rem)',
-            color: 'var(--btb-creme)',
-            display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '1rem', flexWrap: 'wrap',
-          }}>
-            <FileText size={40} style={{ color: 'var(--btb-oliv)' }} />
-            Dokumente
-          </h1>
+      <section style={{ background: 'var(--btb-oliv)', padding: '4rem 1.5rem 3rem' }}>
+        <div className="container-btb" style={{ maxWidth: 900 }}>
+          <h1 style={{ fontFamily: 'var(--font-garamond)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--btb-creme)' }}>Dokumente</h1>
+          <p style={{ color: 'var(--btb-creme)', opacity: 0.9, marginTop: '0.75rem', lineHeight: 1.6 }}>
+            {anzahl} Dokumente zum Lesen und Herunterladen. Alles sind Entwürfe, keine Rechts- oder Steuerberatung.
+          </p>
+          {params.locale !== 'de' && (
+            <p role="note" style={{ color: 'var(--btb-creme)', marginTop: '0.75rem', fontWeight: 600 }}>
+              Die Dokumente sind nur auf Deutsch verfügbar.
+            </p>
+          )}
         </div>
       </section>
 
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
-        <div className="container-btb" style={{ maxWidth: 800 }}>
-          <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
-            {dokumente.map((doc, i) => (
-              <SectionReveal key={doc.slug} delay={i * 0.05}>
-                <li id={`dok-${doc.slug}`} style={{
-                  display: 'flex', alignItems: 'center', justifyContent: 'space-between',
-                  flexWrap: 'wrap', gap: '1rem',
-                  padding: '1.25rem 0',
-                  borderBottom: '1px solid var(--btb-creme)',
-                }}>
-                  <div>
-                    <h2 style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-oliv)', fontSize: '1.4rem', marginBottom: '0.15rem' }}>
-                      {doc.titel}
-                    </h2>
-                    <p style={{ fontSize: '0.85rem', opacity: 0.6 }}>{doc.version}</p>
-                  </div>
-                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                    {doc.pdf && (
-                      <a href={doc.pdf} download className="btn-secondary" style={knopf}>
-                        <Download size={16} />
-                        PDF herunterladen
-                      </a>
-                    )}
-                    {!doc.pdf && !doc.nurPdf && (
-                      <a href={doc.drive ? `/dokumente/${doc.slug}.md` : `/dokumente/${doc.slug}.pdf`} download className="btn-secondary" style={knopf}>
-                        <Download size={16} />
-                        {doc.drive ? 'Herunterladen' : 'PDF herunterladen'}
-                      </a>
-                    )}
-                  </div>
-                </li>
-              </SectionReveal>
-            ))}
-          </ul>
+        <div className="container-btb" style={{ maxWidth: 900 }}>
+          {gruppen.map((g) => (
+            <div key={g.id} id={g.id} style={{ marginBottom: '3rem' }}>
+              <h2 style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-rot)', fontSize: '1.6rem', marginBottom: '0.25rem' }}>{g.titel}</h2>
+              {g.text && <p style={{ fontSize: '0.9rem', opacity: 0.7, marginBottom: '0.5rem' }}>{g.text}</p>}
+              <ul style={{ listStyle: 'none', padding: 0, margin: 0 }}>
+                {g.docs.map((d) => (
+                  <li
+                    key={d.slug}
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', padding: '1rem 0', borderBottom: '1px solid var(--btb-creme)' }}
+                  >
+                    <div style={{ minWidth: 0, flex: '1 1 260px' }}>
+                      <Link href={pfad(d.slug, 'de')} style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-oliv)', fontSize: '1.3rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <FileText size={20} aria-hidden="true" />
+                        {d.titel}
+                      </Link>
+                      <p style={{ fontSize: '0.85rem', opacity: 0.65, marginTop: '0.15rem' }}>
+                        Dokument {d.nummer} · Version {d.version} · Stand {d.stand}
+                      </p>
+                    </div>
+                    <a href={`/dokumente/${d.slug}.md`} download className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als Markdown herunterladen`}>
+                      <Download size={16} aria-hidden="true" />
+                      Markdown
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+          <p style={{ fontSize: '0.9rem', opacity: 0.75 }}>
+            <Link href={`/${params.locale}/impressum`} style={{ color: 'var(--btb-oliv)' }}>Impressum</Link>
+          </p>
         </div>
       </section>
     </>
