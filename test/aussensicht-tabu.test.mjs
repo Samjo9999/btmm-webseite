@@ -4,6 +4,7 @@ import assert from 'node:assert/strict'
 import fs from 'node:fs'
 import path from 'node:path'
 import { RX } from './tabu-woerter.mjs'
+import { istGrundsicherungBeispielabschnitt } from '../scripts/index-public-guard.mjs'
 
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 // Ausnahmen: allgemeine Wortbestandteile, kein Bezug auf Gründerfamilie/Tabuthema.
@@ -27,6 +28,22 @@ test('keine Tabuwörter in öffentlichen Texten', () => {
     for (const f of dateien(path.join(root, d))) {
       if (NUR_FILTERLISTE.has(path.relative(root, f).split(path.sep).join('/'))) continue
       let s = fs.readFileSync(f, 'utf8')
+      const rel = path.relative(root, f).split(path.sep).join('/')
+      // Nutzer 25.11. 15:30: nur Konzept v22.69.0 Z. 84–113 darf „Grundsicherung“
+      // im public-Index führen (Präfix Beispielrechnung:). Andere Tabus bleiben.
+      if (rel.endsWith('index-public.json')) {
+        const payload = JSON.parse(s)
+        for (const c of payload.chunks || []) {
+          let blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
+          if (istGrundsicherungBeispielabschnitt(c)) {
+            blob = blob.replace(/Grundsicherung/gi, '')
+          }
+          for (const e of ERLAUBT) blob = blob.replace(new RegExp(e.source, e.flags + 'g'), '')
+          const m = blob.match(new RegExp(RX.source, 'gi'))
+          if (m) treffer.push(`${rel} [${c.abschnitt || ''}]: ${[...new Set(m)].join(', ')}`)
+        }
+        continue
+      }
       for (const e of ERLAUBT) s = s.replace(new RegExp(e.source, e.flags + 'g'), '')
       const m = s.match(new RegExp(RX.source, 'gi'))
       if (m) treffer.push(`${path.relative(root, f)}: ${[...new Set(m)].join(', ')}`)
