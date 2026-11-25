@@ -82,7 +82,7 @@ Resilient ist das System auch dadurch, dass es klein bleibt, wo es klein sein so
 
 # 7. Buddhismus als Wissenschaft des Geistes
 
-> *„Ich kann Christ sein und Buddhist. Nicht weil es keine Unterschiede gibt — sondern weil sie verschiedene Ebenen beschreiben.“*
+> *„Man kann Christ sein und Buddhist. Nicht weil es keine Unterschiede gibt — sondern weil sie verschiedene Ebenen beschreiben.“*
 
 Buddhismus ist keine Religion im üblichen Sinne. Er ist die Lehre der Kultivierung des Geistes. Es gibt keinen Gott, keine Glaubenspflicht, kein Dogma, das man annehmen muss. Was es gibt: eine jahrtausendealte Beobachtungstradition darüber, wie der Geist funktioniert.
 
