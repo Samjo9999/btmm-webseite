@@ -77,7 +77,7 @@ Fast alle Stundenwerte sind E oder S. Sie zeigen die Rangfolge und die Größeno
 | 2 Betriebe | 3 bis 12 Personen, ein Team in einem Gemeinschaftsbetrieb mit Anstellung | Tischlerei, Elektro, Café, Studio | Team, oft Meister, 5.000 bis 120.000 € Start |
 | 3 Unternehmen und Einrichtungen | mehrere Teams oder Betriebe, 6 bis 60 Personen und mehr | Hofladen, Bioladen, Solawi, Bäckerei, Pflege | Kapital, Kundschaft, Genehmigungen |
 
-Nach der Satzung arbeiten die Beschäftigten in Teams von höchstens zwölf Menschen; wächst ein Team darüber hinaus, teilt es sich (§ 15a Absatz 3) (B). Ein Betrieb kann aus mehreren Teams bestehen, und mehrere Betriebe einer Abteilung können als Gemeinschaftsunternehmen auftreten, ohne Vorgesetzte und mit gleichem Lohn (§ 15a Absatz 3a und 3b, seit Satzung v7.13.0) (B). Die Zwölf begrenzt das Team, nicht den Betrieb.
+Nach der Satzung arbeiten die Beschäftigten in Teams von höchstens zwölf Menschen; wächst ein Team darüber hinaus, teilt es sich (Konzept, nicht in der Außen-Satzung v9.1.4) (B). Ein Betrieb kann aus mehreren Teams bestehen, und mehrere Betriebe einer Abteilung können als Gemeinschaftsunternehmen auftreten, ohne Vorgesetzte und mit gleichem Lohn (Konzept, nicht in der Außen-Satzung v9.1.4 und 3b, seit Satzung v7.13.0) (B). Die Zwölf begrenzt das Team, nicht den Betrieb.
 
 ## „Von“, „bis“ und „ab wann“
 
@@ -227,7 +227,7 @@ Das sind 35 Möglichkeiten. „Obergrenze nach Rechner 09“ ist die Kapazität,
 
 ## Wann gibt es welche Schwelle im Arbeitsrecht?
 
-Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Seit Satzung v7.13.0 begrenzt die Zwölf nur das Team (§ 15a Absatz 3); Betriebe und Gemeinschaftsunternehmen können größer werden. Die Schwellen sind deshalb wichtig, auch weil einzelne schon unter zwölf greifen:
+Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Seit Satzung v7.13.0 begrenzt die Zwölf nur das Team (Konzept, nicht in der Außen-Satzung v9.1.4); Betriebe und Gemeinschaftsunternehmen können größer werden. Die Schwellen sind deshalb wichtig, auch weil einzelne schon unter zwölf greifen:
 
 | Schwelle | Folge |
 |---|---|
@@ -238,7 +238,7 @@ Ein Betrieb mit mehr Beschäftigten bekommt mehr Pflichten. Seit Satzung v7.13.0
 | ab 500 | Drittelbeteiligung im Aufsichtsrat (Bs) |
 | EU: unter 10 / unter 50 / unter 250 | Kleinstunternehmen / Kleinunternehmen / mittleres Unternehmen (Bs) |
 
-Wie ein Betriebsrat zu einem Betrieb ohne persönliche Vorgesetzte passt, ist offen (Satzung § 13 Absatz 1: arbeitsrechtliche Ausgestaltung vor der Einreichung klären). Die Genossenschaft will ihn ausdrücklich zulassen, als zweite Stimme der Beschäftigten neben der Betriebsversammlung (Vollkonzept, Kapitel 14; Dokument 10, Frage 30).
+Wie ein Betriebsrat zu einem Betrieb ohne persönliche Vorgesetzte passt, ist offen (Konzept, nicht in der Außen-Satzung v9.1.4: arbeitsrechtliche Ausgestaltung vor der Einreichung klären). Die Genossenschaft will ihn ausdrücklich zulassen, als zweite Stimme der Beschäftigten neben der Betriebsversammlung (Vollkonzept, Kapitel 14; Dokument 10, Frage 30).
 
 # 5. Was nicht schnell geht
 
