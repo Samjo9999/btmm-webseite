@@ -110,9 +110,8 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   Deutschland
                 </p>
                 <p>
-                  BtMM eG in Gründung, besteht noch nicht. Die geplante Genossenschaft
-                  &bdquo;Back to Meaning Maximization&ldquo; ist nicht eingetragen. Anbieter dieser Seite ist
-                  Johannes-Samuel Gartzke.
+                  BtMM ist eine geplante Genossenschaft und noch nicht gegründet. Anbieter dieser Seite ist
+                  Johannes-Samuel Gartzke (Kleingewerbe), nicht die geplante Genossenschaft.
                 </p>
 
                 <h3>Kontakt</h3>
@@ -287,7 +286,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                 <h4>Hinweis zur verantwortlichen Stelle</h4>
                 <p>
                   Die verantwortliche Stelle für die Datenverarbeitung auf dieser Website ist:<br /><br />
-                  Johannes-Samuel Gartzke (Kleingewerbe; BtMM eG in Gründung, besteht noch nicht)<br />
+                  Johannes-Samuel Gartzke (Kleingewerbe). BtMM ist eine geplante Genossenschaft und noch nicht gegründet.<br />
                   Hildastr. 12<br />
                   79102 Freiburg im Breisgau<br /><br />
                   E-Mail: office@b-t-m-m.com
