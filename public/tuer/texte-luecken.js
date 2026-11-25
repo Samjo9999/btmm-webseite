@@ -93,4 +93,13 @@
     if (e.f) t.fragen.lage = e.f;
     Object.keys(e.s).forEach(function (k) { t.schritte[k] = e.s[k]; t.bezug[k] = e.b[k]; t.echo[k] = e.e[k]; t.profil.motive[k] = e.m[k]; t.merkmale[k] = e.k[k]; });
   });
+  /* Neue Schritte (#38) teilen sich die Weg-Fotos eines nahen Schritts; Alt-Text entsprechend übernehmen. */
+  var ALT_TEIL = { kunde: 'arbeiten', einstieg: 'grundlagen', lebensphase: 'wohnen', ruhestand: 'sinn', unterstuetzen: 'anpacken' };
+  Object.keys(T).forEach(function (l) {
+    var alt = T[l] && T[l].alt;
+    if (!alt) return;
+    Object.keys(ALT_TEIL).forEach(function (k) {
+      if (!alt[k] && alt[ALT_TEIL[k]]) alt[k] = alt[ALT_TEIL[k]];
+    });
+  });
 })(typeof window !== 'undefined' ? window : globalThis);

@@ -68,12 +68,83 @@ test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine 
   }
 })
 
-test('Bilder je Schritt nach Merkmal, ohne Doppelung, nur vorhandene', () => {
+const dateiVon = (id) => PF.BILDER[id].src.split('/').pop()
+function bilderPruefen(keys, p, label) {
+  const b = PF.bilderWaehlen(keys, p)
+  assert.equal(b.length, keys.length, label)
+  const dateien = b.filter((id) => id !== null).map((id) => { assert.ok(PF.BILDER[id], `${label}: unbekannte Bild-ID ${id}`); return dateiVon(id) })
+  assert.equal(new Set(dateien).size, dateien.length, `${label}: dieselbe Datei zweimal: ${keys.join(',')} -> ${b.join(',')}`)
+  return b
+}
+
+test('Bilder je Schritt nach Merkmal, eindeutig nach Datei, nur vorhandene', () => {
   for (const pers of ['macher', 'pruefer']) {
-    const p = profilAus('de', PERSONA[pers]); const k = PF.pfadBauen(p); const b = PF.bilderWaehlen(k, p)
+    const p = profilAus('de', PERSONA[pers]); const k = PF.pfadBauen(p); const b = bilderPruefen(k, p, pers)
     assert.equal(new Set(b).size, b.length)
-    for (const id of b) assert.ok(PF.BILDER[id])
   }
+})
+
+// Test-Bot r6: Ruhestand/Gemeinschaft (sinn), Berufseinstieg/Worum es geht (grundlagen), Unterstützen, Lebensphase
+const PERSONA_38 = {
+  einsteiger: ['Über eine Freundin.', 'Ich bin gerade mit der Ausbildung fertig und suche meinen Berufseinstieg.', 'Eine Arbeit mit Sinn.', 'Ich wohne in Freiburg.', 'Erst mal nur lesen.'],
+  kunde: ['Über Google.', 'Ich bin Kunde und will eure Angebote nutzen.', 'Gute Produkte.', 'Ich wohne in Hamburg.', 'Erst mal nur lesen.'],
+  rente: ['Über die Zeitung.', 'Ich bin im Ruhestand und habe Zeit.', 'Gemeinschaft im Alter.', 'Ich wohne in Freiburg.', 'Ich will mit anpacken.'],
+  unterst: ['Über Instagram.', 'Ich will euch unterstützen, vielleicht spenden.', 'Dass es klappt.', 'Ich wohne in Berlin.', 'Erst mal nur lesen.'],
+  lebens: ['Über eine Freundin.', 'Ich bin in einer neuen Lebensphase, die Kinder sind aus dem Haus.', 'Neue Gemeinschaft.', 'Ich wohne in Freiburg.', 'Ich will mitmachen.']
+}
+
+test('#38-Personas: im Weg nie dieselbe Bilddatei zweimal', () => {
+  for (const [n, a] of Object.entries(PERSONA_38)) {
+    const p = profilAus('de', a); bilderPruefen(PF.pfadBauen(p), p, n)
+  }
+  // Konkrete Fälle aus dem Test-Bot-Fund
+  const rente = PF.bilderWaehlen(['ruhestand', 'sinn', 'freiburg', 'anpacken'])
+  assert.equal(rente[1], 'sinn', 'Gemeinschaft behält sein Foto')
+  assert.notEqual(dateiVon(rente[0]), 'sinn.jpg')
+  const einstieg = PF.bilderWaehlen(['arbeiten', 'grundlagen', 'einstieg', 'sinn', 'freiburg', 'folgen'])
+  assert.equal(einstieg[1], 'grundlagen', 'Worum es geht behält sein Foto')
+  assert.notEqual(dateiVon(einstieg[2]), 'grundlagen.jpg')
+})
+
+test('Ausweichfoto: alleine im Weg behält ein #38-Schritt sein Foto, sonst passt der Alt-Text zum gezeigten Foto', () => {
+  assert.deepEqual(PF.bilderWaehlen(['ruhestand', 'folgen']), ['ruhestand', 'folgen'])
+  const b = PF.bilderWaehlen(['ruhestand', 'sinn', 'folgen'])
+  for (const id of b) for (const [l, T] of Object.entries(TEXTE)) assert.ok(T.alt[id], `${l} alt ${id}`)
+  // Ersatz stammt aus den Weg-Fotos und kommt im Weg nicht zweimal vor
+  assert.equal(new Set(b.map(dateiVon)).size, 3)
+})
+
+test('kein freies Foto: Bild entfällt (null) statt Doppelung', () => {
+  const alle = Object.keys(PF.SCHRITTE)
+  const b = bilderPruefen(alle, {}, 'alle Schritte')
+  const dateien = new Set(Object.values(PF.BILDER).map((x) => x.src))
+  assert.equal(b.filter((id) => id !== null).length, dateien.size)
+  assert.ok(b.includes(null), 'mehr Schritte als Fotos: Rest ohne Bild')
+  // Schritte mit eigener Datei verlieren ihr Foto nie
+  for (const [i, k] of alle.entries()) if (!['kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'].includes(k)) assert.equal(b[i], PF.SCHRITTE[k].bild, k)
+})
+
+test('200.000 Zufallsprofile (Seed): Bilddateien im Weg eindeutig, jeder Schritt mit eigenem Foto behält es', () => {
+  let z = 20261125
+  const rnd = () => { z = (z + 0x6D2B79F5) | 0; let t = Math.imul(z ^ (z >>> 15), 1 | z); t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t; return ((t ^ (t >>> 14)) >>> 0) / 4294967296 }
+  const MERKMALE = ['freund', 'online', 'vorort', 'neugierig', 'skeptisch', 'sparen', 'arbeiten', 'wohnen', 'sinn', 'gruenden', 'kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen', 'vorbei', 'anpacken', 'weit', 'freiburg', 'nurlesen']
+  const GETEILT = new Set(['kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen'])
+  let ohneBild = 0, mitAusweich = 0
+  for (let n = 0; n < 200000; n++) {
+    const p = {}
+    for (const m of MERKMALE) if (rnd() < 0.25) p[m] = 1 + Math.floor(rnd() * 3)
+    const keys = PF.pfadBauen(p)
+    const b = PF.bilderWaehlen(keys, p)
+    const d = b.filter((id) => id !== null).map(dateiVon)
+    if (new Set(d).size !== d.length) assert.fail(`Doppelte Datei: ${JSON.stringify(p)} -> ${keys.join(',')} -> ${b.join(',')}`)
+    keys.forEach((k, i) => {
+      if (!GETEILT.has(k)) assert.equal(b[i], PF.SCHRITTE[k].bild, `${k} verliert sein Foto: ${keys.join(',')}`)
+      else if (b[i] === null) ohneBild++
+      else if (b[i] !== PF.SCHRITTE[k].bild) mitAusweich++
+    })
+  }
+  assert.equal(ohneBild, 0, 'Wege haben höchstens 6 Schritte, es muss immer ein freies Foto geben')
+  assert.ok(mitAusweich > 0, 'Ausweichfotos kommen vor')
 })
 
 test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel', () => {
