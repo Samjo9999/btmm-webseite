@@ -39,7 +39,10 @@ const pubIdx = JSON.parse(readFileSync(pub, 'utf8'))
 const mitIdx = JSON.parse(readFileSync(mit, 'utf8'))
 const pubChunks = (pubIdx.chunks || []).length
 const mitChunks = (mitIdx.chunks || []).length
-assert.ok(pubChunks <= mitChunks, `public.chunks (${pubChunks}) > mitmacher.chunks (${mitChunks})`)
+// Seit Fertig-PR 4 baut sich public aus den 30 Webdokumenten und nicht mehr aus der Allowlist des Mitmacher-Index:
+// kein Größenvergleich mehr, dafür muss der public-Index ausschließlich aus content/dokumente-web stammen.
+assert.equal(pubIdx.quelle, 'content/dokumente-web')
+assert.ok((pubIdx.chunks || []).every((c) => String(c.rel).startsWith('content/dokumente-web/')))
 
 const rg = spawnSync(
   'rg',
@@ -55,4 +58,4 @@ const rg = spawnSync(
 )
 assert.notEqual(rg.status, 0, `rg sollte 0 Treffer liefern, bekam:\n${rg.stdout}`)
 
-console.log(`PASS wissen-ausschluss (public ${pubChunks} <= mitmacher ${mitChunks})`)
+console.log(`PASS wissen-ausschluss (public ${pubChunks} aus dokumente-web, mitmacher ${mitChunks})`)

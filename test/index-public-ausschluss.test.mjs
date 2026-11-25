@@ -146,15 +146,10 @@ test('gleicher Grundsicherung-Text aus anderer Quelle oder anderem Abschnitt fä
   assert.ok(dropped.some((d) => d.reason === 'grundsicherung' && d.rel === GRUNDSICHERUNG_BEISPIEL.rel))
 })
 
-test('öffentlicher Index enthält die Beispielrechnung und sonst keine Grundsicherung-Kombi', () => {
+test('öffentlicher Index kommt nur aus content/dokumente-web (Beispielrechnung-Altquelle ist weg)', () => {
   const payload = JSON.parse(readFileSync(join(root, 'content/wissen/index-public.json'), 'utf8'))
-  const beispiel = (payload.chunks || []).filter(istGrundsicherungBeispielabschnitt)
-  assert.ok(beispiel.length >= 1, 'Ausnahme-Chunks müssen im Index stehen')
-  for (const c of beispiel) {
-    assert.ok(c.text.startsWith(BEISPIELRECHNUNG_PREFIX), `ohne Präfix: ${c.abschnitt}`)
-  }
-  const abschnitte = new Set(beispiel.map((c) => c.abschnitt))
-  for (const soll of GRUNDSICHERUNG_BEISPIEL.abschnitte) {
-    assert.ok(abschnitte.has(soll), `Abschnitt fehlt: ${soll}`)
-  }
+  assert.equal(payload.quelle, 'content/dokumente-web')
+  const fremd = (payload.chunks || []).filter((c) => !String(c.rel).startsWith('content/dokumente-web/'))
+  assert.deepEqual(fremd, [])
+  assert.equal((payload.chunks || []).filter(istGrundsicherungBeispielabschnitt).length, 0)
 })
