@@ -8,6 +8,8 @@ import { RX } from './tabu-woerter.mjs'
 const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 // Ausnahmen: allgemeine Wortbestandteile, kein Bezug auf Gründerfamilie/Tabuthema.
 const ERLAUBT = [/werdende (und junge )?Eltern/i]
+// Tür-KI (25.11.2026): reine Serverseitige Filterliste, nie sichtbar, dient genau dazu, diese Begriffe abzufangen.
+const NUR_FILTERLISTE = new Set(['lib/tuerKi/sensibel-liste.ts'])
 // content/wissen-mitglieder: nur serverseitig (JWT), nicht öffentlich – bewusst ausgenommen.
 const OEFFENTLICH = ['messages', 'app', 'components', 'lib', 'public', 'content/dokumente', 'content/wissen', 'content/drive-dokumente']
 
@@ -23,6 +25,7 @@ test('keine Tabuwörter in öffentlichen Texten', () => {
   const treffer = []
   for (const d of OEFFENTLICH) {
     for (const f of dateien(path.join(root, d))) {
+      if (NUR_FILTERLISTE.has(path.relative(root, f).split(path.sep).join('/'))) continue
       let s = fs.readFileSync(f, 'utf8')
       for (const e of ERLAUBT) s = s.replace(new RegExp(e.source, e.flags + 'g'), '')
       const m = s.match(new RegExp(RX.source, 'gi'))

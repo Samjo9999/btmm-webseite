@@ -107,6 +107,7 @@ test('Mitmacher-Corpus der API enthält kein internal, Loader filtert', () => {
 test('Fehler-Logs enthalten weder Frage noch Body noch res.text()', () => {
   const dateien = [
     'app/api/wissen-mitmacher/route.ts',
+    'lib/wissen/scaleway.ts',
     'lib/wissen/rateLimit.ts',
     'lib/wissen/sichtbarkeit.ts',
     'lib/wissen/loadCorpus.ts',
