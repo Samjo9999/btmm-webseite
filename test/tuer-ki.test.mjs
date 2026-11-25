@@ -6,7 +6,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
-import { neuerRateZustand, pruefeTuerRate, ipHash, NACHRICHTEN_PRO_STUNDE, tagesSalz, RATE_SALT_ENV } from '../lib/tuerKi/rateLimit.ts'
+import { neuerRateZustand, pruefeTuerRate, pruefePersistenteRate, ipHash, ipHashMitSalt, rateSalt, NACHRICHTEN_PRO_STUNDE, NACHRICHTEN_PRO_TAG, tagesSalz, RATE_SALT_ENV, RATE_RPC_NAME } from '../lib/tuerKi/rateLimit.ts'
 import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins } from '../lib/tuerKi/herkunft.ts'
@@ -27,18 +27,22 @@ const lese = (rel) => readFileSync(join(root, rel), 'utf8')
 const AN = { TUER_KI_ENABLED: 'true', WISSEN_LLM_ENABLED: 'true', WISSEN_LLM_TIER: 's50', SCALEWAY_SECRET_KEY: 'test-platzhalter' }
 const CHUNK = { title: '07 Konzept', abschnitt: 'Augenhöhe', text: 'Jede Arbeitsstunde ist gleich viel wert.', rel: 'x.md' }
 
+const TEST_SALT = 'test-secret-nur-fuer-unit'
+
 function deps(over = {}) {
-  const aufrufe = { chat: [], corpus: 0 }
+  const aufrufe = { chat: [], corpus: 0, rpc: [] }
+  const { env: envOver, zaehleRate: rpcOver, ...rest } = over
   const d = {
-    env: AN,
+    env: envOver ?? { ...AN, TUER_KI_RATE_SALT: TEST_SALT },
     ip: '203.0.113.7',
     now: Date.parse('2026-11-25T12:00:00Z'),
     ladeCorpus: () => { aufrufe.corpus++; return { chunks: [CHUNK] } },
     suche: () => [CHUNK],
     chat: async (opt) => { aufrufe.chat.push(opt); return { text: 'Schön, dass du fragst. Quelle: 07 Konzept, Augenhöhe\nSCHRITTE: arbeiten, gibtsnicht, faq', usage: { prompt_tokens: 1000, completion_tokens: 100 } } },
-    rate: neuerRateZustand(Date.parse('2026-11-25T12:00:00Z')),
+    rate: neuerRateZustand(Date.parse('2026-11-25T12:00:00Z'), TEST_SALT),
     kosten: neuerKostenZustand(Date.parse('2026-11-25T12:00:00Z')),
-    ...over,
+    zaehleRate: rpcOver || (async (hash) => { aufrufe.rpc.push(hash); return { stunde: 1, tag: 1 } }),
+    ...rest,
   }
   return { d, aufrufe }
 }
@@ -167,6 +171,106 @@ test('Rate-Limit: 30 je Stunde je IP-Hash, HMAC mit Tagessalz, keine Klartext-IP
   assert.equal(z.zaehler.size, 0)
 })
 
+
+test('Persistentes Rate-Limit RPC gemockt: Erfolg, Limit, Fehler, fehlender Salt', async () => {
+  const now = Date.parse('2026-11-25T12:00:00Z')
+  const ip = '203.0.113.7'
+  const salt = TEST_SALT
+  const erwartetHash = ipHashMitSalt(ip, salt, now)
+  assert.match(erwartetHash, /^[0-9a-f]{64}$/)
+  assert.equal(erwartetHash.includes('203.0.113'), false)
+  assert.equal(rateSalt({ TUER_KI_RATE_SALT: salt }), salt)
+  assert.equal(rateSalt({ TUER_KI_RATE_SALT: '  ' }), null)
+  assert.equal(rateSalt({}), null)
+
+  const rpcOk = []
+  const ok = await pruefePersistenteRate({
+    ip, salt, now,
+    rpc: async (hash) => { rpcOk.push(hash); return { stunde: 1, tag: 1 } },
+  })
+  assert.deepEqual(ok, { erlaubt: true })
+  assert.deepEqual(rpcOk, [erwartetHash])
+
+  const stundeVoll = await pruefePersistenteRate({
+    ip, salt, now,
+    rpc: async () => ({ stunde: NACHRICHTEN_PRO_STUNDE, tag: 5 }),
+  })
+  assert.equal(stundeVoll.erlaubt, false)
+  assert.equal(stundeVoll.art, 'limit')
+  assert.ok(stundeVoll.retryAfterSec >= 1)
+
+  const tagVoll = await pruefePersistenteRate({
+    ip, salt, now,
+    rpc: async () => ({ stunde: 1, tag: NACHRICHTEN_PRO_TAG }),
+  })
+  assert.equal(tagVoll.erlaubt, false)
+  assert.equal(tagVoll.art, 'limit')
+  assert.ok(tagVoll.retryAfterSec >= 1)
+
+  const rpcBeiFehler = []
+  const dbFehler = await pruefePersistenteRate({
+    ip, salt, now,
+    rpc: async (hash) => { rpcBeiFehler.push(hash); throw new Error('db-down') },
+  })
+  assert.deepEqual(dbFehler, { erlaubt: false, art: 'fail_closed' })
+  assert.equal(rpcBeiFehler.length, 1)
+
+  const ungueltig = await pruefePersistenteRate({
+    ip, salt, now,
+    rpc: async () => ({ stunde: 'x', tag: 1 }),
+  })
+  assert.deepEqual(ungueltig, { erlaubt: false, art: 'fail_closed' })
+
+  const rpcBeiSalt = []
+  const keinSalt = await pruefePersistenteRate({
+    ip, salt: null, now,
+    rpc: async (hash) => { rpcBeiSalt.push(hash); return { stunde: 1, tag: 1 } },
+  })
+  assert.deepEqual(keinSalt, { erlaubt: false, art: 'fail_closed' })
+  assert.deepEqual(rpcBeiSalt, [])
+})
+
+test('Handler: RPC Erfolg zaehlt per Hash, Limit 429, DB-Fehler und fehlender Salt fail-closed ohne LLM', async () => {
+  const { d, aufrufe } = deps()
+  const r = await beantworteTuerKi(frage('Was ist BtMM?'), d)
+  assert.equal(r.json.status, 'ok')
+  assert.equal(aufrufe.chat.length, 1)
+  assert.equal(aufrufe.rpc.length, 1)
+  assert.match(aufrufe.rpc[0], /^[0-9a-f]{64}$/)
+  assert.equal(aufrufe.rpc[0].includes('203.0.113'), false)
+  assert.equal(aufrufe.rpc[0], ipHashMitSalt(d.ip, TEST_SALT, d.now))
+
+  const { d: dLimit, aufrufe: aLimit } = deps({
+    zaehleRate: async (hash) => { aLimit.rpc.push(hash); return { stunde: NACHRICHTEN_PRO_STUNDE, tag: 8 } },
+  })
+  const rLimit = await beantworteTuerKi(frage('Was ist BtMM?'), dLimit)
+  assert.equal(rLimit.http, 429)
+  assert.equal(rLimit.json.status, 'limit')
+  assert.equal(rLimit.json.text, FESTE_TEXTE.de.limit)
+  assert.ok(rLimit.retryAfterSec >= 1)
+  assert.equal(aLimit.chat.length, 0)
+  assert.equal(aLimit.rpc.length, 1)
+
+  const { d: dErr, aufrufe: aErr } = deps({
+    zaehleRate: async () => { throw new Error('db-down') },
+  })
+  const rErr = await beantworteTuerKi(frage('Was ist BtMM?'), dErr)
+  assert.equal(rErr.http, 200)
+  assert.equal(rErr.json.status, 'fehler')
+  assert.equal(rErr.json.text, FESTE_TEXTE.de.fehler)
+  assert.equal(aErr.chat.length, 0)
+
+  const { d: dSalt, aufrufe: aSalt } = deps({
+    env: { ...AN, TUER_KI_RATE_SALT: '' },
+    zaehleRate: async (hash) => { aSalt.rpc.push(hash); return { stunde: 1, tag: 1 } },
+  })
+  const rSalt = await beantworteTuerKi(frage('Was ist BtMM?'), dSalt)
+  assert.equal(rSalt.http, 200)
+  assert.equal(rSalt.json.status, 'fehler')
+  assert.equal(rSalt.json.text, FESTE_TEXTE.de.fehler)
+  assert.equal(aSalt.chat.length, 0)
+  assert.equal(aSalt.rpc.length, 0)
+})
 
 test('Tagessalz: HMAC aus Env-Secret plus Datum, gleicher Tag gleicher Hash, nie in der DB-Vorlage', () => {
   const t0 = Date.parse('2026-11-25T10:00:00Z')
@@ -347,6 +451,11 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   const route = lese('app/api/tuer-ki/route.ts')
   assert.match(route, /ladeCorpus:\s*loadPublicCorpus/)
   assert.doesNotMatch(route, /loadMitmacherCorpus|wissen-mitglieder/)
+  assert.match(route, /zaehleRate:\s*zaehleTuerRateRpc/)
+  assert.match(route, /TUER_KI_RATE_SALT/)
+  assert.match(lese('lib/tuerKi/rateLimit.ts'), /tuer_ki_rate_zaehle/)
+  assert.match(lese('lib/tuerKi/rateLimit.ts'), /SUPABASE_SERVICE_ROLE_KEY/)
+  assert.equal(RATE_RPC_NAME, 'tuer_ki_rate_zaehle')
   for (const f of ['handler', 'filter', 'rateLimit', 'kosten', 'systemPrompt', 'schalter', 'herkunft', 'konfig', 'texte']) {
     const src = lese(`lib/tuerKi/${f}.ts`)
     assert.doesNotMatch(src, /loadMitmacherCorpus|wissen-mitglieder|loadCorpus/, f)
@@ -370,6 +479,10 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   assert.match(sql, /01\.12\.2026/)
   assert.match(sql, /speichert kein Salz/)
   assert.doesNotMatch(sql, /create table[\s\S]*salz/i)
+  assert.match(sql, /pg_cron muss vorher im Zielprojekt aktiv sein/)
+  assert.match(sql, /revoke all on table public\.tuer_ki_rate from public, anon, authenticated/)
+  assert.match(sql, /revoke all on function public\.tuer_ki_rate_zaehle\(text\) from public, anon, authenticated/)
+  assert.match(sql, /grant execute on function public\.tuer_ki_rate_zaehle\(text\) to service_role/)
   const kostenSrc = lese('lib/tuerKi/kosten.ts')
   assert.match(kostenSrc, /getrennt von S50/)
   assert.doesNotMatch(kostenSrc, /innerhalb S50/)
