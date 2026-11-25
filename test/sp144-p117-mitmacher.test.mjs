@@ -19,7 +19,10 @@ const route = fs.readFileSync(path.join(root, 'app/api/wissen-mitmacher/route.ts
 assert.match(route, /Keine Rechtsberatung/)
 assert.match(route, /getUser/)
 assert.match(route, /SCALEWAY_SECRET_KEY/)
-assert.match(route, /mistral-small-3.2-24b-instruct-2506/)
+// Scaleway-Aufruf seit Tür-KI (25.11.2026) im gemeinsamen Modul lib/wissen/scaleway.ts
+const scaleway = fs.readFileSync(path.join(root, 'lib/wissen/scaleway.ts'), 'utf8')
+assert.match(route, /scalewayChat/)
+assert.match(scaleway, /mistral-small-3.2-24b-instruct-2506/)
 assert.doesNotMatch(route, /ANTHROPIC/)
 
 const preview = fs.readFileSync(
