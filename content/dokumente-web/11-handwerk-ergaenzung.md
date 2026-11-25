@@ -25,10 +25,10 @@ Bevor die einzelnen Tätigkeiten betrachtet werden, gehört eine Orientierungshi
 | Ebene | Was gilt | Spielraum |
 |---|---|---|
 | **Eigenleistung** am eigenen Gebäude oder Grundstück | Ohne Qualifikationsnachweis erlaubt — mit drei Ausnahmen: Elektroinstallation [H1], Trinkwasserinstallation [H2] und Gasinstallation [H13] bleiben eingetragenen Fachbetrieben vorbehalten. Statik und Baugenehmigung gelten ohnehin. Sobald Gäste oder Besucher kommen, gilt zusätzlich Kapitel 7. | Groß: Bagger, Naturstein, Trockenbau, Böden, Innenausbau, Fassade, Garten |
-| **Innenleistung** zwischen Mitgliedern (genossenschaftliche Selbsthilfe) | § 26 Satzung auf Grundlage von § 1 GenG. Keine externen Zulassungsbeschränkungen, **soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt** (§ 26 Abs. 2 und 2a). | Handwerkliche, beratende, unterrichtende Hilfe und Körperarbeit als Wellness. Ausgenommen: Heilkunde sowie Elektro-, Gas- und Wasserinstallation. Ob ein Zeit-Tausch in großem Umfang noch Selbsthilfe ist, wird vor dem Start geklärt [H8]. |
+| **Innenleistung** zwischen Mitgliedern (genossenschaftliche Selbsthilfe) | Konzept, nicht in der Außen-Satzung v9.1.4 auf Grundlage von § 1 GenG. Keine externen Zulassungsbeschränkungen, **soweit das Gesetz nicht auch für unentgeltliche oder interne Tätigkeit eine Erlaubnis verlangt** (Konzept, nicht in der Außen-Satzung v9.1.4 und 2a). | Handwerkliche, beratende, unterrichtende Hilfe und Körperarbeit als Wellness. Ausgenommen: Heilkunde sowie Elektro-, Gas- und Wasserinstallation. Ob ein Zeit-Tausch in großem Umfang noch Selbsthilfe ist, wird vor dem Start geklärt [H8]. |
 | **Externe Tätigkeit** der Gemeinschaftsbetriebe für Kundinnen und Kunden | Alle gesetzlichen Anforderungen unverändert: Handwerksordnung, Berufsrecht, Heilpraktikergesetz, Lebensmittelrecht | Nach Anlage A, B1 und B2 der Handwerksordnung — siehe Kapitel 3 und 4 |
 
-> *Seit Version 22 des Konzepts arbeiten die Mitglieder, die Geld verdienen, als Angestellte der Genossenschaft in Gemeinschaftsbetrieben (Satzung § 15a). Die externe Ebene ist damit keine Randfrage mehr, sondern der Ort, an dem der Grundlohn entsteht. Dieses Dokument behandelt deshalb beides: was intern erlaubt ist und was die Betriebe für ihre Erwerbsfelder brauchen.*
+> *Seit Version 22 des Konzepts arbeiten die Mitglieder, die Geld verdienen, als Angestellte der Genossenschaft in Gemeinschaftsbetrieben (Konzept, nicht in der Außen-Satzung v9.1.4). Die externe Ebene ist damit keine Randfrage mehr, sondern der Ort, an dem der Grundlohn entsteht. Dieses Dokument behandelt deshalb beides: was intern erlaubt ist und was die Betriebe für ihre Erwerbsfelder brauchen.*
 
 > *Rechtlicher Vorbehalt: Die rechtliche Einordnung in diesem Dokument ersetzt keine Beratung. Einzelne Fragen — insbesondere zur genossenschaftlichen Selbsthilfe, zur Abgrenzung von Innen- und Außenleistungen und zu den Grenzfällen der Handwerksordnung — werden vor der Gründung durch den Prüfungsverband, die Handwerkskammer und bei Bedarf anwaltlich geprüft.*
 
@@ -48,7 +48,7 @@ Eine Gewerbeanmeldung nach § 14 GewO gilt für eine Betriebsstätte, also eine 
 | Weitere Betriebsstätten (Zellen an anderen Adressen) | Je eine weitere Anmeldung pro Standort; die Gebühr legt die Gemeinde fest (meist ein niedriger zweistelliger Betrag). Inhaberin bleibt die eG — nicht die Zelle, nicht die Person |
 | Mitglieder als Angestellte eines Gemeinschaftsbetriebs | Keine eigene Gewerbeanmeldung. Sie arbeiten im Gewerbe der eG |
 | Neues Erwerbsfeld | Ummeldung der bestehenden Anmeldung; bei zulassungspflichtigem Handwerk zusätzlich Eintragung in die Handwerksrolle mit Betriebsleiter (Kapitel 3) |
-| Mitglied mit eigenem Gewerbe (z. B. Kleingewerbe) | Bleibt eigenständig, solange es nicht nach § 15a Abs. 5 Satzung als Gemeinschaftsbetrieb eingebracht wird |
+| Mitglied mit eigenem Gewerbe (z. B. Kleingewerbe) | Bleibt eigenständig, solange es nicht nach Konzept, nicht in der Außen-Satzung v9.1.4 als Gemeinschaftsbetrieb eingebracht wird |
 
 > *Kurz: Eine Gewerbeanmeldung für den Hauptsitz, je eine weitere pro Zelladresse. Angestellte Mitglieder melden nichts selbst an.*
 
@@ -66,7 +66,7 @@ Eine Grenze gilt aber auch im eigenen Haus, und sie wird hier offen benannt. Ele
 | Bagger fahren auf eigenem Gelände | Gewerblicher Erd- und Tiefbau |
 | Gartengestaltung auf eigenem Grundstück | Garten- und Landschaftsbau für Kunden |
 
-> *Innenleistung: Arbeitet ein Mitglied im Haus eines anderen Mitglieds, geht das über Eigenleistung hinaus. Das deckt § 26 Satzung als genossenschaftliche Selbsthilfe — mit denselben Ausnahmen für Elektro, Wasser und Gas (§ 26 Abs. 2a). Hilfe unter Mitgliedern ist nur so lange keine Schwarzarbeit, wie sie aus Gefälligkeit, als Nachbarschaftshilfe oder Selbsthilfe erbracht wird und nicht nachhaltig auf Gewinn gerichtet ist [H8].*
+> *Innenleistung: Arbeitet ein Mitglied im Haus eines anderen Mitglieds, geht das über Eigenleistung hinaus. Das deckt Konzept, nicht in der Außen-Satzung v9.1.4 als genossenschaftliche Selbsthilfe — mit denselben Ausnahmen für Elektro, Wasser und Gas (Konzept, nicht in der Außen-Satzung v9.1.4). Hilfe unter Mitgliedern ist nur so lange keine Schwarzarbeit, wie sie aus Gefälligkeit, als Nachbarschaftshilfe oder Selbsthilfe erbracht wird und nicht nachhaltig auf Gewinn gerichtet ist [H8].*
 
 > *Präzisierung seit Version 3.0.0: Dass Eigenleistung ohne Nachweis möglich ist, gilt für den Bau im eigenen Gebäude ohne fremde Nutzer. Sobald Gäste übernachten oder Besucher kommen, brauchen Elektro, Feuerstätten und tragende Bauteile eine fachliche Abnahme und Unterlagen (Kapitel 7).*
 
@@ -148,7 +148,7 @@ Das Stil-Sheet für alle BtMM-Kommunikation regelt die Sprache: beschreibend, ni
 
 # 6. Checkliste: Was der erste Gemeinschaftsbetrieb braucht
 
-Seit Konzept v22.0.0 gibt es keinen Einkommens-Pool mehr. Kosten werden dort getragen, wo sie entstehen: Was die ganze Genossenschaft braucht, sind Pflichtkosten (Satzung § 11 Abs. 7) und wird zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt (§ 8a). Was ein Betrieb braucht, sind Betriebs-Fixkosten und Sachkosten, die vor der Kaskade von der Wertschöpfung abgehen (§ 11 Abs. 1).
+Seit Konzept v22.0.0 gibt es keinen Einkommens-Pool mehr. Kosten werden dort getragen, wo sie entstehen: Was die ganze Genossenschaft braucht, sind Pflichtkosten (Konzept, nicht in der Außen-Satzung v9.1.4) und wird zuerst aus den Beiträgen der Nutzungsmitglieder gedeckt (Konzept, nicht in der Außen-Satzung v9.1.4). Was ein Betrieb braucht, sind Betriebs-Fixkosten und Sachkosten, die vor der Kaskade von der Wertschöpfung abgehen (Konzept, nicht in der Außen-Satzung v9.1.4).
 
 | Was nötig ist | Aufwand | Wer trägt es |
 |---|---|---|
@@ -183,7 +183,7 @@ Das Prinzip: Mitglieder bauen, eine fachkundige Person prüft und unterschreibt.
 | Öfen und Schornsteine | Mitglieder setzen den Ofen | Bezirksschornsteinfeger nimmt ab | Abnahmebescheinigung |
 | Gas, Trinkwasseranschluss | Fachbetrieb | Installateurbetrieb | Prüfbescheinigung |
 
-> *Entschieden: Mitglieder verlegen Leitungen, setzen Dosen und montieren Kabelkanäle; der eingetragene Elektrobetrieb verdrahtet, schließt an, setzt Verteiler und Sicherungskasten und prüft und misst alles, bevor er abnimmt. Satzung § 26 Abs. 2a bleibt unverändert, weil sie nur auf das verweist, was das Gesetz Fachbetrieben vorbehält. Ehrlich gesagt: § 13 NAV nennt die Errichtung der Anlage hinter dem Hausanschluss insgesamt; ob das Verlegen von Leitungen durch Laien dazugehört, ist nicht abschließend geklärt (E). Darum gilt: Die Zulässigkeit muss rechtlich durch einen Anwalt geklärt werden, bevor Mitglieder Elektro-Vorarbeiten übernehmen. Bis dahin macht der Elektrobetrieb die Elektroinstallation vollständig selbst. Ist die Frage geklärt, legt die Zelle vor Beginn schriftlich mit dem Elektrobetrieb fest, welche Vorarbeiten er übernimmt und abnimmt, und bestätigt Netzbetreiber und Versicherung [H1]. Ohne diese Zusage macht der Betrieb alles selbst.*
+> *Entschieden: Mitglieder verlegen Leitungen, setzen Dosen und montieren Kabelkanäle; der eingetragene Elektrobetrieb verdrahtet, schließt an, setzt Verteiler und Sicherungskasten und prüft und misst alles, bevor er abnimmt. Konzept, nicht in der Außen-Satzung v9.1.4 bleibt unverändert, weil sie nur auf das verweist, was das Gesetz Fachbetrieben vorbehält. Ehrlich gesagt: Konzept, nicht in der Außen-Satzung v9.1.4 NAV nennt die Errichtung der Anlage hinter dem Hausanschluss insgesamt; ob das Verlegen von Leitungen durch Laien dazugehört, ist nicht abschließend geklärt (E). Darum gilt: Die Zulässigkeit muss rechtlich durch einen Anwalt geklärt werden, bevor Mitglieder Elektro-Vorarbeiten übernehmen. Bis dahin macht der Elektrobetrieb die Elektroinstallation vollständig selbst. Ist die Frage geklärt, legt die Zelle vor Beginn schriftlich mit dem Elektrobetrieb fest, welche Vorarbeiten er übernimmt und abnimmt, und bestätigt Netzbetreiber und Versicherung [H1]. Ohne diese Zusage macht der Betrieb alles selbst.*
 
 Das Vorbild bei der Statik: Eine Person rechnet und plant die Konstruktion vor, die Fachperson kontrolliert und unterschreibt, was sie für sauber hält. Je sauberer Pläne, Lastannahmen, Fotos und Messwerte vorliegen, desto schneller und günstiger prüft sie. Ein Stempel ohne echte Prüfung gefährdet die Fachperson und die eG, deshalb sucht BtMM Fachleute, die ernsthaft prüfen.
 
@@ -285,7 +285,7 @@ Eine Zelle kann alle Punkte allein abhaken. Besser trägt es, wenn das Prüfen s
 
 **Prüfstand statt Siegel.** Eine Zelle sagt von sich nicht „sicher geprüft“. Sie nennt ihren Prüfstand: wie viele Pflichtpunkte erledigt sind, wie viele irrelevant, wie viele bewusst belassen und wie viele noch offen, mit Datum. Das entspricht dem Satz des Konzepts, dass eine Wegstufe kein Siegel ist, sondern eine nachprüfbare Angabe mit Zahlen, und fließt in die Ehrliche Bilanz (Dokument 25) ein. Die Vergleichsliste zeigt diesen Stand für mehrere Betriebe nebeneinander.
 
-**Kreuzbegehung.** Einmal pro Saison geht eine Person aus einer anderen Zelle den Rundgang mit dem Blick eines Fremden mit. Der Besuch wird im Zeit-Tausch gegenseitig angerechnet (Satzung § 14 Abs. 4). Entschieden: Die Kreuzbegehung bleibt im Zeit-Tausch. Ob sie ein bezahlter Gemeinschaftsdienst werden soll, kommt erst nach den ersten Erfahrungen auf die Tagesordnung der Generalversammlung, denn § 15b Abs. 4 kennt Gemeinschaftsdienste bisher nur für den Betrieb der gemeinsamen Einrichtungen. Fremde Augen sehen, was die eigenen nicht mehr sehen; zugleich lernen beide Zellen.
+**Kreuzbegehung.** Einmal pro Saison geht eine Person aus einer anderen Zelle den Rundgang mit dem Blick eines Fremden mit. Der Besuch wird im Zeit-Tausch gegenseitig angerechnet (Konzept, nicht in der Außen-Satzung v9.1.4). Entschieden: Die Kreuzbegehung bleibt im Zeit-Tausch. Ob sie ein bezahlter Gemeinschaftsdienst werden soll, kommt erst nach den ersten Erfahrungen auf die Tagesordnung der Generalversammlung, denn Konzept, nicht in der Außen-Satzung v9.1.4 kennt Gemeinschaftsdienste bisher nur für den Betrieb der gemeinsamen Einrichtungen. Fremde Augen sehen, was die eigenen nicht mehr sehen; zugleich lernen beide Zellen.
 
 **Sammelpolice.** Die Prüfstände der Zellen können die Grundlage sein, über die Sammelpolice (Kapitel 6) bessere Bedingungen bei Betriebshaftpflicht, Produkthaftpflicht und Gebäudeversicherung zu verhandeln. Ob Versicherer darauf eingehen, ist nicht geprüft (N) und wird bei der Anfrage geklärt.
 
