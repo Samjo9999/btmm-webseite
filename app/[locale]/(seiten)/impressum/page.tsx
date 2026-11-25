@@ -302,7 +302,7 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   Bearbeitung der Anfrage und für den Fall von Anschlussfragen bei uns gespeichert.
                   Diese Daten geben wir nicht ohne Ihre Einwilligung weiter. Die Verarbeitung dieser
                   Daten erfolgt auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO. Die E-Mail-Zustellung
-                  erfolgt über den Dienst Resend (Resend Inc., USA).
+                  erfolgt über den Dienst Resend (Plus Five Five, Inc., USA).
                 </p>
 
                 {interessenlisteAktiv() && (

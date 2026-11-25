@@ -60,6 +60,7 @@ test('Impressum-DSE-Block und Sitemap-Eintrag haengen am Schalter', () => {
   assert.doesNotMatch(sb, /Datentransfer in die USA/)
   assert.match(lies('app/sitemap.ts'), /interessenlisteAktiv\(\) \? \[\.\.\.PFADE, '\/gruendung\/interesse'\]/)
   assert.doesNotMatch(imp, /Supabase Inc/)
+  assert.doesNotMatch(imp, /Resend Inc/)
   assert.ok((imp.match(/Supabase Pte\. Ltd\./g) || []).length >= 2, 'Supabase Pte. Ltd. in DSE')
   const anbieter = imp.slice(0, imp.indexOf('id="datenschutz"'))
   assert.ok(anbieter.includes('Angaben gemäß § 5 DDG'))
