@@ -179,16 +179,17 @@ export function ChatWidget() {
           aria-label="Chat öffnen"
           style={{
             position: 'fixed',
-            bottom: 24,
-            right: 24,
+            // W1 (Design-Bot 21.11.2026): BtMM-Lila statt BtB-Blau, heller Ring, näher an den Rand
+            bottom: 'calc(16px + env(safe-area-inset-bottom))',
+            right: 16,
             zIndex: 50,
             width: 56,
             height: 56,
             borderRadius: '50%',
-            background: '#2a7cab',
+            background: 'var(--btmm-dunkel, #780268)',
             color: '#fff',
             border: 'none',
-            boxShadow: '0 4px 14px rgba(0,0,0,0.25)',
+            boxShadow: '0 0 0 3px #faf9f9, 0 4px 14px rgba(0,0,0,0.25)',
             cursor: 'pointer',
             display: 'flex',
             alignItems: 'center',
@@ -197,11 +198,11 @@ export function ChatWidget() {
           }}
           onMouseEnter={e => {
             e.currentTarget.style.transform = 'scale(1.08)'
-            e.currentTarget.style.boxShadow = '0 6px 20px rgba(0,0,0,0.3)'
+            e.currentTarget.style.boxShadow = '0 0 0 3px #faf9f9, 0 6px 20px rgba(0,0,0,0.3)'
           }}
           onMouseLeave={e => {
             e.currentTarget.style.transform = 'scale(1)'
-            e.currentTarget.style.boxShadow = '0 4px 14px rgba(0,0,0,0.25)'
+            e.currentTarget.style.boxShadow = '0 0 0 3px #faf9f9, 0 4px 14px rgba(0,0,0,0.25)'
           }}
         >
           <MessageCircle size={26} />
