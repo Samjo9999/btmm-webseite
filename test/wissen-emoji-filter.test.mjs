@@ -87,6 +87,21 @@ test('Glaettung: Klammer, Komma, doppelte Leerzeichen', () => {
   assert.equal(entferneEmojis('Marktpreisen \u{1F389}, getrennte'), 'Marktpreisen, getrennte')
 })
 
+test('Glaettung-Randfaelle: Satzzeichen, Etiketten, doppelte Klammer', () => {
+  assert.equal(entferneEmojis('Text \u{1F389})'), 'Text)')
+  assert.equal(entferneEmojis('Text \u{1F389}.'), 'Text.')
+  assert.equal(entferneEmojis('Hallo \u{1F389}!'), 'Hallo!')
+  assert.equal(entferneEmojis('(\u{1F534} )'), '([kritisch])')
+  assert.equal(entferneEmojis('(Steuer \u{1F534})'), '(Steuer [kritisch])')
+  assert.equal(entferneEmojis('\u{1F534}\u{1F534} doppelt'), '[kritisch] [kritisch] doppelt')
+  assert.equal(entferneEmojis('a\u{1F534}b'), 'a [kritisch] b')
+  assert.equal(entferneEmojis('[\u{1F534}]'), '[kritisch]')
+  assert.equal(entferneEmojis('x \u{1F534}, y'), 'x [kritisch], y')
+  assert.equal(entferneEmojis('Status: \u{1F7E2}\u{FE0F} ok'), 'Status: ok')
+  const tabelle = '| Name  | Wert |\n| a  |  b |\n| \u2713 | x |'
+  assert.equal(entferneEmojis(tabelle), '| Name  | Wert |\n| a  |  b |\n| [erledigt] | x |')
+})
+
 test('Doppelung nach Abbildung: nur das Wort bleibt', () => {
   assert.equal(entferneEmojis('\u26A0 Achtung'), 'Achtung')
   assert.equal(entferneEmojis('\u26A0 achtung'), 'achtung')

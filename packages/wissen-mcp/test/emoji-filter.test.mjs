@@ -37,6 +37,19 @@ describe('Emoji-Filter', () => {
     expect(entferneEmojis('2026, \u{1F389}, nicht')).toBe('2026, nicht')
     expect(entferneEmojis('Marktpreisen \u{1F389}, getrennte')).toBe('Marktpreisen, getrennte')
   })
+  it('glaettet Satzzeichen, Etiketten und doppelte Klammern', () => {
+    expect(entferneEmojis('Text \u{1F389})')).toBe('Text)')
+    expect(entferneEmojis('Text \u{1F389}.')).toBe('Text.')
+    expect(entferneEmojis('Hallo \u{1F389}!')).toBe('Hallo!')
+    expect(entferneEmojis('(\u{1F534} )')).toBe('([kritisch])')
+    expect(entferneEmojis('\u{1F534}\u{1F534} doppelt')).toBe('[kritisch] [kritisch] doppelt')
+    expect(entferneEmojis('a\u{1F534}b')).toBe('a [kritisch] b')
+    expect(entferneEmojis('[\u{1F534}]')).toBe('[kritisch]')
+    expect(entferneEmojis('x \u{1F534}, y')).toBe('x [kritisch], y')
+    const tabelle = '| Name  | Wert |\n| a  |  b |'
+    expect(entferneEmojis(tabelle)).toBe(tabelle)
+    expect(entferneEmojis('| Name  | Wert |\n| \u2713 | x |')).toBe('| Name  | Wert |\n| [erledigt] | x |')
+  })
   it('entfernt Doppelung, wenn nach der Abbildung dasselbe Wort folgt', () => {
     expect(entferneEmojis('\u26A0 Achtung')).toBe('Achtung')
     expect(entferneEmojis('\u26A0 achtung')).toBe('achtung')

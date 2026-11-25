@@ -19,8 +19,9 @@
  *
  * Nach der Abbildung: folgt direkt dasselbe Wort (Gross/klein egal,
  * optional mit Doppelpunkt), bleibt nur das Wort.
- * Anschliessend Glaettung: "( " -> "(", " ," -> ",", ", ," -> ",",
- * doppelte Leerzeichen.
+ * Anschliessend Glaettung: "( " -> "(", "[ " -> "[", Leerzeichen vor
+ * ).,!?;:] , ", ," -> ",", doppelte Leerzeichen, Abstand zwischen zwei
+ * Etiketten, [[x]] -> [x].
  *
  * Der Code selbst enthaelt keine Emoji-Zeichen (nur \u-Escapes).
  */
@@ -79,13 +80,25 @@ function gleicheWortDoppelungEntfernen(s) {
   })
 }
 
+const ETIKETT_INNER = LABEL_WORTE.map((w) => w.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')).join('|')
+const ETIKETT = `\\[(?:${ETIKETT_INNER})\\]`
+const ETIKETT_NACH_WORT_RX = new RegExp(`([\\p{L}\\p{N}])(${ETIKETT})`, 'gu')
+const ETIKETT_VOR_WORT_RX = new RegExp(`(${ETIKETT})([\\p{L}\\p{N}])`, 'gu')
+const ZWEI_ETIKETTEN_RX = new RegExp(`(${ETIKETT})(${ETIKETT})`, 'g')
+const DOPPELTE_KLAMMER_RX = new RegExp(`\\[\\[(${ETIKETT_INNER})\\]\\]`, 'g')
+
 function glaette(s) {
   let prev
   do {
     prev = s
+    s = s.replace(DOPPELTE_KLAMMER_RX, '[$1]')
+    s = s.replace(ZWEI_ETIKETTEN_RX, '$1 $2')
+    s = s.replace(ETIKETT_NACH_WORT_RX, '$1 $2')
+    s = s.replace(ETIKETT_VOR_WORT_RX, '$1 $2')
     s = s.replace(/,[ \t]*,/g, ',')
-    s = s.replace(/[ \t],/g, ',')
+    s = s.replace(/[ \t]+([).,!?;:\]])/g, '$1')
     s = s.replace(/\([ \t]+/g, '(')
+    s = s.replace(/\[[ \t]+/g, '[')
     s = s.replace(/[ \t]{2,}/g, ' ')
   } while (s !== prev)
   return s
