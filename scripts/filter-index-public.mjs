@@ -1,127 +1,134 @@
 #!/usr/bin/env node
 /**
- * Baut den public-Index neu (Quelle + eine ausgelieferte Datei): nur Public-Allowlist-Docs,
- * ohne Tabu-Stämme, ohne INTERN_/_intern/ROTH-/BUSINESSPLAN-Inhalte, ohne PII-Absätze
- * und ohne Grundsicherung-Kombis — außer der gezielten Beispielrechnung
- * (Konzept v22.69.0, Z. 84–113, Präfix „Beispielrechnung:“).
- * Fällt ein Chunk, fällt der ganze Absatz (gleiches rel+abschnitt).
- * Schreibt nur content/wissen/index-public.json und public/wissen/index-public.json.
- * Vorschau- und tuer-public-Kopien werden nicht erzeugt (und vorhandene entfernt).
+ * Baut den oeffentlichen Wissens-Index (index-public.json) NUR aus content/dokumente-web/ (alle Dokumente).
+ * Keine DRIVE-/BTMM_ROOT-Quellen. Der Mitmacher-Index (content/wissen-mitglieder) und der interne Index
+ * werden hier weder gelesen noch geschrieben. Es gibt keinen tuer-public-Index.
  *
- * Usage: node scripts/filter-index-public.mjs
+ * Pipeline: chunkDoc je Dokument -> Schwaerz-Regeln (scripts/index-public-schwaerzen.mjs: Tabuwoerter,
+ * Altwortlaut, Mail/Telefon/IBAN/Adresse, Impressum, interne Marker) -> Emoji-Filter -> Endkontrolle.
+ * Bleibt irgendein Treffer, bricht der Build mit Exit 1 ab. Quelldokumente werden nie veraendert.
+ *
+ * Schreibt content/wissen/index-public.json und public/wissen/index-public.json (die einzige ausgelieferte Kopie).
+ *
+ * Usage: node scripts/filter-index-public.mjs [--bericht=<datei.json>] [--trocken]
  */
-import { readFileSync, writeFileSync, unlinkSync, existsSync } from 'node:fs'
+import { readFileSync, readdirSync, writeFileSync, mkdirSync } from 'node:fs'
 import { join, dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
-import {
-  INDEX_WRITE_TARGETS,
-  FORBIDDEN_PUBLIC_COPIES,
-  loadPublicAllowlist,
-  findIndexHits,
-  findPiiHits,
-  anwendenPublicAusschluss,
-  istGrundsicherungBeispielabschnitt,
-  GRUNDSICHERUNG_BEISPIEL,
-  BEISPIELRECHNUNG_PREFIX,
-  chunkTextBlob,
-} from './index-public-guard.mjs'
-import { RX as AUSSENSICHT_RX } from '../test/tabu-woerter.mjs'
+import { fileURLToPath, pathToFileURL } from 'node:url'
+import { chunkDoc } from '../packages/wissen-mcp/src/search.mjs'
 import { filterEmojisTief, zaehleEmojisTief } from '../packages/wissen-mcp/src/emoji-filter.mjs'
+import { INDEX_WRITE_TARGETS } from './index-public-guard.mjs'
+import { schwaerzeText, trefferArten, chunkArten } from './index-public-schwaerzen.mjs'
 
-/** Gleiche Ausnahme wie test/aussensicht-tabu.test.mjs */
-const ERLAUBT = [/werdende (und junge )?Eltern/i]
+export const QUELLE_DIR = 'content/dokumente-web'
+export const TEXT_LIMIT = 900
+const INTERN = /^(aenderungen|änderungen|intern|work|readme)/i
 
-function failsAussensichtTabu(blob) {
-  let s = String(blob || '')
-  for (const e of ERLAUBT) s = s.replace(new RegExp(e.source, e.flags + 'g'), '')
-  return new RegExp(AUSSENSICHT_RX.source, 'gi').test(s)
+const defaultRoot = join(dirname(fileURLToPath(import.meta.url)), '..')
+
+function titelAus(md, datei) {
+  return /^#\s+(.+)$/m.exec(md)?.[1]?.trim() || datei.replace(/\.md$/, '')
 }
 
-const root = join(dirname(fileURLToPath(import.meta.url)), '..')
-const sourceRel = 'content/wissen/index-public.json'
-const payload = JSON.parse(readFileSync(join(root, sourceRel), 'utf8'))
-const allow = loadPublicAllowlist(root)
-const beforeCount = (payload.chunks || []).length
+/**
+ * Baut Index und Bericht im Speicher.
+ * @returns {{ payload: object, bericht: object }}
+ */
+export function baueIndex(root = defaultRoot, { builtAt = new Date().toISOString() } = {}) {
+  const dir = join(root, QUELLE_DIR)
+  const dateien = readdirSync(dir).filter((f) => f.endsWith('.md') && !INTERN.test(f)).sort()
+  const chunks = []
+  const je_quelle = {}
+  const entfernt = []
 
-const mitmacherPath = join(root, 'content', 'wissen-mitglieder', 'index.json')
-if (!existsSync(mitmacherPath)) {
-  console.error(`Mitmacher-Index fehlt, Beispielrechnung kann nicht übernommen werden: content/wissen-mitglieder/index.json`)
-  process.exit(1)
-}
-const mitmacher = JSON.parse(readFileSync(mitmacherPath, 'utf8'))
-const beispielChunks = (mitmacher.chunks || [])
-  .filter(istGrundsicherungBeispielabschnitt)
-  .map((c) => ({ title: c.title, abschnitt: c.abschnitt, rel: c.rel, text: c.text }))
-if (beispielChunks.length === 0) {
-  console.error(`Keine Chunks für ${GRUNDSICHERUNG_BEISPIEL.rel} Z. 84–113 im Mitmacher-Index`)
-  process.exit(1)
-}
-
-const { chunks: kept, dropped } = anwendenPublicAusschluss(payload.chunks || [], {
-  allow,
-  beispielChunks,
-  extraDrop: (c) => {
-    let blob = chunkTextBlob(c)
-    // Gezielte Ausnahme (Nutzer 25.11. 15:30): in Z. 84–113 darf „Grundsicherung“ stehen.
-    // Andere Außensicht-Tabus gelten weiter.
-    if (istGrundsicherungBeispielabschnitt(c)) {
-      blob = blob.replace(/Grundsicherung/gi, '')
+  for (const datei of dateien) {
+    const rel = `${QUELLE_DIR}/${datei}`
+    const content = readFileSync(join(dir, datei), 'utf8')
+    const title = titelAus(content, datei)
+    const roh = chunkDoc({ id: rel, rel, title, content, source: 'dokumente-web', tier: 'public' })
+    const stat = (je_quelle[rel] = { chunksRoh: 0, chunksIndex: 0, saetzeEntfernt: 0, zeilenEntfernt: 0, chunksEntfernt: 0 })
+    for (const c of roh) {
+      const text0 = String(c.text || '').replace(/^#+\s*.+\n/, '').trim().slice(0, TEXT_LIMIT)
+      if (text0.length < 20) continue
+      stat.chunksRoh += 1
+      const kopfArten = trefferArten([title, c.abschnitt, rel].join('\n'))
+      if (kopfArten.length) {
+        stat.chunksEntfernt += 1
+        entfernt.push({ rel, abschnitt: c.abschnitt, aktion: 'chunk (Titel/Abschnitt)', arten: kopfArten })
+        continue
+      }
+      const { text, bericht } = schwaerzeText(text0)
+      for (const b of bericht) {
+        if (b.aktion === 'satz') stat.saetzeEntfernt += 1
+        else stat.zeilenEntfernt += 1
+        entfernt.push({ rel, abschnitt: c.abschnitt, aktion: b.aktion, arten: b.arten })
+      }
+      const row = { title, abschnitt: c.abschnitt, text, rel }
+      if (text.length < 20 || chunkArten(row).length) {
+        stat.chunksEntfernt += 1
+        entfernt.push({ rel, abschnitt: c.abschnitt, aktion: 'chunk (Rest zu kurz oder Blob-Treffer)', arten: chunkArten(row) })
+        continue
+      }
+      chunks.push(row)
+      stat.chunksIndex += 1
     }
-    return failsAussensichtTabu(blob)
-  },
-})
-
-const docs = new Set(kept.map((c) => c.rel))
-// Nutzerregel 25.11.: keine Emojis im ausgelieferten Index.
-const next = filterEmojisTief({
-  builtAt: new Date().toISOString(),
-  docCount: docs.size,
-  chunks: kept,
-})
-if (zaehleEmojisTief(next)) {
-  console.error('Emoji-Filter hinterließ Treffer')
-  process.exit(1)
-}
-
-const leftover = findIndexHits(next)
-const pii = findPiiHits(next.chunks || [])
-if (leftover.length || pii.length) {
-  console.error('Filter hinterließ Treffer, Build abgebrochen:')
-  for (const h of leftover.slice(0, 20)) {
-    console.error(` - ${h.rel} (${h.abschnitt}): ${(h.words || []).join(', ')}`)
   }
-  for (const h of pii.slice(0, 20)) {
-    console.error(` - PII ${h.kind}: ${h.match} @ ${h.rel} [${h.abschnitt || ''}]`)
-  }
-  process.exit(1)
-}
 
-const json = JSON.stringify(next)
-for (const rel of INDEX_WRITE_TARGETS) {
-  writeFileSync(join(root, rel), json)
-  console.log(`wrote ${rel} — ${next.docCount} docs, ${kept.length} chunks (vorher ${beforeCount})`)
-}
-for (const rel of FORBIDDEN_PUBLIC_COPIES) {
-  const f = join(root, rel)
-  if (existsSync(f)) {
-    unlinkSync(f)
-    console.log(`removed leftover copy ${rel}`)
+  const sauber = filterEmojisTief({
+    builtAt,
+    docCount: new Set(chunks.map((c) => c.rel)).size,
+    chunkCount: chunks.length,
+    tier: 'public',
+    quelle: QUELLE_DIR,
+    chunks,
+  })
+  if (zaehleEmojisTief(sauber)) throw new Error('Emoji-Filter hinterliess Treffer')
+
+  // Endkontrolle: nichts darf durchrutschen.
+  const rest = []
+  for (const c of sauber.chunks) {
+    const a = chunkArten(c)
+    if (a.length) rest.push(`${c.rel} [${c.abschnitt}]: ${a.join(', ')}`)
+    if (!c.rel.startsWith(`${QUELLE_DIR}/`)) rest.push(`${c.rel}: Quelle ausserhalb von ${QUELLE_DIR}`)
+  }
+  if (rest.length) throw new Error(`Endkontrolle: ${rest.length} Treffer\n${rest.slice(0, 20).join('\n')}`)
+
+  const arten = {}
+  for (const e of entfernt) for (const a of e.arten) arten[a] = (arten[a] || 0) + 1
+  return {
+    payload: sauber,
+    bericht: {
+      dokumente: dateien.length,
+      docCountIndex: sauber.docCount,
+      chunksRohGesamt: Object.values(je_quelle).reduce((s, x) => s + x.chunksRoh, 0),
+      chunksIndexGesamt: sauber.chunkCount,
+      artenGesamt: arten,
+      jeQuelle: je_quelle,
+      entfernt,
+    },
   }
 }
 
-const droppedByReason = new Map()
-for (const d of dropped) {
-  if (!droppedByReason.has(d.reason)) droppedByReason.set(d.reason, [])
-  droppedByReason.get(d.reason).push(d)
+function main() {
+  const args = process.argv.slice(2)
+  const berichtPfad = args.find((a) => a.startsWith('--bericht='))?.slice('--bericht='.length)
+  const trocken = args.includes('--trocken')
+  const { payload, bericht } = baueIndex(defaultRoot)
+  const json = JSON.stringify(payload)
+  if (!trocken) {
+    for (const rel of INDEX_WRITE_TARGETS) {
+      mkdirSync(dirname(join(defaultRoot, rel)), { recursive: true })
+      writeFileSync(join(defaultRoot, rel), json)
+      console.log(`wrote ${rel} — ${payload.docCount} docs, ${payload.chunkCount} chunks`)
+    }
+  }
+  console.log(`Quelle: ${QUELLE_DIR} (${bericht.dokumente} Dokumente), Roh-Chunks ${bericht.chunksRohGesamt}, im Index ${bericht.chunksIndexGesamt}`)
+  console.log(`Entfernt nach Art: ${JSON.stringify(bericht.artenGesamt)}`)
+  console.log('Mitmacher-/internal-Index unberuehrt, kein tuer-public, kein DRIVE.')
+  if (berichtPfad) {
+    writeFileSync(berichtPfad, JSON.stringify(bericht, null, 2))
+    console.log(`Bericht: ${berichtPfad}`)
+  }
 }
-const counts = {}
-for (const [reason, items] of droppedByReason) {
-  counts[reason] = items.length
-  console.log(`  fallen (${reason}, ${items.length} Absätze):`)
-  for (const d of items) console.log(`    - ${d.rel} [${d.abschnitt}]`)
-}
-const beispielKept = (next.chunks || []).filter(istGrundsicherungBeispielabschnitt)
-console.log(
-  `  Beispielrechnung: ${beispielKept.length} Chunks, Präfix „${BEISPIELRECHNUNG_PREFIX}“ aus ${GRUNDSICHERUNG_BEISPIEL.rel}`
-)
-console.log('dropped', counts)
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) main()
