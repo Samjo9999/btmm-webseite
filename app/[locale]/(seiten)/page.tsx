@@ -111,9 +111,6 @@ export default async function HomePage({ params: { locale } }: { params: { local
         </div>
       </section>
 
-      {/* ── Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) ── */}
-      <HandwerkNutzen locale={locale} kompakt />
-
       {/* ── Kernseiten (Seitenstruktur SEO, modular aus lib/seiten.ts) ── */}
       <JsonLd daten={[ORGANISATION_LD, { '@type': 'WebSite', name: BRAND_FULL, url: SITE_URL, inLanguage: 'de-DE', publisher: { '@id': ORGANISATION_LD['@id'] } }]} />
       <section className="btmm-kopf" style={{ paddingTop: '3rem' }}>
@@ -197,6 +194,9 @@ export default async function HomePage({ params: { locale } }: { params: { local
           </div>
         </div>
       </section>
+
+      {/* ── Für Handwerksbetriebe (Außensicht-Fix 24.11.2026) ── */}
+      <HandwerkNutzen locale={locale} kompakt />
 
       {/* ── 3. APP TEASER (Nutzer 20.11.: nur Link + kurze Beschreibung) ── */}
       <section className="section" style={{ background: 'var(--btb-weiss)' }}>
