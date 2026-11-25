@@ -143,7 +143,7 @@ export function GeldflussDiagramm() {
           <div><strong className="gf-anteil">⅓</strong>Reinvestition<br /><span className="gf-meta">Korridor: 27–35 %</span></div>
           <div><strong className="gf-anteil">⅓</strong>Soziales & Ökologie<br /><span className="gf-meta">Korridor: 27–35 %</span></div>
         </div>
-        <p>Der Entwurf verlangt dafür mindestens 20 Vollmitglieder und sechs aufeinanderfolgende Halbjahre, in denen der jeweils geltende Ziellohn von zunächst 20 €/h getragen wird. Die Generalversammlung legt die konkrete Verteilung innerhalb der Korridore fest. Die drei Anteile müssen zusammen immer 100 % ergeben.</p>
+        <p>Das Konzept beschreibt geplante Schwellen für die Überschussverteilung; in der Außen-Satzung v9.1.4 stehen sie nicht. Das ist Planung, keine Zusage. Die Generalversammlung der geplanten eG müsste konkrete Regeln erst beschließen.</p>
       </details>
 
       <details className="gf-details">
@@ -171,9 +171,9 @@ export function GeldflussDiagramm() {
         <summary>Andere Geldwege: Beiträge, Anteile und Kredite</summary>
         <p>Diese Mittel haben eigene Zwecke. Sie sind keine zusätzlichen Prozentsätze der betrieblichen Wertschöpfung:</p>
         <div className="gf-raster">
-          <Knoten titel="Geschäftsanteil & Direktkredite"><p>Geschäftsanteil: vorgesehen sind 100 € je Mitglied. Direktkredite haben eigene Verträge. Beides ist getrennt von Umsatz und Lohn zu behandeln; Einlage-, Rückzahlungs- und Kreditregeln werden rechtlich geprüft.</p></Knoten>
+          <Knoten titel="Geschäftsanteil & Direktkredite"><p>Geschäftsanteil: im Entwurf 100 € je Mitglied (Satzung § 2 Abs. 1). Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich. Beides ist getrennt von Umsatz und Lohn zu behandeln. BtMM ist noch nicht gegründet.</p></Knoten>
           <Knoten titel="Beitrag & Gemeinschaftsdienste"><p>Die vorgesehenen Beiträge tragen gemeinsame Pflichtkosten; bezahlte Dienste werden über Umlagen oder ihre Leistungspreise gedeckt. Ersparnis und Kosten sollen transparent gegenüberstehen.</p></Knoten>
-          <Knoten titel="Lebensstandard-Fonds"><p>Ab zehn Vollmitgliedern sieht der Entwurf 5–10 % der typischen Ersparnis vor, zunächst 5 %; ruhende Mitgliedschaften sind ausgenommen. Für gemeinsame Lebensqualität, nicht für den laufenden Grundlohn.</p></Knoten>
+          <Knoten titel="Lebensstandard-Fonds"><p>Einen Lebensstandard-Fonds beschreibt das Konzept als Planung, nicht die Außen-Satzung v9.1.4. Das ist keine verfügbare Leistung und keine Zusage.</p></Knoten>
           <Knoten titel="Qualifizierungsfonds"><p>Bis zu 20 % des Lebensstandard-Fonds können nach jährlichem Beschluss für benötigte Abschlüsse und Nachweise vorgesehen werden; hinzu kommen Rückzahlungen. Noch kein verfügbares Förderangebot.</p></Knoten>
         </div>
       </details>
@@ -181,14 +181,14 @@ export function GeldflussDiagramm() {
       <details className="gf-details">
         <summary>Wo liegt das Geld: „Haus“ und „Fluss“?</summary>
         <div className="gf-raster">
-          <Knoten titel="Haus · Rücklagen und längerfristige Mittel"><p>Vorgesehen sind Bankkonten mit gesetzlicher Einlagen- oder Institutssicherung. Hier liegen unter anderem Einlagen, Reserven, Direktkredite und der überwiegende Teil der Coin-Rücklage.</p></Knoten>
+          <Knoten titel="Haus · Rücklagen und längerfristige Mittel"><p>Vorgesehen sind Bankkonten mit gesetzlicher Einlagen- oder Institutssicherung für Mittel der geplanten eG. Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich. Coins sind kein Geld und nicht in Euro auszahlbar.</p></Knoten>
           <Knoten titel="Fluss · laufende Zahlungen"><p>Ein Zahlungskonto für Einnahmen und Auszahlungen. Der Puffer soll höchstens drei Monatsauszahlungen je Zelle umfassen; darüberliegende Mittel gehen ins Haus. Das ist eine Betragsgrenze, kein fester Umsatzprozentsatz.</p></Knoten>
         </div>
         <p><strong>Bonus-Coins sollen zu 100 % gedeckt bleiben.</strong> Die Rücklage wird nicht an der Börse angelegt und nicht verliehen. Das ist eine vorgesehene interne Deckungsregel, keine Garantie gegen einen Verlust und keine persönliche Einlagensicherung für Coins.</p>
         <p>Kontenmodell, Zahlungsdienstleister, Freigaben und rechtliche Sicherung sind noch zu prüfen. Vor der eG rechnet jede Person auf eigene Rechnung ab; die gemeinsame Keim-Kasse ruht bis zur Klärung.</p>
       </details>
 
-      <figcaption id="geldfluss-quelle">Grundlage: Satzungsentwurf v7.35.0, insbesondere §§ 8a, 8b, 11, 12, 14a und 24; Konzept v22.49.3; Wirtschaften v3.15.1. Vereinfachte Darstellung des Entwurfs, keine bereits verfügbaren Leistungen. Die 1.000-Euro-Rechnung wurde nur gewählt, um die Prozentbasen sichtbar zu machen.</figcaption>
+      <figcaption id="geldfluss-quelle">Grundlage: Satzung der geplanten BtMM eG (Entwurf v9.1.4, Stand 24. November 2026), soweit sie Anteile und Organe regelt; im Übrigen Konzept v22.69.0 und Wirtschaften v3.15.2 als Planung. Vereinfachte Darstellung, keine bereits verfügbaren Leistungen. Die Paragraphen 8a, 8b, 11 (Kaskade), 12, 14a und 24 der älteren Satzungsfassung gelten nicht für die Außen-Satzung. Die 1.000-Euro-Rechnung macht nur Prozentbasen sichtbar.</figcaption>
     </figure>
   </section>
 }
