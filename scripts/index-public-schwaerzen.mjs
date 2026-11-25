@@ -8,6 +8,9 @@
  *  - email, phone, iban, street: personenbezogene Kontaktdaten
  *  - impressum:   Impressum-Inhalte (Angaben nach DDG/TMG, USt-IdNr., Verantwortlicher)
  *  - intern:      interne Pfad-Marker (INTERN_, _intern, ROTH-, BUSINESSPLAN)
+ *  - grundsicherung-kombi: ganzer Chunk, wenn „Grundsicherung“ zusammen mit
+ *    „fünf Menschen“, „alle mit“ oder einem Euro-Betrag vorkommt (AUSSCHLUSSLISTE.md).
+ *  Jobcenter und Grundsicherung allein bleiben im Index.
  *
  * Verfahren: Treffer in Titel oder Abschnittsueberschrift -> ganzer Chunk faellt.
  * Treffer im Text -> Tabellenzeile faellt, sonst nur der Satz (bei Listen/Absaetzen).
@@ -15,30 +18,23 @@
  */
 import {
   TABOO_STEMS,
+  INDEX_TABU_STEMS,
   FORBIDDEN_PATH_RE,
   foldDe,
   findEmailMatches,
   findPhoneMatches,
   findIbanMatches,
   findStreetMatches,
+  istGrundsicherungKombi,
 } from './index-public-guard.mjs'
 
-/** Nutzerliste (Auftrag 25.11.): genau diese Woerter, plus die uebrigen Stamm-Regeln der Guard-Liste. */
-export const TABU_LISTE = [
-  'buergergeld',
-  'jobcenter',
-  'hartz',
-  'krankheit',
-  'erkrankung',
-  'elternzeit',
-  'schwangerschaft',
-  'hildastr',
-  'karner',
-  'happyfarm',
-  'elternhof',
-  'j.s.gartzke',
-  'oberkirch',
-]
+/**
+ * Index-Tabu (public-Index). Unabhängig vom Tür-KI-Eingabefilter in
+ * lib/tuerKi/sensibel-liste.ts — nicht importieren, nicht zusammenführen.
+ * Ohne Jobcenter (bleibt im Index). Grundsicherung allein bleibt;
+ * die Kombi-Regel läuft über istGrundsicherungKombi / chunkArten.
+ */
+export const TABU_LISTE = INDEX_TABU_STEMS
 
 const ALTWORTLAUT = [
   ['v7.', /\bv\s?7\.\d/],
@@ -62,7 +58,7 @@ export function trefferArten(text) {
   if (!raw) return []
   const folded = foldDe(raw)
   const arten = new Set()
-  for (const w of [...TABU_LISTE, ...TABOO_STEMS]) {
+  for (const w of TABU_LISTE) {
     if (folded.includes(foldDe(w))) arten.add('tabu')
   }
   for (const [name, rx] of ALTWORTLAUT) if (rx.test(folded)) arten.add(`altwortlaut:${name}`)
@@ -115,5 +111,8 @@ export function schwaerzeText(text) {
 
 /** Letzter Blick auf den fertigen Chunk (Titel, Abschnitt, Text, Pfad zusammen wie im Guard). */
 export function chunkArten(c) {
-  return trefferArten([c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n'))
+  const blob = [c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')
+  const arten = trefferArten(blob)
+  if (istGrundsicherungKombi(blob)) arten.push('grundsicherung-kombi')
+  return arten
 }

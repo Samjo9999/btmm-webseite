@@ -5,10 +5,14 @@
  * „Krankenkasse“ bleibt erlaubt (enthält nicht den Stamm „krankheit“).
  * PII-Regex (E-Mail, Telefon, IBAN, Straße+Hausnummer) bricht den Build ab.
  * Seit Fertig-PR 4 wird index-public.json nur noch aus content/dokumente-web gebaut
- * (scripts/filter-index-public.mjs). Chunks aus content/dokumente-web sind Spiegel der
- * veröffentlichten Webdokumente: Pfad-Sonderregeln (Dok 15, Förderung) und die
- * Grundsicherung-Kombi-Regel gelten für sie nicht; Tabu, PII und Altwortlaut prüft
- * scripts/index-public-schwaerzen.mjs. Die Beispielrechnung-Ausnahme gilt nur noch für Altquellen.
+ * (scripts/filter-index-public.mjs). Pfad-Sonderregeln (Förderung, Annahmen) gelten für
+ * dokumente-web nicht (Dok 15 ist veröffentlicht). Die Grundsicherung-Kombi-Regel gilt
+ * auch dort (AUSSCHLUSSLISTE.md): „Grundsicherung“ zusammen mit „fünf Menschen“,
+ * „alle mit“ oder einem Euro-Betrag fällt als ganzer Chunk. „Jobcenter“ und
+ * „Grundsicherung“ allein bleiben im Index (BtMMKI 25.11.).
+ * Index-Tabu (TABOO_STEMS / INDEX_TABU_STEMS) ist unabhängig vom Tür-KI-Eingabefilter
+ * in lib/tuerKi/sensibel-liste.ts; die Listen dürfen nicht verkoppelt werden.
+ * Tabu, PII, Altwortlaut und Kombi prüft auch scripts/index-public-schwaerzen.mjs.
  * Kein tuer-public-Index.
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs'
@@ -33,10 +37,10 @@ export {
   mitBeispielrechnungPrefix,
 }
 
+/** Index-Tabu für index-public. Nicht die Tür-KI-Eingabeliste (lib/tuerKi/sensibel-liste.ts). */
 export const TABOO_STEMS = [
   'bürgergeld',
   'buergergeld',
-  'jobcenter',
   'hartz',
   'krankheit',
   'erkrankung',
@@ -49,6 +53,7 @@ export const TABOO_STEMS = [
   'oberkirch',
   'j.s.gartzke',
 ]
+export const INDEX_TABU_STEMS = TABOO_STEMS
 
 export const FORBIDDEN_PATH_RE =
   /INTERN_|\/_intern(?:\/|$)|(?:^|\/)ROTH[-_/]|BUSINESSPLAN/i
@@ -126,8 +131,8 @@ export function findIndexHits(payload) {
     if (FORBIDDEN_PATH_RE.test(blob) || (!web && INDEX_PATH_EXTRA.some((re) => re.test(rel)))) {
       words.push('verbotener-pfad')
     }
-    if (!web && istGrundsicherungKombi(blob) && !istGrundsicherungBeispielabschnitt(c)) {
-      words.push('grundsicherung')
+    if (istGrundsicherungKombi(blob) && !istGrundsicherungBeispielabschnitt(c)) {
+      words.push('grundsicherung-kombi')
     }
     if (istGrundsicherungBeispielabschnitt(c) && !String(c.text || '').startsWith(BEISPIELRECHNUNG_PREFIX)) {
       words.push('beispielrechnung-prefix')

@@ -6,15 +6,17 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { baueIndex, QUELLE_DIR } from '../scripts/filter-index-public.mjs'
-import { schwaerzeText, trefferArten } from '../scripts/index-public-schwaerzen.mjs'
-import { findEmailMatches, findPhoneMatches, findIbanMatches, findStreetMatches } from '../scripts/index-public-guard.mjs'
+import { schwaerzeText, trefferArten, chunkArten, TABU_LISTE } from '../scripts/index-public-schwaerzen.mjs'
+import { findEmailMatches, findPhoneMatches, findIbanMatches, findStreetMatches, istGrundsicherungKombi, INDEX_TABU_STEMS } from '../scripts/index-public-guard.mjs'
+import { enthaeltSensibles } from '../lib/tuerKi/filter.ts'
+import { SENSIBEL_STAEMME } from '../lib/tuerKi/sensibel-liste.ts'
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 const KOPIEN = ['content/wissen/index-public.json', 'public/wissen/index-public.json']
 const lese = (rel) => readFileSync(join(root, rel), 'utf8')
 
 // Unabhängig von den Modulen notiert (Nutzerliste 25.11.), case-insensitive, Umlaute auch gefaltet.
-const TABU = /b(ü|ue)rgergeld|jobcenter|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|j\.s\.gartzke|oberkirch/i
+const TABU = /b(ü|ue)rgergeld|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|j\.s\.gartzke|oberkirch/i
 const ALTWORTLAUT = /\bv\s?7\.\d|anw(ä|ae)rter|vollmitglied|f(ü|ue)nf\s+jahr|bwgv|\bi\.\s?gr\b/i
 
 function indexText(rel) {
@@ -85,9 +87,17 @@ test('Schwärz-Regeln: Satz, Zeile oder Chunk fällt, Rest bleibt; sauberer Text
   const sauber = 'Das ist ein sauberer Absatz ohne Besonderheiten. Er bleibt vollständig stehen.'
   assert.equal(schwaerzeText(sauber).text, sauber)
 
-  const a = schwaerzeText('Erster Satz bleibt. Frag das Jobcenter vorab. Dritter Satz bleibt.')
+  const a = schwaerzeText('Erster Satz bleibt. Das Bürgergeld gilt hier nicht. Dritter Satz bleibt.')
   assert.equal(a.text, 'Erster Satz bleibt. Dritter Satz bleibt.')
   assert.equal(a.bericht[0].aktion, 'satz')
+  const jc = schwaerzeText('Erster Satz bleibt. Frag das Jobcenter vorab. Dritter Satz bleibt.')
+  assert.equal(jc.text, 'Erster Satz bleibt. Frag das Jobcenter vorab. Dritter Satz bleibt.')
+  assert.equal(jc.bericht.length, 0)
+  const allein = 'Wer Grundsicherung bezieht, kann trotzdem mitmachen.'
+  assert.equal(schwaerzeText(allein).text, allein)
+  assert.equal(istGrundsicherungKombi(allein), false)
+  const kombi = { title: 't', abschnitt: 'a', text: 'Grundsicherung für fünf Menschen, alle mit 563 Euro.', rel: 'content/dokumente-web/x.md' }
+  assert.ok(chunkArten(kombi).includes('grundsicherung-kombi'))
 
   const b = schwaerzeText('| A | B |\n|---|---|\n| Bürgergeld | x |\n| Garten | y |')
   assert.equal(b.text, '| A | B |\n|---|---|\n| Garten | y |')
@@ -121,4 +131,22 @@ test('Mail-Regex trifft auch Adressen vor einem Satzpunkt, ohne Fließtext zu tr
   assert.equal(findEmailMatches('schreib an office@beispiel.de.').length, 1)
   assert.equal(findEmailMatches('Mail: a.b@x.org, dann weiter').length, 1)
   assert.equal(findEmailMatches('Satz endet. Neuer Satz ohne Adresse.').length, 0)
+})
+
+test('index-public: Jobcenter bleibt mindestens einmal im Index, Grundsicherung-Kombi hat 0 Treffer', () => {
+  for (const rel of KOPIEN) {
+    const { payload, blob } = indexText(rel)
+    assert.ok(/jobcenter/i.test(blob), `${rel}: mindestens ein Chunk muss Jobcenter enthalten`)
+    const kombi = payload.chunks.filter((c) => istGrundsicherungKombi([c.title, c.abschnitt, c.text, c.rel].filter(Boolean).join('\n')))
+    assert.equal(kombi.length, 0, `${rel}: Grundsicherung-Kombi`)
+  }
+})
+
+test('Tür-KI-Eingabefilter blockt Jobcenter weiterhin und ist vom Index-Tabu getrennt', () => {
+  assert.equal(enthaeltSensibles('Termin beim Jobcenter'), true)
+  assert.equal(enthaeltSensibles('Wie funktioniert die Mitgliedschaft?'), false)
+  assert.ok(SENSIBEL_STAEMME.includes('jobcenter'))
+  assert.equal(INDEX_TABU_STEMS.includes('jobcenter'), false)
+  assert.equal(TABU_LISTE.includes('jobcenter'), false)
+  assert.ok(INDEX_TABU_STEMS.includes('happyfarm'))
 })

@@ -57,6 +57,12 @@ export function baueIndex(root = defaultRoot, { builtAt = new Date().toISOString
         entfernt.push({ rel, abschnitt: c.abschnitt, aktion: 'chunk (Titel/Abschnitt)', arten: kopfArten })
         continue
       }
+      const rohRow = { title, abschnitt: c.abschnitt, text: text0, rel }
+      if (chunkArten(rohRow).includes('grundsicherung-kombi')) {
+        stat.chunksEntfernt += 1
+        entfernt.push({ rel, abschnitt: c.abschnitt, aktion: 'chunk (Grundsicherung-Kombi)', arten: ['grundsicherung-kombi'] })
+        continue
+      }
       const { text, bericht } = schwaerzeText(text0)
       for (const b of bericht) {
         if (b.aktion === 'satz') stat.saetzeEntfernt += 1
