@@ -10,7 +10,7 @@ const root = path.resolve(path.dirname(new URL(import.meta.url).pathname), '..')
 // Ausnahmen: allgemeine Wortbestandteile, kein Bezug auf Gründerfamilie/Tabuthema.
 const ERLAUBT = [/werdende (und junge )?Eltern/i]
 // Tür-KI (25.11.2026): reine Serverseitige Filterliste, nie sichtbar, dient genau dazu, diese Begriffe abzufangen.
-const NUR_FILTERLISTE = new Set(['lib/tuerKi/sensibel-liste.ts'])
+const NUR_FILTERLISTE = new Set(['lib/tuerKi/sensibel-liste.ts', 'lib/wissen/beispielrechnung-ausnahme.mjs'])
 // content/wissen-mitglieder: nur serverseitig (JWT), nicht öffentlich – bewusst ausgenommen.
 const OEFFENTLICH = ['messages', 'app', 'components', 'lib', 'public', 'content/dokumente', 'content/wissen', 'content/drive-dokumente']
 

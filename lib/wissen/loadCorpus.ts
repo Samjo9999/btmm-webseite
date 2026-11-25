@@ -7,6 +7,7 @@ import { join } from 'path'
 import type { WissenChunk } from './search'
 import { nurErlaubteChunks } from './sichtbarkeit'
 import { filterEmojisTief } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
+import { istLaufzeitPublicChunk } from './beispielrechnung-ausnahme.mjs'
 
 /** Nutzerregel 25.11.: keine Emojis im Corpus, auch nicht aus dem Markdown-Fallback. */
 function ohneEmojis(chunks: WissenChunk[]): WissenChunk[] {
@@ -57,8 +58,11 @@ function chunksFromMarkdownFiles(dir: string): WissenChunk[] {
  * (das Level-Filter gilt nur für den Mitmacher-Index über nurErlaubteChunks).
  * Der Index wird beim Bau auf PUBLIC-ALLOWLIST.json begrenzt; zur Laufzeit
  * zusätzlich gegen diese Allowlist prüfen, falls die Datei vorliegt.
+ * Dieselbe gezielte Ausnahme wie im Index-Guard (gemeinsame Quelle):
+ * Beispielrechnung-Chunks aus Konzept v22.69.0, Z. 84–113, bleiben;
+ * alles andere aus Dokument 07 fällt.
  */
-function nurAllowlistChunks(chunks: WissenChunk[]): WissenChunk[] {
+export function nurAllowlistChunks(chunks: WissenChunk[]): WissenChunk[] {
   const allowPath = join(process.cwd(), 'content', 'wissen', 'PUBLIC-ALLOWLIST.json')
   if (!existsSync(allowPath)) return chunks
   try {
@@ -69,12 +73,7 @@ function nurAllowlistChunks(chunks: WissenChunk[]): WissenChunk[] {
     const allowed = new Set((raw.publicSources || []).map((s) => String(s.rel || '').replace(/\\/g, '/')))
     if (!allowed.size) return chunks
     const blacklist = raw.blacklistPathPatterns || []
-    return chunks.filter((c) => {
-      const rel = String(c.rel || '').replace(/\\/g, '/')
-      if (!allowed.has(rel)) return false
-      if (blacklist.some((b) => rel.includes(b))) return false
-      return true
-    })
+    return chunks.filter((c) => istLaufzeitPublicChunk(c, allowed, blacklist))
   } catch {
     return chunks
   }

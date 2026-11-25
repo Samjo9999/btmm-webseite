@@ -9,6 +9,25 @@
  */
 import { readFileSync, readdirSync, statSync } from 'node:fs'
 import { join, relative, extname } from 'node:path'
+import {
+  BEISPIELRECHNUNG_PREFIX,
+  GRUNDSICHERUNG_BEISPIEL,
+  normalizeRel,
+  istGrundsicherungBeispielabschnitt,
+  istGrundsicherungBeispielChunk,
+  ohneBeispielrechnungPrefix,
+  mitBeispielrechnungPrefix,
+} from '../lib/wissen/beispielrechnung-ausnahme.mjs'
+
+export {
+  BEISPIELRECHNUNG_PREFIX,
+  GRUNDSICHERUNG_BEISPIEL,
+  normalizeRel,
+  istGrundsicherungBeispielabschnitt,
+  istGrundsicherungBeispielChunk,
+  ohneBeispielrechnungPrefix,
+  mitBeispielrechnungPrefix,
+}
 
 export const TABOO_STEMS = [
   'bürgergeld',
@@ -65,12 +84,6 @@ export function findTabooHits(text) {
   return found
 }
 
-export function normalizeRel(rel) {
-  return String(rel || '')
-    .replace(/\\/g, '/')
-    .replace(/^repos\/btmm-webseite\//, '')
-}
-
 export function loadPublicAllowlist(root) {
   const raw = JSON.parse(
     readFileSync(join(root, 'content', 'wissen', 'PUBLIC-ALLOWLIST.json'), 'utf8')
@@ -113,48 +126,12 @@ export function findIndexHits(payload) {
 }
 
 
-/** Präfix für die einzige Grundsicherung-Beispielrechnung (Nutzer 25.11. 15:30). */
-export const BEISPIELRECHNUNG_PREFIX = 'Beispielrechnung:'
-
-/**
- * Gezielte Ausnahme, kein pauschales Aufheben der Grundsicherungs-Regel:
- * nur Konzept v22.69.0, Zeilen 84–113 (eindeutige Überschriften).
- * Das Dokument steht nicht als Ganzes auf der Public-Allowlist.
- */
-export const GRUNDSICHERUNG_BEISPIEL = {
-  rel: 'DOKUMENTE/07_BtMM_Konzept_v22_69_0.md',
-  abschnitte: [
-    'Das ehrliche Worst-Case-Szenario',
-    'Der erste Schritt: eine Gewerbeanmeldung',
-    'Die konkrete Rechnung — Grundsicherungs-Haushalt',
-  ],
-}
-
 export function chunkTextBlob(chunk) {
   return [chunk?.title, chunk?.abschnitt, chunk?.text, chunk?.rel].filter(Boolean).join('\n')
 }
 
 export function absatzKey(chunk) {
   return `${normalizeRel(chunk?.rel)}\0${chunk?.abschnitt || ''}`
-}
-
-export function istGrundsicherungBeispielabschnitt(chunk) {
-  return (
-    normalizeRel(chunk?.rel) === GRUNDSICHERUNG_BEISPIEL.rel &&
-    GRUNDSICHERUNG_BEISPIEL.abschnitte.includes(chunk?.abschnitt)
-  )
-}
-
-export function ohneBeispielrechnungPrefix(text) {
-  const t = String(text || '')
-  if (t.startsWith(BEISPIELRECHNUNG_PREFIX)) {
-    return t.slice(BEISPIELRECHNUNG_PREFIX.length).replace(/^\s+/, '')
-  }
-  return t
-}
-
-export function mitBeispielrechnungPrefix(text) {
-  return `${BEISPIELRECHNUNG_PREFIX} ${ohneBeispielrechnungPrefix(text)}`
 }
 
 /** Grundsicherung plus „fünf Menschen“, „alle mit“ oder ein Euro-Betrag. */
