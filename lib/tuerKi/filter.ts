@@ -55,11 +55,13 @@ export function istDirektkreditWerbung(text: string): boolean {
 }
 
 export type AusgabeErgebnis =
-  | { art: 'ok'; text: string; schritte: string[] }
+  | { art: 'ok'; text: string; schritte: string[]; weiterleitung?: string }
   | { art: 'ersetzt'; grund: 'tabu' | 'benennung' | 'direktkredit' | 'echo' | 'leer' }
 
 const LINK = /\[([^\]]*)\]\((?:[^)]*)\)|\bhttps?:\/\/\S+|\bwww\.\S+/gi
-const SCHRITTE_ZEILE = /^\s*SCHRITTE\s*:\s*(.*)$/gim
+const SCHRITT_ALT = [...SCHRITTE_KEYS].sort((a, b) => b.length - a.length).join('|')
+/** „SCHRITTE:“ (auch mitten in der Zeile) plus direkt folgende bekannte Schlüssel; der restliche Satz bleibt stehen. */
+const SCHRITTE_MARK = new RegExp(`\\bSCHRITTE\\s*:[ \\t]*((?:(?:${SCHRITT_ALT})(?![A-Za-z_])[ \\t]*[,;]?[ \\t]*)*)`, 'gi')
 const SEITEN_SET = new Set<string>(TUER_KI_SEITEN)
 const LOCALE_PFAD = new RegExp(`^/(${TUER_SPRACHEN.join('|')})(?=/|$)`)
 
@@ -76,24 +78,59 @@ export function erlaubterPfad(raw: string): string | null {
 }
 
 function ersetzeLinks(text: string): string {
-  return text.replace(LINK, (m, label) => {
+  const LUECKE = '\u0000'
+  let t = text.replace(LINK, (m, label) => {
     const url = m.startsWith('[') ? (m.match(/\]\(([^)]*)\)/) || [])[1] || '' : m
     const pfad = erlaubterPfad(url)
     if (pfad) return pfad
-    return typeof label === 'string' ? label : ''
+    if (typeof label === 'string' && label.trim()) return label
+    return LUECKE
   })
+  t = t.replace(/[ \t]*\u0000[ \t]*/g, ' ')
+  // Satzlücke nach entfernter URL: „auf … vorbei“ ohne Ziel wird zu „vorbei“.
+  t = t.replace(/\b(auf|unter|ueber|über|zu|bei|in|an)\s+vorbei\b/gi, 'vorbei')
+  return t
 }
 
 export function leseSchritte(text: string): { text: string; schritte: string[] } {
   const gefunden: string[] = []
-  const ohne = text.replace(SCHRITTE_ZEILE, (_z, liste: string) => {
+  const ohne = text.replace(SCHRITTE_MARK, (_z, liste: string) => {
     for (const k of String(liste).split(/[\s,;]+/)) {
       const key = k.trim().toLowerCase()
       if ((SCHRITTE_KEYS as readonly string[]).includes(key) && !gefunden.includes(key)) gefunden.push(key)
     }
-    return ''
+    return ' '
   })
-  return { text: ohne.trim(), schritte: gefunden.slice(0, 6) }
+  return { text: ohne.replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+\n/g, '\n').trim(), schritte: gefunden.slice(0, 6) }
+}
+
+const PFAD_IM_TEXT = new RegExp(
+  '(' + [...TUER_KI_SEITEN].sort((a, b) => b.length - a.length).map((s) => s.replace(/\//g, '\\/')).join('|') + ')(?![A-Za-z0-9/_-])',
+  'g',
+)
+
+export function findePfade(text: string): string[] {
+  const gefunden: string[] = []
+  const re = new RegExp(PFAD_IM_TEXT.source, 'g')
+  let m: RegExpExecArray | null
+  while ((m = re.exec(String(text || '')))) {
+    if (!gefunden.includes(m[1])) gefunden.push(m[1])
+  }
+  return gefunden
+}
+
+export function hatRueckfrage(text: string): boolean {
+  return /[?？؟]/.test(String(text || ''))
+}
+
+/**
+ * Genau ein Ende: Der Text bleibt unverändert (Rückfrage oder Hinweis auf die Seite, wie das Modell ihn schrieb).
+ * Ein erlaubter Pfad im Text wird zusätzlich als `weiterleitung` gemeldet; der Client zeigt dafür einen Link-Knopf.
+ * Es wird nichts aus dem Satz entfernt, damit keine Satzlücken entstehen.
+ */
+export function legeEndeFest(text: string): { text: string; weiterleitung?: string } {
+  const weiterleitung = findePfade(text)[0]
+  return weiterleitung ? { text, weiterleitung } : { text }
 }
 
 /**
@@ -114,5 +151,6 @@ export function bereinigeAntwort(roh: string, echoSaetze: readonly string[] = []
   const tn = normalisiere(t)
   if (echoSaetze.some((s) => s.length > 30 && tn.includes(normalisiere(s)))) return { art: 'ersetzt', grund: 'echo' }
   if (t.length > TUER_KI.maxAntwortZeichen) t = t.slice(0, TUER_KI.maxAntwortZeichen).replace(/\s+\S*$/, '') + ' …'
-  return { art: 'ok', text: t, schritte }
+  const ende = legeEndeFest(t)
+  return { art: 'ok', text: ende.text, schritte, weiterleitung: ende.weiterleitung }
 }

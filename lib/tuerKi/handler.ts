@@ -25,6 +25,8 @@ export type TuerKiAntwort = {
   text?: string
   antwort?: string
   schritte?: string[]
+  /** Erlaubter interner Pfad als Link-Knopf, wenn die Antwort eine Seite nennt. */
+  weiterleitung?: string
   quellen?: { dokument: string; abschnitt: string }[]
   /** Indizes der Nutzernachrichten, die der Client aus dem Verlauf entfernen soll. */
   entfernen?: number[]
@@ -171,6 +173,6 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
   const quellen = hits.slice(0, 3).map((h) => ({ dokument: h.title, abschnitt: h.abschnitt }))
   return {
     http: 200,
-    json: { status: 'ok', antwort: aus.text, schritte: aus.schritte, quellen, generative: true, modell: SCALEWAY_MODEL },
+    json: { status: 'ok', antwort: aus.text, schritte: aus.schritte, weiterleitung: aus.weiterleitung, quellen, generative: true, modell: SCALEWAY_MODEL },
   }
 }
