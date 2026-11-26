@@ -150,11 +150,11 @@ Schlüsselfertige Photovoltaik kostet 2026 etwa 1.000 bis 1.600 € je kWp (Reda
 |---|---|---|
 | Schüler (4 Klassen à 20,7) | 83 | B (Klassengröße), S |
 | Kosten je Schüler und Jahr | 8.000 € | S, nicht belegt (Vergleich öffentlich 2023: 6.337 €) |
-| Betriebskosten im Jahr | 662.000 € | S (83 × 8.000 € = 664.000 €) |
-| Lücke in den Jahren 1 bis 3 (ohne Zuschuss, Elternbeiträge 15 %) | 563.000 € je Jahr | S |
+| Betriebskosten im Jahr | 664.000 € | S (83 × 8.000 €) |
+| Lücke in den Jahren 1 bis 3 (ohne Zuschuss, Elternbeiträge 15 % = 99.600 €) | 564.400 € je Jahr | S |
 | Vorfinanzierung der ersten drei Jahre | 1,69 Mio. € | S |
 | Zuschuss ab Planjahr 4 (83 × 5.240 € je Schüler, Rechengröße, Stand 2026, Untergrenze) | rund 435.000 € | S |
-| Lücke ab Planjahr 4 (nach diesem Zuschuss und 15 % Elternbeiträgen) | rund 128.000 € je Jahr | S |
+| Lücke ab Planjahr 4 (nach diesem Zuschuss und 15 % Elternbeiträgen = 99.600 €) | rund 129.000 € je Jahr | S |
 
 | Mitglieder | Lebensstandard-Fonds im Jahr | deckt die Lücke der Jahre 1–3 zu |
 |---|---|---|
@@ -163,7 +163,7 @@ Schlüsselfertige Photovoltaik kostet 2026 etwa 1.000 bis 1.600 € je kWp (Reda
 | 1.000 | 396.582 € | 70 % |
 | 10.000 | 4,45 Mio. € (Rechner v2.5.0, nicht nachgerechnet) | über 100 % |
 
-Die Rechnung heißt: Eine Grundschule ist ab etwa 1.000 Mitgliedern nur tragbar, wenn der Lebensstandard-Fonds rund 95.000 € mehr im Jahr trägt als in der bisherigen Lücke; das muss vorher neu gerechnet werden — mit dem Lebensstandard-Fonds, dem Ideen-Topf, Spenden und Eltern aus dem Umland. Vorher braucht es eine gemeinnützige Trägerin, eine Tochter oder einen Partner im Netz. Die Kosten je Schüler haben wir nicht belegen können; die Rechnung ist so gut wie diese Annahme. Die Genehmigung erteilt das Regierungspräsidium; die Gebühr liegt zwischen 250 und 1.000 €, die Dauer nicht angegeben.
+Die Rechnung heißt: Eine Grundschule ist ab etwa 1.000 Mitgliedern nur tragbar, wenn der Lebensstandard-Fonds rund 96.000 € mehr im Jahr trägt als in der bisherigen Lücke; das muss vorher neu gerechnet werden — mit dem Lebensstandard-Fonds, dem Ideen-Topf, Spenden und Eltern aus dem Umland. Vorher braucht es eine gemeinnützige Trägerin, eine Tochter oder einen Partner im Netz. Die Kosten je Schüler haben wir nicht belegen können; die Rechnung ist so gut wie diese Annahme. Die Genehmigung erteilt das Regierungspräsidium; die Gebühr liegt zwischen 250 und 1.000 €, die Dauer nicht angegeben.
 
 # 7. Gesundheit und Pflege
 
