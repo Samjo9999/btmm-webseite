@@ -40,7 +40,7 @@ const ALTWORTLAUT = [
   ['v7.', /\bv\s?7\.\d/],
   ['anwaerter', /anwaerter/],
   ['vollmitglied', /vollmitglied/],
-  ['fuenf jahre', /fuenf\s+jahr/],
+  ['fuenf jahre', /(?<!ersten\s)(?<!erste\s)fuenf\s+jahr/],
   ['bwgv', /bwgv/],
   ['i.gr.', /\bi\.\s?gr\b/],
 ]
