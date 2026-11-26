@@ -8,10 +8,10 @@ import vm from 'node:vm'
 import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
 import { neuerRateZustand, pruefeTuerRate, pruefePersistenteRate, ipHash, ipHashMitSalt, rateSalt, NACHRICHTEN_PRO_STUNDE, NACHRICHTEN_PRO_TAG, tagesSalz, RATE_SALT_ENV, RATE_RPC_NAME } from '../lib/tuerKi/rateLimit.ts'
 import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
-import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung } from '../lib/tuerKi/filter.ts'
+import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung, erlaubterPfad } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins, clientIpAusHeadern } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
-import { SCHRITTE_KEYS, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
+import { SCHRITTE_KEYS, TUER_KI_SEITEN, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
 import { FESTE_TEXTE, NICHT_VERFUEGBAR } from '../lib/tuerKi/texte.ts'
 import { tuerKiSchalter } from '../lib/tuerKi/schalter.ts'
 import { scalewayChat } from '../lib/wissen/scaleway.ts'
@@ -393,6 +393,16 @@ test('Ausgabefilter: Emojis, Links, Tabu, Benennung, Direktkredit-Konditionen, P
   assert.equal(ok.art, 'ok')
   assert.doesNotMatch(ok.text, /https?:|www\.|\*|\u{1F600}/u)
   assert.deepEqual(ok.schritte, ['sparen', 'kunde'])
+  assert.equal(erlaubterPfad('https://b-t-m-m.com/de/mitmachen'), '/mitmachen')
+  assert.equal(erlaubterPfad('https://www.b-t-m-m.com/wissen'), '/wissen')
+  assert.equal(erlaubterPfad('/faq'), '/faq')
+  assert.equal(erlaubterPfad('https://evil.example/mitmachen'), null)
+  const intern = bereinigeAntwort('Weiter unter /mitmachen und [Wissen](https://b-t-m-m.com/de/wissen). Fremd: https://evil.example/x\nSCHRITTE: anpacken')
+  assert.equal(intern.art, 'ok')
+  assert.match(intern.text, /\/mitmachen/)
+  assert.match(intern.text, /\/wissen/)
+  assert.doesNotMatch(intern.text, /https?:|evil/)
+  assert.deepEqual(intern.schritte, ['anpacken'])
   assert.equal(bereinigeAntwort('BtMM eG ist toll').art, 'ersetzt')
   assert.equal(bereinigeAntwort('BtMM ist bereits eingetragen.').art, 'ersetzt')
   assert.equal(bereinigeAntwort('Das ist staatlich anerkannt.').art, 'ersetzt')
@@ -567,6 +577,13 @@ test('Systemprompt: keine Nie-Liste-Begriffe, keine Tabu-Wörter, Benennung und 
   assert.match(p, /Direktkredite: nur allgemein/)
   assert.match(p, /Frag nie nach Gesundheit, Einkommen, Lebenslage/)
   assert.match(p, /automatischer Assistent, kein Mensch/)
+  assert.match(p, /genau einer Rückfrage oder genau einem Weiterleitungs-Vorschlag/)
+  assert.match(p, /Der bisherige Gesprächsverlauf liegt vor/)
+  assert.match(p, /\/mitmachen/)
+  assert.match(p, /\/wissen/)
+  assert.doesNotMatch(p, /ohne Links/)
+  assert.match(p, /Keine anderen Links/)
+  for (const seite of TUER_KI_SEITEN) assert.ok(p.includes(seite), seite)
   assert.ok(TUER_KI_REGELN.length > 10)
 })
 
@@ -691,6 +708,14 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.equal(T.de.kiHinweis, 'Sie sprechen mit einer KI. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Automatischer Assistent, kein Mensch, keine Beratung.')
   assert.equal(T.de.starten, 'Mit KI sprechen')
   assert.equal(T.de.loeschen, 'Gespräch löschen')
+  assert.equal(T.de.begruessung, 'Hallo, schön, dass Sie da sind.')
+  assert.equal(T.de.ersteFrage, 'Was führt Sie zu BtMM, oder was möchten Sie wissen?')
+  assert.match(ki, /zeigeEinstieg/)
+  assert.match(ki, /blase\(K\.begruessung, 'echo'\)/)
+  assert.match(ki, /blase\(K\.ersteFrage, 'frage'\)/)
+  assert.match(ki, /function setzeMitLinks/)
+  assert.ok(ki.indexOf('function senden(') < ki.indexOf('fetch('))
+  for (const seite of TUER_KI_SEITEN) assert.ok(ki.includes("'" + seite + "'"), seite)
   assert.doesNotMatch(JSON.stringify(T.de), /frei/i)
   // KI-Modus: bei aus/Limit/Deckel/Fehler nur Hinweis + Links, kein alter Dialog
   assert.doesNotMatch(ki, /zuKurzenFragen|Lieber kurze Fragen|K\.kurz/)
@@ -700,6 +725,26 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   }
   assert.match(ki, /nur Hinweis und Links, kein alter Dialog/)
   assert.match(ki, /TUER_KI_ENABLED im Build aus ist, bleibt die heutige Tür unverändert/)
+})
+
+test('Gesprächsverlauf geht vollständig (user und assistant) an das Modell, Deckel unverändert', async () => {
+  const { d, aufrufe } = deps()
+  const nachrichten = [
+    { rolle: 'user', text: 'Ich bin Handwerker und mache Holzbau.' },
+    { rolle: 'assistant', text: 'Dann könnte ein Gemeinschaftsbetrieb passen. Arbeiten Sie allein?' },
+    { rolle: 'user', text: 'Ja, allein, und ich will das weiterführen.' },
+  ]
+  const r = await beantworteTuerKi({ nachrichten, sprache: 'de' }, d)
+  assert.equal(r.json.status, 'ok')
+  const roles = aufrufe.chat[0].messages.map((m) => m.role + ':' + m.content.slice(0, 40))
+  assert.equal(aufrufe.chat[0].messages.filter((m) => m.role === 'system').length, 2)
+  assert.deepEqual(
+    aufrufe.chat[0].messages.filter((m) => m.role !== 'system').map((m) => ({ role: m.role, content: m.content })),
+    nachrichten.map((n) => ({ role: n.rolle, content: n.text })),
+  )
+  assert.equal(deckelAusEnv({}).tagEur, 0.5)
+  assert.equal(deckelAusEnv({}).monatEur, 10)
+  assert.equal(roles.length > 0, true)
 })
 
 test('DSE-Absatz Tür-KI: nur bei Schalter an, lit. f, Art. 21, gehashte IP, TDDDG, Art.-50-Satz in Sie-Form', () => {

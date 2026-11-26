@@ -34,3 +34,24 @@ export const SCHRITTE_KEYS = [
   'grundlagen', 'sparen', 'arbeiten', 'wohnen', 'skeptisch', 'dokumente', 'sinn', 'gruenden', 'freiburg',
   'vorbei', 'anpacken', 'folgen', 'kunde', 'einstieg', 'lebensphase', 'ruhestand', 'unterstuetzen',
 ] as const
+
+/** Öffentliche Seiten, auf die die Tür-KI weiterleiten darf (Pfad ohne Locale). */
+export const TUER_KI_SEITEN = [
+  '/faq',
+  '/dokumente',
+  '/mitmachen',
+  '/wissen',
+  '/so-funktionierts',
+  '/was-du-sparst',
+  '/konzept',
+  '/konzept/wirtschaft',
+  '/gruendung',
+  '/chronik',
+  '/offene-fragen',
+  '/fuer-dich',
+  '/fuer-dich/kunden',
+  '/fuer-dich/berufseinstieg',
+  '/fuer-dich/lebensphasen',
+  '/fuer-dich/ruhestand',
+  '/fuer-dich/unterstuetzen',
+] as const

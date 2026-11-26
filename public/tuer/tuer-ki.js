@@ -1,7 +1,7 @@
 /* BtMM Tür-KI: Gesprächsmodus (Plan Tür-KI 25.11.2026, DS-Leitplanken 25.11.2026, Recht-Bot 25.11.2026).
  * Aktiv nur, wenn window.BTMM_TUER_KI_AN (ki-schalter.js, aus TUER_KI_ENABLED beim Build) true ist.
  * Sonst bleibt die Tür exakt wie bisher (regelbasierter Dialog aus tuer.js, bisherige Texte).
- * - Kein Netzaufruf vor dem Klick auf „Mit KI sprechen“; danach nur POST /api/tuer-ki beim Senden.
+ * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht.
  * - Verlauf nur in sessionStorage (endet mit dem Tab), „Gespräch löschen“ leert ihn.
  * - KI-Kennzeichnung (Art. 50 KI-VO) sichtbar über dem Eingabefeld, aria-describedby am Feld.
  * - KI-Antworten im HTML mit data-ai-generated="true".
@@ -15,6 +15,7 @@
   if (!ALT || !window.BTMM_TUER_KI_AN || !ALLE.de) return;
   var LANG = ALT.lang, BASIS = ALT.basis;
   var K = ALLE[LANG] || ALLE.de;
+  var SEITEN = ['/faq','/dokumente','/mitmachen','/wissen','/so-funktionierts','/was-du-sparst','/konzept/wirtschaft','/konzept','/gruendung','/chronik','/offene-fragen','/fuer-dich/kunden','/fuer-dich/berufseinstieg','/fuer-dich/lebensphasen','/fuer-dich/ruhestand','/fuer-dich/unterstuetzen','/fuer-dich'];
   var $ = function (id) { return document.getElementById(id); };
   var feld = $('antwort'), verlaufEl = $('verlauf');
   var st = laden() || { gestartet: false, nachrichten: [], schritte: [] };
@@ -41,11 +42,30 @@
 
   function eingabeFrei(an) { feld.disabled = !an; $('senden').disabled = !an; $('mik').disabled = !an; }
   function nachUnten() { requestAnimationFrame(function () { window.scrollTo({ top: document.documentElement.scrollHeight }); }); }
+  function seitenMuster() {
+    return new RegExp('(' + SEITEN.map(function (s) { return s.replace(/\//g, '\\/'); }).join('|') + ')(?![A-Za-z0-9/_-])', 'g');
+  }
+  function setzeMitLinks(el, text) {
+    var re = seitenMuster(), i = 0, m;
+    while ((m = re.exec(text))) {
+      if (m.index > i) el.appendChild(document.createTextNode(text.slice(i, m.index)));
+      var a = document.createElement('a');
+      a.href = BASIS + m[1];
+      a.textContent = m[1];
+      el.appendChild(a);
+      i = m.index + m[0].length;
+    }
+    if (i < text.length) el.appendChild(document.createTextNode(text.slice(i)));
+  }
   function blase(text, wer, ki) {
     var li = document.createElement('li');
     li.className = 'blase ' + wer;
-    if (ki) li.setAttribute('data-ai-generated', 'true');
-    li.textContent = text;
+    if (ki) {
+      li.setAttribute('data-ai-generated', 'true');
+      setzeMitLinks(li, text);
+    } else {
+      li.textContent = text;
+    }
     verlaufEl.appendChild(li);
     nachUnten();
     return li;
@@ -77,6 +97,13 @@
     feld.focus({ preventScroll: true });
   }
 
+  function zeigeEinstieg() {
+    blase(K.begruessung, 'echo');
+    function frage() { blase(K.ersteFrage, 'frage'); gespraechAn(); }
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) frage();
+    else setTimeout(frage, 600);
+  }
+
   function start() {
     document.body.classList.add('modus-ki');
     $('tuer').hidden = true; $('dialog').hidden = false; document.body.className = 'phase-dialog modus-ki';
@@ -87,6 +114,7 @@
     eingabeFrei(false);
     if (st.gestartet) {
       blase(K.begruessung, 'echo');
+      if (!st.nachrichten.length) blase(K.ersteFrage, 'frage');
       st.nachrichten.forEach(function (n) { blase(n.text, n.rolle === 'user' ? 'antwort' : 'frage', n.rolle === 'assistant'); });
       wegLeiste(false);
       gespraechAn();
@@ -97,8 +125,7 @@
 
   $('ki-starten').addEventListener('click', function () {
     st.gestartet = true; speichern();
-    blase(K.begruessung, 'echo');
-    gespraechAn();
+    zeigeEinstieg();
   });
 
   function senden(text) {

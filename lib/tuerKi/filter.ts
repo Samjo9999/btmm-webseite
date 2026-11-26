@@ -1,11 +1,12 @@
 /**
  * Eingabe- und Ausgabefilter der Tür-KI.
  * Eingabe: sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assistant) -> kein Modellaufruf.
- * Ausgabe: Emojis, Links, Tabu-Wörter, Benennungsfehler, Direktkredit-Konditionen, Prompt-Echo.
+ * Ausgabe: Emojis, fremde Links, Tabu-Wörter, Benennungsfehler, Direktkredit-Konditionen, Prompt-Echo.
+ * Interne Pfade aus TUER_KI_SEITEN bleiben stehen.
  */
 import { entferneEmojis } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
 import { SENSIBEL_MUSTER, SENSIBEL_STAEMME, SENSIBEL_WOERTER, TABU_AUSGABE } from './sensibel-liste.ts'
-import { SCHRITTE_KEYS, TUER_KI } from './konfig.ts'
+import { SCHRITTE_KEYS, TUER_KI, TUER_KI_SEITEN, TUER_SPRACHEN } from './konfig.ts'
 
 export function normalisiere(text: string): string {
   return String(text || '')
@@ -59,6 +60,29 @@ export type AusgabeErgebnis =
 
 const LINK = /\[([^\]]*)\]\((?:[^)]*)\)|\bhttps?:\/\/\S+|\bwww\.\S+/gi
 const SCHRITTE_ZEILE = /^\s*SCHRITTE\s*:\s*(.*)$/gim
+const SEITEN_SET = new Set<string>(TUER_KI_SEITEN)
+const LOCALE_PFAD = new RegExp(`^/(${TUER_SPRACHEN.join('|')})(?=/|$)`)
+
+/** Liefert den erlaubten internen Pfad (ohne Locale) oder null. */
+export function erlaubterPfad(raw: string): string | null {
+  let s = String(raw || '').trim().replace(/[),.;!?]+$/g, '')
+  s = s.replace(/^https?:\/\/(www\.)?b-t-m-m\.com/i, '')
+  if (!s.startsWith('/')) return null
+  s = s.split(/[?#]/)[0]
+  const loc = s.match(LOCALE_PFAD)
+  if (loc) s = s.slice(loc[0].length) || '/'
+  if (SEITEN_SET.has(s)) return s
+  return null
+}
+
+function ersetzeLinks(text: string): string {
+  return text.replace(LINK, (m, label) => {
+    const url = m.startsWith('[') ? (m.match(/\]\(([^)]*)\)/) || [])[1] || '' : m
+    const pfad = erlaubterPfad(url)
+    if (pfad) return pfad
+    return typeof label === 'string' ? label : ''
+  })
+}
 
 export function leseSchritte(text: string): { text: string; schritte: string[] } {
   const gefunden: string[] = []
@@ -78,8 +102,7 @@ export function leseSchritte(text: string): { text: string; schritte: string[] }
  */
 export function bereinigeAntwort(roh: string, echoSaetze: readonly string[] = []): AusgabeErgebnis {
   const { text: ohneSchritte, schritte } = leseSchritte(String(roh || ''))
-  let t = entferneEmojis(ohneSchritte)
-    .replace(LINK, (_m, label) => (typeof label === 'string' ? label : ''))
+  let t = ersetzeLinks(entferneEmojis(ohneSchritte))
     .replace(/[*_#`>]+/g, '')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/\n{3,}/g, '\n\n')
