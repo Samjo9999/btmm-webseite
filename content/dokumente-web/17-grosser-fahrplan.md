@@ -29,7 +29,7 @@ Jahr und Größe sind die „typischen“ Setzungen des Rechners (zum Beispiel: 
 ## Was dabei nicht stimmen muss
 
 - Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch offen und in rechtlicher Prüfung, nachrangig, Totalverlust möglich. Banken verlangen heute etwa 4 bis 4,5 %. Das ist der wichtigste Haken dieses Dokuments.
-- **Die Schule hat ein Nadelöhr.** Das Land zahlt seinen Zuschuss erst drei Jahre nach Unterrichtsbeginn. Bis dahin müssen wir rund 1,7 Millionen Euro allein tragen. Der Lebensstandard-Fonds deckt das erst ab etwa 1.000 Mitgliedern zu drei Vierteln.
+- **Die Schule hat ein Nadelöhr.** Geplant ist eine Schule über eine gemeinnützige Tochter; Zuschüsse kämen frühestens nach der Wartefrist. Bis dahin müsste der Träger die Anlaufkosten selbst tragen (im Modell rund 1,7 Millionen Euro). Der Lebensstandard-Fonds deckt das erst ab etwa 1.000 Mitgliedern zu drei Vierteln.
 - **Die Krankenkasse ist weit weg.** Eine eigene Betriebskrankenkasse braucht mindestens 5.000 Versicherungspflichtige im Betrieb; das sind im Modell rund 10.000 Mitglieder. Vorher gibt es nur Kooperationen mit bestehenden Kassen.
 - **Alles konkurriert um dasselbe Geld.** Häuser, Energie, Schule und Auslandszellen speisen sich aus derselben Reinvestition der Betriebe.
 
@@ -144,16 +144,17 @@ Schlüsselfertige Photovoltaik kostet 2026 etwa 1.000 bis 1.600 € je kWp (Reda
 
 **Kinderhaus.** Die Betriebserlaubnis für eine Kita erteilt der Kommunalverband für Jugend und Soziales. Zuschüsse des Landes haben wir nicht ermittelt. Sinnvoll ist ein Träger im Partner-Netz ab etwa 100 bis 200 Mitgliedern, wenn genug Kinder da sind (Setzung).
 
-**Die Schule.** Ersatzschulen sind nach Artikel 7 des Grundgesetzes genehmigungspflichtig und dürfen keine Kinder nach dem Besitz der Eltern trennen. In Baden-Württemberg bezahlt das Land nach einer von uns gelesenen Wiedergabe des Privatschulgesetzes 80 % der Kosten einer vergleichbaren öffentlichen Schule, aber erst drei Jahre nach Unterrichtsbeginn, und nur an gemeinnützige Träger. Träger kann ein Partner sein oder eine gemeinnützige Tochter der Genossenschaft, die die Generalversammlung mit 70 % gründet und die an die Grundsätze gebunden ist, soweit das Recht ihrer Rechtsform es zulässt (Konzept, noch nicht in der Satzung).
+**Die Schule.** Ersatzschulen sind nach Artikel 7 des Grundgesetzes genehmigungspflichtig und dürfen keine Kinder nach dem Besitz der Eltern trennen. In Baden-Württemberg zahlt das Land einen festen Zuschuss je Schüler (rund 5.240 € je Schüler und Jahr für Grundschulen, Rechengröße, Stand 2026, Untergrenze nach § 18 Abs. 2a PSchG), frühestens nach der Wartefrist und nur an gemeinnützige Träger. BtMM selbst ist nicht gemeinnützig. Träger kann ein Partner sein oder eine gemeinnützige Tochter der Genossenschaft, die die Generalversammlung mit 70 % gründet und die an die Grundsätze gebunden ist, soweit das Recht ihrer Rechtsform es zulässt (Konzept, noch nicht in der Satzung).
 
 | Posten (Grundschule, vier Klassen) | Wert | Status |
 |---|---|---|
 | Schüler (4 Klassen à 20,7) | 83 | B (Klassengröße), S |
-| Kosten je Schüler und Jahr | 8.000 € | S, nicht belegt |
-| Betriebskosten im Jahr | 662.000 € | S |
+| Kosten je Schüler und Jahr | 8.000 € | S, nicht belegt (Vergleich öffentlich 2023: 6.337 €) |
+| Betriebskosten im Jahr | 662.000 € | S (83 × 8.000 € = 664.000 €) |
 | Lücke in den Jahren 1 bis 3 (ohne Zuschuss, Elternbeiträge 15 %) | 563.000 € je Jahr | S |
 | Vorfinanzierung der ersten drei Jahre | 1,69 Mio. € | S |
-| Lücke ab Jahr 4 (nach 80 % Zuschuss und 15 % Beiträgen) | 33.000 € je Jahr | S |
+| Zuschuss ab Planjahr 4 (83 × 5.240 € je Schüler, Rechengröße, Stand 2026, Untergrenze) | rund 435.000 € | S |
+| Lücke ab Planjahr 4 (nach diesem Zuschuss und 15 % Elternbeiträgen) | rund 128.000 € je Jahr | S |
 
 | Mitglieder | Lebensstandard-Fonds im Jahr | deckt die Lücke der Jahre 1–3 zu |
 |---|---|---|
@@ -162,7 +163,7 @@ Schlüsselfertige Photovoltaik kostet 2026 etwa 1.000 bis 1.600 € je kWp (Reda
 | 1.000 | 396.582 € | 70 % |
 | 10.000 | 4,45 Mio. € (Rechner v2.5.0, nicht nachgerechnet) | über 100 % |
 
-Die Rechnung heißt: Eine Grundschule ist ab etwa 1.000 Mitgliedern zu tragen — mit dem Lebensstandard-Fonds, dem Ideen-Topf, Spenden und Eltern aus dem Umland. Vorher braucht es einen Träger im Partner-Netz. Die Kosten je Schüler haben wir nicht belegen können; die Rechnung ist so gut wie diese Annahme. Die Genehmigung erteilt das Regierungspräsidium; die Gebühr liegt zwischen 250 und 1.000 €, die Dauer nicht angegeben.
+Die Rechnung heißt: Eine Grundschule ist ab etwa 1.000 Mitgliedern nur tragbar, wenn der Lebensstandard-Fonds rund 95.000 € mehr im Jahr trägt als in der bisherigen Lücke; das muss vorher neu gerechnet werden — mit dem Lebensstandard-Fonds, dem Ideen-Topf, Spenden und Eltern aus dem Umland. Vorher braucht es eine gemeinnützige Trägerin, eine Tochter oder einen Partner im Netz. Die Kosten je Schüler haben wir nicht belegen können; die Rechnung ist so gut wie diese Annahme. Die Genehmigung erteilt das Regierungspräsidium; die Gebühr liegt zwischen 250 und 1.000 €, die Dauer nicht angegeben.
 
 # 7. Gesundheit und Pflege
 
@@ -215,7 +216,7 @@ Die Genossenschaft will einen Betriebsrat ausdrücklich zulassen, als zweite Sti
 
 - Baukosten Neubau und Sanierungskosten in Baden-Württemberg: nicht gefunden.
 - Kosten eines Hofes mit Gebäuden, Nahwärme, Glasfaser, Pflege, Kantine: nicht gefunden.
-- Kosten je Schüler in Baden-Württemberg; aktuelle Fassung des Privatschulgesetzes gegen das Landesportal prüfen.
+- Kosten je Schüler in Baden-Württemberg; der Zuschuss ist ein fester Kopfsatz nach § 18 Abs. 2a PSchG, nicht ein Anteil der eigenen Kosten; aktuelle Fassung gegen das Landesportal prüfen.
 - Grundstücksverkehrsrecht beim Erwerb von Ackerland durch eine Genossenschaft.
 - Verfahren, Aufsicht und Rücklagen einer Betriebskrankenkasse; Neugründungen der letzten zwanzig Jahre.
 - SCE-Gründungskosten und -Dauer; Kaufkraft-Vergleich für Polen, Portugal und Argentinien.
