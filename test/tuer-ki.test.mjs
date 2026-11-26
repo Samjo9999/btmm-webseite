@@ -685,7 +685,15 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI an zeigt 
   const hinweis = html.indexOf('id="ki-hinweis"'), start = html.indexOf('id="ki-start"'), form = html.indexOf('<form class="eingabe"')
   assert.ok(hinweis > 0 && hinweis < form && start < form)
   assert.match(html, /name="website"/)
-  assert.ok(html.indexOf('ki-schalter.js') > html.indexOf('tuer.js'))
+  const kopf = html.slice(0, html.indexOf('</head>'))
+  assert.match(kopf, /<script src="\/tuer\/ki-schalter\.js\?v=/)
+  assert.ok(kopf.indexOf('ki-schalter.js') < kopf.indexOf("classList.add('ki-an')"))
+  assert.match(kopf, /html\.ki-an #tuer\s*\{\s*display:\s*none\s*!important/)
+  assert.match(kopf, /html\.ki-an #dialog\s*\{\s*display:\s*flex\s*!important/)
+  // genau ein ki-schalter, und zwar im Kopf vor dem ersten Paint des Body
+  assert.equal((html.match(/ki-schalter\.js/g) || []).length, 1)
+  assert.ok(html.indexOf('ki-schalter.js') < html.indexOf('<body'))
+  assert.ok(html.indexOf("classList.add('ki-an')") < html.indexOf('<body'))
   // Ohne Schalter tut tuer-ki.js nichts
   assert.match(ki, /if \(!ALT \|\| !window\.BTMM_TUER_KI_AN/)
   // Netz nur in senden(): genau ein fetch, erst nach dem ersten Senden (kein LLM beim Laden)
