@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest'
 import { tokenize, distinctiveTokens } from '../src/tokenize.mjs'
-import { searchChunks, minScoreForQuery, formatExtractiveAnswer } from '../src/search.mjs'
+import { searchChunks, minScoreForQuery, formatExtractiveAnswer, chunkDoc } from '../src/search.mjs'
 
 describe('tokenize', () => {
   it('teilt Bindestrich-Tokens und behält das Ganze', () => {
@@ -85,5 +85,54 @@ describe('search quality', () => {
         5
       )
     ).toEqual([])
+  })
+})
+
+describe('chunkDoc Satzspiegel', () => {
+  it('nimmt %%-Steuerzeilen nicht in den Chunk auf', () => {
+    const chunks = chunkDoc({
+      title: 'Satzung',
+      rel: 'DOKUMENTE/08_BtMM_Satzung_eG_v9_1_4_aussen_ENTWURF.md',
+      content: [
+        '---',
+        'aenderung: "v9.1.4, ersetzt v9.1.3"',
+        '---',
+        '%% header: Satzung eG (Entwurf)',
+        '%% cover: full',
+        '%% title: Satzung',
+        '%% mail: office.gartzke@gmail.com',
+        '%% date: 24. November 2026',
+        '',
+        '> **Entwurf vom 24. November 2026, Version 9.1.4, zur Vorabprüfung durch den Prüfungsverband.**',
+        '',
+        '## § 1 Zweck, Firma, Sitz',
+        '',
+        '(1) Zweck der Genossenschaft ist die Förderung der Mitglieder im Sinne des Genossenschaftsgesetzes.',
+        '(2) Die Firma der Genossenschaft lautet Back to Meaning Maximization eG.',
+      ].join('\n'),
+    })
+    expect(chunks.length).toBeGreaterThan(0)
+    const blob = chunks.map((c) => `${c.abschnitt}\n${c.text}`).join('\n')
+    expect(blob).not.toMatch(/%%/)
+    expect(blob).not.toMatch(/office\.gartzke@gmail\.com/)
+    expect(blob).toMatch(/Zweck der Genossenschaft/)
+  })
+
+  it('entfernt auch %%-Platzhalter, lässt übrigen Text stehen', () => {
+    const chunks = chunkDoc({
+      title: 'Einfach erklärt',
+      rel: 'content/dokumente-web/00-einfach-erklaert.md',
+      content: [
+        '## Alle Dokumente in der Reihenfolge',
+        '',
+        'Die Übersicht folgt hier:',
+        '%%DOKTABELLE%%',
+        'Danach geht der Text weiter, damit der Abschnitt lang genug für einen Chunk bleibt.',
+      ].join('\n'),
+    })
+    expect(chunks.length).toBe(1)
+    expect(chunks[0].text).toMatch(/Die Übersicht folgt hier/)
+    expect(chunks[0].text).toMatch(/Danach geht der Text weiter/)
+    expect(chunks[0].text).not.toMatch(/%%/)
   })
 })
