@@ -6,7 +6,7 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Eintreten · BtMM – Back to Meaning Maximization</title>
 <link rel="icon" href="/tuer/bilder/logo.png" type="image/png">
-<link rel="stylesheet" href="/tuer/tuer.css">
+<link rel="stylesheet" href="/tuer/tuer.css?v=20261126s">
 </head>
 <body class="phase-tuer">
 <main id="tuer" class="tuer" aria-labelledby="tuer-titel">
@@ -88,15 +88,24 @@
   </p>
   <p class="bild-credit" data-t="bildCredit">Bilder erstellt mit Grok (KI)</p>
 </main>
-<script src="/tuer/texte.js"></script>
-<script src="/tuer/texte-luecken.js"></script>
-<script src="/tuer/texte-r3.js"></script>
-<script src="/tuer/texte-r4.js"></script>
-<script src="/tuer/pfad.js"></script>
-<script src="/tuer/tuer.js"></script>
-<script src="/tuer/ki-schalter.js"></script>
-<script src="/tuer/texte-ki.js"></script>
-<script src="/tuer/tuer-ki.js"></script>
+<script src="/tuer/texte.js?v=20261126s"></script>
+<script src="/tuer/texte-luecken.js?v=20261126s"></script>
+<script src="/tuer/texte-r3.js?v=20261126s"></script>
+<script src="/tuer/texte-r4.js?v=20261126s"></script>
+<script src="/tuer/pfad.js?v=20261126s"></script>
+<script src="/tuer/tuer.js?v=20261126s"></script>
+<script src="/tuer/ki-schalter.js?v=20261126s"></script>
+<script>
+if (window.BTMM_TUER_KI_AN) {
+  var tuerEl = document.getElementById('tuer');
+  var dialogEl = document.getElementById('dialog');
+  if (tuerEl) tuerEl.hidden = true;
+  if (dialogEl) dialogEl.hidden = false;
+  document.body.className = 'phase-dialog modus-ki';
+}
+</script>
+<script src="/tuer/texte-ki.js?v=20261126s"></script>
+<script src="/tuer/tuer-ki.js?v=20261126s"></script>
 <script src="/mehr-erfahren.js" defer></script>
 </body>
 </html>

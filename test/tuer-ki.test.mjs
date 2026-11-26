@@ -671,7 +671,7 @@ test('Schritt-Schlüssel der Route = SCHRITTE in public/tuer/pfad.js', () => {
   assert.deepEqual([...SCHRITTE_KEYS].sort(), Object.keys(pf.SCHRITTE).sort())
 })
 
-test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit Start-Klick, Hinweis, Löschen, data-ai-generated', () => {
+test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI an zeigt Begrüßung sofort, Hinweis, Löschen, data-ai-generated', () => {
   const html = lese('public/tuer/index.html')
   const ki = lese('public/tuer/tuer-ki.js')
   const cfg = lese('next.config.mjs')
@@ -688,7 +688,7 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.ok(html.indexOf('ki-schalter.js') > html.indexOf('tuer.js'))
   // Ohne Schalter tut tuer-ki.js nichts
   assert.match(ki, /if \(!ALT \|\| !window\.BTMM_TUER_KI_AN/)
-  // Netz nur in senden(): genau ein fetch, nach dem Start-Klick
+  // Netz nur in senden(): genau ein fetch, erst nach dem ersten Senden (kein LLM beim Laden)
   assert.equal((ki.match(/fetch\(/g) || []).length, 1)
   assert.ok(ki.indexOf('fetch(') > ki.indexOf('function senden('))
   assert.match(ki, /if \(!text \|\| beschaeftigt \|\| !st\.gestartet\) return/)
@@ -713,6 +713,16 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.match(ki, /zeigeEinstieg/)
   assert.match(ki, /blase\(K\.begruessung, 'echo'\)/)
   assert.match(ki, /blase\(K\.ersteFrage, 'frage'\)/)
+  // KI an: Begrüßung und erste Frage beim Laden, ohne Eintreten / Mit KI sprechen
+  assert.match(ki, /else start\(\);/)
+  assert.match(ki, /st\.gestartet = true;\s*speichern\(\);\s*zeigeEinstieg\(\);/s)
+  assert.match(html, /if \(window\.BTMM_TUER_KI_AN\)/)
+  assert.ok(html.indexOf('if (window.BTMM_TUER_KI_AN)') < html.indexOf('tuer-ki.js'))
+  assert.match(html, /tuer-ki\.js\?v=/)
+  assert.match(html, /ki-schalter\.js\?v=/)
+  const tuerJs = lese('public/tuer/tuer.js')
+  assert.match(tuerJs, /function dialogStarten/)
+  assert.match(tuerJs, /\$\('eintreten'\)\.addEventListener\('click'/)
   assert.match(ki, /function setzeMitLinks/)
   assert.ok(ki.indexOf('function senden(') < ki.indexOf('fetch('))
   for (const seite of TUER_KI_SEITEN) assert.ok(ki.includes("'" + seite + "'"), seite)
