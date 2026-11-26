@@ -32,7 +32,7 @@ Gutes Leben heißt hier nicht: mehr besitzen. Es heißt: mehr Zeit, mehr Gesundh
 
 | Bildung | Wohnen | Ruhe |
 |---|---|---|
-| Lernen ohne Auslese. Später eigene, anerkannte Schulen. | Häuser, die niemandem Rendite schulden. Die Miete deckt nur die Kosten. | Quartiere, in denen Kinder auf der Straße spielen. Die Autos parken am Rand. |
+| Lernen ohne Auslese. Später eigene Schulen in freier Trägerschaft (Ziel: genehmigte Ersatzschule). | Häuser, die niemandem Rendite schulden. Die Miete deckt nur die Kosten. | Quartiere, in denen Kinder auf der Straße spielen. Die Autos parken am Rand. |
 
 > **Lebensstandard-Wachstum statt Wirtschaftswachstum.** Die übliche Wirtschaft will mehr Umsatz. Wir wollen, dass das Leben besser wird. Das kann sogar wachsen, wenn weniger gekauft wird: Wer Auto, Werkzeug und Wohnraum teilt, kauft weniger und lebt trotzdem besser. Das ist der Kern von Sinnmaximierung.
 

@@ -104,7 +104,7 @@ Jede Zeile nennt Stufe (A bis E), was nötig ist, die Rechtsgrundlage mit Status
 | Nachhilfe, Kurse, Workshops, Seminare, Coaching | A | nichts | — (E) | Frei; Bildungszeit-Anerkennung freiwillig |
 | Yoga, Meditation, Achtsamkeit, Tanz, Training (Gruppenleitung) | A | nichts; Zertifikate sind freiwillig (Krankenkassenzuschuss: eigene Anforderungen) | — (E) | Heilversprechen vermeiden |
 | Lehrerin / Lehrer an staatlicher Schule | E | Lehramtsstudium und Staatsprüfungen | Landesrecht (Bs) | Quereinstieg über Länderprogramme mit Hochschulabschluss |
-| Eigene Schule (Ersatzschule) betreiben | E | Genehmigung des Landes; Lehrkräfte gleichwertig qualifiziert | Art. 7 Abs. 4 GG, Schulgesetz (E) | Siehe Dokument 17 |
+| Eigene Schule (Ersatzschule) betreiben | E | Genehmigung des Landes; Träger geplant als gemeinnützige Tochter; Lehrkräfte gleichwertig qualifiziert | Art. 7 Abs. 4 GG, Schulgesetz (E) | Siehe Dokument 17 |
 | Erzieherin / Erzieher, Kita-Fachkraft | E | Fachschulausbildung oder Gleichwertiges nach Landesrecht | Landesrecht (KiTaG BW) (Bs) | Zusatzkräfte und Assistenz ohne Abschluss je nach Land |
 | Kindertagespflege (Tagesmutter / Tagesvater) | C | Pflegeerlaubnis des Jugendamts, Eignung, Qualifizierungskurs | § 43 SGB VIII (E) | Kein Berufsabschluss; Qualifizierungskurs mit rund 300 Stunden |
 | Sozialarbeiterin / Sozialarbeiter | D | Titel „staatlich anerkannt“ geschützt; Studium | Landesrecht (Bs) | Soziale Begleitung ohne den Titel ist frei |
