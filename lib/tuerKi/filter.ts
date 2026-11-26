@@ -76,12 +76,18 @@ export function erlaubterPfad(raw: string): string | null {
 }
 
 function ersetzeLinks(text: string): string {
-  return text.replace(LINK, (m, label) => {
+  const LUECKE = '\u0000'
+  let t = text.replace(LINK, (m, label) => {
     const url = m.startsWith('[') ? (m.match(/\]\(([^)]*)\)/) || [])[1] || '' : m
     const pfad = erlaubterPfad(url)
     if (pfad) return pfad
-    return typeof label === 'string' ? label : ''
+    if (typeof label === 'string' && label.trim()) return label
+    return LUECKE
   })
+  t = t.replace(/[ \t]*\u0000[ \t]*/g, ' ')
+  // Satzlücke nach entfernter URL: „auf … vorbei“ ohne Ziel wird zu „vorbei“.
+  t = t.replace(/\b(auf|unter|ueber|über|zu|bei|in|an)\s+vorbei\b/gi, 'vorbei')
+  return t
 }
 
 export function leseSchritte(text: string): { text: string; schritte: string[] } {

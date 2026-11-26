@@ -1,7 +1,7 @@
 /* BtMM Tür-KI: Gesprächsmodus (Plan Tür-KI 25.11.2026, DS-Leitplanken 25.11.2026, Recht-Bot 25.11.2026).
  * Aktiv nur, wenn window.BTMM_TUER_KI_AN (ki-schalter.js, aus TUER_KI_ENABLED beim Build) true ist.
  * Sonst bleibt die Tür exakt wie bisher (regelbasierter Dialog aus tuer.js, bisherige Texte).
- * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht.
+ * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht. Die erste Frage geht als assistant-Nachricht mit in den Verlauf an das Modell.
  * - Verlauf nur in sessionStorage (endet mit dem Tab), „Gespräch löschen“ leert ihn.
  * - KI-Kennzeichnung (Art. 50 KI-VO) sichtbar über dem Eingabefeld, aria-describedby am Feld.
  * - KI-Antworten im HTML mit data-ai-generated="true".
@@ -138,6 +138,9 @@
     eingabeFrei(false);
     var warte = blase(K.schreibt, 'echo warte');
     var anfrage = st.nachrichten.concat([{ rolle: 'user', text: text }]);
+    if (!anfrage.some(function (n) { return n.rolle === 'assistant' && n.text === K.ersteFrage; })) {
+      anfrage = [{ rolle: 'assistant', text: K.ersteFrage }].concat(anfrage);
+    }
     fetch('/api/tuer-ki', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
