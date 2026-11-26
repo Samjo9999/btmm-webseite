@@ -6,7 +6,16 @@
 <meta name="robots" content="noindex,nofollow">
 <title>Eintreten · BtMM – Back to Meaning Maximization</title>
 <link rel="icon" href="/tuer/bilder/logo.png" type="image/png">
-<link rel="stylesheet" href="/tuer/tuer.css">
+<style>
+/* KI an: Tür und Dialog schon im ersten Paint, unabhängig vom Ladezeitpunkt der übrigen Skripte. [hidden] hat !important. */
+html.ki-an #tuer{display:none!important}
+html.ki-an #dialog{display:flex!important}
+</style>
+<link rel="stylesheet" href="/tuer/tuer.css?v=20261126t">
+<script src="/tuer/ki-schalter.js?v=20261126t"></script>
+<script>
+if (window.BTMM_TUER_KI_AN) document.documentElement.classList.add('ki-an');
+</script>
 </head>
 <body class="phase-tuer">
 <main id="tuer" class="tuer" aria-labelledby="tuer-titel">
@@ -88,15 +97,14 @@
   </p>
   <p class="bild-credit" data-t="bildCredit">Bilder erstellt mit Grok (KI)</p>
 </main>
-<script src="/tuer/texte.js"></script>
-<script src="/tuer/texte-luecken.js"></script>
-<script src="/tuer/texte-r3.js"></script>
-<script src="/tuer/texte-r4.js"></script>
-<script src="/tuer/pfad.js"></script>
-<script src="/tuer/tuer.js"></script>
-<script src="/tuer/ki-schalter.js"></script>
-<script src="/tuer/texte-ki.js"></script>
-<script src="/tuer/tuer-ki.js"></script>
+<script src="/tuer/texte.js?v=20261126t"></script>
+<script src="/tuer/texte-luecken.js?v=20261126t"></script>
+<script src="/tuer/texte-r3.js?v=20261126t"></script>
+<script src="/tuer/texte-r4.js?v=20261126t"></script>
+<script src="/tuer/pfad.js?v=20261126t"></script>
+<script src="/tuer/tuer.js?v=20261126t"></script>
+<script src="/tuer/texte-ki.js?v=20261126t"></script>
+<script src="/tuer/tuer-ki.js?v=20261126t"></script>
 <script src="/mehr-erfahren.js" defer></script>
 </body>
 </html>
