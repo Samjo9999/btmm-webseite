@@ -42,7 +42,7 @@ Dahinter steht mehr: Ein Wirtschaftsmodell auf drei Säulen. Eine Gemeinschaft, 
 
 # Wie du mitmachen kannst — je nachdem, wie nah du bist
 
-Das Back to Meaning Maximization Universum soll als eingetragene Genossenschaft entstehen. Eine Genossenschaft kennt Unterstützer, Mitglieder, Geschäftsanteile, Direktkredite und Kundschaft. Die Genossenschaft ist nicht steuerbegünstigt und stellt keine Zuwendungsbestätigungen aus. Ein eigener Verein neben ihr ist nicht vorgesehen. Nach der Eintragung (geplant ca. März 2028) kann sie selbst Zuwendungen ohne Quittung und ohne Gegenleistung für Sozial- und Ökoprojekte für die Allgemeinheit annehmen (Weg A; nicht rechtssicher). Bis sie eingetragen ist, fließt nur Geld für Leistungen, die man bekommt (Vorverkauf); für alles andere werden Zusagen gesammelt. Diese Wege gibt es:
+Das Back to Meaning Maximization Universum soll als eingetragene Genossenschaft entstehen. Eine Genossenschaft kennt Unterstützer, Mitglieder, Geschäftsanteile, Direktkredite und Kundschaft. Die Genossenschaft ist nicht steuerbegünstigt und stellt keine Zuwendungsbestätigungen aus. Ein eigener Verein neben ihr ist nicht vorgesehen. Nach der Eintragung kann sie selbst Zuwendungen ohne Quittung und ohne Gegenleistung für Sozial- und Ökoprojekte für die Allgemeinheit annehmen (Weg A; nicht rechtssicher). Bis sie eingetragen ist, fließt nur Geld für Leistungen, die man bekommt (Vorverkauf); für alles andere werden Zusagen gesammelt. Diese Wege gibt es:
 
 ## Unterstützer — ab 50 Euro im Jahr
 
@@ -64,7 +64,7 @@ Direktkredite sind für die Zeit nach der Gründung angedacht, Bedingungen noch 
 
 ## Spenden — nach der Eintragung an die Genossenschaft, ohne Quittung
 
-Ein eigener Verein ist nicht vorgesehen. Nach der Eintragung (geplant ca. März 2028) nimmt die Genossenschaft selbst Zuwendungen für Sozial- und Ökoprojekte für die Allgemeinheit an — ohne Zuwendungsbestätigung und ohne Gegenleistung (Weg A). Die Genossenschaft ist nicht steuerbegünstigt; solche Gaben sind steuerlich nicht absetzbar. Im Finanzplan stehen sie mit 0 € (Finanzteil v2.7a). Vor der Eintragung nimmt niemand Spenden an; Zusagen können gesammelt werden. Die steuerliche Einordnung (Betriebseinnahme oder Schenkung) ist offen (Steuerberatung). Nicht rechtssicher.
+Ein eigener Verein ist nicht vorgesehen. Nach der Eintragung nimmt die Genossenschaft selbst Zuwendungen für Sozial- und Ökoprojekte für die Allgemeinheit an — ohne Zuwendungsbestätigung und ohne Gegenleistung (Weg A). Die Genossenschaft ist nicht steuerbegünstigt; solche Gaben sind steuerlich nicht absetzbar. Im Finanzplan stehen sie mit 0 € (Finanzteil v2.7a). Vor der Eintragung nimmt niemand Spenden an; Zusagen können gesammelt werden. Die steuerliche Einordnung (Betriebseinnahme oder Schenkung) ist offen (Steuerberatung). Nicht rechtssicher.
 
 ## Crowdfunding — Aufbau ermöglichen
 

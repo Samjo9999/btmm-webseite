@@ -17,7 +17,7 @@ const lese = (rel) => readFileSync(join(root, rel), 'utf8')
 
 // Unabhängig von den Modulen notiert (Nutzerliste 25.11.), case-insensitive, Umlaute auch gefaltet.
 const TABU = /b(ü|ue)rgergeld|hartz|krankheit|erkrankung|elternzeit|schwangerschaft|hildastr|karner|happyfarm|elternhof|j\.s\.gartzke|oberkirch/i
-const ALTWORTLAUT = /\bv\s?7\.\d|anw(ä|ae)rter|vollmitglied|f(ü|ue)nf\s+jahr|bwgv|\bi\.\s?gr\b/i
+const ALTWORTLAUT = /\bv\s?7\.\d|anw(ä|ae)rter|vollmitglied|(?<!ersten\s)(?<!erste\s)f(ü|ue)nf\s+jahr|bwgv|\bi\.\s?gr\b/i
 
 function indexText(rel) {
   const payload = JSON.parse(lese(rel))
@@ -111,6 +111,7 @@ test('Schwärz-Regeln: Satz, Zeile oder Chunk fällt, Rest bleibt; sauberer Text
   assert.ok(trefferArten('Satzung v7.13.0').includes('altwortlaut:v7.'))
   assert.ok(trefferArten('Anwärterzeit').includes('altwortlaut:anwaerter'))
   assert.ok(trefferArten('fünf Jahre').includes('altwortlaut:fuenf jahre'))
+  assert.equal(trefferArten('Planung der ersten fünf Jahre').includes('altwortlaut:fuenf jahre'), false)
   assert.ok(trefferArten('BWGV-Muster').includes('altwortlaut:bwgv'))
   assert.ok(trefferArten('BtMM eG i.Gr.').includes('altwortlaut:i.gr.'))
   assert.ok(trefferArten('Kommt aus Oberkirch').includes('tabu'))
