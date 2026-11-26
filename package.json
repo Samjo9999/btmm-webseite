@@ -4,11 +4,11 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "prebuild": "node scripts/check-index-public.mjs",
+    "prebuild": "node scripts/check-index-public.mjs && node scripts/check-termine-aussen.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "eslint . && node scripts/test-no-emoji.mjs",
-    "test": "node --test test/*.test.mjs && npm run test:wissen",
+    "test": "node --test test/*.test.mjs && node scripts/check-termine-aussen.mjs && npm run test:wissen",
     "docs-sync": "node scripts/docs-sync/sync.mjs",
     "wissen:reindex": "node scripts/filter-index-public.mjs",
     "wissen:reindex:mitmacher": "node packages/wissen-mcp/scripts/build-index.mjs",
@@ -16,7 +16,8 @@
     "wissen:reindex:edge": "node scripts/build-wissen-mitglieder.mjs --sync-edge",
     "test:wissen": "npm test --prefix packages/wissen-mcp",
     "wissen:eval": "node packages/wissen-mcp/scripts/e3-eval.mjs",
-    "test:emoji": "node scripts/test-no-emoji.mjs"
+    "test:emoji": "node scripts/test-no-emoji.mjs",
+    "test:termine": "node scripts/check-termine-aussen.mjs"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.6.0",
