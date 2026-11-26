@@ -55,11 +55,11 @@ export function istDirektkreditWerbung(text: string): boolean {
 }
 
 export type AusgabeErgebnis =
-  | { art: 'ok'; text: string; schritte: string[] }
+  | { art: 'ok'; text: string; schritte: string[]; weiterleitung?: string }
   | { art: 'ersetzt'; grund: 'tabu' | 'benennung' | 'direktkredit' | 'echo' | 'leer' }
 
 const LINK = /\[([^\]]*)\]\((?:[^)]*)\)|\bhttps?:\/\/\S+|\bwww\.\S+/gi
-const SCHRITTE_ZEILE = /^\s*SCHRITTE\s*:\s*(.*)$/gim
+const SCHRITTE_MARK = /\bSCHRITTE\s*:\s*([^\n]*)/gi
 const SEITEN_SET = new Set<string>(TUER_KI_SEITEN)
 const LOCALE_PFAD = new RegExp(`^/(${TUER_SPRACHEN.join('|')})(?=/|$)`)
 
@@ -92,15 +92,63 @@ function ersetzeLinks(text: string): string {
 
 export function leseSchritte(text: string): { text: string; schritte: string[] } {
   const gefunden: string[] = []
-  const ohne = text.replace(SCHRITTE_ZEILE, (_z, liste: string) => {
+  const ohne = text.replace(SCHRITTE_MARK, (_z, liste: string) => {
     for (const k of String(liste).split(/[\s,;]+/)) {
       const key = k.trim().toLowerCase()
       if ((SCHRITTE_KEYS as readonly string[]).includes(key) && !gefunden.includes(key)) gefunden.push(key)
     }
     return ''
   })
-  return { text: ohne.trim(), schritte: gefunden.slice(0, 6) }
+  return { text: ohne.replace(/[ \t]{2,}/g, ' ').trim(), schritte: gefunden.slice(0, 6) }
 }
+
+const PFAD_IM_TEXT = new RegExp(
+  '(' + [...TUER_KI_SEITEN].sort((a, b) => b.length - a.length).map((s) => s.replace(/\//g, '\\/')).join('|') + ')(?![A-Za-z0-9/_-])',
+  'g',
+)
+
+export function findePfade(text: string): string[] {
+  const gefunden: string[] = []
+  const re = new RegExp(PFAD_IM_TEXT.source, 'g')
+  let m: RegExpExecArray | null
+  while ((m = re.exec(String(text || '')))) {
+    if (!gefunden.includes(m[1])) gefunden.push(m[1])
+  }
+  return gefunden
+}
+
+export function hatRueckfrage(text: string): boolean {
+  return /[?？؟]/.test(String(text || ''))
+}
+
+/** Entfernt Weiterleitungs-Phrasen und den Pfad aus dem Text (die Seite erscheint als Knopf). */
+export function entferneWeiterleitungImText(text: string, pfad: string): string {
+  const p = pfad.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  let t = String(text || '')
+  t = t.replace(new RegExp(`(?:Die Seite finden Sie unter|Weiter\\s+(?:zu|unter)|unter|zu)\\s+${p}`, 'gi'), '')
+  t = t.replace(new RegExp(p + '(?![A-Za-z0-9/_-])', 'g'), '')
+  t = t.replace(/\bPfad:\s*[a-z]+\.?/gi, '')
+  t = t.replace(/[ \t]+([.,;])/g, '$1')
+  t = t.replace(/[ \t]{2,}/g, ' ')
+  t = t.replace(/\n{3,}/g, '\n\n')
+  t = t.replace(/\(\s*\)/g, '')
+  t = t.replace(/[ \t]*,[ \t]*,/g, ',')
+  return t.trim()
+}
+
+/**
+ * Genau ein Ende: Rückfrage bleibt im Text, ein erlaubter Pfad wird als weiterleitung
+ * aus dem Text genommen (Link-Knopf im Client). Ohne Rückfrage bleibt der Pfad im Text.
+ */
+export function legeEndeFest(text: string): { text: string; weiterleitung?: string } {
+  const pfade = findePfade(text)
+  const weiterleitung = pfade[0]
+  if (weiterleitung && hatRueckfrage(text)) {
+    return { text: entferneWeiterleitungImText(text, weiterleitung), weiterleitung }
+  }
+  return weiterleitung ? { text, weiterleitung } : { text }
+}
+
 
 /**
  * Bereinigt eine Modellantwort. `echoSaetze` sind markante Sätze des Systemprompts;
@@ -120,5 +168,6 @@ export function bereinigeAntwort(roh: string, echoSaetze: readonly string[] = []
   const tn = normalisiere(t)
   if (echoSaetze.some((s) => s.length > 30 && tn.includes(normalisiere(s)))) return { art: 'ersetzt', grund: 'echo' }
   if (t.length > TUER_KI.maxAntwortZeichen) t = t.slice(0, TUER_KI.maxAntwortZeichen).replace(/\s+\S*$/, '') + ' …'
-  return { art: 'ok', text: t, schritte }
+  const ende = legeEndeFest(t)
+  return { art: 'ok', text: ende.text, schritte, weiterleitung: ende.weiterleitung }
 }

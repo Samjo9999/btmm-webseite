@@ -8,7 +8,8 @@ export const TUER_KI = {
   maxTokens: 400,
   /** Ab Warnstufe (80 % des Tagesdeckels) kürzere Antworten. */
   maxTokensSpar: 200,
-  timeoutMs: 8000,
+  /** 12 s: Live-Antwort kam nach 8,83 s, der alte 8-s-Abbruch war zu knapp. */
+  timeoutMs: 12000,
   maxZeichenNutzer: 600,
   maxZeichenAssistent: 1200,
   /** Verlauf, der ans Modell geht (Nutzer + Assistent), serverseitig gekürzt. */
