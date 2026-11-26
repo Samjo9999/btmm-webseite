@@ -1,7 +1,7 @@
 /* BtMM Tür-KI: Gesprächsmodus (Plan Tür-KI 25.11.2026, DS-Leitplanken 25.11.2026, Recht-Bot 25.11.2026).
  * Aktiv nur, wenn window.BTMM_TUER_KI_AN (ki-schalter.js, aus TUER_KI_ENABLED beim Build) true ist.
  * Sonst bleibt die Tür exakt wie bisher (regelbasierter Dialog aus tuer.js, bisherige Texte).
- * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht. Die erste Frage geht als assistant-Nachricht mit in den Verlauf an das Modell.
+ * - Beim ersten Laden (KI an): feste Begrüßung, erste Frage und Eingabefeld, ohne Zwischenklick. Kein LLM und kein Netzaufruf vor dem ersten Senden; danach nur POST /api/tuer-ki. Die erste Frage geht als assistant-Nachricht mit in den Verlauf an das Modell.
  * - Verlauf nur in sessionStorage (endet mit dem Tab), „Gespräch löschen“ leert ihn.
  * - KI-Kennzeichnung (Art. 50 KI-VO) sichtbar über dem Eingabefeld, aria-describedby am Feld.
  * - KI-Antworten im HTML mit data-ai-generated="true".
@@ -109,13 +109,17 @@
     else setTimeout(frage, 600);
   }
 
+  var offen = false;
   function start() {
     document.body.classList.add('modus-ki');
     $('tuer').hidden = true; $('dialog').hidden = false; document.body.className = 'phase-dialog modus-ki';
-    verlaufEl.innerHTML = '';
     $('wahl').hidden = true;
     $('ki-hinweis').hidden = false;
+    $('ki-start').hidden = true;
     feld.setAttribute('aria-describedby', 'ki-hinweis ds-hinweis');
+    if (offen) return;
+    offen = true;
+    verlaufEl.innerHTML = '';
     eingabeFrei(false);
     if (st.gestartet) {
       blase(K.begruessung, 'echo');
@@ -124,14 +128,13 @@
       wegLeiste(false);
       gespraechAn();
     } else {
-      $('ki-start').hidden = false;
+      st.gestartet = true;
+      speichern();
+      zeigeEinstieg();
     }
   }
 
-  $('ki-starten').addEventListener('click', function () {
-    st.gestartet = true; speichern();
-    zeigeEinstieg();
-  });
+  $('ki-starten').addEventListener('click', start);
 
   function senden(text) {
     text = (text || '').trim();
@@ -191,4 +194,5 @@
   window.BTMM_TUER_KI = { aktiv: function () { return true; }, start: start };
   // „Zurück zum Weg“ aus der Pfad-Leiste: Weg aus dem Gespräch zeigen
   if (new URLSearchParams(location.search).has('pfad') && st.schritte && st.schritte.length) ALT.pfad(st.schritte);
+  else start();
 })();
