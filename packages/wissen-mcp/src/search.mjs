@@ -213,7 +213,9 @@ export function chunkDoc(doc) {
       if (after.startsWith('\n') || after === '') content = after.replace(/^\n/, '')
     }
   }
-  const lines = content.split('\n')
+  // Satzspiegel-Steuerzeilen (%% header, %% mail, Platzhalter wie %%DOKTABELLE%%) gehören nicht in den Index.
+  // Die Quelldateien bleiben unveraendert.
+  const lines = content.split('\n').filter((line) => !/^\s*%%/.test(line))
   const sections = []
   let heading = doc.title || ''
   let buf = []
