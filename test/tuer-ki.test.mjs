@@ -7,7 +7,8 @@ import { fileURLToPath } from 'node:url'
 import vm from 'node:vm'
 import { beantworteTuerKi, pruefeVerlauf } from '../lib/tuerKi/handler.ts'
 import { neuerRateZustand, pruefeTuerRate, pruefePersistenteRate, ipHash, ipHashMitSalt, rateSalt, NACHRICHTEN_PRO_STUNDE, NACHRICHTEN_PRO_TAG, tagesSalz, RATE_SALT_ENV, RATE_RPC_NAME } from '../lib/tuerKi/rateLimit.ts'
-import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur } from '../lib/tuerKi/kosten.ts'
+import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_STANDARD, DECKEL_OBERGRENZE, kostenEur, periodenUtc, schaetzeTokens } from '../lib/tuerKi/kosten.ts'
+import { KOSTEN_RESERVE_RPC, KOSTEN_KORREKTUR_RPC } from '../lib/tuerKi/kostenPersist.ts'
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung, erlaubterPfad } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins, clientIpAusHeadern } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
@@ -30,8 +31,8 @@ const CHUNK = { title: '07 Konzept', abschnitt: 'Augenhöhe', text: 'Jede Arbeit
 const TEST_SALT = 'test-secret-nur-fuer-unit'
 
 function deps(over = {}) {
-  const aufrufe = { chat: [], corpus: 0, rpc: [] }
-  const { env: envOver, zaehleRate: rpcOver, ...rest } = over
+  const aufrufe = { chat: [], corpus: 0, rpc: [], reserve: [], korrektur: [] }
+  const { env: envOver, zaehleRate: rpcOver, reserviereKosten: reserveOver, korrigiereKosten: korrekturOver, ...rest } = over
   const d = {
     env: envOver ?? { ...AN, TUER_KI_RATE_SALT: TEST_SALT },
     ip: '203.0.113.7',
@@ -42,6 +43,8 @@ function deps(over = {}) {
     rate: neuerRateZustand(Date.parse('2026-11-25T12:00:00Z'), TEST_SALT),
     kosten: neuerKostenZustand(Date.parse('2026-11-25T12:00:00Z')),
     zaehleRate: rpcOver || (async (hash) => { aufrufe.rpc.push(hash); return { stunde: 1, tag: 1 } }),
+    reserviereKosten: reserveOver || (async (...a) => { aufrufe.reserve.push(a); return { erlaubt: true, tagEur: 0, monatEur: 0 } }),
+    korrigiereKosten: korrekturOver || (async (...a) => { aufrufe.korrektur.push(a) }),
     ...rest,
   }
   return { d, aufrufe }
@@ -386,6 +389,70 @@ test('Kostendeckel: harter Tages-/Monatsdeckel mit Worst-Case-Prüfung, Sparstuf
   assert.equal(r.http, 200)
   assert.equal(r.json.status, 'deckel')
   assert.equal(aufrufe.chat.length, 0)
+  assert.equal(aufrufe.reserve.length, 0)
+})
+
+test('Persistenter Kostendeckel: Reservierung vor dem Call, Korrektur mit echter usage, fail-closed, Deckel ohne LLM', async () => {
+  const now = Date.parse('2026-11-25T12:00:00Z')
+  const { tag, monat } = periodenUtc(now)
+
+  const { d, aufrufe } = deps()
+  const r = await beantworteTuerKi(frage('Was ist BtMM?'), d)
+  assert.equal(r.json.status, 'ok')
+  assert.equal(aufrufe.reserve.length, 1)
+  assert.equal(aufrufe.korrektur.length, 1)
+  const [rt, rm, schaetzung, tagLimit, monatLimit] = aufrufe.reserve[0]
+  assert.equal(rt, tag)
+  assert.equal(rm, monat)
+  assert.equal(tagLimit, 0.5)
+  assert.equal(monatLimit, 10)
+  const einGeschaetzt = schaetzeTokens(aufrufe.chat[0].messages.map((m) => m.content).join('\n'))
+  assert.ok(Math.abs(schaetzung - kostenEur(einGeschaetzt, 400)) < 1e-12)
+  const [ct, cm, reserviert, echt, ein, aus] = aufrufe.korrektur[0]
+  assert.equal(ct, tag)
+  assert.equal(cm, monat)
+  assert.equal(reserviert, schaetzung)
+  assert.equal(ein, 1000)
+  assert.equal(aus, 100)
+  assert.ok(Math.abs(echt - kostenEur(1000, 100)) < 1e-12)
+  assert.ok(echt < reserviert)
+
+  const { d: d2, aufrufe: a2 } = deps({
+    reserviereKosten: async (...a) => { a2.reserve.push(a); return { erlaubt: false, grund: 'tag' } },
+  })
+  const r2 = await beantworteTuerKi(frage('Was ist BtMM?'), d2)
+  assert.equal(r2.json.status, 'deckel')
+  assert.equal(r2.json.text, FESTE_TEXTE.de.deckel)
+  assert.equal(a2.chat.length, 0)
+  assert.equal(a2.korrektur.length, 0)
+
+  const { d: d3, aufrufe: a3 } = deps({
+    reserviereKosten: async () => { throw new Error('db-down') },
+  })
+  const r3 = await beantworteTuerKi(frage('Was ist BtMM?'), d3)
+  assert.equal(r3.json.status, 'fehler')
+  assert.equal(r3.json.text, FESTE_TEXTE.de.fehler)
+  assert.equal(a3.chat.length, 0)
+
+  const { d: d4, aufrufe: a4 } = deps({
+    chat: async (opt) => { a4.chat.push(opt); return null },
+  })
+  const r4 = await beantworteTuerKi(frage('Was ist BtMM?'), d4)
+  assert.equal(r4.json.status, 'fehler')
+  assert.equal(a4.reserve.length, 1)
+  assert.equal(a4.korrektur.length, 1)
+  const ein4 = schaetzeTokens(a4.chat[0].messages.map((m) => m.content).join('\n'))
+  assert.equal(a4.korrektur[0][4], ein4)
+  assert.equal(a4.korrektur[0][5], 0)
+  assert.ok(Math.abs(d4.kosten.tagEur - kostenEur(ein4, 0)) < 1e-12)
+
+  const { d: d5, aufrufe: a5 } = deps({
+    korrigiereKosten: async () => { throw new Error('korrektur-down') },
+  })
+  const r5 = await beantworteTuerKi(frage('Was ist BtMM?'), d5)
+  assert.equal(r5.json.status, 'ok')
+  assert.equal(a5.chat.length, 1)
+  assert.ok(d5.kosten.tagTokensEin === 1000 && d5.kosten.tagTokensAus === 100)
 })
 
 test('Ausgabefilter: Emojis, Links, Tabu, Benennung, Direktkredit-Konditionen, Prompt-Echo', async () => {
@@ -512,11 +579,17 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   assert.match(route, /ladeCorpus:\s*loadPublicCorpus/)
   assert.doesNotMatch(route, /loadMitmacherCorpus|wissen-mitglieder/)
   assert.match(route, /zaehleRate:\s*zaehleTuerRateRpc/)
+  assert.match(route, /reserviereKosten:\s*reserviereTuerKostenRpc/)
+  assert.match(route, /korrigiereKosten:\s*korrigiereTuerKostenRpc/)
   assert.match(route, /TUER_KI_RATE_SALT/)
   assert.match(lese('lib/tuerKi/rateLimit.ts'), /tuer_ki_rate_zaehle/)
   assert.match(lese('lib/tuerKi/rateLimit.ts'), /SUPABASE_SERVICE_ROLE_KEY/)
   assert.equal(RATE_RPC_NAME, 'tuer_ki_rate_zaehle')
-  for (const f of ['handler', 'filter', 'rateLimit', 'kosten', 'systemPrompt', 'schalter', 'herkunft', 'konfig', 'texte']) {
+  assert.equal(KOSTEN_RESERVE_RPC, 'tuer_ki_kosten_reserviere')
+  assert.equal(KOSTEN_KORREKTUR_RPC, 'tuer_ki_kosten_korrigiere')
+  assert.match(lese('lib/tuerKi/kostenPersist.ts'), /SUPABASE_SERVICE_ROLE_KEY/)
+  assert.match(lese('docs/tuer-ki/tuer_ki_kosten.sql'), /Noch nicht anwenden/)
+  for (const f of ['handler', 'filter', 'rateLimit', 'kosten', 'kostenPersist', 'systemPrompt', 'schalter', 'herkunft', 'konfig', 'texte']) {
     const src = lese(`lib/tuerKi/${f}.ts`)
     assert.doesNotMatch(src, /loadMitmacherCorpus|wissen-mitglieder|loadCorpus/, f)
   }
@@ -547,12 +620,15 @@ test('Nur öffentlicher Index: Route lädt loadPublicCorpus, nie den Mitmacher-I
   assert.match(kostenSrc, /getrennt von S50/)
   assert.doesNotMatch(kostenSrc, /innerhalb S50/)
   assert.match(kostenSrc, /kein Anteil an S50/)
-  assert.match(kostenSrc, /Gesamtdeckel 50/)
+  assert.match(kostenSrc, /persistenter Zähler/)
+  assert.doesNotMatch(kostenSrc, /Gesamtdeckel 50/)
   assert.match(kostenSrc, /01\.12\.2026/)
+  assert.match(kostenSrc, /noch nicht anwenden/)
+  assert.match(kostenSrc, /fail-closed/)
 })
 
 test('Keine Inhalte im Log: nur feste Kürzel und Statuscodes', () => {
-  const dateien = ['app/api/tuer-ki/route.ts', 'lib/wissen/scaleway.ts', ...['handler', 'filter', 'rateLimit', 'kosten', 'systemPrompt', 'schalter', 'herkunft', 'konfig', 'texte', 'sensibel-liste'].map((f) => `lib/tuerKi/${f}.ts`)]
+  const dateien = ['app/api/tuer-ki/route.ts', 'lib/wissen/scaleway.ts', ...['handler', 'filter', 'rateLimit', 'kosten', 'kostenPersist', 'systemPrompt', 'schalter', 'herkunft', 'konfig', 'texte', 'sensibel-liste'].map((f) => `lib/tuerKi/${f}.ts`)]
   const erlaubt = [/^console\.error\('tuer-ki'\)$/, /^console\.error\('scaleway', res\.status\)$/, /^console\.error\('scaleway'\)$/]
   for (const rel of dateien) {
     for (const z of lese(rel).split('\n')) {
