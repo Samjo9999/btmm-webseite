@@ -17,6 +17,8 @@ import { neuerKostenZustand, type TuerKostenZustand } from '@/lib/tuerKi/kosten'
 
 export const runtime = 'nodejs'
 export const dynamic = 'force-dynamic'
+/** Kopfraum über timeoutMs 12 s (Vercel Pro, unter dem Funktionslimit). */
+export const maxDuration = 20
 
 const g = globalThis as typeof globalThis & { __tuerKiRate?: TuerRateZustand; __tuerKiKosten?: TuerKostenZustand }
 function rate(): TuerRateZustand {

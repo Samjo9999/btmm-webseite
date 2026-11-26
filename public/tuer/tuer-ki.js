@@ -1,7 +1,7 @@
 /* BtMM Tür-KI: Gesprächsmodus (Plan Tür-KI 25.11.2026, DS-Leitplanken 25.11.2026, Recht-Bot 25.11.2026).
  * Aktiv nur, wenn window.BTMM_TUER_KI_AN (ki-schalter.js, aus TUER_KI_ENABLED beim Build) true ist.
  * Sonst bleibt die Tür exakt wie bisher (regelbasierter Dialog aus tuer.js, bisherige Texte).
- * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht.
+ * - Nach „Mit KI sprechen“: feste Begrüßung und erste Frage (kein LLM). Kein Netzaufruf vor diesem Klick; danach nur POST /api/tuer-ki beim Senden einer Nachricht. Die erste Frage geht als assistant-Nachricht mit in den Verlauf an das Modell.
  * - Verlauf nur in sessionStorage (endet mit dem Tab), „Gespräch löschen“ leert ihn.
  * - KI-Kennzeichnung (Art. 50 KI-VO) sichtbar über dem Eingabefeld, aria-describedby am Feld.
  * - KI-Antworten im HTML mit data-ai-generated="true".
@@ -71,9 +71,14 @@
     return li;
   }
 
-  function wegLeiste(mitLinks) {
+  function wegLeiste(mitLinks, weiter) {
     var box = $('ki-weg');
     box.innerHTML = '';
+    if (weiter) {
+      var a = document.createElement('a');
+      a.className = 'knopf'; a.href = BASIS + weiter; a.textContent = weiter;
+      box.appendChild(a);
+    }
     if (st.schritte && st.schritte.length) {
       var w = document.createElement('button');
       w.type = 'button'; w.className = 'knopf'; w.textContent = K.weg;
@@ -138,6 +143,9 @@
     eingabeFrei(false);
     var warte = blase(K.schreibt, 'echo warte');
     var anfrage = st.nachrichten.concat([{ rolle: 'user', text: text }]);
+    if (!anfrage.some(function (n) { return n.rolle === 'assistant' && n.text === K.ersteFrage; })) {
+      anfrage = [{ rolle: 'assistant', text: K.ersteFrage }].concat(anfrage);
+    }
     fetch('/api/tuer-ki', {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
@@ -153,15 +161,16 @@
           if (d.schritte && d.schritte.length) st.schritte = d.schritte;
           speichern();
           blase(d.antwort, 'frage', d.generative !== false);
-          wegLeiste(false);
+          wegLeiste(false, d.weiterleitung);
           eingabeFrei(true);
           return;
         }
         if (s === 'sensibel') {
           // Nachricht nicht in den Verlauf; markierte frühere Nachrichten ebenfalls entfernen
           eigene.remove();
-          var weg = (d.entfernen || []).filter(function (i) { return i < st.nachrichten.length; });
-          if (weg.length) { st.nachrichten = st.nachrichten.filter(function (_n, i) { return weg.indexOf(i) === -1; }); speichern(); }
+          // Indizes beziehen sich auf die gesendete Anfrage (mit evtl. vorangestellter erster Frage), nicht auf st.nachrichten
+          var wegObj = (d.entfernen || []).map(function (i) { return anfrage[i]; }).filter(Boolean);
+          if (wegObj.length) { st.nachrichten = st.nachrichten.filter(function (n) { return wegObj.indexOf(n) === -1; }); speichern(); }
           blase(d.text, 'echo');
           eingabeFrei(true);
           return;

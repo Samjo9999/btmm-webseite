@@ -11,7 +11,7 @@ import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung, erlaubterPfad } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins, clientIpAusHeadern } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
-import { SCHRITTE_KEYS, TUER_KI_SEITEN, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
+import { SCHRITTE_KEYS, TUER_KI, TUER_KI_SEITEN, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
 import { FESTE_TEXTE, NICHT_VERFUEGBAR } from '../lib/tuerKi/texte.ts'
 import { tuerKiSchalter } from '../lib/tuerKi/schalter.ts'
 import { scalewayChat } from '../lib/wissen/scaleway.ts'
@@ -73,7 +73,7 @@ test('Gesprächsrunde: Antwort ok, Schritte nur aus der Whitelist, Quellen, Toke
   const opt = aufrufe.chat[0]
   assert.equal(opt.temperature, 0.5)
   assert.equal(opt.maxTokens, 400)
-  assert.equal(opt.timeoutMs, 8000)
+  assert.equal(opt.timeoutMs, 12000)
   assert.equal(opt.messages[0].role, 'system')
   assert.deepEqual(opt.messages.slice(2).map((m) => m.role), ['user', 'assistant', 'user'])
   assert.ok(d.kosten.tagTokensEin === 1000 && d.kosten.tagTokensAus === 100)
@@ -403,6 +403,56 @@ test('Ausgabefilter: Emojis, Links, Tabu, Benennung, Direktkredit-Konditionen, P
   assert.match(intern.text, /\/wissen/)
   assert.doesNotMatch(intern.text, /https?:|evil/)
   assert.deepEqual(intern.schritte, ['anpacken'])
+  const luecke = bereinigeAntwort('Schauen Sie auf https://evil.example/seite vorbei.')
+  assert.equal(luecke.art, 'ok')
+  assert.doesNotMatch(luecke.text, /auf vorbei/)
+  assert.match(luecke.text, /Schauen Sie vorbei/)
+  const bleibt = bereinigeAntwort('Schauen Sie auf https://b-t-m-m.com/dokumente vorbei.')
+  assert.match(bleibt.text, /\/dokumente/)
+  assert.doesNotMatch(bleibt.text, /auf vorbei/)
+  // Fälle aus dem Test-Bot-Urteil #68 (filter-faelle.txt): Text bleibt unverändert, Pfad nur zusätzlich als Knopf
+  const f1 = bereinigeAntwort('Wie Sie einsteigen, steht auf /mitmachen. Welche Gewerke decken Sie ab?')
+  assert.equal(f1.text, 'Wie Sie einsteigen, steht auf /mitmachen. Welche Gewerke decken Sie ab?')
+  assert.equal(f1.weiterleitung, '/mitmachen')
+  const f2 = bereinigeAntwort('Die Seite finden Sie unter /wissen. Was möchten Sie noch wissen?')
+  assert.equal(f2.text, 'Die Seite finden Sie unter /wissen. Was möchten Sie noch wissen?')
+  assert.equal(f2.weiterleitung, '/wissen')
+  const f3 = bereinigeAntwort('Dazu /mitmachen, und haben Sie noch Fragen?')
+  assert.equal(f3.text, 'Dazu /mitmachen, und haben Sie noch Fragen?')
+  assert.equal(f3.weiterleitung, '/mitmachen')
+  const f4 = bereinigeAntwort('Gut, dass Sie fragen. SCHRITTE: grundlagen, dokumente Was interessiert Sie am meisten?')
+  assert.equal(f4.text, 'Gut, dass Sie fragen. Was interessiert Sie am meisten?')
+  assert.deepEqual(f4.schritte, ['grundlagen', 'dokumente'])
+  const f4b = bereinigeAntwort('Möchten Sie mehr erfahren? SCHRITTE: grundlagen, arbeiten\nDanke.')
+  assert.doesNotMatch(f4b.text, /SCHRITTE/i)
+  assert.match(f4b.text, /^Möchten Sie mehr erfahren\?\s+Danke\.$/)
+  assert.deepEqual(f4b.schritte, ['grundlagen', 'arbeiten'])
+  const f4c = bereinigeAntwort('Was führt Sie her?\nSCHRITTE: sparen')
+  assert.equal(f4c.text, 'Was führt Sie her?')
+  assert.deepEqual(f4c.schritte, ['sparen'])
+  const f4d = bereinigeAntwort('Gern. schritte: Sparen, Wohnen Haben Sie Fragen?')
+  assert.equal(f4d.text, 'Gern. Haben Sie Fragen?')
+  assert.deepEqual(f4d.schritte, ['sparen', 'wohnen'])
+  const f4e = bereinigeAntwort('Gern. SCHRITTE: Haben Sie Fragen?')
+  assert.doesNotMatch(f4e.text, /SCHRITTE/i)
+  assert.match(f4e.text, /Haben Sie Fragen\?/)
+  const nurFrage = bereinigeAntwort('Das trägt, weil Zahlen offen liegen. Möchten Sie die offenen Fragen lesen?')
+  assert.equal(nurFrage.weiterleitung, undefined)
+  assert.match(nurFrage.text, /offenen Fragen lesen\?/)
+  const nurPfad = bereinigeAntwort('Wie Sie einsteigen, steht auf /mitmachen.')
+  assert.equal(nurPfad.weiterleitung, '/mitmachen')
+  assert.equal(nurPfad.text, 'Wie Sie einsteigen, steht auf /mitmachen.')
+  const fremd = bereinigeAntwort('Schauen Sie gern auf https://evil.com vorbei. Mehr auf /mitmachen.')
+  assert.equal(fremd.text, 'Schauen Sie gern vorbei. Mehr auf /mitmachen.')
+  assert.equal(fremd.weiterleitung, '/mitmachen')
+  const faq = bereinigeAntwort('Infos unter https://www.b-t-m-m.com/de/faq und [hier](https://fake.org).')
+  assert.equal(faq.text, 'Infos unter /faq und hier.')
+  assert.equal(faq.weiterleitung, '/faq')
+  assert.equal(bereinigeAntwort('Schauen Sie bei https://x.de vorbei.').text, 'Schauen Sie vorbei.')
+  // Kein Satz bekommt eine Lücke wie „steht auf.“, „. Was“ oder „Da,“
+  for (const r of [f1, f2, f3, f4, f4b, f4c, f4d, nurPfad, fremd, faq]) {
+    assert.doesNotMatch(r.text, /^[.,;]|\b(auf|unter|zu|bei)[.,]|\bDa,/, r.text)
+  }
   assert.equal(bereinigeAntwort('BtMM eG ist toll').art, 'ersetzt')
   assert.equal(bereinigeAntwort('BtMM ist bereits eingetragen.').art, 'ersetzt')
   assert.equal(bereinigeAntwort('Das ist staatlich anerkannt.').art, 'ersetzt')
@@ -551,6 +601,15 @@ test('Client-IP: x-vercel-forwarded-for, sonst x-real-ip, sonst letzter XFF, nie
   const route = lese('app/api/tuer-ki/route.ts')
   assert.match(route, /clientIpAusHeadern/)
   assert.doesNotMatch(route, /x-forwarded-for.*split\(','\)\[0\]/)
+})
+
+test('Tür-KI-Timeout 12 s, Funktionslimit 20 s, Deckel unverändert', () => {
+  assert.equal(TUER_KI.timeoutMs, 12000)
+  assert.equal(TUER_KI.maxTokens, 400)
+  assert.equal(deckelAusEnv({}).tagEur, 0.5)
+  assert.equal(deckelAusEnv({}).monatEur, 10)
+  const route = lese('app/api/tuer-ki/route.ts')
+  assert.match(route, /export const maxDuration = 20/)
 })
 
 test('Honeypot füllt -> abgewiesen ohne Scaleway', async () => {
@@ -715,6 +774,14 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.match(ki, /blase\(K\.ersteFrage, 'frage'\)/)
   assert.match(ki, /function setzeMitLinks/)
   assert.ok(ki.indexOf('function senden(') < ki.indexOf('fetch('))
+  assert.match(ki, /rolle: 'assistant', text: K\.ersteFrage/)
+  assert.ok(ki.indexOf("text: K.ersteFrage") < ki.indexOf('fetch('))
+  assert.match(ki, /function wegLeiste\(mitLinks, weiter\)/)
+  assert.match(ki, /wegLeiste\(false, d\.weiterleitung\)/)
+  assert.match(ki, /a\.href = BASIS \+ weiter/)
+  // sensibel: Indizes beziehen sich auf die gesendete Anfrage, nicht auf st.nachrichten
+  assert.match(ki, /map\(function \(i\) \{ return anfrage\[i\]; \}\)/)
+  assert.doesNotMatch(ki, /i < st\.nachrichten\.length/)
   for (const seite of TUER_KI_SEITEN) assert.ok(ki.includes("'" + seite + "'"), seite)
   assert.doesNotMatch(JSON.stringify(T.de), /frei/i)
   // KI-Modus: bei aus/Limit/Deckel/Fehler nur Hinweis + Links, kein alter Dialog
