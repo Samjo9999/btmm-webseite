@@ -1,5 +1,5 @@
 {
-  "labelNote": "Strikte Allowlist. Mitmacher = ausdrücklich public + Gremien-Mitmacher (07 v22.70.0, Satzung außen v9.1.3, 08a v2.0.3, Normen-Kurz). Satzung/08a: Entwurf, noch nicht beschlossen. Satzung schlank v9.0.5 und 11_BWGV sind intern (nicht auf dieser Liste).",
+  "labelNote": "Strikte Allowlist. Mitmacher = ausdrücklich public + Gremien-Mitmacher (07 v22.70.0, Satzung außen v9.1.4, 08a v2.0.3, Normen-Kurz). Satzung/08a: Entwurf, noch nicht beschlossen. Satzung schlank v9.0.5 und 11_BWGV sind intern (nicht auf dieser Liste).",
   "btmmRootHint": "/workspace/projekte/btmm",
   "blacklistPathPatterns": [
     "06-intern",
@@ -278,7 +278,7 @@
       "entwurf": false
     },
     {
-      "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_3_aussen_ENTWURF.md",
+      "rel": "DOKUMENTE/08_BtMM_Satzung_eG_v9_1_4_aussen_ENTWURF.md",
       "entwurf": true
     },
     {

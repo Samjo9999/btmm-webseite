@@ -11,7 +11,7 @@ BTMM_ROOT=/workspace/projekte/btmm npm run wissen:reindex
 BTMM_ROOT=/workspace/projekte/btmm npm run wissen:reindex:edge
 ```
 
-Allowlist: `ALLOWLIST.json` (geltende Fassungen, z. B. Satzung außen v9.1.3, 07 v22.70.0, 08a v2.0.3).  
+Allowlist: `ALLOWLIST.json` (geltende Fassungen, z. B. Satzung außen v9.1.4, 07 v22.70.0, 08a v2.0.3).  
 Blacklist: 06-intern, INTERN_, `_ersetzt`, Dok 15, Förderung, Annahmen.  
 Satzung/08a: Pflicht-Label „Entwurf, noch nicht beschlossen“.  
 Tabuwörter im Index beenden den Build.
