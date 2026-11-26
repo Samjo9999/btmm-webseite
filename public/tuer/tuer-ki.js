@@ -71,9 +71,14 @@
     return li;
   }
 
-  function wegLeiste(mitLinks) {
+  function wegLeiste(mitLinks, weiter) {
     var box = $('ki-weg');
     box.innerHTML = '';
+    if (weiter) {
+      var a = document.createElement('a');
+      a.className = 'knopf'; a.href = BASIS + weiter; a.textContent = weiter;
+      box.appendChild(a);
+    }
     if (st.schritte && st.schritte.length) {
       var w = document.createElement('button');
       w.type = 'button'; w.className = 'knopf'; w.textContent = K.weg;
@@ -156,7 +161,7 @@
           if (d.schritte && d.schritte.length) st.schritte = d.schritte;
           speichern();
           blase(d.antwort, 'frage', d.generative !== false);
-          wegLeiste(false);
+          wegLeiste(false, d.weiterleitung);
           eingabeFrei(true);
           return;
         }

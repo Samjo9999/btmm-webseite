@@ -11,7 +11,7 @@ import { neuerKostenZustand, pruefeDeckel, bucheVerbrauch, deckelAusEnv, DECKEL_
 import { enthaeltSensibles, bereinigeAntwort, istDirektkreditWerbung, erlaubterPfad } from '../lib/tuerKi/filter.ts'
 import { pruefeHerkunft, appOrigins, clientIpAusHeadern } from '../lib/tuerKi/herkunft.ts'
 import { baueSystemprompt, TUER_KI_REGELN } from '../lib/tuerKi/systemPrompt.ts'
-import { SCHRITTE_KEYS, TUER_KI_SEITEN, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
+import { SCHRITTE_KEYS, TUER_KI, TUER_KI_SEITEN, TUER_SPRACHEN } from '../lib/tuerKi/konfig.ts'
 import { FESTE_TEXTE, NICHT_VERFUEGBAR } from '../lib/tuerKi/texte.ts'
 import { tuerKiSchalter } from '../lib/tuerKi/schalter.ts'
 import { scalewayChat } from '../lib/wissen/scaleway.ts'
@@ -73,7 +73,7 @@ test('Gesprächsrunde: Antwort ok, Schritte nur aus der Whitelist, Quellen, Toke
   const opt = aufrufe.chat[0]
   assert.equal(opt.temperature, 0.5)
   assert.equal(opt.maxTokens, 400)
-  assert.equal(opt.timeoutMs, 8000)
+  assert.equal(opt.timeoutMs, 12000)
   assert.equal(opt.messages[0].role, 'system')
   assert.deepEqual(opt.messages.slice(2).map((m) => m.role), ['user', 'assistant', 'user'])
   assert.ok(d.kosten.tagTokensEin === 1000 && d.kosten.tagTokensAus === 100)
@@ -410,6 +410,20 @@ test('Ausgabefilter: Emojis, Links, Tabu, Benennung, Direktkredit-Konditionen, P
   const bleibt = bereinigeAntwort('Schauen Sie auf https://b-t-m-m.com/dokumente vorbei.')
   assert.match(bleibt.text, /\/dokumente/)
   assert.doesNotMatch(bleibt.text, /auf vorbei/)
+  const mid = bereinigeAntwort('Möchten Sie mehr erfahren? SCHRITTE: grundlagen, arbeiten\nWeiter zu /konzept/wirtschaft, Pfad: arbeiten.')
+  assert.equal(mid.art, 'ok')
+  assert.doesNotMatch(mid.text, /SCHRITTE/i)
+  assert.deepEqual(mid.schritte, ['grundlagen', 'arbeiten'])
+  assert.equal(mid.weiterleitung, '/konzept/wirtschaft')
+  assert.match(mid.text, /Möchten Sie mehr erfahren\?/)
+  assert.doesNotMatch(mid.text, /\/konzept\/wirtschaft/)
+  assert.doesNotMatch(mid.text, /Pfad:/)
+  const nurFrage = bereinigeAntwort('Das trägt, weil Zahlen offen liegen. Möchten Sie die offenen Fragen lesen?')
+  assert.equal(nurFrage.weiterleitung, undefined)
+  assert.match(nurFrage.text, /offenen Fragen lesen\?/)
+  const nurPfad = bereinigeAntwort('Die Seite finden Sie unter /was-du-sparst.')
+  assert.equal(nurPfad.weiterleitung, '/was-du-sparst')
+  assert.match(nurPfad.text, /\/was-du-sparst/)
   assert.equal(bereinigeAntwort('BtMM eG ist toll').art, 'ersetzt')
   assert.equal(bereinigeAntwort('BtMM ist bereits eingetragen.').art, 'ersetzt')
   assert.equal(bereinigeAntwort('Das ist staatlich anerkannt.').art, 'ersetzt')
@@ -558,6 +572,15 @@ test('Client-IP: x-vercel-forwarded-for, sonst x-real-ip, sonst letzter XFF, nie
   const route = lese('app/api/tuer-ki/route.ts')
   assert.match(route, /clientIpAusHeadern/)
   assert.doesNotMatch(route, /x-forwarded-for.*split\(','\)\[0\]/)
+})
+
+test('Tür-KI-Timeout 12 s, Funktionslimit 20 s, Deckel unverändert', () => {
+  assert.equal(TUER_KI.timeoutMs, 12000)
+  assert.equal(TUER_KI.maxTokens, 400)
+  assert.equal(deckelAusEnv({}).tagEur, 0.5)
+  assert.equal(deckelAusEnv({}).monatEur, 10)
+  const route = lese('app/api/tuer-ki/route.ts')
+  assert.match(route, /export const maxDuration = 20/)
 })
 
 test('Honeypot füllt -> abgewiesen ohne Scaleway', async () => {
@@ -724,6 +747,9 @@ test('Tür-Oberfläche: Schalter aus = alter Dialog und alte Texte; KI-Modus mit
   assert.ok(ki.indexOf('function senden(') < ki.indexOf('fetch('))
   assert.match(ki, /rolle: 'assistant', text: K\.ersteFrage/)
   assert.ok(ki.indexOf("text: K.ersteFrage") < ki.indexOf('fetch('))
+  assert.match(ki, /function wegLeiste\(mitLinks, weiter\)/)
+  assert.match(ki, /wegLeiste\(false, d\.weiterleitung\)/)
+  assert.match(ki, /a\.href = BASIS \+ weiter/)
   for (const seite of TUER_KI_SEITEN) assert.ok(ki.includes("'" + seite + "'"), seite)
   assert.doesNotMatch(JSON.stringify(T.de), /frei/i)
   // KI-Modus: bei aus/Limit/Deckel/Fehler nur Hinweis + Links, kein alter Dialog
