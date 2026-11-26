@@ -5,10 +5,15 @@
  *
  * Eigener Kostendeckel, getrennt von S50 der Wissens-KI (kein Anteil an S50):
  * 0,50 €/Tag und 10 €/Monat, harter Stopp. Env darf die Werte senken, nicht über
- * die Obergrenze (0,50 / 10) anheben. Den Gesamtdeckel 50 € setzt der Nutzer in Scaleway.
+ * die Obergrenze (0,50 / 10) anheben. In Scaleway gibt es keinen harten Euro-Deckel,
+ * der den Verbrauch stoppt; der Stopp liegt im Code (plus optional Billing-Alerts).
  * Bei erreichtem Deckel gilt der Notbetrieb: kein Scaleway-Aufruf.
- * Serverless-Grenze: Summen gelten je Instanz; zusätzlich Billing-Alert in der Scaleway-Konsole.
- * Einschalten der Tür-KI frühestens 01.12.2026.
+ *
+ * Verbindlich über Instanzen, Kaltstarts und Deploys hinweg: persistenter Zähler
+ * über Supabase-RPC (tuer_ki_kosten_reserviere / tuer_ki_kosten_korrigiere,
+ * service_role). Der In-Memory-Zähler in dieser Datei und in globalThis gilt
+ * nur als zusätzliche Bremse je Instanz. SQL in docs/tuer-ki/ (noch nicht anwenden).
+ * Bei DB-Fehler: fail-closed, kein LLM-Aufruf. Einschalten der Tür-KI frühestens 01.12.2026.
  */
 
 export const PREIS_EIN_EUR_PRO_MIO = 0.15
@@ -65,19 +70,25 @@ export type TuerKostenZustand = {
   tagTokensAus: number
 }
 
-export function neuerKostenZustand(now = Date.now()): TuerKostenZustand {
+/** UTC-Perioden, identisch mit dem persistenten Zähler. */
+export function periodenUtc(now = Date.now()): { tag: string; monat: string } {
   const d = new Date(now).toISOString()
-  return { tag: d.slice(0, 10), monat: d.slice(0, 7), tagEur: 0, monatEur: 0, tagTokensEin: 0, tagTokensAus: 0 }
+  return { tag: d.slice(0, 10), monat: d.slice(0, 7) }
+}
+
+export function neuerKostenZustand(now = Date.now()): TuerKostenZustand {
+  const { tag, monat } = periodenUtc(now)
+  return { tag, monat, tagEur: 0, monatEur: 0, tagTokensEin: 0, tagTokensAus: 0 }
 }
 
 function rollen(z: TuerKostenZustand, now: number) {
-  const d = new Date(now).toISOString()
-  if (d.slice(0, 7) !== z.monat) {
-    z.monat = d.slice(0, 7)
+  const p = periodenUtc(now)
+  if (p.monat !== z.monat) {
+    z.monat = p.monat
     z.monatEur = 0
   }
-  if (d.slice(0, 10) !== z.tag) {
-    z.tag = d.slice(0, 10)
+  if (p.tag !== z.tag) {
+    z.tag = p.tag
     z.tagEur = 0
     z.tagTokensEin = 0
     z.tagTokensAus = 0

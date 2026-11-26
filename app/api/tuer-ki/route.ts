@@ -6,12 +6,14 @@ import { beantworteTuerKi } from '@/lib/tuerKi/handler'
 import { appOrigins, clientIpAusHeadern, pruefeHerkunft } from '@/lib/tuerKi/herkunft'
 import { neuerRateZustand, zaehleTuerRateRpc, type TuerRateZustand } from '@/lib/tuerKi/rateLimit'
 import { neuerKostenZustand, type TuerKostenZustand } from '@/lib/tuerKi/kosten'
+import { reserviereTuerKostenRpc, korrigiereTuerKostenRpc } from '@/lib/tuerKi/kostenPersist'
 
 /**
  * Tür-KI (Plan Tür-KI 25.11.2026): freies Gespräch auf b-t-m-m.com/tuer, ohne Login.
  * Nur öffentlicher Index (loadPublicCorpus), nie der Mitmacher-Index.
  * Schalter TUER_KI_ENABLED + WISSEN_LLM_ENABLED (Default aus) -> Antwort status "aus", kein Fehler.
- * Rate-Limit über tuer_ki_rate_zaehle (service_role); In-Memory nur als zusätzliche Bremse.
+ * Rate-Limit über tuer_ki_rate_zaehle (service_role); Kostendeckel über tuer_ki_kosten_reserviere;
+ * In-Memory jeweils nur als zusätzliche Bremse.
  * Loggt nie Inhalte, IP oder Hash; nur ein festes Kürzel bei Serverfehlern.
  */
 
@@ -80,6 +82,8 @@ export async function POST(request: NextRequest) {
       rate: rate(),
       kosten: kosten(),
       zaehleRate: zaehleTuerRateRpc,
+      reserviereKosten: reserviereTuerKostenRpc,
+      korrigiereKosten: korrigiereTuerKostenRpc,
     })
     if (erg.retryAfterSec) kopf['Retry-After'] = String(erg.retryAfterSec)
     return NextResponse.json(erg.json, { status: erg.http, headers: kopf })
