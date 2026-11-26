@@ -168,8 +168,9 @@
         if (s === 'sensibel') {
           // Nachricht nicht in den Verlauf; markierte frühere Nachrichten ebenfalls entfernen
           eigene.remove();
-          var weg = (d.entfernen || []).filter(function (i) { return i < st.nachrichten.length; });
-          if (weg.length) { st.nachrichten = st.nachrichten.filter(function (_n, i) { return weg.indexOf(i) === -1; }); speichern(); }
+          // Indizes beziehen sich auf die gesendete Anfrage (mit evtl. vorangestellter erster Frage), nicht auf st.nachrichten
+          var wegObj = (d.entfernen || []).map(function (i) { return anfrage[i]; }).filter(Boolean);
+          if (wegObj.length) { st.nachrichten = st.nachrichten.filter(function (n) { return wegObj.indexOf(n) === -1; }); speichern(); }
           blase(d.text, 'echo');
           eingabeFrei(true);
           return;

@@ -59,7 +59,9 @@ export type AusgabeErgebnis =
   | { art: 'ersetzt'; grund: 'tabu' | 'benennung' | 'direktkredit' | 'echo' | 'leer' }
 
 const LINK = /\[([^\]]*)\]\((?:[^)]*)\)|\bhttps?:\/\/\S+|\bwww\.\S+/gi
-const SCHRITTE_MARK = /\bSCHRITTE\s*:\s*([^\n]*)/gi
+const SCHRITT_ALT = [...SCHRITTE_KEYS].sort((a, b) => b.length - a.length).join('|')
+/** „SCHRITTE:“ (auch mitten in der Zeile) plus direkt folgende bekannte Schlüssel; der restliche Satz bleibt stehen. */
+const SCHRITTE_MARK = new RegExp(`\\bSCHRITTE\\s*:[ \\t]*((?:(?:${SCHRITT_ALT})(?![A-Za-z_])[ \\t]*[,;]?[ \\t]*)*)`, 'gi')
 const SEITEN_SET = new Set<string>(TUER_KI_SEITEN)
 const LOCALE_PFAD = new RegExp(`^/(${TUER_SPRACHEN.join('|')})(?=/|$)`)
 
@@ -97,9 +99,9 @@ export function leseSchritte(text: string): { text: string; schritte: string[] }
       const key = k.trim().toLowerCase()
       if ((SCHRITTE_KEYS as readonly string[]).includes(key) && !gefunden.includes(key)) gefunden.push(key)
     }
-    return ''
+    return ' '
   })
-  return { text: ohne.replace(/[ \t]{2,}/g, ' ').trim(), schritte: gefunden.slice(0, 6) }
+  return { text: ohne.replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+\n/g, '\n').trim(), schritte: gefunden.slice(0, 6) }
 }
 
 const PFAD_IM_TEXT = new RegExp(
@@ -121,34 +123,15 @@ export function hatRueckfrage(text: string): boolean {
   return /[?？؟]/.test(String(text || ''))
 }
 
-/** Entfernt Weiterleitungs-Phrasen und den Pfad aus dem Text (die Seite erscheint als Knopf). */
-export function entferneWeiterleitungImText(text: string, pfad: string): string {
-  const p = pfad.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  let t = String(text || '')
-  t = t.replace(new RegExp(`(?:Die Seite finden Sie unter|Weiter\\s+(?:zu|unter)|unter|zu)\\s+${p}`, 'gi'), '')
-  t = t.replace(new RegExp(p + '(?![A-Za-z0-9/_-])', 'g'), '')
-  t = t.replace(/\bPfad:\s*[a-z]+\.?/gi, '')
-  t = t.replace(/[ \t]+([.,;])/g, '$1')
-  t = t.replace(/[ \t]{2,}/g, ' ')
-  t = t.replace(/\n{3,}/g, '\n\n')
-  t = t.replace(/\(\s*\)/g, '')
-  t = t.replace(/[ \t]*,[ \t]*,/g, ',')
-  return t.trim()
-}
-
 /**
- * Genau ein Ende: Rückfrage bleibt im Text, ein erlaubter Pfad wird als weiterleitung
- * aus dem Text genommen (Link-Knopf im Client). Ohne Rückfrage bleibt der Pfad im Text.
+ * Genau ein Ende: Der Text bleibt unverändert (Rückfrage oder Hinweis auf die Seite, wie das Modell ihn schrieb).
+ * Ein erlaubter Pfad im Text wird zusätzlich als `weiterleitung` gemeldet; der Client zeigt dafür einen Link-Knopf.
+ * Es wird nichts aus dem Satz entfernt, damit keine Satzlücken entstehen.
  */
 export function legeEndeFest(text: string): { text: string; weiterleitung?: string } {
-  const pfade = findePfade(text)
-  const weiterleitung = pfade[0]
-  if (weiterleitung && hatRueckfrage(text)) {
-    return { text: entferneWeiterleitungImText(text, weiterleitung), weiterleitung }
-  }
+  const weiterleitung = findePfade(text)[0]
   return weiterleitung ? { text, weiterleitung } : { text }
 }
-
 
 /**
  * Bereinigt eine Modellantwort. `echoSaetze` sind markante Sätze des Systemprompts;
