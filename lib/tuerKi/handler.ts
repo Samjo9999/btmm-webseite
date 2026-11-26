@@ -11,7 +11,8 @@ import { TUER_KI, spracheOder, type TuerSprache } from './konfig.ts'
 import { tuerKiSchalter, type TuerKiEnv } from './schalter.ts'
 import { sensibleNutzerNachrichten, bereinigeAntwort } from './filter.ts'
 import { pruefePersistenteRate, rateSalt, type TuerRateRpc, type TuerRateZustand } from './rateLimit.ts'
-import { pruefeDeckel, bucheVerbrauch, deckelAusEnv, schaetzeTokens, type TuerKostenZustand } from './kosten.ts'
+import { pruefeDeckel, bucheVerbrauch, deckelAusEnv, schaetzeTokens, kostenEur, periodenUtc, type TuerKostenZustand } from './kosten.ts'
+import type { TuerKostenReserviere, TuerKostenKorrigiere } from './kostenPersist.ts'
 import { baueSystemprompt, ECHO_SAETZE } from './systemPrompt.ts'
 import { FESTE_TEXTE } from './texte.ts'
 
@@ -46,6 +47,10 @@ export type TuerKiDeps = {
   kosten: TuerKostenZustand
   /** Persistenter Zähler (tuer_ki_rate_zaehle); in Tests gemockt. */
   zaehleRate: TuerRateRpc
+  /** Persistenter Kostendeckel (tuer_ki_kosten_reserviere); in Tests gemockt. */
+  reserviereKosten: TuerKostenReserviere
+  /** Persistenter Kostendeckel (tuer_ki_kosten_korrigiere); in Tests gemockt. */
+  korrigiereKosten: TuerKostenKorrigiere
 }
 
 export type TuerKiErgebnis = { http: number; json: TuerKiAntwort; retryAfterSec?: number }
@@ -149,7 +154,17 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
   const dk = pruefeDeckel(d.kosten, deckel, ein, d.now)
   if (!dk.erlaubt) return fest('deckel', sprache, 'deckel')
 
-  // 8. Scaleway (ein Versuch, Timeout, kein Retry)
+  // 8. Persistenter Deckel: Worst-Case reservieren. Ohne RPC oder bei Fehler: fail-closed.
+  const { tag, monat } = periodenUtc(d.now)
+  const schlimmstenfalls = kostenEur(ein, dk.maxTokens)
+  try {
+    const reserve = await d.reserviereKosten(tag, monat, schlimmstenfalls, deckel.tagEur, deckel.monatEur)
+    if (!reserve || reserve.erlaubt !== true) return fest('deckel', sprache, 'deckel')
+  } catch {
+    return fest('fehler', sprache, 'fehler')
+  }
+
+  // 9. Scaleway (ein Versuch, Timeout, kein Retry)
   const erg = await d.chat({
     secret: schalter.secret,
     messages,
@@ -157,14 +172,18 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
     maxTokens: dk.maxTokens,
     timeoutMs: TUER_KI.timeoutMs,
   })
-  if (!erg) {
-    // Fehler/Timeout: Eingabe vorsorglich buchen, keine Ausgabe.
-    bucheVerbrauch(d.kosten, ein, 0, d.now)
-    return fest('fehler', sprache, 'fehler')
+  const echtEin = erg?.usage?.prompt_tokens ?? ein
+  const echtAus = erg ? (erg.usage?.completion_tokens ?? dk.maxTokens) : 0
+  const echtEur = kostenEur(echtEin, echtAus)
+  try {
+    await d.korrigiereKosten(tag, monat, schlimmstenfalls, echtEur, echtEin, echtAus)
+  } catch {
+    // Reservierung bleibt als Worst-Case stehen. Nichts loggen (kein Inhalt).
   }
-  bucheVerbrauch(d.kosten, erg.usage?.prompt_tokens ?? ein, erg.usage?.completion_tokens ?? dk.maxTokens, d.now)
+  bucheVerbrauch(d.kosten, echtEin, echtAus, d.now)
+  if (!erg) return fest('fehler', sprache, 'fehler')
 
-  // 9. Ausgabefilter
+  // 10. Ausgabefilter
   const aus = bereinigeAntwort(erg.text, ECHO_SAETZE)
   if (aus.art === 'ersetzt') {
     const key = aus.grund === 'direktkredit' ? 'direktkredit' : 'ersetzt'
