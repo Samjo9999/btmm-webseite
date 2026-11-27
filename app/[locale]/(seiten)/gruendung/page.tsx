@@ -11,7 +11,7 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Gründung – geplante BtMM eG',
-  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Wir suchen rund 13 Gründungsmitglieder; gegründet wird, sobald drei da sind. Werde Teil davon.',
+  description: 'Die geplante BtMM eG sucht rund 13 Gründungsmitglieder; gegründet wird, sobald drei da sind. Noch ist sie nicht gegründet, Mitglied werden geht noch nicht.',
 }
 
 const schritte = [

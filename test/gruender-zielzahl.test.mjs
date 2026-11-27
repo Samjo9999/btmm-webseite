@@ -69,9 +69,12 @@ test('Gründungsseite: Wortlaut rund 13, ab drei; Meta höchstens 160 Zeichen', 
   assert.doesNotMatch(src, ALT)
   const m = src.match(/description:\s*'([^']+)'/)
   assert.ok(m, 'Meta-Description fehlt')
+  assert.equal(
+    m[1],
+    'Die geplante BtMM eG sucht rund 13 Gründungsmitglieder; gegründet wird, sobald drei da sind. Noch ist sie nicht gegründet, Mitglied werden geht noch nicht.',
+  )
   assert.ok(m[1].length <= 160, `Meta-Description hat ${m[1].length} Zeichen`)
-  assert.match(m[1], /rund 13 Gründungsmitglieder/)
-  assert.match(m[1], /sobald drei da sind/)
+  assert.doesNotMatch(src, /Werde Teil davon/)
 })
 
 test('Übersetzungen: gruendungsmitglieder_ziel ist rund 13, nicht 7', () => {
