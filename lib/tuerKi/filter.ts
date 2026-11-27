@@ -2,11 +2,14 @@
  * Eingabe- und Ausgabefilter der Tür-KI.
  * Eingabe: sensible Angaben in IRGENDEINER Verlaufsnachricht (user und assistant) -> kein Modellaufruf.
  * Ausgabe: Emojis, fremde Links, Tabu-Wörter, Benennungsfehler, Direktkredit-Konditionen, Prompt-Echo.
- * Interne Pfade aus TUER_KI_SEITEN bleiben stehen.
+ * Interne Pfade bleiben als Markdown-Links [Titel](/pfad) stehen.
  */
 import { entferneEmojis } from '../../packages/wissen-mcp/src/emoji-filter.mjs'
 import { SENSIBEL_MUSTER, SENSIBEL_STAEMME, SENSIBEL_WOERTER, TABU_AUSGABE } from './sensibel-liste.ts'
-import { SCHRITTE_KEYS, TUER_KI, TUER_KI_SEITEN, TUER_SPRACHEN } from './konfig.ts'
+import { SCHRITTE_KEYS, TUER_KI } from './konfig.ts'
+import { erlaubterPfad, ersteWeiterleitung, normalisiereAntwortLinks, parseAntwortMitLinks } from './links.ts'
+
+export { erlaubterPfad }
 
 export function normalisiere(text: string): string {
   return String(text || '')
@@ -58,39 +61,9 @@ export type AusgabeErgebnis =
   | { art: 'ok'; text: string; schritte: string[]; weiterleitung?: string }
   | { art: 'ersetzt'; grund: 'tabu' | 'benennung' | 'direktkredit' | 'echo' | 'leer' }
 
-const LINK = /\[([^\]]*)\]\((?:[^)]*)\)|\bhttps?:\/\/\S+|\bwww\.\S+/gi
 const SCHRITT_ALT = [...SCHRITTE_KEYS].sort((a, b) => b.length - a.length).join('|')
 /** „SCHRITTE:“ (auch mitten in der Zeile) plus direkt folgende bekannte Schlüssel; der restliche Satz bleibt stehen. */
 const SCHRITTE_MARK = new RegExp(`\\bSCHRITTE\\s*:[ \\t]*((?:(?:${SCHRITT_ALT})(?![A-Za-z_])[ \\t]*[,;]?[ \\t]*)*)`, 'gi')
-const SEITEN_SET = new Set<string>(TUER_KI_SEITEN)
-const LOCALE_PFAD = new RegExp(`^/(${TUER_SPRACHEN.join('|')})(?=/|$)`)
-
-/** Liefert den erlaubten internen Pfad (ohne Locale) oder null. */
-export function erlaubterPfad(raw: string): string | null {
-  let s = String(raw || '').trim().replace(/[),.;!?]+$/g, '')
-  s = s.replace(/^https?:\/\/(www\.)?b-t-m-m\.com/i, '')
-  if (!s.startsWith('/')) return null
-  s = s.split(/[?#]/)[0]
-  const loc = s.match(LOCALE_PFAD)
-  if (loc) s = s.slice(loc[0].length) || '/'
-  if (SEITEN_SET.has(s)) return s
-  return null
-}
-
-function ersetzeLinks(text: string): string {
-  const LUECKE = '\u0000'
-  let t = text.replace(LINK, (m, label) => {
-    const url = m.startsWith('[') ? (m.match(/\]\(([^)]*)\)/) || [])[1] || '' : m
-    const pfad = erlaubterPfad(url)
-    if (pfad) return pfad
-    if (typeof label === 'string' && label.trim()) return label
-    return LUECKE
-  })
-  t = t.replace(/[ \t]*\u0000[ \t]*/g, ' ')
-  // Satzlücke nach entfernter URL: „auf … vorbei“ ohne Ziel wird zu „vorbei“.
-  t = t.replace(/\b(auf|unter|ueber|über|zu|bei|in|an)\s+vorbei\b/gi, 'vorbei')
-  return t
-}
 
 export function leseSchritte(text: string): { text: string; schritte: string[] } {
   const gefunden: string[] = []
@@ -104,17 +77,10 @@ export function leseSchritte(text: string): { text: string; schritte: string[] }
   return { text: ohne.replace(/[ \t]{2,}/g, ' ').replace(/[ \t]+\n/g, '\n').trim(), schritte: gefunden.slice(0, 6) }
 }
 
-const PFAD_IM_TEXT = new RegExp(
-  '(' + [...TUER_KI_SEITEN].sort((a, b) => b.length - a.length).map((s) => s.replace(/\//g, '\\/')).join('|') + ')(?![A-Za-z0-9/_-])',
-  'g',
-)
-
 export function findePfade(text: string): string[] {
   const gefunden: string[] = []
-  const re = new RegExp(PFAD_IM_TEXT.source, 'g')
-  let m: RegExpExecArray | null
-  while ((m = re.exec(String(text || '')))) {
-    if (!gefunden.includes(m[1])) gefunden.push(m[1])
+  for (const t of parseAntwortMitLinks(text)) {
+    if (t.typ === 'link' && !gefunden.includes(t.pfad)) gefunden.push(t.pfad)
   }
   return gefunden
 }
@@ -124,12 +90,11 @@ export function hatRueckfrage(text: string): boolean {
 }
 
 /**
- * Genau ein Ende: Der Text bleibt unverändert (Rückfrage oder Hinweis auf die Seite, wie das Modell ihn schrieb).
  * Ein erlaubter Pfad im Text wird zusätzlich als `weiterleitung` gemeldet; der Client zeigt dafür einen Link-Knopf.
- * Es wird nichts aus dem Satz entfernt, damit keine Satzlücken entstehen.
+ * Der Satz bleibt stehen (Links fest als Markdown [Titel](/pfad)).
  */
 export function legeEndeFest(text: string): { text: string; weiterleitung?: string } {
-  const weiterleitung = findePfade(text)[0]
+  const weiterleitung = ersteWeiterleitung(text)
   return weiterleitung ? { text, weiterleitung } : { text }
 }
 
@@ -139,7 +104,7 @@ export function legeEndeFest(text: string): { text: string; weiterleitung?: stri
  */
 export function bereinigeAntwort(roh: string, echoSaetze: readonly string[] = []): AusgabeErgebnis {
   const { text: ohneSchritte, schritte } = leseSchritte(String(roh || ''))
-  let t = ersetzeLinks(entferneEmojis(ohneSchritte))
+  let t = normalisiereAntwortLinks(entferneEmojis(ohneSchritte))
     .replace(/[*_#`>]+/g, '')
     .replace(/[ \t]{2,}/g, ' ')
     .replace(/\n{3,}/g, '\n\n')

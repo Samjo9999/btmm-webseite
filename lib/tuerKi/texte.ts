@@ -20,17 +20,17 @@ export type FesteTexte = {
 
 /** Hinweise bei aus, Limit, Deckel oder Fehler: ein Wortlaut, Sie-Form, ohne alten Dialog. */
 export const NICHT_VERFUEGBAR: Record<TuerSprache, string> = {
-  de: "Die BtMM-KI ist gerade nicht verfügbar. Über die Links unten können Sie sich weiter informieren.",
-  en: "The BtMM AI is not available right now. You can find out more via the links below.",
-  fr: "L'IA BtMM n'est pas disponible pour le moment. Vous pouvez vous informer via les liens ci-dessous.",
-  es: "La IA de BtMM no está disponible en este momento. Puede informarse a través de los enlaces de abajo.",
-  pt: "A IA da BtMM não está disponível de momento. Pode informar-se através das ligações abaixo.",
-  ru: "ИИ BtMM сейчас недоступен. Вы можете узнать больше по ссылкам ниже.",
-  ar: "ذكاء BtMM غير متاح الآن. يمكنكم الاطلاع عبر الروابط أدناه.",
-  hi: "BtMM-KI अभी उपलब्ध नहीं है। नीचे दिए लिंक से आप और जानकारी ले सकते हैं।",
-  bn: "BtMM-KI এখন পাওয়া যাচ্ছে না। নিচের লিঙ্ক থেকে আপনি আরও জানতে পারেন।",
-  ja: "BtMM-KIは現在ご利用いただけません。下のリンクから詳しい情報をご覧いただけます。",
-  zh: "BtMM-KI 目前不可用。您可以通过下方链接了解更多。",
+  de: "Die BtMM-KI ist gerade nicht verfügbar. Eine Einführung finden Sie unter [Einführung](/dokumente/01-einfuehrung). Weitere Seiten: [Dokumente](/dokumente), [Häufige Fragen](/faq).",
+  en: "The BtMM AI is not available right now. An introduction is available at [Introduction](/dokumente/01-einfuehrung). Further pages: [Documents](/dokumente), [FAQ](/faq).",
+  fr: "L’IA BtMM n’est pas disponible pour le moment. Une introduction se trouve sous [Introduction](/dokumente/01-einfuehrung). Autres pages : [Documents](/dokumente), [Questions fréquentes](/faq).",
+  es: "La IA de BtMM no está disponible en este momento. Una introducción está en [Introducción](/dokumente/01-einfuehrung). Otras páginas: [Documentos](/dokumente), [Preguntas frecuentes](/faq).",
+  pt: "A IA da BtMM não está disponível de momento. Uma introdução está em [Introdução](/dokumente/01-einfuehrung). Outras páginas: [Documentos](/dokumente), [Perguntas frequentes](/faq).",
+  ru: "ИИ BtMM сейчас недоступен. Введение — в [Einführung](/dokumente/01-einfuehrung). Другие страницы: [Dokumente](/dokumente), [FAQ](/faq).",
+  ar: "ذكاء BtMM غير متاح الآن. مقدمة قصيرة تحت [Einführung](/dokumente/01-einfuehrung). صفحات أخرى: [Dokumente](/dokumente)، [FAQ](/faq).",
+  hi: "BtMM-KI अभी उपलब्ध नहीं है। परिचय [Einführung](/dokumente/01-einfuehrung) पर है। अन्य पृष्ठ: [Dokumente](/dokumente), [FAQ](/faq).",
+  bn: "BtMM-KI এখন পাওয়া যাচ্ছে না। ভূমিকা আছে [Einführung](/dokumente/01-einfuehrung)-এ। অন্যান্য পৃষ্ঠা: [Dokumente](/dokumente), [FAQ](/faq).",
+  ja: "BtMM-KIは現在ご利用いただけません。導入は [Einführung](/dokumente/01-einfuehrung) にあります。他のページ: [Dokumente](/dokumente)、[FAQ](/faq)。",
+  zh: "BtMM-KI 目前不可用。简介见 [Einführung](/dokumente/01-einfuehrung)。其他页面：[Dokumente](/dokumente)、[FAQ](/faq)。",
 }
 
 export const FESTE_TEXTE: Record<TuerSprache, FesteTexte> = {
@@ -42,8 +42,8 @@ export const FESTE_TEXTE: Record<TuerSprache, FesteTexte> = {
     fehler: NICHT_VERFUEGBAR.de,
     ende: 'Danke für das Gespräch. Hier ist Ihr Weg durch BtMM.',
     zuLang: 'Ihre Nachricht ist zu lang. Bitte fassen Sie sich etwas kürzer (höchstens 600 Zeichen).',
-    ersetzt: 'Dazu kann ich hier nichts Verlässliches sagen. Schauen Sie gern in die Dokumente oder fragen Sie über das Kontaktformular.',
-    direktkredit: 'Direktkredite sind für die Zeit nach der Gründung angedacht. Die Bedingungen sind noch offen und werden rechtlich geprüft. Grundsätzlich gilt: Direktkredite sind nachrangig, ein vollständiger Verlust ist möglich, geben Sie nur, was Sie verlieren könnten. Fragen dazu gern über das Kontaktformular.',
+    ersetzt: 'Dazu kann ich hier nichts Verlässliches sagen. Schauen Sie gern in die [Dokumente](/dokumente) oder fragen Sie über das Kontaktformular unter [Mitmachen](/mitmachen).',
+    direktkredit: 'Direktkredite sind für die Zeit nach der Gründung angedacht. Die Bedingungen sind noch offen und werden rechtlich geprüft. Grundsätzlich gilt: Direktkredite sind nachrangig, ein vollständiger Verlust ist möglich, geben Sie nur, was Sie verlieren könnten. Fragen dazu gern über das Kontaktformular unter [Mitmachen](/mitmachen).',
   },
   en: {
     aus: NICHT_VERFUEGBAR.en,

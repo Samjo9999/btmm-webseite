@@ -9,11 +9,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "Ihre Nachricht wird zur Antwort an unseren Dienstleister Scaleway (Paris, EU) gesendet und nicht von uns gespeichert. Das Gespräch bleibt nur in diesem Browser-Tab. Bitte keine persönlichen Daten oder Gesundheitsangaben.",
     kiHinweis: "Sie sprechen mit einer KI. Die Antworten werden automatisch erzeugt und können Fehler enthalten. Automatischer Assistent, kein Mensch, keine Beratung.",
     starten: "Mit KI sprechen",
-    begruessung: "Hallo, schön, dass Sie da sind.",
-    ersteFrage: "Was führt Sie zu BtMM, oder was möchten Sie wissen?",
+    begruessung: "Hallo, schön, dass Sie da sind. Eine Einführung (rund zehn Minuten) finden Sie unter [Einführung](/dokumente/01-einfuehrung).",
+    ersteFrage: "Was führt Sie zu BtMM, oder was möchten Sie wissen? Zur Einführung: [Einführung](/dokumente/01-einfuehrung).",
     antwortLabel: "Ihre Nachricht", placeholder: "Schreiben oder sprechen Sie Ihre Nachricht …", sendenAria: "Nachricht senden",
     schreibt: "Die BtMM-KI schreibt …", weg: "Ihren Weg ansehen",
-    netz: "Die BtMM-KI ist gerade nicht verfügbar. Über die Links unten können Sie sich weiter informieren.",
+    netz: "Die BtMM-KI ist gerade nicht verfügbar. Eine Einführung finden Sie unter [Einführung](/dokumente/01-einfuehrung). Weitere Seiten: [Dokumente](/dokumente), [Häufige Fragen](/faq).",
     links: { start: "Startseite", faq: "Häufige Fragen", dokumente: "Dokumente", mitmachen: "Mitmachen" }
   },
   en: {
@@ -22,11 +22,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "To create a reply, your message is sent to our service provider Scaleway (Paris, EU) and is not stored by us. The conversation stays only in this browser tab. Please do not share personal data or health information.",
     kiHinweis: "You are talking to an AI. The replies are generated automatically and may contain mistakes. Automated assistant, not a human, no advice.",
     starten: "Talk to the AI",
-    begruessung: "Hello, nice to have you here.",
-    ersteFrage: "What brings you to BtMM, or what would you like to know?",
+    begruessung: "Hello, nice to have you here. An introduction (about ten minutes) is available at [Introduction](/dokumente/01-einfuehrung).",
+    ersteFrage: "What brings you to BtMM, or what would you like to know? For an introduction: [Introduction](/dokumente/01-einfuehrung).",
     antwortLabel: "Your message", placeholder: "Type or say your message …", sendenAria: "Send message",
     schreibt: "The BtMM AI is writing …", weg: "See your path",
-    netz: "The BtMM AI is not available right now. You can find out more via the links below.",
+    netz: "The BtMM AI is not available right now. An introduction is available at [Introduction](/dokumente/01-einfuehrung). Further pages: [Documents](/dokumente), [FAQ](/faq).",
     links: { start: "Home page", faq: "FAQ", dokumente: "Documents", mitmachen: "Get involved" }
   },
   fr: {
@@ -35,11 +35,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "Pour créer une réponse, votre message est envoyé à notre prestataire Scaleway (Paris, UE) et n'est pas enregistré par nous. La conversation reste uniquement dans cet onglet. Merci de ne pas indiquer de données personnelles ni d'informations de santé.",
     kiHinweis: "Vous parlez avec une IA. Les réponses sont générées automatiquement et peuvent contenir des erreurs. Assistant automatique, pas un humain, pas de conseil.",
     starten: "Parler avec l'IA",
-    begruessung: "Bonjour, ravi de vous voir.",
-    ersteFrage: "Qu'est-ce qui vous amène chez BtMM, ou que souhaitez-vous savoir ?",
+    begruessung: "Bonjour, ravi de vous voir. Une introduction (environ dix minutes) se trouve sous [Introduction](/dokumente/01-einfuehrung).",
+    ersteFrage: "Qu'est-ce qui vous amène chez BtMM, ou que souhaitez-vous savoir ? Pour l’introduction : [Introduction](/dokumente/01-einfuehrung).",
     antwortLabel: "Votre message", placeholder: "Écrivez ou dites votre message …", sendenAria: "Envoyer le message",
     schreibt: "L'IA BtMM écrit …", weg: "Voir votre chemin",
-    netz: "L'IA BtMM n'est pas disponible pour le moment. Vous pouvez vous informer via les liens ci-dessous.",
+    netz: "L’IA BtMM n’est pas disponible pour le moment. Une introduction se trouve sous [Introduction](/dokumente/01-einfuehrung). Autres pages : [Documents](/dokumente), [Questions fréquentes](/faq).",
     links: { start: "Accueil", faq: "Questions fréquentes", dokumente: "Documents", mitmachen: "Participer" }
   },
   es: {
@@ -48,11 +48,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "Para crear una respuesta, su mensaje se envía a nuestro proveedor Scaleway (París, UE) y no lo guardamos. La conversación queda solo en esta pestaña del navegador. Por favor, no comparta datos personales ni información de salud.",
     kiHinweis: "Está hablando con una IA. Las respuestas se generan automáticamente y pueden contener errores. Asistente automático, no es una persona, sin asesoramiento.",
     starten: "Hablar con la IA",
-    begruessung: "Hola, qué bien que esté aquí.",
-    ersteFrage: "¿Qué le trae a BtMM, o qué le gustaría saber?",
+    begruessung: "Hola, qué bien que esté aquí. Una introducción (unos diez minutos) está en [Introducción](/dokumente/01-einfuehrung).",
+    ersteFrage: "¿Qué le trae a BtMM, o qué le gustaría saber? Para la introducción: [Introducción](/dokumente/01-einfuehrung).",
     antwortLabel: "Su mensaje", placeholder: "Escriba o diga su mensaje …", sendenAria: "Enviar mensaje",
     schreibt: "La IA de BtMM está escribiendo …", weg: "Ver su camino",
-    netz: "La IA de BtMM no está disponible en este momento. Puede informarse a través de los enlaces de abajo.",
+    netz: "La IA de BtMM no está disponible en este momento. Una introducción está en [Introducción](/dokumente/01-einfuehrung). Otras páginas: [Documentos](/dokumente), [Preguntas frecuentes](/faq).",
     links: { start: "Inicio", faq: "Preguntas frecuentes", dokumente: "Documentos", mitmachen: "Participar" }
   },
   pt: {
@@ -61,11 +61,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "Para criar uma resposta, a sua mensagem é enviada ao nosso prestador Scaleway (Paris, UE) e não é guardada por nós. A conversa fica apenas neste separador do navegador. Por favor, não partilhe dados pessoais nem informações de saúde.",
     kiHinweis: "Está a falar com uma IA. As respostas são geradas automaticamente e podem conter erros. Assistente automático, não é uma pessoa, sem aconselhamento.",
     starten: "Falar com a IA",
-    begruessung: "Olá, que bom que está aqui.",
-    ersteFrage: "O que o traz ao BtMM, ou o que gostaria de saber?",
+    begruessung: "Olá, que bom que está aqui. Uma introdução (cerca de dez minutos) está em [Introdução](/dokumente/01-einfuehrung).",
+    ersteFrage: "O que o traz ao BtMM, ou o que gostaria de saber? Para a introdução: [Introdução](/dokumente/01-einfuehrung).",
     antwortLabel: "A sua mensagem", placeholder: "Escreva ou diga a sua mensagem …", sendenAria: "Enviar mensagem",
     schreibt: "A IA do BtMM está a escrever …", weg: "Ver o seu caminho",
-    netz: "A IA da BtMM não está disponível de momento. Pode informar-se através das ligações abaixo.",
+    netz: "A IA da BtMM não está disponível de momento. Uma introdução está em [Introdução](/dokumente/01-einfuehrung). Outras páginas: [Documentos](/dokumente), [Perguntas frequentes](/faq).",
     links: { start: "Início", faq: "Perguntas frequentes", dokumente: "Documentos", mitmachen: "Participar" }
   },
   ru: {
@@ -74,11 +74,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "Чтобы составить ответ, Ваше сообщение отправляется нашему подрядчику Scaleway (Париж, ЕС) и не сохраняется у нас. Разговор остаётся только в этой вкладке браузера. Пожалуйста, не указывайте личные данные и сведения о здоровье.",
     kiHinweis: "Вы общаетесь с ИИ. Ответы создаются автоматически и могут содержать ошибки. Автоматический помощник, не человек, без консультаций.",
     starten: "Поговорить с ИИ",
-    begruessung: "Здравствуйте, хорошо, что Вы здесь.",
-    ersteFrage: "Что привело Вас в BtMM, или что Вы хотите узнать?",
+    begruessung: "Здравствуйте, хорошо, что Вы здесь. Краткое введение (около десяти минут) — в [Einführung](/dokumente/01-einfuehrung).",
+    ersteFrage: "Что привело Вас в BtMM, или что Вы хотите узнать? Введение: [Einführung](/dokumente/01-einfuehrung).",
     antwortLabel: "Ваше сообщение", placeholder: "Напишите или скажите сообщение …", sendenAria: "Отправить сообщение",
     schreibt: "ИИ BtMM пишет …", weg: "Посмотреть Ваш путь",
-    netz: "ИИ BtMM сейчас недоступен. Вы можете узнать больше по ссылкам ниже.",
+    netz: "ИИ BtMM сейчас недоступен. Введение — в [Einführung](/dokumente/01-einfuehrung). Другие страницы: [Dokumente](/dokumente), [FAQ](/faq).",
     links: { start: "Главная", faq: "Частые вопросы", dokumente: "Документы", mitmachen: "Участвовать" }
   },
   ar: {
@@ -87,11 +87,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "لإنشاء الرد تُرسل رسالتكم إلى مزود الخدمة Scaleway (باريس، الاتحاد الأوروبي) ولا نحفظها نحن. تبقى المحادثة في علامة التبويب هذه فقط. من فضلكم لا تشاركوا بيانات شخصية أو معلومات صحية.",
     kiHinweis: "أنتم تتحدثون مع ذكاء اصطناعي. تُنشأ الردود تلقائيًا وقد تحتوي على أخطاء. مساعد آلي، ليس إنسانًا، ولا يقدم استشارة.",
     starten: "تحدثوا مع الذكاء الاصطناعي",
-    begruessung: "مرحبًا، يسعدني وجودكم هنا.",
-    ersteFrage: "ما الذي أتى بكم إلى BtMM، أو ماذا تودون معرفته؟",
+    begruessung: "مرحبًا، يسعدني وجودكم هنا. مقدمة قصيرة (نحو عشر دقائق) تحت [Einführung](/dokumente/01-einfuehrung).",
+    ersteFrage: "ما الذي أتى بكم إلى BtMM، أو ماذا تودون معرفته؟ للمقدمة: [Einführung](/dokumente/01-einfuehrung).",
     antwortLabel: "رسالتكم", placeholder: "اكتبوا رسالتكم أو قولوها …", sendenAria: "إرسال الرسالة",
     schreibt: "ذكاء BtMM يكتب …", weg: "اعرضوا طريقكم",
-    netz: "ذكاء BtMM غير متاح الآن. يمكنكم الاطلاع عبر الروابط أدناه.",
+    netz: "ذكاء BtMM غير متاح الآن. مقدمة قصيرة تحت [Einführung](/dokumente/01-einfuehrung). صفحات أخرى: [Dokumente](/dokumente)، [FAQ](/faq).",
     links: { start: "الصفحة الرئيسية", faq: "الأسئلة الشائعة", dokumente: "الوثائق", mitmachen: "شاركوا" }
   },
   hi: {
@@ -100,11 +100,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "जवाब बनाने के लिए आपका संदेश हमारे सेवा प्रदाता Scaleway (पेरिस, ईयू) को भेजा जाता है और हम उसे संग्रहीत नहीं करते। बातचीत केवल इस ब्राउज़र टैब में रहती है। कृपया निजी डेटा या स्वास्थ्य संबंधी जानकारी न लिखें।",
     kiHinweis: "आप एक एआई से बात कर रहे हैं। जवाब अपने आप बनते हैं और उनमें गलतियाँ हो सकती हैं। स्वचालित सहायक, इंसान नहीं, कोई परामर्श नहीं।",
     starten: "एआई से बात करें",
-    begruessung: "नमस्ते, अच्छा लगा कि आप यहाँ हैं।",
-    ersteFrage: "आप BtMM तक कैसे पहुँचे, या क्या जानना चाहते हैं?",
+    begruessung: "नमस्ते, अच्छा लगा कि आप यहाँ हैं। एक संक्षिप्त परिचय (लगभग दस मिनट) [Einführung](/dokumente/01-einfuehrung) पर है।",
+    ersteFrage: "आप BtMM तक कैसे पहुँचे, या क्या जानना चाहते हैं? परिचय: [Einführung](/dokumente/01-einfuehrung).",
     antwortLabel: "आपका संदेश", placeholder: "अपना संदेश लिखें या बोलें …", sendenAria: "संदेश भेजें",
     schreibt: "BtMM-एआई लिख रही है …", weg: "अपना रास्ता देखें",
-    netz: "BtMM-KI अभी उपलब्ध नहीं है। नीचे दिए लिंक से आप और जानकारी ले सकते हैं।",
+    netz: "BtMM-KI अभी उपलब्ध नहीं है। परिचय [Einführung](/dokumente/01-einfuehrung) पर है। अन्य पृष्ठ: [Dokumente](/dokumente), [FAQ](/faq).",
     links: { start: "होम पेज", faq: "अक्सर पूछे जाने वाले सवाल", dokumente: "दस्तावेज़", mitmachen: "शामिल हों" }
   },
   bn: {
@@ -113,11 +113,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "উত্তর তৈরি করতে আপনার বার্তা আমাদের সেবাদাতা Scaleway (প্যারিস, ইইউ)-তে পাঠানো হয় এবং আমরা তা সংরক্ষণ করি না। কথোপকথন শুধু এই ব্রাউজার ট্যাবে থাকে। দয়া করে ব্যক্তিগত তথ্য বা স্বাস্থ্য সংক্রান্ত তথ্য লিখবেন না।",
     kiHinweis: "আপনি একটি এআই-এর সাথে কথা বলছেন। উত্তরগুলো স্বয়ংক্রিয়ভাবে তৈরি হয় এবং ভুল থাকতে পারে। স্বয়ংক্রিয় সহকারী, মানুষ নয়, কোনো পরামর্শ নয়।",
     starten: "এআই-এর সাথে কথা বলুন",
-    begruessung: "নমস্কার, আপনি এখানে আছেন দেখে ভালো লাগছে।",
-    ersteFrage: "কী আপনাকে BtMM-এ নিয়ে এসেছে, বা আপনি কী জানতে চান?",
+    begruessung: "নমস্কার, আপনি এখানে আছেন দেখে ভালো লাগছে। একটি সংক্ষিপ্ত ভূমিকা (প্রায় দশ মিনিট) আছে [Einführung](/dokumente/01-einfuehrung)-এ।",
+    ersteFrage: "কী আপনাকে BtMM-এ নিয়ে এসেছে, বা আপনি কী জানতে চান? ভূমিকা: [Einführung](/dokumente/01-einfuehrung).",
     antwortLabel: "আপনার বার্তা", placeholder: "আপনার বার্তা লিখুন বা বলুন …", sendenAria: "বার্তা পাঠান",
     schreibt: "BtMM এআই লিখছে …", weg: "আপনার পথ দেখুন",
-    netz: "BtMM-KI এখন পাওয়া যাচ্ছে না। নিচের লিঙ্ক থেকে আপনি আরও জানতে পারেন।",
+    netz: "BtMM-KI এখন পাওয়া যাচ্ছে না। ভূমিকা আছে [Einführung](/dokumente/01-einfuehrung)-এ। অন্যান্য পৃষ্ঠা: [Dokumente](/dokumente), [FAQ](/faq).",
     links: { start: "হোম পেজ", faq: "সাধারণ প্রশ্ন", dokumente: "নথি", mitmachen: "যুক্ত হোন" }
   },
   ja: {
@@ -126,11 +126,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "返答を作成するため、メッセージは当方の委託先Scaleway(パリ、EU)に送信され、当方では保存しません。会話はこのブラウザのタブ内にのみ残ります。個人情報や健康に関する情報は入力しないでください。",
     kiHinweis: "あなたはAIと話しています。返答は自動的に生成され、誤りを含む場合があります。自動アシスタントであり、人間ではなく、助言は行いません。",
     starten: "AIと話す",
-    begruessung: "こんにちは、お越しいただきありがとうございます。",
-    ersteFrage: "BtMMに来たきっかけや、知りたいことを教えてください。",
+    begruessung: "こんにちは、お越しいただきありがとうございます。短い導入（約10分）は [Einführung](/dokumente/01-einfuehrung) にあります。",
+    ersteFrage: "BtMMに来たきっかけや、知りたいことを教えてください。導入: [Einführung](/dokumente/01-einfuehrung)。",
     antwortLabel: "あなたのメッセージ", placeholder: "メッセージを入力するかお話しください …", sendenAria: "メッセージを送信",
     schreibt: "BtMM AIが入力中 …", weg: "あなたの道をご覧ください",
-    netz: "BtMM-KIは現在ご利用いただけません。下のリンクから詳しい情報をご覧いただけます。",
+    netz: "BtMM-KIは現在ご利用いただけません。導入は [Einführung](/dokumente/01-einfuehrung) にあります。他のページ: [Dokumente](/dokumente)、[FAQ](/faq)。",
     links: { start: "ホーム", faq: "よくある質問", dokumente: "資料", mitmachen: "参加する" }
   },
   zh: {
@@ -139,11 +139,11 @@ window.BTMM_TUER_KI_TEXTE = {
     ds: "为生成回复，您的消息会发送给我们的服务商 Scaleway（巴黎，欧盟），我们不会保存。对话只保留在此浏览器标签页中。请不要填写个人数据或健康信息。",
     kiHinweis: "您正在与人工智能交谈。回复由系统自动生成，可能有误。自动助手，不是真人，不提供咨询。",
     starten: "与人工智能交谈",
-    begruessung: "您好，很高兴您来了。",
-    ersteFrage: "是什么让您来到 BtMM，或者您想了解什么？",
+    begruessung: "您好，很高兴您来了。一份简短介绍（约十分钟）见 [Einführung](/dokumente/01-einfuehrung)。",
+    ersteFrage: "是什么让您来到 BtMM，或者您想了解什么？简介：[Einführung](/dokumente/01-einfuehrung)。",
     antwortLabel: "您的消息", placeholder: "请输入或说出您的消息 …", sendenAria: "发送消息",
     schreibt: "BtMM 人工智能正在输入 …", weg: "查看您的路径",
-    netz: "BtMM-KI 目前不可用。您可以通过下方链接了解更多。",
+    netz: "BtMM-KI 目前不可用。简介见 [Einführung](/dokumente/01-einfuehrung)。其他页面：[Dokumente](/dokumente)、[FAQ](/faq)。",
     links: { start: "首页", faq: "常见问题", dokumente: "文件", mitmachen: "参与" }
   }
 };
