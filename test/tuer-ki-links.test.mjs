@@ -2,9 +2,11 @@
 import test from 'node:test'
 import assert from 'node:assert/strict'
 import { readFileSync } from 'node:fs'
+import vm from 'node:vm'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { beantworteTuerKi } from '../lib/tuerKi/handler.ts'
+import { bereinigeAntwort } from '../lib/tuerKi/filter.ts'
 import { neuerRateZustand } from '../lib/tuerKi/rateLimit.ts'
 import { neuerKostenZustand } from '../lib/tuerKi/kosten.ts'
 import { baueSystemprompt } from '../lib/tuerKi/systemPrompt.ts'
@@ -17,6 +19,7 @@ import {
   normalisiereAntwortLinks,
   sichererHref,
   linkTitel,
+  findeMarkdownLinks,
   DOKUMENT_TITEL,
   SEITEN_TITEL,
 } from '../lib/tuerKi/links.ts'
@@ -76,7 +79,7 @@ test('Link-Parser: Markdown-Link, nackter Pfad /dokumente/01, fremde Domain nich
   assert.equal(sichererHref('javascript:alert(1)', '/de'), null)
   const jsMd = parseAntwortMitLinks('Nicht klicken: [x](javascript:alert(1))')
   assert.equal(jsMd.some((t) => t.typ === 'link'), false)
-  assert.equal(jsMd.map((t) => t.typ === 'text' ? t.text : t.titel).join('').includes('x'), true)
+  assert.equal(jsMd.map((t) => t.typ === 'text' ? t.text : t.titel).join(''), 'Nicht klicken: x')
 
   assert.equal(sichererHref('/dokumente/01', '/de'), '/de/dokumente/01-einfuehrung')
   assert.equal(sichererHref('/faq', '/en'), '/en/faq')
@@ -145,7 +148,9 @@ test('Begrüßung, erste Frage und Client-Renderer: Links von Anfang an, sicher,
   assert.match(ki, /function erlaubterPfad/)
   assert.match(ki, /className = 'ki-inlink'/)
   assert.match(ki, /createElement\('a'\)/)
-  assert.match(ki, /a\.href = BASIS \+ teile\[t\]\.pfad/)
+  assert.match(ki, /function zerlegeErlaubtenPfad/)
+  assert.match(ki, /function findeMarkdownLinks/)
+  assert.match(ki, /a\.href = \(teile\[t\]\.locale && LOCALES\.indexOf\(teile\[t\]\.locale\) >= 0 \? '\/' \+ teile\[t\]\.locale : BASIS\) \+ teile\[t\]\.pfad/)
   assert.match(ki, /javascript\|data\|vbscript\|file\|blob/)
   const innerZuweisungen = [...ki.matchAll(/innerHTML\s*=\s*([^;]+)/g)].map((m) => m[1].trim())
   assert.ok(innerZuweisungen.length > 0 && innerZuweisungen.every((v) => v === "''" || v === '""'), String(innerZuweisungen))
@@ -166,4 +171,83 @@ test('Direktlieferung hängt den Einführungslink an, wenn noch keiner vorkommt'
   const schon = sichereDirektlieferung('Mehr unter [Dokumente](/dokumente).', [{ rolle: 'user', text: 'Hallo' }], 'de')
   assert.doesNotMatch(schon.text, /01-einfuehrung/)
   assert.equal(schon.weiterleitung, '/dokumente')
+})
+
+
+function ladeClientLogik(basis) {
+  const src = lese('public/tuer/tuer-ki.js')
+  const seiten = src.match(/  var SEITEN = \[[^\]]+\];/)
+  const start = src.indexOf('  var SEITEN_TITEL = ')
+  const end = src.indexOf('  function blase(')
+  if (!seiten || start < 0 || end < 0) throw new Error('Client-Parser nicht gefunden')
+  const prelude = `
+    var LANG = 'de';
+    var BASIS = ${JSON.stringify(basis)};
+    var K = { links: { faq: 'Häufige Fragen', dokumente: 'Dokumente', mitmachen: 'Mitmachen' } };
+    var document = {
+      createElement: function (tag) { return { tagName: tag, className: '', href: '', textContent: '' }; },
+      createTextNode: function (t) { return { textContent: t }; },
+    };
+  `
+  const code = prelude + seiten[0] + '\n' + src.slice(start, end) + '\nreturn { parseAntwortMitLinks, erlaubterPfad, zerlegeErlaubtenPfad, setzeMitLinks, findeMarkdownLinks };'
+  return vm.runInNewContext('(function(){\n' + code + '\n})()')
+}
+
+function gerenderterText(el) {
+  return el.kids.map((k) => (k.href != null && k.href !== '' ? '[' + k.textContent + '](' + k.href + ')' : k.textContent)).join('')
+}
+
+function fakeEl() {
+  const el = { kids: [], appendChild(n) { this.kids.push(n); return n } }
+  return el
+}
+
+test('Nackter Pfad mit Locale bleibt ganz und behält das Präfix im Ziel (Server und Client)', () => {
+  const server = bereinigeAntwort('Weiter unter /de/faq.')
+  assert.equal(server.text, 'Weiter unter [Häufige Fragen](/de/faq).')
+  assert.doesNotMatch(server.text, /\/de\[|\/deHäufige/)
+  assert.equal(server.weiterleitung, '/faq')
+  const teile = parseAntwortMitLinks('Die Seite /de/faq hilft.')
+  const link = teile.find((t) => t.typ === 'link')
+  assert.equal(link.pfad, '/faq')
+  assert.equal(link.locale, 'de')
+  assert.equal(link.titel, 'Häufige Fragen')
+  assert.equal(teile.filter((t) => t.typ === 'text').map((t) => t.text).join('').includes('/de'), false)
+  assert.equal(normalisiereAntwortLinks('Siehe /en/dokumente/01.'), 'Siehe [Einführung](/en/dokumente/01-einfuehrung).')
+  assert.equal(sichererHref('/de/faq', '/en'), '/de/faq')
+  assert.equal(sichererHref('/faq', '/de'), '/de/faq')
+
+  const client = ladeClientLogik('/fr')
+  const cTeile = client.parseAntwortMitLinks('Weiter unter /de/faq.')
+  const cLink = cTeile.find((t) => t.typ === 'link')
+  assert.equal(cLink.pfad, '/faq')
+  assert.equal(cLink.locale, 'de')
+  const el = fakeEl()
+  client.setzeMitLinks(el, 'Weiter unter /de/faq.')
+  assert.equal(gerenderterText(el), 'Weiter unter [Häufige Fragen](/de/faq).')
+  assert.doesNotMatch(gerenderterText(el), /\/de\[|\/deHäufige|\/fr\/de/)
+  const el2 = fakeEl()
+  client.setzeMitLinks(el2, 'Ohne Locale: /faq.')
+  assert.equal(gerenderterText(el2), 'Ohne Locale: [Häufige Fragen](/fr/faq).')
+})
+
+test('Gesperrte Markdown-Links mit Klammern im Ziel werden vollständig zu Linktext (Server und Client)', () => {
+  assert.equal(normalisiereAntwortLinks('Nicht klicken: [Klick](javascript:alert(1)).'), 'Nicht klicken: Klick.')
+  const teile = parseAntwortMitLinks('Nicht klicken: [Klick](javascript:alert(1)).')
+  assert.equal(teile.some((t) => t.typ === 'link'), false)
+  assert.equal(teile.map((t) => t.typ === 'text' ? t.text : t.titel).join(''), 'Nicht klicken: Klick.')
+  assert.doesNotMatch(teile.map((t) => t.text || '').join(''), /\)/)
+  const md = findeMarkdownLinks('Siehe [x](javascript:alert(1)) bitte.')
+  assert.equal(md.length, 1)
+  assert.equal(md[0].titel, 'x')
+  assert.equal(md[0].ziel, 'javascript:alert(1)')
+
+  const client = ladeClientLogik('/de')
+  const cTeile = client.parseAntwortMitLinks('Nicht klicken: [Klick](javascript:alert(1)).')
+  assert.equal(cTeile.some((t) => t.typ === 'link'), false)
+  assert.equal(cTeile.map((t) => t.typ === 'text' ? t.text : t.titel).join(''), 'Nicht klicken: Klick.')
+  const el = fakeEl()
+  client.setzeMitLinks(el, 'Nicht klicken: [Klick](javascript:alert(1)).')
+  assert.equal(gerenderterText(el), 'Nicht klicken: Klick.')
+  assert.doesNotMatch(gerenderterText(el), /\)/)
 })

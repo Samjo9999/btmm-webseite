@@ -55,7 +55,7 @@
     for (k in DOK_TITEL) { if (k === num || k.indexOf(num + '-') === 0) return k; }
     return null;
   }
-  function erlaubterPfad(raw) {
+  function zerlegeErlaubtenPfad(raw) {
     var s = String(raw || '').trim();
     if (!s || /^(javascript|data|vbscript|file|blob):/i.test(s)) return null;
     s = s.replace(/[),.;!?]+$/g, '');
@@ -71,16 +71,48 @@
     try { s = decodeURIComponent(s); } catch (e) { return null; }
     if (s.indexOf('..') >= 0 || s.indexOf('//') >= 0 || s.indexOf('\\') >= 0) return null;
     if (!/^\/[a-z0-9/_-]*$/i.test(s)) return null;
-    var loc, i;
+    var locale = null, i;
     for (i = 0; i < LOCALES.length; i++) {
-      if (s === '/' + LOCALES[i]) { s = '/'; break; }
-      if (s.indexOf('/' + LOCALES[i] + '/') === 0) { s = s.slice(LOCALES[i].length + 1); break; }
+      if (s === '/' + LOCALES[i]) { locale = LOCALES[i]; s = '/'; break; }
+      if (s.indexOf('/' + LOCALES[i] + '/') === 0) { locale = LOCALES[i]; s = s.slice(LOCALES[i].length + 1); break; }
     }
     if (s.length > 1) s = s.replace(/\/+$/, '');
-    for (i = 0; i < SEITEN.length; i++) if (SEITEN[i] === s) return s;
+    for (i = 0; i < SEITEN.length; i++) if (SEITEN[i] === s) return { pfad: s, locale: locale };
     var dok = /^\/dokumente\/([a-z0-9-]+)$/i.exec(s);
-    if (dok) { var slug = dokSlug(dok[1]); if (slug) return '/dokumente/' + slug; }
+    if (dok) { var slug = dokSlug(dok[1]); if (slug) return { pfad: '/dokumente/' + slug, locale: locale }; }
     return null;
+  }
+  function erlaubterPfad(raw) {
+    var z = zerlegeErlaubtenPfad(raw);
+    return z ? z.pfad : null;
+  }
+  function findeMarkdownLinks(roh) {
+    var aus = [], i = 0;
+    while (i < roh.length) {
+      if (roh.charAt(i) !== '[') { i++; continue; }
+      var auf = roh.indexOf('](', i);
+      if (auf < 0) break;
+      var titel = roh.slice(i + 1, auf);
+      if (titel.indexOf('[') >= 0 || titel.indexOf('\n') >= 0) { i++; continue; }
+      var k = auf + 2, tiefe = 1, c;
+      while (k < roh.length && tiefe > 0) {
+        c = roh.charAt(k);
+        if (c === '(') tiefe++;
+        else if (c === ')') tiefe--;
+        k++;
+      }
+      if (tiefe !== 0) { i++; continue; }
+      aus.push({ start: i, ende: k, titel: titel, ziel: roh.slice(auf + 2, k - 1) });
+      i = k;
+    }
+    return aus;
+  }
+  function linkTeilAus(raw, titel) {
+    var z = zerlegeErlaubtenPfad(raw);
+    if (!z) return null;
+    var teil = { typ: 'link', pfad: z.pfad, titel: linkTitel(z.pfad, titel) };
+    if (z.locale) teil.locale = z.locale;
+    return teil;
   }
   function linkTitel(pfad, vorgabe) {
     var p = erlaubterPfad(pfad) || pfad, v = String(vorgabe || '').trim();
@@ -94,26 +126,25 @@
     return p;
   }
   function parseAntwortMitLinks(text) {
-    var roh = String(text || ''), belegt = [], teile = [], i, m, re;
+    var roh = String(text || ''), belegt = [], teile = [], i, m, re, md, teil;
     function frei(a, b) { var j; for (j = 0; j < belegt.length; j++) if (a < belegt[j].ende && b > belegt[j].start) return false; return true; }
     function merke(start, ende, teil) { if (!frei(start, ende)) return; belegt.push({ start: start, ende: ende, teil: teil }); }
-    re = /\[([^\]]+)\]\(([^)]+)\)/g;
-    while ((m = re.exec(roh))) {
-      var pf = erlaubterPfad(m[2]);
-      if (pf) merke(m.index, m.index + m[0].length, { typ: 'link', pfad: pf, titel: linkTitel(pf, m[1]) });
-      else merke(m.index, m.index + m[0].length, { typ: 'text', text: (m[1] || '').trim() });
+    md = findeMarkdownLinks(roh);
+    for (i = 0; i < md.length; i++) {
+      teil = linkTeilAus(md[i].ziel, md[i].titel);
+      merke(md[i].start, md[i].ende, teil || { typ: 'text', text: (md[i].titel || '').trim() });
     }
     re = /\bhttps?:\/\/[^\s<>[\]()]+|\bwww\.[^\s<>[\]()]+/gi;
     while ((m = re.exec(roh))) {
-      pf = erlaubterPfad(m[0]);
-      if (pf) merke(m.index, m.index + m[0].length, { typ: 'link', pfad: pf, titel: linkTitel(pf) });
-      else merke(m.index, m.index + m[0].length, { typ: 'text', text: '' });
+      teil = linkTeilAus(m[0]);
+      merke(m.index, m.index + m[0].length, teil || { typ: 'text', text: '' });
     }
     var alt = SEITEN.slice().sort(function (a, b) { return b.length - a.length; }).map(function (x) { return x.replace(/\//g, '\\/'); });
-    re = new RegExp('(\\/dokumente(?:\\/[A-Za-z0-9-]+)?|' + alt.filter(function (x) { return x !== '\\/dokumente'; }).join('|') + ')(?![A-Za-z0-9/_-])', 'g');
+    var loc = '(?:\\/(?:' + LOCALES.join('|') + '))?';
+    re = new RegExp('(' + loc + '(?:\\/dokumente(?:\\/[A-Za-z0-9-]+)?|' + alt.filter(function (x) { return x !== '\\/dokumente'; }).join('|') + '))(?![A-Za-z0-9/_-])', 'g');
     while ((m = re.exec(roh))) {
-      pf = erlaubterPfad(m[1]);
-      if (pf) merke(m.index, m.index + m[0].length, { typ: 'link', pfad: pf, titel: linkTitel(pf) });
+      teil = linkTeilAus(m[1]);
+      if (teil) merke(m.index, m.index + m[0].length, teil);
     }
     belegt.sort(function (a, b) { return a.start - b.start; });
     i = 0;
@@ -131,7 +162,7 @@
       if (teile[t].typ === 'link') {
         a = document.createElement('a');
         a.className = 'ki-inlink';
-        a.href = BASIS + teile[t].pfad;
+        a.href = (teile[t].locale && LOCALES.indexOf(teile[t].locale) >= 0 ? '/' + teile[t].locale : BASIS) + teile[t].pfad;
         a.textContent = teile[t].titel;
         el.appendChild(a);
       } else {

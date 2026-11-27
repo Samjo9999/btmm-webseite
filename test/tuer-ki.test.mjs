@@ -513,7 +513,7 @@ test('Ausgabefilter: Emojis, Links, Tabu, Benennung, Direktkredit-Konditionen, P
   assert.equal(fremd.text, 'Schauen Sie gern vorbei. Mehr auf [Mitmachen](/mitmachen).')
   assert.equal(fremd.weiterleitung, '/mitmachen')
   const faq = bereinigeAntwort('Infos unter https://www.b-t-m-m.com/de/faq und [hier](https://fake.org).')
-  assert.equal(faq.text, 'Infos unter [Häufige Fragen](/faq) und hier.')
+  assert.equal(faq.text, 'Infos unter [Häufige Fragen](/de/faq) und hier.')
   assert.equal(faq.weiterleitung, '/faq')
   assert.equal(bereinigeAntwort('Schauen Sie bei https://x.de vorbei.').text, 'Schauen Sie vorbei.')
   // Kein Satz bekommt eine Lücke wie „steht auf.“, „. Was“ oder „Da,“
