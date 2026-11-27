@@ -195,3 +195,7 @@ a{color:var(--lila)}
 .ki-links{display:flex;flex-wrap:wrap;gap:6px 16px;justify-content:center;width:100%;font-size:16px}
 .ki-links a{min-height:44px;display:inline-flex;align-items:center}
 .blase.warte{opacity:.7;font-style:italic}
+
+.blase a.ki-inlink{color:var(--lila);text-decoration:underline;text-underline-offset:2px;position:relative}
+.blase a.ki-inlink:after{content:"";position:absolute;top:50%;left:50%;width:max(100%,44px);height:44px;transform:translate(-50%,-50%)}
+.blase a.ki-inlink:focus-visible,.ki-weg a.ki-inlink:focus-visible,.ki-links a:focus-visible{outline:2px solid var(--lila);outline-offset:2px}

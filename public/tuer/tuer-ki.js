@@ -42,30 +42,140 @@
 
   function eingabeFrei(an) { feld.disabled = !an; $('senden').disabled = !an; $('mik').disabled = !an; }
   function nachUnten() { requestAnimationFrame(function () { window.scrollTo({ top: document.documentElement.scrollHeight }); }); }
-  function seitenMuster() {
-    return new RegExp('(' + SEITEN.map(function (s) { return s.replace(/\//g, '\\/'); }).join('|') + ')(?![A-Za-z0-9/_-])', 'g');
+  var SEITEN_TITEL = {'/faq':'Häufige Fragen','/dokumente':'Dokumente','/mitmachen':'Mitmachen','/wissen':'Wissen','/so-funktionierts':'So funktioniert es','/was-du-sparst':'Was Sie sparen','/konzept':'Konzept','/konzept/wirtschaft':'Wirtschaft','/gruendung':'Gründung','/chronik':'Chronik','/offene-fragen':'Offene Fragen','/fuer-dich':'Für Sie','/fuer-dich/kunden':'Für Kundinnen und Kunden','/fuer-dich/berufseinstieg':'Berufseinstieg','/fuer-dich/lebensphasen':'Lebensphasen','/fuer-dich/ruhestand':'Ruhestand','/fuer-dich/unterstuetzen':'Unterstützen'};
+  var DOK_TITEL = {'00-einfach-erklaert':'BtMM einfach erklärt','01-einfuehrung':'Einführung','02-aufruf-beteiligung':'Aufruf zur Beteiligung','03-einladung-gruendung':'Einladung zur Gründung','04-wirtschaften-anleitung':'Wirtschaften im System','05-gemeinschaftskultur':'Leben im System','06-gute-gruende':'Gute Gründe','07-konzept':'Vollkonzept','08-satzung':'Satzung (Entwurf)','08a-ordnungen':'Ordnungen (Entwurf)','11-handwerk-ergaenzung':'Handwerk und Zulassungen','12-handwerk-zulassungen':'Handwerk, Zulassungen und Meisterpflicht','13-ideen-horizonte':'Ideen und Horizonte','15-geschaeftsmodell':'Geschäftsmodell (Entwurf)','16-schnelle-einnahmen':'Schnelle Einnahmen','17-grosser-fahrplan':'Der große Fahrplan','18-demokratie-schluessel':'Der Demokratie-Schlüssel','19-soziale-zahlen':'Soziale Zahlen','20-berufe-ohne-abschluss':'Berufe ohne Abschluss','21-bildung-finanzieren':'Bildung finanzieren','22-heilen-schuetzen-vorbeugen':'Heilen, Schützen, Vorbeugen','23-ausfall-versorgung':'Wenn jemand ausfällt','24-partner-werden':'Partner werden','25-ehrliche-bilanz':'Ehrliche Bilanz','26-fairer-handel':'Fairer Handel','27-kreislauf':'BtMM-Kreislauf','28-aufnahme-kurz-erklaert':'Aufnahme kurz erklärt','29-der-keim':'Der Keim','30-gewerbe-katalog':'Gewerbe-Katalog','31-coin-ordnung':'Coin-Ordnung (Entwurf)'};
+  var LOCALES = ['de','en','zh','es','hi','ar','bn','pt','ru','ja','fr'];
+  function dokSlug(kurz) {
+    kurz = String(kurz || '').toLowerCase();
+    if (DOK_TITEL[kurz]) return kurz;
+    var n = /^\d{1,2}[a-z]?$/.exec(kurz);
+    if (!n) return null;
+    var num = n[0].length === 1 ? '0' + n[0] : n[0];
+    var k;
+    for (k in DOK_TITEL) { if (k === num || k.indexOf(num + '-') === 0) return k; }
+    return null;
+  }
+  function zerlegeErlaubtenPfad(raw) {
+    var s = String(raw || '').trim();
+    if (!s || /^(javascript|data|vbscript|file|blob):/i.test(s)) return null;
+    s = s.replace(/[),.;!?]+$/g, '');
+    if (/^www\./i.test(s)) s = 'https://' + s;
+    var host = s.match(/^https?:\/\/([^/]+)/i);
+    if (host) {
+      var h = host[1].toLowerCase().replace(/:\d+$/, '');
+      if (h !== 'b-t-m-m.com' && h !== 'www.b-t-m-m.com') return null;
+      s = s.replace(/^https?:\/\/[^/]+/i, '') || '/';
+    } else if (/^\/\//.test(s) || /^[a-z][a-z0-9+.-]*:/i.test(s)) return null;
+    if (s.charAt(0) !== '/' || s.indexOf('//') === 0) return null;
+    s = s.split(/[?#]/)[0];
+    try { s = decodeURIComponent(s); } catch (e) { return null; }
+    if (s.indexOf('..') >= 0 || s.indexOf('//') >= 0 || s.indexOf('\\') >= 0) return null;
+    if (!/^\/[a-z0-9/_-]*$/i.test(s)) return null;
+    var locale = null, i;
+    for (i = 0; i < LOCALES.length; i++) {
+      if (s === '/' + LOCALES[i]) { locale = LOCALES[i]; s = '/'; break; }
+      if (s.indexOf('/' + LOCALES[i] + '/') === 0) { locale = LOCALES[i]; s = s.slice(LOCALES[i].length + 1); break; }
+    }
+    if (s.length > 1) s = s.replace(/\/+$/, '');
+    for (i = 0; i < SEITEN.length; i++) if (SEITEN[i] === s) return { pfad: s, locale: locale };
+    var dok = /^\/dokumente\/([a-z0-9-]+)$/i.exec(s);
+    if (dok) { var slug = dokSlug(dok[1]); if (slug) return { pfad: '/dokumente/' + slug, locale: locale }; }
+    return null;
+  }
+  function erlaubterPfad(raw) {
+    var z = zerlegeErlaubtenPfad(raw);
+    return z ? z.pfad : null;
+  }
+  function findeMarkdownLinks(roh) {
+    var aus = [], i = 0;
+    while (i < roh.length) {
+      if (roh.charAt(i) !== '[') { i++; continue; }
+      var auf = roh.indexOf('](', i);
+      if (auf < 0) break;
+      var titel = roh.slice(i + 1, auf);
+      if (titel.indexOf('[') >= 0 || titel.indexOf('\n') >= 0) { i++; continue; }
+      var k = auf + 2, tiefe = 1, c;
+      while (k < roh.length && tiefe > 0) {
+        c = roh.charAt(k);
+        if (c === '(') tiefe++;
+        else if (c === ')') tiefe--;
+        k++;
+      }
+      if (tiefe !== 0) { i++; continue; }
+      aus.push({ start: i, ende: k, titel: titel, ziel: roh.slice(auf + 2, k - 1) });
+      i = k;
+    }
+    return aus;
+  }
+  function linkTeilAus(raw, titel) {
+    var z = zerlegeErlaubtenPfad(raw);
+    if (!z) return null;
+    var teil = { typ: 'link', pfad: z.pfad, titel: linkTitel(z.pfad, titel) };
+    if (z.locale) teil.locale = z.locale;
+    return teil;
+  }
+  function linkTitel(pfad, vorgabe) {
+    var p = erlaubterPfad(pfad) || pfad, v = String(vorgabe || '').trim();
+    if (v && !/https?:|www\.|javascript:/i.test(v) && v.length <= 80 && !/\beG\b/.test(v)) return v.replace(/\s+/g, ' ');
+    if (K.links && p === '/faq') return K.links.faq;
+    if (K.links && p === '/dokumente') return K.links.dokumente;
+    if (K.links && p === '/mitmachen') return K.links.mitmachen;
+    if (SEITEN_TITEL[p]) return SEITEN_TITEL[p];
+    var dok = /^\/dokumente\/([a-z0-9-]+)$/i.exec(p);
+    if (dok && DOK_TITEL[dok[1]]) return DOK_TITEL[dok[1]];
+    return p;
+  }
+  function parseAntwortMitLinks(text) {
+    var roh = String(text || ''), belegt = [], teile = [], i, m, re, md, teil;
+    function frei(a, b) { var j; for (j = 0; j < belegt.length; j++) if (a < belegt[j].ende && b > belegt[j].start) return false; return true; }
+    function merke(start, ende, teil) { if (!frei(start, ende)) return; belegt.push({ start: start, ende: ende, teil: teil }); }
+    md = findeMarkdownLinks(roh);
+    for (i = 0; i < md.length; i++) {
+      teil = linkTeilAus(md[i].ziel, md[i].titel);
+      merke(md[i].start, md[i].ende, teil || { typ: 'text', text: (md[i].titel || '').trim() });
+    }
+    re = /\bhttps?:\/\/[^\s<>[\]()]+|\bwww\.[^\s<>[\]()]+/gi;
+    while ((m = re.exec(roh))) {
+      teil = linkTeilAus(m[0]);
+      merke(m.index, m.index + m[0].length, teil || { typ: 'text', text: '' });
+    }
+    var alt = SEITEN.slice().sort(function (a, b) { return b.length - a.length; }).map(function (x) { return x.replace(/\//g, '\\/'); });
+    var loc = '(?:\\/(?:' + LOCALES.join('|') + '))?';
+    re = new RegExp('(' + loc + '(?:\\/dokumente(?:\\/[A-Za-z0-9-]+)?|' + alt.filter(function (x) { return x !== '\\/dokumente'; }).join('|') + '))(?![A-Za-z0-9/_-])', 'g');
+    while ((m = re.exec(roh))) {
+      teil = linkTeilAus(m[1]);
+      if (teil) merke(m.index, m.index + m[0].length, teil);
+    }
+    belegt.sort(function (a, b) { return a.start - b.start; });
+    i = 0;
+    for (var b = 0; b < belegt.length; b++) {
+      if (belegt[b].start > i) teile.push({ typ: 'text', text: roh.slice(i, belegt[b].start) });
+      teile.push(belegt[b].teil);
+      i = belegt[b].ende;
+    }
+    if (i < roh.length) teile.push({ typ: 'text', text: roh.slice(i) });
+    return teile.filter(function (t) { return t.typ === 'link' || t.text !== ''; });
   }
   function setzeMitLinks(el, text) {
-    var re = seitenMuster(), i = 0, m;
-    while ((m = re.exec(text))) {
-      if (m.index > i) el.appendChild(document.createTextNode(text.slice(i, m.index)));
-      var a = document.createElement('a');
-      a.href = BASIS + m[1];
-      a.textContent = m[1];
-      el.appendChild(a);
-      i = m.index + m[0].length;
+    var teile = parseAntwortMitLinks(text), t, a;
+    for (t = 0; t < teile.length; t++) {
+      if (teile[t].typ === 'link') {
+        a = document.createElement('a');
+        a.className = 'ki-inlink';
+        a.href = (teile[t].locale && LOCALES.indexOf(teile[t].locale) >= 0 ? '/' + teile[t].locale : BASIS) + teile[t].pfad;
+        a.textContent = teile[t].titel;
+        el.appendChild(a);
+      } else {
+        el.appendChild(document.createTextNode(teile[t].text));
+      }
     }
-    if (i < text.length) el.appendChild(document.createTextNode(text.slice(i)));
   }
   function blase(text, wer, ki) {
     var li = document.createElement('li');
     li.className = 'blase ' + wer;
-    if (ki) {
-      li.setAttribute('data-ai-generated', 'true');
-      setzeMitLinks(li, text);
-    } else {
-      li.textContent = text;
-    }
+    if (ki) li.setAttribute('data-ai-generated', 'true');
+    if (wer === 'antwort' || (wer.indexOf('antwort') === 0 && !ki)) li.textContent = text;
+    else setzeMitLinks(li, text);
     verlaufEl.appendChild(li);
     nachUnten();
     return li;
@@ -76,7 +186,7 @@
     box.innerHTML = '';
     if (weiter) {
       var a = document.createElement('a');
-      a.className = 'knopf'; a.href = BASIS + weiter; a.textContent = weiter;
+      a.className = 'knopf'; a.href = BASIS + weiter; a.textContent = linkTitel(weiter);
       box.appendChild(a);
     }
     if (st.schritte && st.schritte.length) {

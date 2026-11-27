@@ -14,6 +14,7 @@ import { pruefeDeckel, bucheVerbrauch, deckelAusEnv, schaetzeTokens, kostenEur, 
 import type { TuerKostenReserviere, TuerKostenKorrigiere } from './kostenPersist.ts'
 import { resolveLlmModell } from '../wissen/llmModelle.ts'
 import { baueSystemprompt, ECHO_SAETZE } from './systemPrompt.ts'
+import { sichereDirektlieferung } from './gespraech.ts'
 import { FESTE_TEXTE } from './texte.ts'
 
 export type TuerNachricht = { rolle: 'user' | 'assistant'; text: string }
@@ -190,11 +191,13 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
   const aus = bereinigeAntwort(erg.text, ECHO_SAETZE)
   if (aus.art === 'ersetzt') {
     const key = aus.grund === 'direktkredit' ? 'direktkredit' : 'ersetzt'
-    return { http: 200, json: { status: 'ok', antwort: FESTE_TEXTE[sprache][key], schritte: [], quellen: [], generative: false } }
+    const fest = sichereDirektlieferung(FESTE_TEXTE[sprache][key], verlauf, sprache)
+    return { http: 200, json: { status: 'ok', antwort: fest.text, schritte: [], weiterleitung: fest.weiterleitung, quellen: [], generative: false } }
   }
+  const sicher = sichereDirektlieferung(aus.text, verlauf, sprache)
   const quellen = hits.slice(0, 3).map((h) => ({ dokument: h.title, abschnitt: h.abschnitt }))
   return {
     http: 200,
-    json: { status: 'ok', antwort: aus.text, schritte: aus.schritte, weiterleitung: aus.weiterleitung, quellen, generative: true, modell: modell.id },
+    json: { status: 'ok', antwort: sicher.text, schritte: aus.schritte, weiterleitung: sicher.weiterleitung, quellen, generative: true, modell: modell.id },
   }
 }
