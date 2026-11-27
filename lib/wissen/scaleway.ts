@@ -21,6 +21,10 @@ export type ScalewayOptionen = {
   maxTokens: number
   /** Abbruch nach dieser Zeit (ms). Ohne Angabe kein Timeout (bisheriges Verhalten der Wissens-KI). */
   timeoutMs?: number
+  /** Modell-ID; ohne Angabe der Standard (SCALEWAY_MODEL). */
+  model?: string
+  /** Nur für Modelle mit Reasoning: 'none' schaltet es aus (sonst verbrauchen Denk-Tokens die Ausgabe). */
+  reasoningEffort?: 'none'
   fetchImpl?: typeof fetch
 }
 
@@ -36,7 +40,8 @@ export async function scalewayChat(opt: ScalewayOptionen): Promise<ChatErgebnis 
         Authorization: `Bearer ${opt.secret}`,
       },
       body: JSON.stringify({
-        model: SCALEWAY_MODEL,
+        model: opt.model || SCALEWAY_MODEL,
+        ...(opt.reasoningEffort ? { reasoning_effort: opt.reasoningEffort } : {}),
         temperature: opt.temperature,
         max_tokens: opt.maxTokens,
         messages: opt.messages,
