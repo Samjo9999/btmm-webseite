@@ -1,0 +1,418 @@
+{
+  "stand": "27.11.2026",
+  "lizenzUrl": "https://unsplash.com/license",
+  "eigene": [
+    {
+      "datei": "public/profil-johannes.jpg",
+      "hinweis": "Eigenes Foto des Betreibers"
+    },
+    {
+      "datei": "public/images/johannes-mit-hund.webp",
+      "hinweis": "Eigenes Foto des Betreibers"
+    },
+    {
+      "datei": "public/tuer/bilder/logo.png",
+      "hinweis": "Eigene Marke BtMM (Logo)"
+    },
+    {
+      "datei": "public/tuer/bilder/logo-glow-schrift-weiss.png",
+      "hinweis": "Eigene Marke BtMM (Logo)"
+    },
+    {
+      "datei": "public/tuer/bilder/logo-tuer.webp",
+      "hinweis": "Eigene Marke BtMM (Logo), aus public/logo-glow-schrift-weiss.png abgeleitet"
+    },
+    {
+      "datei": "public/infinity-dark.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/infinity-gold.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/logo-glow-schrift-weiss.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/logo-hero-white.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/logo-tree-dark.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/logo-tree-light.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/logo.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/og-image.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    },
+    {
+      "datei": "public/press/logo.png",
+      "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
+    }
+  ],
+  "fotos": [
+    {
+      "id": "weg-arbeiten",
+      "dateien": [
+        "public/tuer/bilder/weg/arbeiten.jpg",
+        "public/tuer/bilder/weg/arbeiten.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Arbeiten“",
+      "fotograf": "Craft Kitties",
+      "quelle": "https://unsplash.com/photos/person-marking-wooden-board-with-pencil-GfYA6q5ESLI",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "08.08.2022",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-grundlagen",
+      "dateien": [
+        "public/tuer/bilder/weg/grundlagen.jpg",
+        "public/tuer/bilder/weg/grundlagen.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Grundlagen“",
+      "fotograf": "Or Hakim",
+      "quelle": "https://unsplash.com/photos/a-group-of-people-eating-food-88mx2LvjTbA",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "15.06.2022",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-sparen",
+      "dateien": [
+        "public/tuer/bilder/weg/sparen.jpg",
+        "public/tuer/bilder/weg/sparen.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Sparen“",
+      "fotograf": "Edmond Ihoeghian",
+      "quelle": "https://unsplash.com/photos/person-in-white-long-sleeve-shirt-holding-green-cucumber-KYVFM4T5WdE",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "08.12.2020",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-wohnen",
+      "dateien": [
+        "public/tuer/bilder/weg/wohnen.jpg",
+        "public/tuer/bilder/weg/wohnen.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Wohnen“",
+      "fotograf": "Steve Adams",
+      "quelle": "https://unsplash.com/photos/yellow-flowers-on-the-garden-bY_q4VodUc0",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "09.09.2021",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-skeptisch",
+      "dateien": [
+        "public/tuer/bilder/weg/skeptisch.jpg",
+        "public/tuer/bilder/weg/skeptisch.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Skeptisch“",
+      "fotograf": "Harshit Suryawanshi",
+      "quelle": "https://unsplash.com/photos/a-magnifying-glass-sitting-on-top-of-an-open-book--LgSTma8GJs",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "14.10.2023",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-dokumente",
+      "dateien": [
+        "public/tuer/bilder/weg/dokumente.jpg",
+        "public/tuer/bilder/weg/dokumente.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Dokumente“",
+      "fotograf": "Babak Eshaghian",
+      "quelle": "https://unsplash.com/photos/pens-on-paper-on-wooden-table-PdlPX0WcWHA",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "25.08.2026",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-sinn",
+      "dateien": [
+        "public/tuer/bilder/weg/sinn.jpg",
+        "public/tuer/bilder/weg/sinn.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Sinn“",
+      "fotograf": "Claudia Salini",
+      "quelle": "https://unsplash.com/photos/yellow-string-lights-during-night-time-e5Ej96TifZk",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "18.07.2021",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-gruenden",
+      "dateien": [
+        "public/tuer/bilder/weg/gruenden.jpg",
+        "public/tuer/bilder/weg/gruenden.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Gründen“",
+      "fotograf": "Blake Wisz",
+      "quelle": "https://unsplash.com/photos/a-person-holding-a-plant-in-a-garden-Eg2LI9_3UMQ",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "21.08.2022",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-freiburg",
+      "dateien": [
+        "public/tuer/bilder/weg/freiburg.jpg",
+        "public/tuer/bilder/weg/freiburg.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Freiburg“ (Altstadt Freiburg im Breisgau)",
+      "fotograf": "Shalev Cohen",
+      "quelle": "https://unsplash.com/photos/a-group-of-people-sitting-outside-ycf-clT7Nho",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "01.09.2022",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-vorbei",
+      "dateien": [
+        "public/tuer/bilder/weg/vorbei.jpg",
+        "public/tuer/bilder/weg/vorbei.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Vorbeikommen“",
+      "fotograf": "Martin Podsiad",
+      "quelle": "https://unsplash.com/photos/a-couple-of-people-that-are-standing-on-some-steps-CqNMyQ_pvQo",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "14.10.2024",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-anpacken",
+      "dateien": [
+        "public/tuer/bilder/weg/anpacken.jpg",
+        "public/tuer/bilder/weg/anpacken.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Anpacken“",
+      "fotograf": "Nate Johnston",
+      "quelle": "https://unsplash.com/photos/a-group-of-men-working-on-a-project-TltGIe9PK4Y",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "28.09.2021",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "weg-folgen",
+      "dateien": [
+        "public/tuer/bilder/weg/folgen.jpg",
+        "public/tuer/bilder/weg/folgen.webp"
+      ],
+      "verwendung": "Tür, Kennenlern-Weg: Motiv „Folgen“",
+      "fotograf": "Ashim D’Silva",
+      "quelle": "https://unsplash.com/photos/people-walking-on-forest-during-daytime-oRuqQX_kFDA",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "28.04.2016",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
+    },
+    {
+      "id": "tuer-holz",
+      "dateien": [
+        "public/tuer/bilder/holz/desktop-links.jpg",
+        "public/tuer/bilder/holz/desktop-links.webp",
+        "public/tuer/bilder/holz/desktop-rechts.jpg",
+        "public/tuer/bilder/holz/desktop-rechts.webp",
+        "public/tuer/bilder/holz/mobil-links.jpg",
+        "public/tuer/bilder/holz/mobil-links.webp",
+        "public/tuer/bilder/holz/mobil-rechts.jpg",
+        "public/tuer/bilder/holz/mobil-rechts.webp"
+      ],
+      "verwendung": "Tür, Eingangsbild (Holztür); das Logo liegt als eigene Ebene darüber",
+      "fotograf": "Isabelle Farinelli Silva",
+      "quelle": "https://unsplash.com/photos/a-close-up-of-a-wooden-door-with-a-handle-bIG0v7GnQVM",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "27.08.2023",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt, in der Mitte in linken und rechten Flügel geteilt (Desktop 1280×1600, mobil 591×2560), komprimiert"
+    },
+    {
+      "id": "kosten-feld",
+      "dateien": [
+        "public/images/kosten-feld.jpg"
+      ],
+      "verwendung": "Seite „Kosten“, Kopfbild",
+      "fotograf": "Jill Dimond",
+      "quelle": "https://unsplash.com/photos/the-sun-is-shining-over-a-field-of-tall-grass-DzD5N4sghlc",
+      "lizenz": "Unsplash-Lizenz",
+      "veroeffentlicht": "30.08.2024",
+      "abruf": "27.11.2026",
+      "bearbeitung": "Zuschnitt auf 16:9, auf 1920×1080 verkleinert, komprimiert"
+    }
+  ],
+  "extern": [
+    {
+      "url": "https://images.unsplash.com/photo-1441974231531-c6227db76b6e",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/preise/page.tsx",
+        "app/[locale]/(seiten)/konzept/nachhaltigkeit/page.tsx",
+        "app/[locale]/(seiten)/nachhaltigkeit/page.tsx",
+        "app/[locale]/offene-fragen/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1448375240586-882707db888b",
+      "seiten": [
+        "app/[locale]/(seiten)/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1457369804613-52c61a468e7d",
+      "seiten": [
+        "app/[locale]/(seiten)/chronik/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b",
+      "seiten": [
+        "app/[locale]/(seiten)/presse/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1469474968028-56623f02e42e",
+      "seiten": [
+        "app/[locale]/(seiten)/konzept/international/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05",
+      "seiten": [
+        "app/[locale]/(seiten)/app/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1473773508845-188df298d2d1",
+      "seiten": [
+        "app/[locale]/(seiten)/konzept/wirtschaft/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1490750967868-88aa4f44baee",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/ueber/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1500382017468-9049fed747ef",
+      "seiten": [
+        "app/[locale]/(seiten)/gruendung/page.tsx",
+        "app/[locale]/so-funktionierts/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1501854140801-50d01698950b",
+      "seiten": [
+        "app/[locale]/(seiten)/faq/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1502082553048-f009c37129b9",
+      "seiten": [
+        "app/[locale]/(seiten)/konzept/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1506126613408-eca07ce68773",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/methode/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1506744038136-46273834b3fb",
+      "seiten": [
+        "app/[locale]/(seiten)/angebote/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1506905925346-21bda4d32df4",
+      "seiten": [
+        "app/[locale]/wissen/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1511497584788-876760111969",
+      "seiten": [
+        "app/[locale]/(seiten)/konzept/gemeinschaft/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1518241353330-0f7941c2d9b5",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/page.tsx",
+        "app/[locale]/angebote/back-to-balance/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1519823551278-64ac92734fb1",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/methode/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1529156069898-49953e39b3ac",
+      "seiten": [
+        "app/[locale]/(seiten)/erfahrungen/page.tsx",
+        "app/[locale]/(seiten)/koerperarbeit/bewertungen/page.tsx",
+        "app/[locale]/was-du-sparst/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1540555700478-4be289fbec6d",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/ablauf/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1542601906990-b4d3fb778b09",
+      "seiten": [
+        "app/[locale]/(seiten)/mitmachen/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1544161515-4ab6ce6db874",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/ueber/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/fuer-wen/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1552664730-d307ca884978",
+      "seiten": [
+        "app/[locale]/(seiten)/zellen/page.tsx"
+      ]
+    },
+    {
+      "url": "https://images.unsplash.com/photo-1600618528240-fb9fc964b853",
+      "seiten": [
+        "app/[locale]/(seiten)/koerperarbeit/ablauf/page.tsx"
+      ]
+    }
+  ]
+}
