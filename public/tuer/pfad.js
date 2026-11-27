@@ -38,11 +38,17 @@
     kunde: 'arbeiten', einstieg: 'grundlagen', lebensphase: 'wohnen',
     ruhestand: 'sinn', unterstuetzen: 'anpacken'
   };
+  /* Fotografin/Fotograf je Bilddatei (Unsplash, freie Lizenz). Vollständiger Nachweis: content/bildnachweise.md */
+  var FOTO = {
+    arbeiten: 'Craft Kitties', grundlagen: 'Or Hakim', sparen: 'Edmond Ihoeghian', wohnen: 'Steve Adams',
+    skeptisch: 'Harshit Suryawanshi', dokumente: 'Babak Eshaghian', sinn: 'Claudia Salini', gruenden: 'Blake Wisz',
+    freiburg: 'Shalev Cohen', vorbei: 'Martin Podsiad', anpacken: 'Nate Johnston', folgen: 'Ashim D’Silva'
+  };
   var BILDER = {};
   Object.keys(SCHRITTE).forEach(function (k) {
     var id = SCHRITTE[k].bild;
     var datei = BILD_DATEI[id] || id;
-    if (!BILDER[id]) BILDER[id] = { src: '/tuer/bilder/weg/' + datei + '.jpg', webp: '/tuer/bilder/weg/' + datei + '.webp' };
+    if (!BILDER[id]) BILDER[id] = { src: '/tuer/bilder/weg/' + datei + '.jpg', webp: '/tuer/bilder/weg/' + datei + '.webp', foto: FOTO[datei] };
   });
 
   function grund(t) {

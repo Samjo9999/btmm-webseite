@@ -190,7 +190,7 @@
     pf.schritte.forEach(function (d, i) {
       var k = d.key, bildId = d.bild, bild = BILDER[bildId], li = document.createElement('li');
       li.className = 'schritt' + (i === 0 ? ' jetzt' : '');
-      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><figure class="schritt-figur"><div class="bild-rahmen"><picture><source type="image/webp"><img class="schritt-bild" width="1280" height="720" decoding="async"></picture><figcaption class="ki-label"></figcaption></div></figure><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
+      li.innerHTML = '<span class="nr">' + (i + 1) + '</span><div><figure class="schritt-figur"><div class="bild-rahmen"><picture><source type="image/webp"><img class="schritt-bild" width="1280" height="720" decoding="async"></picture><figcaption class="foto-label"></figcaption></div></figure><p class="bezug"></p><h2></h2><p class="text"></p><a class="knopf"></a></div>';
       var rahmen = li.querySelector('.schritt-figur');
       if (!bild) { rahmen.parentNode.removeChild(rahmen); }
       else {
@@ -200,7 +200,7 @@
         img.alt = T.alt[bildId] || '';
         source.srcset = bild.webp;
         img.src = bild.src;
-        li.querySelector('.ki-label').textContent = T.kiLabel || '';
+        li.querySelector('.foto-label').textContent = (T.fotoLabel || 'Foto') + ': ' + (bild.foto || '') + ' / Unsplash';
         img.onerror = function () { img.onerror = null; li.querySelector('.bild-rahmen').hidden = true; };
       }
       li.querySelector('.bezug').textContent = d.bezug + T.dp;

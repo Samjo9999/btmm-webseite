@@ -3,6 +3,7 @@ import { SectionReveal } from '@/components/AnimatedCounter'
 import contact from '@/data/contact.json'
 import { dseIpSatz } from '@/lib/tuerKi/dse-ip-satz.ts'
 import { interessenlisteAktiv } from '@/lib/interessenliste.mjs'
+import bildnachweise from '@/data/bildnachweise.json'
 
 // §19 UStG-Satz: nur sichtbar, wenn impressum_kleinunternehmer in data/contact.json true ist.
 const KLEINUNTERNEHMER_SATZ =
@@ -10,48 +11,48 @@ const KLEINUNTERNEHMER_SATZ =
 
 const BILD_HINWEIS: Record<string, { titel: string; text: string }> = {
   de: {
-    titel: 'Hinweis zu Bildern',
-    text: 'Einzelne Bilder auf dieser Website, insbesondere die Fotos im Kennenlern-Weg der Tür, sind KI-generiert oder KI-bearbeitet. Bilder erstellt mit Grok (KI).',
+    titel: 'Bildnachweise',
+    text: 'Fotos: Unsplash, freie Lizenz. Fotografinnen und Fotografen siehe Bildnachweise unten.',
   },
   en: {
-    titel: 'Note on images',
-    text: 'Some images on this website, especially the photos in the introductory path of the door, are AI-generated or AI-edited. Images created with Grok (AI).',
+    titel: 'Image credits',
+    text: 'Photos: Unsplash, free licence. Photographers are listed in the credits below.',
   },
   fr: {
-    titel: 'Note sur les images',
-    text: 'Certaines images de ce site, notamment les photos du parcours d’accueil de la porte, sont générées ou retravaillées par intelligence artificielle. Images créées avec Grok (IA).',
+    titel: 'Crédits photo',
+    text: 'Photos : Unsplash, licence libre. Les photographes sont indiqués dans les crédits ci-dessous.',
   },
   es: {
-    titel: 'Nota sobre las imágenes',
-    text: 'Algunas imágenes de este sitio, en particular las fotos del recorrido de presentación de la puerta, están generadas o retocadas con inteligencia artificial. Imágenes creadas con Grok (IA).',
+    titel: 'Créditos de las imágenes',
+    text: 'Fotos: Unsplash, licencia libre. Los fotógrafos figuran en los créditos de abajo.',
   },
   pt: {
-    titel: 'Nota sobre as imagens',
-    text: 'Algumas imagens deste sítio, em especial as fotos do percurso de apresentação da porta, são geradas ou editadas com inteligência artificial. Imagens criadas com Grok (IA).',
+    titel: 'Créditos das imagens',
+    text: 'Fotos: Unsplash, licença livre. Os fotógrafos constam dos créditos abaixo.',
   },
   ru: {
-    titel: 'Примечание об изображениях',
-    text: 'Отдельные изображения на этом сайте, в том числе фотографии в ознакомительном пути двери, созданы или обработаны с помощью искусственного интеллекта. Изображения созданы с помощью Grok (ИИ).',
+    titel: 'Авторы изображений',
+    text: 'Фото: Unsplash, свободная лицензия. Авторы фотографий указаны в списке ниже.',
   },
   ar: {
-    titel: 'ملاحظة حول الصور',
-    text: 'بعض الصور على هذا الموقع، ولا سيما صور مسار التعرف عند الباب، مُولَّدة أو معدَّلة بالذكاء الاصطناعي. صور أُنشئت باستخدام Grok (ذكاء اصطناعي).',
+    titel: 'حقوق الصور',
+    text: 'الصور: Unsplash بترخيص حر. أسماء المصوّرين مذكورة في القائمة أدناه.',
   },
   hi: {
-    titel: 'चित्रों के बारे में सूचना',
-    text: 'इस वेबसाइट पर कुछ चित्र, खासकर दरवाज़े के परिचय-पथ की तस्वीरें, कृत्रिम बुद्धिमत्ता से बनाए या संपादित गए हैं। चित्र Grok (एआई) से बनाए गए।',
+    titel: 'चित्र-श्रेय',
+    text: 'फ़ोटो: Unsplash, मुक्त लाइसेंस। फ़ोटोग्राफ़रों के नाम नीचे दी गई सूची में हैं।',
   },
   bn: {
-    titel: 'ছবি সম্পর্কে তথ্য',
-    text: 'এই ওয়েবসাইটের কিছু ছবি, বিশেষ করে দরজার পরিচিতি-পথের ছবি, কৃত্রিম বুদ্ধিমত্তা দিয়ে তৈরি বা সম্পাদিত। ছবিগুলো Grok (এআই) দিয়ে তৈরি।',
+    titel: 'ছবির কৃতজ্ঞতা',
+    text: 'ছবি: Unsplash, মুক্ত লাইসেন্স। আলোকচিত্রীদের নাম নিচের তালিকায় আছে।',
   },
   ja: {
-    titel: '画像についての注記',
-    text: 'このウェブサイトの一部の画像、とくにドアの案内経路の写真は、人工知能によって生成または加工されています。画像は Grok（AI）で作成。',
+    titel: '画像クレジット',
+    text: '写真：Unsplash（フリーライセンス）。撮影者は下の一覧に記載しています。',
   },
   zh: {
-    titel: '关于图片的说明',
-    text: '本网站上的部分图片，尤其是门口介绍路径中的照片，由人工智能生成或处理。图片由 Grok（AI）生成。',
+    titel: '图片来源',
+    text: '照片：Unsplash，免费授权。摄影师信息见下方列表。',
   },
 }
 
@@ -199,8 +200,16 @@ export default async function ImpressumPage({ params }: { params: Promise<{ loca
                   werden wir derartige Inhalte umgehend entfernen.
                 </p>
 
-                <h3>{bildHinweis.titel}</h3>
+                <h3 id="bildnachweise">{bildHinweis.titel}</h3>
                 <p>{bildHinweis.text}</p>
+                <ul>
+                  {bildnachweise.fotos.map((f) => (
+                    <li key={f.id}>
+                      {f.verwendung} – Foto von <a href={f.quelle} rel="noopener noreferrer">{f.fotograf}</a> auf Unsplash
+                    </li>
+                  ))}
+                </ul>
+                <p>Die Fotos stehen unter der <a href={bildnachweise.lizenzUrl} rel="noopener noreferrer">Unsplash-Lizenz</a>.</p>
 
                 <h3>Hinweis zur Körperarbeit</h3>
                 <p>

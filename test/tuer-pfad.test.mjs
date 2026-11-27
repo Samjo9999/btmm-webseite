@@ -51,7 +51,7 @@ test('dritte Persona (en) weicht von beiden ab, Reihenfolge folgt der Gewichtung
   assert.ok(x.indexOf('sparen') < x.indexOf('wohnen') && y.indexOf('wohnen') < y.indexOf('sparen'))
 })
 
-test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine Silhouetten/Logos, keine Fotos von Johannes', () => {
+test('eigenes Bild je Schritt: jpg/webp als echtes Stockfoto (kein KI-Marker), mit Fotografen-Namen, keine Silhouetten/Logos, keine Fotos von Johannes', () => {
   for (const [k, d] of Object.entries(PF.SCHRITTE)) {
     const b = PF.BILDER[d.bild]; assert.ok(b, k)
     assert.match(b.src, /^\/tuer\/bilder\/weg\/[a-z]+\.jpg$/, b.src)
@@ -62,9 +62,10 @@ test('eigenes Bild je Schritt: jpg/webp mit IPTC/XMP (KI-Quelle, Credit), keine 
     assert.ok(existsSync(webpUrl), b.webp)
     for (const [label, buf] of [['jpg', readFileSync(jpgUrl)], ['webp', readFileSync(webpUrl)]]) {
       const s = buf.toString('latin1')
-      assert.ok(s.includes('trainedAlgorithmicMedia'), `DigitalSourceType fehlt in ${label} ${b.src}`)
-      assert.ok(s.includes('Bilder erstellt mit Grok (KI)'), `Credit fehlt in ${label} ${b.src}`)
+      assert.ok(!s.includes('trainedAlgorithmicMedia'), `KI-Marker in ${label} ${b.src}`)
+      assert.ok(!s.includes('Grok'), `Grok-Credit in ${label} ${b.src}`)
     }
+    assert.ok(b.foto && b.foto.length > 2, `Fotograf fehlt für ${d.bild}`)
   }
 })
 
@@ -151,24 +152,26 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
   const keys = Object.keys(PF.SCHRITTE)
   for (const [l, T] of Object.entries(TEXTE)) {
     for (const k of keys) assert.ok(T.schritte[k]?.[0] && T.schritte[k]?.[1], `${l} schritt ${k}`)
-    assert.ok(T.kiLabel, `${l} kiLabel`)
-    assert.match(T.bildCredit, /Grok/, `${l} bildCredit`)
+    assert.ok(T.fotoLabel, `${l} fotoLabel`)
+    assert.ok(!('kiLabel' in T), `${l} kiLabel ist entfernt`)
+    assert.match(T.bildCredit, /Unsplash/, `${l} bildCredit`)
+    assert.doesNotMatch(T.bildCredit, /Grok|KI-generiert|AI-generated/i, `${l} bildCredit ohne KI`)
     assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
     for (const id of Object.keys(PF.BILDER)) {
       assert.ok(T.alt[id], `${l} alt ${id}`)
-      const prefix = {de: 'KI-generiertes Bild: ', en: 'AI-generated image: ', fr: 'Image générée par IA: ', es: 'Imagen generada por IA: ', pt: 'Imagem gerada por IA: ', ru: 'Изображение, созданное ИИ: ', ar: 'صورة مُنشأة بالذكاء الاصطناعي: ', hi: 'एआई-जनरेटेड चित्र: ', bn: 'এআই-সৃষ্ট ছবি: ', ja: 'AI生成画像: ', zh: 'AI生成的图片: '}[l]
-      assert.ok(prefix && T.alt[id].startsWith(prefix), `${l} alt-Präfix ${id}: ${T.alt[id]}`)
+      assert.ok(T.alt[id].length > 8, `${l} alt zu kurz ${id}`)
+      assert.doesNotMatch(T.alt[id], /KI-generiert|AI-generated|IA|ИИ|Grok|एआई|এআই|AI生成|人工知能/, `${l} alt ohne KI-Hinweis ${id}`)
     }
     for (const k of keys) { const bz = PF.bezugKey(k, { neugierig: 1, vorbei: 1, anpacken: 1, weit: 1 }); assert.ok(T.bezug[bz], `${l} bezug ${bz}`) }
     assert.ok(T.ds && T.mikText && T.sr, l)
   }
   assert.equal(Object.keys(TEXTE).length, 11)
-  assert.equal(TEXTE.de.kiLabel, 'KI-generiertes Bild – Personen fiktiv')
-  assert.equal(TEXTE.de.bildCredit, 'Bilder erstellt mit Grok (KI)')
-  assert.equal(TEXTE.de.alt.grundlagen, 'KI-generiertes Bild: Vier Menschen stehen in einer alten Werkstatt an der Hobelbank, teilen Brot und unterhalten sich')
-  assert.equal(TEXTE.de.alt.sparen, 'KI-generiertes Bild: Vier Menschen teilen in einer Bauernküche Karotten, Kartoffeln und Äpfel in Beutel und Gläser auf')
-  assert.equal(TEXTE.de.alt.sinn, 'KI-generiertes Bild: Fünf Menschen sitzen in der Dämmerung im Garten um eine Laterne und unterhalten sich bei Tee und Brot')
-  assert.equal(TEXTE.de.alt.vorbei, 'KI-generiertes Bild: Eine Frau steht in der offenen Tür eines Steinhauses und begrüßt zwei Gäste, drinnen ein gedeckter Tisch')
+  assert.equal(TEXTE.de.fotoLabel, 'Foto')
+  assert.equal(TEXTE.de.bildCredit, 'Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)')
+  assert.match(TEXTE.de.alt.grundlagen, /^Hände mehrerer Menschen/)
+  assert.match(TEXTE.de.alt.sparen, /Marktstand mit frischem Gemüse/)
+  assert.match(TEXTE.de.alt.sinn, /Lichterketten/)
+  assert.match(TEXTE.de.alt.vorbei, /Holztür/)
   assert.equal(TEXTE.de.schritte.sinn[0], 'Gemeinschaft')
   assert.equal(TEXTE.de.schritte.sinn[1], 'Wie Entscheidungen in BtMM fallen und woran sich das Miteinander ausrichtet.')
   assert.equal(TEXTE.de.schritte.vorbei[0], 'Kennenlernen vor Ort')
