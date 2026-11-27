@@ -73,6 +73,7 @@ export async function POST(request: NextRequest) {
         TUER_KI_TAG_EUR: process.env.TUER_KI_TAG_EUR,
         TUER_KI_MONAT_EUR: process.env.TUER_KI_MONAT_EUR,
         TUER_KI_RATE_SALT: process.env.TUER_KI_RATE_SALT,
+        TUER_KI_MODEL: process.env.TUER_KI_MODEL,
       },
       ip: clientIp(request),
       now: Date.now(),
