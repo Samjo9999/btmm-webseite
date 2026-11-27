@@ -16,7 +16,7 @@ export function bildnachweiseMd(d) {
   const z = []
   z.push('# Bildnachweise')
   z.push('')
-  z.push(`Stand ${d.stand}. Alle Fotos stehen unter der Unsplash-Lizenz (${d.lizenzUrl}): kostenlos nutzbar, auch gewerblich, ohne Namensnennungspflicht. Wir nennen die Fotografinnen und Fotografen trotzdem. Es handelt sich um echte Fotos.`)
+  z.push(`Stand ${d.stand}. Die Fotos stehen unter der Unsplash-Lizenz (${d.lizenzUrl}): kostenlos nutzbar, auch gewerblich, ohne Namensnennungspflicht. Wir nennen die Fotografinnen und Fotografen trotzdem. Es handelt sich um echte Fotos. Die Grafik der Eingangstür wurde mit KI erstellt.`)
   z.push('')
   z.push('Diese Datei wird aus `data/bildnachweise.json` erzeugt (`node scripts/bildnachweise-md.mjs`). Nicht von Hand ändern.')
   z.push('')
@@ -31,6 +31,16 @@ export function bildnachweiseMd(d) {
   z.push('Verwendung und Bearbeitung:')
   z.push('')
   for (const f of d.fotos) z.push(`- ${f.id}: ${f.verwendung}. Veröffentlicht auf Unsplash am ${f.veroeffentlicht}. ${f.bearbeitung}.`)
+  z.push('')
+  z.push('## Grafik der Eingangstür')
+  z.push('')
+  z.push('Die Grafik der Eingangstür (Holztür) wurde mit KI erstellt. Sie bleibt in der Fassung, die vor dem Austausch der Weg- und Kostenbilder im Einsatz war. Das Logo ist Teil der Grafik.')
+  z.push('')
+  z.push('| Datei | Hinweis |')
+  z.push('| --- | --- |')
+  for (const k of d.ki) {
+    z.push(`| ${k.dateien.map((x) => '`' + x + '`').join('<br>')} | ${k.hinweis} |`)
+  }
   z.push('')
   z.push('## Eigene Bilder und Marke')
   z.push('')

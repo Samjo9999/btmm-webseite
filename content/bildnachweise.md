@@ -1,6 +1,6 @@
 # Bildnachweise
 
-Stand 27.11.2026. Alle Fotos stehen unter der Unsplash-Lizenz (https://unsplash.com/license): kostenlos nutzbar, auch gewerblich, ohne Namensnennungspflicht. Wir nennen die Fotografinnen und Fotografen trotzdem. Es handelt sich um echte Fotos.
+Stand 27.11.2026. Die Fotos stehen unter der Unsplash-Lizenz (https://unsplash.com/license): kostenlos nutzbar, auch gewerblich, ohne Namensnennungspflicht. Wir nennen die Fotografinnen und Fotografen trotzdem. Es handelt sich um echte Fotos. Die Grafik der Eingangstür wurde mit KI erstellt.
 
 Diese Datei wird aus `data/bildnachweise.json` erzeugt (`node scripts/bildnachweise-md.mjs`). Nicht von Hand ändern.
 
@@ -20,7 +20,6 @@ Diese Datei wird aus `data/bildnachweise.json` erzeugt (`node scripts/bildnachwe
 | `public/tuer/bilder/weg/vorbei.jpg`<br>`public/tuer/bilder/weg/vorbei.webp` | Martin Podsiad | https://unsplash.com/photos/a-couple-of-people-that-are-standing-on-some-steps-CqNMyQ_pvQo | Unsplash-Lizenz | 27.11.2026 |
 | `public/tuer/bilder/weg/anpacken.jpg`<br>`public/tuer/bilder/weg/anpacken.webp` | Nate Johnston | https://unsplash.com/photos/a-group-of-men-working-on-a-project-TltGIe9PK4Y | Unsplash-Lizenz | 27.11.2026 |
 | `public/tuer/bilder/weg/folgen.jpg`<br>`public/tuer/bilder/weg/folgen.webp` | Ashim D’Silva | https://unsplash.com/photos/people-walking-on-forest-during-daytime-oRuqQX_kFDA | Unsplash-Lizenz | 27.11.2026 |
-| `public/tuer/bilder/holz/desktop-links.jpg`<br>`public/tuer/bilder/holz/desktop-links.webp`<br>`public/tuer/bilder/holz/desktop-rechts.jpg`<br>`public/tuer/bilder/holz/desktop-rechts.webp`<br>`public/tuer/bilder/holz/mobil-links.jpg`<br>`public/tuer/bilder/holz/mobil-links.webp`<br>`public/tuer/bilder/holz/mobil-rechts.jpg`<br>`public/tuer/bilder/holz/mobil-rechts.webp` | Isabelle Farinelli Silva | https://unsplash.com/photos/a-close-up-of-a-wooden-door-with-a-handle-bIG0v7GnQVM | Unsplash-Lizenz | 27.11.2026 |
 | `public/images/kosten-feld.jpg` | Jill Dimond | https://unsplash.com/photos/the-sun-is-shining-over-a-field-of-tall-grass-DzD5N4sghlc | Unsplash-Lizenz | 27.11.2026 |
 
 Verwendung und Bearbeitung:
@@ -37,8 +36,15 @@ Verwendung und Bearbeitung:
 - weg-vorbei: Tür, Kennenlern-Weg: Motiv „Vorbeikommen“. Veröffentlicht auf Unsplash am 14.10.2024. Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert.
 - weg-anpacken: Tür, Kennenlern-Weg: Motiv „Anpacken“. Veröffentlicht auf Unsplash am 28.09.2021. Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert.
 - weg-folgen: Tür, Kennenlern-Weg: Motiv „Folgen“. Veröffentlicht auf Unsplash am 28.04.2016. Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert.
-- tuer-holz: Tür, Eingangsbild (Holztür); das Logo liegt als eigene Ebene darüber. Veröffentlicht auf Unsplash am 27.08.2023. Zuschnitt, in der Mitte in linken und rechten Flügel geteilt (Desktop 1280×1600, mobil 591×2560), komprimiert.
 - kosten-feld: Seite „Kosten“, Kopfbild. Veröffentlicht auf Unsplash am 30.08.2024. Zuschnitt auf 16:9, auf 1920×1080 verkleinert, komprimiert.
+
+## Grafik der Eingangstür
+
+Die Grafik der Eingangstür (Holztür) wurde mit KI erstellt. Sie bleibt in der Fassung, die vor dem Austausch der Weg- und Kostenbilder im Einsatz war. Das Logo ist Teil der Grafik.
+
+| Datei | Hinweis |
+| --- | --- |
+| `public/tuer/bilder/holz/desktop-links.jpg`<br>`public/tuer/bilder/holz/desktop-links.webp`<br>`public/tuer/bilder/holz/desktop-rechts.jpg`<br>`public/tuer/bilder/holz/desktop-rechts.webp`<br>`public/tuer/bilder/holz/mobil-links.jpg`<br>`public/tuer/bilder/holz/mobil-links.webp`<br>`public/tuer/bilder/holz/mobil-rechts.jpg`<br>`public/tuer/bilder/holz/mobil-rechts.webp` | Grafik der Eingangstür, erstellt mit KI. Die Dateien entsprechen dem Stand vor dem Austausch der Weg- und Kostenbilder (27.11.2026). |
 
 ## Eigene Bilder und Marke
 
@@ -48,7 +54,6 @@ Verwendung und Bearbeitung:
 | `public/images/johannes-mit-hund.webp` | Eigenes Foto des Betreibers |
 | `public/tuer/bilder/logo.png` | Eigene Marke BtMM (Logo) |
 | `public/tuer/bilder/logo-glow-schrift-weiss.png` | Eigene Marke BtMM (Logo) |
-| `public/tuer/bilder/logo-tuer.webp` | Eigene Marke BtMM (Logo), aus public/logo-glow-schrift-weiss.png abgeleitet |
 | `public/infinity-dark.png` | Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo) |
 | `public/infinity-gold.png` | Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo) |
 | `public/logo-glow-schrift-weiss.png` | Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo) |

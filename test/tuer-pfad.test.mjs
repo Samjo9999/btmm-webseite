@@ -155,7 +155,7 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
     assert.ok(T.fotoLabel, `${l} fotoLabel`)
     assert.ok(!('kiLabel' in T), `${l} kiLabel ist entfernt`)
     assert.match(T.bildCredit, /Unsplash/, `${l} bildCredit`)
-    assert.doesNotMatch(T.bildCredit, /Grok|KI-generiert|AI-generated/i, `${l} bildCredit ohne KI`)
+    assert.doesNotMatch(T.bildCredit, /Grok|KI-generiert|AI-generated/i, `${l} bildCredit ohne Grok/KI-generiert`)
     assert.doesNotMatch(T.bildCredit, /Illustration/i, `${l} alter Illustrationen-Credit`)
     for (const id of Object.keys(PF.BILDER)) {
       assert.ok(T.alt[id], `${l} alt ${id}`)
@@ -167,7 +167,7 @@ test('jede Sprache: Texte vollständig, Bezug und Alt-Texte für alle Schlüssel
   }
   assert.equal(Object.keys(TEXTE).length, 11)
   assert.equal(TEXTE.de.fotoLabel, 'Foto')
-  assert.equal(TEXTE.de.bildCredit, 'Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)')
+  assert.equal(TEXTE.de.bildCredit, 'Tür: KI-Grafik; Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)')
   assert.match(TEXTE.de.alt.grundlagen, /^Hände mehrerer Menschen/)
   assert.match(TEXTE.de.alt.sparen, /Marktstand mit frischem Gemüse/)
   assert.match(TEXTE.de.alt.sinn, /Lichterketten/)

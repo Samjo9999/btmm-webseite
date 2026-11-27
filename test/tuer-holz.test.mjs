@@ -11,15 +11,14 @@ const css = readFileSync(join(root, 'public/tuer/tuer.css'), 'utf8')
 const js = readFileSync(join(root, 'public/tuer/tuer.js'), 'utf8')
 const weiche = readFileSync(join(root, 'components/btmm/TuerWeiche.tsx'), 'utf8')
 
-test('Tür: Flügel, Band, sr-only-Name, leere Alts, Logo als eigene Ebene über dem Foto', () => {
+test('Tür: Flügel, Band, sr-only-Name, leere Alts, keine Glow-Logo-Schichten', () => {
   assert.match(html, /class="fluegel links"/)
   assert.match(html, /class="fluegel rechts"/)
   assert.match(html, /class="tuer-band"/)
   assert.match(html, /class="nur-sr">BtMM – Back to Meaning Maximization/)
   assert.match(html, /<img src="\/tuer\/bilder\/holz\/mobil-links\.jpg" alt=""/)
   assert.match(html, /<img src="\/tuer\/bilder\/holz\/mobil-rechts\.jpg" alt=""/)
-  assert.doesNotMatch(html, /class="tuer-licht"|logo-glow/)
-  assert.match(html, /<div class="tuer-logo"><img src="\/tuer\/bilder\/logo-tuer\.webp" alt=""/)
+  assert.doesNotMatch(html, /class="tuer-licht"|class="tuer-logo"|logo-glow/)
   assert.doesNotMatch(html, /class="tuer-text"/)
 })
 
@@ -46,10 +45,7 @@ test('Tür-CSS: Band ohne linken Rahmen, reduced-motion nur Fade, --tuer-y', () 
   assert.match(css, /--tuer-y:50%/)
   assert.match(css, /--tuer-y:48\.3%/)
   assert.match(css, /max-height:175px/)
-  assert.doesNotMatch(css, /\.tuer-licht\{/)
-  // Logo ist eine eigene Ebene über dem Foto (nicht ins Foto eingebrannt) und blendet beim Öffnen aus
-  assert.match(css, /\.tuer-logo\{[^}]*position:absolute/)
-  assert.match(css, /\.oeffnet \.tuer-logo\{opacity:0\}/)
+  assert.doesNotMatch(css, /\.tuer-licht\{|\.tuer-logo\{/)
 })
 
 test('11 Locales und ?ohne-tuer= bleiben', () => {
@@ -63,10 +59,9 @@ test('Tür: sichtbarer lokalisierter Bild-Credit, ohne linken Rahmen', () => {
   const css = readFileSync(join(root, 'public/tuer/tuer.css'), 'utf8')
   const jsTexte = readFileSync(join(root, 'public/tuer/texte.js'), 'utf8')
   assert.match(html, /class="bild-credit"[^>]*><a [^>]*data-t="bildCredit"/)
-  assert.match(html, /Fotos: Unsplash, freie Lizenz/)
+  assert.match(html, /Tür: KI-Grafik; Fotos: Unsplash, freie Lizenz/)
   assert.match(html, /impressum#bildnachweise/)
   assert.doesNotMatch(html, /Grok|KI-generiert/)
-  assert.match(html, /class="tuer-logo"/)
   assert.doesNotMatch(css, /\.tuer-band \.bild-credit\{[^}]*border-left:\s*[^0]/)
   assert.match(css, /\.tuer-band \.bild-credit\{[^}]*color:var\(--tuer-link\)/)
   const locales = ['de', 'en', 'zh', 'es', 'hi', 'ar', 'bn', 'pt', 'ru', 'ja', 'fr']

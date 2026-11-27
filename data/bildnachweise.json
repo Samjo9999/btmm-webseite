@@ -19,10 +19,6 @@
       "hinweis": "Eigene Marke BtMM (Logo)"
     },
     {
-      "datei": "public/tuer/bilder/logo-tuer.webp",
-      "hinweis": "Eigene Marke BtMM (Logo), aus public/logo-glow-schrift-weiss.png abgeleitet"
-    },
-    {
       "datei": "public/infinity-dark.png",
       "hinweis": "Eigene Marke BtMM (Logo bzw. Vorschaubild mit Logo)"
     },
@@ -229,26 +225,6 @@
       "bearbeitung": "Zuschnitt auf 16:9, auf 1280×720 verkleinert, komprimiert"
     },
     {
-      "id": "tuer-holz",
-      "dateien": [
-        "public/tuer/bilder/holz/desktop-links.jpg",
-        "public/tuer/bilder/holz/desktop-links.webp",
-        "public/tuer/bilder/holz/desktop-rechts.jpg",
-        "public/tuer/bilder/holz/desktop-rechts.webp",
-        "public/tuer/bilder/holz/mobil-links.jpg",
-        "public/tuer/bilder/holz/mobil-links.webp",
-        "public/tuer/bilder/holz/mobil-rechts.jpg",
-        "public/tuer/bilder/holz/mobil-rechts.webp"
-      ],
-      "verwendung": "Tür, Eingangsbild (Holztür); das Logo liegt als eigene Ebene darüber",
-      "fotograf": "Isabelle Farinelli Silva",
-      "quelle": "https://unsplash.com/photos/a-close-up-of-a-wooden-door-with-a-handle-bIG0v7GnQVM",
-      "lizenz": "Unsplash-Lizenz",
-      "veroeffentlicht": "27.08.2023",
-      "abruf": "27.11.2026",
-      "bearbeitung": "Zuschnitt, in der Mitte in linken und rechten Flügel geteilt (Desktop 1280×1600, mobil 591×2560), komprimiert"
-    },
-    {
       "id": "kosten-feld",
       "dateien": [
         "public/images/kosten-feld.jpg"
@@ -413,6 +389,23 @@
       "seiten": [
         "app/[locale]/(seiten)/koerperarbeit/ablauf/page.tsx"
       ]
+    }
+  ],
+  "ki": [
+    {
+      "id": "tuer-holz",
+      "dateien": [
+        "public/tuer/bilder/holz/desktop-links.jpg",
+        "public/tuer/bilder/holz/desktop-links.webp",
+        "public/tuer/bilder/holz/desktop-rechts.jpg",
+        "public/tuer/bilder/holz/desktop-rechts.webp",
+        "public/tuer/bilder/holz/mobil-links.jpg",
+        "public/tuer/bilder/holz/mobil-links.webp",
+        "public/tuer/bilder/holz/mobil-rechts.jpg",
+        "public/tuer/bilder/holz/mobil-rechts.webp"
+      ],
+      "verwendung": "Tür, Eingangsbild (Holztür); das Logo ist Teil der Grafik",
+      "hinweis": "Grafik der Eingangstür, erstellt mit KI. Die Dateien entsprechen dem Stand vor dem Austausch der Weg- und Kostenbilder (27.11.2026)."
     }
   ]
 }
