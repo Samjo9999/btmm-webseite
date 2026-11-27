@@ -9,7 +9,7 @@ window.BTMM_TUER_TEXTE = {
     tuerP: "Wir lernen dich mit ein paar Fragen kennen und zeigen dir dann deinen Weg durch BtMM.",
     eintreten: "Eintreten",
     ohne: "Ohne Fragen zur Webseite",
-    bildCredit: "Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)",
+    bildCredit: "Tür: KI-Grafik; Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)",
     kopfName: "BtMM-KI", kopfSub: "fragt, du antwortest", loeschen: "Antworten löschen",
     ds: "Die BtMM-KI stellt dir ein paar Fragen, damit wir dir BtMM passend vorstellen können. Deine Antworten bleiben nur auf diesem Gerät, solange du kein Konto hast. Bitte keine Gesundheitsangaben. Du kannst jederzeit abbrechen und die Antworten löschen.",
     dsLink: "Datenschutz",
@@ -92,7 +92,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "Eine Gruppe wandert im Herbst auf einem laubbedeckten Waldweg, ein Hund läuft mit"
     },
     fotoLabel: "Foto",
-    bildCredit: "Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)",
+    bildCredit: "Tür: KI-Grafik; Fotos: Unsplash, freie Lizenz (Nachweise im Impressum)",
     merkmale: {
       freund: ["freund", "freundin", "bekannt", "kollege", "kollegin", "familie", "mutter", "vater", "bruder", "schwester", "erzählt", "empfohlen", "empfehlung", "mitbewohn", "wg", "chor"],
       online: ["instagram", "internet", "google", "gesucht", "online", "social", "facebook", "tiktok", "youtube", "webseite", "website", "artikel", "zeitung", "podcast"],
@@ -117,7 +117,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Step inside",
     tuerP: "We get to know you with a few questions and then show you your path through BtMM.",
     eintreten: "Enter", ohne: "To the website without questions",
-    bildCredit: "Photos: Unsplash, free licence (credits in the legal notice)",
+    bildCredit: "Door: AI graphic; Photos: Unsplash, free licence (credits in the legal notice)",
     kopfName: "BtMM AI", kopfSub: "asks, you answer", loeschen: "Delete answers",
     ds: "The BtMM AI asks you a few questions so that we can introduce BtMM to you in a way that suits you. Your answers stay only on this device as long as you do not have an account. Please do not share any health information. You can stop at any time and delete your answers.",
     dsLink: "Privacy",
@@ -194,7 +194,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "A group hiking along a leaf-covered forest path in autumn, a dog walking along"
     },
     fotoLabel: "Photo",
-    bildCredit: "Photos: Unsplash, free licence (credits in the legal notice)",
+    bildCredit: "Door: AI graphic; Photos: Unsplash, free licence (credits in the legal notice)",
     merkmale: {
       freund: ["friend", "buddy", "colleague", "coworker", "co-worker", "family", "mother", " mom", " mum", "father", " dad", "brother", "sister", "partner", "told me", "recommend", "word of mouth", "roommate", "flatmate", "neighbo"],
       online: ["instagram", "internet", "google", "searched", "online", "social media", "facebook", "tiktok", "youtube", "website", " web", "article", "newspaper", "podcast", "reddit", "linkedin"],
@@ -219,7 +219,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Entre",
     tuerP: "Nous apprenons à te connaître avec quelques questions, puis nous te montrons ton chemin à travers BtMM.",
     eintreten: "Entrer", ohne: "Vers le site sans questions",
-    bildCredit: "Photos : Unsplash, licence libre (crédits dans les mentions légales)",
+    bildCredit: "Porte : graphique créé par IA ; Photos : Unsplash, licence libre (crédits dans les mentions légales)",
     kopfName: "IA BtMM", kopfSub: "pose les questions, tu réponds", loeschen: "Supprimer les réponses",
     ds: "L'IA de BtMM te pose quelques questions afin que nous puissions te présenter BtMM de façon adaptée. Tes réponses restent uniquement sur cet appareil tant que tu n'as pas de compte. Merci de ne donner aucune information de santé. Tu peux arrêter à tout moment et supprimer les réponses.",
     dsLink: "Protection des données",
@@ -296,7 +296,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "Un groupe marche sur un sentier forestier couvert de feuilles en automne, un chien les accompagne"
     },
     fotoLabel: "Photo",
-    bildCredit: "Photos : Unsplash, licence libre (crédits dans les mentions légales)",
+    bildCredit: "Porte : graphique créé par IA ; Photos : Unsplash, licence libre (crédits dans les mentions légales)",
     merkmale: {
       freund: [" ami", " amie", "copain", "copine", "collegue", "famille", " mere", " pere", " maman", " papa", "frere", "soeur", "m'a parle", "m'en a parle", "raconte", "recommand", "conseille", "bouche a oreille", "colocataire", "coloc", "voisin"],
       online: ["instagram", "internet", "google", "cherche", "en ligne", "reseaux sociaux", "facebook", "tiktok", "youtube", "site web", "site internet", "le site", "votre site", "ton site", "article", "journal", "podcast"],
@@ -321,7 +321,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Pasa",
     tuerP: "Te conocemos con unas pocas preguntas y luego te mostramos tu camino por BtMM.",
     eintreten: "Entrar", ohne: "Ir a la web sin preguntas",
-    bildCredit: "Fotos: Unsplash, licencia libre (créditos en el aviso legal)",
+    bildCredit: "Puerta: gráfico de IA; Fotos: Unsplash, licencia libre (créditos en el aviso legal)",
     kopfName: "IA de BtMM", kopfSub: "pregunta, tú respondes", loeschen: "Borrar respuestas",
     ds: "La IA de BtMM te hace unas preguntas para que podamos presentarte BtMM de forma adecuada para ti. Tus respuestas se quedan solo en este dispositivo mientras no tengas una cuenta. Por favor, no indiques datos de salud. Puedes interrumpir en cualquier momento y borrar las respuestas.",
     dsLink: "Protección de datos",
@@ -398,7 +398,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "Un grupo camina por un sendero del bosque cubierto de hojas en otoño, un perro los acompaña"
     },
     fotoLabel: "Foto",
-    bildCredit: "Fotos: Unsplash, licencia libre (créditos en el aviso legal)",
+    bildCredit: "Puerta: gráfico de IA; Fotos: Unsplash, licencia libre (créditos en el aviso legal)",
     merkmale: {
       freund: ["amig", "colega", "companer", "familia", "madre", " mama", "padre", " papa", "herman", "me conto", "me hablo", "recomend", "boca a boca", "vecin", "conocid"],
       online: ["instagram", "internet", "google", "busque", "buscando", "en linea", "online", "redes sociales", "facebook", "tiktok", "youtube", "pagina web", "sitio web", " web", "articulo", "periodico", "podcast"],
@@ -423,7 +423,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Entre",
     tuerP: "Conhecemos você com algumas perguntas e depois mostramos o seu caminho pelo BtMM.",
     eintreten: "Entrar", ohne: "Ir para o site sem perguntas",
-    bildCredit: "Fotos: Unsplash, licença livre (créditos nas informações legais)",
+    bildCredit: "Porta: gráfico de IA; Fotos: Unsplash, licença livre (créditos nas informações legais)",
     kopfName: "IA do BtMM", kopfSub: "pergunta, você responde", loeschen: "Apagar respostas",
     ds: "A IA do BtMM faz algumas perguntas a você para que possamos apresentar o BtMM de forma adequada a você. Suas respostas ficam apenas neste dispositivo enquanto você não tiver uma conta. Por favor, não informe dados de saúde. Você pode interromper a qualquer momento e apagar as respostas.",
     dsLink: "Proteção de dados",
@@ -500,7 +500,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "Um grupo caminha por um trilho florestal coberto de folhas no outono, um cão acompanha"
     },
     fotoLabel: "Foto",
-    bildCredit: "Fotos: Unsplash, licença livre (créditos nas informações legais)",
+    bildCredit: "Porta: gráfico de IA; Fotos: Unsplash, licença livre (créditos nas informações legais)",
     merkmale: {
       freund: ["amig", "colega", "familia", " mae", " pai ", "irma", "me contou", "me falou", "recomend", "indicou", "indicacao", "boca a boca", "vizinh", "conhecid"],
       online: ["instagram", "internet", "google", "pesquis", "procurei", "online", "redes sociais", "facebook", "tiktok", "youtube", " site", "artigo", "jornal", "podcast"],
@@ -525,7 +525,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "Входи",
     tuerP: "Мы познакомимся с тобой с помощью нескольких вопросов, а потом покажем твой путь по BtMM.",
     eintreten: "Войти", ohne: "На сайт без вопросов",
-    bildCredit: "Фото: Unsplash, свободная лицензия (авторы указаны в выходных данных)",
+    bildCredit: "Дверь: графика ИИ; Фото: Unsplash, свободная лицензия (авторы указаны в выходных данных)",
     kopfName: "ИИ BtMM", kopfSub: "спрашивает, ты отвечаешь", loeschen: "Удалить ответы",
     ds: "ИИ BtMM задаст тебе несколько вопросов, чтобы мы могли рассказать тебе о BtMM так, как подходит именно тебе. Твои ответы хранятся только на этом устройстве, пока у тебя нет аккаунта. Пожалуйста, не указывай сведения о здоровье. Ты можешь в любой момент прервать разговор и удалить ответы.",
     dsLink: "Защита данных",
@@ -602,7 +602,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "Группа идёт осенью по усыпанной листьями лесной тропе, рядом бежит собака"
     },
     fotoLabel: "Фото",
-    bildCredit: "Фото: Unsplash, свободная лицензия (авторы указаны в выходных данных)",
+    bildCredit: "Дверь: графика ИИ; Фото: Unsplash, свободная лицензия (авторы указаны в выходных данных)",
     merkmale: {
       freund: ["друг", "друз", "подруг", "знаком", "коллег", "семья", "семьи", "мама", "мать", "папа", "отец", "брат", "сестр", "рассказал", "рассказыв", "посовет", "рекоменд", "сосед"],
       online: ["инстаграм", "instagram", "интернет", "гугл", "google", "яндекс", "нашел", "нашла", "искал", "онлайн", "соцсет", "фейсбук", "телеграм", "тикток", "ютуб", "youtube", "сайт", "статья", "статью", "статье", "газет", "подкаст"],
@@ -627,7 +627,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "تفضّل بالدخول",
     tuerP: "نتعرّف عليك ببعض الأسئلة، ثم نريك طريقك عبر BtMM.",
     eintreten: "ادخل", ohne: "إلى الموقع بدون أسئلة",
-    bildCredit: "الصور: Unsplash بترخيص حر (أسماء المصوّرين في بيانات الموقع)",
+    bildCredit: "الباب: رسم بالذكاء الاصطناعي؛ الصور: Unsplash بترخيص حر (أسماء المصوّرين في بيانات الموقع)",
     kopfName: "ذكاء BtMM الاصطناعي", kopfSub: "يسأل، وأنت تجيب", loeschen: "حذف الإجابات",
     ds: "يطرح عليك الذكاء الاصطناعي لـBtMM بعض الأسئلة حتى نتمكن من تعريفك بـBtMM بما يناسبك. تبقى إجاباتك على هذا الجهاز فقط ما دام ليس لديك حساب. يُرجى عدم ذكر أي معلومات صحية. يمكنك التوقف في أي وقت وحذف الإجابات.",
     dsLink: "حماية البيانات",
@@ -704,7 +704,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "مجموعة تمشي في الخريف على ممر غابة مغطى بالأوراق ويرافقها كلب"
     },
     fotoLabel: "صورة",
-    bildCredit: "الصور: Unsplash بترخيص حر (أسماء المصوّرين في بيانات الموقع)",
+    bildCredit: "الباب: رسم بالذكاء الاصطناعي؛ الصور: Unsplash بترخيص حر (أسماء المصوّرين في بيانات الموقع)",
     merkmale: {
       freund: ["صديق", "اصدقاء", "زميل", "عائلة", "عائلتي", "اسرتي", "والدتي", "والدي", "امي ", "ابي ", "اخي ", "اختي", "اخبرني", "اخبرتني", "حكى لي", "نصحني", "اوصى", "توصية", "جاري", "جارتي"],
       online: ["انستغرام", "انستجرام", "instagram", "الانترنت", "انترنت", "جوجل", "غوغل", "google", "بحثت", "اونلاين", "وسائل التواصل", "فيسبوك", "تيك توك", "يوتيوب", "موقع", "مقال", "جريدة", "صحيفة", "بودكاست"],
@@ -729,7 +729,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "अंदर आइए",
     tuerP: "हम कुछ सवालों से आपको जानेंगे और फिर आपको BtMM में आपका रास्ता दिखाएँगे।",
     eintreten: "प्रवेश करें", ohne: "बिना सवालों के वेबसाइट पर जाएँ",
-    bildCredit: "फ़ोटो: Unsplash, मुक्त लाइसेंस (फ़ोटोग्राफ़रों के नाम इम्प्रेसम में)",
+    bildCredit: "द्वार: एआई-ग्राफ़िक; फ़ोटो: Unsplash, मुक्त लाइसेंस (फ़ोटोग्राफ़रों के नाम इम्प्रेसम में)",
     kopfName: "BtMM-एआई", kopfSub: "पूछता है, आप जवाब देते हैं", loeschen: "जवाब मिटाएँ",
     ds: "BtMM-एआई आपसे कुछ सवाल पूछता है, ताकि हम आपको आपके अनुरूप BtMM से परिचित करा सकें। जब तक आपका कोई खाता नहीं है, आपके जवाब सिर्फ़ इसी डिवाइस पर रहते हैं। कृपया स्वास्थ्य से जुड़ी कोई जानकारी न दें। आप कभी भी रुक सकते हैं और जवाब मिटा सकते हैं।",
     dsLink: "डेटा सुरक्षा",
@@ -806,7 +806,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "पतझड़ में पत्तों से ढके जंगल के रास्ते पर एक समूह पैदल चल रहा है, साथ में एक कुत्ता"
     },
     fotoLabel: "फ़ोटो",
-    bildCredit: "फ़ोटो: Unsplash, मुक्त लाइसेंस (फ़ोटोग्राफ़रों के नाम इम्प्रेसम में)",
+    bildCredit: "द्वार: एआई-ग्राफ़िक; फ़ोटो: Unsplash, मुक्त लाइसेंस (फ़ोटोग्राफ़रों के नाम इम्प्रेसम में)",
     merkmale: {
       freund: ["दोस्त", "मित्र", "सहकर्मी", "परिवार", "माँ", "मां", "पिता", "पापा", "भाई", "बहन", "बताया", "सलाह", "सिफारिश", "सिफ़ारिश", "पड़ोसी", "friend"],
       online: ["इंस्टाग्राम", "instagram", "इंटरनेट", "internet", "गूगल", "google", "खोजा", "ऑनलाइन", "online", "सोशल मीडिया", "फेसबुक", "यूट्यूब", "youtube", "वेबसाइट", "लेख", "अख़बार", "अखबार", "पॉडकास्ट"],
@@ -831,7 +831,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "ভেতরে আসুন",
     tuerP: "কয়েকটি প্রশ্নের মাধ্যমে আমরা আপনাকে জানব, তারপর BtMM-এ আপনার পথ দেখাব।",
     eintreten: "প্রবেশ করুন", ohne: "প্রশ্ন ছাড়াই ওয়েবসাইটে যান",
-    bildCredit: "ছবি: Unsplash, মুক্ত লাইসেন্স (আলোকচিত্রীদের নাম ইমপ্রেসামে)",
+    bildCredit: "দরজা: এআই-গ্রাফিক; ছবি: Unsplash, মুক্ত লাইসেন্স (আলোকচিত্রীদের নাম ইমপ্রেসামে)",
     kopfName: "BtMM এআই", kopfSub: "প্রশ্ন করে, আপনি উত্তর দেন", loeschen: "উত্তর মুছুন",
     ds: "BtMM-এর এআই আপনাকে কয়েকটি প্রশ্ন করে, যাতে আমরা আপনার উপযোগী করে আপনাকে BtMM-এর পরিচয় দিতে পারি। যতক্ষণ আপনার কোনো অ্যাকাউন্ট নেই, আপনার উত্তরগুলো শুধু এই ডিভাইসেই থাকে। অনুগ্রহ করে স্বাস্থ্য-সংক্রান্ত কোনো তথ্য দেবেন না। আপনি যেকোনো সময় থামতে এবং উত্তরগুলো মুছে ফেলতে পারেন।",
     dsLink: "ডেটা সুরক্ষা",
@@ -908,7 +908,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "শরতে পাতায় ঢাকা বনপথে একদল মানুষ হাঁটছে, সঙ্গে একটি কুকুর"
     },
     fotoLabel: "ছবি",
-    bildCredit: "ছবি: Unsplash, মুক্ত লাইসেন্স (আলোকচিত্রীদের নাম ইমপ্রেসামে)",
+    bildCredit: "দরজা: এআই-গ্রাফিক; ছবি: Unsplash, মুক্ত লাইসেন্স (আলোকচিত্রীদের নাম ইমপ্রেসামে)",
     merkmale: {
       freund: ["বন্ধু", "বান্ধবী", "সহকর্মী", "পরিবার", "আমার মা", "মায়ের", "বাবা", "ভাই", "বোন", "বলেছে", "বলেছিল", "বলেছেন", "পরামর্শ", "সুপারিশ", "প্রতিবেশী"],
       online: ["ইনস্টাগ্রাম", "instagram", "ইন্টারনেট", "গুগল", "google", "খুঁজ", "অনলাইন", "online", "সোশ্যাল মিডিয়া", "ফেসবুক", "ইউটিউব", "youtube", "ওয়েবসাইট", "প্রবন্ধ", "নিবন্ধ", "খবরের কাগজ", "পত্রিকা", "পডকাস্ট"],
@@ -933,7 +933,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "お入りください",
     tuerP: "いくつかの質問であなたのことを知り、そのあとBtMMを巡るあなたの道をご案内します。",
     eintreten: "入る", ohne: "質問なしでウェブサイトへ",
-    bildCredit: "写真：Unsplash（フリーライセンス）。撮影者は法的表示ページに記載",
+    bildCredit: "扉：AIグラフィック；写真：Unsplash（フリーライセンス）。撮影者は法的表示ページに記載",
     kopfName: "BtMM AI", kopfSub: "AIが質問し、あなたが答えます", loeschen: "回答を削除",
     ds: "BtMMのAIが、あなたに合った形でBtMMをご紹介できるよう、いくつか質問します。アカウントをお持ちでない間、回答はこの端末にのみ残ります。健康に関する情報は入力しないでください。いつでも中断し、回答を削除できます。",
     dsLink: "データ保護",
@@ -1010,7 +1010,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "秋、落ち葉に覆われた森の道を歩くグループ、犬も一緒"
     },
     fotoLabel: "写真",
-    bildCredit: "写真：Unsplash（フリーライセンス）。撮影者は法的表示ページに記載",
+    bildCredit: "扉：AIグラフィック；写真：Unsplash（フリーライセンス）。撮影者は法的表示ページに記載",
     merkmale: {
       freund: ["友達", "友だち", "友人", "知人", "知り合い", "同僚", "家族", "母", "父", "兄", "姉", "弟", "妹", "聞いた", "教えてもら", "勧め", "すすめ", "紹介", "口コミ", "ルームメイト"],
       online: ["インスタ", "instagram", "インターネット", "ネット", "グーグル", "google", "検索", "オンライン", "sns", "フェイスブック", "ティックトック", "ユーチューブ", "youtube", "ウェブ", "サイト", "ホームページ", "記事", "新聞", "ポッドキャスト"],
@@ -1035,7 +1035,7 @@ window.BTMM_TUER_TEXTE = {
     tuerH1: "请进",
     tuerP: "我们通过几个问题认识你，然后为你展示一条穿越 BtMM 的路。",
     eintreten: "进入", ohne: "不回答问题，直接进入网站",
-    bildCredit: "照片：Unsplash，免费授权（摄影师信息见法律声明）",
+    bildCredit: "门：人工智能图形；照片：Unsplash，免费授权（摄影师信息见法律声明)",
     kopfName: "BtMM 人工智能", kopfSub: "它来提问，你来回答", loeschen: "删除回答",
     ds: "BtMM 人工智能会问你几个问题，以便我们以适合你的方式向你介绍 BtMM。在你没有账户之前，你的回答只保存在这台设备上。请不要提供任何健康信息。你可以随时中止并删除回答。",
     dsLink: "数据保护",
@@ -1112,7 +1112,7 @@ window.BTMM_TUER_TEXTE = {
       folgen: "秋天，一群人走在落叶覆盖的森林小路上，还有一只狗同行"
     },
     fotoLabel: "照片",
-    bildCredit: "照片：Unsplash，免费授权（摄影师信息见法律声明）",
+    bildCredit: "门：人工智能图形；照片：Unsplash，免费授权（摄影师信息见法律声明)",
     merkmale: {
       freund: ["朋友", "熟人", "同事", "家人", "妈妈", "母亲", "爸爸", "父亲", "哥哥", "姐姐", "弟弟", "妹妹", "告诉我", "跟我说", "推荐", "介绍", "口碑", "室友", "邻居"],
       online: ["instagram", "网上", "互联网", "网络", "谷歌", "google", "百度", "搜索", "在线", "社交媒体", "微信", "微博", "小红书", "抖音", "脸书", "youtube", "网站", "文章", "报纸", "播客"],

@@ -12,47 +12,47 @@ const KLEINUNTERNEHMER_SATZ =
 const BILD_HINWEIS: Record<string, { titel: string; text: string }> = {
   de: {
     titel: 'Bildnachweise',
-    text: 'Fotos: Unsplash, freie Lizenz. Fotografinnen und Fotografen siehe Bildnachweise unten.',
+    text: 'Fotos: Unsplash, freie Lizenz. Fotografinnen und Fotografen siehe Bildnachweise unten. Die Grafik der Eingangstür wurde mit KI erstellt.',
   },
   en: {
     titel: 'Image credits',
-    text: 'Photos: Unsplash, free licence. Photographers are listed in the credits below.',
+    text: 'Photos: Unsplash, free licence. Photographers are listed in the credits below. The graphic of the entrance door was created with AI.',
   },
   fr: {
     titel: 'Crédits photo',
-    text: 'Photos : Unsplash, licence libre. Les photographes sont indiqués dans les crédits ci-dessous.',
+    text: 'Photos : Unsplash, licence libre. Les photographes sont indiqués dans les crédits ci-dessous. Le graphisme de la porte d’entrée a été créé par IA.',
   },
   es: {
     titel: 'Créditos de las imágenes',
-    text: 'Fotos: Unsplash, licencia libre. Los fotógrafos figuran en los créditos de abajo.',
+    text: 'Fotos: Unsplash, licencia libre. Los fotógrafos figuran en los créditos de abajo. El gráfico de la puerta de entrada se creó con IA.',
   },
   pt: {
     titel: 'Créditos das imagens',
-    text: 'Fotos: Unsplash, licença livre. Os fotógrafos constam dos créditos abaixo.',
+    text: 'Fotos: Unsplash, licença livre. Os fotógrafos constam dos créditos abaixo. O gráfico da porta de entrada foi criado com IA.',
   },
   ru: {
     titel: 'Авторы изображений',
-    text: 'Фото: Unsplash, свободная лицензия. Авторы фотографий указаны в списке ниже.',
+    text: 'Фото: Unsplash, свободная лицензия. Авторы фотографий указаны в списке ниже. Графика входной двери создана с помощью ИИ.',
   },
   ar: {
     titel: 'حقوق الصور',
-    text: 'الصور: Unsplash بترخيص حر. أسماء المصوّرين مذكورة في القائمة أدناه.',
+    text: 'الصور: Unsplash بترخيص حر. أسماء المصوّرين مذكورة في القائمة أدناه. رُسمت بوابة المدخل بالذكاء الاصطناعي.',
   },
   hi: {
     titel: 'चित्र-श्रेय',
-    text: 'फ़ोटो: Unsplash, मुक्त लाइसेंस। फ़ोटोग्राफ़रों के नाम नीचे दी गई सूची में हैं।',
+    text: 'फ़ोटो: Unsplash, मुक्त लाइसेंस। फ़ोटोग्राफ़रों के नाम नीचे दी गई सूची में हैं। प्रवेश-द्वार का ग्राफ़िक एआई से बनाया गया है।',
   },
   bn: {
     titel: 'ছবির কৃতজ্ঞতা',
-    text: 'ছবি: Unsplash, মুক্ত লাইসেন্স। আলোকচিত্রীদের নাম নিচের তালিকায় আছে।',
+    text: 'ছবি: Unsplash, মুক্ত লাইসেন্স। আলোকচিত্রীদের নাম নিচের তালিকায় আছে। প্রবেশদ্বারের গ্রাফিক এআই দিয়ে তৈরি।',
   },
   ja: {
     titel: '画像クレジット',
-    text: '写真：Unsplash（フリーライセンス）。撮影者は下の一覧に記載しています。',
+    text: '写真：Unsplash（フリーライセンス）。撮影者は下の一覧に記載しています。入口の扉のグラフィックはAIで作成されています。',
   },
   zh: {
     titel: '图片来源',
-    text: '照片：Unsplash，免费授权。摄影师信息见下方列表。',
+    text: '照片：Unsplash，免费授权。摄影师信息见下方列表。入口门的图形由人工智能制作。',
   },
 }
 

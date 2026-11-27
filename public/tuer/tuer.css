@@ -34,11 +34,6 @@ a{color:var(--lila)}
 .fluegel.links img{object-position:right var(--tuer-y)}
 .fluegel.rechts{right:0;transform-origin:right center}
 .fluegel.rechts img{object-position:left var(--tuer-y)}
-/* Logo liegt als eigene Ebene über dem Foto der Holztür (nicht ins Foto eingebrannt) */
-.tuer-logo{position:absolute;left:50%;top:var(--tuer-y);width:min(60vh,78vw);aspect-ratio:1/1;transform:translate(-50%,-50%);display:grid;place-items:center;transition:opacity .5s}
-.tuer-logo::before{content:"";position:absolute;inset:-8%;border-radius:50%;background:radial-gradient(circle,rgba(20,8,24,.74) 0%,rgba(20,8,24,.58) 52%,rgba(20,8,24,0) 72%)}
-.tuer-logo img{position:relative;width:100%;height:100%;object-fit:contain;display:block}
-.oeffnet .tuer-logo{opacity:0}
 .tuer-band{position:absolute;left:0;right:0;bottom:0;z-index:2;text-align:center;background:var(--tuer-band-grund);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);border-top:1px solid var(--tuer-band-linie);border-bottom:1px solid var(--tuer-band-linie);border-left:0;border-right:0;padding:14px 22px calc(12px + env(safe-area-inset-bottom));max-height:34%}
 .tuer-band h1{font-size:40px;margin:0 0 6px;color:var(--btmm-logo-text-glow);font-weight:600;line-height:1.1}
 .tuer-band p:not(.tuer-ohne):not(.bild-credit){font-size:18px;color:#faf9f9;margin:0 auto 10px;max-width:30em;line-height:1.4;opacity:1}
