@@ -11,11 +11,11 @@ export const dynamic = 'force-dynamic'
 
 export const metadata: Metadata = {
   title: 'Gründung – geplante BtMM eG',
-  description: 'Die geplante Gründung der BtMM eG. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich. Du kannst uns trotzdem kennenlernen.',
+  description: 'Die Gründung der Back to Meaning Maximization Genossenschaft. Wir suchen rund 13 Gründungsmitglieder; gegründet wird, sobald drei da sind. Werde Teil davon.',
 }
 
 const schritte = [
-  { schritt: '1', titel: 'Gründungsmitglieder finden', text: 'Mindestens drei Menschen, die diese Idee mittragen. Kein Zeitdruck — wir wachsen in dem Tempo, das zu uns passt.' },
+  { schritt: '1', titel: 'Gründungsmitglieder finden', text: 'Wir suchen rund 13 Menschen, die die Idee mittragen. Gründen können wir schon zu dritt, ohne Zeitdruck.' },
   { schritt: '2', titel: 'Gründungsversammlung & Notar', text: 'Geplant sind Gründungsversammlung, notarielle Beglaubigung und ein Geschäftsanteil von 100 € (Satzung § 2 Abs. 1, Entwurf). Die geplante BtMM eG soll nach der Gründung beim Genossenschaftsregister angemeldet werden. BtMM ist noch nicht gegründet, eine Mitgliedschaft ist derzeit nicht möglich.' },
   { schritt: '3', titel: 'Prüfverband & Aufbau', text: 'Geplant sind die Mitgliedschaft in einem Prüfungsverband, die nötigen Anmeldungen und der Aufbau des ersten Betriebs. Die operative Arbeit übernehmen die, die Zeit haben.' },
   { schritt: '4', titel: 'Die erste Zelle lebt', text: 'Gemeinsamer Einkauf, erste interne Leistungen, Stundenbuch. BtMM im Rohformat — noch ohne App, aber real.' },
@@ -49,7 +49,7 @@ export default async function GruendungPage({ params: { locale } }: { params: { 
             color: 'var(--btb-creme)',
             marginBottom: '1rem',
           }}>
-            An die Gründungsmitglieder
+            An die künftigen Gründungsmitglieder
           </h1>
           <p style={{
             color: 'var(--btb-oliv)',
@@ -74,7 +74,7 @@ export default async function GruendungPage({ params: { locale } }: { params: { 
                 Back to Meaning Maximization entsteht gerade. Nicht als fertiges System, das von oben eingeführt wird, sondern als lebendiger Prozess, der von den Menschen geprägt wird, die es aufbauen.
               </p>
               <p>
-                Für die Gründung der Genossenschaft braucht es mindestens drei Menschen, unser Ziel sind fünf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
+                Wir suchen rund 13 Gründungsmitglieder. Gegründet wird so bald wie möglich, sobald drei Mitglieder da sind; jede weitere Person senkt die Kosten je Kopf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
               </p>
               <p>
                 <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
