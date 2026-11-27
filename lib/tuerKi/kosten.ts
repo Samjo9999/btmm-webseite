@@ -5,7 +5,8 @@
  *
  * Eigener Kostendeckel, getrennt von S50 der Wissens-KI (kein Anteil an S50):
  * 0,50 €/Tag und 10 €/Monat, harter Stopp. Env darf die Werte senken, nicht über
- * die Obergrenze (0,50 / 10) anheben. In Scaleway gibt es keinen harten Euro-Deckel,
+ * die Obergrenze des gewählten Modells anheben (Standardmodell 0,50 / 10; stärkere Modelle
+ * über TUER_KI_MODEL: Obergrenze und Preise in lib/wissen/llmModelle.ts, siehe docs/tuer-ki/MODELL-STUFEN.md). In Scaleway gibt es keinen harten Euro-Deckel,
  * der den Verbrauch stoppt; der Stopp liegt im Code (plus optional Billing-Alerts).
  * Bei erreichtem Deckel gilt der Notbetrieb: kein Scaleway-Aufruf.
  *
@@ -16,8 +17,13 @@
  * Bei DB-Fehler: fail-closed, kein LLM-Aufruf. Einschalten der Tür-KI frühestens 01.12.2026.
  */
 
-export const PREIS_EIN_EUR_PRO_MIO = 0.15
-export const PREIS_AUS_EUR_PRO_MIO = 0.35
+import { LLM_MODELLE, MODELL_STANDARD_ID, resolveLlmModell } from '../wissen/llmModelle.ts'
+
+export type TuerPreis = { ein: number; aus: number }
+
+export const PREIS_EIN_EUR_PRO_MIO = LLM_MODELLE[MODELL_STANDARD_ID].preisEinEurProMio
+export const PREIS_AUS_EUR_PRO_MIO = LLM_MODELLE[MODELL_STANDARD_ID].preisAusEurProMio
+const PREIS_STANDARD: TuerPreis = { ein: PREIS_EIN_EUR_PRO_MIO, aus: PREIS_AUS_EUR_PRO_MIO }
 
 export type TuerDeckel = {
   tagEur: number
@@ -26,6 +32,8 @@ export type TuerDeckel = {
   maxEingabeTokens: number
   maxAusgabeTokens: number
   sparAusgabeTokens: number
+  /** Preis je 1 Mio. Tokens des gewählten Modells (Env TUER_KI_MODEL), Standard: Mistral Small 3.2. */
+  preis: TuerPreis
 }
 
 export const DECKEL_STANDARD: TuerDeckel = {
@@ -35,6 +43,7 @@ export const DECKEL_STANDARD: TuerDeckel = {
   maxEingabeTokens: 6000,
   maxAusgabeTokens: 400,
   sparAusgabeTokens: 200,
+  preis: PREIS_STANDARD,
 }
 
 export const DECKEL_OBERGRENZE = { tagEur: 0.5, monatEur: 10 } as const
@@ -45,11 +54,18 @@ function zahl(raw: string | undefined, standard: number, max: number): number {
   return Math.min(n, max)
 }
 
-export function deckelAusEnv(env: { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string }): TuerDeckel {
+/**
+ * Deckel aus Env. Die Obergrenze hängt am Modell: Standardmodell 0,50 / 10, stärkere Modelle
+ * (TUER_KI_MODEL) höhere feste Obergrenze aus llmModelle.ts. Ohne gültiges TUER_KI_MODEL
+ * bleibt alles wie bisher (Preis, Obergrenze, Standardwerte).
+ */
+export function deckelAusEnv(env: { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string; TUER_KI_MODEL?: string }): TuerDeckel {
+  const modell = resolveLlmModell(env.TUER_KI_MODEL)
   return {
     ...DECKEL_STANDARD,
-    tagEur: zahl(env.TUER_KI_TAG_EUR, DECKEL_STANDARD.tagEur, DECKEL_OBERGRENZE.tagEur),
-    monatEur: zahl(env.TUER_KI_MONAT_EUR, DECKEL_STANDARD.monatEur, DECKEL_OBERGRENZE.monatEur),
+    tagEur: zahl(env.TUER_KI_TAG_EUR, DECKEL_STANDARD.tagEur, modell.obergrenzeTagEur),
+    monatEur: zahl(env.TUER_KI_MONAT_EUR, DECKEL_STANDARD.monatEur, modell.obergrenzeMonatEur),
+    preis: { ein: modell.preisEinEurProMio, aus: modell.preisAusEurProMio },
   }
 }
 
@@ -57,8 +73,8 @@ export function schaetzeTokens(text: string): number {
   return Math.ceil(String(text || '').length / 3.5)
 }
 
-export function kostenEur(ein: number, aus: number): number {
-  return (ein * PREIS_EIN_EUR_PRO_MIO + aus * PREIS_AUS_EUR_PRO_MIO) / 1_000_000
+export function kostenEur(ein: number, aus: number, preis: TuerPreis = PREIS_STANDARD): number {
+  return (ein * preis.ein + aus * preis.aus) / 1_000_000
 }
 
 export type TuerKostenZustand = {
@@ -109,15 +125,15 @@ export function pruefeDeckel(
   if (geschaetztEin > deckel.maxEingabeTokens) return { erlaubt: false, grund: 'anfrage' }
   const spar = z.tagEur >= deckel.warnAnteil * deckel.tagEur || z.monatEur >= deckel.warnAnteil * deckel.monatEur
   const maxTokens = spar ? deckel.sparAusgabeTokens : deckel.maxAusgabeTokens
-  const schlimmstenfalls = kostenEur(geschaetztEin, maxTokens)
+  const schlimmstenfalls = kostenEur(geschaetztEin, maxTokens, deckel.preis)
   if (z.tagEur + schlimmstenfalls > deckel.tagEur) return { erlaubt: false, grund: 'tag' }
   if (z.monatEur + schlimmstenfalls > deckel.monatEur) return { erlaubt: false, grund: 'monat' }
   return { erlaubt: true, maxTokens, spar }
 }
 
-export function bucheVerbrauch(z: TuerKostenZustand, ein: number, aus: number, now = Date.now()) {
+export function bucheVerbrauch(z: TuerKostenZustand, ein: number, aus: number, now = Date.now(), preis: TuerPreis = PREIS_STANDARD) {
   rollen(z, now)
-  const eur = kostenEur(ein, aus)
+  const eur = kostenEur(ein, aus, preis)
   z.tagEur += eur
   z.monatEur += eur
   z.tagTokensEin += ein

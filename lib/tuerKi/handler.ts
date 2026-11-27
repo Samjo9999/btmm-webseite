@@ -6,13 +6,13 @@
  */
 import type { WissenChunk } from '../wissen/search.ts'
 import type { ChatNachricht, ChatErgebnis, ScalewayOptionen } from '../wissen/scaleway.ts'
-import { SCALEWAY_MODEL } from '../wissen/scaleway.ts'
 import { TUER_KI, spracheOder, type TuerSprache } from './konfig.ts'
 import { tuerKiSchalter, type TuerKiEnv } from './schalter.ts'
 import { sensibleNutzerNachrichten, bereinigeAntwort } from './filter.ts'
 import { pruefePersistenteRate, rateSalt, type TuerRateRpc, type TuerRateZustand } from './rateLimit.ts'
 import { pruefeDeckel, bucheVerbrauch, deckelAusEnv, schaetzeTokens, kostenEur, periodenUtc, type TuerKostenZustand } from './kosten.ts'
 import type { TuerKostenReserviere, TuerKostenKorrigiere } from './kostenPersist.ts'
+import { resolveLlmModell } from '../wissen/llmModelle.ts'
 import { baueSystemprompt, ECHO_SAETZE } from './systemPrompt.ts'
 import { FESTE_TEXTE } from './texte.ts'
 
@@ -36,7 +36,7 @@ export type TuerKiAntwort = {
 }
 
 export type TuerKiDeps = {
-  env: TuerKiEnv & { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string; TUER_KI_RATE_SALT?: string }
+  env: TuerKiEnv & { TUER_KI_TAG_EUR?: string; TUER_KI_MONAT_EUR?: string; TUER_KI_RATE_SALT?: string; TUER_KI_MODEL?: string }
   ip: string
   now: number
   /** Nur loadPublicCorpus (siehe app/api/tuer-ki/route.ts). */
@@ -156,7 +156,8 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
 
   // 8. Persistenter Deckel: Worst-Case reservieren. Ohne RPC oder bei Fehler: fail-closed.
   const { tag, monat } = periodenUtc(d.now)
-  const schlimmstenfalls = kostenEur(ein, dk.maxTokens)
+  const modell = resolveLlmModell(d.env.TUER_KI_MODEL)
+  const schlimmstenfalls = kostenEur(ein, dk.maxTokens, deckel.preis)
   try {
     const reserve = await d.reserviereKosten(tag, monat, schlimmstenfalls, deckel.tagEur, deckel.monatEur)
     if (!reserve || reserve.erlaubt !== true) return fest('deckel', sprache, 'deckel')
@@ -170,17 +171,19 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
     messages,
     temperature: TUER_KI.temperature,
     maxTokens: dk.maxTokens,
-    timeoutMs: TUER_KI.timeoutMs,
+    timeoutMs: Math.max(TUER_KI.timeoutMs, modell.timeoutMs),
+    model: modell.id,
+    ...(modell.reasoningEffort ? { reasoningEffort: modell.reasoningEffort } : {}),
   })
   const echtEin = erg?.usage?.prompt_tokens ?? ein
   const echtAus = erg ? (erg.usage?.completion_tokens ?? dk.maxTokens) : 0
-  const echtEur = kostenEur(echtEin, echtAus)
+  const echtEur = kostenEur(echtEin, echtAus, deckel.preis)
   try {
     await d.korrigiereKosten(tag, monat, schlimmstenfalls, echtEur, echtEin, echtAus)
   } catch {
     // Reservierung bleibt als Worst-Case stehen. Nichts loggen (kein Inhalt).
   }
-  bucheVerbrauch(d.kosten, echtEin, echtAus, d.now)
+  bucheVerbrauch(d.kosten, echtEin, echtAus, d.now, deckel.preis)
   if (!erg) return fest('fehler', sprache, 'fehler')
 
   // 10. Ausgabefilter
@@ -192,6 +195,6 @@ export async function beantworteTuerKi(body: unknown, d: TuerKiDeps): Promise<Tu
   const quellen = hits.slice(0, 3).map((h) => ({ dokument: h.title, abschnitt: h.abschnitt }))
   return {
     http: 200,
-    json: { status: 'ok', antwort: aus.text, schritte: aus.schritte, weiterleitung: aus.weiterleitung, quellen, generative: true, modell: SCALEWAY_MODEL },
+    json: { status: 'ok', antwort: aus.text, schritte: aus.schritte, weiterleitung: aus.weiterleitung, quellen, generative: true, modell: modell.id },
   }
 }
