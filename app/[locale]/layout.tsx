@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     template: `%s | ${BRAND_FULL}`,
   },
   description:
-    'BtMM – Back to Meaning Maximization: Menschen in Freiburg teilen Einkauf, Auto, Raum und Werkzeug und gründen später eine Genossenschaft. Klein anfangen ab 3 Leuten, kein Investment.',
+    'BtMM – Back to Meaning Maximization: Teilen, was allein teuer ist. Genossenschaft im Aufbau: Start in Freiburg, Ziel weltweit. Klein anfangen ab 3 Leuten, kein Investment.',
   metadataBase: new URL('https://b-t-m-m.com'),
   openGraph: {
     type: 'website',

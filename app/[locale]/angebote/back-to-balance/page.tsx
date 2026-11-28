@@ -30,7 +30,7 @@ export default function Seite({ params: { locale } }: P) {
           </div>
         </Abschnitt>
         <Abschnitt titel="Teil von BtMM">
-          <p>Back to Balance gehört zu BtMM, einer geplanten Genossenschaft in Freiburg, die teilt, was allein teuer ist. <a href={href(locale, 'start')}>Mehr über BtMM</a>.</p>
+          <p>Back to Balance gehört zu BtMM, einer geplanten Genossenschaft mit Start in Freiburg und dem Ziel, weltweit zu wachsen. Sie teilt, was allein teuer ist. <a href={href(locale, 'start')}>Mehr über BtMM</a>.</p>
         </Abschnitt>
         <WeiterLinks locale={locale} seiten={['start', 'soFunktionierts', 'mitmachen']} />
       </div>

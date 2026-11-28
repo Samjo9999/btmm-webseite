@@ -19,9 +19,9 @@ export type Seite = {
 export const SEITEN = {
   start: {
     pfad: '/',
-    titel: 'Teilen, was allein teuer ist – Genossenschaft in Freiburg',
+    titel: 'Teilen, was allein teuer ist – Start in Freiburg',
     beschreibung:
-      'BtMM: Menschen in Freiburg teilen Einkauf, Auto, Raum und Werkzeug und gründen später eine Genossenschaft. Klein anfangen ab 3 Leuten, kein Investment.',
+      'BtMM: Einkauf, Auto, Raum und Werkzeug teilen. Genossenschaft im Aufbau, Start in Freiburg, Ziel weltweit. Ab 3 Leuten, kein Investment.',
     kurz: 'Start',
     bereich: 'kern',
   },
@@ -152,6 +152,6 @@ export const ORGANISATION_LD = {
   logo: `${SITE_URL}/logo.png`,
   email: KONTAKT_MAIL,
   address: { '@type': 'PostalAddress', addressLocality: 'Freiburg im Breisgau', addressCountry: 'DE' },
-  description: 'Geplante Genossenschaft in Freiburg: teilen, was allein teuer ist. BtMM ist eine geplante Genossenschaft und noch nicht gegründet.',
+  description: 'Geplante Genossenschaft, Start in Freiburg, Ziel weltweit: teilen, was allein teuer ist. BtMM ist eine geplante Genossenschaft und noch nicht gegründet.',
   // foundingDate erst nach Eintragung setzen — öffentlich kein Gründungsdatum.
 }

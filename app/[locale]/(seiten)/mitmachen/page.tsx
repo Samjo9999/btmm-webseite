@@ -13,7 +13,7 @@ export default function Seite({ params: { locale } }: P) {
     <SeitenRahmen>
       <JsonLd daten={[ORGANISATION_LD, breadcrumbLd(['start', 'mitmachen'], locale),
         { '@type': 'ContactPage', name: SEITEN.mitmachen.titel, url: absUrl('mitmachen', locale), description: SEITEN.mitmachen.beschreibung }]} />
-      <SeitenKopf titel="Mitmachen" unterzeile="Wir suchen die ersten drei in Freiburg. Kein Investment, keine Vorkasse."
+      <SeitenKopf titel="Mitmachen" unterzeile="Start in Freiburg: Wir suchen die ersten drei. Kein Investment, keine Vorkasse."
         bild="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?w=1920&q=80" bildAlt="Hände halten Pflanze – gemeinsam wachsen" />
       <div className="btmm-inhalt">
         <Abschnitt titel="Dein nächster Schritt">

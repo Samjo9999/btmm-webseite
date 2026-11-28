@@ -115,7 +115,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
       <JsonLd daten={[ORGANISATION_LD, { '@type': 'WebSite', name: BRAND_FULL, url: SITE_URL, inLanguage: 'de-DE', publisher: { '@id': ORGANISATION_LD['@id'] } }]} />
       <section className="btmm-kopf" style={{ paddingTop: '3rem' }}>
         <h2 style={{ color: 'var(--btmm-dunkel)', fontSize: 'clamp(1.8rem,3.5vw,2.6rem)', maxWidth: 820, margin: '0 auto .75rem' }}>{SEITEN.start.titel}</h2>
-        <p className="btmm-unterzeile">Wir teilen Einkauf, Auto, Raum und Werkzeug – klein anfangen ab drei Leuten in Freiburg, später eine Genossenschaft.</p>
+        <p className="btmm-unterzeile">Wir teilen Einkauf, Auto, Raum und Werkzeug – klein anfangen ab drei Leuten. Später eine Genossenschaft: Start in Freiburg, Ziel weltweit.</p>
         <div className="btmm-raster" style={{ maxWidth: 1100, margin: '2rem auto 0', textAlign: 'left' }}>
           {KERNSEITEN.map((k) => (
             <Karte key={k} titel={SEITEN[k].kurz} link={href(locale, k)} bild={SEITENBILDER[k]}>
