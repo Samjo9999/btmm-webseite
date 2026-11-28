@@ -1,0 +1,11 @@
+{
+  "03-einladung-gruendung": { "version": "2.19.0", "stand": "27. November 2026" },
+  "04-wirtschaften-anleitung": { "version": "3.20.1", "stand": "27. November 2026" },
+  "07-konzept": { "version": "22.100.0", "stand": "27. November 2026" },
+  "12-handwerk-zulassungen": { "version": "3.1.0", "stand": "13. November 2026" },
+  "13-ideen-horizonte": { "version": "3.7.0", "stand": "13. November 2026" },
+  "19-soziale-zahlen": { "version": "1.23.1", "stand": "27. November 2026" },
+  "22-heilen-schuetzen-vorbeugen": { "version": "1.18.0", "stand": "27. November 2026" },
+  "28-aufnahme-kurz-erklaert": { "version": "1.11.0", "stand": "23. November 2026" },
+  "31-coin-ordnung": { "version": "0.21.0", "stand": "27. November 2026" }
+}

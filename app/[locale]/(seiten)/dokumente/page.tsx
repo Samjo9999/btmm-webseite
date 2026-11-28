@@ -3,8 +3,11 @@ import Link from 'next/link'
 import { Download, FileText } from 'lucide-react'
 import { BRAND_FULL } from '@/lib/brand'
 import { gruppiert, pfad, SITE } from '@/lib/dokumente-web.mjs'
+import pdfStand from '@/data/dokumente-pdf.json'
 
 export const dynamic = 'force-static'
+
+const PDF: Record<string, { version: string; stand: string }> = pdfStand
 
 type Doc = { slug: string; titel: string; nummer: string; version: string; stand: string }
 type Gruppe = { id: string; titel: string; text: string; docs: Doc[] }
@@ -60,7 +63,18 @@ export default function DokumentePage({ params }: { params: { locale: string } }
                       <p style={{ fontSize: '0.85rem', opacity: 0.65, marginTop: '0.15rem' }}>
                         Dokument {d.nummer} · Version {d.version} · Stand {d.stand}
                       </p>
+                      {PDF[d.slug] && (
+                        <p style={{ fontSize: '0.85rem', opacity: 0.65 }}>
+                          PDF: Version {PDF[d.slug].version} · Stand {PDF[d.slug].stand}
+                        </p>
+                      )}
                     </div>
+                    {PDF[d.slug] && (
+                      <a href={`/pdf/${d.slug}.pdf`} className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als PDF öffnen`}>
+                        <Download size={16} aria-hidden="true" />
+                        PDF
+                      </a>
+                    )}
                     <a href={`/dokumente/${d.slug}.md`} download className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als Markdown herunterladen`}>
                       <Download size={16} aria-hidden="true" />
                       Markdown
