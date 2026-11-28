@@ -1,5 +1,5 @@
 import createNextIntlPlugin from 'next-intl/plugin'
-import { ALT_NACH_NEU } from './lib/dokumente-web.mjs'
+import { ALT_NACH_NEU, slugs } from './lib/dokumente-web.mjs'
 
 const withNextIntl = createNextIntlPlugin('./i18n.ts')
 
@@ -12,10 +12,18 @@ const TUER_KI_UI = an(process.env.TUER_KI_ENABLED) && an(process.env.WISSEN_LLM_
 const nextConfig = {
   async redirects() {
     // Alte Dokumentseiten und PDFs (vor 25.11.2026) -> neue Dokumentseiten, damit nur eine Fassung gilt.
-    return Object.entries(ALT_NACH_NEU).flatMap(([alt, neu]) => [
+    const alt = Object.entries(ALT_NACH_NEU).flatMap(([alt, neu]) => [
       { source: `/:locale/dokumente/${alt}`, destination: `/:locale/dokumente/${neu}`, permanent: true },
       { source: `/dokumente/${alt}.pdf`, destination: `/de/dokumente/${neu}`, permanent: true },
     ])
+    // Dokumente nur als PDF (28.11.2026): Dokumentseiten und MD-Downloads zeigen auf das PDF.
+    // Temporär (307), damit die Textseiten später wieder aktiviert werden können.
+    const nurPdf = slugs().flatMap((slug) =>
+      [`/:locale/dokumente/${slug}`, `/dokumente/${slug}`, `/dokumente/${slug}.md`].map((source) => (
+        { source, destination: `/pdf/${slug}.pdf`, permanent: false }
+      ))
+    )
+    return [...alt, ...nurPdf]
   },
   async rewrites() {
     return [

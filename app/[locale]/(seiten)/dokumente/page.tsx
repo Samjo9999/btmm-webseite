@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { Download, FileText } from 'lucide-react'
 import { BRAND_FULL } from '@/lib/brand'
-import { gruppiert, pfad, SITE } from '@/lib/dokumente-web.mjs'
+import { gruppiert, SITE } from '@/lib/dokumente-web.mjs'
 import pdfStand from '@/data/dokumente-pdf.json'
 
 export const dynamic = 'force-static'
@@ -33,7 +33,7 @@ export default function DokumentePage({ params }: { params: { locale: string } }
         <div className="container-btb" style={{ maxWidth: 900 }}>
           <h1 style={{ fontFamily: 'var(--font-garamond)', fontSize: 'clamp(2rem, 4vw, 3rem)', color: 'var(--btb-creme)' }}>Dokumente</h1>
           <p style={{ color: 'var(--btb-creme)', opacity: 0.9, marginTop: '0.75rem', lineHeight: 1.6 }}>
-            {anzahl} Dokumente zum Lesen und Herunterladen. Alles sind Entwürfe, keine Rechts- oder Steuerberatung.
+            {anzahl} Dokumente als PDF zum Lesen und Herunterladen. Alles sind Entwürfe, keine Rechts- oder Steuerberatung.
           </p>
           {params.locale !== 'de' && (
             <p role="note" style={{ color: 'var(--btb-creme)', marginTop: '0.75rem', fontWeight: 600 }}>
@@ -56,28 +56,22 @@ export default function DokumentePage({ params }: { params: { locale: string } }
                     style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', flexWrap: 'wrap', gap: '0.75rem', padding: '1rem 0', borderBottom: '1px solid var(--btb-creme)' }}
                   >
                     <div style={{ minWidth: 0, flex: '1 1 260px' }}>
-                      <Link href={pfad(d.slug, 'de')} style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-oliv)', fontSize: '1.3rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <a href={`/pdf/${d.slug}.pdf`} style={{ fontFamily: 'var(--font-garamond)', color: 'var(--btb-oliv)', fontSize: '1.3rem', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '0.5rem' }}>
                         <FileText size={20} aria-hidden="true" />
                         {d.titel}
-                      </Link>
+                      </a>
                       <p style={{ fontSize: '0.85rem', opacity: 0.65, marginTop: '0.15rem' }}>
-                        Dokument {d.nummer} · Version {d.version} · Stand {d.stand}
+                        Dokument {d.nummer} · Version {PDF[d.slug].version} · Stand {PDF[d.slug].stand}
                       </p>
-                      {PDF[d.slug] && (
-                        <p style={{ fontSize: '0.85rem', opacity: 0.65 }}>
-                          PDF: Version {PDF[d.slug].version} · Stand {PDF[d.slug].stand}
+                      {d.nummer === '08' && (
+                        <p style={{ fontSize: '0.85rem', color: 'var(--btb-rot)', fontWeight: 600 }}>
+                          Entwurf unter Vorbehalt, zur Vorabprüfung durch den Prüfungsverband. Noch nicht beschlossen.
                         </p>
                       )}
                     </div>
-                    {PDF[d.slug] && (
-                      <a href={`/pdf/${d.slug}.pdf`} className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als PDF öffnen`}>
-                        <Download size={16} aria-hidden="true" />
-                        PDF
-                      </a>
-                    )}
-                    <a href={`/dokumente/${d.slug}.md`} download className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als Markdown herunterladen`}>
+                    <a href={`/pdf/${d.slug}.pdf`} className="btn-secondary" style={{ display: 'inline-flex', alignItems: 'center', gap: '0.5rem', fontSize: '0.875rem' }} aria-label={`${d.titel} als PDF öffnen`}>
                       <Download size={16} aria-hidden="true" />
-                      Markdown
+                      PDF
                     </a>
                   </li>
                 ))}

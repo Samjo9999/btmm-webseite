@@ -1,11 +1,122 @@
 {
-  "03-einladung-gruendung": { "version": "2.19.0", "stand": "27. November 2026" },
-  "04-wirtschaften-anleitung": { "version": "3.20.1", "stand": "27. November 2026" },
-  "07-konzept": { "version": "22.100.0", "stand": "27. November 2026" },
-  "12-handwerk-zulassungen": { "version": "3.1.0", "stand": "13. November 2026" },
-  "13-ideen-horizonte": { "version": "3.7.0", "stand": "13. November 2026" },
-  "19-soziale-zahlen": { "version": "1.23.1", "stand": "27. November 2026" },
-  "22-heilen-schuetzen-vorbeugen": { "version": "1.18.0", "stand": "27. November 2026" },
-  "28-aufnahme-kurz-erklaert": { "version": "1.11.0", "stand": "23. November 2026" },
-  "31-coin-ordnung": { "version": "0.21.0", "stand": "27. November 2026" }
+  "00-einfach-erklaert": {
+    "version": "1.18.0",
+    "stand": "26. November 2026"
+  },
+  "01-einfuehrung": {
+    "version": "4.18.1",
+    "stand": "9. November 2026"
+  },
+  "02-aufruf-beteiligung": {
+    "version": "2.11.0",
+    "stand": "17. November 2026"
+  },
+  "03-einladung-gruendung": {
+    "version": "2.19.0",
+    "stand": "27. November 2026"
+  },
+  "04-wirtschaften-anleitung": {
+    "version": "3.20.1",
+    "stand": "27. November 2026"
+  },
+  "05-gemeinschaftskultur": {
+    "version": "1.7.2",
+    "stand": "2. November 2026"
+  },
+  "06-gute-gruende": {
+    "version": "1.10.2",
+    "stand": "8. November 2026"
+  },
+  "07-konzept": {
+    "version": "22.100.0",
+    "stand": "27. November 2026"
+  },
+  "08-satzung": {
+    "version": "9.1.5",
+    "stand": "26. November 2026"
+  },
+  "08a-ordnungen": {
+    "version": "2.0.3",
+    "stand": "24. November 2026"
+  },
+  "11-handwerk-ergaenzung": {
+    "version": "3.2.0",
+    "stand": "2. November 2026"
+  },
+  "12-handwerk-zulassungen": {
+    "version": "3.1.0",
+    "stand": "13. November 2026"
+  },
+  "13-ideen-horizonte": {
+    "version": "3.7.0",
+    "stand": "13. November 2026"
+  },
+  "15-geschaeftsmodell": {
+    "version": "0.6.3",
+    "stand": "24. November 2026"
+  },
+  "16-schnelle-einnahmen": {
+    "version": "2.1.2",
+    "stand": "2. November 2026"
+  },
+  "17-grosser-fahrplan": {
+    "version": "1.3.0",
+    "stand": "26. November 2026"
+  },
+  "18-demokratie-schluessel": {
+    "version": "1.3.1",
+    "stand": "2. November 2026"
+  },
+  "19-soziale-zahlen": {
+    "version": "1.23.1",
+    "stand": "27. November 2026"
+  },
+  "20-berufe-ohne-abschluss": {
+    "version": "1.1.0",
+    "stand": "26. November 2026"
+  },
+  "21-bildung-finanzieren": {
+    "version": "1.4.0",
+    "stand": "2. November 2026"
+  },
+  "22-heilen-schuetzen-vorbeugen": {
+    "version": "1.18.0",
+    "stand": "27. November 2026"
+  },
+  "23-ausfall-versorgung": {
+    "version": "1.5.0",
+    "stand": "2. November 2026"
+  },
+  "24-partner-werden": {
+    "version": "1.5.1",
+    "stand": "2. November 2026"
+  },
+  "25-ehrliche-bilanz": {
+    "version": "1.2.1",
+    "stand": "8. November 2026"
+  },
+  "26-fairer-handel": {
+    "version": "1.5.0",
+    "stand": "2. November 2026"
+  },
+  "27-kreislauf": {
+    "version": "1.2.0",
+    "stand": "2. November 2026"
+  },
+  "28-aufnahme-kurz-erklaert": {
+    "version": "1.11.0",
+    "stand": "23. November 2026"
+  },
+  "29-der-keim": {
+    "version": "1.4.0",
+    "stand": "2. November 2026"
+  },
+  "30-gewerbe-katalog": {
+    "version": "0.1.0",
+    "stand": "2. November 2026"
+  },
+  "31-coin-ordnung": {
+    "version": "0.21.0",
+    "stand": "27. November 2026"
+  }
 }
