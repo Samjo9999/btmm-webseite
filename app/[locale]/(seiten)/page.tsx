@@ -15,6 +15,7 @@ import { CommunityExperiencesSection } from '@/components/CommunityExperiencesSe
 import { BRAND_FULL, BRAND_LONG } from '@/lib/brand'
 import { seitenMeta, ORGANISATION_LD, SITE_URL, SEITEN, KERNSEITEN, href } from '@/lib/seiten'
 import { JsonLd, Karte } from '@/components/btmm/Bausteine'
+import { SEITENBILDER } from '@/lib/seitenbilder'
 import { TuerWeiche } from '@/components/btmm/TuerWeiche'
 
 export const dynamic = 'force-dynamic'
@@ -117,7 +118,7 @@ export default async function HomePage({ params: { locale } }: { params: { local
         <p className="btmm-unterzeile">Wir teilen Einkauf, Auto, Raum und Werkzeug – klein anfangen ab drei Leuten in Freiburg, später eine Genossenschaft.</p>
         <div className="btmm-raster" style={{ maxWidth: 1100, margin: '2rem auto 0', textAlign: 'left' }}>
           {KERNSEITEN.map((k) => (
-            <Karte key={k} titel={SEITEN[k].kurz} link={href(locale, k)}>
+            <Karte key={k} titel={SEITEN[k].kurz} link={href(locale, k)} bild={SEITENBILDER[k]}>
               <p style={{ fontSize: '1rem', opacity: 0.8 }}>{SEITEN[k].beschreibung}</p>
             </Karte>
           ))}

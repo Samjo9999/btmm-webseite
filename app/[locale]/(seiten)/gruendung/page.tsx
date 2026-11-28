@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { Users, ArrowRight } from 'lucide-react'
 import { SectionReveal } from '@/components/AnimatedCounter'
 import { HeroImageLightbox } from '@/components/HeroImageLightbox'
+import { Foto } from '@/components/btmm/Bausteine'
 import { ContactForm } from '@/components/ContactForm'
 import { interessenlisteAktiv } from '@/lib/interessenliste.mjs'
 
@@ -76,6 +77,10 @@ export default async function GruendungPage({ params: { locale } }: { params: { 
               <p>
                 Wir suchen rund 13 Gründungsmitglieder. Gegründet wird so bald wie möglich, sobald drei Mitglieder da sind; jede weitere Person senkt die Kosten je Kopf. Und hier ist die ehrliche Nachricht: <strong>Du musst nicht sofort Vollzeit einsteigen.</strong> Was wir brauchen, sind Menschen, die diese Idee mittragen — auch wenn du anfangs nur bei der Gründungsversammlung dabei bist und das System im Hintergrund wachsen lässt.
               </p>
+              <p>
+                Gründen geht ab drei Mitgliedern, auch von verschiedenen Orten aus. Wer an einem Ort zusammen ist, kann beim gemeinsamen Lebensmittelbestellen mehr sparen, und der Start der KI-Genossenschaft fällt leichter.
+              </p>
+              <Foto src="/tuer/bilder/weg/gruenden.webp" alt="Hände pflanzen gemeinsam einen Setzling" />
               <p>
                 <strong>Der formale Aufwand ist überschaubar:</strong> ein Termin beim Notar, deine Unterschrift, 100 € Geschäftsanteil (auch in Raten ab 10 € im Monat). Die operative Arbeit — Einkauf organisieren, erste Strukturen aufbauen, App einrichten — übernehmen zunächst die, die Zeit und Energie dafür haben. Nicht jeder muss alles machen. Aber jeder muss wirklich dahinterstehen.
               </p>
@@ -173,6 +178,7 @@ export default async function GruendungPage({ params: { locale } }: { params: { 
             }}>
               <Users size={28} /> Was wir suchen
             </h2>
+            <Foto src="/tuer/bilder/weg/anpacken.webp" alt="Drei Menschen arbeiten gemeinsam an einem Bau" />
             <div className="prose-btb" style={{ marginBottom: '2rem' }}>
               <p>Ein Gründungsmitglied bringt vor allem eins mit: die ehrliche Überzeugung, dass dieses System entstehen soll.</p>
               <ul>

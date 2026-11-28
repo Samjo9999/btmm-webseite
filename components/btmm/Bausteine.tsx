@@ -6,6 +6,7 @@ import Link from 'next/link'
 import type { ReactNode } from 'react'
 import { SEITEN, href, type SeitenSchluessel } from '@/lib/seiten'
 import { BRAND_FULL } from '@/lib/brand'
+import { SEITENBILDER } from '@/lib/seitenbilder'
 
 export function JsonLd({ daten }: { daten: object | object[] }) {
   const graph = Array.isArray(daten) ? daten : [daten]
@@ -49,14 +50,21 @@ export function Abschnitt({ titel, children, id }: { titel?: string; children: R
   )
 }
 
-export function Karte({ titel, children, link }: { titel: string; children?: ReactNode; link?: string }) {
+/** Foto im 16:9-Format über einer Karte oder einem Abschnitt (rein dekorativ, Nachweise im Impressum). */
+export function Foto({ src, alt = '', className = 'btmm-foto' }: { src: string; alt?: string; className?: string }) {
+  return <Image src={src} alt={alt} width={1280} height={720} className={className} sizes="(max-width: 600px) 100vw, 400px" />
+}
+
+export function Karte({ titel, children, link, bild }: { titel: string; children?: ReactNode; link?: string; bild?: string }) {
   const inhalt = (
     <>
+      {bild && <Foto src={bild} className="btmm-karte-foto" />}
       <h3>{titel}</h3>
       {children}
     </>
   )
-  return link ? <Link href={link} className="btmm-karte">{inhalt}</Link> : <div className="btmm-karte">{inhalt}</div>
+  const klasse = bild ? 'btmm-karte btmm-karte--foto' : 'btmm-karte'
+  return link ? <Link href={link} className={klasse}>{inhalt}</Link> : <div className={klasse}>{inhalt}</div>
 }
 
 /** Markiert etwas ausdrücklich als offen / in Prüfung */
@@ -97,7 +105,7 @@ export function WeiterLinks({ locale, seiten, titel = 'Weiterlesen' }: { locale:
       <h2>{titel}</h2>
       <div className="btmm-raster">
         {seiten.map((s) => (
-          <Karte key={s} titel={SEITEN[s].kurz} link={href(locale, s)}>
+          <Karte key={s} titel={SEITEN[s].kurz} link={href(locale, s)} bild={SEITENBILDER[s]}>
             <p style={{ fontSize: '1rem', opacity: 0.8 }}>{SEITEN[s].beschreibung}</p>
           </Karte>
         ))}

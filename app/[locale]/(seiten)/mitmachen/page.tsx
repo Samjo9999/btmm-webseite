@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { Metadata } from 'next'
 import { setRequestLocale } from 'next-intl/server'
-import { SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
+import { Foto, SeitenKopf, Abschnitt, Karte, Offen, Rechnung, Knopf, WeiterLinks, JsonLd, SeitenRahmen, Marke } from '@/components/btmm/Bausteine'
 import { seitenMeta, breadcrumbLd, absUrl, href, ORGANISATION_LD, KONTAKT_MAIL, SEITEN } from '@/lib/seiten'
 
 type P = { params: { locale: string } }
@@ -18,12 +18,13 @@ export default function Seite({ params: { locale } }: P) {
       <div className="btmm-inhalt">
         <Abschnitt titel="Dein nächster Schritt">
           <div className="btmm-raster">
-            <Karte titel="Offener Abend"><p>Komm zu einem offenen Abend und lern uns kennen. Den nächsten Termin schicken wir dir auf Nachfrage.</p></Karte>
-            <Karte titel="Einfach melden"><p>Sag uns, dass du mitmachen willst – mehr braucht es am Anfang nicht.</p></Karte>
+            <Karte titel="Offener Abend" bild="/tuer/bilder/weg/sinn.webp"><p>Komm zu einem offenen Abend und lern uns kennen. Den nächsten Termin schicken wir dir auf Nachfrage.</p></Karte>
+            <Karte titel="Einfach melden" bild="/tuer/bilder/weg/vorbei.webp"><p>Sag uns, dass du mitmachen willst – mehr braucht es am Anfang nicht.</p></Karte>
           </div>
           <p style={{ marginTop: '1.5rem' }}><Knopf link={`mailto:${KONTAKT_MAIL}`}>Schreib uns: {KONTAKT_MAIL}</Knopf></p>
         </Abschnitt>
         <Abschnitt titel="Was dich erwartet">
+          <Foto src="/tuer/bilder/weg/sparen.webp" alt="Gemüse beim gemeinsamen Einkauf" />
           <ul>
             <li>Du bleibst am Anfang selbstständig, niemand ist angestellt.</li>
             <li>Wir kaufen gemeinsam ein und teilen Auto, Raum und Werkzeug.</li>

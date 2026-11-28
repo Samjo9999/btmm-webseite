@@ -21,9 +21,11 @@ export function AktuellerDokumentenstand({ locale, thema = 'grundlagen' }: { loc
     ],
   }[thema]
   return <div className="btmm-ergaenzung"><NeueInhalteStil /><Abschnitt titel="Ergänzung aus den aktuellen Dokumenten">
+    <details className="btmm-aufklappen"><summary>Details zum Entwurfsstand anzeigen</summary>
     <p style={{ fontSize: '0.9rem', opacity: 0.75 }}>Stand: 24. November 2026 · Satzung der geplanten BtMM eG (Entwurf) v9.1.4 · Konzept v22.69.0</p>
     <div className="btmm-raster">{hinweise.map(([titel, text]) => <Karte key={titel} titel={titel}><p>{text}</p></Karte>)}</div>
     <Offen>Die neuen Angaben sind Arbeits- und Satzungsentwürfe. Rechtliche Prüfung, tragfähige Finanzierung und praktische Erprobung stehen vor verbindlichen Zusagen.</Offen>
+    </details>
     <p><a href={`/${locale}/wissen`}>Die neuen Themen verständlich nachlesen →</a> · <a href={`/${locale}/geldfluss`}>Zum Geldfluss-Diagramm →</a></p>
   </Abschnitt></div>
 }
